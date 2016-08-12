@@ -18,3 +18,5 @@ These examples are applicable for Stimulsoft Reports.PHP, the reporting tool des
 You can try the Live demo [here](http://js.stimulsoft.com/)
 
 Read more about Stimulsoft Reports.PHP at [www.stimulsoft.com](https://www.stimulsoft.com/en/products/reports-php)
+
+[Free Download](https://www.stimulsoft.com/en/downloads/reports-js)
