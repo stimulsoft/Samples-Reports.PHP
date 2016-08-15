@@ -29,7 +29,7 @@ require_once 'stimulsoft/helper.php';
 		}
 		
 		viewer.onBeginExportReport = function (args) {
-			args.fileName = "MyReportName";
+			//args.fileName = "MyReportName";
 		}
 		
 		// Send exported report to server side

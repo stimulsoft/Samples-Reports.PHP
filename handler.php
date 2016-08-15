@@ -8,6 +8,14 @@ header("Access-Control-Allow-Origin: *");
 $handler = new StiHandler();
 $handler->registerErrorHandlers();
 
+
+/*$handler->onBeginProcessData = function ($event) {
+	$database = $event->database;
+	$connectionString = $event->connectionString;
+	$queryString = $event->queryString;
+	return StiResult::success();
+};*/
+
 $handler->onPrintReport = function ($event) {
 	return StiResult::success();
 };
