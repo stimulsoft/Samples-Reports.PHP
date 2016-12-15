@@ -492,7 +492,7 @@
     <FileNotFound>Veld "{0}" niet gevonden.</FileNotFound>
     <IdentifierIsNotValid>Sleutel '{0}' is niet geldig.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Onmogelijk om de Gegevensbron te vinden.</ImpossibleFindDataSource>
-    <NameExists>Er bestaat reeds een object genaamd '{0}'. Objecten moeten een unieke naam hebben, en de namem zijn hoofdlettergevoelig.</NameExists>
+    <NameExists>Er bestaat reeds een object genaamd '{0}'. Objecten moeten een unieke naam hebben.</NameExists>
     <NoServices>Diensten zijn niet gevonden in '{0}'</NoServices>
     <NotAssign>Gegevensbron is niet gespecifiëerd.</NotAssign>
     <NotCorrectFormat>Ingegeven tekst was niet van het juiste formaat</NotCorrectFormat>

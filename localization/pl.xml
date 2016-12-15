@@ -504,7 +504,7 @@
     <FileNotFound>Plik "{0}" nie znaleziony.</FileNotFound>
     <IdentifierIsNotValid>Identyfikator '{0}' jest nieprawidłowy.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Nie można znaleźć źródła danych.</ImpossibleFindDataSource>
-    <NameExists>Istnieje obiekt o nazwie '{0}'. Obiekty muszą mieć unikalne nazwy i nazwy nie mogą się różnić jedynie wielkością liter.</NameExists>
+    <NameExists>Istnieje obiekt o nazwie '{0}'. Obiekty muszą mieć unikalne nazwy.</NameExists>
     <NoServices>Nie znaleziono usług w '{0}'</NoServices>
     <NotAssign>Nie określono źródła danych.</NotAssign>
     <NotCorrectFormat>Łańcuch wejściowy jest w nieprawidłowym formacie.</NotCorrectFormat>

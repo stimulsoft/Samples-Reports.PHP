@@ -117,6 +117,7 @@
     <Save>Save</Save>
     <SaveCopy>Save a Copy</SaveCopy>
     <SetAll>Set All</SetAll>
+    <ShowMore>Show More</ShowMore>
     <Submit>Submit</Submit>
     <Test>Test</Test>
     <Up>Up</Up>
@@ -520,7 +521,7 @@
     <FileNotFound>File "{0}" not found.</FileNotFound>
     <IdentifierIsNotValid>Identifier '{0}' is not valid.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Impossible to Find Data Source.</ImpossibleFindDataSource>
-    <NameExists>There is already an object named '{0}'. Objects must have unique names, and names must be case-insensitive.</NameExists>
+    <NameExists>There is already an object named '{0}'. Objects must have unique names.</NameExists>
     <NoServices>Services are not found in '{0}'</NoServices>
     <NotAssign>Data Source is not specified.</NotAssign>
     <NotCorrectFormat>Input string was not in a correct format.</NotCorrectFormat>
@@ -768,6 +769,8 @@
     <AddCondition>&amp;Add Condition</AddCondition>
     <AddLevel>Add Level</AddLevel>
     <AssignExpression>Assign Expression</AssignExpression>
+    <BreakIfTrue>Break if True</BreakIfTrue>
+    <BreakIfTrueToolTip>Breaks condition processing if current one is fulfilled</BreakIfTrueToolTip>
     <ChangeFont>Change Font...</ChangeFont>
     <ComponentIsEnabled>Component is Enabled</ComponentIsEnabled>
     <NoConditions>No Conditions</NoConditions>
@@ -777,7 +780,7 @@
   </FormConditions>
   <FormCrossTabDesigner>
     <Columns>Columns:</Columns>
-    <DataSource>DataSource:</DataSource>
+    <DataSource>Data Source:</DataSource>
     <Properties>Properties:</Properties>
     <Rows>Rows:</Rows>
     <Summary>Summary:</Summary>
@@ -904,7 +907,7 @@
     <NewBusinessObject>New Business Object</NewBusinessObject>
     <NewItem>New Item</NewItem>
     <OpenAssembly>Open Assembly</OpenAssembly>
-    <ParentSource>Parent DataSource:</ParentSource>
+    <ParentSource>Parent Data Source:</ParentSource>
     <Queries>Queries</Queries>
     <QueryNew>New Query</QueryNew>
     <QueryText>Query Text</QueryText>
@@ -1138,7 +1141,7 @@
     <DataRelationSelectForm>Select Data Relation</DataRelationSelectForm>
     <DataSetName>Enter DataSet Name</DataSetName>
     <DataSourceSelectForm>Select Data Source</DataSourceSelectForm>
-    <DataSourcesNewForm>New DataSources</DataSourcesNewForm>
+    <DataSourcesNewForm>New Data Sources</DataSourcesNewForm>
     <DataStoreViewerForm>Data Store Viewer</DataStoreViewerForm>
     <DesignerApplication>Report Designer</DesignerApplication>
     <EventEditorForm>Event Editor</EventEditorForm>
@@ -1219,6 +1222,8 @@
     <AddNewItem>Add New Item</AddNewItem>
     <GaugeEditorForm>Gauge Editor</GaugeEditorForm>
     <Kind>Kind</Kind>
+    <LinearScale>Linear Scale</LinearScale>
+    <RadialScale>Radial Scale</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Cancel</barname_cancel>
@@ -1721,6 +1726,7 @@
     <GroupOceania>Oceania</GroupOceania>
     <GroupSouthAmerica>South America</GroupSouthAmerica>
     <GroupWorld>World</GroupWorld>
+    <LinkDataForm>Link Data</LinkDataForm>
     <MapEditorForm>Map Editor</MapEditorForm>
   </Map>
   <NuGet>
@@ -1771,9 +1777,11 @@
     <BarCodeAdditionalCategory>Bar Code Additional</BarCodeAdditionalCategory>
     <BarCodeCategory>Bar Code</BarCodeCategory>
     <BehaviorCategory>Behavior</BehaviorCategory>
+    <CapNeedle>Cap Needle</CapNeedle>
     <CellCategory>Cell</CellCategory>
     <ChartAdditionalCategory>Chart Additional</ChartAdditionalCategory>
     <ChartCategory>Chart</ChartCategory>
+    <ChartMap>Map</ChartMap>
     <CheckCategory>Check</CheckCategory>
     <ColorsCategory>Colours</ColorsCategory>
     <ColumnsCategory>Columns</ColumnsCategory>
@@ -1800,6 +1808,7 @@
     <MouseEventsCategory>Mouse Events</MouseEventsCategory>
     <NavigationCategory>Navigation</NavigationCategory>
     <NavigationEventsCategory>Navigation Events</NavigationEventsCategory>
+    <Needle>Needle</Needle>
     <OptionsCategory>Options</OptionsCategory>
     <PageAdditionalCategory>Page Additional</PageAdditionalCategory>
     <PageCategory>Page</PageCategory>
@@ -1811,11 +1820,13 @@
     <RenderEventsCategory>Render Events</RenderEventsCategory>
     <SeriesLabelsCategory>Series Labels</SeriesLabelsCategory>
     <ShapeCategory>Shape</ShapeCategory>
+    <Size>Size</Size>
     <SubReportCategory>Sub-Report</SubReportCategory>
     <TableCategory>Table</TableCategory>
     <TextAdditionalCategory>Text Additional</TextAdditionalCategory>
     <TextCategory>Text</TextCategory>
     <TitleCategory>Title</TitleCategory>
+    <TrendLineCategory>Trend Line</TrendLineCategory>
     <ValueCategory>Value</ValueCategory>
     <ValueCloseCategory>Value Close</ValueCloseCategory>
     <ValueEndCategory>Value End</ValueEndCategory>
@@ -2611,6 +2622,7 @@
     <BrushType>Brush Type</BrushType>
     <BusinessObject>Business Object</BusinessObject>
     <CacheAllData>Cache All Data</CacheAllData>
+    <CacheTotals>Cache Totals</CacheTotals>
     <CalcInvisible>Calc Invisible</CalcInvisible>
     <CalculatedDataColumn>Calculated Data Column</CalculatedDataColumn>
     <CalculationMode>Calculation Mode</CalculationMode>
@@ -2629,6 +2641,7 @@
     <CenterPoint>Centre Point</CenterPoint>
     <ChartAreaBorderColor>Border Colour</ChartAreaBorderColor>
     <ChartAreaBrush>Area Brush</ChartAreaBrush>
+    <ChartAreaShowShadow>Show Shadow</ChartAreaShowShadow>
     <ChartType>Chart Type</ChartType>
     <Checked>Checked</Checked>
     <CheckOnClick>Check on Click</CheckOnClick>
@@ -3061,6 +3074,7 @@
     <ReconnectOnEachRow>Reconnect on Each Row</ReconnectOnEachRow>
     <ReferencedAssemblies>Referenced Assemblies</ReferencedAssemblies>
     <Refresh>Refresh</Refresh>
+    <RefreshTime>Refresh Time</RefreshTime>
     <Relation>Relation</Relation>
     <RelationName>Relation Name</RelationName>
     <Relations>Relations</Relations>
@@ -3236,6 +3250,8 @@
     <Totals>Totals</Totals>
     <TransparentColor>Transparent Colour</TransparentColor>
     <TrendLine>Trend Line</TrendLine>
+    <TrendLineColor>Colour</TrendLineColor>
+    <TrendLineShowShadow>Show Shadow</TrendLineShowShadow>
     <Trimming>Trimming</Trimming>
     <Type>Type</Type>
     <TypeName>Type Name</TypeName>
@@ -3432,6 +3448,7 @@
     <FinishingReport>Finishing Report</FinishingReport>
     <FirstPass>First Pass</FirstPass>
     <GenerateNewCode>Generate New Code</GenerateNewCode>
+    <Infographics>Infographics</Infographics>
     <InfoMessage>{0} - {1} found.</InfoMessage>
     <InformationMessages>Information Messages</InformationMessages>
     <LabelAlias>Alias:</LabelAlias>

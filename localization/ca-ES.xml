@@ -492,7 +492,7 @@
     <FileNotFound>No s’ha trobat l’arxiu “{0}”.</FileNotFound>
     <IdentifierIsNotValid>L’identificador ‘{0}’ no és vàlid.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>No s’ha pogut trobar la font de dades.</ImpossibleFindDataSource>
-    <NameExists>Ja hi ha un component amb aquest nom ‘{0} ‘. Els components no poden tenir noms duplicats, i els noms diferencien majúscules i minúscules.</NameExists>
+    <NameExists>Ja hi ha un component amb aquest nom ‘{0} ‘. Els components no poden tenir noms duplicats.</NameExists>
     <NoServices>No s’han trobat els serveis a ‘{0}’</NoServices>
     <NotAssign>No s’ha especificat cap font de dades.</NotAssign>
     <NotCorrectFormat>La cadena d’entrada no té el format correcte.</NotCorrectFormat>

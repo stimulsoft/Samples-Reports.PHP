@@ -117,6 +117,7 @@
     <Save>Grabar</Save>
     <SaveCopy>Guardar una Copia</SaveCopy>
     <SetAll>Establecer Todos</SetAll>
+    <ShowMore>Mostrar más</ShowMore>
     <Submit>Aceptar</Submit>
     <Test>Pruebas</Test>
     <Up>Arriba</Up>
@@ -310,14 +311,63 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Opciones de la cuenta</AccountSettings>
+    <ButtonChangePassword>Cambiar contraseña</ButtonChangePassword>
+    <ButtonDeleteAll>Eliminar todos</ButtonDeleteAll>
+    <ButtonDesign>Deseñar Informe</ButtonDesign>
+    <ButtonLogout>Desfirmar</ButtonLogout>
+    <ButtonPublish>Publicar</ButtonPublish>
+    <ButtonRecover>Recuperar</ButtonRecover>
+    <ButtonResendEmail>Reenviar Correo</ButtonResendEmail>
+    <ButtonResetPassword>Restablecer Contraseña</ButtonResetPassword>
+    <ButtonRun>Ejecutar</ButtonRun>
+    <ButtonShare>Compartir</ButtonShare>
+    <ButtonSignUp>Regístrate</ButtonSignUp>
+    <ButtonSkip>Saltar</ButtonSkip>
+    <ButtonView>Ver</ButtonView>
+    <ButtonWhereUsed>¿Dónde se utiliza?</ButtonWhereUsed>
     <Cancel>Cancelar</Cancel>
+    <CheckBoxMoveToRecycleBin>Mover a la Papelera</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Recuérdame</CheckBoxRememberMe>
     <Collection>Colección</Collection>
     <Create>Crear</Create>
+    <CreateError>¡Error creando el informe!</CreateError>
     <CreateNewCollection>Crear Nueva Colección</CreateNewCollection>
+    <CreatingReport>Creando informe...</CreatingReport>
     <DeleteFile>Eliminar Fichero</DeleteFile>
+    <ExecutionError>Error de ejecución</ExecutionError>
+    <FileStorageWindowTitleEdit>Editar Almacenaje del Fichero</FileStorageWindowTitleEdit>
+    <FileStorageWindowTitleNew>Nuevo Almacenaje del Fichero</FileStorageWindowTitleNew>
+    <FolderWindowTitleEdit>Editar Carpeta</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Nueva Carpeta</FolderWindowTitleNew>
+    <ForExample>Por ejemplo</ForExample>
+    <GroupBoxAttachedItems>Adjuntos</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>Al registrarse usted está de acuerdo con los Términos.</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>Ya tiene una cuenta</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Se te olvidó tu contraseña</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Tiene una contraseña</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Registrar una cuenta nueva</HyperlinkRegisterAccount>
     <labelCollectionName>Nombre de la Colección:</labelCollectionName>
+    <LabelCreated>Creado:</LabelCreated>
+    <LabelCreateFolder>La creación de una nueva categoría en la que se puede colocar otros elementos.</LabelCreateFolder>
+    <LabelCreateReportTemplate>Crear una plantilla de informe.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>Contraseña Actual:</LabelCurrentPassword>
+    <LabelDataFile>Fichero de Datos:</LabelDataFile>
+    <LabelDataUrl>URL de Datos:</LabelDataUrl>
     <labelFileName>Nombre del Fichero:</labelFileName>
+    <LabelForeground>Primer plano:</LabelForeground>
+    <LabelFromReport>Desde un informe</LabelFromReport>
+    <LabelFromReportCode>Desde un informe (definir en código)</LabelFromReportCode>
+    <LabelLastLogin>Último Acceso:</LabelLastLogin>
+    <LabelLastTime>Última Hora:</LabelLastTime>
+    <LabelModified>Modificado:</LabelModified>
+    <LabelNewPassword>Nueva Contraseña:</LabelNewPassword>
+    <LabelNextTime>Próxima Hora:</LabelNextTime>
     <labelPassword>Contraseña:</labelPassword>
+    <LabelPermission>Permiso:</LabelPermission>
+    <LabelRenderedReport>Informe completado</LabelRenderedReport>
+    <LabelResponseAsFile>Respuesta como Fichero</LabelResponseAsFile>
+    <LabelSeparateReport>Fichero separado para informe (y comandos)</LabelSeparateReport>
+    <LabelShowReport>Mostrar informe:</LabelShowReport>
     <labelUserName>Nombre Usuario:</labelUserName>
     <Login>Log In</Login>
     <Open>Abrir</Open>
@@ -336,12 +386,93 @@
     <RefreshList>Refrescar Lista</RefreshList>
     <ReportDocumentFormatNotRecognized>¡El formato del elemento '{0}' no está reconocido como un informe generado!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>¡El formato del elemento '{0}' no está reconocido como una plantilla de informe!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Agregar rol</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Agregar usuario</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>Agregar Espacio de trabajo</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>Carpeta</RibbonButtonFolder>
+    <RibbonTabUsers>Usuarios</RibbonTabUsers>
     <Root>Raíz</Root>
+    <RootFolder>Carpeta raíz</RootFolder>
     <Save>Guardar</Save>
     <SaveAccountSettings>Guardar Opciones de la Cuenta</SaveAccountSettings>
     <SaveFile>Guardar Fichero</SaveFile>
+    <ShareWindowTitleNew>Compartir</ShareWindowTitleNew>
     <ShowAllFiles>Guardar Todos los Ficheros</ShowAllFiles>
+    <TabItemEmbedCode>Embeber Código</TabItemEmbedCode>
+    <TabItemQRCode>Código QR</TabItemQRCode>
+    <TabItemShare>Enlace a Compartir</TabItemShare>
+    <TextActivated>Activado</TextActivated>
+    <TextDelete>Eliminar</TextDelete>
+    <TextDeletingItems>Eliminando elementos...</TextDeletingItems>
+    <TextFirstName>Nombre de pila</TextFirstName>
+    <TextFromTo>De {0} para {1} (Total - {2})</TextFromTo>
+    <TextItemsWorkspace>Espacio de trabajo</TextItemsWorkspace>
+    <TextLastName>Apellido</TextLastName>
+    <TextModify>Modificar</TextModify>
+    <TextNoNotifications>Sin modificaciones</TextNoNotifications>
+    <TextProfile>Perfil</TextProfile>
+    <TextReports>Informes</TextReports>
+    <TextRestoringItems>Restaurando elementos...</TextRestoringItems>
+    <TextRole>Rol</TextRole>
+    <TextRun>Ejecutar</TextRun>
+    <TextUser>Ususario</TextUser>
+    <TextUserName>Nombre usuario (dirección correo)</TextUserName>
+    <TimeHoursAgoFive>Hace cinco horas, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>Hace cuatro horas, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Hace una hora, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Hace tres horas, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Hace dos horas, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Hace cinco minutos, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Hace cuatro minutos, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Hace menos de un minuto</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>Hace {0} minutos, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Hace un minuto, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Hace tres minutos, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Hace dos minutos, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>Hoy, {0:t}</TimeToday>
+    <TimeYesterday>Ayer, {0:t}</TimeYesterday>
+    <ToolTipAddRole>Creando un nuevo rol en el espacio de trabajo.</ToolTipAddRole>
+    <ToolTipAddUser>Creando un nuevo usuarios con el rol seleccionado.</ToolTipAddUser>
+    <ToolTipAspNet>Publicar el informe seleccionado en la aplicación ASP.NET.</ToolTipAspNet>
+    <ToolTipAspNetMvc>Publicar el informe seleccionado en la aplicación ASP.NET MVC.</ToolTipAspNetMvc>
+    <ToolTipCreate>Crear un nuevo elemento.</ToolTipCreate>
+    <ToolTipDelete>Eliminar los elementos seleccionados.</ToolTipDelete>
+    <ToolTipDeleted>Mostrar elementos eliminados</ToolTipDeleted>
+    <ToolTipEdit>Editar el elemento seleccionado.</ToolTipEdit>
+    <ToolTipGridMode>Vista de Lista</ToolTipGridMode>
+    <ToolTipInfo>Vista Detallada</ToolTipInfo>
+    <ToolTipJs>Publicar el informe seleccionado como una página HTML</ToolTipJs>
+    <ToolTipPublish>Preparar el informe seleccionado para ser desplegado en su aplicación.</ToolTipPublish>
+    <ToolTipRecover>Recuperar los elementos seleccionado.</ToolTipRecover>
+    <ToolTipRunWithoutPreview>Representar el informe seleccionado sin vista previa</ToolTipRunWithoutPreview>
+    <ToolTipShare>Compartir el fichero seleccionado.</ToolTipShare>
+    <ToolTipSort>Opciones de Ordenación</ToolTipSort>
+    <ToolTipThumbnailMode>Vista de Rejilla</ToolTipThumbnailMode>
+    <ToolTipViewFile>Mostrar el fichero seleccionado.</ToolTipViewFile>
+    <ToolTipViewReport>Mostrar el fichero seleccionado en el visor.</ToolTipViewReport>
+    <WindowDescriptionDelete>Confirme que desea eliminar los elementos selccionados</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Los elementos selccionados se recuperarán de la Papelera.</WindowDescriptionRecover>
+    <WindowTitleDelete>Elementos Eliminados</WindowTitleDelete>
+    <WindowTitleForgotPassword>Se me olvidó la contraseña</WindowTitleForgotPassword>
     <WindowTitleLogin>Firmar</WindowTitleLogin>
+    <WindowTitleRecover>Recuperar Elementos</WindowTitleRecover>
+    <WindowTitleRoleEdit>Editar Rol</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>Nuevo Rol</WindowTitleRoleNew>
+    <WindowTitleSignUp>Regístrate</WindowTitleSignUp>
+    <WindowTitleUserEdit>Editar Usuario</WindowTitleUserEdit>
+    <WindowTitleUserNew>Nuevo Usuario</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Editar Espacio de Trabajo</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>Nuevo Espacio de Trabajo</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>Crear un Informe en Blanco</WizardBlankReportDescription>
+    <WizardExcelDescription>Crear un informe con datos de Excel.</WizardExcelDescription>
+    <WizardJsonDescription>Crear un informe con datos de Json.</WizardJsonDescription>
+    <WizardPrivateShare>Sin Acceso</WizardPrivateShare>
+    <WizardPrivateShareDescription>El acceso externo al elemento está restringido.</WizardPrivateShareDescription>
+    <WizardPublicShare>Acceso Público</WizardPublicShare>
+    <WizardPublicShareDescription>Acceso externo para cualquier usuario no autorizado.</WizardPublicShareDescription>
+    <WizardRegisteredShare>Acceso Autorizado</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>Acceso externo sólo para usuarios registrados de cualquier espacio de trabajo.</WizardRegisteredShareDescription>
+    <WizardXmlDescription>Crear un informe con datos Xml.</WizardXmlDescription>
   </Cloud>
   <Components>
     <StiBarCode>Código de Barras</StiBarCode>
@@ -520,7 +651,7 @@
     <FileNotFound>Archivo "{0}" no encontrado.</FileNotFound>
     <IdentifierIsNotValid>Identificador '{0}' no es válido.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Imposible encontrar Fuente de Datos.</ImpossibleFindDataSource>
-    <NameExists>Ya hay un componente con éste nombre '{0} '. Los Componentes no pueden tener nombres duplicados, y los nombres distinguen mayúsculas y minúsculas.</NameExists>
+    <NameExists>Ya hay un componente con éste nombre '{0} '. Los Componentes no pueden tener nombres duplicados.</NameExists>
     <NoServices>Servicios no encontrados en '{0}'</NoServices>
     <NotAssign>Fuente de datos no especificada.</NotAssign>
     <NotCorrectFormat>La cadena de entrada no tiene el formato correcto.</NotCorrectFormat>
@@ -768,6 +899,8 @@
     <AddCondition>&amp;Añadir Condición</AddCondition>
     <AddLevel>Añadir Nivel</AddLevel>
     <AssignExpression>Asignar Expresión</AssignExpression>
+    <BreakIfTrue>Parar se es Verdadero</BreakIfTrue>
+    <BreakIfTrueToolTip>Detiene el proceso si la condición actual se cumple</BreakIfTrueToolTip>
     <ChangeFont>Cambiar Fuente...</ChangeFont>
     <ComponentIsEnabled>Componente Habilitado</ComponentIsEnabled>
     <NoConditions>Sin Condiciones</NoConditions>
@@ -908,6 +1041,7 @@
     <Queries>Interrogaciones</Queries>
     <QueryNew>Nueva Interrogación</QueryNew>
     <QueryText>Texto SQL</QueryText>
+    <QueryTimeout>Tiempo de consulta vencido</QueryTimeout>
     <RelationEdit>Editar Relación</RelationEdit>
     <RelationNew>Nueva Relación</RelationNew>
     <RetrieveColumns>Recoger Columnas</RetrieveColumns>
@@ -1219,6 +1353,8 @@
     <AddNewItem>Añadir Nuevo Elemento</AddNewItem>
     <GaugeEditorForm>Editor de Indicadores</GaugeEditorForm>
     <Kind>Tipo</Kind>
+    <LinearScale>Escala Lineal</LinearScale>
+    <RadialScale>Escala Radial</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Cancelar</barname_cancel>
@@ -1721,8 +1857,123 @@
     <GroupOceania>Oceanía</GroupOceania>
     <GroupSouthAmerica>América del sur</GroupSouthAmerica>
     <GroupWorld>Mundo</GroupWorld>
+    <LinkDataForm>Enlazar Datos</LinkDataForm>
     <MapEditorForm>Editor de Mapas</MapEditorForm>
   </Map>
+  <Messages>
+    <MessageTimeOutExpired>¡Ha expirado el tiempo de espera del comando!</MessageTimeOutExpired>
+    <TextRegistrationSuccessfully>¡Registro exitoso!
+
+Se ha enviado un correo a "{0}".
+Contiene un enlace para confirmar su registro. Para completar el registro, por favor siga el enlace del correo electrónico que recibió.</TextRegistrationSuccessfully>
+    <ThisFieldIsNotSpecified>¡Éste campo no se ha especificado!</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>Access Denied!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>¡Su suscripción de Stimulsoft Reports.Ultimate expiró antes de la primera versión de nuestro Stimulsoft Reports.Server fue lanzado!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>¡El fichero de licencia no es correcto! Por favor, póngase en contacto con nuestro departamento de ventas en sales@stimulsoft.com</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>¡Su cuenta esta bloqueada. Por favor, póngase en contacto con nuestro departamento de ventas en sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>¡Ha alcanzado el número máximo de activaciones. Por favor, póngase en contacto con nuestro departamento de ventas en sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>¡El servidor de activaciones de Stimulsoft no está disponible en estos momentos! Por favor, inténtelo de nuevo más tarde.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>¡No se puede activar esta versión de Stimulsoft Reports.Server porque su programa de suscripción ha caducado! Por favor, acceda a su cuenta y comprobar la versión de la Stimulsoft Reports.Server puede instalar y activar.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>Se produjo un error durante la activación. Por favor, inténtelo de nuevo más tarde.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>¡Su nombre de usuario (correo electrónico) o la contraseña es incorrecta!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>¡Su tipo de cuenta no permite activar Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>¡La cuenta no se puede utilizar ahora!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>¡La cuenta no está activada todavía! Por favor, siga las instrucciones enviadas al correo electrónico durante el registro.</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>¡El rol de usuario no se puede cambiar porque este es el último usuario del administrador en este espacio de trabajo!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>¡El rol de usuario no se puede cambiar porque este es el último usuario supervisor en este servidor!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeSystemRole>¡El rol de sistema no se puede cambiar!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>¡El usuario no puede eliminar a sí mismo!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>¡El usuario no se puede eliminar porque este es el último usuario del administrador en este espacio de trabajo!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>¡El usuario no se puede eliminar porque este es el último usuario supervisor en este servidor!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteSystemRole>¡No se puede eliminar este rol, porque es un rol de sistema!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>¡El usuario no puede ser desactivado porque este es el último usuario del administrador en este espacio de trabajo!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>¡El usuario no puede ser desactivado porque este es el último usuario supervisor en este servidor!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>¡No se ha indicado el nombre de pila!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>¡No se ha indicado el apellido!</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>¡La identificación de OAuth no se ha especificado!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>¡La contraseña no es correcta!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>¡No se ha indicado una contraseña!</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>¡La contraseña es demasiado corta (de una longitud mínima es de 6 caracteres)!</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>¡No se puede eliminar el rol, ya que es utilizado por otros usuarios.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>¡Un rol con el nombre "{0}" ya existe!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>¡Un rol con el nombre "{0}" es un rol del sistema!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>¡Un mensaje con instrucciones adicionales se ha enviado a "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>¡Ha cerrado la sesión!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExists>¡El nombre de usuario (correo electrónico) ya está en uso!</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>¡No se especificado un nombre de usuario (correo electrónico)!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>¡El nombre de usuario (correo electrónico) o la contraseña es incorrecta!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>¡El nombre de usuario debe ser similar a la dirección de correo electrónico!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>¡El nombre del espacio de trabajo ya está en uso!</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeOut>¡Ha transcurrido el tiempo de espera para procesar el comando!</CommandTimeOut>
+    <EndDateShouldBeGreaterThanCurrentDate>¡La fecha de finalización debe ser mayor que la fecha actual!</EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>¡La fecha de finalización debe ser mayor que la fecha de inicio!</EndDateShouldBeGreaterThanStartDate>
+    <ExecutionError>Error de ejecución</ExecutionError>
+    <IsNotAuthorized>Sin acceso a "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>"{0}" ¡no es correcto!</IsNotCorrect>
+    <IsNotDeleted>"{0}" ¡no se ha eliminado!</IsNotDeleted>
+    <IsNotEqual>"{0}" ¡no es igual!</IsNotEqual>
+    <IsNotFound>"{0}" ¡no encontrado!</IsNotFound>
+    <IsNotRecognized>"{0}" ¡no se reconoce!</IsNotRecognized>
+    <IsNotSpecified>"{0}" ¡no especificado!</IsNotSpecified>
+    <IsRequiredFile>¡Debe agregar al menos un archivo!</IsRequiredFile>
+    <ItemCantBeAttachedToItself>¡El elemento no se puede unirse a sí mismo!</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>¡Los elementos "{0}" no se pueden eliminar porque están en uso por otros elementos!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeMovedToSpecifiedPlace>¡El elemento no se puede mover a un lugar específico!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>¡El elemento no admite "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>¡A Key y ToKey son iguales!</KeyAndToKeyAreEqual>
+    <NotificationFailed>¡Resultado fallido!</NotificationFailed>
+    <NotificationFilesUploadingComplete>Los ficheros han subido con éxito.</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>El fichero "{0}" está subiendo.</NotificationFileUploading>
+    <NotificationItemDelete>Los elementos se están eliminando.</NotificationItemDelete>
+    <NotificationItemDeleteComplete>Los elementos se han borrado correctamente.</NotificationItemDeleteComplete>
+    <NotificationItemRestore>Los elemento se están restaurando.</NotificationItemRestore>
+    <NotificationItemRestoreComplete>Los elementos se han restaurado correctamente.</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>Los elementos se están transfiriendo.</NotificationItemTransfer>
+    <NotificationItemTransferComplete>Los elementos se ha transfirido correctamente.</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>Los elementos están en la cola de proceso.</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>¡Operación interrumpido!</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>La Papelera de Reciclaje se está limpiando.</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>La Papelera de Reciclaje se ha limpiado correctamente.</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>La limpieza de la Papelera de Reciclaje está esperando ser procesado.</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>El informe "{0}" se está exportando</NotificationReportExporting>
+    <NotificationReportExportingComplete>El informe "{0}" se ha exportado correctamente.</NotificationReportExportingComplete>
+    <NotificationReportRendering>El informe "{0}" se está representando</NotificationReportRendering>
+    <NotificationReportRenderingComplete>El informe "{0}" se ha presentado.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>El informe "{0}" está a la espera de procesarse.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>El planificador "{0}" se está ejecutando.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>El planificador "{0}" se ha completado.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>El planificador "{0}" está a la espera de procesarse.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleFilesUploading>Subiendo ficheros</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>Refrescando elemento "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>Transfiriendo elemento "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>Exportando informe "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>Presentando informe "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Ejectando planificador "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTransferring>El "{0}" esta transfiriendo a "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>El "{0}" se ha transfirido a "{1}".</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>Este valor no es correcto para el tipo {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>Fuera de rango ("{0}")!</OutOfRange>
+    <ParsingCommandException>Se produjo una excepción al procesar el comando en el xml: {0}</ParsingCommandException>
+    <QuotaMaximumComputingCyclesCountExceeded>El número de ciclos de computación máximos se ha excedido.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumFileSizeExceeded>Tamaño máximo del archivo superado.</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumReportPagesCountExceeded>El número máximo de páginas por informes se ha excedido.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumUsersCountExceeded>El número máximo de usuarios se ha excedido.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>El número máximo de espacios de trabajo se ha excedido.</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>¡El planificador no puede ejecutarse a si mismo!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Ha caducado el tiempo de la Sessión</SessionTimeOut>
+    <SnapshotAlreadyProcessed>¡La instantánea del informe ya ha sido procesado!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>El elemento especificado no es "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>Copiar desde el elemento "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>Creado desde el fichero "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Creado desde el elemento "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Cargado desde el fichero "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>Creación de Nuevos Elementos.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Algunos archivos están subiendo ahora, si cierra la página se perderán. ¿Seguro que desea cerrar la página?</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>"{0}" con la clave especificada ¡no se ha encontrado!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>¡Su periodo de tiempo ha caducado expired!</YourTimeSessionHasExpired>
+  </Notices>
   <NuGet>
     <AlreadyDownloaded>Descargado previamente</AlreadyDownloaded>
     <AssemblyLoadedSuccessfully>El ensamblado se ha cargado con éxito.</AssemblyLoadedSuccessfully>
@@ -1759,6 +2010,47 @@
     <StiLoadPasswordForm>Encriptando documento</StiLoadPasswordForm>
     <StiSavePasswordForm>Contraseña</StiSavePasswordForm>
   </Password>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>Tarea en segundo plano</AdminBackgroundTasks>
+    <AdminPermissions>Permisos</AdminPermissions>
+    <AdminRecycleBin>Papelera de Reciclaje</AdminRecycleBin>
+    <AdminShare>Compartir</AdminShare>
+    <AdminTransfers>Transferencias</AdminTransfers>
+    <ItemCalendars>Calendarios</ItemCalendars>
+    <ItemCloudStorages>Almacenes de Cloud</ItemCloudStorages>
+    <ItemContactLists>Lista de Contactos</ItemContactLists>
+    <ItemDashboards>Cónsolas</ItemDashboards>
+    <ItemDataSources>Fuentes de Datos</ItemDataSources>
+    <ItemFiles>Ficheros</ItemFiles>
+    <ItemFolders>Carpetas</ItemFolders>
+    <ItemReportSnapshots>Instantáneas de Informes</ItemReportSnapshots>
+    <ItemReportTemplates>Plantillas de Informes</ItemReportTemplates>
+    <ItemSchedulers>Planificadores</ItemSchedulers>
+    <ReportDesignerBusinessObjects>Objetos de Negocio</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>Columnas de Datos</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>Conexiones de Datos</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>Relaciones de Datos</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>Fuentes de Datos</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>Tareas de Diccionario</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>Restricciones</ReportDesignerRestrictions>
+    <ReportDesignerVariables>Variables</ReportDesignerVariables>
+    <SystemBackupRestore>Copias de Seguridad &amp; Restauraciones</SystemBackupRestore>
+    <SystemEmailTemplates>Plantillas de Correo Electrónico</SystemEmailTemplates>
+    <SystemLicensing>Licencias</SystemLicensing>
+    <SystemMonitoring>Monitorizando</SystemMonitoring>
+    <SystemUpdate>Actualizar</SystemUpdate>
+    <SystemWorkspaces>Espacios de Trabajo</SystemWorkspaces>
+    <TextAdministration>Administración</TextAdministration>
+    <TextItems>Elementos</TextItems>
+    <TextReportDesigner>Diseñador de Informes</TextReportDesigner>
+    <TextSystem>Sistema</TextSystem>
+    <TextUsers>Usuarios</TextUsers>
+    <UserHimself>SiMismo</UserHimself>
+    <UserRoles>Rols</UserRoles>
+    <Users>Usuarios</Users>
+    <UserWorkspace>Espacios de Trabajo</UserWorkspace>
+  </Permissions>
   <PlacementComponent>
     <MoveLeftFreeSpace>Mueve un componente a la izquierda del espacio libre, incrementando la altura del componente a la altura del espacio libre.</MoveLeftFreeSpace>
     <MoveRightFreeSpace>Mueve un componente a la derecha del espacio libre, incrementando la altura del componente a la altura del espacio libre.</MoveRightFreeSpace>
@@ -1771,9 +2063,11 @@
     <BarCodeAdditionalCategory>Código de Barras Adicional</BarCodeAdditionalCategory>
     <BarCodeCategory>Código de Barras</BarCodeCategory>
     <BehaviorCategory>Comportamiento</BehaviorCategory>
+    <CapNeedle>Tapa de la aguja</CapNeedle>
     <CellCategory>Celda</CellCategory>
     <ChartAdditionalCategory>Gráfico Adicional</ChartAdditionalCategory>
     <ChartCategory>Gráfico</ChartCategory>
+    <ChartMap>Mapa</ChartMap>
     <CheckCategory>Verificación</CheckCategory>
     <ColorsCategory>Colores</ColorsCategory>
     <ColumnsCategory>Columnas</ColumnsCategory>
@@ -1800,6 +2094,7 @@
     <MouseEventsCategory>Eventos del Ratón</MouseEventsCategory>
     <NavigationCategory>Navegación</NavigationCategory>
     <NavigationEventsCategory>Eventos de Navegación</NavigationEventsCategory>
+    <Needle>Aguja</Needle>
     <OptionsCategory>Opciones</OptionsCategory>
     <PageAdditionalCategory>Página Adicional</PageAdditionalCategory>
     <PageCategory>Página</PageCategory>
@@ -1811,11 +2106,13 @@
     <RenderEventsCategory>Eventos de Producción</RenderEventsCategory>
     <SeriesLabelsCategory>Etiquetas de Series</SeriesLabelsCategory>
     <ShapeCategory>Forma</ShapeCategory>
+    <Size>Tamaño</Size>
     <SubReportCategory>Sub-Informe</SubReportCategory>
     <TableCategory>Tabla</TableCategory>
     <TextAdditionalCategory>Texto Adicional</TextAdditionalCategory>
     <TextCategory>Texto</TextCategory>
     <TitleCategory>Título</TitleCategory>
+    <TrendLineCategory>Línea de Tendencia</TrendLineCategory>
     <ValueCategory>Valor</ValueCategory>
     <ValueCloseCategory>Valor Cierre</ValueCloseCategory>
     <ValueEndCategory>Valor Final</ValueEndCategory>
@@ -2305,6 +2602,9 @@
     <StiRestrictionsAllowResize>Permitir Redimensionar</StiRestrictionsAllowResize>
     <StiRestrictionsAllowSelect>Permitir Seleccionar</StiRestrictionsAllowSelect>
     <StiRestrictionsNone>Ninguno</StiRestrictionsNone>
+    <StiSelectionModeFirst>Primero</StiSelectionModeFirst>
+    <StiSelectionModeFromVariable>Desde una Variable</StiSelectionModeFromVariable>
+    <StiSelectionModeNothing>Nada</StiSelectionModeNothing>
     <StiSeriesLabelsValueTypeArgument>Argumento</StiSeriesLabelsValueTypeArgument>
     <StiSeriesLabelsValueTypeArgumentValue>Argumento - Valor</StiSeriesLabelsValueTypeArgumentValue>
     <StiSeriesLabelsValueTypeSeriesTitle>Título de Serie</StiSeriesLabelsValueTypeSeriesTitle>
@@ -2612,6 +2912,7 @@
     <BrushType>Tipo de Brocha</BrushType>
     <BusinessObject>Objeto de Negocio</BusinessObject>
     <CacheAllData>Almacenar todos los datos</CacheAllData>
+    <CacheTotals>Caché Totales</CacheTotals>
     <CalcInvisible>Calcular Invisibles</CalcInvisible>
     <CalculatedDataColumn>Columna de Datos Calculado</CalculatedDataColumn>
     <CalculationMode>Modo de Cálculo</CalculationMode>
@@ -2630,6 +2931,7 @@
     <CenterPoint>Punto Central</CenterPoint>
     <ChartAreaBorderColor>Color del Marco</ChartAreaBorderColor>
     <ChartAreaBrush>Broche de Área</ChartAreaBrush>
+    <ChartAreaShowShadow>Mostrar Sombra</ChartAreaShowShadow>
     <ChartType>Tipo de Gráfico</ChartType>
     <Checked>Seleccionado</Checked>
     <CheckOnClick>Seleccionar con Clic</CheckOnClick>
@@ -2711,6 +3013,7 @@
     <DialogResult>Resultado del Diálogo</DialogResult>
     <Diameter>Diámetro</Diameter>
     <Direction>Dirección</Direction>
+    <Disabled>Deshabilitar</Disabled>
     <DisplayValue>Valor a Mostrar</DisplayValue>
     <Distance>Distancia</Distance>
     <DistanceBetweenTabs>Espaciado Entre Tabulaciones</DistanceBetweenTabs>
@@ -3062,6 +3365,7 @@
     <ReconnectOnEachRow>Reconectar para Cada Fila</ReconnectOnEachRow>
     <ReferencedAssemblies>Ensamblados Referenciados</ReferencedAssemblies>
     <Refresh>Actualizar</Refresh>
+    <RefreshTime>Refrescar Hora</RefreshTime>
     <Relation>Relación</Relation>
     <RelationName>Nombre de la Relación</RelationName>
     <Relations>Relaciones</Relations>
@@ -3073,6 +3377,7 @@
     <ReportAuthor>Autor del Informe</ReportAuthor>
     <ReportCacheMode>Modo de Cache del informe</ReportCacheMode>
     <ReportDescription>Descripción del Informe</ReportDescription>
+    <ReportImage>Image de Informe</ReportImage>
     <ReportName>Nombre del Informe</ReportName>
     <ReportUnit>Unidad del Informe</ReportUnit>
     <RequestFromUser>Solicitar del Usuario</RequestFromUser>
@@ -3081,6 +3386,7 @@
     <ResetPageNumber>Reiniciar Número de Página</ResetPageNumber>
     <Resize>Redimensionar</Resize>
     <Restrictions>Restricciones</Restrictions>
+    <RetrieveOnlyUsedData>Sólo recuperar datos usados</RetrieveOnlyUsedData>
     <ReturnValue>Valor de Retorno</ReturnValue>
     <ReverseHor>Horizontal Inverso</ReverseHor>
     <ReverseVert>Vertical Inverso</ReverseVert>
@@ -3238,6 +3544,8 @@
     <Totals>Totales</Totals>
     <TransparentColor>Color Transparente</TransparentColor>
     <TrendLine>Línea de Tendencias</TrendLine>
+    <TrendLineColor>Color</TrendLineColor>
+    <TrendLineShowShadow>Mostrar Sombra</TrendLineShowShadow>
     <Trimming>Recortes</Trimming>
     <Type>Tipo</Type>
     <TypeName>Nombre de Tipo</TypeName>
@@ -3434,6 +3742,7 @@
     <FinishingReport>Finalizando Informe</FinishingReport>
     <FirstPass>Primer Pase</FirstPass>
     <GenerateNewCode>Generar Nuevo Código</GenerateNewCode>
+    <Infographics>Infographics</Infographics>
     <InfoMessage>{0} - {1} encontrado.</InfoMessage>
     <InformationMessages>Mensajes de Información</InformationMessages>
     <LabelAlias>Alias:</LabelAlias>
@@ -3443,6 +3752,7 @@
     <LabelCentimeters>Centímetros:</LabelCentimeters>
     <LabelCollectionName>Nombre Colección:</LabelCollectionName>
     <LabelColor>Color:</LabelColor>
+    <LabelCommandTimeout>Tiempo de espera de comandos:</LabelCommandTimeout>
     <LabelCountData>Contar Datos:</LabelCountData>
     <LabelDataBand>DataBand:</LabelDataBand>
     <LabelDataColumn>Columna de Datos:</LabelDataColumn>
@@ -3506,6 +3816,17 @@
     <WhenAnd>cuando {0} {1} y</WhenAnd>
     <WhenValueIs>cuando el valor es</WhenValueIs>
   </Report>
+  <ReportInfo>
+    <CheckIssuesAdditionalDescription>Comprobar el informe para errores y detectar incoherencias.</CheckIssuesAdditionalDescription>
+    <EncryptWithPassword>Cifrar con contraseña</EncryptWithPassword>
+    <Info>Info</Info>
+    <ReportOptions>Opciones del Informe</ReportOptions>
+    <ReportOptionsAdditionalDescription>Configurar la información básica y los parámetros en el informe.</ReportOptionsAdditionalDescription>
+  </ReportInfo>
+  <ReportOpen>
+    <Browse>Vistazo</Browse>
+    <Import>Importar</Import>
+  </ReportOpen>
   <Services>
     <categoryContextTools>Herramientas de Contexto</categoryContextTools>
     <categoryDesigner>Diseñador</categoryDesigner>

@@ -4,6 +4,7 @@ require_once 'adapters/mysql.php';
 require_once 'adapters/mssql.php';
 require_once 'adapters/firebird.php';
 require_once 'adapters/postgresql.php';
+require_once 'adapters/oracle.php';
 require_once 'email/class.phpmailer.php';
 require_once 'email/class.pop3.php';
 require_once 'email/class.smtp.php';
@@ -74,6 +75,7 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->report = $request->report;
+		$args->reportJson = $request->reportJson;
 		$args->fileName = $request->fileName;
 		return $this->checkEventResult($this->onSaveReport, $args);
 	}
@@ -83,6 +85,7 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->report = $request->report;
+		$args->reportJson = $request->reportJson;
 		$args->fileName = $request->fileName;
 		return $this->checkEventResult($this->onSaveAsReport, $args);
 	}
@@ -215,6 +218,7 @@ class StiHandler {
 			case StiDatabaseType::MSSQL: $connection = new StiMsSqlAdapter(); break;
 			case StiDatabaseType::Firebird: $connection = new StiFirebirdAdapter(); break;
 			case StiDatabaseType::PostgreSQL: $connection = new StiPostgreSqlAdapter(); break;
+			case StiDatabaseType::Oracle: $connection = new StiOracleAdapter(); break;
 		}
 		
 		if (isset($connection)) {
@@ -231,6 +235,7 @@ class StiHandler {
 		if ($result->success) {
 			switch ($request->event) {
 				case StiEventType::BeginProcessData:
+				case StiEventType::ExecuteQuery:
 					$result = $this->invokeBeginProcessData($request);
 					if (!$result->success) return $result;
 					$queryString = $result->object->queryString;
@@ -308,8 +313,8 @@ class StiHelper {
 		StiHelper.prototype.process = function (obj, callback) {
 			if (obj != null) {
 				if (obj.event == "BeginProcessData") {
-					if (obj.database == "XML" || obj.database == "JSON") return callback(null);
 					obj.preventDefault = true;
+					if (obj.database == "XML" || obj.database == "JSON") return callback(null);
 				}
 				var command = {};
 				for (var p in obj) {

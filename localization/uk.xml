@@ -505,7 +505,7 @@
     <FileNotFound>Файл '{0}' не знайдений</FileNotFound>
     <IdentifierIsNotValid>Неприпустимий ідентифікатор '{0}'.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Не можу знайти для компонента джерело даних</ImpossibleFindDataSource>
-    <NameExists>Повторюване ім'я компонента '{0}'.  Імена компонентів повинні бути унікальними й незалежними від регістра.</NameExists>
+    <NameExists>Повторюване ім'я компонента '{0}'.  Імена компонентів повинні бути унікальними.</NameExists>
     <NoServices>Сервіси не знайдені в '{0}'</NoServices>
     <NotAssign>Джерело даних не вказано.</NotAssign>
     <NotCorrectFormat>Вхідний рядок у невірному форматі.</NotCorrectFormat>

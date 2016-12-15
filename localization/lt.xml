@@ -249,7 +249,7 @@
     <FileNotFound>Failas "{0}" nerastas.</FileNotFound>
     <IdentifierIsNotValid>Identifikatoriaus '{0}' reikšmė neteisinga.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Neįmanoma rasti duomenų šaltinį.</ImpossibleFindDataSource>
-    <NameExists>Komponentė pavadinta '{0}' jau yra. Komponentės privalo turėti unikalius vardus (didž./maž. raidės neskiriamos).</NameExists>
+    <NameExists>Komponentė pavadinta '{0}' jau yra. Komponentės privalo turėti unikalius vardus.</NameExists>
     <NoServices>Nerasti servisai '{0}'</NoServices>
     <NotAssign>Nenurodytas duomenų šaltinis.</NotAssign>
     <NotCorrectFormat>La stringa di Input non è in un formato corretto.</NotCorrectFormat>

@@ -310,14 +310,48 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Konto Einstellungen</AccountSettings>
+    <ButtonChangePassword>Passwort ändern</ButtonChangePassword>
+    <ButtonDeleteAll>Alles löschen</ButtonDeleteAll>
+    <ButtonLogout>Abmelden</ButtonLogout>
+    <ButtonRecover>Wiederherstellen</ButtonRecover>
+    <ButtonResendEmail>E-Mail wieder senden</ButtonResendEmail>
+    <ButtonResetPassword>Zurückstellen</ButtonResetPassword>
+    <ButtonRun>Ausführen</ButtonRun>
+    <ButtonShare>Freigeben</ButtonShare>
+    <ButtonSignUp>Registrieren</ButtonSignUp>
+    <ButtonSkip>Überspringen</ButtonSkip>
+    <ButtonView>Ansicht</ButtonView>
+    <ButtonWhereUsed>Wo wird es verwendet?</ButtonWhereUsed>
     <Cancel>Abbrechen</Cancel>
+    <CheckBoxMoveToRecycleBin>In Papierkorb verschieben</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Angemeldet bleiben</CheckBoxRememberMe>
     <Collection>Sammlung</Collection>
     <Create>Erstellen</Create>
     <CreateNewCollection>Neue Sammlung erstellen</CreateNewCollection>
     <DeleteFile>Datei löschen</DeleteFile>
+    <ExecutionError>Ausführungsfehler</ExecutionError>
+    <FolderWindowTitleEdit>Ordner bearbeiten</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Neuer Ordner</FolderWindowTitleNew>
+    <GroupBoxAttachedItems>Angehängte Elemente</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>Durch die Registrierung akzeptieren Sie die Nutzungsbedingungen.</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>Ich habe bereits ein Konto.</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Passwort vergessen</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Ich habe ein Passwort</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Neues Konto erstellen</HyperlinkRegisterAccount>
     <labelCollectionName>Sammlung Name:</labelCollectionName>
+    <LabelCreated>Erstellt:</LabelCreated>
+    <LabelCreateFolder>Eine neue Kategorie, in der Sie andere Elemente platzieren können, erstellen.</LabelCreateFolder>
+    <LabelCreateReportTemplate>Eine Berichtsvorlage erstellen.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>Aktuelles Passwort:</LabelCurrentPassword>
     <labelFileName>Dateiname:</labelFileName>
+    <LabelForeground>Vordergrund:</LabelForeground>
+    <LabelLastLogin>Letzte Anmeldung:</LabelLastLogin>
+    <LabelLastTime>Letztes Mal:</LabelLastTime>
+    <LabelModified>Verändert:</LabelModified>
+    <LabelNewPassword>Neues Passwort:</LabelNewPassword>
+    <LabelNextTime>Nächstes Mal:</LabelNextTime>
     <labelPassword>Kennwort:</labelPassword>
+    <LabelPermission>Berechtigung:</LabelPermission>
     <labelUserName>Benutzer:</labelUserName>
     <Login>Anmelden</Login>
     <Open>Öffnen</Open>
@@ -336,13 +370,258 @@
     <RefreshList>Liste aktualisieren</RefreshList>
     <ReportDocumentFormatNotRecognized>Die Datei '{0}' enthält keinen gültigen Bericht!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Die Datei '{0}' enthält keine gültige Vorlage!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Rolle hinzufügen</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Benutzer hinzufügen</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>Arbeitsbereich hinzufügen</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>Ordner</RibbonButtonFolder>
+    <RibbonTabUsers>Benutzer</RibbonTabUsers>
     <Root>Verzeichnis</Root>
+    <RootFolder>Stammordner</RootFolder>
     <Save>Speichern</Save>
     <SaveAccountSettings>Speichere Konto Einstellungen</SaveAccountSettings>
     <SaveFile>Datei speichern</SaveFile>
+    <ShareWindowTitleNew>Freigabe-Einstellungen</ShareWindowTitleNew>
     <ShowAllFiles>Alle Datien anzeigen</ShowAllFiles>
+    <TabItemEmbedCode>Einbettungscode</TabItemEmbedCode>
+    <TabItemQRCode>QR-Code</TabItemQRCode>
+    <TabItemShare>Link zur Freigabe</TabItemShare>
+    <TextActivated>Aktiviert</TextActivated>
+    <TextDelete>Löschen</TextDelete>
+    <TextDeletingItems>Löschen von Elementen...</TextDeletingItems>
+    <TextFirstName>Vorname</TextFirstName>
+    <TextFromTo>Von {0} bis {1} (Gesamt - {2})</TextFromTo>
+    <TextItemsWorkspace>Arbeitsbereich</TextItemsWorkspace>
+    <TextLastName>Name</TextLastName>
+    <TextModify>Ändern</TextModify>    
+    <TextNoNotifications>Keine Benachrichtigungen</TextNoNotifications>
+    <TextProfile>Profil</TextProfile>
+    <TextReports>Berichte</TextReports>
+    <TextRestoringItems>Wiederherstellen von Elementen...</TextRestoringItems>
+    <TextRole>Rolle</TextRole>
+    <TextRun>Ausführen</TextRun>
+    <TextUser>Benutzer</TextUser>
+    <TextUserName>Benutzername (E-Mail)</TextUserName>
+    <TimeHoursAgoFive>Vor fünf Stunden, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>Vor vier Stunden, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Vor einer Stunde, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Vor drei Stunden, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Vor zwei Stunden, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Vor fünf Minuten, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Vor vier Minuten, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Vor weniger als einer Minute</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>Vor {0} Minuten, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Vor einer Minute, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Vor drei Minuten, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Vor zwei Minuten, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>Heute, {0:t}</TimeToday>
+    <TimeYesterday>Gestern, {0:t}</TimeYesterday>
+    <ToolTipAddRole>Erstellen von neuer Rolle im Arbeitsbereich.</ToolTipAddRole>
+    <ToolTipAddUser>Erstellen vom neuen Benutzer in der ausgewählten Rolle.</ToolTipAddUser>
+    <WindowDescriptionDelete>Möchten Sie wirklich die ausgewählten Elemente löschen?</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Die ausgewählten Elemente werden aus dem Papierkorb wiederhergestellt werden.</WindowDescriptionRecover>
+    <WindowTitleDelete>Elemente löschen</WindowTitleDelete>
+    <WindowTitleForgotPassword>Reset</WindowTitleForgotPassword>
     <WindowTitleLogin>Anmelden</WindowTitleLogin>
+    <WindowTitleRecover>Elemente wiederherstellen</WindowTitleRecover>
+    <WindowTitleRoleEdit>Rolle bearbeiten</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>Neue Rolle</WindowTitleRoleNew>
+    <WindowTitleSignUp>Sign Up</WindowTitleSignUp>
+    <WindowTitleUserEdit>Benutzer bearbeiten</WindowTitleUserEdit>
+    <WindowTitleUserNew>Neuer Benutzer</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Arbeitsbereich bearbeiten</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>Neuer Arbeitsbereich</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>Leeren Bericht erstellen</WizardBlankReportDescription>
+    <WizardPrivateShare>Kein Zugriff</WizardPrivateShare>
+    <WizardPrivateShareDescription>Externer Zugriff auf dieses Element ist eingeschränkt.</WizardPrivateShareDescription>
+    <WizardPublicShare>Öffentlicher Zugriff</WizardPublicShare>
+    <WizardPublicShareDescription>Externer Zugriff für  nicht autorisierte Benutzer.</WizardPublicShareDescription>
+    <WizardRegisteredShare>Autorisierter Zugriff</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>Externer Zugriff nur für registrierte Benutzer aus dem Arbeitsbereich.</WizardRegisteredShareDescription>
   </Cloud>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>Hintergrundaufgaben</AdminBackgroundTasks>
+    <AdminPermissions>Berechtigungen</AdminPermissions>
+    <AdminRecycleBin>Papierkorb</AdminRecycleBin>
+    <AdminShare>Teilen</AdminShare>
+    <AdminTransfers>Verschiebungen</AdminTransfers>
+    <ItemCalendars>Kalender</ItemCalendars>
+    <ItemCloudStorages>Cloud-Speicher</ItemCloudStorages>
+    <ItemContactLists>Kontaktliste</ItemContactLists>
+    <ItemDashboards>Dashboards</ItemDashboards>
+    <ItemDataSources>Datenquellen</ItemDataSources>
+    <ItemFiles>Dateien</ItemFiles>
+    <ItemFolders>Ordner</ItemFolders>
+    <ItemReportSnapshots>Berichts-Schnappschuss</ItemReportSnapshots>
+    <ItemReportTemplates>Berichtsvorlagen</ItemReportTemplates>
+    <ItemSchedulers>Scheduler</ItemSchedulers>
+    <LabelAdministration>Administration:</LabelAdministration>
+    <LabelItems>Elemente:</LabelItems>
+    <LabelUsers>Benutzer:</LabelUsers>
+    <ReportDesignerBusinessObjects>Business-Objekte</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>Datenspalten</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>Datenverbindungen</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>Datenbeziehungen</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>Datenquellen</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>Aktionen des Wörterbuches</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>Beschränkungen</ReportDesignerRestrictions>
+    <ReportDesignerVariables>Variablen</ReportDesignerVariables>
+    <SystemBackupRestore>Sichern und Wiederherstellen</SystemBackupRestore>
+    <SystemEmailTemplates>E-Mail-Vorlagen</SystemEmailTemplates>
+    <SystemLicensing>Lizenzierung</SystemLicensing>
+    <SystemMonitoring>Monitoring</SystemMonitoring>
+    <SystemStatus>Status</SystemStatus>
+    <SystemUpdate>Aktualisierung</SystemUpdate>
+    <SystemWebsite>Webseite</SystemWebsite>
+    <SystemWorkspaces>Arbeitsbereiche</SystemWorkspaces>
+    <TextAdministration>Administration</TextAdministration>
+    <TextCommon>Gemeinsame</TextCommon>
+    <TextItems>Elemente</TextItems>
+    <TextReportDesigner>Berichtsdesigner</TextReportDesigner>
+    <TextSystem>System</TextSystem>
+    <TextUsers>Benutzer</TextUsers>
+    <UserHimself>Selbst</UserHimself>
+    <UserRoles>Rollen</UserRoles>
+    <Users>Benutzer</Users>
+    <UserWorkspace>Arbeitsbereich</UserWorkspace>
+  </Permissions>
+  <Messages>
+    <MessageTimeOutExpired>Befehl-Timeout ist abgelaufen!</MessageTimeOutExpired>
+    <TextRegistrationSuccessfully>Registrierung erfolgreich abgeschlossen!
+
+Die E-Mail ist an "{0}" gesendet.
+Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierung zu beenden, folgen Sie, bitte, dem Link aus der E-Mail.</TextRegistrationSuccessfully>
+    <ThisFieldIsNotSpecified>Dieses Feld ist nicht angegeben!</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>Zugriff verweigert!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>Ihr Abonnement von Stimulsoft Reports.Ultimate ist früher abgelaufen, als erste Version des Stimulsoft Reports Servers freigegeben wurde!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>Die Lizenzdatei ist nicht korrekt! Bitte, kontaktieren Sie unsere Verkaufsabteilung sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>Ihr Konto ist gesperrt. Bitte, kontaktieren Sie unsere Verkaufsabteilung über die folgende E-Mail-Adresse: sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>Sie haben maximale Anzahl an Aktivierungen erreicht. Bitte, kontaktieren Sie unsere Verkaufsabteilung über die folgende E-Mail-Adresse: sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server ist nicht jetzt verfügbar! Bitte, versuchen Sie später erneut.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>Sie können nicht diese Version Stimulsoft Reports.Server aktivieren, weil das Abonnement-Programm schon abgelaufen ist! Bitte, melden Sie an und prüfen, welche Version Stimulsoft Reports.Server Sie installieren und aktivieren können.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>Während der Aktivierung ist einen Fehler aufgetreten. Bitte, versuchen Sie später erneut.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>Benutzername (E-Mail-Adresse) oder Passwort ist falsch!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>Ihrer Kontotyp erlaubt nicht Stimulsoft Reports.Server zu aktivieren!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>Das Konto kann nicht verwendet werden!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>Das Konto ist nicht nur aktiviert! Bitte, folgen Sie der Anleitung, die Sie in der E-Mail während der Registrierung erhalten haben.</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>Die Benutzerrolle kann nicht verändert werden, weil die der letzte Administrator-Benutzer im Arbeitsbereich ist!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>Die Benutzerrolle kann nicht geändert werden, weil das der letzte Supervisor-Benutzer auf diesem Server ist!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeRootUser>Der root-Benutzer kann nicht ändert werden!</AuthCantChangeRootUser>
+    <AuthCantChangeSystemRole>Die System-Rolle kann nicht ändert werden!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>Der Benutzer kann nicht sich selbst löschen!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>Der Benutzer kann nicht gelöscht werden, weil der der letzte Administrator-Benutzer im Arbeitsbereich ist!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>Der Benutzer kann nicht gelöscht werden, weil das der letzte Supervisor-Benutzer auf diesem Server ist!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteRootUser>Der root-Benutzer kann nicht gelöscht werden!</AuthCantDeleteRootUser>
+    <AuthCantDeleteSystemRole>Diese Rolle ist nicht zu löschen, weil sie eine Systemrolle ist!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>Dieser Benutzer kann nicht deaktiviert werden, weil er der Letzte Administrator-Benutzer in diesem Arbeitsbereich ist!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>Der Benutzer kann nicht deaktiviert werden, weil das der letzte Supervisor-Benutzer auf diesem Server ist!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>Der Vorname ist nicht angegeben!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>Der Nachnname ist nicht angegeben!</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>Der OAuth-Identifikator ist nicht angegeben!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>Das Passwort ist nicht korrekt!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>Das Passwort ist nicht angegeben!</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>Das Passwort ist zu kurz (minimale Länge ist 6 Zeichen)!</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>Sie können nicht die Rolle entfernen, weil diese Rolle jetzt von anderen Benutzern verwendet wird.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>Die Rolle mit angegebenen Namen "{0}" existiert schon!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>Die Rolle mit angegebenen Namen "{0}" ist die System-Rolle!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>Die Nachricht mit weiteren Anweisung ist an "{0}" gesendet!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>Sie sind abgemeldet!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExist>Der Benutzername (E-Mail) ist schon verwendet!</AuthUserNameAlreadyExist>
+    <AuthUserNameAlreadyExists>Der Benutzername (E-Mail) ist bereits verwendet!</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>Der Benutzername (E-Mail) ist nicht angegeben!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>Der Benutzername (E-Mail) ist falsch!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>Der Benutzername soll der E-Mail-Adresse ähnlich sein!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>Der Arbeitsbereichname ist bereits verwendet!</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeOut>Wartezeit der Befehlsverarbeitung ist abgelaufen!</CommandTimeOut>
+    <EndDateShouldBeGreaterThanCurrentDate>Abschlussdatum muss größer als aktuelles Datum sein!</EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>Abschlussdatum muss größer als Startdatum sein!</EndDateShouldBeGreaterThanStartDate>
+    <EnterCurrentPassword>Geben Sie das aktuelle Passwort ein!</EnterCurrentPassword>
+    <EnterNewPassword>Geben Sie das neue Passwort ein!</EnterNewPassword>
+    <ExecutionError>Ausführungsfehler</ExecutionError>
+    <IsNotAuthorized>Kein Zugriff auf "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>"{0}" ist falsch!</IsNotCorrect>
+    <IsNotDeleted>"{0}" ist nicht gelöscht!</IsNotDeleted>
+    <IsNotEqual>"{0}" ist nicht gleich!</IsNotEqual>
+    <IsNotFound>"{0}" is nicht gefunden!</IsNotFound>
+    <IsNotRecognized>"{0}" ist nicht erkannt!</IsNotRecognized>
+    <IsNotSpecified>"{0}" ist nicht angegeben!</IsNotSpecified>
+    <IsRequiredFile>Sie müssen zumindest eine Datei hinzufügen!</IsRequiredFile>
+    <ItemCantBeAttachedToItself>Das Element kann nicht an sich selbst angehangen werden.</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>Die Elemente "{0}" können nicht gelöscht werden, weil sie schon an andere Elemente angehangen sin!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeDeletedBecauseItsChildItemIsAttachedToOtherItems>Das Element "{0}" kann nicht gelöscht werden, weil sein untergeordnetes Element "{1}" in anderen Elementen verwendet wird!</ItemCantBeDeletedBecauseItsChildItemIsAttachedToOtherItems>
+    <ItemCantBeDeletedBecausePermissionsRole>Sie können nicht folgende Elemente entfernen:</ItemCantBeDeletedBecausePermissionsRole>
+    <ItemCantBeMovedToSpecifiedPlace>Das Element kann nicht an angegebenen Platz umgezogen werden!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>Das Element unterstützt "{0}" nicht!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>Key und ToKey sind gleich!</KeyAndToKeyAreEqual>
+    <NotificationFailed>Fehlerhaftes Ergebnis!</NotificationFailed>
+    <NotificationFilesUploadingComplete>Die Datei ist erfolgreich hochgeladen.</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>Die Datei "{0}" ist hochgeladen.</NotificationFileUploading>
+    <NotificationItemDelete>Die Elemente werden gelöscht.</NotificationItemDelete>
+    <NotificationItemDeleteComplete>Die Elemente sind erfolgreich gelöscht.</NotificationItemDeleteComplete>
+    <NotificationItemRestore>Die Elemente werden wiederhergestellt.</NotificationItemRestore>
+    <NotificationItemRestoreComplete>Die Elemente sind erfolgreich wiederhergestellt.</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>Die Elemente werden übertragen.</NotificationItemTransfer>
+    <NotificationItemTransferComplete>Die Elemente sind erfolgreich übertragen.</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>Die Elemente warten auf Verarbeitung.</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>Operation ist abgebrochen!</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>Der Papierkorb wird geleert.</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>Der Papierkorb ist erfolgreich geleert.</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>Die Leerung des Papierkorbs wartet auf Verarbeitung.</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>Der Bericht "{0}" wird exportiert</NotificationReportExporting>
+    <NotificationReportExportingComplete>Der Bericht "{0}" ist erfolgreich exportiert.</NotificationReportExportingComplete>
+    <NotificationReportRendering>Der Bericht "{0}" wird gerendert.</NotificationReportRendering>
+    <NotificationReportRenderingComplete>Der Bericht "{0}" ist gerendert.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>Der Bericht "{0}" wartet auf Verarbeitung.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>Der Scheduler "{0}" wird ausgeführt.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>Der Scheduler "{0}" hat die Arbeit abgeschlossen.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>Der Scheduler "{0}" wartet auf Verarbeitung.</NotificationSchedulerWaitingProcessing>
+    <NotificationSoftwareBackupProcessing>Das "{0}" Backup wird verarbeitet.</NotificationSoftwareBackupProcessing>
+    <NotificationSoftwareDownloading>"{0}" wird downgeloadet.</NotificationSoftwareDownloading>
+    <NotificationSoftwareInstallationComplete>"{0}" ist erfolgreich installiert.</NotificationSoftwareInstallationComplete>
+    <NotificationSoftwareInstallationWaitingProcessing>Die "{0}" Installation wartet auf Verarbeitung.</NotificationSoftwareInstallationWaitingProcessing>
+    <NotificationSoftwareInstalling>"{0}" ist installiert.</NotificationSoftwareInstalling>
+    <NotificationSoftwareNewVersionAvailable>"{0}" ist verfügbar!</NotificationSoftwareNewVersionAvailable>
+    <NotificationSoftwareNewVersionError>Der Fehler erfolgt beim Prüfen von neuer Version!</NotificationSoftwareNewVersionError>
+    <NotificationTitleFilesUploading>Hochladen der Datein</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>Aktualisieren des Elementes "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>Übertragen des Elementes "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>Export des Berichtes "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>Rendering des Berichtes "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Ausführen des Schedulers "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTitleSoftwareUpdate>"{0}" Aktualisierung</NotificationTitleSoftwareUpdate>
+    <NotificationTransferring>"{0}" überträgt in "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>"{0}" ist erfolgreich in "{1}" übertragen.</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>Dieser Wert ist nicht korrekt für den Typ {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>Außerhalb des Bereichs ("{0}")!</OutOfRange>
+    <ParsingCommandException>Ausnahme der Befehlsverarbeitung in der angegebenen xml: {0}</ParsingCommandException>
+    <QuotaAvailableSpaceAmountExceeded>Der verfügbare Speicherplatz ist überschritten.</QuotaAvailableSpaceAmountExceeded>
+    <QuotaMaximumComputingCyclesCountExceeded>Maximale Anzahl von Berechnungszyklen ist überschritten.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumDataSourceItemCountExceeded>Maximale Anzahl von Datenquellen ist überschritten.</QuotaMaximumDataSourceItemCountExceeded>
+    <QuotaMaximumEmailCountExceeded>Maximale Anzahl von E-Mails ist überschritten.</QuotaMaximumEmailCountExceeded>
+    <QuotaMaximumFileSizeExceeded>Maximale Dateigröße ist überschritten.</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumItemCountExceeded>Maximale Anzahl von Elementen ist überschritten.</QuotaMaximumItemCountExceeded>
+    <QuotaMaximumReportPagesCountExceeded>Maximale Anzahl von Berichtsseiten ist überschritten.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumRoleCountExceeded>Maximale Anzahl von Rollen ist überschritten.</QuotaMaximumRoleCountExceeded>
+    <QuotaMaximumSchedulersCountExceeded>Maximale Anzahl von Schedulern ist überschritten.</QuotaMaximumSchedulersCountExceeded>
+    <QuotaMaximumUserCountExceeded>Maximale Anzahl von Benutzern ist überschritten.</QuotaMaximumUserCountExceeded>
+    <QuotaMaximumUsersCountExceeded>Maximale Anzahl von Benutzern ist überschritten.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspaceCountExceeded>Maximale Anzahl von Arbeitsbereichen ist überschritten!.</QuotaMaximumWorkspaceCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>&gt; Maximale Anzahl von Arbeitsbereichen ist überschritten.</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>Der Scheduler kann nicht sich selbst ausführen!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Session-Timeout</SessionTimeOut>
+    <SnapshotAlreadyProcessed>Der Berichts-Schnappschuss ist schon verarbeitet!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>Das angegebene Element ist nicht "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>Aus dem Element "{0}" kopieren.</VersionCopyFromItem>
+    <VersionCreatedFromFile>Aus der Datei "{0}" erstellt.</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Aus dem Element "{0}" erstellt.</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Aus der Datei "{0}" laden.</VersionLoadedFromFile>
+    <VersionNewItemCreation>Erstelllen vom neuen Element.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Einige Dateien werden jetzt hochgeladen. Wenn Sie die Seite schließen, werden diese Dateien verloren werden. Wollen Sie wirklich die Seite schließen?</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>"{0}" mit dem angegebenen Schlüssel ist nicht gefunden!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>Ihre Sessionzeit ist abgelaufen!</YourTimeSessionHasExpired>
+  </Notices>
   <Components>
     <StiBarCode>Barcode</StiBarCode>
     <StiChart>Diagramm</StiChart>
@@ -520,7 +799,7 @@
     <FileNotFound>Datei '{0}' wurde nicht gefunden.</FileNotFound>
     <IdentifierIsNotValid>Der Bezeichner '{0}' ist unzulässig.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Datenquelle für die Komponente konnte nicht gefunden werden.</ImpossibleFindDataSource>
-    <NameExists>Es gibt bereits eine Komponente mit dem Namen '{0}'.  Die Namen der Komponenten müssen eindeutig und unabhängig von der Groß-/Kleinschreibung sein.</NameExists>
+    <NameExists>Es gibt bereits eine Komponente mit dem Namen '{0}'.  Die Namen der Komponenten müssen eindeutig.</NameExists>
     <NoServices>Dienste wurden in '{0}' nicht gefunden</NoServices>
     <NotAssign>Datenquelle undefiniert.</NotAssign>
     <NotCorrectFormat>Eingangstext war nicht in einem richtigen Format.</NotCorrectFormat>

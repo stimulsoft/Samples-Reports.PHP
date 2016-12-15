@@ -519,7 +519,7 @@
     <FileNotFound>Filen "{0}" hittas inte.</FileNotFound>
     <IdentifierIsNotValid>Identifieraren '{0}' är inte giltig.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Det går inte att hitta datakällan.</ImpossibleFindDataSource>
-    <NameExists>Det finns redan ett objekt som heter '{0}'. Objekts måste ha unika namn och namn måste vara case-obereonde.</NameExists>
+    <NameExists>Det finns redan ett objekt som heter '{0}'. Objekts måste ha unika namn.</NameExists>
     <NoServices>Tjänster hittas inte i '{0}'</NoServices>
     <NotAssign>Datakälla är inte specificerad.</NotAssign>
     <NotCorrectFormat>Indatasträngen var inte i ett korrekt format.</NotCorrectFormat>

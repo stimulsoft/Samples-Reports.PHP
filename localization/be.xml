@@ -117,6 +117,7 @@
     <Save>Захаваць</Save>
     <SaveCopy>Захаваць копію</SaveCopy>
     <SetAll>Устанавiць усё</SetAll>
+    <ShowMore>Падрабязна</ShowMore>
     <Submit>Ужыць</Submit>
     <Test>Праверка</Test>
     <Up>Уверх</Up>
@@ -520,7 +521,7 @@
     <FileNotFound>Файл '{0}' не знойдзены.</FileNotFound>
     <IdentifierIsNotValid>Недапушчальны ідэнтыфікатар '{0}'.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Не магу знайсці для кампанента Крыніца дадзеных</ImpossibleFindDataSource>
-    <NameExists>Паўтаральнае імя кампанента '{0}'.  Імёны кампанентаў павінны быць унікальнымі і незалежнымі ад рэгістра.</NameExists>
+    <NameExists>Паўтаральнае імя кампанента '{0}'.  Імёны кампанентаў павінны быць унікальнымі.</NameExists>
     <NoServices>Сэрвісы не знойдзеныя ў '{0}'</NoServices>
     <NotAssign>Крыніца дадзеных не паказаны.</NotAssign>
     <NotCorrectFormat>Ўваходны радок ў няправільнам фармаце.</NotCorrectFormat>
@@ -768,6 +769,8 @@
     <AddCondition>&amp;Дадаць умову</AddCondition>
     <AddLevel>Дадаць узровень</AddLevel>
     <AssignExpression>Прысвоіць выраз</AssignExpression>
+    <BreakIfTrue>Сапыніць апрацоўку</BreakIfTrue>
+    <BreakIfTrueToolTip>Спынiць апрацоўку умоў, калі бягучае выконваецца</BreakIfTrueToolTip>
     <ChangeFont>Змяніць шрыфт</ChangeFont>
     <ComponentIsEnabled>Кампанент уключаны</ComponentIsEnabled>
     <NoConditions>Няма ўмоў</NoConditions>
@@ -1221,6 +1224,8 @@
     <AddNewItem>Дадаць новы элемент</AddNewItem>
     <GaugeEditorForm>Рэдактар ​​індыкатараў</GaugeEditorForm>
     <Kind>Выгляд</Kind>
+    <LinearScale>Лінейная шкала</LinearScale>
+    <RadialScale>Радыяльная шкала</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Адмена</barname_cancel>
@@ -1723,6 +1728,7 @@
     <GroupOceania>Акіянія</GroupOceania>
     <GroupSouthAmerica>Паўднёвая Амерыка</GroupSouthAmerica>
     <GroupWorld>Свет</GroupWorld>
+    <LinkDataForm>Дадзеныя</LinkDataForm>
     <MapEditorForm>Рэдактар ​​карт</MapEditorForm>
   </Map>
   <NuGet>
@@ -1773,9 +1779,11 @@
     <BarCodeAdditionalCategory>Рыска-код, дадатковыя</BarCodeAdditionalCategory>
     <BarCodeCategory>Рыска-код</BarCodeCategory>
     <BehaviorCategory>Паводзіны</BehaviorCategory>
+    <CapNeedle>Падстава стрэлкі</CapNeedle>
     <CellCategory>Ячэйка</CellCategory>
     <ChartAdditionalCategory>Дыяграма, дадатковыя</ChartAdditionalCategory>
     <ChartCategory>Дыяграма</ChartCategory>
+    <ChartMap>Карта</ChartMap>
     <CheckCategory>Сцяжок</CheckCategory>
     <ColorsCategory>Колеры</ColorsCategory>
     <ColumnsCategory>Калонкі</ColumnsCategory>
@@ -1802,6 +1810,7 @@
     <MouseEventsCategory>Мыш</MouseEventsCategory>
     <NavigationCategory>Навігацыя</NavigationCategory>
     <NavigationEventsCategory>Навігацыя</NavigationEventsCategory>
+    <Needle>Стрэлка</Needle>
     <OptionsCategory>Параметры</OptionsCategory>
     <PageAdditionalCategory>Старонка, дадатковыя</PageAdditionalCategory>
     <PageCategory>Старонка</PageCategory>
@@ -1813,11 +1822,13 @@
     <RenderEventsCategory>Пабудова</RenderEventsCategory>
     <SeriesLabelsCategory>Загалоўкі шэрагаў</SeriesLabelsCategory>
     <ShapeCategory>Геаметрыя</ShapeCategory>
+    <Size>Памер</Size>
     <SubReportCategory>Суб-справаздачы</SubReportCategory>
     <TableCategory>Табліца</TableCategory>
     <TextAdditionalCategory>Тэкст, дадатковыя</TextAdditionalCategory>
     <TextCategory>Тэкст</TextCategory>
     <TitleCategory>Загаловак</TitleCategory>
+    <TrendLineCategory>Лінія трэнду</TrendLineCategory>
     <ValueCategory>Значэнне</ValueCategory>
     <ValueCloseCategory>Зачыняюшчае значэнне</ValueCloseCategory>
     <ValueEndCategory>Канчатковае значэнне</ValueEndCategory>
@@ -2624,6 +2635,7 @@
     <BrushType>Тып пэндзлю</BrushType>
     <BusinessObject>Бізнес-аб'ект</BusinessObject>
     <CacheAllData>Кэшаваць усе дадзеныя</CacheAllData>
+    <CacheTotals>Кэшаваць Totals-функцыі</CacheTotals>
     <CalcInvisible>Вылічаць нябачныя</CalcInvisible>
     <CalculatedDataColumn>Разлічваная калонка</CalculatedDataColumn>
     <CalculationMode>Рэжым вылічэнняў</CalculationMode>
@@ -2642,6 +2654,7 @@
     <CenterPoint>Кропка цэнтра</CenterPoint>
     <ChartAreaBorderColor>Колер мяжы</ChartAreaBorderColor>
     <ChartAreaBrush>Пэндзаль вобласці</ChartAreaBrush>
+    <ChartAreaShowShadow>Паказаць цень</ChartAreaShowShadow>
     <ChartType>Тып дыяграмы</ChartType>
     <Checked>Уключана</Checked>
     <CheckOnClick>Уключаць пры націску</CheckOnClick>
@@ -3077,6 +3090,7 @@
     <ReconnectOnEachRow>Абнаўляць на кожным запісе</ReconnectOnEachRow>
     <ReferencedAssemblies>Спасылкі на зборкі</ReferencedAssemblies>
     <Refresh>Абнавіць</Refresh>
+    <RefreshTime>Час абнаўлення</RefreshTime>
     <Relation>Сувязь</Relation>
     <RelationName>Найменне сувязі</RelationName>
     <Relations>Сувязі</Relations>
@@ -3253,6 +3267,8 @@
     <Totals>Падрахункі</Totals>
     <TransparentColor>Колер празрыстасці</TransparentColor>
     <TrendLine>Лінія трэнду</TrendLine>
+    <TrendLineColor>Колер</TrendLineColor>
+    <TrendLineShowShadow>Паказаць цень</TrendLineShowShadow>
     <Trimming>Падганянне</Trimming>
     <Type>Тып</Type>
     <TypeName>Найменне тыпу</TypeName>
@@ -3449,6 +3465,7 @@
     <FinishingReport>Завяршэнне справаздачы</FinishingReport>
     <FirstPass>Першы праход</FirstPass>
     <GenerateNewCode>Згенераваць новы код</GenerateNewCode>
+    <Infographics>Інфаграфіка</Infographics>
     <InfoMessage>{0} - {1} знойдзены.</InfoMessage>
     <InformationMessages>Інфармацыйныя паведамленні</InformationMessages>
     <LabelAlias>Псеўданім:</LabelAlias>

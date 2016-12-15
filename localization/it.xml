@@ -310,14 +310,38 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Impostazioni account</AccountSettings>
+    <ButtonDeleteAll>Elimina Tutto</ButtonDeleteAll>
+    <ButtonLogout>Logout</ButtonLogout>
+    <ButtonRecover>Ripristina</ButtonRecover>
+    <ButtonResetPassword>Reset</ButtonResetPassword>
+    <ButtonRun>Esegui</ButtonRun>
+    <ButtonSignUp>Iscriviti</ButtonSignUp>
+    <ButtonView>Visualizza</ButtonView>
     <Cancel>Annulla</Cancel>
+    <CheckBoxMoveToRecycleBin>Sposta nel Cestino</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Ricordami</CheckBoxRememberMe>
     <Collection>Galleria</Collection>
     <Create>Crea</Create>
     <CreateNewCollection>Crea nuova galleria</CreateNewCollection>
     <DeleteFile>Cancella file</DeleteFile>
+    <FolderWindowTitleEdit>Modifica Cartella</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Nuovo Cartella</FolderWindowTitleNew>
+    <GroupBoxAttachedItems>Items allegati</GroupBoxAttachedItems>
+    <HyperlinkAlreadyHaveAccount>Ho già un account</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Password dimenticata</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Ho una Password</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Crea nuovo account</HyperlinkRegisterAccount>
     <labelCollectionName>Nome galleria:</labelCollectionName>
+    <LabelCreated>Creato:</LabelCreated>
+    <LabelCurrentPassword>Password Corrente:</LabelCurrentPassword>
     <labelFileName>Nome file:</labelFileName>
+    <LabelLastLogin>Ultimo Login:</LabelLastLogin>
+    <LabelLastTime>Ultima Volta:</LabelLastTime>
+    <LabelModified>Modificato:</LabelModified>
+    <LabelNewPassword>Nuova Password:</LabelNewPassword>
+    <LabelNextTime>Prossima Volta:</LabelNextTime>
     <labelPassword>Password:</labelPassword>
+    <LabelPermission>Permesso:</LabelPermission>
     <labelUserName>User Name:</labelUserName>
     <Login>Login</Login>
     <Open>Apri</Open>
@@ -336,13 +360,134 @@
     <RefreshList>Aggiorna elenco</RefreshList>
     <ReportDocumentFormatNotRecognized>'{0}' non è un report visualizzabile!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>'{0}' non è un modello di report!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Aggiungi Ruolo</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Aggiungi Utente</RibbonButtonAddUser>
+    <RibbonButtonFolder>Cartella</RibbonButtonFolder>
+    <RibbonTabUsers>Utenti</RibbonTabUsers>
     <Root>Radice</Root>
     <Save>Salva</Save>
     <SaveAccountSettings>Salva impostazioni account</SaveAccountSettings>
     <SaveFile>Salva file</SaveFile>
+    <ShareWindowTitleNew>Impostazioni Condivisione</ShareWindowTitleNew>
     <ShowAllFiles>Mostra tutti i files</ShowAllFiles>
+    <TextDelete>Elimina</TextDelete>
+    <TextFirstName>Nome</TextFirstName>
+    <TextFromTo>Da {0} a {1} (Totale - {2})</TextFromTo>
+    <TextItemsWorkspace>Workspace</TextItemsWorkspace>
+    <TextLastName>Cognome</TextLastName>
+    <TextModify>Modifica</TextModify>
+    <TextNoNotifications>Nessuna Notifica</TextNoNotifications>
+    <TextProfile>Profilo</TextProfile>
+    <TextRole>Ruolo</TextRole>
+    <TextRun>Esegui</TextRun>
+    <TextUser>Utente</TextUser>
+    <TextUserName>Nome Utente (Email)</TextUserName>
+    <ThisFieldIsNotSpecified>Questo campo non è specificato!</ThisFieldIsNotSpecified>
+    <TimeHoursAgoFive>Cinque ore fa, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>Quattro ore fa, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Un'ora fa, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Tre ore fa, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Due ore fa, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Cinque minuti fa, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Quattro minuti fa, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Meno di un minuto fa</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>{0} minuti fa, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Un minuto fa, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Tre minuti fa, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Due minuti fa, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>Oggi, {0:t}</TimeToday>
+    <TimeYesterday>Ieri, {0:t}</TimeYesterday>
+    <WindowDescriptionDelete>Spunta gli item che vuoi eliminare e clicca il bottone "Elimina". Per annullare, clicca "Annulla".</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Seleziona gli items che vuoi ripristinare e clicca il bottone "Ripristina". Per annullare, clicca "Annulla"</WindowDescriptionRecover>
+    <WindowTitleDelete>Elimina Items</WindowTitleDelete>
+    <WindowTitleForgotPassword>Reset</WindowTitleForgotPassword>
     <WindowTitleLogin>Log in</WindowTitleLogin>
+    <WindowTitleRecover>Ripristina Items</WindowTitleRecover>
+    <WindowTitleRoleEdit>Modifica Ruolo</WindowTitleRoleEdit>
+    <WindowTitleSignUp>Iscriviti</WindowTitleSignUp>
+    <WindowTitleUserEdit>Modifica User</WindowTitleUserEdit>
+    <WindowTitleUserNew>Nuovo User</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Modifica Workspace</WindowTitleWorkspaceEdit>
+    <WizardBlankReportDescription>Crea Report Vuoto</WizardBlankReportDescription>
   </Cloud>
+  <Messages>
+    <MessageTimeOutExpired>Timeout del comando raggiunto!</MessageTimeOutExpired>
+  </Messages>
+  <Notices>
+    <AuthAccountCantBeUsedNow>L'account non può essere usato ora!</AuthAccountCantBeUsedNow>
+    <AuthCantChangeSystemRole>Un ruolo di sistema non può essere cambiato!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>L'utente non può eliminare se stesso!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteRootUser>L'utente root non può essere eliminato!</AuthCantDeleteRootUser>
+    <AuthCantDeleteSystemRole>Impossibile eliminatere questo Ruolo, perchè è un ruolo di sistema!</AuthCantDeleteSystemRole>
+    <AuthPasswordIsTooShort>La password è troppo corta (minimo 6 caratteri)!</AuthPasswordIsTooShort>
+    <AuthPasswordIsNotCorrect>La password non è corretta!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>La password non è specificata!</AuthPasswordIsNotSpecified>
+    <AuthFirstNameIsNotSpecified>Il Nome non è specificato!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>Il Cognome non è specificato!</AuthLastNameIsNotSpecified>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>Non puoi rimuovere il Ruolo pechè è usato da altri utenti.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>Un Ruolo col nome "{0}" esiste già!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>Il Ruolo col nome "{0}" è un ruolo di sistema!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>Un messaggio con ulteriori informazioni è stato inviato a "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>Ti sei disconnesso!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExist>Il nome utente (Email) è già in uso!</AuthUserNameAlreadyExist>
+    <AuthUserNameIsNotSpecified>Il nome utente (Email) non è specificato!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>Il nome utente  (Email) e la password non sono corretti!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>Il nome utente deve essere simile all'indirizzo email!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <CommandTimeOut>Il tempo di attesa per l'esecuzione del comando è scaduto!</CommandTimeOut>
+    <EnterCurrentPassword>Inserisci la password corrente!</EnterCurrentPassword>
+    <EnterNewPassword>Inserisci la nuova password!</EnterNewPassword>
+    <EndDateShouldBeGreaterThanStartDate>La data di fine deve essere maggiore della data di inizio!</EndDateShouldBeGreaterThanStartDate>
+    <EndDateShouldBeGreaterThanCurrentDate>La data di fine deve essere maggiore della data corrente!</EndDateShouldBeGreaterThanCurrentDate>
+    <IsNotAuthorized>Nessun accesso a "{0}"!</IsNotAuthorized>
+    <IsNotDeleted>"{0}" non è Eliminato!</IsNotDeleted>
+    <IsNotCorrect>"{0}" non è corretto!</IsNotCorrect>
+    <IsNotEqual>"{0}" non è uguale!</IsNotEqual>
+    <IsNotFound>"{0}" non è stato trovato!</IsNotFound>
+    <IsNotRecognized>"{0}" non è stato riconosciuto!</IsNotRecognized>
+    <IsNotSpecified>"{0}" non è specificato!</IsNotSpecified>
+    <IsRequiredFile>Devi aggiungere almeno un file!</IsRequiredFile>
+    <ItemCantBeDeletedBecausePermissionsRole>Non puoi rimuovere i seguenti items: </ItemCantBeDeletedBecausePermissionsRole>
+    <ItemCantBeMovedToSpecifiedPlace>L'item non può essere spostato nel posto specificato!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>L'item non supporta "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>Key e ToKey sono uguali!</KeyAndToKeyAreEqual>
+    <NotificationFailed>Risultato fallito!</NotificationFailed>
+    <NotificationReportExporting>Il report "{0}" sta esportando</NotificationReportExporting>
+    <NotificationReportExportingComplete>Il report "{0}" è stato esportato con successo.</NotificationReportExportingComplete>
+    <NotificationReportRendering>Il report "{0}" sta elaborando</NotificationReportRendering>
+    <NotificationReportRenderingComplete>Il report "{0}" è stato elaborato.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>Il report "{0}" è in attesa di elaborazione.</NotificationReportWaitingProcessing>
+    <NotificationTransferring>Il "{0}" sta trasferendo a "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>Il "{0}" è stato trasferito con successo a "{1}".</NotificationTransferringComplete>
+    <NotificationSchedulerRunning>Lo schedulatore "{0}" è in esecuzione.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>Esecuzione dello schedulatore "{0}" completata.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>Lo schedulatore "{0}" è in attesa di esecuzione.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleReportRendering>Elaborazione il report "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Esecuzione schedulatore "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTitleReportExporting>Esportazione report "{0}"</NotificationTitleReportExporting>
+    <OutOfRange>Fuori dai limiti ("{0}")!</OutOfRange>
+    <QuotaAvailableSpaceAmountExceeded>quota spazio disponibile superata.</QuotaAvailableSpaceAmountExceeded>
+    <QuotaMaximumComputingCyclesCountExceeded>Massimo numero di cicli di elaborazione superato.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumDataSourceItemCountExceeded>Massima quantità di Fonti Dati superata.</QuotaMaximumDataSourceItemCountExceeded>
+    <QuotaMaximumEmailCountExceeded>Massimo numero di email superato.</QuotaMaximumEmailCountExceeded>
+    <QuotaMaximumItemCountExceeded>Massimo numero di item superato.</QuotaMaximumItemCountExceeded>
+    <QuotaMaximumRoleCountExceeded>Massimo numero di ruoli superato.</QuotaMaximumRoleCountExceeded>
+    <QuotaMaximumSchedulersCountExceeded>Massimo numero di schedulatori superato.</QuotaMaximumSchedulersCountExceeded>
+    <QuotaMaximumUserCountExceeded>Massimo numero di utenti superato.</QuotaMaximumUserCountExceeded>
+    <AccessDenied>Accesso Negato!</AccessDenied>
+    <ParsingCommandException>Eccezione durante il processo del comando nell'xml specificato: {0}</ParsingCommandException>
+    <SchedulerCantRunItSelf>Lo schedulatore non può eseguire se stesso!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Timeout della sessione</SessionTimeOut>
+    <SnapshotAlreadyProcessed>Il report snapshot è stato già processato!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>L'item specificato non è "{0}"!</SpecifiedItemIsNot>
+    <WithSpecifiedKeyIsNotFound>"{0}" con la chiave specificata non è stato trovato!</WithSpecifiedKeyIsNotFound>
+    <VersionCopyFromItem>Copia da item "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>Creato dal file "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Creato da item "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Caricato da file "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>Creazione Nuovo item.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Alcuni files si stanno caricando, se chiudi la pagina andranno persi. Sei sicuro di voler chiudere la pagina?</WindowClosePreventWhileUploading>
+    <YourTimeSessionHasExpired>Il tempo della tua sessione è scaduto!</YourTimeSessionHasExpired>
+  </Notices>
   <Components>
     <StiBarCode>Codice a Barre</StiBarCode>
     <StiChart>Grafico</StiChart>
@@ -519,7 +664,7 @@
     <FileNotFound>File '{0}' non trovato</FileNotFound>
     <IdentifierIsNotValid>L’identificatore '{0}' è inamissibile.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Impossibile trovare la sorgente dei dati</ImpossibleFindDataSource>
-    <NameExists>Il nome del componente '{0}' è ripetuto. I nomi dei componenti debbono essere unici e independenti del registro.</NameExists>
+    <NameExists>Il nome del componente '{0}' è ripetuto.</NameExists>
     <NoServices>I servizii non sono trovati nel '{0}'</NoServices>
     <NotAssign>La sorgente dei dati non è indicata</NotAssign>
     <NotCorrectFormat>La stringa inserita non è nel formato corretto.</NotCorrectFormat>

@@ -117,6 +117,7 @@
     <Save>Snimi</Save>
     <SaveCopy>Snimi Kopiju</SaveCopy>
     <SetAll>Podesi sve</SetAll>
+    <ShowMore>Prikaži još</ShowMore>
     <Submit>Pošalji</Submit>
     <Test>Test</Test>
     <Up>Gore</Up>
@@ -520,7 +521,7 @@
     <FileNotFound>Fajl "{0}" nije pronađen.</FileNotFound>
     <IdentifierIsNotValid>Identifikator '{0}' nije validan.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Nemoguće je pronaći izvor podataka.</ImpossibleFindDataSource>
-    <NameExists>Već postoji objekat pod nazivom '{0}'. Objekti moraju imati jednoznačna imena, i imena moraju biti neosetljiva na velika i mala slova.</NameExists>
+    <NameExists>Već postoji objekat pod nazivom '{0}'. Objekti moraju imati jednoznačna imena.</NameExists>
     <NoServices>Servis nije pronađen u '{0}'</NoServices>
     <NotAssign>Izvor podatka nije specifikovan.</NotAssign>
     <NotCorrectFormat>Ulazni string nije u odgovarajućem formatu.</NotCorrectFormat>
@@ -768,6 +769,8 @@
     <AddCondition>&amp;Dodaj Uslov</AddCondition>
     <AddLevel>Dodaj Nivo</AddLevel>
     <AssignExpression>Dodeli Izraz</AssignExpression>
+    <BreakIfTrue>Zaustavi ako je tačno</BreakIfTrue>
+    <BreakIfTrueToolTip>Zaustavljane počinje ako je trenutni popunjen</BreakIfTrueToolTip>
     <ChangeFont>Promeni Font...</ChangeFont>
     <ComponentIsEnabled>Komponenta je Omogućena...</ComponentIsEnabled>
     <NoConditions>Bez Uslova</NoConditions>
@@ -1219,6 +1222,8 @@
     <AddNewItem>Dodaj novi</AddNewItem>
     <GaugeEditorForm>Gauge Editor</GaugeEditorForm>
     <Kind>Tip</Kind>
+    <LinearScale>Linearna Skala</LinearScale>
+    <RadialScale>Radijalna Skala</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Odustani</barname_cancel>
@@ -1721,6 +1726,7 @@
     <GroupOceania>Okeanija</GroupOceania>
     <GroupSouthAmerica>Južna Amerika</GroupSouthAmerica>
     <GroupWorld>Svet</GroupWorld>
+    <LinkDataForm>Link podataka</LinkDataForm>
     <MapEditorForm>Editor mape</MapEditorForm>
   </Map>
   <NuGet>
@@ -1771,9 +1777,11 @@
     <BarCodeAdditionalCategory>Dodatni Bar Kod</BarCodeAdditionalCategory>
     <BarCodeCategory>Bar Kod</BarCodeCategory>
     <BehaviorCategory>Ponašanje</BehaviorCategory>
+    <CapNeedle>Kapa čiode</CapNeedle>
     <CellCategory>Ćelija</CellCategory>
     <ChartAdditionalCategory>Dodatni Grafikon</ChartAdditionalCategory>
     <ChartCategory>Grafikon</ChartCategory>
+    <ChartMap>Mapa</ChartMap>
     <CheckCategory>Provera</CheckCategory>
     <ColorsCategory>Boje</ColorsCategory>
     <ColumnsCategory>Kolone</ColumnsCategory>
@@ -1800,6 +1808,7 @@
     <MouseEventsCategory>Događaji Miša</MouseEventsCategory>
     <NavigationCategory>Navigacija</NavigationCategory>
     <NavigationEventsCategory>Događaji Navigacije</NavigationEventsCategory>
+    <Needle>Čioda</Needle>
     <OptionsCategory>Opcije</OptionsCategory>
     <PageAdditionalCategory>Dodatna Strana</PageAdditionalCategory>
     <PageCategory>Strana</PageCategory>
@@ -1811,11 +1820,13 @@
     <RenderEventsCategory>Događaji Formiranja</RenderEventsCategory>
     <SeriesLabelsCategory>Labele serija</SeriesLabelsCategory>
     <ShapeCategory>Oblik</ShapeCategory>
+    <Size>Veličina</Size>
     <SubReportCategory>Pod-Izveštaj</SubReportCategory>
     <TableCategory>Tabela</TableCategory>
     <TextAdditionalCategory>Dodatni Tekst</TextAdditionalCategory>
     <TextCategory>Tekst</TextCategory>
     <TitleCategory>Naslov</TitleCategory>
+    <TrendLineCategory>Trend Linija</TrendLineCategory>
     <ValueCategory>Vrednost</ValueCategory>
     <ValueCloseCategory>Približna vrednost</ValueCloseCategory>
     <ValueEndCategory>Vrednost kraj</ValueEndCategory>
@@ -2613,6 +2624,7 @@
     <BrushType>Tip Četkice</BrushType>
     <BusinessObject>Biznis Objekat</BusinessObject>
     <CacheAllData>Keširaj Sve Podatke</CacheAllData>
+    <CacheTotals>Keš</CacheTotals>
     <CalcInvisible>Računaj Nevidljive</CalcInvisible>
     <CalculatedDataColumn>Izračunate Kolone Podataka</CalculatedDataColumn>
     <CalculationMode>Mod Izračunavanja</CalculationMode>
@@ -2631,6 +2643,7 @@
     <CenterPoint>Tačka centra</CenterPoint>
     <ChartAreaBorderColor>Boja ivice</ChartAreaBorderColor>
     <ChartAreaBrush>Oblast četke</ChartAreaBrush>
+    <ChartAreaShowShadow>Prikaži senku</ChartAreaShowShadow>
     <ChartType>Tip Grafikona</ChartType>
     <Checked>Označen</Checked>
     <CheckOnClick>Označen na Klik</CheckOnClick>
@@ -3063,6 +3076,7 @@
     <ReconnectOnEachRow>Ponovo se poveži na svakom redu</ReconnectOnEachRow>
     <ReferencedAssemblies>Referencirane grupe</ReferencedAssemblies>
     <Refresh>Osveži</Refresh>
+    <RefreshTime>Osveži vreme</RefreshTime>
     <Relation>Relacije</Relation>
     <RelationName>Ime Relacije</RelationName>
     <Relations>Relacije</Relations>
@@ -3239,6 +3253,8 @@
     <Totals>Ukupno</Totals>
     <TransparentColor>Prozirna Boja</TransparentColor>
     <TrendLine>Trend Linija</TrendLine>
+    <TrendLineColor>Boja</TrendLineColor>
+    <TrendLineShowShadow>Prikaži senku</TrendLineShowShadow>
     <Trimming>Kićenje</Trimming>
     <Type>Tip</Type>
     <TypeName>Ime Tipa</TypeName>
@@ -3435,6 +3451,7 @@
     <FinishingReport>Završavanje Izveštaja</FinishingReport>
     <FirstPass>Prvi Prolaz</FirstPass>
     <GenerateNewCode>Generiši Novi Kod</GenerateNewCode>
+    <Infographics>Infografika</Infographics>
     <InfoMessage>{0} - {1} nađeno.</InfoMessage>
     <InformationMessages>Informacije</InformationMessages>
     <LabelAlias>Alias:</LabelAlias>

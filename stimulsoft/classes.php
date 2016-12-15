@@ -25,9 +25,11 @@ class StiDatabaseType {
 	const MSSQL = "MS SQL";
 	const PostgreSQL = "PostgreSQL";
 	const Firebird = "Firebird";
+	const Oracle = "Oracle";
 }
 
 class StiEventType {
+	const ExecuteQuery = "ExecuteQuery";
 	const BeginProcessData = "BeginProcessData";
 	//const EndProcessData = "EndProcessData";
 	const CreateReport = "CreateReport";
@@ -62,24 +64,27 @@ class StiRequest {
 	public $settings = null;
 
 	public function parse() {
-		$data = null;
-		if (isset($HTTP_RAW_POST_DATA)) $data = $HTTP_RAW_POST_DATA;
-		if ($data == null) $data = file_get_contents("php://input");
-
+		$data = file_get_contents("php://input");
+		
 		$obj = json_decode($data);
 		if ($obj == null) return StiResult::error("JSON parser error");
-
+		
 		if (isset($obj->sender)) $this->sender = $obj->sender;
+		if (isset($obj->command)) $this->event = $obj->command;
 		if (isset($obj->event)) $this->event = $obj->event;
 		if (isset($obj->connectionString)) $this->connectionString = $obj->connectionString;
 		if (isset($obj->queryString)) $this->queryString = $obj->queryString;
 		if (isset($obj->database)) $this->database = $obj->database;
-		if (isset($obj->report)) $this->report = $obj->report;
 		if (isset($obj->data)) $this->data = $obj->data;
 		if (isset($obj->fileName)) $this->fileName = $obj->fileName;
 		if (isset($obj->format)) $this->format = $obj->format;
 		if (isset($obj->settings)) $this->settings = $obj->settings;
-
+		if (isset($obj->report)) {
+			$this->report = $obj->report;
+			if (defined('JSON_UNESCAPED_SLASHES')) $this->reportJson = json_encode($this->report, JSON_UNESCAPED_SLASHES);
+			else $this->reportJson = str_replace('\/', '/', json_encode($this->report));
+		}
+		
 		return StiResult::success(null, $this);
 	}
 }
@@ -87,7 +92,8 @@ class StiRequest {
 class StiResponse {
 	public static function json($result, $exit = true) {
 		unset($result->object);
-		echo json_encode($result);
+		if (defined('JSON_UNESCAPED_SLASHES')) echo json_encode($result, JSON_UNESCAPED_SLASHES);
+		else echo json_encode($result);
 		if ($exit) exit;
 	}
 }

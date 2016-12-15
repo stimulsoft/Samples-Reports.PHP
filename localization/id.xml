@@ -8,6 +8,11 @@
     <AbbreviatedDayThursday>Kms</AbbreviatedDayThursday>
     <AbbreviatedDayTuesday>Sel</AbbreviatedDayTuesday>
     <AbbreviatedDayWednesday>Rab</AbbreviatedDayWednesday>
+    <Attachment>Lampiran:</Attachment>
+    <ButtonNext>Berikutnya</ButtonNext>
+    <ButtonPrev>Sebelumnya</ButtonPrev>
+    <ButtonSend>Kirim</ButtonSend>
+    <CategoryAlreadyExists>Kategori sudah ada!</CategoryAlreadyExists>
     <DayFriday>Jumat</DayFriday>
     <DayMonday>Senin</DayMonday>
     <DaySaturday>Sabtu</DaySaturday>
@@ -15,10 +20,16 @@
     <DayThursday>Kamis</DayThursday>
     <DayTuesday>Selasa</DayTuesday>
     <DayWednesday>Rabu</DayWednesday>
+    <Email>Email:</Email>
+    <EmailOptions>Opsi Email</EmailOptions>
     <FirstPage>Halaman Pertama</FirstPage>
     <Hours>Jam</Hours>
+    <LabelFrom>Dari:</LabelFrom>
+    <LabelSelectExportFormat>Pilih format untuk menyimpan laporan:</LabelSelectExportFormat>
+    <LabelTo>Kepada:</LabelTo>
     <LastPage>Halaman Terakhir</LastPage>
     <Loading>Proses...</Loading>
+    <Message>Pesan:</Message>
     <Minutes>Menit</Minutes>
     <MonthApril>April</MonthApril>
     <MonthAugust>Agustus</MonthAugust>
@@ -44,6 +55,10 @@
     <PrintWithoutPreview>Print tanpa Pratinjau</PrintWithoutPreview>
     <PrintWithPreview>Print dengan Pratinjau</PrintWithPreview>
     <SaveReport>Simpan</SaveReport>
+    <Subject>Subject:</Subject>
+    <TabItemContacts>Kontak</TabItemContacts>
+    <TextComputer>Komputer</TextComputer>
+    <TextItemsRoot>Akar</TextItemsRoot>
     <TodayDate>Hari Ini</TodayDate>
     <WholeReport>Semua Laporan</WholeReport>
   </A_WebViewer>
@@ -78,6 +93,7 @@
     <AddAllColumns>Tambah Semua Kolom</AddAllColumns>
     <Build>Bangun...</Build>
     <Cancel>&amp;Tunda</Cancel>
+    <Check>Periks</Check>
     <Close>Tutup</Close>
     <Delete>Hapus</Delete>
     <Design>Design</Design>
@@ -101,6 +117,7 @@
     <Save>Simpan</Save>
     <SaveCopy>Simpan sebagai Copy</SaveCopy>
     <SetAll>Pilih Semua</SetAll>
+    <ShowMore>Tampilkan Lebih</ShowMore>
     <Submit>Setuju</Submit>
     <Test>Tes</Test>
     <Up>Naik</Up>
@@ -120,11 +137,13 @@
     <Bubble>Gelembung</Bubble>
     <Candlestick>Candlestick</Candlestick>
     <ChartConditionsCollectionForm>Kriteria</ChartConditionsCollectionForm>
+    <ChartEditorForm>Bagan Editor</ChartEditorForm>
     <ChartFiltersCollectionForm>Filter</ChartFiltersCollectionForm>
     <ChartType>Tipe Grafik</ChartType>
     <CheckBoxAutoRotation>Putar Otomatis</CheckBoxAutoRotation>
     <ClusteredBar>Batang Berkelompok </ClusteredBar>
     <ClusteredColumn>Kolom Berkelompok</ClusteredColumn>
+    <Common>Umum</Common>
     <ConstantLine>Garis Lurus</ConstantLine>
     <ConstantLinesEditorForm>Editor Garis Lurus</ConstantLinesEditorForm>
     <DataColumns>Kolom Data</DataColumns>
@@ -137,6 +156,7 @@
     <FullStackedSpline>Susunan Penuh Spline</FullStackedSpline>
     <FullStackedSplineArea>Susunan Penuh Spline Area</FullStackedSplineArea>
     <Funnel>Corong</Funnel>
+    <FunnelWeightedSlices>Corong Tertimbang Slices</FunnelWeightedSlices>
     <Gantt>Gantt</Gantt>
     <GridInterlaced>Interlaced</GridInterlaced>
     <GridLines>Garis Grid</GridLines>
@@ -187,6 +207,7 @@
     <Pie>Pie</Pie>
     <Radar>Radar</Radar>
     <RadarArea>Radar Area</RadarArea>
+    <RadarColumn>Radar Kolom</RadarColumn>
     <RadarLine>Radar Garis</RadarLine>
     <RadarPoint>Radar Point</RadarPoint>
     <Range>Rentang</Range>
@@ -290,14 +311,63 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Pengaturan Akun</AccountSettings>
+    <ButtonChangePassword>Ubah Password</ButtonChangePassword>
+    <ButtonDeleteAll>Hapus Semua</ButtonDeleteAll>
+    <ButtonDesign>Desain Laporan</ButtonDesign>
+    <ButtonLogout>Keluar</ButtonLogout>
+    <ButtonPublish>Publikasikan</ButtonPublish>
+    <ButtonRecover>Recover</ButtonRecover>
+    <ButtonResendEmail>Kirim Ulang Email</ButtonResendEmail>
+    <ButtonResetPassword>Reset Password</ButtonResetPassword>
+    <ButtonRun>Run</ButtonRun>
+    <ButtonShare>bagikan</ButtonShare>
+    <ButtonSignUp>Mendaftar</ButtonSignUp>
+    <ButtonSkip>Lewati</ButtonSkip>
+    <ButtonView>Lihat</ButtonView>
+    <ButtonWhereUsed>Dimana itu digunakan?</ButtonWhereUsed>
     <Cancel>Cancel</Cancel>
+    <CheckBoxMoveToRecycleBin>Pindah ke Recycle Bin</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Ingat saya</CheckBoxRememberMe>
     <Collection>Koleksi</Collection>
     <Create>Membuat</Create>
+    <CreateError>Kesalahan saat membuat laporan!</CreateError>
     <CreateNewCollection>Membuat Koleksi Baru</CreateNewCollection>
+    <CreatingReport>Sedang Membuat laporan ...</CreatingReport>
     <DeleteFile>Hapus File</DeleteFile>
+    <ExecutionError>Kesalahan Eksekusi</ExecutionError>
+    <FileStorageWindowTitleEdit>Ubah Tempat penyimpanan file</FileStorageWindowTitleEdit>
+    <FileStorageWindowTitleNew>Tempat penyimpanan baru</FileStorageWindowTitleNew>
+    <FolderWindowTitleEdit>Ubah Folder</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Folder baru</FolderWindowTitleNew>
+    <ForExample>Misalnya</ForExample>
+    <GroupBoxAttachedItems>Terlampir Produk</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>Dengan mendaftar Anda setuju dengan Persyaratan.</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>Sudah memiliki akun</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Lupa kata sandi</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Memiliki sandi</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Daftar akun baru</HyperlinkRegisterAccount>
     <labelCollectionName>Nama Koleksi:</labelCollectionName>
+    <LabelCreated>Dibuat:</LabelCreated>
+    <LabelCreateFolder>Membuat kategori baru di mana Anda dapat menempatkan barang-barang lainnya.</LabelCreateFolder>
+    <LabelCreateReportTemplate>Buat template/contoh laporan.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>Password saat ini</LabelCurrentPassword>
+    <LabelDataFile>Data File:</LabelDataFile>
+    <LabelDataUrl>URL Data</LabelDataUrl>
     <labelFileName>Nama File:</labelFileName>
+    <LabelForeground>taruh di depan</LabelForeground>
+    <LabelFromReport>Dari Laporan</LabelFromReport>
+    <LabelFromReportCode>Dari Laporan (mendefinisikan dalam kode)</LabelFromReportCode>
+    <LabelLastLogin>Terakhir masuk</LabelLastLogin>
+    <LabelLastTime>Waktu terakhir</LabelLastTime>
+    <LabelModified>Diubah</LabelModified>
+    <LabelNewPassword>Password baru</LabelNewPassword>
+    <LabelNextTime>Waktu Berikutnya</LabelNextTime>
     <labelPassword>Kata Kunci:</labelPassword>
+    <LabelPermission>Izin</LabelPermission>
+    <LabelRenderedReport>Laporan telah dibuat</LabelRenderedReport>
+    <LabelResponseAsFile>Tanggapai dengan file</LabelResponseAsFile>
+    <LabelSeparateReport>laporan terpisah</LabelSeparateReport>
+    <LabelShowReport>Tampilkan Laporan</LabelShowReport>
     <labelUserName>Nama Pengguna:</labelUserName>
     <Login>Masuk</Login>
     <Open>Buka</Open>
@@ -316,11 +386,93 @@
     <RefreshList>Refresh Daftar</RefreshList>
     <ReportDocumentFormatNotRecognized>Format dari '{0}' ini tidak dikenali sebagai format yang ditentukan!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Format dari '{0}' ini tidak dikenali sebagai format template laporan!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Tambahkan Peran</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Tambahkan Pengguna</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>Tambahkan Bidang Kerja</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>Folder</RibbonButtonFolder>
+    <RibbonTabUsers>Pengguna</RibbonTabUsers>
     <Root>Root</Root>
+    <RootFolder>Folder akar</RootFolder>
     <Save>Simpan</Save>
     <SaveAccountSettings>Simpan Pengaturan Akun</SaveAccountSettings>
     <SaveFile>Simpan File</SaveFile>
+    <ShareWindowTitleNew>Bagikan</ShareWindowTitleNew>
     <ShowAllFiles>Perlihatkan Semua File</ShowAllFiles>
+    <TabItemEmbedCode>Kode yang disertakan</TabItemEmbedCode>
+    <TabItemQRCode>QR Kode</TabItemQRCode>
+    <TabItemShare>Bagikan</TabItemShare>
+    <TextActivated>Diaktifkan</TextActivated>
+    <TextDelete>Hapus</TextDelete>
+    <TextDeletingItems>Sedang Menghapus item ...</TextDeletingItems>
+    <TextFirstName>Nama Pertama</TextFirstName>
+    <TextFromTo>Dari {0} ke {1} (Total - {2})</TextFromTo>
+    <TextItemsWorkspace>Bidang Kerja</TextItemsWorkspace>
+    <TextLastName>Nama terakhir</TextLastName>
+    <TextModify>Ubah</TextModify>
+    <TextNoNotifications>Tidak ada Pemberitahuan</TextNoNotifications>
+    <TextProfile>Profil</TextProfile>
+    <TextReports>Laporan</TextReports>
+    <TextRestoringItems>Sedang Memulihkan item ...</TextRestoringItems>
+    <TextRole>Peran</TextRole>
+    <TextRun>Jalankan</TextRun>
+    <TextUser>Pengguna</TextUser>
+    <TextUserName>User Name (Email)</TextUserName>
+    <TimeHoursAgoFive>Lima jam lalu, {0: t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>Empat jam yang lalu, {0: t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Satu jam yang lalu, {0: t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Tiga jam yang lalu, {0: t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Dua jam yang lalu, {0: t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Lima menit yang lalu, {0: t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Empat menit yang lalu, {0: t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Kurang dari satu menit yang lalu</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>{0} menit yang lalu, {1: t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Satu menit yang lalu, {0: t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Tiga menit yang lalu, {0: t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Dua menit yang lalu, {0: t}</TimeMinutesAgoTwo>
+    <TimeToday>Hari ini, {0: t}</TimeToday>
+    <TimeYesterday>Kemarin, {0: t}</TimeYesterday>
+    <ToolTipAddRole>Membuat peran baru dalam ruang kerja.</ToolTipAddRole>
+    <ToolTipAddUser>Membuat pengguna baru dalam peran yang dipilih.</ToolTipAddUser>
+    <ToolTipAspNet>Publikasikan laporan yang dipilih untuk aplikasi ASP.NET.</ToolTipAspNet>
+    <ToolTipAspNetMvc>Publikasikan laporan yang dipilih untuk aplikasi ASP.NET MVC.</ToolTipAspNetMvc>
+    <ToolTipCreate>Buat item baru.</ToolTipCreate>
+    <ToolTipDelete>Hapus item yang dipilih.</ToolTipDelete>
+    <ToolTipDeleted>Tampilkan item yang dihapus</ToolTipDeleted>
+    <ToolTipEdit>Edit item yang dipilih.</ToolTipEdit>
+    <ToolTipGridMode>Tampilan daftar</ToolTipGridMode>
+    <ToolTipInfo>Lihat rincian</ToolTipInfo>
+    <ToolTipJs>Publikasikan laporan terpilih sebagai halaman HTML</ToolTipJs>
+    <ToolTipPublish>Siapkan laporan yang dipilih untuk digunakan dalam aplikasi Anda</ToolTipPublish>
+    <ToolTipRecover>Pulihikan item yang dipilih.</ToolTipRecover>
+    <ToolTipRunWithoutPreview>Jalankan laporan yang dipilih tanpa pratinjau</ToolTipRunWithoutPreview>
+    <ToolTipShare>Bagi file yang dipilih.</ToolTipShare>
+    <ToolTipSort>Pilihan Urut</ToolTipSort>
+    <ToolTipThumbnailMode>Grid View</ToolTipThumbnailMode>
+    <ToolTipViewFile>Tampilkan file yang dipilih.</ToolTipViewFile>
+    <ToolTipViewReport>Tampilkan Laporan dipilih pada penampil.</ToolTipViewReport>
+    <WindowDescriptionDelete>Apakah Anda yakin ingin menghapus item yang dipilih?</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Item yang dipilih akan pulih dari Recycle Bin.</WindowDescriptionRecover>
+    <WindowTitleDelete>Hapus Item</WindowTitleDelete>
+    <WindowTitleForgotPassword>Lupa Sandi</WindowTitleForgotPassword>
+    <WindowTitleLogin>Login</WindowTitleLogin>
+    <WindowTitleRecover>Pulihkan Item</WindowTitleRecover>
+    <WindowTitleRoleEdit>Edit Peran</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>Peran Baru</WindowTitleRoleNew>
+    <WindowTitleSignUp>Mendaftar</WindowTitleSignUp>
+    <WindowTitleUserEdit>Edit Pengguna</WindowTitleUserEdit>
+    <WindowTitleUserNew>Pengguna baru</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Ubah Bidang Kerja</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>Bidang kerja baru</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>Buat Laporan Kosong</WizardBlankReportDescription>
+    <WizardExcelDescription>Buat laporan dengan data Excel.</WizardExcelDescription>
+    <WizardJsonDescription>Buat laporan dengan data JSON.</WizardJsonDescription>
+    <WizardPrivateShare>Tidak ada akses</WizardPrivateShare>
+    <WizardPrivateShareDescription>akses eksternal untuk item dibatasi.</WizardPrivateShareDescription>
+    <WizardPublicShare>Akses Umum</WizardPublicShare>
+    <WizardPublicShareDescription>akses eksternal untuk setiap pengguna yang tidak sah.</WizardPublicShareDescription>
+    <WizardRegisteredShare>Akses terbatasa</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>akses eksternal hanya untuk pengguna terdaftar dari ruang kerja apapun.</WizardRegisteredShareDescription>
+    <WizardXmlDescription>Buat laporan dengan data XML.</WizardXmlDescription>
   </Cloud>
   <Components>
     <StiBarCode>Bar Code</StiBarCode>
@@ -345,6 +497,7 @@
     <StiCrossSummary>Cross-Jumlah</StiCrossSummary>
     <StiCrossSummaryHeader>Cross-Jumlah Header</StiCrossSummaryHeader>
     <StiCrossTab>Cross-Tab</StiCrossTab>
+    <StiCrossTitle>Cross-Judul</StiCrossTitle>
     <StiDataBand>Data</StiDataBand>
     <StiEmptyBand>Data Kosong</StiEmptyBand>
     <StiFooterBand>Footer</StiFooterBand>
@@ -355,6 +508,7 @@
     <StiHierarchicalBand>Susunan Data</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>Garis Horisontal</StiHorizontalLinePrimitive>
     <StiImage>Gambar</StiImage>
+    <StiMap>Peta</StiMap>
     <StiOverlayBand>Hamparan</StiOverlayBand>
     <StiPage>Halaman</StiPage>
     <StiPageFooterBand>Halaman Footer</StiPageFooterBand>
@@ -382,6 +536,7 @@
     <DatabaseDB2>Koneksi IBM DB2</DatabaseDB2>
     <DatabaseFirebird>Koneksi Firebird</DatabaseFirebird>
     <DatabaseInformix>Koneksi Informix</DatabaseInformix>
+    <DatabaseJson>JSON data</DatabaseJson>
     <DatabaseMySQL>Koneksi MySQL</DatabaseMySQL>
     <DatabaseOdbc>Koneksi ODBC</DatabaseOdbc>
     <DatabaseOleDb>Koneksi OLE DB</DatabaseOleDb>
@@ -407,6 +562,8 @@
     <ConnectionSuccessfull>Koneksi telah berhasil</ConnectionSuccessfull>
     <Continue>Lanjutkan</Continue>
     <DecryptionError>Decryption error: Salah password atau file yang rusak.</DecryptionError>
+    <EmailSuccessfullySent>Email telah berhasil dikirim.</EmailSuccessfullySent>
+    <ErrorAtSaving>Kesalahan saat menyimpan</ErrorAtSaving>
     <ErrorCode>Error saat menyimpan. Kode error: {0}</ErrorCode>
     <ErrorServer>Error saat menyimpan. Server tidak merespon.</ErrorServer>
     <ExportingReport>Sedang mengeksport laporan</ExportingReport>
@@ -418,6 +575,8 @@
     <LoadingLanguage>Sedang memuat Bahasa</LoadingLanguage>
     <LoadingReport>Sedang memuat laporan</LoadingReport>
     <PreviewAs>Pratinjau sebagai {0}</PreviewAs>
+    <RenderingReport>Sedang membuat laporan</RenderingReport>
+    <ReportSuccessfullySaved>Laporan berhasil disimpan.</ReportSuccessfullySaved>
     <RetrieveError>Memilih kolom yang error </RetrieveError>
     <RetrievingColumns>Sedang memilih kolom</RetrievingColumns>
     <SavingConfiguration>Sedang menyimpan konfigurasi</SavingConfiguration>
@@ -492,7 +651,7 @@
     <FileNotFound>File "{0}" tidak ditemukan.</FileNotFound>
     <IdentifierIsNotValid>Pengenal '{0}' tidak valid.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Tidak mungkin untuk mencari sumber data.</ImpossibleFindDataSource>
-    <NameExists>Sudah ada objek yang pernah diberi nama '{0}'. Objek harus mempunyai nama yang unik, dan nama harus tidak membedakan huruf besar dan kecil.</NameExists>
+    <NameExists>Sudah ada objek yang pernah diberi nama '{0}'. Objek harus mempunyai nama yang unik.</NameExists>
     <NoServices>Servis tidak ditemukan dalam '{0}'</NoServices>
     <NotAssign>Sumber data belum ditentukan.</NotAssign>
     <NotCorrectFormat>Masukan tidak pada format yang benar.</NotCorrectFormat>
@@ -505,11 +664,14 @@
     <AllBands>Semua Berkas</AllBands>
     <AllowAddOrModifyTextAnnotations>Memperbolehkan menambah atau merubah Catatan</AllowAddOrModifyTextAnnotations>
     <AllowCopyTextAndGraphics>Memperbolehkan manyalin tulisan dan grafik</AllowCopyTextAndGraphics>
+    <AllowEditable>Izinkan diedit:</AllowEditable>
     <AllowModifyContents>Memperbolehkan merubah isi</AllowModifyContents>
     <AllowPrintDocument>Memperbolehkan mencetak dokumen</AllowPrintDocument>
+    <Auto>Auto</Auto>
     <BandsFilter>Saringan Berkas:</BandsFilter>
     <Color>Warna</Color>
     <Compressed>Telah diringkas</Compressed>
+    <CompressToArchive>Kompres ke Arsip</CompressToArchive>
     <ContinuousPages>Halaman Berlanjut</ContinuousPages>
     <DataAndHeadersFooters>Data dan Headers/Footers</DataAndHeadersFooters>
     <DataOnly>Hanya Data</DataOnly>
@@ -519,9 +681,12 @@
     <DocumentSecurity>Keamanan Dokumen</DocumentSecurity>
     <DotMatrixMode>Mode Dot-Matrix</DotMatrixMode>
     <EmbeddedFonts>Huruf yang menempel</EmbeddedFonts>
+    <EmbeddedImageData>Sertakan data Gambar</EmbeddedImageData>
     <Encoding>Menyandikan:</Encoding>
     <EncryptionError>Terdapat Kesalahan Penyandian pada tahap ini</EncryptionError>
     <EscapeCodes>Kode Keluar</EscapeCodes>
+    <Exactly>Tepat</Exactly>
+    <ExceptEditableFields>Kecuali field yang dapat diubah</ExceptEditableFields>
     <ExportDataOnly>Hanya ekspor data</ExportDataOnly>
     <ExportEachPageToSheet>Ekspor masing-masing halaman ke sheet</ExportEachPageToSheet>
     <ExportingCalculatingCoordinates>Sedang menghitung koordinat</ExportingCalculatingCoordinates>
@@ -537,6 +702,7 @@
     <ExportTypeBmpFile>Gambar BMP...</ExportTypeBmpFile>
     <ExportTypeCalcFile>Buka Dokumen calc File...</ExportTypeCalcFile>
     <ExportTypeCsvFile>File CSV...</ExportTypeCsvFile>
+    <ExportTypeDataFile>Data File ...</ExportTypeDataFile>
     <ExportTypeDbfFile>File DBF dBase...</ExportTypeDbfFile>
     <ExportTypeDifFile>File Data Interchange Format (DIF)...</ExportTypeDifFile>
     <ExportTypeExcel2007File>File Microsoft Excel 2007...</ExportTypeExcel2007File>
@@ -545,6 +711,7 @@
     <ExportTypeGifFile>Gambar GIF...</ExportTypeGifFile>
     <ExportTypeHtml5File>File HTML5...</ExportTypeHtml5File>
     <ExportTypeHtmlFile>File HTML...</ExportTypeHtmlFile>
+    <ExportTypeImageFile>File Gambar ...</ExportTypeImageFile>
     <ExportTypeJpegFile>Gambar JPEG...</ExportTypeJpegFile>
     <ExportTypeMetafile>Windows Metafile...</ExportTypeMetafile>
     <ExportTypeMhtFile>MHT Web Archive...</ExportTypeMhtFile>
@@ -570,6 +737,7 @@
     <ImageMonochrome>Satu Warna</ImageMonochrome>
     <ImageQuality>Kualitas Gambar</ImageQuality>
     <ImageResolution>Resolusi Gambar:</ImageResolution>
+    <ImageResolutionMode>Mode Resolusi Gambar :</ImageResolutionMode>
     <ImageType>Tipe Gambar</ImageType>
     <labelEncryptionKeyLength>Panjang Kunci Enkripsi:</labelEncryptionKeyLength>
     <labelOwnerPassword>Kata Kunci Pemilik:</labelOwnerPassword>
@@ -578,9 +746,12 @@
     <MonochromeDitheringType>Bentuk Satu Warna:</MonochromeDitheringType>
     <MoreSettings>Pengaturan Lebih Lanjut</MoreSettings>
     <MultipleFiles>Banyak File</MultipleFiles>
+    <NoMoreThan>Tidak Lebih dari</NoMoreThan>
     <OpenAfterExport>Buka setelah export</OpenAfterExport>
     <PdfACompliance>PDF/A Compliance</PdfACompliance>
     <RemoveEmptySpaceAtBottom>Hilangkan jarak kosong di bawah halaman</RemoveEmptySpaceAtBottom>
+    <RestrictEditing>Batasi Perubahan:</RestrictEditing>
+    <Scale>Skala:</Scale>
     <Separator>Pemisah:</Separator>
     <Settings>Pengaturan</Settings>
     <SkipColumnHeaders>Lewati Kolom Header</SkipColumnHeaders>
@@ -596,6 +767,7 @@
     <TxtKillSpaceGraphLines>Hilangkan Jarak Garis Grafik</TxtKillSpaceGraphLines>
     <TxtKillSpaceLines>Matikan Jarak Garis</TxtKillSpaceLines>
     <TxtPutFeedPageCode>Letakkan Kode HalamanPut</TxtPutFeedPageCode>
+    <Type>Tipe:</Type>
     <UseDefaultSystemEncoding>Gunakan Sistem Penyandian Default</UseDefaultSystemEncoding>
     <UseDigitalSignature>Gunakan Tanda Tangan Digital</UseDigitalSignature>
     <UseEscapeCodes>Gunakan Kode Kunci</UseEscapeCodes>
@@ -630,6 +802,9 @@
     <HtmlFiles>File HTML (*.html)|*.html</HtmlFiles>
     <InheritedLanguageFiles>{0} file untuk tutunan laporan (*.{1})|*.{2}</InheritedLanguageFiles>
     <JpegFiles>Gambar JPEG (*.jpeg)|*.jpeg</JpegFiles>
+    <JsonDocumentFiles>JSON Dokumen (* .mdc) | * .mdc</JsonDocumentFiles>
+    <JsonFiles>JSON Files (* .json) | * .json</JsonFiles>
+    <JsonReportFiles>JSON Laporan Template (* .mrt) | * .mrt</JsonReportFiles>
     <LanguageFiles>{0} file (*.{1})|*.{2}</LanguageFiles>
     <LanguageForSilverlightFiles>{0} file untuk laporan Silverlight (*.{1})|*.{2}</LanguageForSilverlightFiles>
     <MetaFiles>Meta Files</MetaFiles>
@@ -654,6 +829,7 @@
     <WriterFiles>file OpenDocument Writer (*.odt)|*.odt</WriterFiles>
     <XmlFiles>file XML (*.xml)|*.xml</XmlFiles>
     <XpsFiles>file Microsoft XPS (*.xps)|*.xps</XpsFiles>
+    <ZipArchives>ZIP Archives (* .zip) | * .zip</ZipArchives>
   </FileFilters>
   <Formats>
     <custom01>d</custom01>
@@ -723,6 +899,8 @@
     <AddCondition>&amp;Tambah Kondisi</AddCondition>
     <AddLevel>Tambah Level</AddLevel>
     <AssignExpression>Tentukan Ekspresi</AssignExpression>
+    <BreakIfTrue>Istirahat jika benar</BreakIfTrue>
+    <BreakIfTrueToolTip>Breaks pengolahan kondisi jika saat ini dipenuhi</BreakIfTrueToolTip>
     <ChangeFont>Rubah Huruf...</ChangeFont>
     <ComponentIsEnabled>Komponen bisa digunakan</ComponentIsEnabled>
     <NoConditions>Tanpa Kondisi</NoConditions>
@@ -746,9 +924,13 @@
     <EditConnection>Rubah Koneksi {0}</EditConnection>
     <FirebirdEdit>Rubah Koneksi Firebird</FirebirdEdit>
     <FirebirdNew>Koneksi baru Firebird</FirebirdNew>
+    <FirstRowIsHeader>First Row adalah header</FirstRowIsHeader>
+    <ImportData>Impor Data</ImportData>
     <InformixEdit>Rubah Koneksi Informix</InformixEdit>
     <InformixNew>Koneksi baru Informix</InformixNew>
     <InitialCatalog>Katalog Awal:</InitialCatalog>
+    <JsonEdit>Edit JSON data</JsonEdit>
+    <JsonNew>Data JSON baru</JsonNew>
     <MySQLEdit>Rubah Koneksi MySQL</MySQLEdit>
     <MySQLNew>Koneksi baru MySQL</MySQLNew>
     <NewConnection>Koneksi baru {0}</NewConnection>
@@ -761,10 +943,15 @@
     <OracleODPEdit>Rubah Koneksi Oracle ODP.NET</OracleODPEdit>
     <OracleODPNew>Koneksi baru Oracle ODP.NET</OracleODPNew>
     <PathData>Jalur ke Data XML:</PathData>
+    <PathJsonData>Jalur Data JSON:</PathJsonData>
     <PathSchema>Jalur ke Skema XSD:</PathSchema>
+    <PathToData>Path ke Data:</PathToData>
+    <Pin>Pin</Pin>
     <PostgreSQLEdit>Rubah Koneksi PostgreSQL</PostgreSQLEdit>
     <PostgreSQLNew>Koneksi Baru PostgreSQL</PostgreSQLNew>
     <PromptUserNameAndPassword>Ingatkan Nama Pengguna dan Kata Kunci</PromptUserNameAndPassword>
+    <RecentConnections>Terbaru</RecentConnections>
+    <ReportConnections>Laporan Koneksi</ReportConnections>
     <SqlCeEdit>Rubah Koneksi SQLServerCE</SqlCeEdit>
     <SqlCeNew>Koneksi Baru SQLServerCE</SqlCeNew>
     <SqlEdit>Rubah Koneksi SQL</SqlEdit>
@@ -775,13 +962,14 @@
     <TeradataNew>Koneksi baru Teradata</TeradataNew>
     <UniDirectEdit>Rubah Koneksi Uni Direct</UniDirectEdit>
     <UniDirectNew>Koneksi Baru Uni Direct</UniDirectNew>
+    <Unpin>Lepaskan</Unpin>
     <VistaDBEdit>Rubah Koneksi VistaDB</VistaDBEdit>
     <VistaDBNew>Koneksi Baru VistaDB</VistaDBNew>
     <XmlEdit>Rubah Data XML</XmlEdit>
     <XmlNew>Data XML Baru</XmlNew>
+    <XmlType>Jenis XML :</XmlType>
   </FormDatabaseEdit>
   <FormDesigner>
-    <Others>Yang lain</Others>
     <Code>Kode</Code>
     <ColumnsOne>Satu</ColumnsOne>
     <ColumnsThree>Tiga</ColumnsThree>
@@ -796,6 +984,7 @@
     <MarginsNormal>Normal</MarginsNormal>
     <MarginsWide>Lebar</MarginsWide>
     <OrderToolbars>Sesuaikan Toolbars</OrderToolbars>
+    <Others>Yang lain</Others>
     <Pages>Halaman</Pages>
     <Preview>Pratinjau</Preview>
     <PropertyChange>Perubahan dari properti '{0}'</PropertyChange>
@@ -818,6 +1007,12 @@
     <ChildSource>Sumber Data Child:</ChildSource>
     <ColumnEdit>Rubah Kolom</ColumnEdit>
     <ColumnNew>Kolom Baru</ColumnNew>
+    <CsvSeparatorComma>Koma</CsvSeparatorComma>
+    <CsvSeparatorOther>Lain</CsvSeparatorOther>
+    <CsvSeparatorSemicolon>Titik koma</CsvSeparatorSemicolon>
+    <CsvSeparatorSpace>Ruang</CsvSeparatorSpace>
+    <CsvSeparatorSystem>Sistem</CsvSeparatorSystem>
+    <CsvSeparatorTab>Tab</CsvSeparatorTab>
     <DatabaseEdit>Rubah Database</DatabaseEdit>
     <DatabaseNew>Database Baru</DatabaseNew>
     <DataParameterEdit>Rubah Parameter</DataParameterEdit>
@@ -837,6 +1032,7 @@
     <ExpressionNew>Ekspresi baru</ExpressionNew>
     <GetColumnsFromAssembly>Dapatkan kolom dari pemasangan</GetColumnsFromAssembly>
     <ImportRelations>Impor Hubungan</ImportRelations>
+    <LabelSeparator>Separator:</LabelSeparator>
     <MarkUsedItems>Tandai item yang telah digunakan</MarkUsedItems>
     <NewBusinessObject>Objek Bisnis Baru</NewBusinessObject>
     <NewItem>Item Baru</NewItem>
@@ -845,12 +1041,17 @@
     <Queries>Queri</Queries>
     <QueryNew>Queri Baru</QueryNew>
     <QueryText>Tuisan Queri</QueryText>
+    <QueryTimeout>Batas Waktu Query</QueryTimeout>
     <RelationEdit>Ubah Hubungan</RelationEdit>
     <RelationNew>Hubungan Baru</RelationNew>
     <RetrieveColumns>Ambil Kolom</RetrieveColumns>
+    <RetrieveColumnsAllowRun>Izinkan Menjalankan StoredProcedure</RetrieveColumnsAllowRun>
+    <RetrieveColumnsAndParameters>Buka Kolom dan Parameter</RetrieveColumnsAndParameters>
+    <RetrieveParameters>Buka Parameter</RetrieveParameters>
     <RetrievingDatabaseInformation>Sedang mengambil informasi database...</RetrievingDatabaseInformation>
     <Run>Jalankan</Run>
     <SelectTypeOfBusinessObject>Pilih Tipe Objek Bisnis</SelectTypeOfBusinessObject>
+    <SkipSchemaWizard>Lewati Skema Wizard</SkipSchemaWizard>
     <SortItems>Urutkan Item</SortItems>
     <Synchronize>Sinkronkan</Synchronize>
     <SynchronizeHint>Sinkronkan isi dari sumber data dan isi dari Kamus</SynchronizeHint>
@@ -907,6 +1108,11 @@
     <SetCulture>Atur Pengaturan Pemeliharaan dari Laporan</SetCulture>
     <title>Pengedit Global</title>
   </FormGlobalizationEditor>
+  <FormInteraction>
+    <HyperlinkExternalDocuments>Hyperlink ke Dokumen Eksternal</HyperlinkExternalDocuments>
+    <HyperlinkUsingInteractionBookmark>Hyperlink menggunakan Bookmark</HyperlinkUsingInteractionBookmark>
+    <HyperlinkUsingInteractionTag>Hyperlink menggunakan Tag</HyperlinkUsingInteractionTag>
+  </FormInteraction>
   <FormOptions>
     <AutoSave>Simpan Otomatis</AutoSave>
     <AutoSaveReportToReportClass>Simpan Otomatis Laporan ke File C# or VB.NET</AutoSaveReportToReportClass>
@@ -947,6 +1153,8 @@
     <MarkersStyleCorners>Sudut</MarkersStyleCorners>
     <MarkersStyleDashedRectangle>Bujur Sangkar dengan Garis-garis</MarkersStyleDashedRectangle>
     <MarkersStyleNone>Tidak Ada</MarkersStyleNone>
+    <MessageLeftRightNotValid>Nilai Kanan dan Kiri tidak valid.</MessageLeftRightNotValid>
+    <MessageTopBottomNotValid>Nilai Atas dan Bawah tidak valid.</MessageTopBottomNotValid>
     <Minutes>{0} Menit</Minutes>
     <SaveReportEvery>Simpan Laporan setiap:</SaveReportEvery>
     <SelectUILanguage>Pilih UI Bahasa</SelectUILanguage>
@@ -979,6 +1187,7 @@
     <labelMultipleFactor>Banyak Faktor:</labelMultipleFactor>
     <labelPaperSourceOfFirstPage>Sumber Kertas dari Halaman Pertama:</labelPaperSourceOfFirstPage>
     <labelPaperSourceOfOtherPages>Sumber Kertas untuk Halaman lain:</labelPaperSourceOfOtherPages>
+    <LabelSelectBrush>Pilih Brush:</LabelSelectBrush>
     <labelSelectColor>Pilih Warna:</labelSelectColor>
     <labelSelectFont>Pilih Huruf:</labelSelectFont>
     <labelSelectImage>Pilih Gambar:</labelSelectImage>
@@ -1024,9 +1233,11 @@
     <Add>Tambahkan COrak</Add>
     <ApplyStyleCollectionToReportComponents>Terapkan Koleksi COrak terhadap komponen Laporan</ApplyStyleCollectionToReportComponents>
     <ApplyStyles>Terapkan Corak</ApplyStyles>
+    <ColorCollectionEditor>Editor Pilihan Warna</ColorCollectionEditor>
     <CreateStyleCollection>CBuat Koleksi Corak</CreateStyleCollection>
     <Duplicate>Duplikasi corak</Duplicate>
     <GetStyle>Dapatkan corak dari komponen yang dipilih</GetStyle>
+    <MoreStyles>Gaya Lebih lanjut</MoreStyles>
     <Open>Buka Corak</Open>
     <qnApplyStyleCollection>Anda ingin menerapkan koleksi corak terhadap komponen laporan?</qnApplyStyleCollection>
     <Remove>Hilangkan Corak</Remove>
@@ -1062,6 +1273,7 @@
     <DataSourceSelectForm>Pilih Sumber Data</DataSourceSelectForm>
     <DataSourcesNewForm>Sumber Data Baru</DataSourcesNewForm>
     <DataStoreViewerForm>Pelihat Penyimpan Data</DataStoreViewerForm>
+    <DesignerApplication>Laporan Designer</DesignerApplication>
     <EventEditorForm>Perubah Event</EventEditorForm>
     <ExpressionEditorForm>Perubah Ekspresi</ExpressionEditorForm>
     <GroupConditionForm>Kondisi Grup</GroupConditionForm>
@@ -1071,6 +1283,7 @@
     <PageSizeForm>Ukuran Halaman</PageSizeForm>
     <PagesManagerForm>Pengatur Halaman</PagesManagerForm>
     <PromptForm>Masukkan Informasi untuk masuk ke dalam Database</PromptForm>
+    <ReportWizard>Wizard Laporan</ReportWizard>
     <ServiceSelectForm>Pilih Layanan</ServiceSelectForm>
     <SqlExpressionsForm>Sql Ekspresi</SqlExpressionsForm>
     <SubReportPageSelectForm>Pilih Halaman Sub-Report</SubReportPageSelectForm>
@@ -1135,6 +1348,13 @@
     <FindPrevious>Cari Sebelumnya</FindPrevious>
     <FindWhat>Cari Apa:</FindWhat>
   </FormViewerFind>
+  <Gauge>
+    <AddNewItem>Tambahkan Item Baru</AddNewItem>
+    <GaugeEditorForm>Gauge Editor</GaugeEditorForm>
+    <Kind>Jenis</Kind>
+    <LinearScale>Skala Linear</LinearScale>
+    <RadialScale>Skala Radial</RadialScale>
+  </Gauge>
   <Gui>
     <barname_cancel>Tunda</barname_cancel>
     <barname_caption>Toolbar Baru</barname_caption>
@@ -1241,6 +1461,7 @@
     <StiDataBand>Pita Data disambungkan ke sumber data dan dikeluarkan sebanyak baris pada sumber data.</StiDataBand>
     <StiEmptyBand>Pita ini digunakan untuk mengisi tempat kosong di bawah halaman. Pita ini mengisi tempat kosong pada masing-masing halaman laporan.</StiEmptyBand>
     <StiFooterBand>Pita ini digunakan untuk menampilkan ringkasan oleh pita data. Diletakkan di bawah pita data dan keluar sekali setelah semua baris data.</StiFooterBand>
+    <StiGauge>komponen ini memungkinkan Anda untuk menampilkan nilai dalam kisaran yang telah ditentukan. Hal ini dapat memiliki representasi grafis yang berbeda.</StiGauge>
     <StiGroupFooterBand>Pita GrupFooter digunakan untuk menampilkan grup footer. Pita ini diletakkan setelah pita data. Dan ini adalah pita data dengan pita GroupHeader menempel. Masing-masing Pita GroupFooter semestinya ditentukan pita GroupHeader. Pita GroupFooter tidak akan keluar tanpa pita GroupHeader.</StiGroupFooterBand>
     <StiGroupHeaderBand>Pita ini merupakan pita dasar untuk pembuatan laporan dengan pengelompokan. Komponen-komponen untuk menunjukkan informasi oleh grup ini diletakkan pada grup header. Ini berupa nama grup, tanggal, kondisi pengelompokan, dll. Pita ini keluar sekali pada permulaan masing-masing grup.</StiGroupHeaderBand>
     <StiHeaderBand>Pita ini digunakan untuk menampilkan header. Ini dipakai bersama dengan pita data.</StiHeaderBand>
@@ -1299,6 +1520,7 @@
     <Close>Tutup Pembuat Laporan.</Close>
     <Columns>Pisah suatu halaman ke dalam kolom.</Columns>
     <ComponentSize>Rubah ukuran dari komponen yang dipilih.</ComponentSize>
+    <CopyStyle>Copy gaya</CopyStyle>
     <CopyToClipboard>Salin ke Clipboard</CopyToClipboard>
     <CurrencySymbol>Pilih simbol mata uang.</CurrencySymbol>
     <DataStore>Tunjukkan data, terdaftar pada laporan.</DataStore>
@@ -1377,6 +1599,7 @@
     <PageSetup>Tunjukkan Kotak Dialog pengaturan halaman.</PageSetup>
     <PageSize>Pilih ukuran kertas untuk halaman ini pada laporan.</PageSize>
     <PagesManager>Jalankan Pengatur Halaman.</PagesManager>
+    <PressF1>Tekan F1 untuk Detail Lebih</PressF1>
     <Redo>Majukan perubahan sebelumnya pada laporan.</Redo>
     <ReportNew>Buat Laporan Baru.</ReportNew>
     <ReportOpen>Buka laporan pada designer.</ReportOpen>
@@ -1390,7 +1613,9 @@
     <ShowBehind>Perlihatkan tulisan cap air di belakang komponen.</ShowBehind>
     <ShowImageBehind>Letakkan Gambar Cap Air di belakang semua komponen pada halaman.</ShowImageBehind>
     <ShowToolbox>Pelrihatkan toolbox.</ShowToolbox>
+    <StimulsoftHelp>Bantuan Stimulsoft</StimulsoftHelp>
     <StyleDesigner>Jalankan Style Designer.</StyleDesigner>
+    <TellMeMore>Ceritakan lebih</TellMeMore>
     <Text>Tulisan Cap Air.</Text>
     <TextBrush>Rubah warna tulisan.</TextBrush>
     <TextBrushWatermark>Rubah warna tulisan pada cap air.</TextBrushWatermark>
@@ -1422,14 +1647,55 @@
     <StiTreeViewControl>Mewakili kontrol yang digunakan untuk menunjukkan hirarki data seperti pohon.</StiTreeViewControl>
   </HelpDialogs>
   <HelpViewer>
+    <AddPageBreaks>Visual pemisah halaman laporan.</AddPageBreaks>
+    <AllowAddOrModifyTextAnnotations>akses terbatas untuk bekerja dengan penjelasan dalam dokumen.</AllowAddOrModifyTextAnnotations>
+    <AllowCopyTextAndGraphics>Terbatasnya akses terhadap menyalin informasi.</AllowCopyTextAndGraphics>
+    <AllowEditable>Memungkinkan mengubah komponen dengan properti Editable diaktifkan.</AllowEditable>
+    <AllowModifyContents>akses terbatas ke mengedit teks.</AllowModifyContents>
+    <AllowPrintDocument>akses terbatas untuk operasi cetak.</AllowPrintDocument>
     <Bookmarks>Tunjukkan panel buku penanda yang digunakan untuk navigasi cepat untuk menuju secara langsung ke lokasi buku penanda.</Bookmarks>
+    <BorderType>Jenis perbatasan komponen: sederhana - gambar perbatasan komponen dengan karakter +, -, |; Unicode tunggal - menggambar perbatasan dengan single box-gambar karakter, Unicode ganda -. Menggambar perbatasan dengan dua karakter kotak-gambar</BorderType>
     <Close>Tutup Pratinjau Laporan.</Close>
     <CloseDotMatrix>Tutup Pelihat Laporan Dot Matrix.</CloseDotMatrix>
+    <Compressed>Kompresi dokumen siap. Dianjurkan untuk selalu menyertakan file kompresi.</Compressed>
+    <CompressToArchive>Paket semua file dan folder dalam arsip zip.</CompressToArchive>
+    <ContinuousPages>Modus menempatkan halaman laporan sebagai strip vertikal.</ContinuousPages>
+    <CurrentPage>Pengolahan halaman saat ini. Jika opsi ini dipilih, maka halaman laporan yang dipilih akan diproses.</CurrentPage>
+    <CutEdges>Potong perbatasan halaman laporan.</CutEdges>
+    <CutLongLines>Potong garis panjang (baris teks) dengan batas komponen.</CutLongLines>
+    <DigitalSignature>Tanda tangan digital file.</DigitalSignature>
+    <DitheringType>Dithering Jenis: Tidak ada - ada dithering, Memerintahkan, FloydSt. -. Dengan dithering</DitheringType>
     <DotMatrixMode>Mode ini memperbolehkan anda untuk melihat bagaimana tampilan laporan jika dicetak pada printer dot matrix.</DotMatrixMode>
+    <DrawBorder>Menggambar perbatasan komponen dengan karakter grafis.</DrawBorder>
     <Edit>Rubah komponen.</Edit>
+    <EmbeddedFonts>Embed file font ke file PDF.</EmbeddedFonts>
+    <EmbeddedImageData>Embed gambar langsung ke file HTML.</EmbeddedImageData>
+    <Encoding>Pengkodean teks laporan setelah ekspor.</Encoding>
+    <EncodingData>Pengkodean data file.</EncodingData>
+    <EncryptionKeyLength>Panjang kunci enkripsi. Semakin lama panjang, semakin sulit untuk mendekripsi dokumen, dan, sesuai, keamanan dokumen pada prioritas yang lebih tinggi.</EncryptionKeyLength>
+    <ExportDataOnly>Ekspor hanya band Data (komponen Table, hirarkis band).</ExportDataOnly>
+    <ExportEachPageToSheet>Ekspor setiap halaman laporan dalam lembar Excel terpisah.</ExportEachPageToSheet>
+    <ExportMode>Terapkan kondisi filter bila mengekspor. Data Only - hanya band data (komponen Table, hirarkis Band) akan diekspor. Data dan Header / Footers - band data (komponen Table, hirarkis Band) dan header mereka / footer akan diekspor. Semua Band -. Semua band laporan akan diekspor</ExportMode>
+    <ExportModeHtml>Cara dari halaman HTML markup.</ExportModeHtml>
+    <ExportModeRtf>Penyajian data laporan setelah ekspor. Tabel - laporan akan terlihat seperti sebuah meja, di mana setiap komponen laporan adalah sel tabel. Bingkai -. Setiap komponen akan terlihat seperti satu frame, tetapi tanpa hubungan antara mereka</ExportModeRtf>
+    <ExportObjectFormatting>Terapkan format data ekspor dari band Data (komponen Table, band hirarkis).</ExportObjectFormatting>
+    <ExportPageBreaks>Tampilkan perbatasan halaman laporan pada lembar Excel.</ExportPageBreaks>
+    <ExportRtfTextAsImage>Mengkonversi teks RTF ke dalam gambar. Jika opsi ini diaktifkan, maka, ketika mengekspor, RichText terurai menjadi primitif sederhana didukung oleh format PDF. RichText dengan format yang kompleks (gambar tertanam, tabel) tidak selalu dapat dikonversi dengan benar. Dalam hal ini dianjurkan untuk mengaktifkan opsi ini.</ExportRtfTextAsImage>
     <Find>Cari tulisan dalam laporan.</Find>
     <FullScreen>Membaca Layar Penuh.</FullScreen>
+    <GetCertificateFromCryptoUI>Menggunakan antarmuka perpustakaan sistem kriptografi.</GetCertificateFromCryptoUI>
+    <ImageCompressionMethod>Kompresi Metode: JPEG - ini dapat menyebabkan penurunan kualitas, Flate - tanpa kehilangan kualitas, Simple, Memerintahkan, FloydSt. - Gambar adalah output dalam monokrom</ImageCompressionMethod>
+    <ImageFormat>Format gambar dalam file selesai.</ImageFormat>
+    <ImageQuality>Memungkinkan Anda untuk memilih rasio kualitas gambar / ukuran file. Semakin tinggi kualitas, semakin besar adalah ukuran file selesai.</ImageQuality>
+    <ImageQualityPdf>Pilihan ini hanya tersedia dalam kompresi JPEG, dan memungkinkan Anda untuk memilih rasio kualitas gambar / ukuran file. Semakin tinggi kualitas, semakin besar adalah ukuran file selesai.</ImageQualityPdf>
+    <ImageResolution>Jumlah pixel per inci. Semakin tinggi jumlah pixel, semakin baik kualitas gambar. Ukuran file selesai jauh lebih besar.</ImageResolution>
+    <ImageType>Skema warna gambar: warna - gambar setelah mengekspor akan sepenuhnya sesuai dengan gambar di penampil; abu-abu - gambar setelah mengekspor akan dari warna abu-abu; monokrom - gambar akan ketat hitam dan putih. Pada saat yang sama, itu harus dipertimbangkan bahwa monokrom memiliki tiga mode ada, Memerintahkan, FloydSt.</ImageType>
+    <KillSpaceLines>Hapus baris kosong (baris) dalam dokumen.</KillSpaceLines>
+    <MultipleFiles>Setiap halaman laporan dapat file terpisah.</MultipleFiles>
     <Open>Buka laporan yang disimpan sebelumnya pada Jendela Pratinjau.</Open>
+    <OpenAfterExport>pembukaan otomatis dari dokumen yang dibuat (setelah ekspor) dengan program yang ditetapkan untuk jenis file ini.</OpenAfterExport>
+    <OwnerPassword>Sandi untuk mengakses operasi dengan file.</OwnerPassword>
+    <PageAll>Pengolahan dari semua halaman laporan.</PageAll>
     <PageDelete>Hapus halaman laporan yang dipilih.</PageDelete>
     <PageDesign>Rubah halaman yang dipilih pada designer laporan.</PageDesign>
     <PageFirst>Pergi ke halaman pertama laporan.</PageFirst>
@@ -1440,11 +1706,29 @@
     <PagePrevious>Pergi ke Halaman Laporan Sebelumnya.</PagePrevious>
     <PageSize>Rubah parameter halaman pada laporan.</PageSize>
     <Parameters>Perlihatkan panel parameter yang digunakan ketika pembuatan laporan.</Parameters>
+    <PdfACompliance>Dukungan untuk standar pengarsipan jangka panjang dan menyimpan dokumen elektronik.</PdfACompliance>
     <Print>Cetak Laporan.</Print>
+    <PutFeedPageCode>Umpan halaman dalam dokumen akhir dengan karakter khusus.</PutFeedPageCode>
+    <RangePages>Nomor halaman untuk diproses. Anda dapat menentukan satu halaman, daftar halaman (menggunakan koma sebagai pemisah), serta menentukan rentang dengan menetapkan halaman awal dari kisaran dipisahkan oleh "-" dan halaman akhir rentang. Sebagai contoh:. 1,3,5-12</RangePages>
+    <RemoveEmptySpaceAtBottom>Minimalkan ruang kosong di bagian bawah halaman.</RemoveEmptySpaceAtBottom>
+    <RestrictEditing>Batas perubahan dalam dokumen Word.</RestrictEditing>
     <Save>Simpan Laporan untuk digunakan lagi.</Save>
+    <ScaleHtml>Ukuran (skala) dari halaman laporan dan barang-barang setelah ekspor.</ScaleHtml>
+    <ScaleImage>Ukuran (skala) dari laporan setelah ekspor. Skala yang lebih rendah adalah, lebih besar adalah jumlah pixel per inci, dan sebaliknya.</ScaleImage>
     <SendEMail>Kirim Laporan Lewat Email.</SendEMail>
+    <Separator>Separator antara data di file CSV.</Separator>
+    <SkipColumnHeaders>Mengaktifkan / menonaktifkan header kolom.</SkipColumnHeaders>
+    <StandardPdfFonts>14 font Adobe standar. Jika opsi ini diaktifkan, maka hanya standar 14 font akan digunakan dalam file PDF. Semua font laporan dikonversi ke mereka.</StandardPdfFonts>
+    <SubjectNameString>pengenal Sertifikat. identifier adalah nama dari pemilik sertifikat (garis penuh) atau bagian dari nama (substring).</SubjectNameString>
     <Thumbnails>Perlihatkan Tanda Jempol yang dapat digunakan untuk Navigasi cepat untuk mencari bagian Laporan yang ingin anda loncati.</Thumbnails>
+    <TiffCompressionScheme>Skema kompresi untuk file TIFF.</TiffCompressionScheme>
     <ToolEditor>Alat ini memperbolehkan anda untuk merubah isi dari tulisan komponen secara langsung dalam Laporan.</ToolEditor>
+    <TypeExport>File laporan akan diubah menjadi.</TypeExport>
+    <UseDefaultSystemEncoding>Gunakan sistem pengkodean secara default atau menentukan encoding dengan standar.</UseDefaultSystemEncoding>
+    <UseOnePageHeaderAndFooter>Tentukan band halaman Header dan Footer sebagai header dan footer dari dokumen Microsoft Word.</UseOnePageHeaderAndFooter>
+    <UsePageHeadersAndFooters>Tentukan band Halaman Header dan Footer sebagai header dan footer dari dokumen Microsoft Word.</UsePageHeadersAndFooters>
+    <UserPassword>Sandi diperlukan untuk membuka dokumen.</UserPassword>
+    <UseUnicode>Diperpanjang dukungan untuk encoding karakter. Ini mempengaruhi pada pengkodean karakter internal dalam file PDF, dan meningkatkan menyalin teks dari file PDF.</UseUnicode>
     <ViewModeContinuous>Perlihatkan Semua Halaman Laporan sebagai Pita Vertikal.</ViewModeContinuous>
     <ViewModeMultiplePages>Atur Laporan sehingga banyak halaman bisa kelihatan pada Jendela yang terlihat.</ViewModeMultiplePages>
     <ViewModeSinglePage>Perlihatkan halaman tunggal pada Jendela Pratinjau.</ViewModeSinglePage>
@@ -1452,12 +1736,17 @@
     <ZoomOnePage>Atur laporan sehingga seluruh halaman kelihatan pada Jendela.</ZoomOnePage>
     <ZoomPageWidth>Atur Laporan sehingga lebar halaman sama dengan lebar Jendela.</ZoomPageWidth>
     <ZoomTwoPages>Lihat laporan sehingga 2 halaman muat dalam 1 jendela</ZoomTwoPages>
+    <ZoomTxt>Ukuran laporan (skala). X - mengubah skala horisontal, Y - untuk mengubah skala vertikal</ZoomTxt>
   </HelpViewer>
   <MainMenu>
     <menuCheckIssues>Periksa Isu</menuCheckIssues>
     <menuContextClone>Clone...</menuContextClone>
     <menuContextDesign>Bentuk...</menuContextDesign>
     <menuContextTextFormat>Format tulisan...</menuContextTextFormat>
+    <MenuConvertToCheckBox>Konversi ke kotak centang</MenuConvertToCheckBox>
+    <MenuConvertToImage>Konversi to Gambar</MenuConvertToImage>
+    <MenuConvertToRichText>Konversi ke RichText</MenuConvertToRichText>
+    <MenuConvertToText>Konversi to Text</MenuConvertToText>
     <menuDeleteColumn>Hapus Kolom</menuDeleteColumn>
     <menuDeleteRow>Hapus Baris</menuDeleteRow>
     <menuEdit>&amp;Perbaiki</menuEdit>
@@ -1559,6 +1848,147 @@
     <menuViewShowRulers>Perlihatkan Garisan</menuViewShowRulers>
     <menuViewToolbars>Toolbars</menuViewToolbars>
   </MainMenu>
+  <Map>
+    <GroupAsia>Asia</GroupAsia>
+    <GroupEurope>Eropa</GroupEurope>
+    <GroupNorthAmerica>Amerika Utara</GroupNorthAmerica>
+    <GroupOceania>Oseania</GroupOceania>
+    <GroupSouthAmerica>Amerika Selatan</GroupSouthAmerica>
+    <GroupWorld>Dunia</GroupWorld>
+    <LinkDataForm>Tautan Data</LinkDataForm>
+    <MapEditorForm>Editor Peta</MapEditorForm>
+  </Map>
+  <Messages>
+    <MessageTimeOutExpired>Command batas waktu telah berakhir!</MessageTimeOutExpired>
+    <ThisFieldIsNotSpecified>Field ini Tidak Ditentukan!</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>Akses ditolak!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>Langganan Anda dari Stimulsoft Reports.Ultimate berakhir lebih awal dari versi pertama dari Stimulsoft Reports.Server kami dirilis!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>File Lisensi tidak benar! Silahkan hubungi bagian penjualan kami di sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>Akun Anda terkunci. Silahkan hubungi bagian penjualan kami di sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>Anda mencapai jumlah maksimum aktivasi. Silahkan hubungi bagian penjualan kami di sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>Stimulsoft Aktivasi Server tidak tersedia sekarang! Silakan coba lagi nanti.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>Anda tidak dapat mengaktifkan versi Stimulsoft Reports.Server karena Program Langganan Anda berakhir! Silahkan login ke akun Anda dan periksa versi Stimulsoft Reports.Server yang Anda dapat intall dan mengaktifkan.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>Terjadi kesalahan saat aktivasi. Silakan coba lagi nanti.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>Nama Anda pengguna (Email) atau password salah!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>jenis akun Anda tidak memungkinkan untuk mengaktifkan Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>Account tidak dapat digunakan sekarang!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>Akun tersebut belum diaktifkan! Ikuti petunjuk yang dikirim ke Email yang saat pendaftaran.</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>Peran pengguna tidak dapat diubah karena ini adalah pengguna administrator terakhir di ruang kerja ini!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>Peran pengguna tidak dapat diubah karena ini adalah pengguna pengawas lalu di server ini!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeSystemRole>Peran sistem tidak dapat diubah!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>Pengguna tidak dapat menghapus dirinya sendiri!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>Pengguna tidak dapat dihapus karena ini adalah pengguna administrator terakhir di ruang kerja ini!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>Pengguna tidak dapat dihapus karena ini adalah pengguna pengawas lalu di server ini!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteSystemRole>Tidak dapat menghapus peran ini, karena peran sistem!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>Pengguna tidak dapat dinonaktifkan karena ini adalah pengguna administrator terakhir di ruang kerja ini!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>Pengguna tidak dapat dinonaktifkan karena ini adalah pengguna pengawas lalu di server ini!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>Nama pertama tidak ditentukan!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>Nama terakhir tidak ditentukan!</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>OAuth identificator tidak ditentukan!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>Sandi tidak benar!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>Sandi tidak ditentukan!</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>Sandi terlalu pendek (panjang minimum adalah 6 karakter)!</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>Anda tidak dapat menghapus peran karena digunakan oleh pengguna lain.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>Peran dengan nama tertentu "{0}" sudah ada!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>Peran dengan nama tertentu "{0}" adalah peran sistem!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>Suatu pesan dengan instruksi lebih lanjut dikirim ke "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>Anda telah log out!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExists>Username (Email) sudah digunakan!</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>Username (Email) tidak ditentukan!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>Username (Email) atau password salah!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>username harus sama dengan alamat Email!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>Nama workspace sudah digunakan!</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeout>Menunggu waktu pengolahannya perintah tersebut berlalu!</CommandTimeout>
+    <EndDateShouldBeGreaterThanCurrentDate>Tanggal akhir harus lebih besar dari tanggal sekarang!</EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>Tanggal akhir harus lebih besar dari tanggal mulai!</EndDateShouldBeGreaterThanStartDate>
+    <ExecutionError>kesalahan Eksekusi</ExecutionError>
+    <IsNotAuthorized>Tidak ada akses ke "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>"{0}" tidak benar!</IsNotCorrect>
+    <IsNotDeleted>"{0}" tidak dihapus!</IsNotDeleted>
+    <IsNotEqual>"{0}" tidak sama!</IsNotEqual>
+    <IsNotFound>"{0}" tidak ditemukan!</IsNotFound>
+    <IsNotRecognized>"{0}" tidak diakui!</IsNotRecognized>
+    <IsNotSpecified>"{0}" tidak ditentukan!</IsNotSpecified>
+    <IsRequiredFile>Anda harus menambahkan setidaknya satu file!</IsRequiredFile>
+    <ItemCantBeAttachedToItself>Item tidak dapat dilampirkan untuk dirinya sendiri!</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>Unsur-unsur "{0}" tidak dapat dihapus karena mereka terikat dengan unsur-unsur lain!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeMovedToSpecifiedPlace>Item tidak dapat dipindahkan ke tempat yang ditentukan!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>Item tidak mendukung "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>A Key dan hinggaKunci sama!</KeyAndToKeyAreEqual>
+    <NotificationFailed>Hasil Gagal!</NotificationFailed>
+    <NotificationFilesUploadingComplete>File-file berhasil diupload.</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>File "{0}" adalah upload.</NotificationFileUploading>
+    <NotificationItemDelete>Item menghapus.</NotificationItemDelete>
+    <NotificationItemDeleteComplete>Item berhasil dihapus.</NotificationItemDeleteComplete>
+    <NotificationItemRestore>Item memulihkan.</NotificationItemRestore>
+    <NotificationItemRestoreComplete>Item berhasil dipulihkan.</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>Item mentransfer.</NotificationItemTransfer>
+    <NotificationItemTransferComplete>Item berhasil ditransfer.</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>Pengolahan item menunggu.</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>Operasi dibatalkan!</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>Recycle Bin adalah membersihkan.</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>Recycle Bin berhasil dibersihkan.</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>Recycle Bin pembersihan pengolahan menunggu.</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>Laporan "{0}" mengekspor</NotificationReportExporting>
+    <NotificationReportExportingComplete>Laporan "{0}" diekspor berhasil.</NotificationReportExportingComplete>
+    <NotificationReportRendering>Laporan "{0}" rendering</NotificationReportRendering>
+    <NotificationReportRenderingComplete>Laporan "{0}" diberikan.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>Laporan pengolahan "{0}" sedang menunggu.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>scheduler "{0}" berjalan.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>scheduler "{0}" berjalan lengkap.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>scheduler Pengolahan "{0}" sedang menunggu.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleFilesUploading>file Mengunggah</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>Item Refreshing "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>mentransfer item "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>Mengekspor laporan "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>Rendering laporan "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Running scheduler "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTransferring>The "{0}" adalah tranferring untuk "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>The "{0}" yang berhasil transffered untuk "{1}".</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>Nilai ini tidak benar untuk jenis {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>Di luar range ( "{0}")!</OutOfRange>
+    <ParsingCommandException>Pengecualian pengolahan perintah dalam xml tertentu: {0}</ParsingCommandException>
+    <QuotaMaximumComputingCyclesCountExceeded>siklus komputasi maksimum hitungan terlampaui.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumFileSizeExceeded>ukuran file maksimum terlampaui.</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumReportPagesCountExceeded>halaman laporan maksimum hitungan terlampaui.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumUsersCountExceeded>pengguna maksimum hitungan melebihi.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>ruang kerja maksimum hitungan terlampaui.</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>scheduler tidak bisa berjalan sendiri!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Waktu tunggu sesi</SessionTimeOut>
+    <SnapshotAlreadyProcessed>Laporan snapshot sudah diproses!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>Item yang ditentukan tidak "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>Salin dari item "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>Dibuat dari file "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Dibuat dari item "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Loaded dari file "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>pembuatan item baru.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Beberapa file upload sekarang, jika Anda menutup halaman mereka akan hilang. Apakah Anda yakin ingin menutup halaman?</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>"{0}" dengan kunci yang ditentukan tidak ditemukan!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>waktu sesi Anda telah berakhir!</YourTimeSessionHasExpired>
+  </Notices>
+  <Nuget>
+    <AlreadyDownloaded>Sudah Diunduh</AlreadyDownloaded>
+    <AssemblyLoadedSuccessfully>Perakitan berhasil dimuat.</AssemblyLoadedSuccessfully>
+    <AssemblyNotFound>Tidak mungkin untuk menemukan {0} perakitan menggunakan {1} koneksi!</AssemblyNotFound>
+    <Author>Penulis</Author>
+    <Dependencies>Dependensi:</Dependencies>
+    <Download>Unduh</Download>
+    <DownloadAll>Ambil Semua</DownloadAll>
+    <IAccept>Saya Setuju</IAccept>
+    <IDecline>I Tolak</IDecline>
+    <LicenceFormDesc>Paket berikut mengharuskan Anda menerima persyaratan lisensi mereka sebelum menginstal.</LicenceFormDesc>
+    <LicenceFormDesc1>Dengan mengklik "Saya Setuju" Anda setuju dengan persyaratan lisensi untuk paket yang tercantum di atas. Jika Anda tidak setuju dengan persyaratan lisensi, klik "Saya Tolak".</LicenceFormDesc1>
+    <LicenceFormTitle>Lisensi Penerimaan</LicenceFormTitle>
+    <License>Lisensi:</License>
+    <ProjectUrl>Project Url:</ProjectUrl>
+    <ReportAbuse>Laporkan Penyalahgunaan:</ReportAbuse>
+    <RetrievingInformation>Mengambil informasi ...</RetrievingInformation>
+    <Tags>Tags:</Tags>
+    <Title>Unduh Data Adapter</Title>
+    <ViewLicense>Lihat lisensi</ViewLicense>
+  </Nuget>
   <Panels>
     <Dictionary>Kamus</Dictionary>
     <Messages>Pesan</Messages>
@@ -1573,19 +2003,64 @@
     <StiLoadPasswordForm>Mengenkripsi Dokument</StiLoadPasswordForm>
     <StiSavePasswordForm>Kata Kunci</StiSavePasswordForm>
   </Password>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>Latar Belakang Tugas</AdminBackgroundTasks>
+    <AdminPermissions>Hak akses</AdminPermissions>
+    <AdminRecycleBin>Recycle Bin</AdminRecycleBin>
+    <AdminShare>Bagikan</AdminShare>
+    <AdminTransfers>Transfer</AdminTransfers>
+    <ItemCalendars>Kalender</ItemCalendars>
+    <ItemCloudStorages>Penyimpanan Cloud</ItemCloudStorages>
+    <ItemContactLists>Daftar kontak</ItemContactLists>
+    <ItemDashboards>Dasboard</ItemDashboards>
+    <ItemDataSources>Sumber Data</ItemDataSources>
+    <ItemFiles>File</ItemFiles>
+    <ItemFolders>Folder</ItemFolders>
+    <ItemReportSnapshots>Laporan Snapshots</ItemReportSnapshots>
+    <ItemReportTemplates>Template Laporan</ItemReportTemplates>
+    <ItemSchedulers>Schedulers</ItemSchedulers>
+    <Pengguna>Pengguna</Pengguna>
+    <ReportDesignerBusinessObjects>Business Objects</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>Kolom data</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>Koneksi Data</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>Hubungan Data</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>Sumber Data</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>Aksi Kamus</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>Pembatasan</ReportDesignerRestrictions>
+    <ReportDesignerVariables>Variabel</ReportDesignerVariables>
+    <SystemBackupRestore>Backup &amp; Kembalikan</SystemBackupRestore>
+    <SystemEmailTemplates>Template/Contoh Email</SystemEmailTemplates>
+    <SystemLicensing>Perizinan</SystemLicensing>
+    <SystemMonitoring>Pemantauan</SystemMonitoring>
+    <SystemUpdate>Perbarui</SystemUpdate>
+    <SystemWorkspaces>Bidang Kerja</SystemWorkspaces>
+    <TextAdministration>Administration</TextAdministration>
+    <TextItems>Produk</TextItems>
+    <TextReportDesigner>Designer Laporan</TextReportDesigner>
+    <TextSystem>Sistem</TextSystem>
+    <TextUsers>Pengguna</TextUsers>
+    <UserHimself>sendiri</UserHimself>
+    <UserRoles>Peran</UserRoles>
+    <UserWorkspace>Bidang kerja</UserWorkspace>
+  </Permissions>
   <PlacementComponent>
     <MoveLeftFreeSpace>Gerakkan Komponen ke sisi kiri dari tempat yang kosong, Tinggikan hingga tempat yang kosong.</MoveLeftFreeSpace>
     <MoveRightFreeSpace>Gerakkan Komponen ke sisi kanan dari tempat yang kosong, Tinggikan komponen hingga tinggi tempat yang kosong.</MoveRightFreeSpace>
   </PlacementComponent>
   <PropertyCategory>
     <AppearanceCategory>Penampilan</AppearanceCategory>
+    <AreaCategory>Lokasi</AreaCategory>
     <ArgumentCategory>Penjelasan</ArgumentCategory>
+    <AxisCategory>Axis</AxisCategory>
     <BarCodeAdditionalCategory>Bar Code Tambahan</BarCodeAdditionalCategory>
     <BarCodeCategory>Bar Code</BarCodeCategory>
     <BehaviorCategory>Kebiasaaan</BehaviorCategory>
+    <CapNeedle>Cap Needle</CapNeedle>
     <CellCategory>Cell</CellCategory>
     <ChartAdditionalCategory>Grafik Tambahan</ChartAdditionalCategory>
     <ChartCategory>Grafik</ChartCategory>
+    <ChartMap>Peta</ChartMap>
     <CheckCategory>Cek</CheckCategory>
     <ColorsCategory>Warna</ColorsCategory>
     <ColumnsCategory>Kolom</ColumnsCategory>
@@ -1598,15 +2073,21 @@
     <DisplayCategory>Menampilkan</DisplayCategory>
     <ExportCategory>Export</ExportCategory>
     <ExportEventsCategory>Ketika Export</ExportEventsCategory>
+    <FooterTableCategory>Tabel Footer</FooterTableCategory>
+    <GridLinesCategory>Baris Grid</GridLinesCategory>
+    <HeaderTableCategory>Table header</HeaderTableCategory>
     <HierarchicalCategory>Hirarki</HierarchicalCategory>
     <ImageAdditionalCategory>Gambar Tambahan</ImageAdditionalCategory>
     <ImageCategory>Gambar</ImageCategory>
+    <InterlacingCategory>Interlacing</InterlacingCategory>
+    <LegendCategory>Legenda</LegendCategory>
     <MainCategory>Utama</MainCategory>
     <MarkerCategory>Penanda</MarkerCategory>
     <MiscCategory>Misc</MiscCategory>
     <MouseEventsCategory>Mouse Event</MouseEventsCategory>
     <NavigationCategory>Navigasi</NavigationCategory>
     <NavigationEventsCategory>Ketika Bernavigasi</NavigationEventsCategory>
+    <Needle>Needle</Needle>
     <OptionsCategory>Pilihan</OptionsCategory>
     <PageAdditionalCategory>Halaman Tambahan</PageAdditionalCategory>
     <PageCategory>Halaman</PageCategory>
@@ -1616,11 +2097,15 @@
     <PrimitiveCategory>Primitif</PrimitiveCategory>
     <PrintEventsCategory>Ketika Mencetak</PrintEventsCategory>
     <RenderEventsCategory>Ketika Pembuatan</RenderEventsCategory>
+    <SeriesLabelsCategory>Seri Label</SeriesLabelsCategory>
     <ShapeCategory>Bentuk</ShapeCategory>
+    <Size>Ukuran</Size>
     <SubReportCategory>Sub-Laporan</SubReportCategory>
+    <TableCategory>Table</TableCategory>
     <TextAdditionalCategory>Tambahan tulisan</TextAdditionalCategory>
     <TextCategory>tulisan</TextCategory>
     <TitleCategory>Judul</TitleCategory>
+    <TrendLineCategory>Garis Tren</TrendLineCategory>
     <ValueCategory>Nilai</ValueCategory>
     <ValueCloseCategory>Nilai Tertutup</ValueCloseCategory>
     <ValueEndCategory>Nilai Akhir</ValueEndCategory>
@@ -1944,6 +2429,8 @@
     <StiFilterConditionEqualTo>Sama Dengan</StiFilterConditionEqualTo>
     <StiFilterConditionGreaterThan>Lebih Besar</StiFilterConditionGreaterThan>
     <StiFilterConditionGreaterThanOrEqualTo>Lebih Besar atau Sama Dengan</StiFilterConditionGreaterThanOrEqualTo>
+    <StiFilterConditionIsNotNull>tidak null</StiFilterConditionIsNotNull>
+    <StiFilterConditionIsNull>null</StiFilterConditionIsNull>
     <StiFilterConditionLessThan>Kurang Dari</StiFilterConditionLessThan>
     <StiFilterConditionLessThanOrEqualTo>Kurang Dari atau Sama Dengan</StiFilterConditionLessThanOrEqualTo>
     <StiFilterConditionNotBetween>Tidak Diantara</StiFilterConditionNotBetween>
@@ -2009,6 +2496,26 @@
     <StiLegendVertAlignmentCenter>Tengah</StiLegendVertAlignmentCenter>
     <StiLegendVertAlignmentTop>Atas</StiLegendVertAlignmentTop>
     <StiLegendVertAlignmentTopOutside>Sebelah Luar Atas</StiLegendVertAlignmentTopOutside>
+    <StiMapIDAustralia>Australia</StiMapIDAustralia>
+    <StiMapIDAustria>Austria</StiMapIDAustria>
+    <StiMapIDBrazil>Brasil</StiMapIDBrazil>
+    <StiMapIDCanada>Kanada</StiMapIDCanada>
+    <StiMapIDChina>Cina</StiMapIDChina>
+    <StiMapIDEU>Uni Eropa</StiMapIDEU>
+    <StiMapIDEurope>Eropa</StiMapIDEurope>
+    <StiMapIDFrance>Perancis</StiMapIDFrance>
+    <StiMapIDGermany>Jerman</StiMapIDGermany>
+    <StiMapIDItaly>Italia</StiMapIDItaly>
+    <StiMapIDNetherlands>Belanda</StiMapIDNetherlands>
+    <StiMapIDRussia>Rusia</StiMapIDRussia>
+    <StiMapIDUK>UK</StiMapIDUK>
+    <StiMapIDUSA>Amerika</StiMapIDUSA>
+    <StiMapIDWorld>Dunia</StiMapIDWorld>
+    <StiMapTypeGroup>Grup</StiMapTypeGroup>
+    <StiMapTypeHeatmap>Heatmap</StiMapTypeHeatmap>
+    <StiMapTypeHeatmapWithGroup>Heatmap Dengan Grup</StiMapTypeHeatmapWithGroup>
+    <StiMapTypeNone>Tidak</StiMapTypeNone>
+    <StiMapTypePoints>Tempat</StiMapTypePoints>
     <StiMarkerAlignmentLeft>Kiri</StiMarkerAlignmentLeft>
     <StiMarkerAlignmentRight>Kanan</StiMarkerAlignmentRight>
     <StiMarkerTypeCircle>Lingkaran</StiMarkerTypeCircle>
@@ -2025,6 +2532,7 @@
     <StiNumberOfPassDoublePass>Dua Pass</StiNumberOfPassDoublePass>
     <StiNumberOfPassSinglePass>Satu Pass</StiNumberOfPassSinglePass>
     <StiOrientationHorizontal>Horisontal</StiOrientationHorizontal>
+    <StiOrientationHorizontalRight>Horizontal kanan</StiOrientationHorizontalRight>
     <StiOrientationVertical>Vertikal</StiOrientationVertical>
     <StiPageOrientationLandscape>Landscape</StiPageOrientationLandscape>
     <StiPageOrientationPortrait>Portrait</StiPageOrientationPortrait>
@@ -2087,6 +2595,9 @@
     <StiRestrictionsAllowResize>Memperbolehkan Merubah Ukuran</StiRestrictionsAllowResize>
     <StiRestrictionsAllowSelect>Memperbolehkan Memilih</StiRestrictionsAllowSelect>
     <StiRestrictionsNone>Tidak Ada</StiRestrictionsNone>
+    <StiSelectionModeFirst>Pertama</StiSelectionModeFirst>
+    <StiSelectionModeFromVariable>Dari Variabel</StiSelectionModeFromVariable>
+    <StiSelectionModeNothing>Tidak</StiSelectionModeNothing>
     <StiSeriesLabelsValueTypeArgument>Penjelasan</StiSeriesLabelsValueTypeArgument>
     <StiSeriesLabelsValueTypeArgumentValue>Penjelasan - Nilai</StiSeriesLabelsValueTypeArgumentValue>
     <StiSeriesLabelsValueTypeSeriesTitle>Judul Seri</StiSeriesLabelsValueTypeSeriesTitle>
@@ -2163,6 +2674,8 @@
     <StiTextQualityStandard>Standart</StiTextQualityStandard>
     <StiTextQualityTypographic>Bentuk Huruf</StiTextQualityTypographic>
     <StiTextQualityWysiwyg>WYSIWYG</StiTextQualityWysiwyg>
+    <StiTitlePositionInside>dalam</StiTitlePositionInside>
+    <StiTitlePositionOutside>Luar</StiTitlePositionOutside>
     <StiTypeModeList>Daftar</StiTypeModeList>
     <StiTypeModeNullableValue>Nilai Yang bisa dijadikan Null</StiTypeModeNullableValue>
     <StiTypeModeRange>Jarak</StiTypeModeRange>
@@ -2172,6 +2685,8 @@
     <StiVertAlignmentTop>Atas</StiVertAlignmentTop>
     <StiViewModeNormal>Normal</StiViewModeNormal>
     <StiViewModePageBreakPreview>Pratinjau Pemisahan Halaman</StiViewModePageBreakPreview>
+    <StiXmlTypeAdoNetXml>ADO.NET XML</StiXmlTypeAdoNetXml>
+    <StiXmlTypeXml>XML</StiXmlTypeXml>
     <StringAlignmentCenter>Tengah</StringAlignmentCenter>
     <StringAlignmentFar>Jauh</StringAlignmentFar>
     <StringAlignmentNear>Dekat</StringAlignmentNear>
@@ -2207,6 +2722,7 @@
     <GetCollapsedEvent>Dapatkan yang terlipat</GetCollapsedEvent>
     <GetCrossValueEvent>Dapatkan Nilai Simpangan</GetCrossValueEvent>
     <GetCutPieListEvent>Dapatkan Potongan Daftar Pie</GetCutPieListEvent>
+    <GetDataUrlEvent>Dapatkan DataUrl</GetDataUrlEvent>
     <GetDisplayCrossValueEvent>Dapatkan Nilai Simpangan</GetDisplayCrossValueEvent>
     <GetDrillDownReportEvent>Dapatkan Drill-Down Laporan</GetDrillDownReportEvent>
     <GetExcelSheetEvent>Dapatkan Sheet Excel</GetExcelSheetEvent>
@@ -2336,6 +2852,7 @@
     <AllowUseTextBrush>Memperbolehkan Kuas Tulisan</AllowUseTextBrush>
     <AllowUseTextOptions>Memperbolehkan Pilihan Tulisan</AllowUseTextOptions>
     <AllowUseVertAlignment>Memperbolehkan Rata Vertikal</AllowUseVertAlignment>
+    <AllowUsingAsSqlParameter>Izinkan menggunakan sebagai parameter SQL</AllowUsingAsSqlParameter>
     <AlternatingBackColor>Warna Dasar Alternatif</AlternatingBackColor>
     <Angle>Sudut</Angle>
     <Antialiasing>Antialias</Antialiasing>
@@ -2348,6 +2865,7 @@
     <AspectRatio>Aspek Rasio</AspectRatio>
     <Author>Penulis</Author>
     <Auto>Otomatis</Auto>
+    <AutoCalculateCenterPoint>Hitung Otomatis Titik Pusat</AutoCalculateCenterPoint>
     <AutoDataColumns>Kolom Data Otomatis</AutoDataColumns>
     <AutoDataRows>Baris Data Otomatis</AutoDataRows>
     <AutoLocalizeReportOnRun>Lokalisasi Laporan secara otomatis saat Mulai</AutoLocalizeReportOnRun>
@@ -2359,6 +2877,9 @@
     <AutoSeriesTitleDataColumn>Auto Series Title Data Column</AutoSeriesTitleDataColumn>
     <AutoWidth>Lebar Sendiri</AutoWidth>
     <AutoWidthType>Tipe Lebar Secara Otomatis</AutoWidthType>
+    <AxisLabelsColor>Warna Label</AxisLabelsColor>
+    <AxisLineColor>Warna Garis</AxisLineColor>
+    <AxisTitleColor>Warna Judul</AxisTitleColor>
     <AxisValue>Nilai Sumbu</AxisValue>
     <BackColor>Warna Belakang</BackColor>
     <Background>Dasar</Background>
@@ -2369,9 +2890,12 @@
     <Bold>Tebal</Bold>
     <Bookmark>Tandai Buku</Bookmark>
     <Border>Pinggiran</Border>
+    <BorderBrush>Garis Sikat</BorderBrush>
     <BorderColor>Warna Pinggiran</BorderColor>
     <Borders>Pinggiran</Borders>
+    <BorderSize>Ukuran garis</BorderSize>
     <BorderStyle>Corak Pinggiran</BorderStyle>
+    <BorderWidth>Tebal Garis</BorderWidth>
     <Bottom>Bawah</Bottom>
     <BottomSide>Sisi Bawah</BottomSide>
     <BreakIfLessThan>Pisahkan Apabila Kurang Dari</BreakIfLessThan>
@@ -2380,6 +2904,7 @@
     <BrushType>Tipe Sikat</BrushType>
     <BusinessObject>Objek Bisnins</BusinessObject>
     <CacheAllData>Menyembunyikan Semua Data</CacheAllData>
+    <CacheTotals>Total Cache</CacheTotals>
     <CalcInvisible>Perhitungan Tidak Terlihat</CalcInvisible>
     <CalculatedDataColumn>Perhitungan Kolom Data</CalculatedDataColumn>
     <CalculationMode>Mode Perhitungan</CalculationMode>
@@ -2394,6 +2919,11 @@
     <CellHeight>Tinggi Cell</CellHeight>
     <CellType>Tipe Cell</CellType>
     <CellWidth>Lebar Cell</CellWidth>
+    <Center>Pusat</Center>
+    <CenterPoint>Titik Pusat</CenterPoint>
+    <ChartAreaBorderColor>Warna Garis</ChartAreaBorderColor>
+    <ChartAreaBrush>Lokasi Sikat</ChartAreaBrush>
+    <ChartAreaShowShadow>Tampilkan Bayangan</ChartAreaShowShadow>
     <ChartType>Tipe Grafik</ChartType>
     <Checked>Ditandai</Checked>
     <CheckOnClick>Berikan Tanda Cek dengan Klik</CheckOnClick>
@@ -2446,6 +2976,7 @@
     <Create>Membuat</Create>
     <CreateFieldOnDoubleClick>Buat Field dengan Klik Ganda</CreateFieldOnDoubleClick>
     <CreateLabel>Membuat Label</CreateLabel>
+    <Culture>Budaya</Culture>
     <CustomFormat>Format Sendiri</CustomFormat>
     <CutPieList>Potong Daftar Pie</CutPieList>
     <Data>Data</Data>
@@ -2467,11 +2998,14 @@
     <Default>Awal</Default>
     <DefaultHeightCell>Tinggi Awal dari Cell</DefaultHeightCell>
     <DefaultNamespace>Nama Awal</DefaultNamespace>
+    <DependentColumn>Kolom Terkait</DependentColumn>
+    <DependentValue>Nilai Terkait</DependentValue>
     <Description>Penjelasan</Description>
     <DetectUrls>Deteksi URL</DetectUrls>
     <DialogResult>Hasil Dialog</DialogResult>
     <Diameter>Diameter</Diameter>
     <Direction>Arahan</Direction>
+    <Disabled>Telah dinonaktifkan</Disabled>
     <DisplayValue>Perlihatkan Nilai</DisplayValue>
     <Distance>Jarak</Distance>
     <DistanceBetweenTabs>Jarak Diantara Tab</DistanceBetweenTabs>
@@ -2481,6 +3015,7 @@
     <DrawBorder>Menggambar Pinggiran</DrawBorder>
     <DrawHatch>Mengarsir Gambar</DrawHatch>
     <DrawLine>Menggambar Garis</DrawLine>
+    <DrillDown>Bor-Down</DrillDown>
     <DrillDownEnabled>Perbolehkan Drill-Down</DrillDownEnabled>
     <DrillDownMode>Mode Drill-Down</DrillDownMode>
     <DrillDownPage>Halaman Drill-Down</DrillDownPage>
@@ -2489,6 +3024,7 @@
     <DrillDownParameter3>Parameter 3 Drill-Down</DrillDownParameter3>
     <DrillDownParameter4>Parameter 4 Drill-Down</DrillDownParameter4>
     <DrillDownParameter5>Parameter 5 Drill-Down</DrillDownParameter5>
+    <DrillDownParameters>Bor-Down Parameter</DrillDownParameters>
     <DrillDownReport>Laporan Drill-Down</DrillDownReport>
     <DropDownAlign>Ratakan Drop Down</DropDownAlign>
     <DropDownStyle>Ragam Drop Down</DropDownStyle>
@@ -2496,6 +3032,9 @@
     <DropShadow>Jatuhkan Bayangan</DropShadow>
     <Duplex>Rangkap Dua</Duplex>
     <Editable>Bisa Diedit</Editable>
+    <EmptyBorderBrush>Empty Border Brush</EmptyBorderBrush>
+    <EmptyBorderWidth>Empty Border Width</EmptyBorderWidth>
+    <EmptyBrush>Empty Brush</EmptyBrush>
     <EmptyValue>Nilai Kosong</EmptyValue>
     <Enabled>Perbolehkan</Enabled>
     <EnableLog>Perbolehkan Log</EnableLog>
@@ -2503,6 +3042,8 @@
     <EncodingType>Tipe Encoding</EncodingType>
     <EndCap>Mengakhiri</EndCap>
     <EndColor>Warna Terakhir</EndColor>
+    <EndValue>Nilai Akhir</EndValue>
+    <EndWidth>Nilai Lebar</EndWidth>
     <EngineVersion>Versi Mesin</EngineVersion>
     <EnumeratorSeparator>Pemisah Satu per Satu</EnumeratorSeparator>
     <EnumeratorType>Tipe Satu Per Satu</EnumeratorType>
@@ -2518,8 +3059,10 @@
     <FieldIs>Field Adalah</FieldIs>
     <File>File</File>
     <Fill>Isi</Fill>
+    <FillColor>Isi warna</FillColor>
     <Filter>Filter</Filter>
     <FilterEngine>Mesin Pencari</FilterEngine>
+    <FilterMode>Modus Filter</FilterMode>
     <FilterOn>Hidupkan Filter</FilterOn>
     <Filters>Filter</Filters>
     <FirstTabOffset>Cetakan Tab Pertama</FirstTabOffset>
@@ -2557,9 +3100,11 @@
     <GlobalizedName>Nama Global</GlobalizedName>
     <GridLineColor>Warna Garis Grid</GridLineColor>
     <GridLinesHor>Garis Grid Horisontal</GridLinesHor>
+    <GridLinesHorColor>Warna Garis Grid Horizontal</GridLinesHorColor>
     <GridLinesHorRight>Garis Grid Kanan Horisontal</GridLinesHorRight>
     <GridLineStyle>Ragam Garis Grid</GridLineStyle>
     <GridLinesVert>Garis Grid Vertikal</GridLinesVert>
+    <GridLinesVertColor>Warna Garis Grid Vertikal</GridLinesVertColor>
     <GridOutline>Garis Besar Grid</GridOutline>
     <GrowToHeight>Tumbuh Tinggi</GrowToHeight>
     <HeaderBackColor>Warna Belakang Header</HeaderBackColor>
@@ -2611,7 +3156,11 @@
     <Interaction>Interaksi</Interaction>
     <InterlacedBrush>Penggantian SIkat</InterlacedBrush>
     <InterlacingHor>Penggantian Horisontal</InterlacingHor>
+    <InterlacingHorBrush>Interlacing Horizontal Brush</InterlacingHorBrush>
     <InterlacingVert>Penggantian Vertikal</InterlacingVert>
+    <InterlacingVertBrush>Interlacing Vertikal Brush</InterlacingVertBrush>
+    <Interpolasi>interpolasi</Interpolasi>
+    <IsReversed>Apakah Terbalik</IsReversed>
     <Italic>Miring</Italic>
     <Item>Item</Item>
     <ItemHeight>Tingga Item</ItemHeight>
@@ -2631,6 +3180,7 @@
     <KeyDataColumn>Kunci Kolom Data</KeyDataColumn>
     <Keys>Kunci</Keys>
     <LabelColor>Warna Label</LabelColor>
+    <LabelRotationMode>Modus Label Rotasi</LabelRotationMode>
     <Labels>Label</Labels>
     <LabelsColor>Warna Label</LabelsColor>
     <LabelsOffset>Label Offset</LabelsOffset>
@@ -2640,6 +3190,10 @@
     <Left>Kiri</Left>
     <LeftSide>Sisi Kiri</LeftSide>
     <Legend>Legenda</Legend>
+    <LegendBorderColor>Warna Batasan</LegendBorderColor>
+    <LegendBrush>Legenda Sikat</LegendBrush>
+    <LegendLabelsColor>Warna Label</LegendLabelsColor>
+    <LegendTitleColor>Warna Judul</LegendTitleColor>
     <LegendValueType>Legenda Tipe Nilai</LegendValueType>
     <Length>Panjang</Length>
     <LengthUnderLabels>Panjang di bawah tulisan</LengthUnderLabels>
@@ -2670,6 +3224,9 @@
     <Logarithmic>Logaritma</Logarithmic>
     <LogarithmicScale>Skala Logaritma</LogarithmicScale>
     <Low>Rendah</Low>
+    <MajorInterval>Interval Major</MajorInterval>
+    <MapId>Peta ID</MapId>
+    <MapStyle>Gaya</MapStyle>
     <Margins>Batas</Margins>
     <Marker>Penanda</Marker>
     <MarkerAlignment>Luruskan Tanda</MarkerAlignment>
@@ -2685,6 +3242,7 @@
     <MaxDropDownItems>Maksimal Item pada Drop Down</MaxDropDownItems>
     <MaxHeight>Tinggi Maksimal</MaxHeight>
     <Maximum>Maximal</Maximum>
+    <MaximumValue>Nilai Maksimum</MaximumValue>
     <MaxLength>Panjang Maksimal</MaxLength>
     <MaxNumberOfLines>Nomer Maksimal dalam Garis</MaxNumberOfLines>
     <MaxSize>Ukuran Maksimal</MaxSize>
@@ -2697,8 +3255,10 @@
     <MinHeight>Tinggi Minimal</MinHeight>
     <Minimum>Minimal</Minimum>
     <MinimumFontSize>Ukuran Huruf Minimal</MinimumFontSize>
+    <MinimumValue>Nilai Minimum</MinimumValue>
     <MinorColor>Minimal Warna</MinorColor>
     <MinorCount>Jumlah Minimal</MinorCount>
+    <MinorInterval>Interval minor</MinorInterval>
     <MinorLength>Panjang Minimal</MinorLength>
     <MinorStyle>Minimal Ragam</MinorStyle>
     <MinorVisible>Minimal yang terlihat</MinorVisible>
@@ -2706,6 +3266,7 @@
     <MinSize>Ukuran Minimal</MinSize>
     <MinValue>Nilai Minimal</MinValue>
     <MinWidth>Lebar Minimal</MinWidth>
+    <MirrorMargins>Margin Cermin</MirrorMargins>
     <Mode>Mode</Mode>
     <Module>Modul</Module>
     <Move>Gerakkan</Move>
@@ -2729,6 +3290,8 @@
     <NumberOfPass>Jumlah Lewat</NumberOfPass>
     <NumberOfValues>Jumlah Nilai</NumberOfValues>
     <OddStyle>Ragam Ganjil</OddStyle>
+    <Offset>Offset</Offset>
+    <OffsetAngle>Offset Sudut</OffsetAngle>
     <OnlyText>Hanya Tulisan</OnlyText>
     <Operation>Operasi</Operation>
     <Options>Pilihan</Options>
@@ -2780,7 +3343,10 @@
     <ProcessingDuplicates>Sedang meproses Duplikat</ProcessingDuplicates>
     <ProductHomePage>Halaman Rumah Produk</ProductHomePage>
     <RadarStyle>Bentuk Radar</RadarStyle>
+    <Radius>Radius</Radius>
+    <RadiusMode>Modus Radius</RadiusMode>
     <Range>Rentang</Range>
+    <RangeColorMode>Modus Rentang Warna</RangeColorMode>
     <RangeFrom>Dari</RangeFrom>
     <RangeScrollEnabled>Perbolehkan Jarak Menggulung</RangeScrollEnabled>
     <RangeTo>Ke</RangeTo>
@@ -2790,15 +3356,19 @@
     <ReconnectOnEachRow>Konek kembali di setiap baris</ReconnectOnEachRow>
     <ReferencedAssemblies>Kumpulan Daftar Pustaka</ReferencedAssemblies>
     <Refresh>Segarkan</Refresh>
+    <RefreshTime>Waktu Refresh</RefreshTime>
     <Relation>Hubungan</Relation>
     <RelationName>Nama Hubungan</RelationName>
     <Relations>Hubungan</Relations>
+    <RelativeHeight>Relatif Tinggi</RelativeHeight>
+    <RelativeWidth>relatif Lebar</RelativeWidth>
     <RemoveUnusedDataBeforeStart>Hilangkan data yang tidak digunakan Sebelum Mulai</RemoveUnusedDataBeforeStart>
     <RenderTo>DIbuat Ke</RenderTo>
     <ReportAlias>Nama lain Laporan</ReportAlias>
     <ReportAuthor>Pembuat Laporan</ReportAuthor>
     <ReportCacheMode>Mode Menyembunyikan Laporan</ReportCacheMode>
     <ReportDescription>Penjelasan Laporan</ReportDescription>
+    <ReportImage>Laporkan gambar</ReportImage>
     <ReportName>Nama Laporan</ReportName>
     <ReportUnit>Unit Laporan</ReportUnit>
     <RequestFromUser>Meminta dari Pengguna</RequestFromUser>
@@ -2807,6 +3377,7 @@
     <ResetPageNumber>Mengulangi Nomor Halaman</ResetPageNumber>
     <Resize>Mengukur Kembali</Resize>
     <Restrictions>Batasan</Restrictions>
+    <RetrieveOnlyUsedData>Buka Hanya Digunakan untuk data</RetrieveOnlyUsedData>
     <ReturnValue>Kembalikan Nilai</ReturnValue>
     <ReverseHor>Balikkan Horisontal</ReverseHor>
     <ReverseVert>Balikkan Vertikal</ReverseVert>
@@ -2828,12 +3399,16 @@
     <SelectedItem>Item Yang Dipilih</SelectedItem>
     <SelectedKey>Kunci Yang Dipilih</SelectedKey>
     <SelectedValue>Nilai yang Dipilih</SelectedValue>
+    <Selection>Seleksi</Selection>
     <SelectionBackColor>Pemilihan Warna Belakang</SelectionBackColor>
     <SelectionEnabled>Pemilihan Diperbolehkan</SelectionEnabled>
     <SelectionForeColor>Pemilihan Warna Depan</SelectionForeColor>
     <SelectionMode>Mode Pemilihan</SelectionMode>
     <Series>Seri</Series>
     <SeriesLabels>Seri Label</SeriesLabels>
+    <SeriesLabelsBorderColor>Warna Tepian</SeriesLabelsBorderColor>
+    <SeriesLabelsBrush>Sikat Label</SeriesLabelsBrush>
+    <SeriesLabelsColor>Warna Label</SeriesLabelsColor>
     <Shadow>Sikat</Shadow>
     <ShadowBrush>Bayangan Sikat</ShadowBrush>
     <ShadowColor>Warna Bayangan</ShadowColor>
@@ -2849,6 +3424,7 @@
     <ShowInPercent>Perlihatkan Dalam Persen</ShowInPercent>
     <ShowLabels>Pelrihatkan Label</ShowLabels>
     <ShowLabelText>Perlihatkan Label Tulisan</ShowLabelText>
+    <ShowLegend>Tampilkan Legenda</ShowLegend>
     <ShowMarker>Pelrihatkan Penanda</ShowMarker>
     <ShowNulls>Perlihatkan Null</ShowNulls>
     <ShowOthers>Perlihatkan Yang Lain</ShowOthers>
@@ -2871,7 +3447,13 @@
     <Simple>Sederhana</Simple>
     <Size>Ukuran</Size>
     <SizeMode>Mode Pengukuran</SizeMode>
+    <Skin>Kulit</Skin>
     <SkipFirst>Lewati Dahulu</SkipFirst>
+    <SkipIndices>Lewati Indeks</SkipIndices>
+    <SkipIndicesObj>Lewati Indeks</SkipIndicesObj>
+    <SkipMajorValues>Lewati Nilai Major</SkipMajorValues>
+    <SkipValues>Lewati Nilai</SkipValues>
+    <SkipValuesObj>Lewati Nilai</SkipValuesObj>
     <Smoothing>Penghalusan</Smoothing>
     <Sort>Urut</Sort>
     <SortBy>Diurutkan Oleh</SortBy>
@@ -2891,6 +3473,8 @@
     <StartNewPage>Mulai Halaman Baru</StartNewPage>
     <StartNewPageIfLessThan>Mulai Halaman Baru Jika Kurang Dari</StartNewPageIfLessThan>
     <StartPosition>Posisi Mulai</StartPosition>
+    <StartValue>Nilai Awal</StartValue>
+    <StartWidth>Lebar Awal</StartWidth>
     <Step>Langkah</Step>
     <Stop>Berhenti</Stop>
     <StopBeforePage>Berhenti Sebelum Halaman</StopBeforePage>
@@ -2911,8 +3495,10 @@
     <SummaryValues>Ringkasan Nilai</SummaryValues>
     <SupplementCode>Kode Tambahan</SupplementCode>
     <SupplementType>Tipe Tambahan</SupplementType>
+    <SweepAngle>Sudut Sapu</SweepAngle>
     <SystemVariable>Variabel Sistem</SystemVariable>
     <SystemVariables>Variabel Sistem</SystemVariables>
+    <Table>Tabel</Table>
     <Tag>Pengingat</Tag>
     <TagDataColumn>Pengingat Kolom Data</TagDataColumn>
     <TagValue>Nilai Pengingat</TagValue>
@@ -2929,6 +3515,7 @@
     <TextOptions>Pilihan Tulisan</TextOptions>
     <TextQuality>Kualitas Tulisan</TextQuality>
     <Ticks>Mencentang</Ticks>
+    <Tipemap>Jenis Peta</Tipemap>
     <Title>Judul</Title>
     <TitleBeforeHeader>Judul Sebelum Header</TitleBeforeHeader>
     <TitleColor>Warna Judul</TitleColor>
@@ -2948,6 +3535,8 @@
     <Totals>Total</Totals>
     <TransparentColor>Warna TRansparan</TransparentColor>
     <TrendLine>Garis Tren</TrendLine>
+    <TrendLineColor>Color</TrendLineColor>
+    <TrendLineShowShadow>Tampilkan Bayangan</TrendLineShowShadow>
     <Trimming>Hiasan</Trimming>
     <Type>Tipe</Type>
     <TypeName>Nama Tipe</TypeName>
@@ -2961,10 +3550,12 @@
     <UseAliases>Gunakan Nama Lain</UseAliases>
     <UseExternalReport>Gunakan Laporan Luar</UseExternalReport>
     <UseParentStyles>Gunakan Ragam Bentuk Dari Induk</UseParentStyles>
+    <UseRangeColor>Gunakan Rentang Warna</UseRangeColor>
     <UseRectangularSymbols>Gunakan Simbol Bujur Snagkar</UseRectangularSymbols>
     <UseSeriesColor>Gunakan Seri Warna</UseSeriesColor>
     <UseStyleOfSummaryInColumnTotal>Gunakan Ragam Ringkasan pada Kolom Total</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>Gunakan Ragam Ringkasan pada Total Baris</UseStyleOfSummaryInRowTotal>
+    <UseValuesFromTheSpecifiedRange>Gunakan Nilai Dari Range Tertentu</UseValuesFromTheSpecifiedRange>
     <Value>Nilai</Value>
     <ValueClose>Nilai Tertutup</ValueClose>
     <ValueDataColumn>Nilai Data Kolom</ValueDataColumn>
@@ -3058,6 +3649,7 @@
     <Expressions>Expressions</Expressions>
     <InsertEmptyItem>Masukkan objek kosong</InsertEmptyItem>
     <JoinExpression>Join Expression</JoinExpression>
+    <Koleksi>Koleksi</Koleksi>
     <LabelAlias>Alias:</LabelAlias>
     <LabelFilterObjectsBySchemaName>Saring objek berdasar nama skema:</LabelFilterObjectsBySchemaName>
     <LabelJoinExpression>Join Expression:</LabelJoinExpression>
@@ -3149,6 +3741,7 @@
     <LabelCentimeters>Centimeter:</LabelCentimeters>
     <LabelCollectionName>Nama Koleksi:</LabelCollectionName>
     <LabelColor>Warna:</LabelColor>
+    <LabelCommandTimeout>Batas waktu perintah:</LabelCommandTimeout>
     <LabelCountData>Hitung Data:</LabelCountData>
     <LabelDataBand>DataBand:</LabelDataBand>
     <LabelDataColumn>Kolom Data:</LabelDataColumn>
@@ -3192,6 +3785,7 @@
     <SaveReportPagesOrFormsFromReport>Simpan laporan, halaman atau form</SaveReportPagesOrFormsFromReport>
     <SavingReport>Sedang Menyimpan Laporan</SavingReport>
     <SecondPass>Pass Kedua</SecondPass>
+    <Shapes>Bentuk</Shapes>
     <Standard>Standar</Standard>
     <StandardConfiguration>Properti Object Utama Kecuali satu yang jarang digunakan.</StandardConfiguration>
     <StiEmptyBrush>Kosong</StiEmptyBrush>
@@ -3211,6 +3805,18 @@
     <WhenAnd>ketika {0} {1} dan</WhenAnd>
     <WhenValueIs>Ketika Bernilai</WhenValueIs>
   </Report>
+  <ReportInfo>
+    <CheckIssuesAdditionalDescription>Periksa laporan kesalahan dan menemukan ketidakakuratan di dalamnya.</CheckIssuesAdditionalDescription>
+    <EncryptWithPassword>Enkripsi dengan Password</EncryptWithPassword>
+    <EncryptWithPasswordDescription>Lindungi Document</EncryptWithPasswordDescription>
+    <Info>Info</Info>
+    <ReportOptions>Laporan Pilihan</ReportOptions>
+    <ReportOptionsAdditionalDescription>Pengaturan informasi dasar dan parameter dalam laporan.</ReportOptionsAdditionalDescription>
+  </ReportInfo>
+  <ReportOpen>
+    <Browse>Telusuri</Browse>
+    <Import>Impor</Import>
+  </ReportOpen>
   <Services>
     <categoryContextTools>Konteks Perangkat</categoryContextTools>
     <categoryDesigner>Designer</categoryDesigner>
@@ -3250,6 +3856,7 @@
     <Lines>Garis</Lines>
     <Minus>Minus</Minus>
     <Multiply>Kali</Multiply>
+    <Octagon>Segi Delapan</Octagon>
     <Oval>Oval</Oval>
     <Parallelogram>Parallelogram</Parallelogram>
     <Plus>Plus</Plus>
@@ -3277,6 +3884,7 @@
     <LineABC>Pada Nomor Alphabet yang Sama pada Garis Nomor Ini.</LineABC>
     <LineRoman>Pada Garis Nomor Ini dalam Nomer Roman.</LineRoman>
     <LineThrough>Pada Garis Nomor Ini (Mulai Dari 1). Ketika menghitung Nomer, Semua Group akan dihiraukan dan perhitungan mulai dari Permulaan Pencetakan.</LineThrough>
+    <PageCopyNumber>Kembali ke nomor dari salinan halaman ini (dimulai dari 1).</PageCopyNumber>
     <PageNofM>Menghasilkan Format Lokal, Menunjukkan "Halaman N dari M" dimana N adalah Nomor Halaman Ini dan M adalah TotalPageCount dari Laporan.</PageNofM>
     <PageNofMThrough>Menghasilkan Format Lokal, Menunjukkan "Halaman N dari M" dimana N adalah Nomor Halaman Ini dan M adalah TotalPageCount dari Laporan. Ketika Menghitung PageNofMThrough, Semua Properti ResetPageNumber akan dihiraukan dan Penoomoran Akan Dimulai dari Awal Laporan.</PageNofMThrough>
     <PageNumber>Pada Nomor Halaman Ini (Mulai dari 1).</PageNumber>

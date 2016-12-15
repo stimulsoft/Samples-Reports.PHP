@@ -482,7 +482,7 @@
     <FileNotFound>Soubor "{0}" nenalezen.</FileNotFound>
     <IdentifierIsNotValid>Identifikátor '{0}' není platný.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Nelze nalézt Datový zdroj.</ImpossibleFindDataSource>
-    <NameExists>Komponenta se jménem '{0}' již existuje. Komponenty musí mít jedinečná jména a jména musí být case-insensitive.</NameExists>
+    <NameExists>Komponenta se jménem '{0}' již existuje. Komponenty musí mít jedinečná jména.</NameExists>
     <NoServices>Služby nenalezeny v '{0}'</NoServices>
     <NotAssign>Datový zdroj není specifikován.</NotAssign>
     <NotCorrectFormat>Vstupní řetězec má špatný formát.</NotCorrectFormat>

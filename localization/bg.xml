@@ -117,6 +117,7 @@
     <Save>Съхрани</Save>
     <SaveCopy>Съхрани копието</SaveCopy>
     <SetAll>Задай Всички</SetAll>
+    <ShowMore>Покажи повече</ShowMore>
     <Submit>Изпрати</Submit>
     <Test>Проверка</Test>
     <Up>Нагоре</Up>
@@ -310,14 +311,63 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Настройки на профила</AccountSettings>
+    <ButtonChangePassword>Промяна на парола</ButtonChangePassword>
+    <ButtonDeleteAll>Изтрий всичко</ButtonDeleteAll>
+    <ButtonDesign>Дизайн на отчет</ButtonDesign>
+    <ButtonLogout>Изход</ButtonLogout>
+    <ButtonPublish>Публикувай</ButtonPublish>
+    <ButtonRecover>Възстанови</ButtonRecover>
+    <ButtonResendEmail>Повторно изпращане Email</ButtonResendEmail>
+    <ButtonResetPassword>Нулиране на парола</ButtonResetPassword>
+    <ButtonRun>Старт</ButtonRun>
+    <ButtonShare>Сподели</ButtonShare>
+    <ButtonSignUp>Регистрирай се</ButtonSignUp>
+    <ButtonSkip>Пропусни</ButtonSkip>
+    <ButtonView>Преглед</ButtonView>
+    <ButtonWhereUsed>Къде се използва?</ButtonWhereUsed>
     <Cancel>Отказ</Cancel>
+    <CheckBoxMoveToRecycleBin>Преместване в кошчето</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Запомни ме</CheckBoxRememberMe>
     <Collection>Колекция</Collection>
     <Create>Създай</Create>
+    <CreateError>Грешка при създаване на отчета!</CreateError>
     <CreateNewCollection>Създай нова колекция</CreateNewCollection>
+    <CreatingReport>Създаване на отчет...</CreatingReport>
     <DeleteFile>Изтрий файл</DeleteFile>
+    <ExecutionError>Грешка при изпълнение</ExecutionError>
+    <FileStorageWindowTitleEdit>Редакция на склада с файлове</FileStorageWindowTitleEdit>
+    <FileStorageWindowTitleNew>Нов склад с файлове</FileStorageWindowTitleNew>
+    <FolderWindowTitleEdit>Редактиране на папка</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Нова папка</FolderWindowTitleNew>
+    <ForExample>Например</ForExample>
+    <GroupBoxAttachedItems>Приложени елементи</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>С регистрацията си, приемате Общите условия.</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>Вече имате профил</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Забравена парола</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Има парола</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Регистрирайте нов профил</HyperlinkRegisterAccount>
     <labelCollectionName>Име на колекция:</labelCollectionName>
+    <LabelCreated>Създаден:</LabelCreated>
+    <LabelCreateFolder>Създаване на нова категория, в която можете да поставите други елементи.</LabelCreateFolder>
+    <LabelCreateReportTemplate>Създаване на шаблон за отчет.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>Текуща парола:</LabelCurrentPassword>
+    <LabelDataFile>Файл с данни:</LabelDataFile>
+    <LabelDataUrl>URL данни:</LabelDataUrl>
     <labelFileName>Име на файл:</labelFileName>
+    <LabelForeground>Преден план:</LabelForeground>
+    <LabelFromReport>От отчет</LabelFromReport>
+    <LabelFromReportCode>От отчет (дефиниране в кода)</LabelFromReportCode>
+    <LabelLastLogin>Последно влизане:</LabelLastLogin>
+    <LabelLastTime>Последен път:</LabelLastTime>
+    <LabelModified>Променено:</LabelModified>
+    <LabelNewPassword>Нова парола:</LabelNewPassword>
+    <LabelNextTime>Следващия път:</LabelNextTime>
     <labelPassword>Парола:</labelPassword>
+    <LabelPermission>Разрешение:</LabelPermission>
+    <LabelRenderedReport>Обработен отчет</LabelRenderedReport>
+    <LabelResponseAsFile>Oтговор като файл</LabelResponseAsFile>
+    <LabelSeparateReport>Отделен файл на отчет (и скриптове)</LabelSeparateReport>
+    <LabelShowReport>Покажи отчет:</LabelShowReport>
     <labelUserName>Потребител:</labelUserName>
     <Login>Вход</Login>
     <Open>Отвори</Open>
@@ -336,12 +386,93 @@
     <RefreshList>Списък обновявания</RefreshList>
     <ReportDocumentFormatNotRecognized>Формата на '{0}' елемент не е разпознат като четим формат на отчета!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Формата на '{0}' елемент не е разпознат като шаблонен формат на отчета!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Добави роля</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Добави потребител</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>Добави работно място</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>Папка</RibbonButtonFolder>
+    <RibbonTabUsers>Потребители</RibbonTabUsers>
     <Root>Корен</Root>
+    <RootFolder>Главна папка</RootFolder>
     <Save>Съхрани</Save>
     <SaveAccountSettings>Съхрани настройки на профила</SaveAccountSettings>
     <SaveFile>Съхрани файл</SaveFile>
+    <ShareWindowTitleNew>Сподели</ShareWindowTitleNew>
     <ShowAllFiles>Покажи всички файлове</ShowAllFiles>
+    <TabItemEmbedCode>Вграден код</TabItemEmbedCode>
+    <TabItemQRCode>QR код</TabItemQRCode>
+    <TabItemShare>Връзка за споделяне</TabItemShare>
+    <TextActivated>Активиран</TextActivated>
+    <TextDelete>Изтрий</TextDelete>
+    <TextDeletingItems>Изтриване на елементи...</TextDeletingItems>
+    <TextFirstName>Собствено Име</TextFirstName>
+    <TextFromTo>От {0} до {1} (Общо - {2})</TextFromTo>
+    <TextItemsWorkspace>Работно място</TextItemsWorkspace>
+    <TextLastName>Фамилно име</TextLastName>
+    <TextModify>Промяна</TextModify>
+    <TextNoNotifications>Няма известия</TextNoNotifications>
+    <TextProfile>Профил</TextProfile>
+    <TextReports>Отчети</TextReports>
+    <TextRestoringItems>Възстановяване на елементи...</TextRestoringItems>
+    <TextRole>Роля</TextRole>
+    <TextRun>Старт</TextRun>
+    <TextUser>Потребител</TextUser>
+    <TextUserName>Потребителско име (Email)</TextUserName>
+    <TimeHoursAgoFive>Преди пет часа, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>Преди четири часа, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Преди един час, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Преди три часа, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Преди два часа, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Преди пет минути, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Преди четири минути, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Преди по-малко от минута</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>преди {0} минути, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Преди една минута, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Преди три минути, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Преди две нинути, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>Днес, {0:t}</TimeToday>
+    <TimeYesterday>Вчера, {0:t}</TimeYesterday>
+    <ToolTipAddRole>Създаване на нова роля на работното място.</ToolTipAddRole>
+    <ToolTipAddUser>Създаване на нов потребител в избраната роля.</ToolTipAddUser>
+    <ToolTipAspNet>Публикуване на избрания отчет в ASP.NET приложение.</ToolTipAspNet>
+    <ToolTipAspNetMvc>Публикуване на избрания отчет в ASP.NET MVC приложение.</ToolTipAspNetMvc>
+    <ToolTipCreate>Създаване на нов елемент.</ToolTipCreate>
+    <ToolTipDelete>Изтриване на избраните елементи.</ToolTipDelete>
+    <ToolTipDeleted>Покажи изтритите елементи</ToolTipDeleted>
+    <ToolTipEdit>Редактиране на избрания елемент.</ToolTipEdit>
+    <ToolTipGridMode>Изглед в списък</ToolTipGridMode>
+    <ToolTipInfo>Показване на детайли</ToolTipInfo>
+    <ToolTipJs>Публикуване на избрания отчет като  HTML страницата</ToolTipJs>
+    <ToolTipPublish>Подготовка на избрания отчет за работа във вашето приложение.</ToolTipPublish>
+    <ToolTipRecover>Възстановяване на избраните елементи.</ToolTipRecover>
+    <ToolTipRunWithoutPreview>Построяване на избрания отчет без преглед</ToolTipRunWithoutPreview>
+    <ToolTipShare>Споделяне на избрания файл.</ToolTipShare>
+    <ToolTipSort>Опции за сортиране</ToolTipSort>
+    <ToolTipThumbnailMode>Преглед като решетка</ToolTipThumbnailMode>
+    <ToolTipViewFile>Покажи избрания файл.</ToolTipViewFile>
+    <ToolTipViewReport>Покажи избрания отчет за преглед.</ToolTipViewReport>
+    <WindowDescriptionDelete>Сигурни ли сте, че искате да изтриете избраните елементи?</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Избраните елемени ще бъдат възстановени от кошчето.</WindowDescriptionRecover>
+    <WindowTitleDelete>Изтриване не елементи</WindowTitleDelete>
+    <WindowTitleForgotPassword>Збравена парола</WindowTitleForgotPassword>
     <WindowTitleLogin>Вход</WindowTitleLogin>
+    <WindowTitleRecover>Възстановяване не елементи</WindowTitleRecover>
+    <WindowTitleRoleEdit>Редакция на роля</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>Нова роля</WindowTitleRoleNew>
+    <WindowTitleSignUp>Регистрирай се</WindowTitleSignUp>
+    <WindowTitleUserEdit>Редакция на потребител</WindowTitleUserEdit>
+    <WindowTitleUserNew>Нов потребител</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Редакция на работно място</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>Ново работно място</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>Създаване на празен отчет</WizardBlankReportDescription>
+    <WizardExcelDescription>Създаване на отчет с Excel данни.</WizardExcelDescription>
+    <WizardJsonDescription>Създаване на отчет с Json данни.</WizardJsonDescription>
+    <WizardPrivateShare>Няма достъп</WizardPrivateShare>
+    <WizardPrivateShareDescription>Външния достъп до елемента е ограничен.</WizardPrivateShareDescription>
+    <WizardPublicShare>Обществен достъп</WizardPublicShare>
+    <WizardPublicShareDescription>Външен достъп за неупълномощени потребители.</WizardPublicShareDescription>
+    <WizardRegisteredShare>Оторизиран достъп</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>Външен достъп само за регистрирани потребители от всяко работно място.</WizardRegisteredShareDescription>
+    <WizardXmlDescription>Създаване на отчет с Xml данни.</WizardXmlDescription>
   </Cloud>
   <Components>
     <StiBarCode>Бар код</StiBarCode>
@@ -520,7 +651,7 @@
     <FileNotFound>Файла "{0}" не е намерен.</FileNotFound>
     <IdentifierIsNotValid>Идентификатора '{0}' е невалиден.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Невъзможно е да се намери източника на данни.</ImpossibleFindDataSource>
-    <NameExists>Има вече обект именован като '{0}'. Обектите трябва да имат уникални имена, и да не са чуствителни към регистъра.</NameExists>
+    <NameExists>Има вече обект именован като '{0}'. Обектите трябва да имат уникални имена.</NameExists>
     <NoServices>Услугите не са намерени '{0}'</NoServices>
     <NotAssign>Източника на данни е неопределен.</NotAssign>
     <NotCorrectFormat>Въведения низ е с некоректен формат.</NotCorrectFormat>
@@ -768,6 +899,8 @@
     <AddCondition>&amp;Добави условие</AddCondition>
     <AddLevel>Добави ниво</AddLevel>
     <AssignExpression>Присвои израз</AssignExpression>
+    <BreakIfTrue>Прекъсни ако е вярно</BreakIfTrue>
+    <BreakIfTrueToolTip>Условие за прекъсване, ако текущото условие е изпълнено</BreakIfTrueToolTip>
     <ChangeFont>Смени шрифт...</ChangeFont>
     <ComponentIsEnabled>Компонента е разрешен</ComponentIsEnabled>
     <NoConditions>Няма условия</NoConditions>
@@ -908,6 +1041,7 @@
     <Queries>Заявка</Queries>
     <QueryNew>Нова заявка</QueryNew>
     <QueryText>Текст заявка</QueryText>
+    <QueryTimeout>Таймаут на заявка</QueryTimeout>
     <RelationEdit>Редакция релация</RelationEdit>
     <RelationNew>Нова релация</RelationNew>
     <RetrieveColumns>Извлечи колоните</RetrieveColumns>
@@ -1219,6 +1353,8 @@
     <AddNewItem>Добави Нов</AddNewItem>
     <GaugeEditorForm>Gauge Редактор</GaugeEditorForm>
     <Kind>Вид</Kind>
+    <LinearScale>Линеен мащаб</LinearScale>
+    <RadialScale>Радиалиен мащаб</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Отказ</barname_cancel>
@@ -1721,8 +1857,123 @@
     <GroupOceania>Океания</GroupOceania>
     <GroupSouthAmerica>Южна Америка</GroupSouthAmerica>
     <GroupWorld>Свят</GroupWorld>
+    <LinkDataForm>Свързване на Данни</LinkDataForm>
     <MapEditorForm>Редактор на Карта</MapEditorForm>
   </Map>
+  <Messages>
+    <MessageTimeOutExpired>Командата за изчакване е изтекла!</MessageTimeOutExpired>
+    <TextRegistrationSuccessfully>Регистрацията е успешна!
+
+Изпратен е Email до "{0}".
+Той съдържа връзка за потвърждение на вашата регистрация. За да завършите регистрацията моля последвайте линка от Email-a, който сте получили.</TextRegistrationSuccessfully>
+    <ThisFieldIsNotSpecified>Това поле не е определено!</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>Достъпът забранен!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>Вашият абонамент на Stimulsoft Reports.Ultimate изтече по-рано от публикуване на първата версия на нашия Stimulsoft Reports.Server!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>Некоректен лицензен файл! Моля, свържете се с нашия отдел продажби в sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>Профилът ви е заключен. Моля, свържете се с нашия отдел продажби в sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>Вие достигнахте максимално разрешения брой на активации. Моля, свържете се с нашия отдел продажби в sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server в момента не е наличен! Опитайте отново по-късно.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>Вие не можете да активирате тази версия на Stimulsoft Reports.Server защото абонамента ви е изтекъл! Моля, влезте в профила си и проверите коя версия на Stimulsoft Reports.Server можете да инсталирате и активирте.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>Възникна грешка при активиране. Моля, опитайте отново по-късно.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>Грешно потребителско име (Email) или парола!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>Типа на профила ви не позволява да активирате Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>Профила не може да бъде използван сега!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>Профила ви не е активиран все още! Моля, следвайте инструкциите, изпратени на Email по време на регистрацията.</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>Ролята на потребител все още не може да се промени, тъй като това е последният потребител администратор в това работно пространство!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>Ролята на потребител все още не може да се промени, защото това е последният потребител supervisor на този сървър!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeSystemRole>Системната роля не може да се промени!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>Потребителя не може да изтрива сам себе си!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>Потребителят не може да бъде изтрит, защото това е последният потребител с админ. права в това работно пространство!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>Потребителят не може да бъде изтрит, защото това е последния потребител supervisor на този сървер!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteSystemRole>Тази роля не може да бъде изтрита, защото е системна!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>Потребителят не може да се деактивира, защото това е последния потребител с админ. права в това работно пространство!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>Потребителят не може да се деактивира, защото това е последния потребител supervisor на този сървер!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>Собственото име не е определено!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>Фамилното име не е определено!</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>OAuth идентификатора не е определен!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>Паролата е некоректна!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>Паролата не е определена!</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>Паролата е твърде къса (минималната дължина е 6 символа)!</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>Вие не можете да изтривате ролята, защото тя се използва от други потребители.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>Ролята определена с името "{0}" вече съществува!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>Ролята определена с името "{0}" е системна роля!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>Съобщението с инструкции е изпратено до "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>Вие излезнахте!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExists>Потребителят (Email) вече се използва!</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>Потребителят (Email) не е зададен!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>Грешно потребителско име (Email) или парола!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>Потребителското име трябва да е  Email адрес!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>Работното пространство с това име вече се използва!</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeOut>Времето за обработка на командата е изтекло!</CommandTimeOut>
+    <EndDateShouldBeGreaterThanCurrentDate>Крайната дата трябва да е по-голяма от текущата!</EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>Крайната дата трябва да е по-голяма от началната дата!</EndDateShouldBeGreaterThanStartDate>
+    <ExecutionError>Грешка при изпълнение</ExecutionError>
+    <IsNotAuthorized>Няма достъп до "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>"{0}" е некортктно!</IsNotCorrect>
+    <IsNotDeleted>"{0}" не е изтрит!</IsNotDeleted>
+    <IsNotEqual>"{0}" не е равно!</IsNotEqual>
+    <IsNotFound>"{0}" не е намерен!</IsNotFound>
+    <IsNotRecognized>"{0}" не е разпознат!</IsNotRecognized>
+    <IsNotSpecified>"{0}" не е определен!</IsNotSpecified>
+    <IsRequiredFile>Трябва да добавите поне един файл!</IsRequiredFile>
+    <ItemCantBeAttachedToItself>Елемента не може да бъде прикрепен към себе си!</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>Елементите "{0}" не могат да бъдат изтрити, защото са прикрепени към други елементи!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeMovedToSpecifiedPlace>Елемента не може да бъде преместен към зададеното място!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>Елемента не поддържа "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual> Key и ToKey са равни!</KeyAndToKeyAreEqual>
+    <NotificationFailed>Неуспешен резултат!</NotificationFailed>
+    <NotificationFilesUploadingComplete>Файловете са качени успешно.</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>Файла "{0}" се качва.</NotificationFileUploading>
+    <NotificationItemDelete>Елементите се изтриват.</NotificationItemDelete>
+    <NotificationItemDeleteComplete>Елементите са изтрити успешно.</NotificationItemDeleteComplete>
+    <NotificationItemRestore>Елементите се възстановяват.</NotificationItemRestore>
+    <NotificationItemRestoreComplete>Елементите са възстановени успешно.</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>Елементите се прехвърлят.</NotificationItemTransfer>
+    <NotificationItemTransferComplete>Елементите са прехвърлени успешно.</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>Елементите изчакват обработка.</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>Операцията е прекъсната!</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>Кошчето се почивства.</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>Кошчето е почистено успешно.</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>Почистването на кошчето изчаква обработка.</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>Отчета "{0}" се експортва</NotificationReportExporting>
+    <NotificationReportExportingComplete>Отчета "{0}" е експортант успешно.</NotificationReportExportingComplete>
+    <NotificationReportRendering>Отчета "{0}" се изпълнява</NotificationReportRendering>
+    <NotificationReportRenderingComplete>Отчета "{0}" е изпълнен.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>Отчета "{0}" очаква обработка.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>Заданието "{0}" се изпълнява.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>Заданието "{0}" е изпълнено.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>Заданието "{0}" очаква обработка.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleFilesUploading>Качване на файлове</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>Опресняване елемент "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>Прехвърляне елемент "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>Експортва се отчет "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>Изпълнява се отчет "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Стартиране се задание "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTransferring>"{0}" се прехвърля в "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>"{0}" е успешно прехвърлен в "{1}".</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>Тази стойност не е правилна за типа {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>Извън обхват ("{0}")!</OutOfRange>
+    <ParsingCommandException>Изключение от обработката на команда в зададен XML: {0}</ParsingCommandException>
+    <QuotaMaximumComputingCyclesCountExceeded>Превишени са максималните изчислителни цикли за преброяване.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumFileSizeExceeded>Превишен е максималният размер на файла.</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumReportPagesCountExceeded>Превишен е максиманлия брой страници на отчета.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumUsersCountExceeded>Превишен е максимания брой потребители.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>Превишен е максималния брой работни пространства.</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>Заданието не може да стартира себе си!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Изтекла сесия</SessionTimeOut>
+    <SnapshotAlreadyProcessed>Моментната снимка на отчета е вече обработена!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>Определения елемент не е "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>Копиране от "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>Създаден от файл "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Създаден от елемент "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Зареден от файл "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>Създаване на нов елемент.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Някой файлове се качват в момента, ако затворите страницате те ще се загубят.Сигурни ли сте че искате да затворите страницата?</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>"{0}" със зададения ключ не е намерен!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>Вашата сесия е изтекла!</YourTimeSessionHasExpired>
+  </Notices>
   <NuGet>
     <AlreadyDownloaded>Вече е изтеглено</AlreadyDownloaded>
     <AssemblyLoadedSuccessfully>Колекцията е заредена успешно.</AssemblyLoadedSuccessfully>
@@ -1759,6 +2010,47 @@
     <StiLoadPasswordForm>Кодиране на документ</StiLoadPasswordForm>
     <StiSavePasswordForm>Парола</StiSavePasswordForm>
   </Password>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>Фонови задачи</AdminBackgroundTasks>
+    <AdminPermissions>Права</AdminPermissions>
+    <AdminRecycleBin>Кошче</AdminRecycleBin>
+    <AdminShare>Сподели</AdminShare>
+    <AdminTransfers>Трансфери</AdminTransfers>
+    <ItemCalendars>Календари</ItemCalendars>
+    <ItemCloudStorages>Oблачни хранилища</ItemCloudStorages>
+    <ItemContactLists>Контактни списъци</ItemContactLists>
+    <ItemDashboards>Табла</ItemDashboards>
+    <ItemDataSources>Източници данни</ItemDataSources>
+    <ItemFiles>Файлове</ItemFiles>
+    <ItemFolders>Папки</ItemFolders>
+    <ItemReportSnapshots>Снимки отчет</ItemReportSnapshots>
+    <ItemReportTemplates>Шаблони отчет</ItemReportTemplates>
+    <ItemSchedulers>Задания</ItemSchedulers>
+    <ReportDesignerBusinessObjects>Бизнес обекти</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>Колони данни</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>Връзки за данни</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>Релации данни</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>Източници данни</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>Речник с действия</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>Ограничения</ReportDesignerRestrictions>
+    <ReportDesignerVariables>Променливи</ReportDesignerVariables>
+    <SystemBackupRestore>Архивиране &amp; Възстановяване</SystemBackupRestore>
+    <SystemEmailTemplates>Email шаблони</SystemEmailTemplates>
+    <SystemLicensing>Лицензиране</SystemLicensing>
+    <SystemMonitoring>Мониторинг</SystemMonitoring>
+    <SystemUpdate>Актуализация</SystemUpdate>
+    <SystemWorkspaces>Работни пространства</SystemWorkspaces>
+    <TextAdministration>Администрация</TextAdministration>
+    <TextItems>Елементи</TextItems>
+    <TextReportDesigner>Дизайнер на отчет</TextReportDesigner>
+    <TextSystem>Система</TextSystem>
+    <TextUsers>Потребители</TextUsers>
+    <UserHimself>Себе си</UserHimself>
+    <UserRoles>Роли</UserRoles>
+    <Users>Потребители</Users>
+    <UserWorkspace>Работно място</UserWorkspace>
+  </Permissions>
   <PlacementComponent>
     <MoveLeftFreeSpace>Преместване на компонента в ляво на свободното простарнство, увеличавайки височинат му до тази на свободното пространство.</MoveLeftFreeSpace>
     <MoveRightFreeSpace>Преместване на компонента в дясно на свободното простарнство, увеличавайки височинат му до тази на свободното пространство.</MoveRightFreeSpace>
@@ -1771,9 +2063,11 @@
     <BarCodeAdditionalCategory>Бар-код още</BarCodeAdditionalCategory>
     <BarCodeCategory>Бар-код</BarCodeCategory>
     <BehaviorCategory>Поведение</BehaviorCategory>
+    <CapNeedle>Връх на показалец</CapNeedle>
     <CellCategory>Клетка</CellCategory>
     <ChartAdditionalCategory>Диаграма още</ChartAdditionalCategory>
     <ChartCategory>Диаграма</ChartCategory>
+    <ChartMap>Карта</ChartMap>
     <CheckCategory>Квадратче</CheckCategory>
     <ColorsCategory>Цветове</ColorsCategory>
     <ColumnsCategory>Колони</ColumnsCategory>
@@ -1800,6 +2094,7 @@
     <MouseEventsCategory>Мишка</MouseEventsCategory>
     <NavigationCategory>Навигация</NavigationCategory>
     <NavigationEventsCategory>Събития навигация</NavigationEventsCategory>
+    <Needle>Показалец</Needle>
     <OptionsCategory>Опции</OptionsCategory>
     <PageAdditionalCategory>Страница още</PageAdditionalCategory>
     <PageCategory>Страница</PageCategory>
@@ -1811,11 +2106,13 @@
     <RenderEventsCategory>Построение</RenderEventsCategory>
     <SeriesLabelsCategory>Етикети на Серия</SeriesLabelsCategory>
     <ShapeCategory>Геометрия</ShapeCategory>
+    <Size>Размер</Size>
     <SubReportCategory>Под-справка</SubReportCategory>
     <TableCategory>Таблица</TableCategory>
     <TextAdditionalCategory>Текст, още</TextAdditionalCategory>
     <TextCategory>Текст</TextCategory>
     <TitleCategory>Заглавие</TitleCategory>
+    <TrendLineCategory>Линия на тренда</TrendLineCategory>
     <ValueCategory>Стойност</ValueCategory>
     <ValueCloseCategory>Последна стойност</ValueCloseCategory>
     <ValueEndCategory>Крайна стойност</ValueEndCategory>
@@ -2305,6 +2602,9 @@
     <StiRestrictionsAllowResize>Разреши оразмеряване</StiRestrictionsAllowResize>
     <StiRestrictionsAllowSelect>Разреши избор</StiRestrictionsAllowSelect>
     <StiRestrictionsNone>Няма</StiRestrictionsNone>
+    <StiSelectionModeFirst>Първи</StiSelectionModeFirst>
+    <StiSelectionModeFromVariable>От променлива</StiSelectionModeFromVariable>
+    <StiSelectionModeNothing>Нищо</StiSelectionModeNothing>
     <StiSeriesLabelsValueTypeArgument>Аргумент</StiSeriesLabelsValueTypeArgument>
     <StiSeriesLabelsValueTypeArgumentValue>Аргумент - Стойност</StiSeriesLabelsValueTypeArgumentValue>
     <StiSeriesLabelsValueTypeSeriesTitle>Заглавие на серия</StiSeriesLabelsValueTypeSeriesTitle>
@@ -2612,6 +2912,7 @@
     <BrushType>Тип четка</BrushType>
     <BusinessObject>Бизнес обект</BusinessObject>
     <CacheAllData>Кеширай всички данни</CacheAllData>
+    <CacheTotals>Кеширане на сумите</CacheTotals>
     <CalcInvisible>Изчисление невидими</CalcInvisible>
     <CalculatedDataColumn>Изчислима колона данни</CalculatedDataColumn>
     <CalculationMode>Режим на изчисление</CalculationMode>
@@ -2630,6 +2931,7 @@
     <CenterPoint>Централна Точка</CenterPoint>
     <ChartAreaBorderColor>Цвят на граница</ChartAreaBorderColor>
     <ChartAreaBrush>Площ на Четка</ChartAreaBrush>
+    <ChartAreaShowShadow>Покажи сянка</ChartAreaShowShadow>
     <ChartType>Тип диаграма</ChartType>
     <Checked>Включено</Checked>
     <CheckOnClick>Маркирай при щракване</CheckOnClick>
@@ -2711,6 +3013,7 @@
     <DialogResult>Резултат от диалога</DialogResult>
     <Diameter>Диаметър</Diameter>
     <Direction>Направление</Direction>
+    <Disabled>Забранен</Disabled>
     <DisplayValue>Изображеаме стойност</DisplayValue>
     <Distance>Дистанция</Distance>
     <DistanceBetweenTabs>Дистанция между Tabs</DistanceBetweenTabs>
@@ -3062,6 +3365,7 @@
     <ReconnectOnEachRow>Свързване при всеки ред</ReconnectOnEachRow>
     <ReferencedAssemblies>Връзки към колекции</ReferencedAssemblies>
     <Refresh>Опресни</Refresh>
+    <RefreshTime>Време за опресняване</RefreshTime>
     <Relation>Релация</Relation>
     <RelationName>Име на релация</RelationName>
     <Relations>Релации</Relations>
@@ -3073,6 +3377,7 @@
     <ReportAuthor>Автор на отчета</ReportAuthor>
     <ReportCacheMode>Режим на кеширане</ReportCacheMode>
     <ReportDescription>Описание на отчета</ReportDescription>
+    <ReportImage>Картинка отчет</ReportImage>
     <ReportName>Име на отчета</ReportName>
     <ReportUnit>Мерни единици</ReportUnit>
     <RequestFromUser>Промяна от потребител</RequestFromUser>
@@ -3081,6 +3386,7 @@
     <ResetPageNumber>Начално състояние номер на страница</ResetPageNumber>
     <Resize>Оразмеряване</Resize>
     <Restrictions>Ограничения</Restrictions>
+    <RetrieveOnlyUsedData>Изтегляне само на използваните данни</RetrieveOnlyUsedData>
     <ReturnValue>Върната стойност</ReturnValue>
     <ReverseHor>Хоризонтално разместване</ReverseHor>
     <ReverseVert>Вертикално разместване</ReverseVert>
@@ -3238,6 +3544,8 @@
     <Totals>Сбор</Totals>
     <TransparentColor>Прозрачен цвят</TransparentColor>
     <TrendLine>Насочваща линия</TrendLine>
+    <TrendLineColor>Цвят</TrendLineColor>
+    <TrendLineShowShadow>Покажи сянка</TrendLineShowShadow>
     <Trimming>Изчистване</Trimming>
     <Type>Тип</Type>
     <TypeName>Име на тип</TypeName>
@@ -3434,6 +3742,7 @@
     <FinishingReport>Завършване отчета</FinishingReport>
     <FirstPass>Първи преход</FirstPass>
     <GenerateNewCode>Генериране на нов код</GenerateNewCode>
+    <Infographics>Инфографика</Infographics>
     <InfoMessage>{0} - {1} намерени.</InfoMessage>
     <InformationMessages>Информационни съобщения</InformationMessages>
     <LabelAlias>Псевдоним:</LabelAlias>
@@ -3443,6 +3752,7 @@
     <LabelCentimeters>Сантиметри:</LabelCentimeters>
     <LabelCollectionName>Име на колекция:</LabelCollectionName>
     <LabelColor>Цвят:</LabelColor>
+    <LabelCommandTimeout>Изчакване на команда:</LabelCommandTimeout>
     <LabelCountData>Броене на данни:</LabelCountData>
     <LabelDataBand>Секция данни:</LabelDataBand>
     <LabelDataColumn>Колона данни:</LabelDataColumn>
@@ -3506,6 +3816,17 @@
     <WhenAnd>когато {0} {1} и</WhenAnd>
     <WhenValueIs>когато стойността е</WhenValueIs>
   </Report>
+  <ReportInfo>
+    <CheckIssuesAdditionalDescription>Проверка на отчета за грешки и намиране неточностите в него.</CheckIssuesAdditionalDescription>
+    <EncryptWithPassword>Шифроване с парола</EncryptWithPassword>
+    <Info>Инфо</Info>
+    <ReportOptions>Опции на отчета</ReportOptions>
+    <ReportOptionsAdditionalDescription>Задаване на основна информация и параметри на отчета.</ReportOptionsAdditionalDescription>
+  </ReportInfo>
+  <ReportOpen>
+    <Browse>Разгледай</Browse>
+    <Import>Импорт</Import>
+  </ReportOpen>
   <Services>
     <categoryContextTools>Контекстно меню с принадлежности</categoryContextTools>
     <categoryDesigner>Дизайнер</categoryDesigner>

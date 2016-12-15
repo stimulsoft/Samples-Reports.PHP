@@ -117,6 +117,7 @@
     <Save>حفظ</Save>
     <SaveCopy>حفظ نسخة</SaveCopy>
     <SetAll>الكل</SetAll>
+    <ShowMore>عرض المزيد</ShowMore>
     <Submit>تحميل</Submit>
     <Test>تجربة</Test>
     <Up>أعلى</Up>
@@ -310,14 +311,63 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>إعدادات الحساب</AccountSettings>
+    <ButtonChangePassword>تغيير كلمة المرور</ButtonChangePassword>
+    <ButtonDeleteAll>حذف الكل</ButtonDeleteAll>
+    <ButtonDesign>تصميم التقرير</ButtonDesign>
+    <ButtonLogout>تسجيل خروج</ButtonLogout>
+    <ButtonPublish>نشر</ButtonPublish>
+    <ButtonRecover>استعادة</ButtonRecover>
+    <ButtonResendEmail>إعادة إرسال الإيميل</ButtonResendEmail>
+    <ButtonResetPassword>إعادة ضبط كلمة المرور</ButtonResetPassword>
+    <ButtonRun>تشغيل</ButtonRun>
+    <ButtonShare>مشاركة</ButtonShare>
+    <ButtonSignUp>تسجيل</ButtonSignUp>
+    <ButtonSkip>تخطي</ButtonSkip>
+    <ButtonView>عرض</ButtonView>
+    <ButtonWhereUsed>المكان المستخدم فيه؟</ButtonWhereUsed>
     <Cancel>إلغاء الأمر</Cancel>
+    <CheckBoxMoveToRecycleBin>نقل لسلة المهملات</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>تذكرني</CheckBoxRememberMe>
     <Collection>مجموعة</Collection>
     <Create>إنشاء</Create>
+    <CreateError>خطأ أثناء إنشاء التقرير!</CreateError>
     <CreateNewCollection>إنشاء مجموعة جديدة</CreateNewCollection>
+    <CreatingReport>إنشاء التقرير...</CreatingReport>
     <DeleteFile>حذف ملف</DeleteFile>
+    <ExecutionError>خطأ في التنفيذ</ExecutionError>
+    <FileStorageWindowTitleEdit>تعديل تخزين الملف</FileStorageWindowTitleEdit>
+    <FileStorageWindowTitleNew>تخزين ملف جديد</FileStorageWindowTitleNew>
+    <FolderWindowTitleEdit>تعديل مجلد</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>مجلد جديد</FolderWindowTitleNew>
+    <ForExample>مثال</ForExample>
+    <GroupBoxAttachedItems>عناصر مرفقة</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>بتسجيلك فأنت توافق على الشروط</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>لديك حساب</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>نسيت كلمة المرور</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>لديك كلمة مرور</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>تسجيل حساب جديد</HyperlinkRegisterAccount>
     <labelCollectionName>اسم المجموعة:</labelCollectionName>
+    <LabelCreated>منشأ:</LabelCreated>
+    <LabelCreateFolder>إنشاء تصنيف جديد يمكنك من احتواء عناصر أخرى.</LabelCreateFolder>
+    <LabelCreateReportTemplate>إنشاء نموذج تقرير.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>كلمة المرور الحالية:</LabelCurrentPassword>
+    <LabelDataFile>ملف البيانات:</LabelDataFile>
+    <LabelDataUrl>URL عنوان البيانات:</LabelDataUrl>
     <labelFileName>اسم الملف:</labelFileName>
+    <LabelForeground>المقدمة:</LabelForeground>
+    <LabelFromReport>من تقرير</LabelFromReport>
+    <LabelFromReportCode>من تقرير (معرف برمجيا)</LabelFromReportCode>
+    <LabelLastLogin>آخر تسجيل دخول:</LabelLastLogin>
+    <LabelLastTime>آخر وقت:</LabelLastTime>
+    <LabelModified>تعديل:</LabelModified>
+    <LabelNewPassword>كلمة المرور الجديدة:</LabelNewPassword>
+    <LabelNextTime>الوقت التالي:</LabelNextTime>
     <labelPassword>كلمة المرور:</labelPassword>
+    <LabelPermission>الأذونات:</LabelPermission>
+    <LabelRenderedReport>تقرير معروض</LabelRenderedReport>
+    <LabelResponseAsFile>الاستجابة كملف</LabelResponseAsFile>
+    <LabelSeparateReport>تقرير منفصل (مع نصوص برمجية) ملف</LabelSeparateReport>
+    <LabelShowReport>عرض التقرير:</LabelShowReport>
     <labelUserName>اسم المستخدم:</labelUserName>
     <Login>تسجيل دخول</Login>
     <Open>فتح</Open>
@@ -336,12 +386,93 @@
     <RefreshList>إعادة تحميل القائمة</RefreshList>
     <ReportDocumentFormatNotRecognized>تنسيق '{0}' لم يتم التعرف عليه كتنسيق معتمد لعرض تقرير!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>تنسيق '{0}' لم يتم التعرف عليه كتنسيق معتمد لقالب تقرير!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>إضافة دور</RibbonButtonAddRole>
+    <RibbonButtonAddUser>إضافة مستخدم</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>إضافة مساحة عمل</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>مجلد</RibbonButtonFolder>
+    <RibbonTabUsers>مستخدمون</RibbonTabUsers>
     <Root>الجذر</Root>
+    <RootFolder>المجلد الرئيسي</RootFolder>
     <Save>حساب</Save>
     <SaveAccountSettings>حفظ إعدادات الحساب</SaveAccountSettings>
     <SaveFile>حفظ الملف</SaveFile>
+    <ShareWindowTitleNew>مشاركة</ShareWindowTitleNew>
     <ShowAllFiles>عرض كافة الملفات</ShowAllFiles>
+    <TabItemEmbedCode>تضمين الرمز</TabItemEmbedCode>
+    <TabItemQRCode>رمز QR</TabItemQRCode>
+    <TabItemShare>رابط للمشاركة</TabItemShare>
+    <TextActivated>مفعل</TextActivated>
+    <TextDelete>حذف</TextDelete>
+    <TextDeletingItems>حذف العناصر...</TextDeletingItems>
+    <TextFirstName>الاسم الأول</TextFirstName>
+    <TextFromTo>من {0} إلى {1} (المجموع - {2})</TextFromTo>
+    <TextItemsWorkspace>مساحة عمل</TextItemsWorkspace>
+    <TextLastName>الاسم الأخير</TextLastName>
+    <TextModify>تعديل</TextModify>
+    <TextNoNotifications>بدون تنبيهات</TextNoNotifications>
+    <TextProfile>الملف الشخصي</TextProfile>
+    <TextReports>تقارير</TextReports>
+    <TextRestoringItems>استعادة العناصر...</TextRestoringItems>
+    <TextRole>الدور</TextRole>
+    <TextRun>تشغيل</TextRun>
+    <TextUser>مستخدم</TextUser>
+    <TextUserName>اسم المستخدم (بريد الكتروني)</TextUserName>
+    <TimeHoursAgoFive>منذ خمس ساعات, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>منذ أربع ساعات, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>منذ ساعة, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>منذ ثلاث ساعات, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>منذ ساعتين, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>منذ خمس دقائق, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>منذ أربع دقائق, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>منذ أقل من دقيقة</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>{0} دقائق مضت, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>منذ دقيقة, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>منذ ثلاث دقائق, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>منذ دقيقتين, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>اليوم, {0:t}</TimeToday>
+    <TimeYesterday>الأمس, {0:t}</TimeYesterday>
+    <ToolTipAddRole>انشاء دور جديد في مساحة العمل</ToolTipAddRole>
+    <ToolTipAddUser>انشاء مستخدم جديد في الدور المحدد</ToolTipAddUser>
+    <ToolTipAspNet>ASP.NET نشر التقرير المحدد في تطبيق </ToolTipAspNet>
+    <ToolTipAspNetMvc>ASP.NET MVC نشر التقرير المحدد في تطبيق</ToolTipAspNetMvc>
+    <ToolTipCreate>انشاء عنصر جديد</ToolTipCreate>
+    <ToolTipDelete>حذف العناصر المحددة</ToolTipDelete>
+    <ToolTipDeleted>عرض العناصر المحذوفة</ToolTipDeleted>
+    <ToolTipEdit>تحرير العناصر المحددة</ToolTipEdit>
+    <ToolTipGridMode>عرض قائمة</ToolTipGridMode>
+    <ToolTipInfo>عرض التفاصيل</ToolTipInfo>
+    <ToolTipJs>نشر التقرير المحدد كصفحة HTML</ToolTipJs>
+    <ToolTipPublish>تجهيز التقرير المحدد للنشر في تطبيقك.</ToolTipPublish>
+    <ToolTipRecover>استعادة العناصر المحددة</ToolTipRecover>
+    <ToolTipRunWithoutPreview>عرض التقرير المحدد بدون معاينة</ToolTipRunWithoutPreview>
+    <ToolTipShare>مشاركة الملف المحدد</ToolTipShare>
+    <ToolTipSort>خيارات الترتيب</ToolTipSort>
+    <ToolTipThumbnailMode>عرض شبكي</ToolTipThumbnailMode>
+    <ToolTipViewFile>عرض الملف المحدد</ToolTipViewFile>
+    <ToolTipViewReport>عرض التقرير المحدد في المستعرض</ToolTipViewReport>
+    <WindowDescriptionDelete>هل أنت متأكد من حذف العناصر المحددة؟</WindowDescriptionDelete>
+    <WindowDescriptionRecover>سيتم استعادة العناصر المحددة من سلة المحذوفات</WindowDescriptionRecover>
+    <WindowTitleDelete>حذف العناصر</WindowTitleDelete>
+    <WindowTitleForgotPassword>نسيت كلمة المرور</WindowTitleForgotPassword>
     <WindowTitleLogin>تسجيل دخول</WindowTitleLogin>
+    <WindowTitleRecover>استعادة العناصر</WindowTitleRecover>
+    <WindowTitleRoleEdit>تحرير الدور</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>دور جديد</WindowTitleRoleNew>
+    <WindowTitleSignUp>تسجيل جديد</WindowTitleSignUp>
+    <WindowTitleUserEdit>تحرير مستخدم</WindowTitleUserEdit>
+    <WindowTitleUserNew>مستخدم جديد</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>تحرير مساحة عمل</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>مساحة عمل جديدة</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>انشاء تقرير فارغ</WizardBlankReportDescription>
+    <WizardExcelDescription>انشاء تقرير مع بيانات Excel</WizardExcelDescription>
+    <WizardJsonDescription>انشاء تقرير مع بيانات Json</WizardJsonDescription>
+    <WizardPrivateShare>غير مسموح</WizardPrivateShare>
+    <WizardPrivateShareDescription>الدخول الخارجي للعنصر محظور</WizardPrivateShareDescription>
+    <WizardPublicShare>دخول عام</WizardPublicShare>
+    <WizardPublicShareDescription>دخول خارجي لأي مستخدم غير مصرح له</WizardPublicShareDescription>
+    <WizardRegisteredShare>دخول خاص</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>دخول خارجي للمستخدمين المسجلين فقط من أي مجال عمل</WizardRegisteredShareDescription>
+    <WizardXmlDescription>انشاء تقرير مع بيانات Xml</WizardXmlDescription>
   </Cloud>
   <Components>
     <StiBarCode>باركود</StiBarCode>
@@ -768,6 +899,8 @@
     <AddCondition>&amp;اضافة شرط</AddCondition>
     <AddLevel>اضافة مستوى</AddLevel>
     <AssignExpression>تخصيص تعبير</AssignExpression>
+    <BreakIfTrue>إيقاف في حالة الصحة</BreakIfTrue>
+    <BreakIfTrueToolTip>إيقاف معالجة الشرط في حالة تحقق الشرط الحالي</BreakIfTrueToolTip>
     <ChangeFont>تغير خط...</ChangeFont>
     <ComponentIsEnabled> الـComponent مفعل</ComponentIsEnabled>
     <NoConditions>بدون شروط</NoConditions>
@@ -908,6 +1041,7 @@
     <Queries>استعلامات</Queries>
     <QueryNew>استعلام جديد</QueryNew>
     <QueryText>نص الاستعلام</QueryText>
+    <QueryTimeout>مهلة الاستعلام</QueryTimeout>
     <RelationEdit>تعديل العلاقة</RelationEdit>
     <RelationNew>علاقة جديدة</RelationNew>
     <RetrieveColumns>الحصول على الأعمدة</RetrieveColumns>
@@ -1219,6 +1353,8 @@
     <AddNewItem>إضافة عنصر جديد</AddNewItem>
     <GaugeEditorForm>محرر المقاييس</GaugeEditorForm>
     <Kind>نوع</Kind>
+    <LinearScale>مقياس خطي</LinearScale>
+    <RadialScale>مقياس نصف قطري</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>الغاء</barname_cancel>
@@ -1728,8 +1864,123 @@
     <GroupOceania>أوقيانوسيا</GroupOceania>
     <GroupSouthAmerica>أمريكا الجنوبية</GroupSouthAmerica>
     <GroupWorld>العالم</GroupWorld>
+    <LinkDataForm>ربط البيانات</LinkDataForm>
     <MapEditorForm>محرر الخرائط</MapEditorForm>
   </Map>
+  <Messages>
+    <MessageTimeOutExpired>وقت النتظار لتنفيذ الأمر قد انتهت!</MessageTimeOutExpired>
+    <TextRegistrationSuccessfully>تم التسجيل بنجاح
+
+تم إرسال بريد إلكتروني إلى "{0}".
+يحتوي البريد على رابط تأكيد تسجيلك. لإكمال التسجيل يرجى الضغط على الرابط في الرسالة المرسلة لبريدكم الإلكترونيplease follow the link from the email you received.</TextRegistrationSuccessfully>
+    <ThisFieldIsNotSpecified>هذا الحقل غير محدد</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>ممنوع الدخول!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>اشتراكك في Stimulsoft Reports.Ultimate قد انتهت فترته قبل اصدار اول نسخة من Stimulsoft Reports.Server</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>ملف الترخيص غير صحيح! يرجى التواصل مع إدارة المبيعات sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>حسابك مقفل. يرجى التواصل مع إدارة المبيعات على sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>لقد وصلت إلى الحد الأقصى من التنشيطات. يرجى التواصل مع إدارة المبيعات على sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>خادم التنشيط لـ Stimulsoft غير متوفر الآن ! يرجى المحاولة لاحقاً.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>لا يمكن تنشيط هذه النسخة من  Stimulsoft Reports.Server حيث أن برنامج اشتراكك قد انتهى! يرجى الدخول لحسابك والتحقق من نسخة  Stimulsoft Reports.Server التي تستطيع تنصيبها وتنشيطها.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>حدث خطأ أثناء التنشيط. يرجى المحاولة لاحقاً.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>اسم المستخدم (البريد الإلكتروني) أو كلمة المرور خاطئة!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>نوع حسابك لا يسمح بتنشيط Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>لا يمكن استخدام الحساب الآن!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>.الحساب غير منشط بعد! يرجى اتباع التعليمات المرسلة إلى البريد الاكتروني أثناء التسجيل</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>لا يمكن تغيير دور المستخدم لكونه المسؤول الأخير في مساحة العمل!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>لا يمكن تغيير دور المستخدم لكونه المشرف الأخير في الخادم!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeSystemRole>!لا يمكن تغيير دور النظام</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>!لا يمكن للمستخدم حذف نفسه</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>لا يمكن حذف المستخدم لكونه المسؤول الأخير في مساحة العمل!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>لا حذف المستخدم لكونه المشرف الأخير في الخادم!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteSystemRole>لا يمكن حذف هذا الدور, لأنه دور خاص بالنظام!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>لا يمكن تعطيل المستخدم لكونه المسؤول الأخير في مساحة العمل!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>لا يمكن تعطيل المستخدم لكونه المشرف الأخير في الخادم!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>!الاسم الأول غير محدد</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>!الاسم الأخير غير محدد</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>معرف OAuth غير محدد!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>!كلمة المرور ليست صحيحة</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>!كلمة المرور غير محددة</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>!كلمة المرور قصيرة (أقل كلمة تتكون من ستة أحرف)</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>لا يمكن حذف الدور لأنه مستخدم من قبل مستخدمين آخرين</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>هذا الدور "{0}" موجود مسبقا!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>هذا الدور "{0}" هو دور خاص بالنظام!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>تم إرسال رسالة بتعليمات إضافية إلى "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>!تم تسجيل خروجك</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExists>!اسم المستخدم (البريد الالكتروني) موجود مسيقاً</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>!اسم المستخدم (البريد الالكتروني) غير محدد</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>!اسم المستخدم (البريد الالكتروني) أو كلمة المرور غير صحيحة</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>!يجب أن يكون اسم المستخدم وعنوان البريد الالكتروني متماثلين</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>!اسم مساحة العمل هذا مأخوذ</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeOut>!انتهى وقت الانتظار لمعالجة الأمر</CommandTimeOut>
+    <EndDateShouldBeGreaterThanCurrentDate>!تاريخ النهاية يجب أن يكون أكبر من التاريخ الحالي </EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>!تاريخ النهاية يجب أن يكون أكبر من تاريخ البداية</EndDateShouldBeGreaterThanStartDate>
+    <ExecutionError>خطأ في التنفيذ</ExecutionError>
+    <IsNotAuthorized>لا توجد صلاحية لـ "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>"{0}" غير صحيح!</IsNotCorrect>
+    <IsNotDeleted>"{0}" لم يتم حذفه!</IsNotDeleted>
+    <IsNotEqual>"{0}" غير متساوي!</IsNotEqual>
+    <IsNotFound>"{0}" لم يتم العثور عليه!</IsNotFound>
+    <IsNotRecognized>"{0}" لم يتم التعرف عليه!</IsNotRecognized>
+    <IsNotSpecified>"{0}" غير محدد!</IsNotSpecified>
+    <IsRequiredFile>!يجب إضافة ملف واحد على الأقل</IsRequiredFile>
+    <ItemCantBeAttachedToItself>!لا يمكن إلحاق العنصر بنفسه</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>العناصر "{0}" لأنها ملحقة بعناصر أخرى!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeMovedToSpecifiedPlace>!لا يمكن نقل العنصر إلى مكان محدد</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>العنصر لا يدعم "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>المفتاح وإلى المفتاح غير متماثلين!</KeyAndToKeyAreEqual>
+    <NotificationFailed>!نتيجة فاشلة</NotificationFailed>
+    <NotificationFilesUploadingComplete>.تم رفع الملفات بنجاح</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>يتم رفع الملف "{0}"</NotificationFileUploading>
+    <NotificationItemDelete>.يتم الآن حذف العناصر</NotificationItemDelete>
+    <NotificationItemDeleteComplete>.تم حذف العناصر بنجاح</NotificationItemDeleteComplete>
+    <NotificationItemRestore>.يتم الآن استعادة العناصر</NotificationItemRestore>
+    <NotificationItemRestoreComplete>.تمت استعادة العناصر بنجاح</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>.يتم الآن نقل العناصر</NotificationItemTransfer>
+    <NotificationItemTransferComplete>.تم نقل العناصر بنجاح</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>.تنتظر العناصر المعالجة</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>!تم إيقاف العملية</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>يتم الآن تنظيف سلة المحذوفات</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>تم تنظيف سلة المحذوفات بنجاح</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>تنظيف سلة المحذوفات ينتظر المعالجة</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>جاري تصدير "{0}"</NotificationReportExporting>
+    <NotificationReportExportingComplete>تم تصدير "{0}" بنجاح.</NotificationReportExportingComplete>
+    <NotificationReportRendering>جاري عرض التقرير "{0}"</NotificationReportRendering>
+    <NotificationReportRenderingComplete>تم عرض التقرير "{0}".</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>التقرير "{0}" ينتظر المعالجة.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>الجدولة "{0}"  قيد التنفيذ.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>الجدولة "{0}" تم تنفيذها.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>الجدولة "{0}" بانتظار المعالجة.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleFilesUploading>رفع الملفات</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>إعادة عرض "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>نقل العنصر "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>تصدير التقرير "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>عرض التقرير "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>تنفيذ الجدولة "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTransferring>جاري نقل "{0}" إلى "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>تم نقل "{0}" إلى "{1}" بنجاح.</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>القيمة غير صحيحة للنوع {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>خارج النطاق ("{0}")!</OutOfRange>
+    <ParsingCommandException>حصل استثناء أثناء تنفيذ الأمر في xml: {0}</ParsingCommandException>
+    <QuotaMaximumComputingCyclesCountExceeded>.تجاوز الحد الأعلى لدورات الحوسبة</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumFileSizeExceeded>.تجاوز الحد الأعلى لحجم الملف</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumReportPagesCountExceeded>.تجاوز الحد الأعلى لعدد صفحات التقرير</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumUsersCountExceeded>.تجاوز الحد الأعلى لعدد المستخدمين</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>.تجاوز الحد الأعلى لعدد مساحات العمل</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>!لا يمكن للمجدول تشغيل نفسه</SchedulerCantRunItSelf>
+    <SessionTimeOut>انتهى وقت الجلسة</SessionTimeOut>
+    <SnapshotAlreadyProcessed>لقطة التقرير تم تنفيذها!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>العنصر المحدد ليس "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>نسخ من العنصر "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>انشاء من ملف "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>انشاء من عنصر "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>تحميل من ملف "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>انشاء عنصر جديد.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>جاري رفع بعض الملفات, إذا أغلقت الصفحة فسيتم فقدانها. هل أنت متأكد من أنك تود إغلاق الصفحة?</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>لم يتم العثور على "{0}" بالمفتاح المحدد!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>!انتهى وقت جلستك</YourTimeSessionHasExpired>
+  </Notices>
   <NuGet>
     <AlreadyDownloaded>محملة مسبقا</AlreadyDownloaded>
     <AssemblyLoadedSuccessfully>تم تحميل المكتبة بنجاح</AssemblyLoadedSuccessfully>
@@ -1766,6 +2017,47 @@
     <StiLoadPasswordForm>الوثيقة تشفير</StiLoadPasswordForm>
     <StiSavePasswordForm>كلمة السر</StiSavePasswordForm>
   </Password>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>مهام الخلفية</AdminBackgroundTasks>
+    <AdminPermissions>أذونات</AdminPermissions>
+    <AdminRecycleBin>سلة المحذوفات</AdminRecycleBin>
+    <AdminShare>مشاركة</AdminShare>
+    <AdminTransfers>نقل</AdminTransfers>
+    <ItemCalendars>تقاويم</ItemCalendars>
+    <ItemCloudStorages>مخازن سحابية</ItemCloudStorages>
+    <ItemContactLists>قوائم الاتصال</ItemContactLists>
+    <ItemDashboards>لوحات</ItemDashboards>
+    <ItemDataSources>مصادر بيانات</ItemDataSources>
+    <ItemFiles>ملفات</ItemFiles>
+    <ItemFolders>مجلدات</ItemFolders>
+    <ItemReportSnapshots>لقطات التقرير</ItemReportSnapshots>
+    <ItemReportTemplates>قوالب التقرير</ItemReportTemplates>
+    <ItemSchedulers>جدولة</ItemSchedulers>
+    <ReportDesignerBusinessObjects>كائنات أعمال</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>أعمدة بيانات</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>اتصالات البيانات</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>علاقات بيانات</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>مصادر بيانات</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>تصرفات المعجم</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>قيود</ReportDesignerRestrictions>
+    <ReportDesignerVariables>متغيرات</ReportDesignerVariables>
+    <SystemBackupRestore>نسخ احتياطي واستعادة</SystemBackupRestore>
+    <SystemEmailTemplates>قوالب البريد الالكتروني</SystemEmailTemplates>
+    <SystemLicensing>ترخيص</SystemLicensing>
+    <SystemMonitoring>مراقبة</SystemMonitoring>
+    <SystemUpdate>تحديث</SystemUpdate>
+    <SystemWorkspaces>مساحات عمل</SystemWorkspaces>
+    <TextAdministration>إدارة</TextAdministration>
+    <TextItems>عناصر</TextItems>
+    <TextReportDesigner>مصمم التقرير</TextReportDesigner>
+    <TextSystem>نظام</TextSystem>
+    <TextUsers>مستخدمين</TextUsers>
+    <UserHimself>نفسه</UserHimself>
+    <UserRoles>أدوار</UserRoles>
+    <Users>مستخدمين</Users>
+    <UserWorkspace>مساحة عمل</UserWorkspace>
+  </Permissions>
   <PlacementComponent>
     <MoveLeftFreeSpace>تحريك عنصر إلى يسار المنطقة الفارغة, زيادة ارتفاع العنصر بحسب ارتفاع المنطقة الفارغة.</MoveLeftFreeSpace>
     <MoveRightFreeSpace>تحريك عنصر إلى يمين المنطقة الفارغة, زيادة ارتفاع العنصر بحسب ارتفاع المنطقة الفارغة.</MoveRightFreeSpace>
@@ -1778,9 +2070,11 @@
     <BarCodeAdditionalCategory>شريط المدونة إضافية</BarCodeAdditionalCategory>
     <BarCodeCategory>باركود</BarCodeCategory>
     <BehaviorCategory>سلوك</BehaviorCategory>
+    <CapNeedle>غطاء الإبرة</CapNeedle>
     <CellCategory>خلية</CellCategory>
     <ChartAdditionalCategory>رسم إضافي</ChartAdditionalCategory>
     <ChartCategory>رسم بياني</ChartCategory>
+    <ChartMap>خريطة</ChartMap>
     <CheckCategory>فحص</CheckCategory>
     <ColorsCategory>ألوان</ColorsCategory>
     <ColumnsCategory>الأعمدة</ColumnsCategory>
@@ -1807,6 +2101,7 @@
     <MouseEventsCategory>أحداث الماوس</MouseEventsCategory>
     <NavigationCategory>الملاحة</NavigationCategory>
     <NavigationEventsCategory>الملاحة الأحداث</NavigationEventsCategory>
+    <Needle>إبرة</Needle>
     <OptionsCategory>خيارات</OptionsCategory>
     <PageAdditionalCategory>صفحة إضافية</PageAdditionalCategory>
     <PageCategory>صفحة</PageCategory>
@@ -1818,11 +2113,13 @@
     <RenderEventsCategory>جعل الأحداث</RenderEventsCategory>
     <SeriesLabelsCategory>أسماء السلسلة</SeriesLabelsCategory>
     <ShapeCategory>شكل</ShapeCategory>
+    <Size>الحجم</Size>
     <SubReportCategory>دون تقرير</SubReportCategory>
     <TableCategory>جدول</TableCategory>
     <TextAdditionalCategory>نص إضافي</TextAdditionalCategory>
     <TextCategory>النص</TextCategory>
     <TitleCategory>العنوان</TitleCategory>
+    <TrendLineCategory>خط الاتجاه</TrendLineCategory>
     <ValueCategory>القيمة</ValueCategory>
     <ValueCloseCategory>قيمة الإغلاق</ValueCloseCategory>
     <ValueEndCategory>قيمة النهاية</ValueEndCategory>
@@ -2312,6 +2609,9 @@
     <StiRestrictionsAllowResize>السماح بحجم</StiRestrictionsAllowResize>
     <StiRestrictionsAllowSelect>اختر السماح</StiRestrictionsAllowSelect>
     <StiRestrictionsNone>بلا</StiRestrictionsNone>
+    <StiSelectionModeFirst>أول</StiSelectionModeFirst>
+    <StiSelectionModeFromVariable>من متغير</StiSelectionModeFromVariable>
+    <StiSelectionModeNothing>لا شيء</StiSelectionModeNothing>
     <StiSeriesLabelsValueTypeArgument>حجة</StiSeriesLabelsValueTypeArgument>
     <StiSeriesLabelsValueTypeArgumentValue>والحجة -- القيمة</StiSeriesLabelsValueTypeArgumentValue>
     <StiSeriesLabelsValueTypeSeriesTitle>سلسلة العنوان</StiSeriesLabelsValueTypeSeriesTitle>
@@ -2621,6 +2921,7 @@
     <BrushType>نوع فرشاة</BrushType>
     <BusinessObject>كائن عمل</BusinessObject>
     <CacheAllData>مخبأ جميع البيانات</CacheAllData>
+    <CacheTotals>تخزين مؤقت للمجاميع</CacheTotals>
     <CalcInvisible>احسب الخفية</CalcInvisible>
     <CalculatedDataColumn>حسبت بيانات العمود</CalculatedDataColumn>
     <CalculationMode>نمط الحساب</CalculationMode>
@@ -2639,6 +2940,7 @@
     <CenterPoint>نقطة الوسط</CenterPoint>
     <ChartAreaBorderColor>لون الحدود</ChartAreaBorderColor>
     <ChartAreaBrush>فرشة المساحة</ChartAreaBrush>
+    <ChartAreaShowShadow>إظهار الظل</ChartAreaShowShadow>
     <ChartType>نوع الرسم البياني</ChartType>
     <Checked>دقق</Checked>
     <CheckOnClick>اضغط على فحص</CheckOnClick>
@@ -2720,6 +3022,7 @@
     <DialogResult>الحوار النتيجة</DialogResult>
     <Diameter>قطرها</Diameter>
     <Direction>الاتجاه</Direction>
+    <Disabled>معطل</Disabled>
     <DisplayValue>عرض القيمة</DisplayValue>
     <Distance>المسافة</Distance>
     <DistanceBetweenTabs>المسافة بين علامات التبويب</DistanceBetweenTabs>
@@ -3071,6 +3374,7 @@
     <ReconnectOnEachRow>اعادة على كل صف</ReconnectOnEachRow>
     <ReferencedAssemblies>الجمعيات المشار إليها</ReferencedAssemblies>
     <Refresh>تجديد</Refresh>
+    <RefreshTime>تحديث الوقت</RefreshTime>
     <Relation>وفيما يتعلق</Relation>
     <RelationName>وفيما يتعلق الاسم</RelationName>
     <Relations>العلاقات</Relations>
@@ -3082,6 +3386,7 @@
     <ReportAuthor>التقرير المؤلف</ReportAuthor>
     <ReportCacheMode>تقرير الأسلوب المخبأ</ReportCacheMode>
     <ReportDescription>تقرير الوصف</ReportDescription>
+    <ReportImage>صورة التقرير</ReportImage>
     <ReportName>اسم التقرير</ReportName>
     <ReportUnit>تقرير وحدة</ReportUnit>
     <RequestFromUser>الطلب من المستخدم</RequestFromUser>
@@ -3090,6 +3395,7 @@
     <ResetPageNumber>إعادة رقم الصفحة</ResetPageNumber>
     <Resize>تغيير الحجم</Resize>
     <Restrictions>القيود</Restrictions>
+    <RetrieveOnlyUsedData>استعادة البيانات المستخدمة فقط</RetrieveOnlyUsedData>
     <ReturnValue>عودة القيمة</ReturnValue>
     <ReverseHor>عكس اتجاه أفقي</ReverseHor>
     <ReverseVert>عكس الراسي</ReverseVert>
@@ -3247,6 +3553,8 @@
     <Totals>المجاميع</Totals>
     <TransparentColor>لون شفاف</TransparentColor>
     <TrendLine>خط متجه</TrendLine>
+    <TrendLineColor>اللون</TrendLineColor>
+    <TrendLineShowShadow>إظهار الظل</TrendLineShowShadow>
     <Trimming>التشذيب</Trimming>
     <Type>نوع</Type>
     <TypeName>نوع الاسم</TypeName>
@@ -3443,6 +3751,7 @@
     <FinishingReport>الانتهاء من تقرير</FinishingReport>
     <FirstPass>أول ممر</FirstPass>
     <GenerateNewCode>مدونة جديدة</GenerateNewCode>
+    <Infographics>رسوم بيانية</Infographics>
     <InfoMessage>{0} - {1} وجدت.</InfoMessage>
     <InformationMessages>رسائل معلومات</InformationMessages>
     <LabelAlias>الاسم المستعار :</LabelAlias>
@@ -3452,6 +3761,7 @@
     <LabelCentimeters>سنتيمترات :</LabelCentimeters>
     <LabelCollectionName>اسم المجموعة:</LabelCollectionName>
     <LabelColor>اللون :</LabelColor>
+    <LabelCommandTimeout>:انتهاء وقت الأمر</LabelCommandTimeout>
     <LabelCountData>عد البيانات :</LabelCountData>
     <LabelDataBand>DataBand :</LabelDataBand>
     <LabelDataColumn>بيانات العمود :</LabelDataColumn>
@@ -3515,6 +3825,20 @@
     <WhenAnd>عندما {0} {1} و</WhenAnd>
     <WhenValueIs>عندما تكون القيمة</WhenValueIs>
   </Report>
+  <ReportInfo>
+    <CheckIssuesAdditionalDescription>التحقق من الأخطاء في التقرير وتحري الدقة فيه.</CheckIssuesAdditionalDescription>
+    <CheckIssuesDescription>تفقد الوثيقة</CheckIssuesDescription>
+    <EncryptWithPassword>تشفير باستخدام كلمة مرور</EncryptWithPassword>
+    <EncryptWithPasswordAdditionalDescription>حدد كلمة مرور لتلافي الاستخدام الغير مصرح للوثيقة.</EncryptWithPasswordAdditionalDescription>
+    <EncryptWithPasswordDescription>حماية الوثيقة</EncryptWithPasswordDescription>
+    <Info>معلومات</Info>
+    <ReportOptions>خيارات التقرير</ReportOptions>
+    <ReportOptionsAdditionalDescription>تجهيز المعلومات الأساسية و المعاملات في التقرير.</ReportOptionsAdditionalDescription>
+  </ReportInfo>
+  <ReportOpen>
+    <Browse>تصفح</Browse>
+    <Import>استيراد</Import>
+  </ReportOpen>
   <Services>
     <categoryContextTools>أدوات السياق</categoryContextTools>
     <categoryDesigner>مصمم</categoryDesigner>

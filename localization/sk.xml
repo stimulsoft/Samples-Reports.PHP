@@ -117,6 +117,7 @@
     <Save>Uložiť</Save>
     <SaveCopy>Uložiť kópiu</SaveCopy>
     <SetAll>Nastaviť všetko</SetAll>
+    <ShowMore>Ukázať viac</ShowMore>
     <Submit>Potvrdiť</Submit>
     <Test>Test</Test>
     <Up>Hore</Up>
@@ -310,14 +311,63 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Nastavenie konta</AccountSettings>
+    <ButtonChangePassword>Zmeniť heslo</ButtonChangePassword>
+    <ButtonDeleteAll>Zmazať všetko</ButtonDeleteAll>
+    <ButtonDesign>Upraviť</ButtonDesign>
+    <ButtonLogout>Odhlásiť</ButtonLogout>
+    <ButtonPublish>Publikovať</ButtonPublish>
+    <ButtonRecover>Obnoviť</ButtonRecover>
+    <ButtonResendEmail>Znovu poslať e-mail</ButtonResendEmail>
+    <ButtonResetPassword>Zmeniť heslo</ButtonResetPassword>
+    <ButtonRun>Spustiť</ButtonRun>
+    <ButtonShare>Zdielať</ButtonShare>
+    <ButtonSignUp>Prihlásiť sa</ButtonSignUp>
+    <ButtonSkip>Preskočiť</ButtonSkip>
+    <ButtonView>Zobrazenie</ButtonView>
+    <ButtonWhereUsed>Kde je to použité?</ButtonWhereUsed>
     <Cancel>Zrušiť</Cancel>
+    <CheckBoxMoveToRecycleBin>Presunúť do koša</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Zapamätať</CheckBoxRememberMe>
     <Collection>Kolekcia</Collection>
     <Create>Vytvoriť</Create>
+    <CreateError>Chyba počas vytvárania zostavy!</CreateError>
     <CreateNewCollection>Vytvoriť novú kolekciu</CreateNewCollection>
+    <CreatingReport>Vytváranie zostavy...</CreatingReport>
     <DeleteFile>Zrušiť súbor</DeleteFile>
+    <ExecutionError>Chyba spracovania</ExecutionError>
+    <FileStorageWindowTitleEdit>Editovať úložisko súborov</FileStorageWindowTitleEdit>
+    <FileStorageWindowTitleNew>Nové úložisko súborov</FileStorageWindowTitleNew>
+    <FolderWindowTitleEdit>Editovať priečinok</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Nový priečinok</FolderWindowTitleNew>
+    <ForExample>Napríklad</ForExample>
+    <GroupBoxAttachedItems>Pripojené položky</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>Registráciou súhlasíte s podmienkami.</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>Účet už existuje</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Zabudnuté heslo</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Existujúce heslo</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Registrovať nový účet</HyperlinkRegisterAccount>
     <labelCollectionName>Názov kolekcie:</labelCollectionName>
+    <LabelCreated>Vytvoril:</LabelCreated>
+    <LabelCreateFolder>Vytvorenie novej kategórie, v ktorej môžete umiestniť ďalšie položky.</LabelCreateFolder>
+    <LabelCreateReportTemplate>Vytvoriť šablónu.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>Aktuálne heslo:</LabelCurrentPassword>
+    <LabelDataFile>Dátový súbor:</LabelDataFile>
+    <LabelDataUrl>URL:</LabelDataUrl>
     <labelFileName>Názov súboru:</labelFileName>
+    <LabelForeground>Popredie:</LabelForeground>
+    <LabelFromReport>Zo zostavy</LabelFromReport>
+    <LabelFromReportCode>Zo zostavy (definované v kóde)</LabelFromReportCode>
+    <LabelLastLogin>Posledné prihlásenie:</LabelLastLogin>
+    <LabelLastTime>Čas:</LabelLastTime>
+    <LabelModified>Modifikoval:</LabelModified>
+    <LabelNewPassword>Nové heslo:</LabelNewPassword>
+    <LabelNextTime>Ďalší:</LabelNextTime>
     <labelPassword>Heslo:</labelPassword>
+    <LabelPermission>Povolenia:</LabelPermission>
+    <LabelRenderedReport>Renderovaná zostava</LabelRenderedReport>
+    <LabelResponseAsFile>Vrátiť ako súbor</LabelResponseAsFile>
+    <LabelSeparateReport>Oddeliť zostavu (a skripty) do súborov</LabelSeparateReport>
+    <LabelShowReport>Zobraziť zostavu:</LabelShowReport>
     <labelUserName>Meno užívateľa:</labelUserName>
     <Login>Login</Login>
     <Open>Otvoriť</Open>
@@ -336,12 +386,93 @@
     <RefreshList>Obnoviť zoznam</RefreshList>
     <ReportDocumentFormatNotRecognized>Formát prvku '{0}' nebol rozpoznaný ako formát renderovanej zostavy!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Formát prvku '{0}' nebol rozpoznaný ako formát šablóny zostavy!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Pridať rolu</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Pridať užívateľa</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>Pridať pracovný priestor</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>Priečinok</RibbonButtonFolder>
+    <RibbonTabUsers>Užívatelia</RibbonTabUsers>
     <Root>Root</Root>
+    <RootFolder>Koreňový priečinok</RootFolder>
     <Save>Uložiť</Save>
     <SaveAccountSettings>Uložiť nastavenie konta</SaveAccountSettings>
     <SaveFile>Uložiť súbor</SaveFile>
+    <ShareWindowTitleNew>Zdieľanie</ShareWindowTitleNew>
     <ShowAllFiles>Ukázať všetky súbory</ShowAllFiles>
+    <TabItemEmbedCode>Vložený kód</TabItemEmbedCode>
+    <TabItemQRCode>QR kód</TabItemQRCode>
+    <TabItemShare>Zdieľať</TabItemShare>
+    <TextActivated>Aktivovať</TextActivated>
+    <TextDelete>Zmazať</TextDelete>
+    <TextDeletingItems>Mazanie položiek...</TextDeletingItems>
+    <TextFirstName>Meno</TextFirstName>
+    <TextFromTo>Od {0} do {1} (Celkom - {2})</TextFromTo>
+    <TextItemsWorkspace>Pracovný priestor</TextItemsWorkspace>
+    <TextLastName>Priezvisko</TextLastName>
+    <TextModify>Modifikovať</TextModify>
+    <TextNoNotifications>Bez oznámení</TextNoNotifications>
+    <TextProfile>Profil</TextProfile>
+    <TextReports>Zostavy</TextReports>
+    <TextRestoringItems>Obnova položiek...</TextRestoringItems>
+    <TextRole>Rola</TextRole>
+    <TextRun>Spustiť</TextRun>
+    <TextUser>Užívateľ</TextUser>
+    <TextUserName>Meno užívateľa (e-mail)</TextUserName>
+    <TimeHoursAgoFive>Pred piatimi hodinami, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>Pred štyrmi hodinami, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Pred hodinou, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Pred tromi hodinami, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Pred dvomi hodinami, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Pred piatimi minutami, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Pred štyrmi minutami, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Menej ako pred minutou</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>Pred {0} minutami, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Pred minutou, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Pred tromi minutami, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Pred dvomi minutami, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>Dnes, {0:t}</TimeToday>
+    <TimeYesterday>Včera, {0:t}</TimeYesterday>
+    <ToolTipAddRole>Vytvorenie novej role v pracovnom priestore.</ToolTipAddRole>
+    <ToolTipAddUser>Vytvorenie nového používateľa vo vybranej role.</ToolTipAddUser>
+    <ToolTipAspNet>Publikovanie vybranej zostavy do aplikácie ASP.NET.</ToolTipAspNet>
+    <ToolTipAspNetMvc>Publikovanie vybranej zostavy do ASP.NET MVC aplikácie.</ToolTipAspNetMvc>
+    <ToolTipCreate>Vytvoriť novú položku.</ToolTipCreate>
+    <ToolTipDelete>Zmazať vybrané položky.</ToolTipDelete>
+    <ToolTipDeleted>Zobraziť odstránené položky.</ToolTipDeleted>
+    <ToolTipEdit>Editovať vybranú položku.</ToolTipEdit>
+    <ToolTipGridMode>Zobraziť zoznam</ToolTipGridMode>
+    <ToolTipInfo>Zobraziť detail</ToolTipInfo>
+    <ToolTipJs>Publikovanie vybranej zostavy do HTML stránky</ToolTipJs>
+    <ToolTipPublish>Publikovať vybranú zostavu, ktorá bude nasadená v aplikácii.</ToolTipPublish>
+    <ToolTipRecover>Obnoviť vybrané položky.</ToolTipRecover>
+    <ToolTipRunWithoutPreview>Vyrendrovať vybranú zostavu bez náhľadu</ToolTipRunWithoutPreview>
+    <ToolTipShare>Zdieľanie vybraného súboru.</ToolTipShare>
+    <ToolTipSort>Možnosti triedenia</ToolTipSort>
+    <ToolTipThumbnailMode>Zobrazenie do tabuľky</ToolTipThumbnailMode>
+    <ToolTipViewFile>Ukázať vybrané súbory.</ToolTipViewFile>
+    <ToolTipViewReport>Ukázať vybranú zostavu v prehliadači.</ToolTipViewReport>
+    <WindowDescriptionDelete>Ste si istí, že chcete zmazať vybrané položky?</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Vybrané položky budú obnovené z koša.</WindowDescriptionRecover>
+    <WindowTitleDelete>Zmazať položky</WindowTitleDelete>
+    <WindowTitleForgotPassword>Zabudnuté heslo</WindowTitleForgotPassword>
     <WindowTitleLogin>Prihlásenie</WindowTitleLogin>
+    <WindowTitleRecover>Oboviť položky</WindowTitleRecover>
+    <WindowTitleRoleEdit>Editovať rolu</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>Nová rola</WindowTitleRoleNew>
+    <WindowTitleSignUp>Prihlásiť sa</WindowTitleSignUp>
+    <WindowTitleUserEdit>Editovať užívateľa</WindowTitleUserEdit>
+    <WindowTitleUserNew>Nový užívateľ</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Editovať pracovný priestor</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>Nový pracovný priestor</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>Vytvoriť prázdnu zostavu</WizardBlankReportDescription>
+    <WizardExcelDescription>Vytvoriť zostavu s excelovskými dátami.</WizardExcelDescription>
+    <WizardJsonDescription>Vytvoriť zostavu s Json dátami.</WizardJsonDescription>
+    <WizardPrivateShare>Bez prístupu</WizardPrivateShare>
+    <WizardPrivateShareDescription>Externý prístup k položke je obmedzený.</WizardPrivateShareDescription>
+    <WizardPublicShare>Verejný prístup</WizardPublicShare>
+    <WizardPublicShareDescription>Externý prístup je povolený pre neautorizovaného užívateľa.</WizardPublicShareDescription>
+    <WizardRegisteredShare>Autorizovaný prístup</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>Externý prístup je povolený len pre registrovaného užívateľa z pracovného priestoru.</WizardRegisteredShareDescription>
+    <WizardXmlDescription>Vytvoriť zostavu s Xml dátami.</WizardXmlDescription>
   </Cloud>
   <Components>
     <StiBarCode>Čiarový kód</StiBarCode>
@@ -520,7 +651,7 @@
     <FileNotFound>Súbor "{0}" nenájdený.</FileNotFound>
     <IdentifierIsNotValid>Identifikátor '{0}' nie je platný.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Nie je možné nájsť dátový zdroj.</ImpossibleFindDataSource>
-    <NameExists>Komponent s názvom '{0}' už existuje. Komponenty musia mať unikátne názvy bez rozlíšenia malých/veľkých písmen.</NameExists>
+    <NameExists>Komponent s názvom '{0}' už existuje. Komponenty musia mať unikátne názvy.</NameExists>
     <NoServices>Služby nenájdené v '{0}'</NoServices>
     <NotAssign>Dátový zdroj nie je špecifikovaný.</NotAssign>
     <NotCorrectFormat>Vstupný reťazec nebol v správnom formáte.</NotCorrectFormat>
@@ -768,6 +899,8 @@
     <AddCondition>&amp;Pridať podmienku</AddCondition>
     <AddLevel>Pridaj úroveň</AddLevel>
     <AssignExpression>Priradiť výraz</AssignExpression>
+    <BreakIfTrue>Zalomiť, ak je pravda</BreakIfTrue>
+    <BreakIfTrueToolTip>Podmienky zalomenia, ak je objekt plný</BreakIfTrueToolTip>
     <ChangeFont>Zmeniť písmo</ChangeFont>
     <ComponentIsEnabled>Komponent je povolený</ComponentIsEnabled>
     <NoConditions>Žiadna podmienka</NoConditions>
@@ -908,6 +1041,7 @@
     <Queries>Dopyty</Queries>
     <QueryNew>Nový dopyt</QueryNew>
     <QueryText>Text dopytu</QueryText>
+    <QueryTimeout>Časový limit pre vykonanie dopytu</QueryTimeout>
     <RelationEdit>Upraviť závislosť</RelationEdit>
     <RelationNew>Nový vzťah</RelationNew>
     <RetrieveColumns>Obnoviť stĺpce</RetrieveColumns>
@@ -1220,6 +1354,8 @@
     <AddNewItem>Pridaj nový objekt</AddNewItem>
     <GaugeEditorForm>Editor mierky</GaugeEditorForm>
     <Kind>Druh</Kind>
+    <LinearScale>Lineárna škála</LinearScale>
+    <RadialScale>Radiálna škála</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Zrušiť</barname_cancel>
@@ -1722,8 +1858,123 @@
     <GroupOceania>Oceánia</GroupOceania>
     <GroupSouthAmerica>Južná Amerika</GroupSouthAmerica>
     <GroupWorld>Svet</GroupWorld>
+    <LinkDataForm>Linkované údaje</LinkDataForm>
     <MapEditorForm>Editor máp</MapEditorForm>
   </Map>
+  <Messages>
+    <MessageTimeOutExpired>Časový limit uplynul!</MessageTimeOutExpired>
+    <TextRegistrationSuccessfully>Registrácia prebehla úspešne!
+
+E-mail bol odoslaný "{0}".
+Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite na odkaz nižšie z e-mailu, ktorý ste dostali.</TextRegistrationSuccessfully>
+    <ThisFieldIsNotSpecified>Toto pole nie je vyplnené!</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>Prístup zamietnutý!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>Vaše predplatné Stimulsoft Reports.Ultimate vypršalo skôr, ako prvá verzia našich Stimulsoft Reports.Server bola uvoľnená!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>Licenčný súbor nie je správny! Kontaktujte prosím naše obchodné oddelenie na sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>Váš účet je uzamknutý. Kontaktujte prosím naše obchodné oddelenie na sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>Dosiahli ste maximálneho počtu aktivácií. Kontaktujte prosím naše obchodné oddelenie na sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server momentálne nie je k dispozícii! Skúste prosím neskôr.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>Nie je možné aktivovať túto verziu Stimulsoft Reports.Server, pretože vaše predplatné vypršalo! Prosím, prihláste sa k svojmu účtu a môžete zistiť, akú verziu Stimulsoft Reports.Server môžete inštalovať a aktivovať.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>Počas aktivácie došlo k chybe. Prosím skúste neskôr.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>Vaše užívateľské meno (e-mail) alebo heslo nie je správne!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>Váš typ účtu neumožňuje aktivovať Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>Účet nie je možné použiť!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>Účet ešte nie je aktivovaný! Riaďte sa pokynmi zaslanými e-mailom pri registrácii.</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>Užívateľská rola sa nemôže meniť, pretože toto je posledný užívateľ s rolou administrátor v tomto pracovnom priestore!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>Užívateľská rola sa nemôže meniť, pretože toto je užívateľ s rolou supervisor na tomto serveri!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeSystemRole>Systémovú rolu nie je možné meniť!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>The užívateľ cannot delete himself!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>Užívateľská rola sa nemôže zmazať, pretože toto je posledný užívateľ s rolou administrator užívateľ v tomto pracovnom priestore!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>Užívateľská rola sa nemôže zmazať, pretože toto je posledný užívateľ s rolou supervisor užívateľ na tomto serveri!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteSystemRole>Nie je možné zmazať túto rolu, pretože to je systémévá rola!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>Užívateľská rola sa nemôže zakázať, pretože toto je posledný užívateľ s rolou administrator užívateľ v tomto pracovnom priestore!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>Užívateľská rola sa nemôže zakázať, pretože toto je posledný užívateľ s rolou supervisor na tomto serveri!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>Meno nie je zadané!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>Priezvisko nie je zadané!</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>OAuth identifikátor nie je zadaný!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>Heslo nie je správne!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>Heslo nie je zadané!</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>Heslo je príliš krátke (minimálna dĺžka je 6 znakov)!</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>Nie je možné zmazať túto rolu, pretože je používaná iným užívateľom.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>Rola s menom "{0}" už existuje!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>Rola s menom "{0}" je systémová rola!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>Správa s nasledujúcimi inštrukciami je odoslaná na "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>Odhlásili ste sa!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExists>Užívateľ s daným menom (e-mail) je už existuje!</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>Užívateľ s daným menom (e-mail) nie je zadaný!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>Užívateľ s daným menom (e-mail) alebo heslo je nesprávny!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>Užívateľské meno by mal byť podobné na e-mailovú adresu!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>Pracovný priestor s daným menom je už používaný!</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeOut>Čas čakania na spracovanie príkazu uplynul!</CommandTimeOut>
+    <EndDateShouldBeGreaterThanCurrentDate>Dátum do by mal byť väčší ako aktuálny dátum!</EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>Dátum do by mal byť väčší ako dátum od!</EndDateShouldBeGreaterThanStartDate>
+    <ExecutionError>Execution error</ExecutionError>
+    <IsNotAuthorized>Bez prístupu na "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>"{0}" nie je správny!</IsNotCorrect>
+    <IsNotDeleted>"{0}" nie je zmazaný!</IsNotDeleted>
+    <IsNotEqual>"{0}" nie je rovný!</IsNotEqual>
+    <IsNotFound>"{0}" sa nenašiel!</IsNotFound>
+    <IsNotRecognized>"{0}" nie je rozpoznaný!</IsNotRecognized>
+    <IsNotSpecified>"{0}" nie je zadaný!</IsNotSpecified>
+    <IsRequiredFile>Mali by ste pridať aspoň jeden súbor!</IsRequiredFile>
+    <ItemCantBeAttachedToItself>Položka nemôže byť pripojená na seba!</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>Prvky "{0}" nemožno odstrániť, pretože sú pripojené k ďalším prvkom!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeMovedToSpecifiedPlace>Položku nemožno presunúť na určené miesto!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>Položka nepodporuje "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>Väzba z a na je identická!</KeyAndToKeyAreEqual>
+    <NotificationFailed>Poškodený výsledok!</NotificationFailed>
+    <NotificationFilesUploadingComplete>Súbory boli úspešne nahrané.</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>Súbor "{0}" sa nahráva.</NotificationFileUploading>
+    <NotificationItemDelete>Položky sú mazané.</NotificationItemDelete>
+    <NotificationItemDeleteComplete>Položky boli úspešne zmazané.</NotificationItemDeleteComplete>
+    <NotificationItemRestore>Položky sú obnovované.</NotificationItemRestore>
+    <NotificationItemRestoreComplete>Položky boli úspešne obnovené.</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>Položky sú presúvané.</NotificationItemTransfer>
+    <NotificationItemTransferComplete>Položky boli úspešne presunuté.</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>Položky čakajú na spracovanie.</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>Operácia bola zrušená!</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>Kôš sa práve vyprázdňuje.</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>Kôš bol úspešne vyprázdnený.</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>ˇVyprázdnenie koša čaká na spracovanie.</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>Zostava "{0}" je exportovaná</NotificationReportExporting>
+    <NotificationReportExportingComplete>Zostava "{0}" bola úspešne exportovaná.</NotificationReportExportingComplete>
+    <NotificationReportRendering>Zostava "{0}" je renderovaná</NotificationReportRendering>
+    <NotificationReportRenderingComplete>Zostava "{0}" bola vyrenderovaná.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>Zostava "{0}" čaká na spracovanie.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>Plánovač "{0}" pracuje.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>Plánovač "{0}" ukončil spracovanie.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>Plánovač "{0}" čaká na spracovanie.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleFilesUploading>Nahrávanie súborov</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>Obnova položky "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>Presun položky "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>Exportovanie zostavy "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>Renderovanie zostavy "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Plánovač "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTransferring>Položka "{0}" je presúvaná do "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>Položka "{0}" bola úspešne presunutá do "{1}".</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>Táto hodnota nie je správna pre typ {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>Mimo rozsah ("{0}")!</OutOfRange>
+    <ParsingCommandException>Nastala výnimka pri spracovaní príkazu z daného xml: {0}</ParsingCommandException>
+    <QuotaMaximumComputingCyclesCountExceeded>Maximálny počet pracovných cyklov bol prekročený.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumFileSizeExceeded>Maximálan veľkosť súboru bola prekročená.</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumReportPagesCountExceeded>Maximálny počet stránok zostavy bol prekročený.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumUsersCountExceeded>Maximálny počet užívateľov bol prekročený.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>Maximálny počet pracovných priestorov bol prekročený.</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>Plánovač nemôže byť cyklicky spustený!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Časový limit pre reláciu (session)</SessionTimeOut>
+    <SnapshotAlreadyProcessed>Snímka zostavy je práve spracovávaná!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>Daná položka nie je "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>Kopírovať z položky "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>Vytvorené zo súboru "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Vytvorené z položky "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Nahrané zo súboru "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>Vytvorenie novej položky.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Niektoré súbory sa nahrávajú práve teraz. Ak zatvoríte stránku stratia sa. Ste si istí, že chcete zatvoriť stránku?</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>Položka "{0}" s daným kľúčom sa nenašla!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>Časový limit pre vašu reláciu (session) vypršal!</YourTimeSessionHasExpired>
+  </Notices>
   <NuGet>
     <AlreadyDownloaded>Práve načítané</AlreadyDownloaded>
     <AssemblyLoadedSuccessfully>Zostavenie bolo úspešne načítané.</AssemblyLoadedSuccessfully>
@@ -1760,6 +2011,47 @@
     <StiLoadPasswordForm>Kódovanie dokumentu</StiLoadPasswordForm>
     <StiSavePasswordForm>Heslo</StiSavePasswordForm>
   </Password>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>Úlohy na pozadí</AdminBackgroundTasks>
+    <AdminPermissions>Práva</AdminPermissions>
+    <AdminRecycleBin>Kôš</AdminRecycleBin>
+    <AdminShare>Zdieľanie</AdminShare>
+    <AdminTransfers>Presuny</AdminTransfers>
+    <ItemCalendars>Kalendáre</ItemCalendars>
+    <ItemCloudStorages>Cloudové úložisko</ItemCloudStorages>
+    <ItemContactLists>Zoznamy kontaktov</ItemContactLists>
+    <ItemDashboards>Riadiace panely</ItemDashboards>
+    <ItemDataSources>Zdroje dát</ItemDataSources>
+    <ItemFiles>Súbory</ItemFiles>
+    <ItemFolders>Priečinky</ItemFolders>
+    <ItemReportSnapshots>Snímky zostáv</ItemReportSnapshots>
+    <ItemReportTemplates>Šablóny zostáv</ItemReportTemplates>
+    <ItemSchedulers>Plánovače</ItemSchedulers>
+    <ReportDesignerBusinessObjects>Business objekty</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>Dátové stĺpce</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>Dátové pripojenia</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>Dátové závislosti</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>Dátové zdroje</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>Akcie so slovníkom</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>Obmedzenia</ReportDesignerRestrictions>
+    <ReportDesignerVariables>Premenné</ReportDesignerVariables>
+    <SystemBackupRestore>Záloha &amp; Obnovenie</SystemBackupRestore>
+    <SystemEmailTemplates>Šablóny e-mailu</SystemEmailTemplates>
+    <SystemLicensing>Licecovanie</SystemLicensing>
+    <SystemMonitoring>Monitorovanie</SystemMonitoring>
+    <SystemUpdate>Aktualizácia</SystemUpdate>
+    <SystemWorkspaces>Pracovné priestory</SystemWorkspaces>
+    <TextAdministration>Administrácia</TextAdministration>
+    <TextItems>Položky</TextItems>
+    <TextReportDesigner>Report designer</TextReportDesigner>
+    <TextSystem>Systém</TextSystem>
+    <TextUsers>Užívatelia</TextUsers>
+    <UserHimself>Užívateľ</UserHimself>
+    <UserRoles>Role</UserRoles>
+    <Users>Užívatelia</Users>
+    <UserWorkspace>Pracovný priestor</UserWorkspace>
+  </Permissions>
   <PlacementComponent>
     <MoveLeftFreeSpace>Posunúť komponent doľava prázdneho priestoru, výška komponentu sa zvýši na výšku voľného priestoru.</MoveLeftFreeSpace>
     <MoveRightFreeSpace>Posunúť komponent doprava prázdneho priestoru, výška komponentu sa zvýši na výšku voľného priestoru.</MoveRightFreeSpace>
@@ -1772,9 +2064,11 @@
     <BarCodeAdditionalCategory>Čiarový kód ďalší</BarCodeAdditionalCategory>
     <BarCodeCategory>Čiarový kód</BarCodeCategory>
     <BehaviorCategory>Správanie</BehaviorCategory>
+    <CapNeedle>Špica hrotu</CapNeedle>
     <CellCategory>Bunky</CellCategory>
     <ChartAdditionalCategory>Graf ďalší</ChartAdditionalCategory>
     <ChartCategory>Graf</ChartCategory>
+    <ChartMap>Mapa</ChartMap>
     <CheckCategory>Check</CheckCategory>
     <ColorsCategory>Farby</ColorsCategory>
     <ColumnsCategory>Stĺpce</ColumnsCategory>
@@ -1801,6 +2095,7 @@
     <MouseEventsCategory>Udalosti myši</MouseEventsCategory>
     <NavigationCategory>Navigácia</NavigationCategory>
     <NavigationEventsCategory>Navigačné udalosti</NavigationEventsCategory>
+    <Needle>Hrot</Needle>
     <OptionsCategory>Voľby</OptionsCategory>
     <PageAdditionalCategory>Ďalšia strana</PageAdditionalCategory>
     <PageCategory>Strana</PageCategory>
@@ -1812,11 +2107,13 @@
     <RenderEventsCategory>Udalosti zostavovania</RenderEventsCategory>
     <SeriesLabelsCategory>Štítky série</SeriesLabelsCategory>
     <ShapeCategory>Útvar</ShapeCategory>
+    <Size>Veľkosť</Size>
     <SubReportCategory>Podzostava</SubReportCategory>
     <TableCategory>Tabuľka</TableCategory>
     <TextAdditionalCategory>Ďalší text</TextAdditionalCategory>
     <TextCategory>Text</TextCategory>
     <TitleCategory>Titulok</TitleCategory>
+    <TrendLineCategory>Trendová čiara</TrendLineCategory>
     <ValueCategory>Hodnota</ValueCategory>
     <ValueCloseCategory>Hodnota konca</ValueCloseCategory>
     <ValueEndCategory>Koncová hodnota</ValueEndCategory>
@@ -2312,6 +2609,9 @@
     <StiRestrictionsAllowResize>Povoliť zmeniť veľkosť</StiRestrictionsAllowResize>
     <StiRestrictionsAllowSelect>Povoliť vybrať</StiRestrictionsAllowSelect>
     <StiRestrictionsNone>Žiadne</StiRestrictionsNone>
+    <StiSelectionModeFirst>Prvý</StiSelectionModeFirst>
+    <StiSelectionModeFromVariable>Z premennej</StiSelectionModeFromVariable>
+    <StiSelectionModeNothing>Žiadny</StiSelectionModeNothing>
     <StiSeriesLabelsValueTypeArgument>Argument</StiSeriesLabelsValueTypeArgument>
     <StiSeriesLabelsValueTypeArgumentValue>Argument - Hodnota</StiSeriesLabelsValueTypeArgumentValue>
     <StiSeriesLabelsValueTypeSeriesTitle>Titulok radov</StiSeriesLabelsValueTypeSeriesTitle>
@@ -2619,6 +2919,7 @@
     <BrushType>Typ výplne</BrushType>
     <BusinessObject>Business objekt</BusinessObject>
     <CacheAllData>Uložiť do pamäte všetky dáta</CacheAllData>
+    <CacheTotals>Režim cache súčtov</CacheTotals>
     <CalcInvisible>Počítať neviditeľné</CalcInvisible>
     <CalculatedDataColumn>Počítané dátové stĺpce</CalculatedDataColumn>
     <CalculationMode>Režim výpočtu</CalculationMode>
@@ -2637,6 +2938,7 @@
     <CenterPoint>Stredový bod</CenterPoint>
     <ChartAreaBorderColor>Farba okraja</ChartAreaBorderColor>
     <ChartAreaBrush>Výpň plochy</ChartAreaBrush>
+    <ChartAreaShowShadow>Ukázať tieň</ChartAreaShowShadow>
     <ChartType>Typ grafu</ChartType>
     <Checked>Zaškrtnutý</Checked>
     <CheckOnClick>Zaškrtnúť pri kliknutí</CheckOnClick>
@@ -2718,6 +3020,7 @@
     <DialogResult>Výsledok dialógu</DialogResult>
     <Diameter>Priemer</Diameter>
     <Direction>Smer</Direction>
+    <Disabled>Blokovaný</Disabled>
     <DisplayValue>Zobraziť hodnotu</DisplayValue>
     <Distance>Vzdialenosť</Distance>
     <DistanceBetweenTabs>Vzdialenosť medzi tabmi</DistanceBetweenTabs>
@@ -3071,6 +3374,7 @@
     <ReconnectOnEachRow>Znovu pripojiť na každom riadku</ReconnectOnEachRow>
     <ReferencedAssemblies>Odkazované zostavenie</ReferencedAssemblies>
     <Refresh>Obnoviť</Refresh>
+    <RefreshTime>Čas obnovenia</RefreshTime>
     <Relation>Vzťah</Relation>
     <RelationName>Meno vzťahu</RelationName>
     <Relations>Vzťahy</Relations>
@@ -3082,6 +3386,7 @@
     <ReportAuthor>Autor zostavy</ReportAuthor>
     <ReportCacheMode>Režim cache zostavy</ReportCacheMode>
     <ReportDescription>Popis zostavy</ReportDescription>
+    <ReportImage>Obraz zostavy</ReportImage>
     <ReportName>Meno zostavy</ReportName>
     <ReportUnit>Jednotka zostavy</ReportUnit>
     <RequestFromUser>Požiadavka od užívateľa</RequestFromUser>
@@ -3090,6 +3395,7 @@
     <ResetPageNumber>Vynulovať číslo strany</ResetPageNumber>
     <Resize>Zmeniť veľkosť</Resize>
     <Restrictions>Obmedzenia</Restrictions>
+    <RetrieveOnlyUsedData>Preberať iba použité údaje</RetrieveOnlyUsedData>
     <ReturnValue>Návratová hodnota</ReturnValue>
     <ReverseHor>Prevrátiť vodorovne</ReverseHor>
     <ReverseVert>Prevrátiť zvisle</ReverseVert>
@@ -3247,6 +3553,8 @@
     <Totals>Súhrny</Totals>
     <TransparentColor>Farba priehľadnosti</TransparentColor>
     <TrendLine>Trend</TrendLine>
+    <TrendLineColor>Farba</TrendLineColor>
+    <TrendLineShowShadow>Ukázať tieň</TrendLineShowShadow>
     <Trimming>Orezávanie</Trimming>
     <Type>Typ</Type>
     <TypeName>Typ názvu</TypeName>
@@ -3443,6 +3751,7 @@
     <FinishingReport>Dokončenie zostavy</FinishingReport>
     <FirstPass>Prvý prechod</FirstPass>
     <GenerateNewCode>Generovať nový kód</GenerateNewCode>
+    <Infographics>Informačná grafika</Infographics>
     <InfoMessage>{0} - {1} nájdených.</InfoMessage>
     <InformationMessages>Informačná správa</InformationMessages>
     <LabelAlias>Alias:</LabelAlias>
@@ -3452,6 +3761,7 @@
     <LabelCentimeters>Centimetre:</LabelCentimeters>
     <LabelCollectionName>Meno kolekcie:</LabelCollectionName>
     <LabelColor>Farba:</LabelColor>
+    <LabelCommandTimeout>Čas na vykonanie príkazu:</LabelCommandTimeout>
     <LabelCountData>Dáta počet:</LabelCountData>
     <LabelDataBand>Dáta:</LabelDataBand>
     <LabelDataColumn>Dáta stĺpec:</LabelDataColumn>
@@ -3515,6 +3825,18 @@
     <WhenAnd>keď {0} {1} a</WhenAnd>
     <WhenValueIs>keď je hodnota</WhenValueIs>
   </Report>
+  <ReportInfo>
+    <CheckIssuesAdditionalDescription>Kontrola zostavy, či neobsahuje chyby a nepresnosti.</CheckIssuesAdditionalDescription>
+    <CheckIssuesDescription>Skontrola dokumentu</CheckIssuesDescription>
+    <EncryptWithPassword>Zakódovať heslom</EncryptWithPassword>
+    <Info>Informácia</Info>
+    <ReportOptions>Možnosti zostavy</ReportOptions>
+    <ReportOptionsAdditionalDescription>Nastavenie základných informácií a parametrov v zostave.</ReportOptionsAdditionalDescription>
+  </ReportInfo>
+  <ReportOpen>
+    <Browse>Prehliadať</Browse>
+    <Import>Importovať</Import>
+  </ReportOpen>
   <Services>
     <categoryContextTools>Kontextové nástroje</categoryContextTools>
     <categoryDesigner>Návrhár</categoryDesigner>

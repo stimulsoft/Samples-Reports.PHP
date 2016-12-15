@@ -117,6 +117,7 @@
     <Save>Αποθήκευση</Save>
     <SaveCopy>Αποθήκευση Αντιγράφου</SaveCopy>
     <SetAll>Ορισμός όλων</SetAll>
+    <ShowMore>Προβολή Περισσοτέρων</ShowMore>
     <Submit>Υποβολή</Submit>
     <Test>Δοκιμή</Test>
     <Up>Πάνω</Up>
@@ -310,14 +311,63 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Ρυθμίσεις Λογαριασμού</AccountSettings>
+    <ButtonChangePassword>Αλλαγή Κωδικού</ButtonChangePassword>
+    <ButtonDeleteAll>Διαγραφή Όλων</ButtonDeleteAll>
+    <ButtonDesign>Σχεδιασμός Αναφοράς</ButtonDesign>
+    <ButtonLogout>Έξοδος</ButtonLogout>
+    <ButtonPublish>Δημοσίευση</ButtonPublish>
+    <ButtonRecover>Επιδιόρθωση</ButtonRecover>
+    <ButtonResendEmail>Επαναποστολή</ButtonResendEmail>
+    <ButtonResetPassword>Επαναφορά Κωδικού</ButtonResetPassword>
+    <ButtonRun>Εκτέλεση</ButtonRun>
+    <ButtonShare>Διαμοιρασμός</ButtonShare>
+    <ButtonSignUp>Εγγραφή</ButtonSignUp>
+    <ButtonSkip>Παράλειψη</ButtonSkip>
+    <ButtonView>Προβολή</ButtonView>
+    <ButtonWhereUsed>Που χρησιμοποιείται;</ButtonWhereUsed>
     <Cancel>Ακύρωση</Cancel>
+    <CheckBoxMoveToRecycleBin>Μετακίνηση στον κάδο ανακύκλωσης</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Να με θυμάσαι</CheckBoxRememberMe>
     <Collection>Συλλογή</Collection>
     <Create>Δημιουργία</Create>
+    <CreateError>Σφάλμα κατά τη δημιουργία της αναφοράς!</CreateError>
     <CreateNewCollection>Δημιουργία Νέας Συλλογής</CreateNewCollection>
+    <CreatingReport>Δημιουργία αναφοράς...</CreatingReport>
     <DeleteFile>Διαγραφή Αρχείου</DeleteFile>
+    <ExecutionError>Σφάλμα εκτέλεσης</ExecutionError>
+    <FileStorageWindowTitleEdit>Επεξεργασία Αποθήκης Αρχείων</FileStorageWindowTitleEdit>
+    <FileStorageWindowTitleNew>Νέα Αποθήκη Αρχείων</FileStorageWindowTitleNew>
+    <FolderWindowTitleEdit>Επεξεργασία Φακέλου</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Νέος Φάκελος</FolderWindowTitleNew>
+    <ForExample>Για Παράδειγμα</ForExample>
+    <GroupBoxAttachedItems>Συνημμένα Στοιχεία</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>Με την εγγραφή σας αποδέχεστε τους Όρους.</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>Έχω ήδη λογαριασμό</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Ξέχασα τον κωδικό</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Έχω κωδικό</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Δημιουργία νέου λογαριασμού</HyperlinkRegisterAccount>
     <labelCollectionName>Όνομα Συλλογής:</labelCollectionName>
+    <LabelCreated>Δημιουργήθηκε:</LabelCreated>
+    <LabelCreateFolder>Δημιουργία νέας κατηγορίας στην οποία  μπορείτε να τοποθετήσετε νέα στοιχεία.</LabelCreateFolder>
+    <LabelCreateReportTemplate>Δημιουργία προτύπου αναφοράς.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>Ενεργός Κωδικός:</LabelCurrentPassword>
+    <LabelDataFile>Αρχείο Δεδομένων:</LabelDataFile>
+    <LabelDataUrl>URL δεδομένων:</LabelDataUrl>
     <labelFileName>Όνομα Αρχείου:</labelFileName>
+    <LabelForeground>Προσκήνιο:</LabelForeground>
+    <LabelFromReport>Από Αναφορά</LabelFromReport>
+    <LabelFromReportCode>Από Αναφορά (ορισμός σε κώδικα)</LabelFromReportCode>
+    <LabelLastLogin>Τελευταία είσοδος:</LabelLastLogin>
+    <LabelLastTime>Τελευταία φορά:</LabelLastTime>
+    <LabelModified>Τροποποιημένο:</LabelModified>
+    <LabelNewPassword>Νέος Κωδικός:</LabelNewPassword>
+    <LabelNextTime>Επόμενη Φορά:</LabelNextTime>
     <labelPassword>Κωδικός:</labelPassword>
+    <LabelPermission>Δικαίωμα:</LabelPermission>
+    <LabelRenderedReport>Παραγμένη Αναφορά</LabelRenderedReport>
+    <LabelResponseAsFile>Απάντηση σε Αρχείο</LabelResponseAsFile>
+    <LabelSeparateReport>Διαχωρισμός αναφοράς (και script) αρχείου</LabelSeparateReport>
+    <LabelShowReport>Προβολή αναφοράς:</LabelShowReport>
     <labelUserName>Όνομα Χρήστη:</labelUserName>
     <Login>Σύνδεση</Login>
     <Open>Άνοιγμα</Open>
@@ -336,12 +386,93 @@
     <RefreshList>Ανανέωση Λίστας</RefreshList>
     <ReportDocumentFormatNotRecognized>Η διαμόρφωση του στοιχείου '{0}' δεν αναγνωρίζεται σαν διαμόρφωση εκτυπωμένης αναφοράς!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Η διαμόρφωση του στοιχείου '{0}' δεν αναγνωρίζεται σαν διαμόρφωση σκελετός αναφοράς!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Προσθήκη Ρόλου</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Προσθήκη Χρήστη</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>Προσθήκη Χώρου Εργασίας</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>Φάκελος</RibbonButtonFolder>
+    <RibbonTabUsers>Χρήστες</RibbonTabUsers>
     <Root>Ρίζα</Root>
+    <RootFolder>Φάκελος-Ρίζα</RootFolder>
     <Save>Αποθήκευση</Save>
     <SaveAccountSettings>Αποθήκευση Ρυθμίσεων Λογαριασμού</SaveAccountSettings>
     <SaveFile>Αποθήκευση Αρχείου</SaveFile>
+    <ShareWindowTitleNew>Διαμοιρασμός</ShareWindowTitleNew>
     <ShowAllFiles>Εμφάνιση Όλων των Αρχείων</ShowAllFiles>
+    <TabItemEmbedCode>Κώδικας Ενσωμάτωσης</TabItemEmbedCode>
+    <TabItemQRCode>QR Κώδικας</TabItemQRCode>
+    <TabItemShare>Σύνδεσμος για Διαμοιρασμό</TabItemShare>
+    <TextActivated>Ενεργοποιημένο</TextActivated>
+    <TextDelete>Διαγραφή</TextDelete>
+    <TextDeletingItems>Διαγραφή στοιχείων...</TextDeletingItems>
+    <TextFirstName>Όνομα</TextFirstName>
+    <TextFromTo>Από {0} έως {1} (Σύνολο - {2})</TextFromTo>
+    <TextItemsWorkspace>Χώρος Εργασίας</TextItemsWorkspace>
+    <TextLastName>Επώνυμο</TextLastName>
+    <TextModify>Τροποποίηση</TextModify>
+    <TextNoNotifications>Δεν Υπάρχουν Ειδοποιήσεις</TextNoNotifications>
+    <TextProfile>Προφίλ</TextProfile>
+    <TextReports>Αναφορές</TextReports>
+    <TextRestoringItems>Επαναφορά Στοιχείων...</TextRestoringItems>
+    <TextRole>Ρόλος</TextRole>
+    <TextRun>Εκτέλεση</TextRun>
+    <TextUser>Χρήστης</TextUser>
+    <TextUserName>Όνομα Χρήστη (Email)</TextUserName>
+    <TimeHoursAgoFive>Πριν από πέντε ώρες, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>Πριν από τέσσερις ώρες, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Πριν από μία ώρα, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Πριν από τρεις ώρες, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Πριν από δυο ώρες, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Πριν από πέντε λεπτά, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Πριν από τέσσερα λεπτά, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Λιγότερο από ένα λεπτό πριν</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>{0} λεπτά πριν, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Ένα λεπτό πριν, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Τρία λεπτά πριν, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Δυο λεπτά πριν, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>Σήμερα, {0:t}</TimeToday>
+    <TimeYesterday>Χθες, {0:t}</TimeYesterday>
+    <ToolTipAddRole>Δημιουργία νέου ρόλου στον χώρο εργασίας.</ToolTipAddRole>
+    <ToolTipAddUser>Δημιουργία νέου χρήστη στο συγκεκριμένο ρόλο.</ToolTipAddUser>
+    <ToolTipAspNet>Δημοσίευση επιλεγμένης αναφοράς στην ASP.NET εφαρμογή.</ToolTipAspNet>
+    <ToolTipAspNetMvc>Δημοσίευση επιλεγμένης αναφοράς στην ASP.NET MVC εφαρμογή.</ToolTipAspNetMvc>
+    <ToolTipCreate>Δημιουργία νέου στοιχείου.</ToolTipCreate>
+    <ToolTipDelete>Διαγραφή επιλεγμένων στοιχείων.</ToolTipDelete>
+    <ToolTipDeleted>Προβολή διαγραμμένων στοιχείων</ToolTipDeleted>
+    <ToolTipEdit>Επεξεργασία επιλεγμένου στοιχείου.</ToolTipEdit>
+    <ToolTipGridMode>Προβολή λίστας</ToolTipGridMode>
+    <ToolTipInfo>Προβολή λεπτομερειών</ToolTipInfo>
+    <ToolTipJs>Δημοσίευση επιλεγμένης αναφοράς σαν HTML σελίδα</ToolTipJs>
+    <ToolTipPublish>Προετοιμασία επιλεγμένης αναφοράς για προσθήκη στην εφαρμογή σας.</ToolTipPublish>
+    <ToolTipRecover>Επαναφορά των επιλεγμένων στοιχείων.</ToolTipRecover>
+    <ToolTipRunWithoutPreview>Παραγωγή επιλεγμένης αναφοράς χωρίς προεπισκόπηση</ToolTipRunWithoutPreview>
+    <ToolTipShare>Διαμοιρασμός του επιλεγμένου αρχείο.</ToolTipShare>
+    <ToolTipSort>Επιλογές ταξινόμησης</ToolTipSort>
+    <ToolTipThumbnailMode>Προβολή πλέγματος</ToolTipThumbnailMode>
+    <ToolTipViewFile>Προβολή επιλεγμένου αρχείου.</ToolTipViewFile>
+    <ToolTipViewReport>Προβολή της επιλεγμένης αναφοράς στο παράθυρο προβολής.</ToolTipViewReport>
+    <WindowDescriptionDelete>Είστε βέβαιος ότι θέλετε να διαγράψετε τα επιλεγμένα στοιχεία;</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Τα επιλεγμένα στοιχεία θα επαναφερθούν από τον Κάδο Ανακύκλωσης.</WindowDescriptionRecover>
+    <WindowTitleDelete>Διαγραμμένα Στοιχεία</WindowTitleDelete>
+    <WindowTitleForgotPassword>Ξεχασμένος Κωδικός</WindowTitleForgotPassword>
     <WindowTitleLogin>Είσοδος Χρήστη</WindowTitleLogin>
+    <WindowTitleRecover>Επαναφορά Στοιχείων</WindowTitleRecover>
+    <WindowTitleRoleEdit>Επεξεργασία Ρόλου</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>Δημιουργία Ρόλου</WindowTitleRoleNew>
+    <WindowTitleSignUp>Εγγραφή</WindowTitleSignUp>
+    <WindowTitleUserEdit>Επεξεργασία Χρήστη</WindowTitleUserEdit>
+    <WindowTitleUserNew>Δημιουργία Χρήστη</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Επεξεργασία Χώρου Εργασίας</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>Δημιουργία Χώρου Εργασίας</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>Δημιουργία Κενής Αναφοράς</WizardBlankReportDescription>
+    <WizardExcelDescription>Δημιουργία αναφοράς με δεδομένα Excel.</WizardExcelDescription>
+    <WizardJsonDescription>Δημιουργία αναφοράς με δεδομένα JSON.</WizardJsonDescription>
+    <WizardPrivateShare>Δεν υπάρχει πρόσβαση</WizardPrivateShare>
+    <WizardPrivateShareDescription>Η εξωτερική πρόσβαση στο στοιχείο είναι περιορισμένη.</WizardPrivateShareDescription>
+    <WizardPublicShare>Δημόσια πρόσβαση</WizardPublicShare>
+    <WizardPublicShareDescription>Εξωτερική πρόσβαση σε κάθε μη-εξουσιοδοτημένο χρήστη.</WizardPublicShareDescription>
+    <WizardRegisteredShare>Εξουσιοδοτημένη Πρόσβαση</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>Εξωτερική πρόσβαση μόνο σε εγγεγραμμένους χρήστες από κάθε χώρο εργασίας.</WizardRegisteredShareDescription>
+    <WizardXmlDescription>Δημιουργία αναφοράς με δεδομένα XML.</WizardXmlDescription>
   </Cloud>
   <Components>
     <StiBarCode>Γραμμωτός Κωδικός</StiBarCode>
@@ -377,6 +508,7 @@
     <StiHierarchicalBand>Ζώνη Ιεραρχικών Δεδομένων</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>Οριζόντια Γραμμή</StiHorizontalLinePrimitive>
     <StiImage>Εικόνα</StiImage>
+    <StiMap>Χάρτης</StiMap>
     <StiOverlayBand>Ζώνη Σε Υπέρθεση</StiOverlayBand>
     <StiPage>Σελίδα</StiPage>
     <StiPageFooterBand>Υποσέλιδο Σελίδας</StiPageFooterBand>
@@ -767,6 +899,8 @@
     <AddCondition>&amp;Προσθήκη Συνθήκης</AddCondition>
     <AddLevel>Προσθήκη Επιπέδου</AddLevel>
     <AssignExpression>Ανάθεση Έκφρασης</AssignExpression>
+    <BreakIfTrue>Διακοπή εάν Αληθές</BreakIfTrue>
+    <BreakIfTrueToolTip>Διακοπή επεξεργασίας συνθήκης εάν η τρέχουσα πληρείται</BreakIfTrueToolTip>
     <ChangeFont>Αλλαγή Γραμματοσειράς...</ChangeFont>
     <ComponentIsEnabled>Το εξάρτημα είναι ενεργό</ComponentIsEnabled>
     <NoConditions>Χωρίς Συνθήκες</NoConditions>
@@ -907,9 +1041,13 @@
     <Queries>Ερωτήματα</Queries>
     <QueryNew>Νέο Ερώτημα</QueryNew>
     <QueryText>Κείμενο Ερωτήματος</QueryText>
+    <QueryTimeout>Προθεσμία Ολοκλήρωσης Ερώτησης</QueryTimeout>
     <RelationEdit>Επεξεργασία Σχέσης</RelationEdit>
     <RelationNew>Νέα Σχέση</RelationNew>
     <RetrieveColumns>Λήψη Στηλών</RetrieveColumns>
+    <RetrieveColumnsAllowRun>Να επιτρέπεται η εκτέλεση αποθηκευμένης διαδικασίας</RetrieveColumnsAllowRun>
+    <RetrieveColumnsAndParameters>Ανάκτηση Στηλών και Παραμέτρων</RetrieveColumnsAndParameters>
+    <RetrieveParameters>Ανάκτηση Παραμέτρων</RetrieveParameters>
     <RetrievingDatabaseInformation>Λήψη πληροφοριών βάσης δεδομένων...</RetrievingDatabaseInformation>
     <Run>Εκτέλεση</Run>
     <SelectTypeOfBusinessObject>Επιλογή Τύπου Business Object</SelectTypeOfBusinessObject>
@@ -1214,6 +1352,8 @@
     <AddNewItem>Προσθήκη Νέου Στοιχείου</AddNewItem>
     <GaugeEditorForm>Επεξεργασία Μετρητή</GaugeEditorForm>
     <Kind>Είδος</Kind>
+    <LinearScale>Γραμμική Κλίμακα</LinearScale>
+    <RadialScale>Ακτινική Κλίμακα</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Ακύρωση</barname_cancel>
@@ -1709,11 +1849,136 @@
     <menuViewShowRulers>Προβολή Χαράκων</menuViewShowRulers>
     <menuViewToolbars>Γραμμές Εργαλείων</menuViewToolbars>
   </MainMenu>
+  <Map>
+    <GroupAsia>Ασία</GroupAsia>
+    <GroupEurope>Ευρώπη</GroupEurope>
+    <GroupNorthAmerica>Βόρεια Αμερική</GroupNorthAmerica>
+    <GroupOceania>Ωκεανία</GroupOceania>
+    <GroupSouthAmerica>Νότια Αμερική</GroupSouthAmerica>
+    <GroupWorld>Κόσμος</GroupWorld>
+    <LinkDataForm>Σύνδεση Δεδομένων</LinkDataForm>
+    <MapEditorForm>Επεξεργασία Χάρτη</MapEditorForm>
+  </Map>
+  <Messages>
+    <MessageTimeOutExpired>Ο μέγιστος χρόνος εκτέλεσης της εντολής πέρασε!</MessageTimeOutExpired>
+    <TextRegistrationSuccessfully>Η εγγραφή ήταν επιτυχής!
+
+Το μειλ στάλθηκε στο "{0}".
+Περιέχει ένα λινκ για να επιβεβαιώσετε την εγγραφή σας. Για την ολοκλήρωση της εγγραφής παρακαλούμε ακολουθήστε το λινκ από το email που λάβατε.</TextRegistrationSuccessfully>
+    <ThisFieldIsNotSpecified>Αυτό το πεδίο δεν είναι ορισμένο!</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>Δεν Επιτράπηκε Η Πρόσβαση!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>Η συνδρομή σας για το Stimulsoft Reports.Ultimate έληξε νωρίτερα από την πρώτη δημόσια έκδοση του Stimulsoft Reports.Server!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>Το αρχείο άδειας δεν είναι σωστό! Παρακαλούμε, επικοινωνήστε με το τμήμα πωλήσεών μας στο sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>Ο λογαριασμός σας είναι κλειδωμένος. Παρακαλούμε, επικοινωνήστε με το τμήμα πωλήσεών μας στο sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>Φτάσατε το μέγιστο αριθμό ενεργοποιήσεων. Παρακαλούμε, επικοινωνήστε με το τμήμα πωλήσεών μας στο sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>Ο διακομιστής ενεργοποίησης της Stimulsoft δεν είναι διαθέσιμος αυτή τη στιγμή! Παρακαλούμε δοκιμάστε αργότερα.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>Δεν γίνεται να ενεργοποιήσετε αυτή την έκδοση του Stimulsoft Reports.Server γιατί το πρόγραμμα συνδρομής σας έληξε! Παρακαλούμε, συνδεθείτε στο στο λογαριασμό σας και ελέγξτε ποια έκδοση του Stimulsoft Reports.Server μπορείτε να εγκαταστήσετε και να ενεργοποιήσετε.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>Ένα σφάλμα συνέβη κατά την ενεργοποίηση. Παρακαλούμε δοκιμάστε ξανά αργότερα.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>Το όνομα χρήστη σας (Email) ή ο κωδικός δεν είναι σωστός!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>Ο τύπος του λογαριασμού σας δεν επιτρέπει την ενεργοποίηση του Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>Ο λογαριασμός δεν μπορεί να χρησιμοποιηθεί αυτή τη στιγμή!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>Ο λογαριασμός δεν είναι ενεργοποιημένος ακόμα! Παρακαλούμε, ακολουθήστε τις οδηγίες που στείλαμε στο email εγγραφής.</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>Ο ρόλος του χρήστη δεν μπορεί να αλλάξει γιατί είναι ο χρήστης είναι ο τελευταίος διαχειριστής σε αυτό το χώρο εργασίας!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>Ο ρόλος του χρήστη δεν μπορεί να αλλάξει γιατί είναι ο τελευταίος επιβλέπων χρήστης σε αυτό το διακομιστή!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeSystemRole>Ο ρόλος συστήματος δεν μπορεί να αλλαχθεί!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>Ο χρήστης δεν μπορεί να διαγράψει τον εαυτό του!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>Ο χρήστης δεν μπορεί να διαγραφεί γιατί είναι ο τελευταίος διαχειριστής σε αυτό το χώρο εργασίας!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>Ο χρήστης δεν μπορεί να διαγραφεί γιατί είναι ο τελευταίος επιβλέπων χρήστης σε αυτό το διακομιστή!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteSystemRole>Δεν μπορεί να διαγραφεί αυτός ο ρόλος γιατί είναι ρόλος συστήματος!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>Ο χρήστης δεν μπορεί να απενεργοποιηθεί γιατί είναι ο τελευταίος διαχειριστής σε αυτό το χώρο εργασίας!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>Ο χρήστης δεν μπορεί να απενεργοποιηθεί γιατί είναι ο τελευταίος επιβλέπων χρήστης σε αυτό το διακομιστή!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>Το όνομα δεν έχει καθοριστεί!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>Το επώνυμο δεν έχει καθοριστεί!</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>Το αναγνωριστικό OAuth δεν έχει καθοριστεί!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>Ο κωδικός πρόσβασης δεν είναι σωστός!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>Ο κωδικός πρόσβασης δεν έχει καθοριστεί!</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>Ο κωδικός πρόσβασης είναι πολύ σύντομος (το ελάχιστο μήκος είναι 6 χαρακτήρες)!</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>Δεν μπορείτε να διαγράψετε τον ρόλο επειδή χρησιμοποιείται από άλλους χρήστες.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>Ο ρόλος με το καθορισμένο όνομα "{0}" υπάρχει ήδη!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>Ο ρόλος με το καθορισμένο όνομα "{0}" είναι ρόλος συστήματος!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>Ένα μήνυμα με επιπλέον οδηγίες στάλθηκε στο "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>Είστε αποσυνδεδεμένος!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExists>Το όνομα χρήστη (Email) χρησιμοποιείται ήδη!</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>Το όνομα χρήστη (Email) δεν έχει καθοριστεί!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>Το όνομα χρήστη (Email) ή ο κωδικός πρόσβασης δεν είναι σωστός!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>Το όνομα χρήστη πρέπει να είναι όμοιο με τη διεύθυνση ηλεκτρονικής αλληλογραφίας (Email)!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>Το όνομα του χώρου εργασίας χρησιμοποιείται ήδη!</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeOut>Ο χρόνος αναμονής της επεξεργασίας της εντολής πέρασε!</CommandTimeOut>
+    <EndDateShouldBeGreaterThanCurrentDate>Η ημερομηνία τέλους πρέπει να είναι μεγαλύτερη από την τωρινή ημερομηνία!</EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>Η ημερομηνία τέλους πρέπει να είναι μεγαλύτερη από την ημερομηνία έναρξης!</EndDateShouldBeGreaterThanStartDate>
+    <ExecutionError>Σφάλμα εκτέλεσης</ExecutionError>
+    <IsNotAuthorized>Δεν υπάρχει πρόσβαση στο "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>Το "{0}" είναι εσφαλμένο!</IsNotCorrect>
+    <IsNotDeleted>Το "{0}" δεν είναι διαγραμμένο!</IsNotDeleted>
+    <IsNotEqual>Το "{0}" δεν είναι ίσο!</IsNotEqual>
+    <IsNotFound>Το "{0}" δεν βρέθηκε!</IsNotFound>
+    <IsNotRecognized>Το "{0}" δεν αναγνωρίζεται!</IsNotRecognized>
+    <IsNotSpecified>Το "{0}" δεν είναι καθορισμένο!</IsNotSpecified>
+    <IsRequiredFile>Πρέπει να προσθέσετε τουλάχιστον ένα αρχείο!</IsRequiredFile>
+    <ItemCantBeAttachedToItself>Το στοιχείο δεν μπορεί να επισυναφθεί στον εαυτό του!</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>Τα στοιχεία "{0}" δεν μπορούν να διαγραφούν γιατί είναι συνημμένα σε άλλα στοιχεία!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeMovedToSpecifiedPlace>Το στοιχείο δεν μπορεί να μετακινηθεί σε ένα συγκεκριμένο μέρος!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>Το στοιχείο δεν υποστηρίζει "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>Το Key και το ToKey είναι ίδια!</KeyAndToKeyAreEqual>
+    <NotificationFailed>Αποτυχημένο αποτέλεσμα!</NotificationFailed>
+    <NotificationFilesUploadingComplete>Τα αρχεία μεταμορφώθηκαν επιτυχώς.</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>Το αρχείο "{0}" μεταφορτώνεται.</NotificationFileUploading>
+    <NotificationItemDelete>Τα στοιχεία διαγράφονται.</NotificationItemDelete>
+    <NotificationItemDeleteComplete>Τα στοιχεία διαγράφηκαν επιτυχώς.</NotificationItemDeleteComplete>
+    <NotificationItemRestore>Τα στοιχεία επαναφέρονται.</NotificationItemRestore>
+    <NotificationItemRestoreComplete>Τα στοιχεία επαναφέρθηκαν επιτυχώς.</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>Τα στοιχεία μεταφέρονται.</NotificationItemTransfer>
+    <NotificationItemTransferComplete>Τα στοιχεία μεταφέρθηκαν επιτυχώς.</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>Τα στοιχεία αναμένουν επεξεργασία.</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>Η διαδικασία ματαιώθηκε!</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>Ο Κάδος Ανακύκλωσης εκκαθαρίζεται.</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>Ο Κάδος Ανακύκλωσης έχει καθαριστεί.</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>Ο καθαρισμός του Κάδου Ανακύκλωσης αναμένει επεξεργασία.</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>Η αναφορά "{0}" εξάγεται</NotificationReportExporting>
+    <NotificationReportExportingComplete>Η αναφορά "{0}" έχει εξαχθεί επιτυχώς.</NotificationReportExportingComplete>
+    <NotificationReportRendering>Η αναφορά "{0}" έχει παραχθεί</NotificationReportRendering>
+    <NotificationReportRenderingComplete>Η αναφορά "{0}" παράγεται.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>Η αναφορά "{0}" αναμένει επεξεργασία.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>Ο χρονοπρογραμματιστής "{0}" τρέχει.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>Ο χρονοπρογραμματιστής "{0}" εκτελέστηκε.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>Ο χρονοπρογραμματιστής "{0}" αναμένει επεξεργασία.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleFilesUploading>Μεταφόρτωση αρχείων</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>Ανανέωση στοιχείου "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>Μεταφορά στοιχείου "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>Εξαγωγή αναφοράς "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>παραγωγή αναφοράς "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Εκτέλεση χρονοπρογραμματιστή "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTransferring>Το "{0}" μεταφέρεται στο "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>Το "{0}" μεταφέρθηκε επιτυχώς στο "{1}".</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>Η τιμή δεν είναι σωστή για τον τύπο {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>Εκτός εύρους ("{0}")!</OutOfRange>
+    <ParsingCommandException>Υπήρξε σφάλμα κατά την επεξεργασία της εντολής στο καθορισμένο xml: {0}</ParsingCommandException>
+    <QuotaMaximumComputingCyclesCountExceeded>Ξεπεράστηκε ο μέγιστος αριθμός κύκλων επεξεργασίας.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumFileSizeExceeded>Ξεπεράστηκε το μέγιστο μέγεθος αρχείου.</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumReportPagesCountExceeded>Ξεπεράστηκε ο μέγιστος αριθμός σελίδων αναφοράς.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumUsersCountExceeded>Ξεπεράστηκε ο μέγιστος αριθμός χρηστών.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>Ξεπεράστηκε ο μέγιστος αριθμός χώρων εργασίας.</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>Ο χρονοπρογραμματιστής δεν μπορεί να τρέξει τον εαυτό του!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Λήξη συνεδρίας</SessionTimeOut>
+    <SnapshotAlreadyProcessed>Το στιγμιότυπο της αναφοράς έχει ήδη επεξεργαστεί!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>Το καθορισμένο στοιχείο δεν είναι "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>Αντιγραφή από το στοιχείο από το στοιχείο "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>Δημιουργήθηκε από το αρχείο "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Δημιουργήθηκε από το στοιχείο "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Φορτώθηκε από το αρχείο "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>Δημιουργία νέου στοιχείου.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Κάποια αρχεία μεταφορτώνονται αυτή τη στιγμή και αν κλείσετε τη σελίδα θα χαθούν. Είστε βέβαιος ότι θέλετε να κλείσετε τη σελίδα;</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>"{0}" με το καθορισμένο κλειδί δεν βρέθηκε!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>Ο χρόνος της συνεδρίας σας έληξε!</YourTimeSessionHasExpired>
+  </Notices>
   <NuGet>
     <AlreadyDownloaded>Έχει Ληφθεί</AlreadyDownloaded>
     <AssemblyLoadedSuccessfully>Η βιβλιοθήκε φορτώθηκε επιτυχώς.</AssemblyLoadedSuccessfully>
     <AssemblyNotFound>Είναι αδύνατον να βρεθεί η βιβλιοθήκη {0} για τη χρήση της σύνδεσης {1} !</AssemblyNotFound>
     <Author>Συγγραφέας</Author>
+    <Dependencies>Εξαρτήσεις:</Dependencies>
     <Download>Λήψη</Download>
     <DownloadAll>Λήψη Όλων</DownloadAll>
     <Downloads>Λήψεις :</Downloads>
@@ -1744,6 +2009,47 @@
     <StiLoadPasswordForm>Κρυπτογράφηση εγγράφου</StiLoadPasswordForm>
     <StiSavePasswordForm>Κωδικός</StiSavePasswordForm>
   </Password>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>Διεργασίες Παρασκηνίου</AdminBackgroundTasks>
+    <AdminPermissions>Δικαιώματα</AdminPermissions>
+    <AdminRecycleBin>Κάδος Ανακύκλωσης</AdminRecycleBin>
+    <AdminShare>Διαμοιρασμός</AdminShare>
+    <AdminTransfers>Μεταφορές</AdminTransfers>
+    <ItemCalendars>Ημερολόγια</ItemCalendars>
+    <ItemCloudStorages>Νέφη αποθήκευσης</ItemCloudStorages>
+    <ItemContactLists>Λίστες Επαφών</ItemContactLists>
+    <ItemDashboards>Ταμπλό</ItemDashboards>
+    <ItemDataSources>Πηγές Δεδομένων</ItemDataSources>
+    <ItemFiles>Αρχεία</ItemFiles>
+    <ItemFolders>Φάκελοι</ItemFolders>
+    <ItemReportSnapshots>Στιγμιότυπα Αναφορών</ItemReportSnapshots>
+    <ItemReportTemplates>Πρότυπα Αναφορών</ItemReportTemplates>
+    <ItemSchedulers>Χρονοπρογραμματιστές</ItemSchedulers>
+    <ReportDesignerBusinessObjects>Επιχειρησιακά Αντικείμενα</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>Στήλες Δεδομένων</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>Συνδέσεις Δεδομένων</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>Σχέσεις Δεδομένων</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>Πηγές Δεδομένων</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>Ενέργειες Λεξικού</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>Περιορισμοί</ReportDesignerRestrictions>
+    <ReportDesignerVariables>Μεταβλητές</ReportDesignerVariables>
+    <SystemBackupRestore>Αντίγραφα Ασφαλείας &amp; Επαναφορά</SystemBackupRestore>
+    <SystemEmailTemplates>Πρότυπα Email</SystemEmailTemplates>
+    <SystemLicensing>Αδειοδότηση</SystemLicensing>
+    <SystemMonitoring>Παρακολούθηση</SystemMonitoring>
+    <SystemUpdate>Ενημέρωση</SystemUpdate>
+    <SystemWorkspaces>Χώροι Εργασίας</SystemWorkspaces>
+    <TextAdministration>Διαχείριση</TextAdministration>
+    <TextItems>Στοιχεία</TextItems>
+    <TextReportDesigner>Σχεδιαστής Αναφοράς</TextReportDesigner>
+    <TextSystem>Σύστημα</TextSystem>
+    <TextUsers>Χρήστες</TextUsers>
+    <UserHimself>Ο εαυτός του</UserHimself>
+    <UserRoles>Ρόλοι</UserRoles>
+    <Users>Χρήστες</Users>
+    <UserWorkspace>Χώρος Εργασίας</UserWorkspace>
+  </Permissions>
   <PlacementComponent>
     <MoveLeftFreeSpace>Μετακινεί ένα εξάρτημα στα αριστερά του κενού χώρου, κάνοντας το ύψος του ίσο με το ύψος του κενού χώρου.</MoveLeftFreeSpace>
     <MoveRightFreeSpace>Μετακινεί ένα εξάρτημα στα δεξιά του κενού χώρου, κάνοντας το ύψος του ίσο με το ύψος του κενού χώρου.</MoveRightFreeSpace>
@@ -1756,9 +2062,11 @@
     <BarCodeAdditionalCategory>Πρόσθετα Γραμμωτού Κωδικού</BarCodeAdditionalCategory>
     <BarCodeCategory>Γραμμωτός Κωδικός</BarCodeCategory>
     <BehaviorCategory>Συμπεριφορά</BehaviorCategory>
+    <CapNeedle>Βελόνα με Καπέλο</CapNeedle>
     <CellCategory>Κελί</CellCategory>
     <ChartAdditionalCategory>Πρόσθετα Διαγράμματος</ChartAdditionalCategory>
     <ChartCategory>Διάγραμμα</ChartCategory>
+    <ChartMap>Χάρτης</ChartMap>
     <CheckCategory>Έλεγχοι</CheckCategory>
     <ColorsCategory>Χρώματα</ColorsCategory>
     <ColumnsCategory>Στήλες</ColumnsCategory>
@@ -1785,6 +2093,7 @@
     <MouseEventsCategory>Γεγονότα Ποντικιού</MouseEventsCategory>
     <NavigationCategory>Πλοήγηση</NavigationCategory>
     <NavigationEventsCategory>Γεγονότα Πλοήγησης</NavigationEventsCategory>
+    <Needle>Βελόνα</Needle>
     <OptionsCategory>Επιλογές</OptionsCategory>
     <PageAdditionalCategory>Πρόσθετα Σελίδας</PageAdditionalCategory>
     <PageCategory>Σελίδα</PageCategory>
@@ -1796,11 +2105,13 @@
     <RenderEventsCategory>Γεγονότα Απεικόνισης</RenderEventsCategory>
     <SeriesLabelsCategory>Ετικέτες Σειρών Δεδομένων</SeriesLabelsCategory>
     <ShapeCategory>Σχήμα</ShapeCategory>
+    <Size>Μέγεθος</Size>
     <SubReportCategory>Υπο-Αναφορά</SubReportCategory>
     <TableCategory>Πίνακας</TableCategory>
     <TextAdditionalCategory>Πρόσθετα Κειμένου</TextAdditionalCategory>
     <TextCategory>Κείμενο</TextCategory>
     <TitleCategory>Τίτλος</TitleCategory>
+    <TrendLineCategory>Γραμμή Τάσης</TrendLineCategory>
     <ValueCategory>Τιμή</ValueCategory>
     <ValueCloseCategory>Τιμή Κλεισίματος</ValueCloseCategory>
     <ValueEndCategory>Τιμή Τέλος</ValueEndCategory>
@@ -2191,6 +2502,26 @@
     <StiLegendVertAlignmentCenter>Κέντρο</StiLegendVertAlignmentCenter>
     <StiLegendVertAlignmentTop>Πάνω</StiLegendVertAlignmentTop>
     <StiLegendVertAlignmentTopOutside>Έξω Πάνω</StiLegendVertAlignmentTopOutside>
+    <StiMapIDAustralia>Αυστραλία</StiMapIDAustralia>
+    <StiMapIDAustria>Αυστρία</StiMapIDAustria>
+    <StiMapIDBrazil>Βραζιλία</StiMapIDBrazil>
+    <StiMapIDCanada>Καναδάς</StiMapIDCanada>
+    <StiMapIDChina>Κίνα</StiMapIDChina>
+    <StiMapIDEU>Ευρωπαϊκή Ένωση</StiMapIDEU>
+    <StiMapIDEurope>Ευρώπη</StiMapIDEurope>
+    <StiMapIDFrance>Γαλλία</StiMapIDFrance>
+    <StiMapIDGermany>Γερμανία</StiMapIDGermany>
+    <StiMapIDItaly>Ιταλία</StiMapIDItaly>
+    <StiMapIDNetherlands>Ολλανδία</StiMapIDNetherlands>
+    <StiMapIDRussia>Ρωσία</StiMapIDRussia>
+    <StiMapIDUK>Ηνωμένο Βασίλειο</StiMapIDUK>
+    <StiMapIDUSA>ΗΠΑ</StiMapIDUSA>
+    <StiMapIDWorld>Κόσμος</StiMapIDWorld>
+    <StiMapTypeGroup>Ομάδα</StiMapTypeGroup>
+    <StiMapTypeHeatmap>Χάρτης Θερμότητας</StiMapTypeHeatmap>
+    <StiMapTypeHeatmapWithGroup>Χάρτης Θερμότητας Με Ομάδα</StiMapTypeHeatmapWithGroup>
+    <StiMapTypeNone>Τίποτα</StiMapTypeNone>
+    <StiMapTypePoints>Σημεία</StiMapTypePoints>
     <StiMarkerAlignmentLeft>Αριστερά</StiMarkerAlignmentLeft>
     <StiMarkerAlignmentRight>Δεξιά</StiMarkerAlignmentRight>
     <StiMarkerTypeCircle>Κύκλος</StiMarkerTypeCircle>
@@ -2270,6 +2601,9 @@
     <StiRestrictionsAllowResize>Να Επιτρέπονται Αλλαγές Μεγέθους</StiRestrictionsAllowResize>
     <StiRestrictionsAllowSelect>Να Επιτρέπονται Επιλογές</StiRestrictionsAllowSelect>
     <StiRestrictionsNone>Κανένας</StiRestrictionsNone>
+    <StiSelectionModeFirst>Πρώτο</StiSelectionModeFirst>
+    <StiSelectionModeFromVariable>Από Μεταβλητή</StiSelectionModeFromVariable>
+    <StiSelectionModeNothing>Τίποτα</StiSelectionModeNothing>
     <StiSeriesLabelsValueTypeArgument>Όρισμα</StiSeriesLabelsValueTypeArgument>
     <StiSeriesLabelsValueTypeArgumentValue>Όρισμα - Τιμή</StiSeriesLabelsValueTypeArgumentValue>
     <StiSeriesLabelsValueTypeSeriesTitle>Τίτλος Σειράς Δεδομένων</StiSeriesLabelsValueTypeSeriesTitle>
@@ -2524,6 +2858,7 @@
     <AllowUseTextBrush>Επιτρέπεται Χρήση Πινέλου Κειμένου</AllowUseTextBrush>
     <AllowUseTextOptions>Επιτρέπεται Χρήση Επιλογών Κειμένου</AllowUseTextOptions>
     <AllowUseVertAlignment>Επιτρέπεται Χρήση Κατακόρυφης Στοίχισης</AllowUseVertAlignment>
+    <AllowUsingAsSqlParameter>Να επιτρέπεται η χρήση ως SQL παραμέτρου</AllowUsingAsSqlParameter>
     <AlternatingBackColor>Εναλλασσόμενο Χρώμα Φόντου</AlternatingBackColor>
     <Angle>Γωνία</Angle>
     <Antialiasing>Εξομάλυνση</Antialiasing>
@@ -2564,6 +2899,7 @@
     <BorderBrush>Βούρτσα Περιθωρίου</BorderBrush>
     <BorderColor>Χρώμα Ορίου</BorderColor>
     <Borders>Όρια</Borders>
+    <BorderSize>Μέγεθος Περιθωρίου</BorderSize>
     <BorderStyle>Στυλ Ορίου</BorderStyle>
     <BorderWidth>Πλάτος Περιθωρίου</BorderWidth>
     <Bottom>Κάτω</Bottom>
@@ -2574,6 +2910,7 @@
     <BrushType>Τύπος Πινέλου</BrushType>
     <BusinessObject>Business Object</BusinessObject>
     <CacheAllData>Χρήση Λανθάνουσας Μνήμης για Όλα τα Δεδομένα</CacheAllData>
+    <CacheTotals>Σύνολα Κρυφής Μνήμης</CacheTotals>
     <CalcInvisible>Υπολογισμός Αόρατων</CalcInvisible>
     <CalculatedDataColumn>Υπολογισμένη Στήλη Δεδομένων</CalculatedDataColumn>
     <CalculationMode>Λειτουργία Υπολογισμού</CalculationMode>
@@ -2592,6 +2929,7 @@
     <CenterPoint>Κεντρικό Σημείο</CenterPoint>
     <ChartAreaBorderColor>Χρώμα Περιθωρίου</ChartAreaBorderColor>
     <ChartAreaBrush>Βούρτσα Εμβαδού</ChartAreaBrush>
+    <ChartAreaShowShadow>Εμφάνιση Σκιάς</ChartAreaShowShadow>
     <ChartType>Τύπος Διαγράμματος</ChartType>
     <Checked>Τσεκαρισμένο</Checked>
     <CheckOnClick>Τσεκάρισμα στο κλικ</CheckOnClick>
@@ -2673,6 +3011,7 @@
     <DialogResult>Αποτέλεσμα Διαλόγου</DialogResult>
     <Diameter>Διάμετρος</Diameter>
     <Direction>Κατεύθυνση</Direction>
+    <Disabled>Ανενεργό</Disabled>
     <DisplayValue>Προβολή Τιμής</DisplayValue>
     <Distance>Απόσταση</Distance>
     <DistanceBetweenTabs>Απόσταση Μεταξύ Χαρακτήρων Στηλοθέτησης</DistanceBetweenTabs>
@@ -2726,6 +3065,7 @@
     <FieldIs>Το Πεδίο Είναι</FieldIs>
     <File>Αρχείο</File>
     <Fill>Γέμισμα</Fill>
+    <FillColor>Χρώμα Γεμίσματος</FillColor>
     <Filter>Φίλτρο</Filter>
     <FilterEngine>Μηχανή Φιλτραρίσματος</FilterEngine>
     <FilterMode>Λειτουργία Φιλτραρίσματος</FilterMode>
@@ -2891,6 +3231,9 @@
     <LogarithmicScale>Λογαριθμική Κλίμακα</LogarithmicScale>
     <Low>Χαμηλό</Low>
     <MajorInterval>Μείζον Διάκενο</MajorInterval>
+    <MapID>Αναγνωριστικό Χάρτη</MapID>
+    <MapStyle>Μορφή</MapStyle>
+    <MapType>Τύπος Χάρτη</MapType>
     <Margins>Περιθώρια</Margins>
     <Marker>Δείκτης</Marker>
     <MarkerAlignment>Στοίχιση Δείκτη</MarkerAlignment>
@@ -3020,6 +3363,7 @@
     <ReconnectOnEachRow>Επανασύνδεση σε Κάθε Γραμμή</ReconnectOnEachRow>
     <ReferencedAssemblies>Αναφερόμενες Assemblies</ReferencedAssemblies>
     <Refresh>Ανανέωση</Refresh>
+    <RefreshTime>Χρόνος Ανανέωσης</RefreshTime>
     <Relation>Σχέση</Relation>
     <RelationName>Όνομα Σχέση</RelationName>
     <Relations>Σχέσεις</Relations>
@@ -3031,6 +3375,7 @@
     <ReportAuthor>Συγγραφέας Αναφοράς</ReportAuthor>
     <ReportCacheMode>Λειτουργία Λανθάνουσας Μνήμη Αναφοράς</ReportCacheMode>
     <ReportDescription>Περιγραφή Αναφοράς</ReportDescription>
+    <ReportImage>Εικόνα Αναφοράς</ReportImage>
     <ReportName>Όνομα Αναφοράς</ReportName>
     <ReportUnit>Μονάδα Αναφοράς</ReportUnit>
     <RequestFromUser>Ερώτηση του Χρήστη</RequestFromUser>
@@ -3039,6 +3384,7 @@
     <ResetPageNumber>Επαναφορά Αριθμού Σελίδας</ResetPageNumber>
     <Resize>Αλλαγή Μεγέθους</Resize>
     <Restrictions>Περιορισμοί</Restrictions>
+    <RetrieveOnlyUsedData>Λήψη Μόνο Χρησιμοποιημένων δεδομένων</RetrieveOnlyUsedData>
     <ReturnValue>Επιστρεφόμενη Τιμή</ReturnValue>
     <ReverseHor>Οριζόντια Αναστροφή</ReverseHor>
     <ReverseVert>Κατακόρυφη Αναστροφή</ReverseVert>
@@ -3085,6 +3431,7 @@
     <ShowInPercent>Εμφάνιση σαν Ποσοστό</ShowInPercent>
     <ShowLabels>Εμφάνιση Ταμπελών</ShowLabels>
     <ShowLabelText>Εμφάνιση Κειμένου Ταμπελών</ShowLabelText>
+    <ShowLegend>Εμφάνιση Λεζάντας</ShowLegend>
     <ShowMarker>Εμφάνιση Δείκτη</ShowMarker>
     <ShowNulls>Εμφάνιση Nulls</ShowNulls>
     <ShowOthers>Εμφάνιση Άλλων</ShowOthers>
@@ -3194,6 +3541,8 @@
     <Totals>Σύνολα</Totals>
     <TransparentColor>Διαφανές  Χρώμα</TransparentColor>
     <TrendLine>Γραμμή Τάσης</TrendLine>
+    <TrendLineColor>Χρώμα</TrendLineColor>
+    <TrendLineShowShadow>Εμφάνιση Σκιάς</TrendLineShowShadow>
     <Trimming>Ψαλίδισμα</Trimming>
     <Type>Τύπος</Type>
     <TypeName>Όνομα Τύπου</TypeName>
@@ -3284,6 +3633,7 @@
     <BadFromObjectExpression>Άκυρη έκφραση FROM αντικείμενο!</BadFromObjectExpression>
     <BadObjectName>Μη έγκυρο όνομα αντικειμένου!</BadObjectName>
     <BadSelectStatement>Μη έγκυρη δήλωση SELECT!</BadSelectStatement>
+    <Collections>Συλλογές</Collections>
     <CreateLinksFromForeignKeys>Δημιουργία συνδέσεων από τα Ξένα Κλειδιά</CreateLinksFromForeignKeys>
     <CriteriaAlias>Ψευδώνυμο</CriteriaAlias>
     <CriteriaCriteria>Κριτήρια</CriteriaCriteria>
@@ -3389,6 +3739,7 @@
     <FinishingReport>Ολοκλήρωση Αναφοράς</FinishingReport>
     <FirstPass>Πρώτο Πέρασμα</FirstPass>
     <GenerateNewCode>Παραγωγή Νέου Κώδικα</GenerateNewCode>
+    <Infographics>Γραφική Αναπαράσταση Δεδομένων</Infographics>
     <InfoMessage>{0} - {1} βρέθηκαν.</InfoMessage>
     <InformationMessages>Μηνύματα Πληροφοριών</InformationMessages>
     <LabelAlias>Ψευδώνυμο:</LabelAlias>
@@ -3398,6 +3749,7 @@
     <LabelCentimeters>Εκατοστά:</LabelCentimeters>
     <LabelCollectionName>Όνομα Συλλογής:</LabelCollectionName>
     <LabelColor>Χρώμα:</LabelColor>
+    <LabelCommandTimeout>Προθεσμία Εντολής:</LabelCommandTimeout>
     <LabelCountData>Μέτρηση Δεδομένων:</LabelCountData>
     <LabelDataBand>Ζώνη Δεδομένων:</LabelDataBand>
     <LabelDataColumn>Στήλη Δεδομένων:</LabelDataColumn>
@@ -3461,6 +3813,20 @@
     <WhenAnd>όταν {0} {1} και</WhenAnd>
     <WhenValueIs>όταν η τιμή είναι</WhenValueIs>
   </Report>
+  <ReportInfo>
+    <CheckIssuesAdditionalDescription>Έλεγχος αναφοράς για σφάλματα και για εύρεση ανακριβειών σε αυτήν.</CheckIssuesAdditionalDescription>
+    <CheckIssuesDescription>Επιθεώρηση Εγγράφου</CheckIssuesDescription>
+    <EncryptWithPassword>Κρυπτογράφηση με Κωδικό</EncryptWithPassword>
+    <EncryptWithPasswordAdditionalDescription>Ορίστε τον κωδικό πρόσβασης για να αποτρέψετε μη-εξουσιοδοτημένες εργασίες με το έγγραφο.</EncryptWithPasswordAdditionalDescription>
+    <EncryptWithPasswordDescription>Προστασία Εγγράφου</EncryptWithPasswordDescription>
+    <Info>Πληροφορίες</Info>
+    <ReportOptions>Επιλογές Αναφοράς</ReportOptions>
+    <ReportOptionsAdditionalDescription>Ορισμός των βασικών πληροφοριών και παραμέτρων της αναφοράς.</ReportOptionsAdditionalDescription>
+  </ReportInfo>
+  <ReportOpen>
+    <Browse>Περιήγηση</Browse>
+    <Import>Εισαγωγή</Import>
+  </ReportOpen>
   <Services>
     <categoryContextTools>Εργαλεία Περιβάλλοντος</categoryContextTools>
     <categoryDesigner>Σχεδιαστής</categoryDesigner>

@@ -53,12 +53,15 @@ $handler->onCreateReport = function ($event) {
 };
 
 $handler->onSaveReport = function ($event) {
-	$report = $event->report; // Report JSON object
+	$report = $event->report; // Report object
+	$reportJson = $event->reportJson; // Report JSON
 	$fileName = $event->fileName; // Report file name
 	
-	file_put_contents('reports/'.$fileName.".mrt",json_encode($report));
+	file_put_contents('reports/'.$fileName.".mrt", $reportJson);
 	
+	//return StiResult::success();
 	return StiResult::success("Save Report OK: ".$fileName);
+	//return StiResult::error("Save Report ERROR. Message from server side.");
 };
 
 $handler->onSaveAsReport = function ($event) {

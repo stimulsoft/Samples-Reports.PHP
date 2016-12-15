@@ -492,7 +492,7 @@
     <FileNotFound>"{0}" artxiboa ez da aurkitu.</FileNotFound>
     <IdentifierIsNotValid>'{0}' identifikatzailea ez da baliozkoa.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Ezinezkoa izan da Datuen Iturria aurkitzea.</ImpossibleFindDataSource>
-    <NameExists>Lehendik bada osagai bat'{0} ' izen horrekin. Osagaiek ezin dute izen bikoizturik eduki, eta izenek bereizi egiten dituzte maiuskulak eta minuskulak.</NameExists>
+    <NameExists>Lehendik bada osagai bat'{0} ' izen horrekin. Osagaiek ezin dute izen bikoizturik eduki.</NameExists>
     <NoServices>Zerbitzu horiek ez daude '{0}'-n</NoServices>
     <NotAssign>Zehaztu gabeko Datu-iturria.</NotAssign>
     <NotCorrectFormat>Sarrerako kateak ez du formatu zuzena.</NotCorrectFormat>

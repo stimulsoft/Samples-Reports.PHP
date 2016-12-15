@@ -504,7 +504,7 @@
     <FileNotFound>Fil "{0}" ikke funnet.</FileNotFound>
     <IdentifierIsNotValid>Identifikatoren '{0}' er ikke gyldig.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Finner ikke datakilde.</ImpossibleFindDataSource>
-    <NameExists>Det er allerede et objekt som heter '{0}'. Objekter må ha unike navn, og må ikke skille mellom store og små bokstaver.</NameExists>
+    <NameExists>Det er allerede et objekt som heter '{0}'. Objekter må ha unike navn.</NameExists>
     <NoServices>Tjenester ble ikke funnet i '{0}'</NoServices>
     <NotAssign>Datakilde ikke spesifisert.</NotAssign>
     <NotCorrectFormat>Inndatastring var ikke i et korrekt format.</NotCorrectFormat>

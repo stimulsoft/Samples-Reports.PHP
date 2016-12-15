@@ -117,6 +117,7 @@
     <Save>Spremi</Save>
     <SaveCopy>Spremi kopiju</SaveCopy>
     <SetAll>Postavi sve</SetAll>
+    <ShowMore>Prikaži više</ShowMore>
     <Submit>Podnesi</Submit>
     <Test>Test</Test>
     <Up>Gore</Up>
@@ -310,14 +311,63 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Postavke računa</AccountSettings>
+    <ButtonChangePassword>Promijeni lozinku</ButtonChangePassword>
+    <ButtonDeleteAll>Obriši sve</ButtonDeleteAll>
+    <ButtonDesign>Kreiraj izvještaj</ButtonDesign>
+    <ButtonLogout>Odjavi se</ButtonLogout>
+    <ButtonPublish>Objavi</ButtonPublish>
+    <ButtonRecover>Povrati</ButtonRecover>
+    <ButtonResendEmail>Ponovno pošalji Email</ButtonResendEmail>
+    <ButtonResetPassword>Resetiraj lozinku</ButtonResetPassword>
+    <ButtonRun>Pokreni</ButtonRun>
+    <ButtonShare>Podijeli</ButtonShare>
+    <ButtonSignUp>Registriraj se</ButtonSignUp>
+    <ButtonSkip>Preskoči</ButtonSkip>
+    <ButtonView>Pregledaj</ButtonView>
+    <ButtonWhereUsed>Gdje se koristi?</ButtonWhereUsed>
     <Cancel>Odustani</Cancel>
+    <CheckBoxMoveToRecycleBin>Premjesti u koš za smeće</CheckBoxMoveToRecycleBin>
+    <CheckBoxRememberMe>Zapamti me</CheckBoxRememberMe>
     <Collection>Kolekcija</Collection>
     <Create>Kreiraj</Create>
+    <CreateError>Greška prilikom kreiranja izvještaja!</CreateError>
     <CreateNewCollection>Kreiraj novu kolekciju</CreateNewCollection>
+    <CreatingReport>Kreiram izvještaj...</CreatingReport>
     <DeleteFile>Izbriši datoteku</DeleteFile>
+    <ExecutionError>Pogreška izvršenja</ExecutionError>
+    <FileStorageWindowTitleEdit>Izmijeni spremište datoteka</FileStorageWindowTitleEdit>
+    <FileStorageWindowTitleNew>Novo spremište datoteka</FileStorageWindowTitleNew>
+    <FolderWindowTitleEdit>Izmijeni mapu</FolderWindowTitleEdit>
+    <FolderWindowTitleNew>Nova mapa</FolderWindowTitleNew>
+    <ForExample>Na primjer</ForExample>
+    <GroupBoxAttachedItems>Priložene stavke</GroupBoxAttachedItems>
+    <HyperlinkAgreeToTerms>Registracijom prihvaćate uvjete.</HyperlinkAgreeToTerms>
+    <HyperlinkAlreadyHaveAccount>Račun već postoji</HyperlinkAlreadyHaveAccount>
+    <HyperlinkForgotPassword>Zaboravljena lozinka</HyperlinkForgotPassword>
+    <HyperlinkHavePassword>Lozinka postoji</HyperlinkHavePassword>
+    <HyperlinkRegisterAccount>Registriraj novi račun</HyperlinkRegisterAccount>
     <labelCollectionName>Naziv kolekcije:</labelCollectionName>
+    <LabelCreated>Kreirano:</LabelCreated>
+    <LabelCreateFolder>Kreiranje nove kategorije u koju možete staviti druge stavke.</LabelCreateFolder>
+    <LabelCreateReportTemplate>Kreiraj predložak izvještaja.</LabelCreateReportTemplate>
+    <LabelCurrentPassword>Trenutna lozinka:</LabelCurrentPassword>
+    <LabelDataFile>Podatkovna datoteka:</LabelDataFile>
+    <LabelDataUrl>Podatkovni URL:</LabelDataUrl>
     <labelFileName>Ime datoteke:</labelFileName>
+    <LabelForeground>Prednja strana:</LabelForeground>
+    <LabelFromReport>Iz izvještaja</LabelFromReport>
+    <LabelFromReportCode>Iz izvještaja (definiraj u kodu)</LabelFromReportCode>
+    <LabelLastLogin>Zadnja prijava:</LabelLastLogin>
+    <LabelLastTime>Zadnje vrijeme:</LabelLastTime>
+    <LabelModified>Izmijenjeno:</LabelModified>
+    <LabelNewPassword>Nova lozinka:</LabelNewPassword>
+    <LabelNextTime>Slijedeće vrijeme:</LabelNextTime>
     <labelPassword>Lozinka:</labelPassword>
+    <LabelPermission>Dozvola:</LabelPermission>
+    <LabelRenderedReport>Renderirani izvještaj</LabelRenderedReport>
+    <LabelResponseAsFile>Odgovor kao datoteka</LabelResponseAsFile>
+    <LabelSeparateReport>Odvojeni izvještaj (i skripte) datoteka</LabelSeparateReport>
+    <LabelShowReport>Prikaži izvještaj:</LabelShowReport>
     <labelUserName>Korisničko ime:</labelUserName>
     <Login>Login</Login>
     <Open>Otvori</Open>
@@ -336,12 +386,93 @@
     <RefreshList>Osvježi popis</RefreshList>
     <ReportDocumentFormatNotRecognized>Format '{0}' predmeta nije prepoznat kao format renderiranog izvještaja!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Format '{0}' predmeta nije prepoznat kao format šablone izvještaja!</ReportTemplateFormatNotRecognized>
+    <RibbonButtonAddRole>Dodaj korisničku ulogu</RibbonButtonAddRole>
+    <RibbonButtonAddUser>Dodaj korisnika</RibbonButtonAddUser>
+    <RibbonButtonAddWorkspace>Dodaj radni prostor</RibbonButtonAddWorkspace>
+    <RibbonButtonFolder>Mapa</RibbonButtonFolder>
+    <RibbonTabUsers>Korisnici</RibbonTabUsers>
     <Root>Korijen</Root>
+    <RootFolder>Korijenska mapa</RootFolder>
     <Save>Spremi</Save>
     <SaveAccountSettings>Spremi postavke računa</SaveAccountSettings>
     <SaveFile>Spremi datoteku</SaveFile>
+    <ShareWindowTitleNew>Podijeli</ShareWindowTitleNew>
     <ShowAllFiles>Prikaži sve datoteke</ShowAllFiles>
+    <TabItemEmbedCode>Ugradi kod</TabItemEmbedCode>
+    <TabItemQRCode>QR kod</TabItemQRCode>
+    <TabItemShare>Poveži za dijeljenje</TabItemShare>
+    <TextActivated>Aktivirano</TextActivated>
+    <TextDelete>Obriši</TextDelete>
+    <TextDeletingItems>Obrisane stavke...</TextDeletingItems>
+    <TextFirstName>Ime</TextFirstName>
+    <TextFromTo>Od {0} do {1} (Ukupno - {2})</TextFromTo>
+    <TextItemsWorkspace>Radni prostor</TextItemsWorkspace>
+    <TextLastName>Prezime</TextLastName>
+    <TextModify>Izmijeni</TextModify>
+    <TextNoNotifications>Bez obavijesti</TextNoNotifications>
+    <TextProfile>Profil</TextProfile>
+    <TextReports>Izvještaji</TextReports>
+    <TextRestoringItems>Vraćanje stavki...</TextRestoringItems>
+    <TextRole>Korisnička uloga</TextRole>
+    <TextRun>Pokreni</TextRun>
+    <TextUser>Korisnik</TextUser>
+    <TextUserName>Korisničko ime (Email)</TextUserName>
+    <TimeHoursAgoFive>Prije pet sati, {0:t}</TimeHoursAgoFive>
+    <TimeHoursAgoFour>prije četiri sata, {0:t}</TimeHoursAgoFour>
+    <TimeHoursAgoOne>Prije jedan sat, {0:t}</TimeHoursAgoOne>
+    <TimeHoursAgoThree>Prije tri sata, {0:t}</TimeHoursAgoThree>
+    <TimeHoursAgoTwo>Prije dva sata, {0:t}</TimeHoursAgoTwo>
+    <TimeMinutesAgoFive>Prije pet minuta, {0:t}</TimeMinutesAgoFive>
+    <TimeMinutesAgoFour>Prije četiri minute, {0:t}</TimeMinutesAgoFour>
+    <TimeMinutesAgoLessOne>Prije manje od minute</TimeMinutesAgoLessOne>
+    <TimeMinutesAgoN>Prije {0} minuta, {1:t}</TimeMinutesAgoN>
+    <TimeMinutesAgoOne>Prije jedne minute, {0:t}</TimeMinutesAgoOne>
+    <TimeMinutesAgoThree>Prije tri minute, {0:t}</TimeMinutesAgoThree>
+    <TimeMinutesAgoTwo>Prije dvije minute, {0:t}</TimeMinutesAgoTwo>
+    <TimeToday>Danas, {0:t}</TimeToday>
+    <TimeYesterday>Jučer, {0:t}</TimeYesterday>
+    <ToolTipAddRole>Kreiranje nove korisničke uloge u radnom prostoru.</ToolTipAddRole>
+    <ToolTipAddUser>Kreiranje novog korisnika u odabranoj korisničkoj ulozi.</ToolTipAddUser>
+    <ToolTipAspNet>Objavi odabrani izvještaj u ASP.NET aplikaciju.</ToolTipAspNet>
+    <ToolTipAspNetMvc>Objavi odabrani izvještaj u ASP.NET MVC aplikaciju.</ToolTipAspNetMvc>
+    <ToolTipCreate>Kreiraj novu stavku.</ToolTipCreate>
+    <ToolTipDelete>Obriši odabrane stavke.</ToolTipDelete>
+    <ToolTipDeleted>Prikaži obrisane stavke</ToolTipDeleted>
+    <ToolTipEdit>Izmijeni odabranu stavku.</ToolTipEdit>
+    <ToolTipGridMode>Prikaz popisa</ToolTipGridMode>
+    <ToolTipInfo>Prikaz detalja</ToolTipInfo>
+    <ToolTipJs>Objavi odabrani izvještaj kao HTML stranicu</ToolTipJs>
+    <ToolTipPublish>Pripremi odabrani izvještaj za isporuku u vašoj aplikaciji.</ToolTipPublish>
+    <ToolTipRecover>Povrati odabrane stavke.</ToolTipRecover>
+    <ToolTipRunWithoutPreview>Renderiraj odabrani izvještaj bez pretpregleda</ToolTipRunWithoutPreview>
+    <ToolTipShare>Podijeli odabrane datoteke.</ToolTipShare>
+    <ToolTipSort>Opcije sortiranja</ToolTipSort>
+    <ToolTipThumbnailMode>Prikaz rešetke</ToolTipThumbnailMode>
+    <ToolTipViewFile>Prikaži odabranu datoteku.</ToolTipViewFile>
+    <ToolTipViewReport>Prikaži odabrani izvještaj u pregledniku.</ToolTipViewReport>
+    <WindowDescriptionDelete>Jeste li sigurni da želite obrisati odabrane stavke?</WindowDescriptionDelete>
+    <WindowDescriptionRecover>Odabrane stavke biti će uklonjene iz koša za smeće.</WindowDescriptionRecover>
+    <WindowTitleDelete>Obriši stavke</WindowTitleDelete>
+    <WindowTitleForgotPassword>Zaboravljena lozinka</WindowTitleForgotPassword>
     <WindowTitleLogin>Log in</WindowTitleLogin>
+    <WindowTitleRecover>Povrati stavke</WindowTitleRecover>
+    <WindowTitleRoleEdit>Izmijeni korisničku ulogu</WindowTitleRoleEdit>
+    <WindowTitleRoleNew>Nova korisnička uloga</WindowTitleRoleNew>
+    <WindowTitleSignUp>Registriraj se</WindowTitleSignUp>
+    <WindowTitleUserEdit>Izmijeni korisnika</WindowTitleUserEdit>
+    <WindowTitleUserNew>Novi korisnik</WindowTitleUserNew>
+    <WindowTitleWorkspaceEdit>Izmijeni radni prostor</WindowTitleWorkspaceEdit>
+    <WindowTitleWorkspaceNew>Novi radni prostor</WindowTitleWorkspaceNew>
+    <WizardBlankReportDescription>Kreiraj prazan izvještaj</WizardBlankReportDescription>
+    <WizardExcelDescription>Kreiraj izvještaj sa Excel podacima.</WizardExcelDescription>
+    <WizardJsonDescription>Kreiraj izvještaj sa Json podacima.</WizardJsonDescription>
+    <WizardPrivateShare>Bez pristupa</WizardPrivateShare>
+    <WizardPrivateShareDescription>Vanjski pristup stavki je zabranjen.</WizardPrivateShareDescription>
+    <WizardPublicShare>Javni pristup</WizardPublicShare>
+    <WizardPublicShareDescription>Vanjski pristup za sve nautorizirane korisnike.</WizardPublicShareDescription>
+    <WizardRegisteredShare>Autorizirani pristup</WizardRegisteredShare>
+    <WizardRegisteredShareDescription>Vanjski pristup samo za registrirane korisnike iz bilo kojeg radnog prostora.</WizardRegisteredShareDescription>
+    <WizardXmlDescription>Kreiraj izvještaj sa Xml podacima.</WizardXmlDescription>
   </Cloud>
   <Components>
     <StiBarCode>Bar Code</StiBarCode>
@@ -520,7 +651,7 @@
     <FileNotFound>Datoteka "{0}" nije pronađena.</FileNotFound>
     <IdentifierIsNotValid>Identifikator '{0}' nije valjan.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Nemoguće pronaći izvor podataka.</ImpossibleFindDataSource>
-    <NameExists>Već postoji objekt imena '{0}'. Objekti moraju imati jedinstvena imena, i imena moraju biti neosjtljiva na veličinu slova.</NameExists>
+    <NameExists>Već postoji objekt imena '{0}'. Objekti moraju imati jedinstvena imena.</NameExists>
     <NoServices>Servisi nisu nađeni u '{0}'</NoServices>
     <NotAssign>Izvor podataka nije određen.</NotAssign>
     <NotCorrectFormat>Ulazni string nije pravilno formatiran.</NotCorrectFormat>
@@ -768,6 +899,8 @@
     <AddCondition>&amp;Dodaj uvjet</AddCondition>
     <AddLevel>Dodaj nivo</AddLevel>
     <AssignExpression>Dodijeli frazu</AssignExpression>
+    <BreakIfTrue>Prelomi ako je istinito</BreakIfTrue>
+    <BreakIfTrueToolTip>Prekida procesiranje uvjeta ako je trenutni ispunjen</BreakIfTrueToolTip>
     <ChangeFont>Promijeni font...</ChangeFont>
     <ComponentIsEnabled>Komponenta je omogućena</ComponentIsEnabled>
     <NoConditions>Bez uvjeta</NoConditions>
@@ -908,6 +1041,7 @@
     <Queries>Upiti</Queries>
     <QueryNew>Novi upit</QueryNew>
     <QueryText>Tekst upita</QueryText>
+    <QueryTimeout>Timeout upita</QueryTimeout>
     <RelationEdit>Uredi relaciju</RelationEdit>
     <RelationNew>Nova relacija</RelationNew>
     <RetrieveColumns>Učitaj stupce</RetrieveColumns>
@@ -1219,6 +1353,8 @@
     <AddNewItem>Dodaj novi predmet</AddNewItem>
     <GaugeEditorForm>Editor mjerila</GaugeEditorForm>
     <Kind>Vrsta</Kind>
+    <LinearScale>Linearna skala</LinearScale>
+    <RadialScale>Radialna skala</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>Odustani</barname_cancel>
@@ -1721,8 +1857,123 @@
     <GroupOceania>Oceania</GroupOceania>
     <GroupSouthAmerica>Južna Amerika</GroupSouthAmerica>
     <GroupWorld>Svijet</GroupWorld>
+    <LinkDataForm>Poveži podatke</LinkDataForm>
     <MapEditorForm>Editor karte</MapEditorForm>
   </Map>
+  <Messages>
+    <MessageTimeOutExpired>Timeout komande je istekao!</MessageTimeOutExpired>
+    <TextRegistrationSuccessfully>Registracija uspješna!
+
+Email je poslan na "{0}".
+Sadrži poveznicu za potvrdu vaše registracije. Kako bi dovršili registraciju molim kliknite na poveznicu u mail-u kojeg ste dobili.</TextRegistrationSuccessfully>
+    <ThisFieldIsNotSpecified>Ovo polje nije specificirano!</ThisFieldIsNotSpecified>
+  </Messages>
+  <Notices>
+    <AccessDenied>Pristup zabranjen!</AccessDenied>
+    <ActivationExpiriedBeforeFirstRelease>Vaša pretplata na Stimulsoft Reports.Ultimate je istekla prije nego što je prva verzija Stimulsoft Reports.Server objavljena!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationLicenseIsNotCorrect>Datoteka licence nije ispravna! Molimo kontaktirajte naš odjel prodaje na sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
+    <ActivationLockedAccount>Vaš račun je zaključan. Molimo kontaktirajte naš odjel prodaje na sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationMaxActivationsReached>Dosegli ste maksimalni broj aktivacija. Molimo kontaktirajte naš odjel prodaje na sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server trenutno nije dostupan! Molimo pokušajte kasnije.</ActivationServerIsNotAvailableNow>
+    <ActivationServerVersionNotAllowed>Ne možete aktivirati ovu verziju Stimulsoft Reports.Server jer je vaš program pretplate istekao! Molimo da se prijavite u vaš račun i provjerite koju verziju Stimulsoft Reports.Server možete instalirati i aktivirati.</ActivationServerVersionNotAllowed>
+    <ActivationSomeTroublesOccurred>Greška prilikom aktivacije. Molimo pokušajte kasnije.</ActivationSomeTroublesOccurred>
+    <ActivationUserNameOrPasswordIsWrong>Vaše korisničko ime (Email) ili lozinka su pogrešni!</ActivationUserNameOrPasswordIsWrong>
+    <ActivationWrongAccountType>Vaša vrsta računa ne dozvoljava aktivaciju Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <AuthAccountCantBeUsedNow>Račun se ne može trenutno koristiti!</AuthAccountCantBeUsedNow>
+    <AuthAccountIsNotActivated>Račun još nije aktiviran! Molimo pratite upute poslane na Email tijekom registracije.</AuthAccountIsNotActivated>
+    <AuthCantChangeRoleBecauseLastAdministratorUser>Korisnička uloga ne može biti izmijenjena jer je ovo zadnji administratorski korisnik u ovom radnom prostoru!</AuthCantChangeRoleBecauseLastAdministratorUser>
+    <AuthCantChangeRoleBecauseLastSupervisorUser>Korisnička uloga ne može biti izmijenjena jer je ovo zadnji supervizorski korisnik u ovom radnom prostoru!</AuthCantChangeRoleBecauseLastSupervisorUser>
+    <AuthCantChangeSystemRole>Sistemska korisnička uloga se ne može mijenjati!</AuthCantChangeSystemRole>
+    <AuthCantDeleteHimselfUser>Korisnik ne može obristi samoga sebe!</AuthCantDeleteHimselfUser>
+    <AuthCantDeleteLastAdministratorUser>Korisnika nije moguće obrisati jer je ovo zadnji administratorski korisnik u ovom radnom prostoru!</AuthCantDeleteLastAdministratorUser>
+    <AuthCantDeleteLastSupervisorUser>Korisnika nije moguće obrisati jer je ovo zadnji administratorski korisnik u ovom serveru!</AuthCantDeleteLastSupervisorUser>
+    <AuthCantDeleteSystemRole>Nije moguće obrisati korisničku ulogu jer je sistemska korisnička uloga!</AuthCantDeleteSystemRole>
+    <AuthCantDisableUserBecauseLastAdministratorUser>Korisnika nije moguće onemogućiti jer je ovo zadnji administratorski korisnik u ovom radnom prostoru!</AuthCantDisableUserBecauseLastAdministratorUser>
+    <AuthCantDisableUserBecauseLastSupervisorUser>Korisnika nije moguće onemogućiti jer je ovo zadnji supervizorski korisnik u ovom serveru!</AuthCantDisableUserBecauseLastSupervisorUser>
+    <AuthFirstNameIsNotSpecified>Ime nije specificirano!</AuthFirstNameIsNotSpecified>
+    <AuthLastNameIsNotSpecified>Prezime nije specificirano!</AuthLastNameIsNotSpecified>
+    <AuthOAuthIdNotSpecified>OAuth identifikator nije specificiran!</AuthOAuthIdNotSpecified>
+    <AuthPasswordIsNotCorrect>Netočna lozinka!</AuthPasswordIsNotCorrect>
+    <AuthPasswordIsNotSpecified>Lozinka nije specificirana!</AuthPasswordIsNotSpecified>
+    <AuthPasswordIsTooShort>Lozinka je prekratka (minimalna duljina je 6 znakova)!</AuthPasswordIsTooShort>
+    <AuthRoleCantBeDeletedBecauseUsedByUsers>Nije moguće obrisati korisničku ulogu jer je koriste drugi korisnici.</AuthRoleCantBeDeletedBecauseUsedByUsers>
+    <AuthRoleNameAlreadyExists>Korisnička uloga sa imenom "{0}" već postoji!</AuthRoleNameAlreadyExists>
+    <AuthRoleNameIsSystemRole>Korisnička uloga sa imenom "{0}" je sistemska korisnička uloga!</AuthRoleNameIsSystemRole>
+    <AuthSendMessageWithInstructions>Poruka sa daljnjim uputama je poslana na "{0}"!</AuthSendMessageWithInstructions>
+    <AuthUserHasLoggedOut>Odjavili ste se!</AuthUserHasLoggedOut>
+    <AuthUserNameAlreadyExists>Korisničko ime (Email) se već koristi!</AuthUserNameAlreadyExists>
+    <AuthUserNameIsNotSpecified>Korisničko ime (Email) nije specificirano!</AuthUserNameIsNotSpecified>
+    <AuthUserNameOrPasswordIsNotCorrect>Korisničko ime (Email) ili lozinka su netočni!</AuthUserNameOrPasswordIsNotCorrect>
+    <AuthUserNameShouldLookLikeAnEmailAddress>Korisničko ime bi trebalo biti slično Email adresi!</AuthUserNameShouldLookLikeAnEmailAddress>
+    <AuthWorkspaceNameAlreadyInUse>Ime radnog prostora se već koristi!</AuthWorkspaceNameAlreadyInUse>
+    <CommandTimeOut>Vrijeme čekanja na izvršenje komande je isteklo!</CommandTimeOut>
+    <EndDateShouldBeGreaterThanCurrentDate>Završni datum bi trebao biti veći od trenutnog datuma!</EndDateShouldBeGreaterThanCurrentDate>
+    <EndDateShouldBeGreaterThanStartDate>Završni datum bi trebao biti veći od početnog datuma!</EndDateShouldBeGreaterThanStartDate>
+    <ExecutionError>Greška izvršenja</ExecutionError>
+    <IsNotAuthorized>Nema pristupa u "{0}"!</IsNotAuthorized>
+    <IsNotCorrect>"{0}" je netočno!</IsNotCorrect>
+    <IsNotDeleted>"{0}" nije obrisano!</IsNotDeleted>
+    <IsNotEqual>"{0}" nije jednako!</IsNotEqual>
+    <IsNotFound>"{0}" nije nađeno!</IsNotFound>
+    <IsNotRecognized>"{0}" nije prepoznato!</IsNotRecognized>
+    <IsNotSpecified>"{0}" nije specificirano!</IsNotSpecified>
+    <IsRequiredFile>Trebali bi dodati barem jednu datoteku!</IsRequiredFile>
+    <ItemCantBeAttachedToItself>Stavku nije moguće dodati samoj sebi!</ItemCantBeAttachedToItself>
+    <ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>Elementi "{0}" se ne mogu obrisati jer su dodani drugim elementima!</ItemCantBeDeletedBecauseItemIsAttachedToOtherItems>
+    <ItemCantBeMovedToSpecifiedPlace>Stavka ne može biti maknuta na određeno mjesto!</ItemCantBeMovedToSpecifiedPlace>
+    <ItemDoesNotSupport>Stavka ne podržava "{0}"!</ItemDoesNotSupport>
+    <KeyAndToKeyAreEqual>A Key i ToKey su jednaki!</KeyAndToKeyAreEqual>
+    <NotificationFailed>Neuspjeli rezultat!</NotificationFailed>
+    <NotificationFilesUploadingComplete>Datoteke su uspješno prenesene.</NotificationFilesUploadingComplete>
+    <NotificationFileUploading>Datoteka "{0}" se prenosi.</NotificationFileUploading>
+    <NotificationItemDelete>Stavke se brišu.</NotificationItemDelete>
+    <NotificationItemDeleteComplete>Stavke su uspješno obrisane.</NotificationItemDeleteComplete>
+    <NotificationItemRestore>Stavke se vraćaju.</NotificationItemRestore>
+    <NotificationItemRestoreComplete>Stavke su uspješno vraćene.</NotificationItemRestoreComplete>
+    <NotificationItemTransfer>Stavke se prenose.</NotificationItemTransfer>
+    <NotificationItemTransferComplete>Stavke su uspješno prenesene.</NotificationItemTransferComplete>
+    <NotificationItemWaitingProcessing>Stavke čekaju na procesuiranje.</NotificationItemWaitingProcessing>
+    <NotificationOperationAborted>Postupak je prekinut!</NotificationOperationAborted>
+    <NotificationRecycleBinCleaning>Pražnjenje koša za smeće.</NotificationRecycleBinCleaning>
+    <NotificationRecycleBinCleaningComplete>Koš za smeće je uspješno ispražnjen.</NotificationRecycleBinCleaningComplete>
+    <NotificationRecycleBinWaitingProcessing>Pražnjenje koša za smeće čeka na procesuiranje.</NotificationRecycleBinWaitingProcessing>
+    <NotificationReportExporting>Izvještaj "{0}" se izvozi</NotificationReportExporting>
+    <NotificationReportExportingComplete>Izvještaj "{0}" je uspješno izvezen.</NotificationReportExportingComplete>
+    <NotificationReportRendering>Izvještaj "{0}" se renderira</NotificationReportRendering>
+    <NotificationReportRenderingComplete>Izvještaj "{0}" je renderiran.</NotificationReportRenderingComplete>
+    <NotificationReportWaitingProcessing>Izvještaj "{0}" čeka na procesuiranje.</NotificationReportWaitingProcessing>
+    <NotificationSchedulerRunning>Planer "{0}" radi.</NotificationSchedulerRunning>
+    <NotificationSchedulerRunningComplete>Rad planera "{0}" je završen.</NotificationSchedulerRunningComplete>
+    <NotificationSchedulerWaitingProcessing>Planer "{0}" čeka na procesuiranje.</NotificationSchedulerWaitingProcessing>
+    <NotificationTitleFilesUploading>Prijenos datoteka</NotificationTitleFilesUploading>
+    <NotificationTitleItemRefreshing>Osvježavanje stavke "{0}"</NotificationTitleItemRefreshing>
+    <NotificationTitleItemTransferring>Prijenos stavke "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleReportExporting>Izvoz izvještaja "{0}"</NotificationTitleReportExporting>
+    <NotificationTitleReportRendering>Renderiranje izvještaja "{0}"</NotificationTitleReportRendering>
+    <NotificationTitleSchedulerRunning>Rad planera "{0}"</NotificationTitleSchedulerRunning>
+    <NotificationTransferring>"{0}" se prenosi u "{1}".</NotificationTransferring>
+    <NotificationTransferringComplete>"{0}" je uspješno prenesen u "{1}".</NotificationTransferringComplete>
+    <NotificationValueIsNotCorrect>Ova vrijednost nije točna za tip {0}</NotificationValueIsNotCorrect>
+    <OutOfRange>Izvan opsega ("{0}")!</OutOfRange>
+    <ParsingCommandException>Greška prilikom procesuiranja komande u xml-u: {0}</ParsingCommandException>
+    <QuotaMaximumComputingCyclesCountExceeded>Premašen maksimalan broj ciklusa računanja.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumFileSizeExceeded>Premašena maksimalna veličina datoteke.</QuotaMaximumFileSizeExceeded>
+    <QuotaMaximumReportPagesCountExceeded>Premašen maksimalni broj stranica izvještaja.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumUsersCountExceeded>Premašen maksimalni broj korisnika.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>Premašen maksimalni broj radnih prostora.</QuotaMaximumWorkspacesCountExceeded>
+    <SchedulerCantRunItSelf>Planer ne može pokrenuti samoga sebe!</SchedulerCantRunItSelf>
+    <SessionTimeOut>Timeout sesije</SessionTimeOut>
+    <SnapshotAlreadyProcessed>Snimak izvještaja je već procesuiran!</SnapshotAlreadyProcessed>
+    <SpecifiedItemIsNot>Specificirana stavka nije "{0}"!</SpecifiedItemIsNot>
+    <VersionCopyFromItem>Kopiraj stavku iz "{0}".</VersionCopyFromItem>
+    <VersionCreatedFromFile>Kreirano iz datoteke "{0}".</VersionCreatedFromFile>
+    <VersionCreatedFromItem>Kreirano iz stavke "{0}".</VersionCreatedFromItem>
+    <VersionLoadedFromFile>Učitano iz datoteke "{0}".</VersionLoadedFromFile>
+    <VersionNewItemCreation>Kreiranje nove stavke.</VersionNewItemCreation>
+    <WindowClosePreventWhileUploading>Neke datoteke se trenutno prenose. Ako zatvorite stranicu, biti će izgubljene. Jeste li sigurni da želite zatvoriti stranicu?</WindowClosePreventWhileUploading>
+    <WithSpecifiedKeyIsNotFound>"{0}" sa specificiranim ključem nije pronađeno!</WithSpecifiedKeyIsNotFound>
+    <YourTimeSessionHasExpired>Vaše vrijeme sesije je isteklo!</YourTimeSessionHasExpired>
+  </Notices>
   <NuGet>
     <AlreadyDownloaded>Već skinuto</AlreadyDownloaded>
     <AssemblyLoadedSuccessfully>Assembly je uspječno učitan.</AssemblyLoadedSuccessfully>
@@ -1759,6 +2010,47 @@
     <StiLoadPasswordForm>Enkriptiranje dokumenta</StiLoadPasswordForm>
     <StiSavePasswordForm>Lozinka</StiSavePasswordForm>
   </Password>
+  <Permissions>
+    <AdminAPI>API</AdminAPI>
+    <AdminBackgroundTasks>Pozadinski zadaci</AdminBackgroundTasks>
+    <AdminPermissions>Dozvole</AdminPermissions>
+    <AdminRecycleBin>Koš za smeće</AdminRecycleBin>
+    <AdminShare>Podijeli</AdminShare>
+    <AdminTransfers>Prijenosi</AdminTransfers>
+    <ItemCalendars>Kalendari</ItemCalendars>
+    <ItemCloudStorages>Pohrana u oblaku</ItemCloudStorages>
+    <ItemContactLists>Lista kontakata</ItemContactLists>
+    <ItemDashboards>Kontrolne ploče</ItemDashboards>
+    <ItemDataSources>Izvori podataka</ItemDataSources>
+    <ItemFiles>Datoteke</ItemFiles>
+    <ItemFolders>Mape</ItemFolders>
+    <ItemReportSnapshots>Snimke izvještaja</ItemReportSnapshots>
+    <ItemReportTemplates>Predlošsci izvještaja</ItemReportTemplates>
+    <ItemSchedulers>Planeri</ItemSchedulers>
+    <ReportDesignerBusinessObjects>Poslovni objekti</ReportDesignerBusinessObjects>
+    <ReportDesignerDataColumns>Stupci podataka</ReportDesignerDataColumns>
+    <ReportDesignerDataConnections>Konekcije podataka</ReportDesignerDataConnections>
+    <ReportDesignerDataRelations>Relacije podataka</ReportDesignerDataRelations>
+    <ReportDesignerDataSources>Izvori podataka</ReportDesignerDataSources>
+    <ReportDesignerDictionaryActions>Akcije rječnika</ReportDesignerDictionaryActions>
+    <ReportDesignerRestrictions>Ograničenja</ReportDesignerRestrictions>
+    <ReportDesignerVariables>Varijable</ReportDesignerVariables>
+    <SystemBackupRestore>Backup &amp; Povrat</SystemBackupRestore>
+    <SystemEmailTemplates>Email predlošci</SystemEmailTemplates>
+    <SystemLicensing>Licenciranje</SystemLicensing>
+    <SystemMonitoring>Nadgledanje</SystemMonitoring>
+    <SystemUpdate>Ažuriranje</SystemUpdate>
+    <SystemWorkspaces>Radni prostori</SystemWorkspaces>
+    <TextAdministration>Administracija</TextAdministration>
+    <TextItems>Stavke</TextItems>
+    <TextReportDesigner>Kreator izvještaja</TextReportDesigner>
+    <TextSystem>Sistem</TextSystem>
+    <TextUsers>Korisnici</TextUsers>
+    <UserHimself>On sam</UserHimself>
+    <UserRoles>Korisničke uloge</UserRoles>
+    <Users>Korisnici</Users>
+    <UserWorkspace>Radni prostor</UserWorkspace>
+  </Permissions>
   <PlacementComponent>
     <MoveLeftFreeSpace>Pomiče komponentu na lijevu stranu praznog prostora, povećavajući visinu komponente na visinu praznog prostora.</MoveLeftFreeSpace>
     <MoveRightFreeSpace>Pomiče komponentu na desnu stranu praznog prostora, povećavajući visinu komponente na visinu praznog prostora.</MoveRightFreeSpace>
@@ -1771,9 +2063,11 @@
     <BarCodeAdditionalCategory>Bar Code dodatno</BarCodeAdditionalCategory>
     <BarCodeCategory>Bar Code</BarCodeCategory>
     <BehaviorCategory>Ponašanje</BehaviorCategory>
+    <CapNeedle>Kapica igle</CapNeedle>
     <CellCategory>Ćelija</CellCategory>
     <ChartAdditionalCategory>Grafikon dodatno</ChartAdditionalCategory>
     <ChartCategory>Grafikon</ChartCategory>
+    <ChartMap>Karta</ChartMap>
     <CheckCategory>Provjera</CheckCategory>
     <ColorsCategory>Boje</ColorsCategory>
     <ColumnsCategory>Stupci</ColumnsCategory>
@@ -1800,6 +2094,7 @@
     <MouseEventsCategory>Događaji miša</MouseEventsCategory>
     <NavigationCategory>Navigacija</NavigationCategory>
     <NavigationEventsCategory>Događaji navigacije</NavigationEventsCategory>
+    <Needle>Igla</Needle>
     <OptionsCategory>Opcije</OptionsCategory>
     <PageAdditionalCategory>Stranica dodatno</PageAdditionalCategory>
     <PageCategory>Stranica</PageCategory>
@@ -1811,11 +2106,13 @@
     <RenderEventsCategory>Događaji renderiranja</RenderEventsCategory>
     <SeriesLabelsCategory>Oznake serija</SeriesLabelsCategory>
     <ShapeCategory>Oblik</ShapeCategory>
+    <Size>Veličina</Size>
     <SubReportCategory>Podizvještaj</SubReportCategory>
     <TableCategory>Tablica</TableCategory>
     <TextAdditionalCategory>Tekst dodatno</TextAdditionalCategory>
     <TextCategory>Tekst</TextCategory>
     <TitleCategory>Naslov</TitleCategory>
+    <TrendLineCategory>Trend linija</TrendLineCategory>
     <ValueCategory>Vrijednost</ValueCategory>
     <ValueCloseCategory>Približna vrijednost</ValueCloseCategory>
     <ValueEndCategory>Vrijednost kraj</ValueEndCategory>
@@ -2305,6 +2602,9 @@
     <StiRestrictionsAllowResize>Dopusti promjenu veličine</StiRestrictionsAllowResize>
     <StiRestrictionsAllowSelect>Dopusti odabir</StiRestrictionsAllowSelect>
     <StiRestrictionsNone>Ništa</StiRestrictionsNone>
+    <StiSelectionModeFirst>Prvi</StiSelectionModeFirst>
+    <StiSelectionModeFromVariable>Iz varijable</StiSelectionModeFromVariable>
+    <StiSelectionModeNothing>Ništa</StiSelectionModeNothing>
     <StiSeriesLabelsValueTypeArgument>Argument</StiSeriesLabelsValueTypeArgument>
     <StiSeriesLabelsValueTypeArgumentValue>Argument - vrijednost</StiSeriesLabelsValueTypeArgumentValue>
     <StiSeriesLabelsValueTypeSeriesTitle>Naslov niza</StiSeriesLabelsValueTypeSeriesTitle>
@@ -2612,6 +2912,7 @@
     <BrushType>Tip četke</BrushType>
     <BusinessObject>Business objekt</BusinessObject>
     <CacheAllData>Cache-iraj sve podatke</CacheAllData>
+    <CacheTotals>Cache-iraj totale</CacheTotals>
     <CalcInvisible>Izračunaj nevidljivo</CalcInvisible>
     <CalculatedDataColumn>Izračunati stupac podatka</CalculatedDataColumn>
     <CalculationMode>Mod izračuna</CalculationMode>
@@ -2630,6 +2931,7 @@
     <CenterPoint>Središnja točka</CenterPoint>
     <ChartAreaBorderColor>Boja ruba</ChartAreaBorderColor>
     <ChartAreaBrush>Četka područja</ChartAreaBrush>
+    <ChartAreaShowShadow>Prikaži sjenu</ChartAreaShowShadow>
     <ChartType>Vrsta grafikona</ChartType>
     <Checked>Označeno</Checked>
     <CheckOnClick>Označi na klik</CheckOnClick>
@@ -2711,6 +3013,7 @@
     <DialogResult>Rezultat dijaloga</DialogResult>
     <Diameter>Promjer</Diameter>
     <Direction>Smjer</Direction>
+    <Disabled>Onemogućeno</Disabled>
     <DisplayValue>Prikaži vrijednost</DisplayValue>
     <Distance>Udaljenost</Distance>
     <DistanceBetweenTabs>Razdaljina između tab-ova</DistanceBetweenTabs>
@@ -3062,6 +3365,7 @@
     <ReconnectOnEachRow>Ponovno spoji za svaki redak</ReconnectOnEachRow>
     <ReferencedAssemblies>Referencirani assembly-i</ReferencedAssemblies>
     <Refresh>Osvježi</Refresh>
+    <RefreshTime>Vrijeme osvježavanja</RefreshTime>
     <Relation>Relacija</Relation>
     <RelationName>Naziv relacije</RelationName>
     <Relations>Relacije</Relations>
@@ -3073,6 +3377,7 @@
     <ReportAuthor>Auto izvještaja</ReportAuthor>
     <ReportCacheMode>Cache mod izvještaja</ReportCacheMode>
     <ReportDescription>Opis izvještaja</ReportDescription>
+    <ReportImage>Slika izvještaja</ReportImage>
     <ReportName>Naziv izvještaja</ReportName>
     <ReportUnit>Mjera izvještaja</ReportUnit>
     <RequestFromUser>Zahtjev od korisnika</RequestFromUser>
@@ -3081,6 +3386,7 @@
     <ResetPageNumber>Poništi broj stranice</ResetPageNumber>
     <Resize>Promijeni veličinu</Resize>
     <Restrictions>Ograničenja</Restrictions>
+    <RetrieveOnlyUsedData>Povrati samo korištene podatke</RetrieveOnlyUsedData>
     <ReturnValue>Povratna vrijednost</ReturnValue>
     <ReverseHor>Obrni vodoravno</ReverseHor>
     <ReverseVert>Obrni okomito</ReverseVert>
@@ -3238,6 +3544,8 @@
     <Totals>Totali</Totals>
     <TransparentColor>Prozirna boja</TransparentColor>
     <TrendLine>Linija trenda</TrendLine>
+    <TrendLineColor>Boja</TrendLineColor>
+    <TrendLineShowShadow>Prikaži sjenu</TrendLineShowShadow>
     <Trimming>Trimanje</Trimming>
     <Type>Vrsta</Type>
     <TypeName>Naziv vrste</TypeName>
@@ -3434,6 +3742,7 @@
     <FinishingReport>Dovršavanje izvještaja</FinishingReport>
     <FirstPass>Prvi prolaz</FirstPass>
     <GenerateNewCode>Generiraj novi kod</GenerateNewCode>
+    <Infographics>Infografike</Infographics>
     <InfoMessage>{0} - {1} nađeno.</InfoMessage>
     <InformationMessages>Informativne poruke</InformationMessages>
     <LabelAlias>Alias:</LabelAlias>
@@ -3443,6 +3752,7 @@
     <LabelCentimeters>Centimetri:</LabelCentimeters>
     <LabelCollectionName>Naziv kolekcije:</LabelCollectionName>
     <LabelColor>Boja:</LabelColor>
+    <LabelCommandTimeout>Timeout komande:</LabelCommandTimeout>
     <LabelCountData>Broj podataka:</LabelCountData>
     <LabelDataBand>Traka podataka:</LabelDataBand>
     <LabelDataColumn>Stupac podataka:</LabelDataColumn>
@@ -3506,6 +3816,17 @@
     <WhenAnd>kada {0} {1} i</WhenAnd>
     <WhenValueIs>kada je vrijednost</WhenValueIs>
   </Report>
+  <ReportInfo>
+    <CheckIssuesAdditionalDescription>Provjeri izvještaj za greške i nalazi netočnosti.</CheckIssuesAdditionalDescription>
+    <EncryptWithPassword>Enkriptiraj sa lozinkom</EncryptWithPassword>
+    <Info>Info</Info>
+    <ReportOptions>Opcije izvještaja</ReportOptions>
+    <ReportOptionsAdditionalDescription>Postavi osnovne informacije i parametre u izvještaju.</ReportOptionsAdditionalDescription>
+  </ReportInfo>
+  <ReportOpen>
+    <Browse>Pogledaj</Browse>
+    <Import>Uvezi</Import>
+  </ReportOpen>
   <Services>
     <categoryContextTools>Kontekstualni alati</categoryContextTools>
     <categoryDesigner>Dizajner</categoryDesigner>

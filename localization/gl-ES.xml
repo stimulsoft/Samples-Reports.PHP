@@ -492,7 +492,7 @@
     <FileNotFound>Arquivo "{0}" non encontrado.</FileNotFound>
     <IdentifierIsNotValid>Identificador '{0}' non é válido.</IdentifierIsNotValid>
     <ImpossibleFindDataSource>Imposible encontrar Fonte de Datos.</ImpossibleFindDataSource>
-    <NameExists>Xa hai un compoñente con este nome '{0} '. Os Compoñentes non poden ter nomes duplicados, e os nomes distinguen maiúsculas e minúsculas.</NameExists>
+    <NameExists>Xa hai un compoñente con este nome '{0} '. Os Compoñentes non poden ter nomes duplicados.</NameExists>
     <NoServices>Servizos non encontrados en '{0}'</NoServices>
     <NotAssign>Fonte de datos non especificada.</NotAssign>
     <NotCorrectFormat>A cadea de entrada non ten o formato correcto.</NotCorrectFormat>

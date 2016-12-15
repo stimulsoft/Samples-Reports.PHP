@@ -117,6 +117,7 @@
     <Save>შენახვა</Save>
     <SaveCopy>ასლის შენახვა</SaveCopy>
     <SetAll>ყველასთვის მინიჭება</SetAll>
+    <ShowMore>მეტი</ShowMore>
     <Submit>დადასტურება</Submit>
     <Test>შემოწმება</Test>
     <Up>ზევით</Up>
@@ -377,6 +378,7 @@
     <StiHierarchicalBand>იერარქიული მონაცემები</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>ჰორიზონტალური ზოლი</StiHorizontalLinePrimitive>
     <StiImage>სურათი</StiImage>
+    <StiMap>რუკა</StiMap>
     <StiOverlayBand>გადაფარვის სექცია</StiOverlayBand>
     <StiPage>გვერდი</StiPage>
     <StiPageFooterBand>გვერდის ქვედა კოლონტიტული</StiPageFooterBand>
@@ -767,6 +769,8 @@
     <AddCondition>პირობის დამატება</AddCondition>
     <AddLevel>დონის დამატება</AddLevel>
     <AssignExpression>გამოთქმის დანიშვნა</AssignExpression>
+    <BreakIfTrue>დამუშავების შეწყვეტა</BreakIfTrue>
+    <BreakIfTrueToolTip>მონაცემების დამუშავების შეწყვეტა, თუ სრულდება მიმდინარე პირობა</BreakIfTrueToolTip>
     <ChangeFont>ფონტის შეცვლა</ChangeFont>
     <ComponentIsEnabled>კომპონენტი ჩართულია</ComponentIsEnabled>
     <NoConditions>პირობების გარეშე</NoConditions>
@@ -910,6 +914,9 @@
     <RelationEdit>კავშირის შეცვლა</RelationEdit>
     <RelationNew>ახალი კავშირი</RelationNew>
     <RetrieveColumns>ყველა სვეტის მიღება</RetrieveColumns>
+    <RetrieveColumnsAllowRun>StoredProc გაშვების ნებართვა</RetrieveColumnsAllowRun>
+    <RetrieveColumnsAndParameters>სვეტებისა და თვისებების მიღება</RetrieveColumnsAndParameters>
+    <RetrieveParameters>თვისებების მიღება</RetrieveParameters>
     <RetrievingDatabaseInformation>მონაცემთა ბაზის ინფორმაციის მიღება...</RetrievingDatabaseInformation>
     <Run>შესრულება</Run>
     <SelectTypeOfBusinessObject>ბიზნეს ობიექტის ტიპის არჩევა</SelectTypeOfBusinessObject>
@@ -1216,6 +1223,8 @@
     <AddNewItem>ახალი ელემენტის დამატება</AddNewItem>
     <GaugeEditorForm>Gauge რედაქორი</GaugeEditorForm>
     <Kind>მსგავსი</Kind>
+    <LinearScale>ხაზოვანი მასშტაბი</LinearScale>
+    <RadialScale>რადიალური მასშტაბი</RadialScale>
   </Gauge>
   <Gui>
     <barname_cancel>გაუქმება</barname_cancel>
@@ -1711,11 +1720,22 @@
     <menuViewShowRulers>სახაზავი</menuViewShowRulers>
     <menuViewToolbars>ინსტრუმეტთა პანელი</menuViewToolbars>
   </MainMenu>
+  <Map>
+    <GroupAsia>აზია</GroupAsia>
+    <GroupEurope>ევროპა</GroupEurope>
+    <GroupNorthAmerica>ჩრდილოეთ ამერიკა</GroupNorthAmerica>
+    <GroupOceania>ოკეანია</GroupOceania>
+    <GroupSouthAmerica>სამხრეთ ამერიკა</GroupSouthAmerica>
+    <GroupWorld>მსოფლიო</GroupWorld>
+    <LinkDataForm>მონაცემები</LinkDataForm>
+    <MapEditorForm>რუკის რედაქტორი</MapEditorForm>
+  </Map>
   <NuGet>
     <AlreadyDownloaded>უკვე გადმოწერილია</AlreadyDownloaded>
     <AssemblyLoadedSuccessfully>Assembly წარმატებით ჩაიტვირთა.</AssemblyLoadedSuccessfully>
     <AssemblyNotFound>შეუძლებელია {0} assembly-ის პოვნა {1} კავშირის გამოყენებით!</AssemblyNotFound>
     <Author>ავტორი</Author>
+    <Dependencies>დამოკიდებულებები:</Dependencies>
     <Download>ჩამოტვირთვა</Download>
     <DownloadAll>ყველას ჩამოტვირთვა</DownloadAll>
     <Downloads>ჩამოტვირთული:</Downloads>
@@ -1758,9 +1778,11 @@
     <BarCodeAdditionalCategory>შტრიხკოდი, დამატებითი</BarCodeAdditionalCategory>
     <BarCodeCategory>შტრიხკოდი</BarCodeCategory>
     <BehaviorCategory>ქცევა</BehaviorCategory>
+    <CapNeedle>ისრის საძირკველი</CapNeedle>
     <CellCategory>უჯრა</CellCategory>
     <ChartAdditionalCategory>დიაგრამა, დამატებითი</ChartAdditionalCategory>
     <ChartCategory>დიაგრამები</ChartCategory>
+    <ChartMap>რუკა</ChartMap>
     <CheckCategory>მოსანიშნი</CheckCategory>
     <ColorsCategory>ფერი</ColorsCategory>
     <ColumnsCategory>სვეტები</ColumnsCategory>
@@ -1787,6 +1809,7 @@
     <MouseEventsCategory>თაგვი</MouseEventsCategory>
     <NavigationCategory>ნავიგაცია</NavigationCategory>
     <NavigationEventsCategory>ნავიგაცია</NavigationEventsCategory>
+    <Needle>ისარი</Needle>
     <OptionsCategory>პარამეტრები</OptionsCategory>
     <PageAdditionalCategory>გვერდი, დამატებითი</PageAdditionalCategory>
     <PageCategory>გვერდი</PageCategory>
@@ -1798,11 +1821,13 @@
     <RenderEventsCategory>აგება</RenderEventsCategory>
     <SeriesLabelsCategory>სერიის წარწერები</SeriesLabelsCategory>
     <ShapeCategory>გეომეტრია</ShapeCategory>
+    <Size>ზომა</Size>
     <SubReportCategory>ქვერეპორტი</SubReportCategory>
     <TableCategory>ცხრილი</TableCategory>
     <TextAdditionalCategory>ტექსტი, დამატებითი</TextAdditionalCategory>
     <TextCategory>ტექსტი</TextCategory>
     <TitleCategory>წარწერა</TitleCategory>
+    <TrendLineCategory>ტრენდის ზოლი</TrendLineCategory>
     <ValueCategory>მონაცემი</ValueCategory>
     <ValueCloseCategory>საბოლოო მნიშვნელობა</ValueCloseCategory>
     <ValueEndCategory>საბოლოო მნიშვნელობა</ValueEndCategory>
@@ -2193,6 +2218,26 @@
     <StiLegendVertAlignmentCenter>ცენტრში</StiLegendVertAlignmentCenter>
     <StiLegendVertAlignmentTop>ზემოთ</StiLegendVertAlignmentTop>
     <StiLegendVertAlignmentTopOutside>ზემოთ ჩარჩოს გარეთ</StiLegendVertAlignmentTopOutside>
+    <StiMapIDAustralia>ავსტრალია</StiMapIDAustralia>
+    <StiMapIDAustria>ავსტრია</StiMapIDAustria>
+    <StiMapIDBrazil>ბრაზილია</StiMapIDBrazil>
+    <StiMapIDCanada>კანადა</StiMapIDCanada>
+    <StiMapIDChina>ჩინეთი</StiMapIDChina>
+    <StiMapIDEU>ევროკავშირი</StiMapIDEU>
+    <StiMapIDEurope>ევროპა</StiMapIDEurope>
+    <StiMapIDFrance>საფრანგეთი</StiMapIDFrance>
+    <StiMapIDGermany>გერმანია</StiMapIDGermany>
+    <StiMapIDItaly>იტალია</StiMapIDItaly>
+    <StiMapIDNetherlands>ნიდერლანდები</StiMapIDNetherlands>
+    <StiMapIDRussia>რუსეთი</StiMapIDRussia>
+    <StiMapIDUK>დიდი ბრიტანეთი</StiMapIDUK>
+    <StiMapIDUSA>აშშ</StiMapIDUSA>
+    <StiMapIDWorld>მსოფლიო</StiMapIDWorld>
+    <StiMapTypeGroup>ჯგუფი</StiMapTypeGroup>
+    <StiMapTypeHeatmap>სითბური რუკა</StiMapTypeHeatmap>
+    <StiMapTypeHeatmapWithGroup>სითბური რუკა დაჯგუფებით</StiMapTypeHeatmapWithGroup>
+    <StiMapTypeNone>არა</StiMapTypeNone>
+    <StiMapTypePoints>წერტილები</StiMapTypePoints>
     <StiMarkerAlignmentLeft>მარცნივ</StiMarkerAlignmentLeft>
     <StiMarkerAlignmentRight>მარჯვნივ</StiMarkerAlignmentRight>
     <StiMarkerTypeCircle>წრე</StiMarkerTypeCircle>
@@ -2532,6 +2577,7 @@
     <AllowUseTextBrush>ტექსტის ფუნჯის გამოყენების დაშვება</AllowUseTextBrush>
     <AllowUseTextOptions>ტექსტის თვისებების გამოყენების დაშვება</AllowUseTextOptions>
     <AllowUseVertAlignment>ვერტიკალური გასწორების გამოყენების დაშვება</AllowUseVertAlignment>
+    <AllowUsingAsSqlParameter>SQL პარამეტრის გამოყენების ნებართვა</AllowUsingAsSqlParameter>
     <AlternatingBackColor>ფონის ალტერნატიული ფერი</AlternatingBackColor>
     <Angle>კუთხე</Angle>
     <Antialiasing>დაგლუვება</Antialiasing>
@@ -2573,6 +2619,7 @@
     <BorderBrush>ჩარჩოს ფუნჯი</BorderBrush>
     <BorderColor>საზღვრის ფერი</BorderColor>
     <Borders>საზღვრები</Borders>
+    <BorderSize>ფუნჯის ზომა</BorderSize>
     <BorderStyle>საზღვრის სტილი</BorderStyle>
     <BorderWidth>ჩარჩოს სისქე</BorderWidth>
     <Bottom>ქვემოთ</Bottom>
@@ -2583,6 +2630,7 @@
     <BrushType>ფუნჯის ტიპი</BrushType>
     <BusinessObject>ბიზნეს ობიექტი</BusinessObject>
     <CacheAllData>ყველა მონაცემის ქეშირება</CacheAllData>
+    <CacheTotals>Totals-ფუნქციების ქეშირება</CacheTotals>
     <CalcInvisible>ფარულების გამოთვლა</CalcInvisible>
     <CalculatedDataColumn>გამოთვლადი სვეტი</CalculatedDataColumn>
     <CalculationMode>გამოთვლის რეჟიმი</CalculationMode>
@@ -2601,6 +2649,7 @@
     <CenterPoint>ცენტრალური წერტილი</CenterPoint>
     <ChartAreaBorderColor>ჩარჩოს ფერი</ChartAreaBorderColor>
     <ChartAreaBrush>ფართობის ფუნჯი</ChartAreaBrush>
+    <ChartAreaShowShadow>ჩრდილების გამოტანა</ChartAreaShowShadow>
     <ChartType>დიაგრამის ტიპი</ChartType>
     <Checked>ჩართულია</Checked>
     <CheckOnClick>ჩართვა დაჭერისას</CheckOnClick>
@@ -2736,6 +2785,7 @@
     <FieldIs>ველი</FieldIs>
     <File>ფაილი</File>
     <Fill>შევსება</Fill>
+    <FillColor>შევსების ფერი</FillColor>
     <Filter>ფილტრი</Filter>
     <FilterEngine>ფილტრაციის რეჟიმი</FilterEngine>
     <FilterMode>ფილტრაციის რეჟიმი</FilterMode>
@@ -2901,6 +2951,9 @@
     <LogarithmicScale>ლოგარითმული მასშტაბი</LogarithmicScale>
     <Low>დაბალი</Low>
     <MajorInterval>ძირითადი ინტერვალი</MajorInterval>
+    <MapID>რუკა</MapID>
+    <MapStyle>სტილი</MapStyle>
+    <MapType>რუკის ტიპი</MapType>
     <Margins>ველები</Margins>
     <Marker>მარკერი</Marker>
     <MarkerAlignment>მარკერის სწორება</MarkerAlignment>
@@ -3030,6 +3083,7 @@
     <ReconnectOnEachRow>განახლდეს თითოეულ ჩანაწერზე</ReconnectOnEachRow>
     <ReferencedAssemblies>ბმულები კრებულებზე</ReferencedAssemblies>
     <Refresh>განახლება</Refresh>
+    <RefreshTime>განახლების დრო</RefreshTime>
     <Relation>კავშირი</Relation>
     <RelationName>კავშირის დასახელება</RelationName>
     <Relations>კავშირები</Relations>
@@ -3095,6 +3149,7 @@
     <ShowInPercent>პროცენტებში გამოტანა</ShowInPercent>
     <ShowLabels>წარწერების გამოტანა</ShowLabels>
     <ShowLabelText>ტექსტის ჩვენება</ShowLabelText>
+    <ShowLegend>ლეგენდის გამოტანა</ShowLegend>
     <ShowMarker>მარკერის ჩვენება</ShowMarker>
     <ShowNulls>Null-ების ჩვენება</ShowNulls>
     <ShowOnZeroValues>ნულოვანი მნიშვნელობებისას ჩვენება</ShowOnZeroValues>
@@ -3205,6 +3260,8 @@
     <Totals>ჯამები</Totals>
     <TransparentColor>გამჭვირვალობის ფერი</TransparentColor>
     <TrendLine>ტენდენციის ხაზი</TrendLine>
+    <TrendLineColor>ფერი</TrendLineColor>
+    <TrendLineShowShadow>ჩრდილის გამოტანა</TrendLineShowShadow>
     <Trimming>ცარიელი გვერდების მოჭრა</Trimming>
     <Type>ტიპი</Type>
     <TypeName>ტიპის დასახელება</TypeName>
@@ -3295,6 +3352,7 @@
     <BadFromObjectExpression>არასწორი ჩანაწერი გამოთქმის (FROM) ნაწილში</BadFromObjectExpression>
     <BadObjectName>ობიექტის არასწორი დასახელება!</BadObjectName>
     <BadSelectStatement>არასწორი SELECT ფორმა!</BadSelectStatement>
+    <Collections>კოლექციები</Collections>
     <CreateLinksFromForeignKeys>გარე გასაღებებზე ბმულების აგება</CreateLinksFromForeignKeys>
     <CriteriaAlias>მეტსახელი</CriteriaAlias>
     <CriteriaCriteria>პირობა</CriteriaCriteria>
@@ -3400,6 +3458,7 @@
     <FinishingReport>რეპორტის დამთავრება</FinishingReport>
     <FirstPass>პირველი გავლა</FirstPass>
     <GenerateNewCode>ახალი კოდის გენერირება</GenerateNewCode>
+    <Infographics>ინფოგრაფიკა</Infographics>
     <InfoMessage>ნაპოვნია {0} - {1}.</InfoMessage>
     <InformationMessages>ინფორმაციული შეტყობინებები</InformationMessages>
     <LabelAlias>მეტსახელი:</LabelAlias>
