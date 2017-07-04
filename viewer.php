@@ -28,11 +28,13 @@ require_once 'stimulsoft/helper.php';
 			<?php StiHelper::createHandler(); ?>
 		}
 		
+		// Manage export settings on the server side
 		viewer.onBeginExportReport = function (args) {
+			<?php //StiHelper::createHandler(); ?>
 			//args.fileName = "MyReportName";
 		}
 		
-		// Send exported report to server side
+		// Process exported report file on the server side
 		/*viewer.onEndExportReport = function (event) {
 			event.preventDefault = true; // Prevent client default event handler (save the exported report as a file)
 			<?php StiHelper::createHandler(); ?>

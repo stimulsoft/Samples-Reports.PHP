@@ -2,19 +2,25 @@
 require_once 'stimulsoft/helper.php';
 
 error_reporting(0);
+
+// Please configure the security level as you required.
+// By default is to allow any requests from any domains.
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Engaged-Auth-Token");
 
 
 $handler = new StiHandler();
 $handler->registerErrorHandlers();
 
 
-/*$handler->onBeginProcessData = function ($event) {
+$handler->onBeginProcessData = function ($event) {
 	$database = $event->database;
 	$connectionString = $event->connectionString;
 	$queryString = $event->queryString;
+	//$event->parameters["Variable1"] = 10;
+	//$event->parameters["Variable2"] = "text value";
 	return StiResult::success();
-};*/
+};
 
 $handler->onPrintReport = function ($event) {
 	return StiResult::success();
