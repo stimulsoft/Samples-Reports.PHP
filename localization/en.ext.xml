@@ -185,6 +185,8 @@
     <StiNoNameInSourceDataSourceCheckShort>NameInSource of the data source field is not filled</StiNoNameInSourceDataSourceCheckShort>
     <StiUndefinedDataSourceCheckLong>The undefined '{0}' data source is found in the report. The reporting tool cannot correctly process such type of the data source! Maybe custom data sources are used in the report. This report cannot be rendered!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>Undefined Data Source</StiUndefinedDataSourceCheckShort>
+    <StiCalculatedColumnRecursionCheckLong>The '{0}' calculated column of the '{1}' datasource has a expression with recursion. It's impossible to refer to the Calculated Column in its own expression.</StiCalculatedColumnRecursionCheckLong>
+    <StiCalculatedColumnRecursionCheckShort>Recursive Expression</StiCalculatedColumnRecursionCheckShort>
   </CheckDataSource>
   <CheckGlobal>
     <Error>Error! </Error>
@@ -211,6 +213,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>The '{0}' relations are found in the report. They have equal ('{1}') values in the NameInSource. All values in the NameInSource should be unique in the range of one relation to one database! It is necessary to correct these fields of relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicates in relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
   </CheckReport>
+  <CheckVariable>
+    <StiVariableRecursionCheckLong>The '{0}' variable has a expression with recursion. It's impossible to refer to the Variable in its own expression.</StiVariableRecursionCheckLong>
+    <StiVariableRecursionCheckShort>Recursive Expression</StiVariableRecursionCheckShort>
+  </CheckVariable>
   <Font>
     <Bold>A value that indicates whether this Font is bold.</Bold>
     <Italic>A value that indicates whether this Font is italic.</Italic>
@@ -721,6 +727,7 @@
     <TextBinding>Data bindings for the text.</TextBinding>
   </StiComboBoxControl>
   <StiComponent>
+    <Anchor>Gets or sets a value which indicates the mode of linking component location to the parent component size..</Anchor>
     <AfterPrintEvent>Occurs after the component printing.</AfterPrintEvent>
     <Alias>A text that will be shown instead of a component name. If the text is not indicated then the name is shown.</Alias>
     <BeforePrintEvent>Occurs before printing the component.</BeforePrintEvent>

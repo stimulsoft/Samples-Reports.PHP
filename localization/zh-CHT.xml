@@ -2312,7 +2312,7 @@
     <SelectAllFromRight>右邊所有資料</SelectAllFromRight>
     <SwitchToDerivedTable>切換到派生表</SwitchToDerivedTable>
     <Tables>表</Tables>
-    <UnexpectedTokenAt>未知錯誤 \"{0}\" 在行 {1}, 列 {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>未知錯誤 "{0}" 在行 {1}, 列 {2}!</UnexpectedTokenAt>
     <Unions>聯合查詢</Unions>
     <UnionSubMenu>聯合查詢</UnionSubMenu>
     <ViewQuery>視圖查詢</ViewQuery>

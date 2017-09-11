@@ -3688,7 +3688,7 @@
     <SelectAllFromRight>Επιλογή Όλων από Δεξιά</SelectAllFromRight>
     <SwitchToDerivedTable>Μετάβαση στον Παραγόμενο Πίνακα</SwitchToDerivedTable>
     <Tables>Πίνακες</Tables>
-    <UnexpectedTokenAt>Απροσδόκητο σύμβολο \"{0}\" στη γραμμή {1}, θέση {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Απροσδόκητο σύμβολο "{0}" στη γραμμή {1}, θέση {2}!</UnexpectedTokenAt>
     <Unions>UNIONs</Unions>
     <UnionSubMenu>Union</UnionSubMenu>
     <ViewQuery>Προβολή Ερωτήματος</ViewQuery>

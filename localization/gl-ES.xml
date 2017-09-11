@@ -3092,7 +3092,7 @@
     <SelectAllFromRight>Seleccionar todos á dereita</SelectAllFromRight>
     <SwitchToDerivedTable>Cambiar á Táboa Derivada</SwitchToDerivedTable>
     <Tables>Táboas</Tables>
-    <UnexpectedTokenAt>Expresión inesperada \"{0}\" en liña {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Expresión inesperada "{0}" en liña {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Unións</Unions>
     <UnionSubMenu>Unión</UnionSubMenu>
     <ViewQuery>Visualizar Consulta</ViewQuery>

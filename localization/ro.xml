@@ -93,6 +93,7 @@
   <Buttons>
     <Add>Adaugă</Add>
     <AddAllColumns>Adaugă toate coloanele</AddAllColumns>
+    <Attach>Ataşează</Attach>
     <Build>Construieşte...</Build>
     <Cancel>Anulează</Cancel>
     <Check>Verificare</Check>
@@ -103,7 +104,9 @@
     <Duplicate>Duplicate</Duplicate>
     <Export>Exportă</Export>
     <Help>Ajutor</Help>
+    <LessOptions>Mai puține opțiuni</LessOptions>
     <LoadDataSet>Incarcă DataSet (*.data)</LoadDataSet>
+    <MoreOptions>Mai multe opțiuni</MoreOptions>
     <MoveLeft>Muta la stânga</MoveLeft>
     <MoveRight>Muta la dreapta</MoveRight>
     <No>&amp;Nu</No>
@@ -119,10 +122,12 @@
     <Save>Salvează</Save>
     <SaveCopy>Salvează o Copie</SaveCopy>
     <SetAll>Stabilire Toate</SetAll>
+    <ShowLess>Arată mai puțin</ShowLess>
     <ShowMore>Arată mai mult</ShowMore>
     <Submit>Trimite</Submit>
     <Test>Test</Test>
     <Up>Sus</Up>
+    <Upload>Încarcă</Upload>
     <Yes>&amp;Da</Yes>
   </Buttons>
   <Chart>
@@ -243,6 +248,7 @@
     <Strip>Fâşie</Strip>
     <StripsEditorForm>Editor de fâşii</StripsEditorForm>
     <Style>Stil</Style>
+    <Treemap>Hartă arbore</Treemap>
   </Chart>
   <ChartRibbon>
     <Axes>Axe</Axes>
@@ -319,6 +325,7 @@
     <ButtonLogout>Deconectare</ButtonLogout>
     <ButtonPublish>Publicare</ButtonPublish>
     <ButtonRecover>Recuperare</ButtonRecover>
+    <ButtonRenew>Reînnoire</ButtonRenew>
     <ButtonResendEmail>Retrimitere E-mail</ButtonResendEmail>
     <ButtonResetPassword>Resetează parola</ButtonResetPassword>
     <ButtonRun>Execuţie</ButtonRun>
@@ -330,11 +337,13 @@
     <Cancel>Anulează</Cancel>
     <CheckBoxMoveToRecycleBin>Mutare în Coșul de reciclare</CheckBoxMoveToRecycleBin>
     <CheckBoxRememberMe>Ține-mă minte</CheckBoxRememberMe>
+    <Cloud>Cloud</Cloud>
     <Collection>Colecţie</Collection>
     <Create>Creare</Create>
     <CreateError>Eroare la creare raport!</CreateError>
     <CreateNewCollection>Creare Colecţie Noua</CreateNewCollection>
     <CreatingReport>Creare raport...</CreatingReport>
+    <DashboardWindowTitleNew>Panou control nou</DashboardWindowTitleNew>
     <DeleteFile>Şterge Fişier</DeleteFile>
     <ExecutionError>Eroare de execuție</ExecutionError>
     <FileStorageWindowTitleEdit>Editare Fișier Stocare</FileStorageWindowTitleEdit>
@@ -372,6 +381,7 @@
     <LabelShowReport>Afișare raport:</LabelShowReport>
     <labelUserName>Nume Utilizator:</labelUserName>
     <Login>Autentificare</Login>
+    <NofM>{0}: {1} din {2}</NofM>
     <Open>Deschide</Open>
     <OpenFile>Deschide Fişier</OpenFile>
     <OperationCreate>Creare '{0}'</OperationCreate>
@@ -437,9 +447,11 @@
     <ToolTipAddUser>Creare utilizator nou în rolul ales.</ToolTipAddUser>
     <ToolTipAspNet>Publicare raport selectat pentru aplicația ASP.NET.</ToolTipAspNet>
     <ToolTipAspNetMvc>Publicare raport selectat pentru aplicația ASP.NET MVC.</ToolTipAspNetMvc>
+    <ToolTipAttach>Atașează elemente la raportul selectat.</ToolTipAttach>
     <ToolTipCreate>Creare articol nou.</ToolTipCreate>
     <ToolTipDelete>Ștergere articole selectate.</ToolTipDelete>
     <ToolTipDeleted>Arată articole șterse</ToolTipDeleted>
+    <ToolTipDownload>Descărcă elementul selectat.</ToolTipDownload>
     <ToolTipEdit>Editare articol selectat.</ToolTipEdit>
     <ToolTipGridMode>Vizualizare listă</ToolTipGridMode>
     <ToolTipInfo>Vizualizare detaii</ToolTipInfo>
@@ -566,6 +578,31 @@
     <labelInfoQuickInfo>Informaţii rapide despre componentele unei pagini</labelInfoQuickInfo>
     <UniDirectEdit>Editează conexiunea Uni Direct</UniDirectEdit>
   </Database>
+  <DatePickerRanges>
+    <CurrentMonth>Luna curentă</CurrentMonth>
+    <CurrentQuarter>Trimestrul curent</CurrentQuarter>
+    <CurrentWeek>Săptămâna curentă</CurrentWeek>
+    <CurrentYear>Anul curent</CurrentYear>
+    <FirstQuarter>Primul trimestru</FirstQuarter>
+    <FourthQuarter>Al patrulea trimestru</FourthQuarter>
+    <MonthToDate>Luna aceasta</MonthToDate>
+    <NextMonth>Luna viitoare</NextMonth>
+    <NextQuarter>Trimestrul următor</NextQuarter>
+    <NextWeek>Saptamâna viitoare</NextWeek>
+    <NextYear>Anul următor</NextYear>
+    <PreviousMonth>Luna trecută</PreviousMonth>
+    <PreviousQuarter>Trimestrul trecut</PreviousQuarter>
+    <PreviousWeek>Săptamâna trecută</PreviousWeek>
+    <PreviousYear>Anul trecut</PreviousYear>
+    <QuarterToDate>Trimestrul acesta</QuarterToDate>
+    <SecondQuarter>Trimestrul al doilea</SecondQuarter>
+    <ThirdQuarter>Trimestrul al treilea</ThirdQuarter>
+    <Today>Astăzi</Today>
+    <Tomorrow>Mâine</Tomorrow>
+    <WeekToDate>Săptămâna aceasta</WeekToDate>
+    <YearToDate>Anul acesta</YearToDate>
+    <Yesterday>Ieri</Yesterday>
+  </DatePickerRanges>
   <DesignerFx>
     <AlreadyExists>'{0}' deja există.</AlreadyExists>
     <CanNotLoadThisReportTemplate>Nu poate fi încărcat acest şablon de raport</CanNotLoadThisReportTemplate>
@@ -797,6 +834,7 @@
     <AllImageFiles>Toate fişierele imagine</AllImageFiles>
     <BitmapFiles>Fişiere tip Bitmap</BitmapFiles>
     <BmpFiles>Imagine BMP (*.bmp)|*.bmp</BmpFiles>
+    <BusinessIntelligence>Fișier Business Intelligence (*.sbi)|*.sbi</BusinessIntelligence>
     <CalcFiles>Fişiere OpenDocument Calc (*.ods)|*.ods</CalcFiles>
     <CsvFiles>Fişiere CSV (*.csv)|*.csv</CsvFiles>
     <DataSetXmlData>Date XML DataSet (*.xml)|*.xml</DataSetXmlData>
@@ -810,6 +848,7 @@
     <EncryptedDocumentFiles>Fişiere tip document criptat (*.mdx)|*.mdx</EncryptedDocumentFiles>
     <EncryptedReportFiles>Fişiere tip raport criptat (*.mrx)|*.mrx</EncryptedReportFiles>
     <Excel2007Files>Fişiere Microsoft Excel 2007/2013 (*.xlsx)|*.xlsx</Excel2007Files>
+    <ExcelAllFiles>Fișiere Microsoft Excel (*.xlsx;*.xls)|*.xlsx;*.xls</ExcelAllFiles>
     <ExcelFiles>Fişiere Microsoft Excel (*.xls)|*.xls</ExcelFiles>
     <ExcelXmlFiles>Fişiere Microsoft Excel XML (*.xls)|*.xls</ExcelXmlFiles>
     <ExeFiles>Fişiere EXE (*.exe)|*.exe</ExeFiles>
@@ -978,6 +1017,7 @@
     <UniDirectEdit>Editează conexiunea Uni Direct</UniDirectEdit>
     <UniDirectNew>Conexiune nouă Uni Direct</UniDirectNew>
     <Unpin>Eliberare</Unpin>
+    <UseBearerAuthentication>Utilizare Purtător de autentificare</UseBearerAuthentication>
     <VistaDBEdit>Editează conexiunea VistaDB</VistaDBEdit>
     <VistaDBNew>Conexiune VistaDB nouă</VistaDBNew>
     <XmlEdit>Modificare cale către datele XML</XmlEdit>
@@ -1059,6 +1099,8 @@
     <QueryTimeout>Timpul interogării a expirat</QueryTimeout>
     <RelationEdit>Modifică relaţie</RelationEdit>
     <RelationNew>Relaţie nouă</RelationNew>
+    <ResourceEdit>Editare resurse</ResourceEdit>
+    <ResourceNew>Resursă nouă</ResourceNew>
     <RetrieveColumns>Regăseşte coloane</RetrieveColumns>
     <RetrieveColumnsAllowRun>Permite Executare StoredProc</RetrieveColumnsAllowRun>
     <RetrieveColumnsAndParameters>Preluare Coloane și Parametri</RetrieveColumnsAndParameters>
@@ -1070,6 +1112,9 @@
     <SortItems>Sortare elemente</SortItems>
     <Synchronize>Sincronizează</Synchronize>
     <SynchronizeHint>Sincronizează conţinutul Data Store cu conţinutul dicţionarului</SynchronizeHint>
+    <TextDropDataFileHere>Aruncă fișier date aici</TextDropDataFileHere>
+    <TextDropFileHere>Aruncă fișier aici</TextDropFileHere>
+    <TextDropImageHere>Aruncă fișier imagine aici</TextDropImageHere>
     <title>Proiectarea dicţionarului</title>
     <ValueNew>Valoare nouă</ValueNew>
     <VariableEdit>Modifică variabila</VariableEdit>
@@ -1373,10 +1418,35 @@
   </FormViewerFind>
   <Gauge>
     <AddNewItem>Adaugă Articol Nou</AddNewItem>
+    <BarRangeList>Listă Gamă Bară</BarRangeList>
     <GaugeEditorForm>Editor Gauge</GaugeEditorForm>
     <Kind>Fel</Kind>
+    <LinearBar>Bară Liniară</LinearBar>
+    <LinearMarker>Marcator Liniar</LinearMarker>
+    <LinearRange>Domeniu Liniar</LinearRange>
+    <LinearRangeList>Listă Domeniu Liniar</LinearRangeList>
     <LinearScale>Scală liniară</LinearScale>
+    <LinearTickLabelCustom>Liniar etichetă grosime personalizată</LinearTickLabelCustom>
+    <LinearTickLabelMajor>Marcator Liniar etichetă grosime maximă</LinearTickLabelMajor>
+    <LinearTickLabelMinor>Marcator Liniar etichetă grosime minimă</LinearTickLabelMinor>
+    <LinearTickMarkCustom>&gt;Marcator Liniar grosime personalizată</LinearTickMarkCustom>
+    <LinearTickMarkMajor>Marcator Liniar grosime maximă</LinearTickMarkMajor>
+    <LinearTickMarkMinor>Marcator Liniar grosime minimă</LinearTickMarkMinor>
+    <Needle>Ac</Needle>
+    <RadialBar>Bară Radiară</RadialBar>
+    <RadialMarker>Marcator Radiar</RadialMarker>
+    <RadialRange>Domeniu Radiar</RadialRange>
+    <RadialRangeList>Listă Domeniu Radiar</RadialRangeList>
     <RadialScale>Scală radială</RadialScale>
+    <RadialTickLabelCustom>Radiar etichetă grosime personalizată</RadialTickLabelCustom>
+    <RadialTickLabelMajor>Marcator etichetă grosime maximă</RadialTickLabelMajor>
+    <RadialTickLabelMinor>Marcator Radiar etichetă grosime minimă</RadialTickLabelMinor>
+    <RadialTickMarkCustom>Marcator Radiar grosime personalizată</RadialTickMarkCustom>
+    <RadialTickMarkMajor>Marcator Radiar grosime maximă</RadialTickMarkMajor>
+    <RadialTickMarkMinor>Marcator Radiar grosime minimă</RadialTickMarkMinor>
+    <StateIndicator>Indicator stare</StateIndicator>
+    <StateIndicatorFilter>Filtru indicator stare</StateIndicatorFilter>
+    <TickCustomValue>Valoare personalizată grosime</TickCustomValue>
   </Gauge>
   <Gui>
     <barname_cancel>Renunţă</barname_cancel>
@@ -1795,6 +1865,7 @@
     <menuEditRedoText>&amp;Repetă {0}</menuEditRedoText>
     <menuEditRelationNew>Relaţie nouă...</menuEditRelationNew>
     <menuEditRemoveUnused>Îndepărtează elementele neutilizate</menuEditRemoveUnused>
+    <menuEditResourceNew>Resursă nouă...</menuEditResourceNew>
     <menuEditSelectAll>Selectează tot</menuEditSelectAll>
     <menuEditSynchronize>Sincronizează</menuEditSynchronize>
     <menuEditUndo>An&amp;ulează</menuEditUndo>
@@ -1955,6 +2026,9 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <NotificationItemTransfer>Elementele se transferă.</NotificationItemTransfer>
     <NotificationItemTransferComplete>Elementele s-au transferat cu succes.</NotificationItemTransferComplete>
     <NotificationItemWaitingProcessing>Elementele așteaptă prelucrarea.</NotificationItemWaitingProcessing>
+    <NotificationMailing>Trimitere</NotificationMailing>
+    <NotificationMailingComplete>Corespondenţa "{0}" este completă.</NotificationMailingComplete>
+    <NotificationMailingWaitingProcessing>Corespondenţa "{0}" așteaptă prelucrarea.</NotificationMailingWaitingProcessing>
     <NotificationOperationAborted>Operațiune abandonată!</NotificationOperationAborted>
     <NotificationRecycleBinCleaning>Coșul de reciclare se curăță.</NotificationRecycleBinCleaning>
     <NotificationRecycleBinCleaningComplete>Coșul de reciclare s-a șters cu succes.</NotificationRecycleBinCleaningComplete>
@@ -1970,6 +2044,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <NotificationTitleFilesUploading>Încărcare fișiere</NotificationTitleFilesUploading>
     <NotificationTitleItemRefreshing>Reîmprospătare element "{0}"</NotificationTitleItemRefreshing>
     <NotificationTitleItemTransferring>Transferare element "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleMailing>Corespondenţa "{0}"</NotificationTitleMailing>
     <NotificationTitleReportExporting>Exportare raport "{0}"</NotificationTitleReportExporting>
     <NotificationTitleReportRendering>Afișare raport "{0}"</NotificationTitleReportRendering>
     <NotificationTitleSchedulerRunning>Execuție planificator "{0}"</NotificationTitleSchedulerRunning>
@@ -1981,6 +2056,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <QuotaMaximumComputingCyclesCountExceeded>S-a depășit numărul de cicluri maxime de calcul.</QuotaMaximumComputingCyclesCountExceeded>
     <QuotaMaximumFileSizeExceeded>S-a depășit dimensiunea maximă a fișierului.</QuotaMaximumFileSizeExceeded>
     <QuotaMaximumReportPagesCountExceeded>S-a depășit numărul maxim de pagini raport.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumResourcesCountExceeded>Număr resurse maxime depășit.</QuotaMaximumResourcesCountExceeded>
     <QuotaMaximumUsersCountExceeded>S-a depășit numărul maxim de utilizatori.</QuotaMaximumUsersCountExceeded>
     <QuotaMaximumWorkspacesCountExceeded>S-a depășit numărul maxim Spații de lucru.</QuotaMaximumWorkspacesCountExceeded>
     <SchedulerCantRunItSelf>Planificatorul nu se poate rula!</SchedulerCantRunItSelf>
@@ -2381,6 +2457,10 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <SelectionModeMultiSimple>Multiplă Simplă</SelectionModeMultiSimple>
     <SelectionModeNone>Nimic</SelectionModeNone>
     <SelectionModeOne>Simplă</SelectionModeOne>
+    <StiAnchorModeBottom>Bază</StiAnchorModeBottom>
+    <StiAnchorModeLeft>Stânga</StiAnchorModeLeft>
+    <StiAnchorModeRight>Dreapta</StiAnchorModeRight>
+    <StiAnchorModeTop>Sus</StiAnchorModeTop>
     <StiAngleAngle0>0 grade</StiAngleAngle0>
     <StiAngleAngle180>180 de grade</StiAngleAngle180>
     <StiAngleAngle270>270 de grade</StiAngleAngle270>
@@ -2868,6 +2948,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <Sphere>Sferă</Sphere>
     <Trellis>Pătrăţele</Trellis>
     <Vertical>Verticale</Vertical>
+    <Wave>Val</Wave>
     <Weave>Ţesătură</Weave>
     <WideDownwardDiagonal>Diagonală de sus în jos lată</WideDownwardDiagonal>
     <WideUpwardDiagonal>Diagonala de jos în sus lată</WideUpwardDiagonal>
@@ -2908,6 +2989,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <AllowUseVertAlignment>Permite utilizarea alinierii verticale</AllowUseVertAlignment>
     <AllowUsingAsSqlParameter>Permite utilizarea ca parametru SQL</AllowUsingAsSqlParameter>
     <AlternatingBackColor>Culoare de fond alternantă</AlternatingBackColor>
+    <Anchor>Ancoră</Anchor>
     <Angle>Unghi</Angle>
     <Antialiasing>Rotunjire colţuri</Antialiasing>
     <Area>Arie</Area>
@@ -2947,6 +3029,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <Border>Margine</Border>
     <BorderBrush>Pensulă Bordură</BorderBrush>
     <BorderColor>Culoarea marginii</BorderColor>
+    <BorderColorNegative>Culoare negativă chenar</BorderColorNegative>
     <Borders>Margini</Borders>
     <BorderSize>Dimensiune Bordură</BorderSize>
     <BorderStyle>Stil de margine</BorderStyle>
@@ -3206,6 +3289,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <ImportRelations>Importă relaţii</ImportRelations>
     <Increment>Măreşte</Increment>
     <Indent>Margine pagină</Indent>
+    <InfographicsTitle>Titlu</InfographicsTitle>
     <InitBy>Iniţializat de</InitBy>
     <Insert>Inserează</Insert>
     <Interaction>Interacţiune</Interaction>
@@ -3434,6 +3518,8 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <ResetDataSource>Resetează sursa de date</ResetDataSource>
     <ResetPageNumber>Resetează numărul paginii</ResetPageNumber>
     <Resize>Redimensionează</Resize>
+    <Resource>Resursă</Resource>
+    <Resources>Resurse</Resources>
     <Restrictions>Restricţii</Restrictions>
     <RetrieveOnlyUsedData>Preluare doar date folosite</RetrieveOnlyUsedData>
     <ReturnValue>Valoare întoarsă</ReturnValue>
@@ -3467,6 +3553,8 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <SeriesLabelsBorderColor>Culoare Bordură</SeriesLabelsBorderColor>
     <SeriesLabelsBrush>Etichete Pensulă</SeriesLabelsBrush>
     <SeriesLabelsColor>Etichete Culoare</SeriesLabelsColor>
+    <SeriesLighting>Serii luminare</SeriesLighting>
+    <SeriesShowShadow>Serii umbre afișate</SeriesShowShadow>
     <Shadow>Umbrit</Shadow>
     <ShadowBrush>Pensula umbrei</ShadowBrush>
     <ShadowColor>Culoarea umbrei</ShadowColor>
@@ -3741,7 +3829,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <SelectAllFromRight>Selectează toate din dreapta</SelectAllFromRight>
     <SwitchToDerivedTable>Converteşte către tabel derivat</SwitchToDerivedTable>
     <Tables>Tabele</Tables>
-    <UnexpectedTokenAt>Token neaşteptat \"{0}\" la linia {1}, poz {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Token neaşteptat "{0}" la linia {1}, poz {2}!</UnexpectedTokenAt>
     <Unions>Uniuni</Unions>
     <UnionSubMenu>Uniune</UnionSubMenu>
     <ViewQuery>Vizualizează interogare</ViewQuery>
@@ -3756,6 +3844,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <qnRemoveService>Doriţi să eliminaţi serviciul?</qnRemoveService>
     <qnRemoveServiceCategory>Doriţi sa eliminaţi categoria?</qnRemoveServiceCategory>
     <qnRemoveUnused>Doriţi să eliminaţi Neutilizat?</qnRemoveUnused>
+    <qnReplace>Doriți să înlocuiți elementul existent {0}?</qnReplace>
     <qnRestoreDefault>Reveniţi la valorile predefinite?</qnRestoreDefault>
     <qnSaveChanges>Salvaţi modificările din {0}?</qnSaveChanges>
     <qnSaveChangesToPreviewPage>Doriţi să salvaţi modificările aduse paginii?</qnSaveChangesToPreviewPage>
@@ -3763,6 +3852,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <qnSynchronizeServices>Doriţi să sincronizaţi serviciile?</qnSynchronizeServices>
   </Questions>
   <Report>
+    <Address>Addresă</Address>
     <Alphabetical>Alfabetic</Alphabetical>
     <Bands>Benzi</Bands>
     <Basic>De bază</Basic>
@@ -3791,7 +3881,9 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <FilterOr>Sau</FilterOr>
     <FinishingReport>Terminare raport</FinishingReport>
     <FirstPass>Prima trecere</FirstPass>
+    <Gallery>Galerie</Gallery>
     <GenerateNewCode>Generează cod nou</GenerateNewCode>
+    <History>Istoric</History>
     <Infographics>Infografice</Infographics>
     <InfoMessage>{0} - {1} găsite.</InfoMessage>
     <InformationMessages>Mesaje Informative</InformationMessages>
@@ -3819,6 +3911,7 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <LabelNestedLevel>Nivel Imbricat:</LabelNestedLevel>
     <LabelPassword>Parola:</LabelPassword>
     <LabelPixels>Pixeli:</LabelPixels>
+    <LabelQueryTimeout>Pauză interogare:</LabelQueryTimeout>
     <LabelSystemVariable>Variabila de sistem:</LabelSystemVariable>
     <LabelTotals>Totaluri</LabelTotals>
     <LabelType>Tip:</LabelType>
@@ -3870,6 +3963,8 @@ Acesta conține un link pentru a confirma înregistrarea. Pentru a finaliza înr
     <CheckIssuesAdditionalDescription>Se verifică raportul pentru erori și inexactități.</CheckIssuesAdditionalDescription>
     <CheckIssuesDescription>Examinare document</CheckIssuesDescription>
     <EncryptWithPassword>Criptare cu parolă</EncryptWithPassword>
+    <EncryptWithPasswordAdditionalDescription>Stabilire parolă pentru a preveni lucrul neautorizat cu raportul.</EncryptWithPasswordAdditionalDescription>
+    <EncryptWithPasswordDescription>Protejare raport</EncryptWithPasswordDescription>
     <Info>Informații</Info>
     <ReportOptions>Opțiuni raport</ReportOptions>
     <ReportOptionsAdditionalDescription>Configurare informații și parametri de bază în raport.</ReportOptionsAdditionalDescription>

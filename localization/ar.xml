@@ -91,6 +91,7 @@
   <Buttons>
     <Add>إضافة</Add>
     <AddAllColumns>إضافة كل الأعمدة</AddAllColumns>
+    <Attach>إرفاق</Attach>
     <Build>بناء...</Build>
     <Cancel>&amp;إلغاء</Cancel>
     <Check>تحقق</Check>
@@ -101,7 +102,9 @@
     <Duplicate>عمل نسخة</Duplicate>
     <Export>تصدير</Export>
     <Help>مساعدة</Help>
+    <LessOptions>خيارات أقل</LessOptions>
     <LoadDataSet>تحميل حزمة بيانات (*.data)</LoadDataSet>
+    <MoreOptions>خيارات أكثر</MoreOptions>
     <MoveLeft>تحريك لليسار</MoveLeft>
     <MoveRight>تحريك لليمين</MoveRight>
     <No>لا</No>
@@ -117,10 +120,12 @@
     <Save>حفظ</Save>
     <SaveCopy>حفظ نسخة</SaveCopy>
     <SetAll>الكل</SetAll>
+    <ShowLess>عرض أقل</ShowLess>
     <ShowMore>عرض المزيد</ShowMore>
     <Submit>تحميل</Submit>
     <Test>تجربة</Test>
     <Up>أعلى</Up>
+    <Upload>رفع</Upload>
     <Yes>نعم</Yes>
   </Buttons>
   <Chart>
@@ -241,6 +246,7 @@
     <Strip>شريط</Strip>
     <StripsEditorForm>نموذج تحرير شريط</StripsEditorForm>
     <Style>نمط</Style>
+    <Treemap>خريطة شجرية</Treemap>
   </Chart>
   <ChartRibbon>
     <Axes>محاور</Axes>
@@ -317,6 +323,7 @@
     <ButtonLogout>تسجيل خروج</ButtonLogout>
     <ButtonPublish>نشر</ButtonPublish>
     <ButtonRecover>استعادة</ButtonRecover>
+    <ButtonRenew>تجديد</ButtonRenew>
     <ButtonResendEmail>إعادة إرسال الإيميل</ButtonResendEmail>
     <ButtonResetPassword>إعادة ضبط كلمة المرور</ButtonResetPassword>
     <ButtonRun>تشغيل</ButtonRun>
@@ -328,11 +335,13 @@
     <Cancel>إلغاء الأمر</Cancel>
     <CheckBoxMoveToRecycleBin>نقل لسلة المهملات</CheckBoxMoveToRecycleBin>
     <CheckBoxRememberMe>تذكرني</CheckBoxRememberMe>
+    <Cloud>سحابة</Cloud>
     <Collection>مجموعة</Collection>
     <Create>إنشاء</Create>
     <CreateError>خطأ أثناء إنشاء التقرير!</CreateError>
     <CreateNewCollection>إنشاء مجموعة جديدة</CreateNewCollection>
     <CreatingReport>إنشاء التقرير...</CreatingReport>
+    <DashboardWindowTitleNew>لوحة معلومات جديدة</DashboardWindowTitleNew>
     <DeleteFile>حذف ملف</DeleteFile>
     <ExecutionError>خطأ في التنفيذ</ExecutionError>
     <FileStorageWindowTitleEdit>تعديل تخزين الملف</FileStorageWindowTitleEdit>
@@ -370,6 +379,7 @@
     <LabelShowReport>عرض التقرير:</LabelShowReport>
     <labelUserName>اسم المستخدم:</labelUserName>
     <Login>تسجيل دخول</Login>
+    <NofM>{0}: {1} من {2}</NofM>
     <Open>فتح</Open>
     <OpenFile>فتح ملف</OpenFile>
     <OperationCreate>إنشاء '{0}'</OperationCreate>
@@ -435,9 +445,11 @@
     <ToolTipAddUser>انشاء مستخدم جديد في الدور المحدد</ToolTipAddUser>
     <ToolTipAspNet>ASP.NET نشر التقرير المحدد في تطبيق </ToolTipAspNet>
     <ToolTipAspNetMvc>ASP.NET MVC نشر التقرير المحدد في تطبيق</ToolTipAspNetMvc>
+    <ToolTipAttach>إرفاق العناصر بالتقرير المحدد.</ToolTipAttach>
     <ToolTipCreate>انشاء عنصر جديد</ToolTipCreate>
     <ToolTipDelete>حذف العناصر المحددة</ToolTipDelete>
     <ToolTipDeleted>عرض العناصر المحذوفة</ToolTipDeleted>
+    <ToolTipDownload>تحميل العنصر المحدد.</ToolTipDownload>
     <ToolTipEdit>تحرير العناصر المحددة</ToolTipEdit>
     <ToolTipGridMode>عرض قائمة</ToolTipGridMode>
     <ToolTipInfo>عرض التفاصيل</ToolTipInfo>
@@ -551,6 +563,31 @@
     <DatabaseVistaDB>VistaDB اتصال</DatabaseVistaDB>
     <DatabaseXml>XML بيانات</DatabaseXml>
   </Database>
+  <DatePickerRanges>
+    <CurrentMonth>الشهر الحالي</CurrentMonth>
+    <CurrentQuarter>الربع الحالي</CurrentQuarter>
+    <CurrentWeek>الأسبوع الحالي</CurrentWeek>
+    <CurrentYear>السنة الحالية</CurrentYear>
+    <FirstQuarter>الربع الأول</FirstQuarter>
+    <FourthQuarter>الربع الرابع</FourthQuarter>
+    <MonthToDate>شهر إلى تاريخ</MonthToDate>
+    <NextMonth>الشهر التالي</NextMonth>
+    <NextQuarter>الربع التالي</NextQuarter>
+    <NextWeek>الأسبوع التالي</NextWeek>
+    <NextYear>السنة التالية</NextYear>
+    <PreviousMonth>الشهر السابق</PreviousMonth>
+    <PreviousQuarter>الربع السابق</PreviousQuarter>
+    <PreviousWeek>الأسبوع السابق</PreviousWeek>
+    <PreviousYear>السنة السابقة</PreviousYear>
+    <QuarterToDate>ربع إلى التاريخ</QuarterToDate>
+    <SecondQuarter>الربع الثاني</SecondQuarter>
+    <ThirdQuarter>الربع الثالث</ThirdQuarter>
+    <Today>اليوم</Today>
+    <Tomorrow>غدا</Tomorrow>
+    <WeekToDate>أسبوع إلى التاريخ</WeekToDate>
+    <YearToDate>سنة إلى التاريخ</YearToDate>
+    <Yesterday>أمس</Yesterday>
+  </DatePickerRanges>
   <DesignerFx>
     <AlreadyExists>'{0}' موجودة بالفعل.</AlreadyExists>
     <CanNotLoadThisReportTemplate>ليس بالإمكان تحميل قالب التقرير المحدد.</CanNotLoadThisReportTemplate>
@@ -782,6 +819,7 @@
     <AllImageFiles>جميع ملفات الصور</AllImageFiles>
     <BitmapFiles>Bitmap الصور النقطية</BitmapFiles>
     <BmpFiles>صور BMP (*.bmp)|*.bmp</BmpFiles>
+    <BusinessIntelligence>ملفات ذكاء الأعمال (*.sbi)|*.sbi</BusinessIntelligence>
     <CalcFiles>ملف OpenDocument Calc (*.ods)|*.ods</CalcFiles>
     <CsvFiles>ملف CSV (*.csv)|*.csv</CsvFiles>
     <DataSetXmlData>بيانات من DataSet XML (*.xml)|*.xml</DataSetXmlData>
@@ -795,6 +833,7 @@
     <EncryptedDocumentFiles>Files encrypted document (*.mdx)|*.mdx</EncryptedDocumentFiles>
     <EncryptedReportFiles>Files encrypted report (*.mrx)|*.mrx</EncryptedReportFiles>
     <Excel2007Files>ملف Microsoft Excel 2007/2013 (*.xlsx)|*.xlsx</Excel2007Files>
+    <ExcelAllFiles>ملفات ميكروسوفت إكسل (*.xlsx;*.xls)|*.xlsx;*.xls</ExcelAllFiles>
     <ExcelFiles>ملف Microsoft Excel (*.xls)|*.xls</ExcelFiles>
     <ExcelXmlFiles>ملف Microsoft Excel XML (*.xls)|*.xls</ExcelXmlFiles>
     <ExeFiles>ملف EXE (*.exe)|*.exe</ExeFiles>
@@ -963,6 +1002,7 @@
     <UniDirectEdit>تعديل اتصال Uni Direct</UniDirectEdit>
     <UniDirectNew>اتصال Uni Direct جديد</UniDirectNew>
     <Unpin>فك تثبيت</Unpin>
+    <UseBearerAuthentication>استخدام مصادقة الحامل</UseBearerAuthentication>
     <VistaDBEdit>تعديل اتصال VistaDB</VistaDBEdit>
     <VistaDBNew>اتصال  VistaDB جديد</VistaDBNew>
     <XmlEdit>تعديل بيانات XML</XmlEdit>
@@ -1044,6 +1084,8 @@
     <QueryTimeout>مهلة الاستعلام</QueryTimeout>
     <RelationEdit>تعديل العلاقة</RelationEdit>
     <RelationNew>علاقة جديدة</RelationNew>
+    <ResourceEdit>تحرير المورد</ResourceEdit>
+    <ResourceNew>مورد جديد</ResourceNew>
     <RetrieveColumns>الحصول على الأعمدة</RetrieveColumns>
     <RetrieveColumnsAllowRun>السماح بتشغيل StoredProc</RetrieveColumnsAllowRun>
     <RetrieveColumnsAndParameters>جلب الأعمدة والمحددات</RetrieveColumnsAndParameters>
@@ -1055,6 +1097,9 @@
     <SortItems>فرز Items</SortItems>
     <Synchronize>التزامن Synchronize</Synchronize>
     <SynchronizeHint>تزامن محتويات مخزن البيانات ومحتويات الـ Dictionary</SynchronizeHint>
+    <TextDropDataFileHere>أسقط ملف بيانات هنا</TextDropDataFileHere>
+    <TextDropFileHere>أسقط الملف هنا</TextDropFileHere>
+    <TextDropImageHere>أسقط صورة هنا</TextDropImageHere>
     <title>مصمم Dictionary</title>
     <ValueNew>قيمة جديدة</ValueNew>
     <VariableEdit>تعديل متغير</VariableEdit>
@@ -1351,10 +1396,35 @@
   </FormViewerFind>
   <Gauge>
     <AddNewItem>إضافة عنصر جديد</AddNewItem>
+    <BarRangeList>قائمة شريط المدى</BarRangeList>
     <GaugeEditorForm>محرر المقاييس</GaugeEditorForm>
     <Kind>نوع</Kind>
+    <LinearBar>شريط خطي</LinearBar>
+    <LinearMarker>محدد خطي</LinearMarker>
+    <LinearRange>مدى خطي</LinearRange>
+    <LinearRangeList>قائمة مدى خطي</LinearRangeList>
     <LinearScale>مقياس خطي</LinearScale>
+    <LinearTickLabelCustom>تسمية مخصصة لخطوة خطية</LinearTickLabelCustom>
+    <LinearTickLabelMajor>تسمية أساسية لخطوة خطية</LinearTickLabelMajor>
+    <LinearTickLabelMinor>تسمية ثانوية لخطوة خطية</LinearTickLabelMinor>
+    <LinearTickMarkCustom>علامة مخصصة لخطوة خطية</LinearTickMarkCustom>
+    <LinearTickMarkMajor>علامة أساسية لخطوة خطية</LinearTickMarkMajor>
+    <LinearTickMarkMinor>علامة ثانوية لخطوة خطية</LinearTickMarkMinor>
+    <Needle>إبرة</Needle>
+    <RadialBar>خط شعاعي</RadialBar>
+    <RadialMarker>علامة شعاعية</RadialMarker>
+    <RadialRange>نطاق شعاعي</RadialRange>
+    <RadialRangeList>قائمة نطاق شعاعي</RadialRangeList>
     <RadialScale>مقياس نصف قطري</RadialScale>
+    <RadialTickLabelCustom>تسمية مخصصة لخطوة شعاعية</RadialTickLabelCustom>
+    <RadialTickLabelMajor>تسمية أساسية لخطوة شعاعية</RadialTickLabelMajor>
+    <RadialTickLabelMinor>تسمية ثانوية لخطوة شعاعية</RadialTickLabelMinor>
+    <RadialTickMarkCustom>علامة مخصصة لخطوة شعاعية</RadialTickMarkCustom>
+    <RadialTickMarkMajor>علامة أساسية لخطوة شعاعية</RadialTickMarkMajor>
+    <RadialTickMarkMinor>علامة ثانوية لخطوة شعاعية</RadialTickMarkMinor>
+    <StateIndicator>مؤشر الحالة</StateIndicator>
+    <StateIndicatorFilter>مرشح مؤشر الحالة</StateIndicatorFilter>
+    <TickCustomValue>قيمة مخصصة للخطوة</TickCustomValue>
   </Gauge>
   <Gui>
     <barname_cancel>الغاء</barname_cancel>
@@ -1780,6 +1850,7 @@
     <menuEditRedoText>إعادة {0}</menuEditRedoText>
     <menuEditRelationNew>العلاقة الجديدة...</menuEditRelationNew>
     <menuEditRemoveUnused>إزالة العناصر غير المستخدمة</menuEditRemoveUnused>
+    <menuEditResourceNew>مورد جديد...</menuEditResourceNew>
     <menuEditSelectAll>اختيار الكل</menuEditSelectAll>
     <menuEditSynchronize>التزامن</menuEditSynchronize>
     <menuEditUndo>تراجع</menuEditUndo>
@@ -1940,6 +2011,9 @@
     <NotificationItemTransfer>.يتم الآن نقل العناصر</NotificationItemTransfer>
     <NotificationItemTransferComplete>.تم نقل العناصر بنجاح</NotificationItemTransferComplete>
     <NotificationItemWaitingProcessing>.تنتظر العناصر المعالجة</NotificationItemWaitingProcessing>
+    <NotificationMailing>جاري الإرسال</NotificationMailing>
+    <NotificationMailingComplete>عملية إرسال  "{0}" قد اكتملت.</NotificationMailingComplete>
+    <NotificationMailingWaitingProcessing>عملية إرسال "{0}" قيد الإجراء.</NotificationMailingWaitingProcessing>
     <NotificationOperationAborted>!تم إيقاف العملية</NotificationOperationAborted>
     <NotificationRecycleBinCleaning>يتم الآن تنظيف سلة المحذوفات</NotificationRecycleBinCleaning>
     <NotificationRecycleBinCleaningComplete>تم تنظيف سلة المحذوفات بنجاح</NotificationRecycleBinCleaningComplete>
@@ -1955,6 +2029,7 @@
     <NotificationTitleFilesUploading>رفع الملفات</NotificationTitleFilesUploading>
     <NotificationTitleItemRefreshing>إعادة عرض "{0}"</NotificationTitleItemRefreshing>
     <NotificationTitleItemTransferring>نقل العنصر "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleMailing>جاري إرسال "{0}"</NotificationTitleMailing>
     <NotificationTitleReportExporting>تصدير التقرير "{0}"</NotificationTitleReportExporting>
     <NotificationTitleReportRendering>عرض التقرير "{0}"</NotificationTitleReportRendering>
     <NotificationTitleSchedulerRunning>تنفيذ الجدولة "{0}"</NotificationTitleSchedulerRunning>
@@ -1966,6 +2041,7 @@
     <QuotaMaximumComputingCyclesCountExceeded>.تجاوز الحد الأعلى لدورات الحوسبة</QuotaMaximumComputingCyclesCountExceeded>
     <QuotaMaximumFileSizeExceeded>.تجاوز الحد الأعلى لحجم الملف</QuotaMaximumFileSizeExceeded>
     <QuotaMaximumReportPagesCountExceeded>.تجاوز الحد الأعلى لعدد صفحات التقرير</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumResourcesCountExceeded>لقد تم تجاوز عدد الموارد المسموح.</QuotaMaximumResourcesCountExceeded>
     <QuotaMaximumUsersCountExceeded>.تجاوز الحد الأعلى لعدد المستخدمين</QuotaMaximumUsersCountExceeded>
     <QuotaMaximumWorkspacesCountExceeded>.تجاوز الحد الأعلى لعدد مساحات العمل</QuotaMaximumWorkspacesCountExceeded>
     <SchedulerCantRunItSelf>!لا يمكن للمجدول تشغيل نفسه</SchedulerCantRunItSelf>
@@ -2343,6 +2419,10 @@
     <SelectionModeMultiSimple>متعدد بسيط</SelectionModeMultiSimple>
     <SelectionModeNone>بلا</SelectionModeNone>
     <SelectionModeOne>واحد</SelectionModeOne>
+    <StiAnchorModeBottom>أسفل</StiAnchorModeBottom>
+    <StiAnchorModeLeft>يسار</StiAnchorModeLeft>
+    <StiAnchorModeRight>يمين</StiAnchorModeRight>
+    <StiAnchorModeTop>أعلى</StiAnchorModeTop>
     <StiAngleAngle0>الدرجات 0</StiAngleAngle0>
     <StiAngleAngle180>180 درجة</StiAngleAngle180>
     <StiAngleAngle270>270 درجة</StiAngleAngle270>
@@ -2830,6 +2910,7 @@
     <Sphere>المجال</Sphere>
     <Trellis>التعريشة</Trellis>
     <Vertical>العمودي</Vertical>
+    <Wave>موجي</Wave>
     <Weave>نسج</Weave>
     <WideDownwardDiagonal>نزولا على نطاق القطر</WideDownwardDiagonal>
     <WideUpwardDiagonal>التصاعدي على نطاق القطر</WideUpwardDiagonal>
@@ -2870,6 +2951,7 @@
     <AllowUseVertAlignment>السماح لاستخدام نبات أخضر محاذاة</AllowUseVertAlignment>
     <AllowUsingAsSqlParameter>السماح باستخدام محددات SQL</AllowUsingAsSqlParameter>
     <AlternatingBackColor>يتناوب اللون العودة</AlternatingBackColor>
+    <Anchor>ارتكاز</Anchor>
     <Angle>الزاوية</Angle>
     <Antialiasing>الحواف</Antialiasing>
     <Area>المنطقة</Area>
@@ -2909,6 +2991,7 @@
     <Border>الحدود</Border>
     <BorderBrush>فرشة الحدود</BorderBrush>
     <BorderColor>لون</BorderColor>
+    <BorderColorNegative>عكس ألوان الحدود</BorderColorNegative>
     <Borders>الحدود</Borders>
     <BorderSize>حجم الحدود</BorderSize>
     <BorderStyle>النمط الحدود</BorderStyle>
@@ -3168,6 +3251,7 @@
     <ImportRelations>استيراد العلاقات</ImportRelations>
     <Increment>العلاوة</Increment>
     <Indent>بادئة</Indent>
+    <InfographicsTitle>العنوان</InfographicsTitle>
     <InitBy>بدء بـ</InitBy>
     <Insert>تضاف</Insert>
     <Interaction>تفاعل</Interaction>
@@ -3394,6 +3478,8 @@
     <ResetDataSource>إعادة البيانات المصدر</ResetDataSource>
     <ResetPageNumber>إعادة رقم الصفحة</ResetPageNumber>
     <Resize>تغيير الحجم</Resize>
+    <Resource>مورد</Resource>
+    <Resources>موارد</Resources>
     <Restrictions>القيود</Restrictions>
     <RetrieveOnlyUsedData>استعادة البيانات المستخدمة فقط</RetrieveOnlyUsedData>
     <ReturnValue>عودة القيمة</ReturnValue>
@@ -3427,6 +3513,8 @@
     <SeriesLabelsBorderColor>لون الحدود</SeriesLabelsBorderColor>
     <SeriesLabelsBrush>فرشة المسميات</SeriesLabelsBrush>
     <SeriesLabelsColor>لون المسميات</SeriesLabelsColor>
+    <SeriesLighting>سلسلة الإضاءة</SeriesLighting>
+    <SeriesShowShadow>إظهار ظل السلسلة</SeriesShowShadow>
     <Shadow>ظل</Shadow>
     <ShadowBrush>الظل الفرشة</ShadowBrush>
     <ShadowColor>لون الظل</ShadowColor>
@@ -3715,6 +3803,7 @@
     <qnRemoveService>هل تريد إزالة الخدمة؟</qnRemoveService>
     <qnRemoveServiceCategory>هل تريد إزالة الفئة؟</qnRemoveServiceCategory>
     <qnRemoveUnused>هل تريد إزالة غير المستخدمة؟</qnRemoveUnused>
+    <qnReplace>هل تريد إستبدال العنصر الموجود {0}?</qnReplace>
     <qnRestoreDefault>استعادة الإعدادات الافتراضية؟</qnRestoreDefault>
     <qnSaveChanges>حفظ التغييرات في {0}?</qnSaveChanges>
     <qnSaveChangesToPreviewPage>هل تريد حفظ التغييرات في الصفحة؟</qnSaveChangesToPreviewPage>
@@ -3722,6 +3811,7 @@
     <qnSynchronizeServices>وتزامن والخدمات؟</qnSynchronizeServices>
   </Questions>
   <Report>
+    <Address>العنوان</Address>
     <Alphabetical>الأبجدية</Alphabetical>
     <Bands>العصابات</Bands>
     <Basic>أساسي</Basic>
@@ -3750,7 +3840,9 @@
     <FilterOr>أو</FilterOr>
     <FinishingReport>الانتهاء من تقرير</FinishingReport>
     <FirstPass>أول ممر</FirstPass>
+    <Gallery>المعرض</Gallery>
     <GenerateNewCode>مدونة جديدة</GenerateNewCode>
+    <History>السجل</History>
     <Infographics>رسوم بيانية</Infographics>
     <InfoMessage>{0} - {1} وجدت.</InfoMessage>
     <InformationMessages>رسائل معلومات</InformationMessages>
@@ -3778,6 +3870,7 @@
     <LabelNestedLevel>مستوى متداخل:</LabelNestedLevel>
     <LabelPassword>كلمة السر :</LabelPassword>
     <LabelPixels>بكسل :</LabelPixels>
+    <LabelQueryTimeout>مهلة الاستعلام:</LabelQueryTimeout>
     <LabelSystemVariable>متغير النظام :</LabelSystemVariable>
     <LabelTotals>المجاميع</LabelTotals>
     <LabelType>النوع :</LabelType>

@@ -3400,7 +3400,7 @@
     <SelectAllFromRight>Označi Sve sa Desna</SelectAllFromRight>
     <SwitchToDerivedTable>Prebaci u Izvedenu Tabelu</SwitchToDerivedTable>
     <Tables>Tabele</Tables>
-    <UnexpectedTokenAt>Neočekivani izraz  \"{0}\" at  {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Neočekivani izraz  "{0}" at  {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Unije</Unions>
     <UnionSubMenu>Unija</UnionSubMenu>
     <ViewQuery>Pogledaj upit</ViewQuery>

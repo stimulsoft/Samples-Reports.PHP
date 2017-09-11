@@ -21,6 +21,7 @@ class StiMsSqlAdapter {
 	
 	private function connect() {
 		if ($this->isMicrosoftDriver) {
+			if (!function_exists("sqlsrv_connect")) return StiResult::error("MS SQL driver not found. Please configure your PHP server to work with MS SQL.");
 			$this->link = sqlsrv_connect(
 					$this->connectionInfo->host, 
 					array(

@@ -3192,7 +3192,7 @@
     <SelectAllFromRight>Velg alle fra høyre</SelectAllFromRight>
     <SwitchToDerivedTable>Bytt til utledet tabell</SwitchToDerivedTable>
     <Tables>Tabeller</Tables>
-    <UnexpectedTokenAt>Uventet tegn \"{0}\" på linje {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Uventet tegn "{0}" på linje {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Unioner</Unions>
     <UnionSubMenu>Union</UnionSubMenu>
     <ViewQuery>Vis spørring</ViewQuery>

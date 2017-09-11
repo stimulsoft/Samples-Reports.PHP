@@ -91,6 +91,7 @@
   <Buttons>
     <Add>Incluir</Add>
     <AddAllColumns>Incluir todas las columnas</AddAllColumns>
+    <Attach>Adjuntar</Attach>
     <Build>Construir...</Build>
     <Cancel>&amp;Cancelar</Cancel>
     <Check>Marcar</Check>
@@ -101,7 +102,9 @@
     <Duplicate>Duplicar</Duplicate>
     <Export>Exportar</Export>
     <Help>Ayuda</Help>
+    <LessOptions>Menos Opciones</LessOptions>
     <LoadDataSet>Cargar DataSet (*.data)</LoadDataSet>
+    <MoreOptions>Más Opciones</MoreOptions>
     <MoveLeft>Mover a la Izquierda</MoveLeft>
     <MoveRight>Mover a la Derecha</MoveRight>
     <No>&amp;No</No>
@@ -117,10 +120,12 @@
     <Save>Grabar</Save>
     <SaveCopy>Guardar una Copia</SaveCopy>
     <SetAll>Establecer Todos</SetAll>
+    <ShowLess>Mostrar Menos</ShowLess>
     <ShowMore>Mostrar más</ShowMore>
     <Submit>Aceptar</Submit>
     <Test>Pruebas</Test>
     <Up>Arriba</Up>
+    <Upload>Subir</Upload>
     <Yes>&amp;Sí</Yes>
   </Buttons>
   <Chart>
@@ -241,6 +246,7 @@
     <Strip>Franja</Strip>
     <StripsEditorForm>Editor de Franjas</StripsEditorForm>
     <Style>Estilo</Style>
+    <Treemap>Treemap</Treemap>
   </Chart>
   <ChartRibbon>
     <Axes>Ejes</Axes>
@@ -317,6 +323,7 @@
     <ButtonLogout>Desfirmar</ButtonLogout>
     <ButtonPublish>Publicar</ButtonPublish>
     <ButtonRecover>Recuperar</ButtonRecover>
+    <ButtonRenew>Renovar</ButtonRenew>
     <ButtonResendEmail>Reenviar Correo</ButtonResendEmail>
     <ButtonResetPassword>Restablecer Contraseña</ButtonResetPassword>
     <ButtonRun>Ejecutar</ButtonRun>
@@ -328,11 +335,13 @@
     <Cancel>Cancelar</Cancel>
     <CheckBoxMoveToRecycleBin>Mover a la Papelera</CheckBoxMoveToRecycleBin>
     <CheckBoxRememberMe>Recuérdame</CheckBoxRememberMe>
+    <Cloud>Nube</Cloud>
     <Collection>Colección</Collection>
     <Create>Crear</Create>
     <CreateError>¡Error creando el informe!</CreateError>
     <CreateNewCollection>Crear Nueva Colección</CreateNewCollection>
     <CreatingReport>Creando informe...</CreatingReport>
+    <DashboardWindowTitleNew>Nuevo panel de control</DashboardWindowTitleNew>
     <DeleteFile>Eliminar Fichero</DeleteFile>
     <ExecutionError>Error de ejecución</ExecutionError>
     <FileStorageWindowTitleEdit>Editar Almacenaje del Fichero</FileStorageWindowTitleEdit>
@@ -370,6 +379,7 @@
     <LabelShowReport>Mostrar informe:</LabelShowReport>
     <labelUserName>Nombre Usuario:</labelUserName>
     <Login>Log In</Login>
+    <NofM>{0}: {1} de {2}</NofM>
     <Open>Abrir</Open>
     <OpenFile>Abrir Fichero</OpenFile>
     <OperationCreate>Crear '{0}'</OperationCreate>
@@ -435,9 +445,11 @@
     <ToolTipAddUser>Creando un nuevo usuarios con el rol seleccionado.</ToolTipAddUser>
     <ToolTipAspNet>Publicar el informe seleccionado en la aplicación ASP.NET.</ToolTipAspNet>
     <ToolTipAspNetMvc>Publicar el informe seleccionado en la aplicación ASP.NET MVC.</ToolTipAspNetMvc>
+    <ToolTipAttach>Adjuntar elementos al informe seleccionado.</ToolTipAttach>
     <ToolTipCreate>Crear un nuevo elemento.</ToolTipCreate>
     <ToolTipDelete>Eliminar los elementos seleccionados.</ToolTipDelete>
     <ToolTipDeleted>Mostrar elementos eliminados</ToolTipDeleted>
+    <ToolTipDownload>Descargar el elemento seleccionado.</ToolTipDownload>
     <ToolTipEdit>Editar el elemento seleccionado.</ToolTipEdit>
     <ToolTipGridMode>Vista de Lista</ToolTipGridMode>
     <ToolTipInfo>Vista Detallada</ToolTipInfo>
@@ -551,6 +563,31 @@
     <DatabaseVistaDB>Conexión VistaDB</DatabaseVistaDB>
     <DatabaseXml>Datos XML</DatabaseXml>
   </Database>
+  <DatePickerRanges>
+    <CurrentMonth>Mes Actual</CurrentMonth>
+    <CurrentQuarter>Trimestre Actual</CurrentQuarter>
+    <CurrentWeek>Semana Actual</CurrentWeek>
+    <CurrentYear>Año Actual</CurrentYear>
+    <FirstQuarter>Primer Trimestre</FirstQuarter>
+    <FourthQuarter>Cuarto Trimestre</FourthQuarter>
+    <MonthToDate>Mes Hasta la Fecha</MonthToDate>
+    <NextMonth>Próximo Mes</NextMonth>
+    <NextQuarter>Próximo Trimestre</NextQuarter>
+    <NextWeek>Próxima Semana</NextWeek>
+    <NextYear>Próximo Año</NextYear>
+    <PreviousMonth>Mes Anterior</PreviousMonth>
+    <PreviousQuarter>Trimestre Anterior</PreviousQuarter>
+    <PreviousWeek>Semana Anterior</PreviousWeek>
+    <PreviousYear>Año Anterior</PreviousYear>
+    <QuarterToDate>Trimestre Hasta la Fecha</QuarterToDate>
+    <SecondQuarter>Segundo Trimestre</SecondQuarter>
+    <ThirdQuarter>Tercer Trimestre</ThirdQuarter>
+    <Today>Hoy</Today>
+    <Tomorrow>Mañana</Tomorrow>
+    <WeekToDate>Semana Hasta la Fecha</WeekToDate>
+    <YearToDate>Año Hasta la Fecha</YearToDate>
+    <Yesterday>Ayer</Yesterday>
+  </DatePickerRanges>
   <DesignerFx>
     <AlreadyExists>'{0}' ya existe.</AlreadyExists>
     <CanNotLoadThisReportTemplate>No se pudo cargar la plantilla del informe.</CanNotLoadThisReportTemplate>
@@ -782,6 +819,7 @@
     <AllImageFiles>Todos los Ficheros de Imágenes</AllImageFiles>
     <BitmapFiles>Ficheros de Mapa de Bits</BitmapFiles>
     <BmpFiles>Archivos de Imagen BMP (*.bmp)|*.bmp</BmpFiles>
+    <BusinessIntelligence>Business Intelligence (*.sbi)|*.sbi</BusinessIntelligence>
     <CalcFiles>Ficheros de Cálculo OpenDocument (*.ods)|*.ods</CalcFiles>
     <CsvFiles>CSV files (*.csv)|*.csv</CsvFiles>
     <DataSetXmlData>Datos DataSet XML (*.xml)|*.xml</DataSetXmlData>
@@ -795,6 +833,7 @@
     <EncryptedDocumentFiles>Ficheros de documento encriptados (*.mdx)|*.mdx</EncryptedDocumentFiles>
     <EncryptedReportFiles>Ficheros de informe encriptados (*.mrx)|*.mrx</EncryptedReportFiles>
     <Excel2007Files>Ficheros Microsoft Excel 2007/2013 (*.xlsx)|*.xlsx</Excel2007Files>
+    <ExcelAllFiles>Ficheros Microsoft Excel (*.xlsx;*.xls)|*.xlsx;*.xls</ExcelAllFiles>
     <ExcelFiles>Ficheros Microsoft Excel (*.xls)|*.xls</ExcelFiles>
     <ExcelXmlFiles>Ficheros Microsoft Excel XML (*.xls)|*.xls</ExcelXmlFiles>
     <ExeFiles>Archivos EXE (*.exe)|*.exe</ExeFiles>
@@ -963,6 +1002,7 @@
     <UniDirectEdit>Editar Conexión Unidireccional</UniDirectEdit>
     <UniDirectNew>Nueva Conexión Unidireccional</UniDirectNew>
     <Unpin>Liberar</Unpin>
+    <UseBearerAuthentication>Utilizar Aautenticación de Portador</UseBearerAuthentication>
     <VistaDBEdit>Editar Conexión VistaDB</VistaDBEdit>
     <VistaDBNew>Nueva Conexión VistaDB</VistaDBNew>
     <XmlEdit>Editar Conexión de Datos XML</XmlEdit>
@@ -993,7 +1033,7 @@
     <ShowDescription>Mostrar Descripción</ShowDescription>
     <SLPreview>Vista Previa Silverlight</SLPreview>
     <title>Diseñador</title>
-    <WebPreview>Vista Previa Web</WebPreview>
+    <WebPreview>Vista Previa Flash</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Acciones</Actions>
@@ -1044,6 +1084,8 @@
     <QueryTimeout>Tiempo de consulta vencido</QueryTimeout>
     <RelationEdit>Editar Relación</RelationEdit>
     <RelationNew>Nueva Relación</RelationNew>
+    <ResourceEdit>Editar Recurso</ResourceEdit>
+    <ResourceNew>Nuevo Recurso</ResourceNew>
     <RetrieveColumns>Recoger Columnas</RetrieveColumns>
     <RetrieveColumnsAllowRun>Permitir ejecutar Procedimientos Almacenados</RetrieveColumnsAllowRun>
     <RetrieveColumnsAndParameters>Recuperar Columnas y Parámetros</RetrieveColumnsAndParameters>
@@ -1055,6 +1097,9 @@
     <SortItems>Ordenar Elementos</SortItems>
     <Synchronize>Sincronizar</Synchronize>
     <SynchronizeHint>Sincronizar contenidos de los Datos almacenados y contenidos del Diccionario</SynchronizeHint>
+    <TextDropDataFileHere>Soltar el Fichero de Datos Aquí</TextDropDataFileHere>
+    <TextDropFileHere>Soltar Fichero Aquí</TextDropFileHere>
+    <TextDropImageHere>Soltar Fichero de Imagen Aquí</TextDropImageHere>
     <title>Diseñador de Diccionario</title>
     <ValueNew>Nuevo Valor</ValueNew>
     <VariableEdit>Editar Variable</VariableEdit>
@@ -1351,10 +1396,35 @@
   </FormViewerFind>
   <Gauge>
     <AddNewItem>Añadir Nuevo Elemento</AddNewItem>
+    <BarRangeList>Lista de Rangos de Barras</BarRangeList>
     <GaugeEditorForm>Editor de Indicadores</GaugeEditorForm>
     <Kind>Tipo</Kind>
+    <LinearBar>Barra Lineal</LinearBar>
+    <LinearMarker>Marcador Lineal</LinearMarker>
+    <LinearRange>Rango Lineal</LinearRange>
+    <LinearRangeList>Lista de Rangos Lineales</LinearRangeList>
     <LinearScale>Escala Lineal</LinearScale>
+    <LinearTickLabelCustom>Etiqueta de Señal Lineal Personalizado</LinearTickLabelCustom>
+    <LinearTickLabelMajor>Etiqueta de Señal Lineal Mayor</LinearTickLabelMajor>
+    <LinearTickLabelMinor>Etiqueta de Señal Lineal Menor</LinearTickLabelMinor>
+    <LinearTickMarkCustom>Marca de Señal Lineal Personalizado</LinearTickMarkCustom>
+    <LinearTickMarkMajor>Marca de Señal Lineal Mayor</LinearTickMarkMajor>
+    <LinearTickMarkMinor>Marca de Señal Lineal Menor</LinearTickMarkMinor>
+    <Needle>Aguja</Needle>
+    <RadialBar>Barra Radial</RadialBar>
+    <RadialMarker>Marca Radial</RadialMarker>
+    <RadialRange>Rango Radial</RadialRange>
+    <RadialRangeList>Lista de Rangos Radiales</RadialRangeList>
     <RadialScale>Escala Radial</RadialScale>
+    <RadialTickLabelCustom>Etiqueta de Señal Radial Personalizado</RadialTickLabelCustom>
+    <RadialTickLabelMajor>Etiqueta de Señal Radial Mayor</RadialTickLabelMajor>
+    <RadialTickLabelMinor>Etiqueta de Señal Radial Menor</RadialTickLabelMinor>
+    <RadialTickMarkCustom>Marca de Señal Radial Personalizado</RadialTickMarkCustom>
+    <RadialTickMarkMajor>Marca de Señal Radial Mayor</RadialTickMarkMajor>
+    <RadialTickMarkMinor>Marca de Señal Radial Menor</RadialTickMarkMinor>
+    <StateIndicator>Indicador de Estado</StateIndicator>
+    <StateIndicatorFilter>Filtro de Indicador de Estado</StateIndicatorFilter>
+    <TickCustomValue>Valor Personalizado de la Marca</TickCustomValue>
   </Gauge>
   <Gui>
     <barname_cancel>Cancelar</barname_cancel>
@@ -1773,6 +1843,7 @@
     <menuEditRedoText>&amp;Rehacer {0}</menuEditRedoText>
     <menuEditRelationNew>Nueva Relación...</menuEditRelationNew>
     <menuEditRemoveUnused>Eliminar no Utilizados</menuEditRemoveUnused>
+    <menuEditResourceNew>Nuevo recurso...</menuEditResourceNew>
     <menuEditSelectAll>&amp;Seleccionar todo</menuEditSelectAll>
     <menuEditSynchronize>Sincronizar</menuEditSynchronize>
     <menuEditUndo>&amp;Deshacer</menuEditUndo>
@@ -1933,6 +2004,9 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <NotificationItemTransfer>Los elementos se están transfiriendo.</NotificationItemTransfer>
     <NotificationItemTransferComplete>Los elementos se ha transfirido correctamente.</NotificationItemTransferComplete>
     <NotificationItemWaitingProcessing>Los elementos están en la cola de proceso.</NotificationItemWaitingProcessing>
+    <NotificationMailing>Enviando</NotificationMailing>
+    <NotificationMailingComplete>El envío "{0}" ha completado.</NotificationMailingComplete>
+    <NotificationMailingWaitingProcessing>El envío "{0}" está en espera.</NotificationMailingWaitingProcessing>
     <NotificationOperationAborted>¡Operación interrumpido!</NotificationOperationAborted>
     <NotificationRecycleBinCleaning>La Papelera de Reciclaje se está limpiando.</NotificationRecycleBinCleaning>
     <NotificationRecycleBinCleaningComplete>La Papelera de Reciclaje se ha limpiado correctamente.</NotificationRecycleBinCleaningComplete>
@@ -1948,6 +2022,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <NotificationTitleFilesUploading>Subiendo ficheros</NotificationTitleFilesUploading>
     <NotificationTitleItemRefreshing>Refrescando elemento "{0}"</NotificationTitleItemRefreshing>
     <NotificationTitleItemTransferring>Transfiriendo elemento "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleMailing>Envío "{0}"</NotificationTitleMailing>
     <NotificationTitleReportExporting>Exportando informe "{0}"</NotificationTitleReportExporting>
     <NotificationTitleReportRendering>Presentando informe "{0}"</NotificationTitleReportRendering>
     <NotificationTitleSchedulerRunning>Ejectando planificador "{0}"</NotificationTitleSchedulerRunning>
@@ -1959,6 +2034,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <QuotaMaximumComputingCyclesCountExceeded>El número de ciclos de computación máximos se ha excedido.</QuotaMaximumComputingCyclesCountExceeded>
     <QuotaMaximumFileSizeExceeded>Tamaño máximo del archivo superado.</QuotaMaximumFileSizeExceeded>
     <QuotaMaximumReportPagesCountExceeded>El número máximo de páginas por informes se ha excedido.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumResourcesCountExceeded>Se ha superado el recuento máximo de recursos.</QuotaMaximumResourcesCountExceeded>
     <QuotaMaximumUsersCountExceeded>El número máximo de usuarios se ha excedido.</QuotaMaximumUsersCountExceeded>
     <QuotaMaximumWorkspacesCountExceeded>El número máximo de espacios de trabajo se ha excedido.</QuotaMaximumWorkspacesCountExceeded>
     <SchedulerCantRunItSelf>¡El planificador no puede ejecutarse a si mismo!</SchedulerCantRunItSelf>
@@ -2336,6 +2412,10 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <SelectionModeMultiSimple>Multi-Simples</SelectionModeMultiSimple>
     <SelectionModeNone>Ninguno</SelectionModeNone>
     <SelectionModeOne>Uno</SelectionModeOne>
+    <StiAnchorModeBottom>Inferior</StiAnchorModeBottom>
+    <StiAnchorModeLeft>Izquierda</StiAnchorModeLeft>
+    <StiAnchorModeRight>Derecha</StiAnchorModeRight>
+    <StiAnchorModeTop>Superior</StiAnchorModeTop>
     <StiAngleAngle0>Ángulo - 0 Grados</StiAngleAngle0>
     <StiAngleAngle180>Ángulo - 180 Grados</StiAngleAngle180>
     <StiAngleAngle270>Ángulo - 270 Grados</StiAngleAngle270>
@@ -2821,6 +2901,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <Sphere>Esfera</Sphere>
     <Trellis>Rejilla</Trellis>
     <Vertical>Vertical</Vertical>
+    <Wave>Onda</Wave>
     <Weave>Textura</Weave>
     <WideDownwardDiagonal>Diagonal Descendiente Ancha</WideDownwardDiagonal>
     <WideUpwardDiagonal>Diagonal Superior Ancha</WideUpwardDiagonal>
@@ -2861,6 +2942,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <AllowUseVertAlignment>Permitir Usar Alin.Vert.</AllowUseVertAlignment>
     <AllowUsingAsSqlParameter>Permitir usar como parámetro de SQL</AllowUsingAsSqlParameter>
     <AlternatingBackColor>Color del Fondo Alternativo</AlternatingBackColor>
+    <Anchor>Ancla</Anchor>
     <Angle>Ángulo</Angle>
     <Antialiasing>Antialiasing</Antialiasing>
     <Area>Área</Area>
@@ -2900,6 +2982,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <Border>Margen</Border>
     <BorderBrush>Brocha del Marco</BorderBrush>
     <BorderColor>Color de la Margen</BorderColor>
+    <BorderColorNegative>Color del borde Negativo</BorderColorNegative>
     <Borders>Margenes</Borders>
     <BorderSize>Tamaño del borde</BorderSize>
     <BorderStyle>Estilo de Margen</BorderStyle>
@@ -3159,6 +3242,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <ImportRelations>Importar Relaciones</ImportRelations>
     <Increment>Incrementar</Increment>
     <Indent>Sangría</Indent>
+    <InfographicsTitle>Título</InfographicsTitle>
     <InitBy>Iniciar por</InitBy>
     <Insert>Insertar</Insert>
     <Interaction>Interacción</Interaction>
@@ -3385,6 +3469,8 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <ResetDataSource>Reinicia Fuente de Datos</ResetDataSource>
     <ResetPageNumber>Reiniciar Número de Página</ResetPageNumber>
     <Resize>Redimensionar</Resize>
+    <Resource>Recurso</Resource>
+    <Resources>Recursos</Resources>
     <Restrictions>Restricciones</Restrictions>
     <RetrieveOnlyUsedData>Sólo recuperar datos usados</RetrieveOnlyUsedData>
     <ReturnValue>Valor de Retorno</ReturnValue>
@@ -3418,6 +3504,8 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <SeriesLabelsBorderColor>Color del Marco</SeriesLabelsBorderColor>
     <SeriesLabelsBrush>Brocha para Etiquetas</SeriesLabelsBrush>
     <SeriesLabelsColor>Color de Etiquetas</SeriesLabelsColor>
+    <SeriesLighting>Iluminación de la Serie</SeriesLighting>
+    <SeriesShowShadow>Serie Mostrar Sombra</SeriesShowShadow>
     <Shadow>Sombra</Shadow>
     <ShadowBrush>Brocha de la Sombra</ShadowBrush>
     <ShadowColor>Color de la Sombra</ShadowColor>
@@ -3691,7 +3779,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <SelectAllFromRight>Seleccionar todos a la derecha</SelectAllFromRight>
     <SwitchToDerivedTable>Cambiar a la Tabla Derivada</SwitchToDerivedTable>
     <Tables>Tablas</Tables>
-    <UnexpectedTokenAt>Expresión inesperada \"{0}\" en línea {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Expresión inesperada "{0}" en línea {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Uniones</Unions>
     <UnionSubMenu>Unión</UnionSubMenu>
     <ViewQuery>Visualizar Consulta</ViewQuery>
@@ -3706,6 +3794,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <qnRemoveService>¿Eliminar el Servicio?</qnRemoveService>
     <qnRemoveServiceCategory>¿Eliminar la categoría?</qnRemoveServiceCategory>
     <qnRemoveUnused>¿Eliminar los no usados?</qnRemoveUnused>
+    <qnReplace>¿Desea reemplazar el elemento existente {0}?</qnReplace>
     <qnRestoreDefault>¿Restaurar valores por defecto?</qnRestoreDefault>
     <qnSaveChanges>¿Guardar Cambios {0}?</qnSaveChanges>
     <qnSaveChangesToPreviewPage>¿Guardar los Cambios de la página?</qnSaveChangesToPreviewPage>
@@ -3713,6 +3802,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <qnSynchronizeServices>¿Sincronizar Servicio?</qnSynchronizeServices>
   </Questions>
   <Report>
+    <Address>Dirección</Address>
     <Alphabetical>Alfabético</Alphabetical>
     <Bands>Márgenes</Bands>
     <Basic>Básico</Basic>
@@ -3741,7 +3831,9 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <FilterOr>O</FilterOr>
     <FinishingReport>Finalizando Informe</FinishingReport>
     <FirstPass>Primer Pase</FirstPass>
+    <Gallery>Galería</Gallery>
     <GenerateNewCode>Generar Nuevo Código</GenerateNewCode>
+    <History>Historial</History>
     <Infographics>Infographics</Infographics>
     <InfoMessage>{0} - {1} encontrado.</InfoMessage>
     <InformationMessages>Mensajes de Información</InformationMessages>
@@ -3769,6 +3861,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <LabelNestedLevel>Nivel Anidación:</LabelNestedLevel>
     <LabelPassword>Contraseña:</LabelPassword>
     <LabelPixels>Pixels:</LabelPixels>
+    <LabelQueryTimeout>Tiempo Máximo de Consulta:</LabelQueryTimeout>
     <LabelSystemVariable>Variable del Sistema:</LabelSystemVariable>
     <LabelTotals>Totales</LabelTotals>
     <LabelType>Tipo:</LabelType>
@@ -3819,6 +3912,8 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
   <ReportInfo>
     <CheckIssuesAdditionalDescription>Comprobar el informe para errores y detectar incoherencias.</CheckIssuesAdditionalDescription>
     <EncryptWithPassword>Cifrar con contraseña</EncryptWithPassword>
+    <EncryptWithPasswordAdditionalDescription>Establecer la contraseña para evitar el trabajo no autorizado con el informe.</EncryptWithPasswordAdditionalDescription>
+    <EncryptWithPasswordDescription>Proteger Informe</EncryptWithPasswordDescription>
     <Info>Info</Info>
     <ReportOptions>Opciones del Informe</ReportOptions>
     <ReportOptionsAdditionalDescription>Configurar la información básica y los parámetros en el informe.</ReportOptionsAdditionalDescription>

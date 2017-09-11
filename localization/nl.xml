@@ -396,6 +396,31 @@
     <DatabaseVistaDB>VistaDB Verbinding</DatabaseVistaDB>
     <DatabaseXml>XML Data</DatabaseXml>
   </Database>
+  <DatePickerRanges>
+    <CurrentMonth>Huidige maand</CurrentMonth>
+    <CurrentQuarter>Huidig kwartaal</CurrentQuarter>
+    <CurrentWeek>Huidige week</CurrentWeek>
+    <CurrentYear>Huidig jaar</CurrentYear>
+    <FirstQuarter>Eerste kwartaal</FirstQuarter>
+    <FourthQuarter>Vierde kwartaal</FourthQuarter>
+    <MonthToDate>Maand -tot nu</MonthToDate>
+    <NextMonth>Komende maand</NextMonth>
+    <NextQuarter>Komend kwartaal</NextQuarter>
+    <NextWeek>Komende week</NextWeek>
+    <NextYear>Komend jaar</NextYear>
+    <PreviousMonth>Vorige maand</PreviousMonth>
+    <PreviousQuarter>Vorig kwartaal</PreviousQuarter>
+    <PreviousWeek>Vorige week</PreviousWeek>
+    <PreviousYear>Vorig jaar</PreviousYear>
+    <QuarterToDate>Kwartaal -tot nu</QuarterToDate>
+    <SecondQuarter>Tweede kwartaal</SecondQuarter>
+    <ThirdQuarter>Derde kwartaal</ThirdQuarter>
+    <Today>Vandaag</Today>
+    <Tomorrow>Morgen</Tomorrow>
+    <WeekToDate>Week -tot nu</WeekToDate>
+    <YearToDate>Jaar -tot nu</YearToDate>
+    <Yesterday>Gisteren</Yesterday>
+  </DatePickerRanges>
   <DesignerFx>
     <AlreadyExists>'{0}' bestaat reeds.</AlreadyExists>
     <CanNotLoadThisReportTemplate>Het rapportsjabloon kan niet geladen worden</CanNotLoadThisReportTemplate>
@@ -781,7 +806,6 @@
     <XmlNew>Nieuwe XML Data</XmlNew>
   </FormDatabaseEdit>
   <FormDesigner>
-    <Others>Andere</Others>
     <Code>Code</Code>
     <ColumnsOne>Een</ColumnsOne>
     <ColumnsThree>Drie</ColumnsThree>
@@ -796,6 +820,7 @@
     <MarginsNormal>Normaal</MarginsNormal>
     <MarginsWide>Breed</MarginsWide>
     <OrderToolbars>Rangschik Werkbalken</OrderToolbars>
+    <Others>Andere</Others>
     <Pages>Pagina's</Pages>
     <Preview>Voorbeeld</Preview>
     <PropertyChange>Change of property '{0}'</PropertyChange>
@@ -804,7 +829,7 @@
     <ShowDescription>Toon Omschrijving</ShowDescription>
     <SLPreview>Silverlight Voorbeeld</SLPreview>
     <title>Ontwerper</title>
-    <WebPreview>Web Voorbeeld</WebPreview>
+    <WebPreview>Flash Voorbeeld</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Acties</Actions>
@@ -3100,7 +3125,7 @@
     <SelectAllFromRight>Selecteer Alles van Rechts</SelectAllFromRight>
     <SwitchToDerivedTable>Schakel over naar Afgeleide Tabel</SwitchToDerivedTable>
     <Tables>Tabellen</Tables>
-    <UnexpectedTokenAt>Onverwacht teken \"{0}\" op lijn {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Onverwacht teken "{0}" op lijn {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Unies</Unions>
     <UnionSubMenu>Unie</UnionSubMenu>
     <ViewQuery>Toon Query</ViewQuery>

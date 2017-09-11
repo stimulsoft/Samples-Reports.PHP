@@ -3691,7 +3691,7 @@ Sadrži poveznicu za potvrdu vaše registracije. Kako bi dovršili registraciju 
     <SelectAllFromRight>Odaberi sve sa desne strane</SelectAllFromRight>
     <SwitchToDerivedTable>Prebaci na izvedenu tablicu</SwitchToDerivedTable>
     <Tables>Tablice</Tables>
-    <UnexpectedTokenAt>Neočekivani simbol \"{0}\" na liniji {1}, pozicija {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Neočekivani simbol "{0}" na liniji {1}, pozicija {2}!</UnexpectedTokenAt>
     <Unions>Unije</Unions>
     <UnionSubMenu>Unija</UnionSubMenu>
     <ViewQuery>Pregledaj upit</ViewQuery>

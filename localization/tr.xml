@@ -2930,7 +2930,7 @@
     <SelectAllFromRight>Tümünü Sagdan Seçin</SelectAllFromRight>
     <SwitchToDerivedTable> Derived(Türemis) Tablo Geç</SwitchToDerivedTable>
     <Tables>Tablolar</Tables>
-    <UnexpectedTokenAt>Beklenmedik Belirteç  \ "{0} \" satır:{1}, pozisyon:{2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Beklenmedik Belirteç "{0}" satır:{1}, pozisyon:{2}!</UnexpectedTokenAt>
     <Unions>Union'lar</Unions>
     <UnionSubMenu>Union</UnionSubMenu>
     <ViewQuery>View Sorgusu</ViewQuery>

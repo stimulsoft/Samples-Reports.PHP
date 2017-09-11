@@ -91,6 +91,7 @@
   <Buttons>
     <Add>Добави</Add>
     <AddAllColumns>Добави всички колони</AddAllColumns>
+    <Attach>Прикрепи</Attach>
     <Build>Построи...</Build>
     <Cancel>&amp;Отказ</Cancel>
     <Check>Проверка</Check>
@@ -101,7 +102,9 @@
     <Duplicate>Дублирай</Duplicate>
     <Export>Експорт</Export>
     <Help>Помощ</Help>
+    <LessOptions>По-малко опции</LessOptions>
     <LoadDataSet>Зареди данни (*.data)</LoadDataSet>
+    <MoreOptions>Повече опции</MoreOptions>
     <MoveLeft>Преместване в лявао</MoveLeft>
     <MoveRight>Преместване в дясно</MoveRight>
     <No>&amp;Не</No>
@@ -117,10 +120,12 @@
     <Save>Съхрани</Save>
     <SaveCopy>Съхрани копието</SaveCopy>
     <SetAll>Задай Всички</SetAll>
+    <ShowLess>Покажи по-малко</ShowLess>
     <ShowMore>Покажи повече</ShowMore>
     <Submit>Изпрати</Submit>
     <Test>Проверка</Test>
     <Up>Нагоре</Up>
+    <Upload>Качване</Upload>
     <Yes>&amp;Да</Yes>
   </Buttons>
   <Chart>
@@ -241,6 +246,7 @@
     <Strip>Ивица</Strip>
     <StripsEditorForm>Редактор на ивици</StripsEditorForm>
     <Style>Стил</Style>
+    <Treemap>Дървовидна карта</Treemap>
   </Chart>
   <ChartRibbon>
     <Axes>Оси</Axes>
@@ -317,6 +323,7 @@
     <ButtonLogout>Изход</ButtonLogout>
     <ButtonPublish>Публикувай</ButtonPublish>
     <ButtonRecover>Възстанови</ButtonRecover>
+    <ButtonRenew>Обнови</ButtonRenew>
     <ButtonResendEmail>Повторно изпращане Email</ButtonResendEmail>
     <ButtonResetPassword>Нулиране на парола</ButtonResetPassword>
     <ButtonRun>Старт</ButtonRun>
@@ -328,11 +335,13 @@
     <Cancel>Отказ</Cancel>
     <CheckBoxMoveToRecycleBin>Преместване в кошчето</CheckBoxMoveToRecycleBin>
     <CheckBoxRememberMe>Запомни ме</CheckBoxRememberMe>
+    <Cloud>Облак</Cloud>
     <Collection>Колекция</Collection>
     <Create>Създай</Create>
     <CreateError>Грешка при създаване на отчета!</CreateError>
     <CreateNewCollection>Създай нова колекция</CreateNewCollection>
     <CreatingReport>Създаване на отчет...</CreatingReport>
+    <DashboardWindowTitleNew>Ново табло</DashboardWindowTitleNew>
     <DeleteFile>Изтрий файл</DeleteFile>
     <ExecutionError>Грешка при изпълнение</ExecutionError>
     <FileStorageWindowTitleEdit>Редакция на склада с файлове</FileStorageWindowTitleEdit>
@@ -370,6 +379,7 @@
     <LabelShowReport>Покажи отчет:</LabelShowReport>
     <labelUserName>Потребител:</labelUserName>
     <Login>Вход</Login>
+    <NofM>{0}: {1} от {2}</NofM>
     <Open>Отвори</Open>
     <OpenFile>Отвори файл</OpenFile>
     <OperationCreate>Създай '{0}'</OperationCreate>
@@ -435,9 +445,11 @@
     <ToolTipAddUser>Създаване на нов потребител в избраната роля.</ToolTipAddUser>
     <ToolTipAspNet>Публикуване на избрания отчет в ASP.NET приложение.</ToolTipAspNet>
     <ToolTipAspNetMvc>Публикуване на избрания отчет в ASP.NET MVC приложение.</ToolTipAspNetMvc>
+    <ToolTipAttach>Прикрепи елементи към избрания отчет.</ToolTipAttach>
     <ToolTipCreate>Създаване на нов елемент.</ToolTipCreate>
     <ToolTipDelete>Изтриване на избраните елементи.</ToolTipDelete>
     <ToolTipDeleted>Покажи изтритите елементи</ToolTipDeleted>
+    <ToolTipDownload>Изтегли избраният елемент.</ToolTipDownload>
     <ToolTipEdit>Редактиране на избрания елемент.</ToolTipEdit>
     <ToolTipGridMode>Изглед в списък</ToolTipGridMode>
     <ToolTipInfo>Показване на детайли</ToolTipInfo>
@@ -551,6 +563,31 @@
     <DatabaseVistaDB>VistaDB връзка</DatabaseVistaDB>
     <DatabaseXml>XML данни</DatabaseXml>
   </Database>
+  <DatePickerRanges>
+    <CurrentMonth>Текущ месец</CurrentMonth>
+    <CurrentQuarter>Текущо тримесечие</CurrentQuarter>
+    <CurrentWeek>Текуща седмица</CurrentWeek>
+    <CurrentYear>Текуща година</CurrentYear>
+    <FirstQuarter>Първо тримесечие</FirstQuarter>
+    <FourthQuarter>Четвърто тримесечие</FourthQuarter>
+    <MonthToDate>Месец към дата</MonthToDate>
+    <NextMonth>Следващ мнесец</NextMonth>
+    <NextQuarter>Следващо тримесечие</NextQuarter>
+    <NextWeek>Следваща седмица</NextWeek>
+    <NextYear>Следваща година</NextYear>
+    <PreviousMonth>Предишен месец</PreviousMonth>
+    <PreviousQuarter>Предишно тримесечие</PreviousQuarter>
+    <PreviousWeek>Предишна седмица</PreviousWeek>
+    <PreviousYear>Предишна година</PreviousYear>
+    <QuarterToDate>Тримесечие към дата</QuarterToDate>
+    <SecondQuarter>Второ тримесечие</SecondQuarter>
+    <ThirdQuarter>Трето тримесечие</ThirdQuarter>
+    <Today>Днес</Today>
+    <Tomorrow>Утре</Tomorrow>
+    <WeekToDate>Седмица към дата</WeekToDate>
+    <YearToDate>Година към дата</YearToDate>
+    <Yesterday>Вчера</Yesterday>
+  </DatePickerRanges>
   <DesignerFx>
     <AlreadyExists>'{0}' вече съществува.</AlreadyExists>
     <CanNotLoadThisReportTemplate>Не мога да заредя шаблона на отчета.</CanNotLoadThisReportTemplate>
@@ -782,6 +819,7 @@
     <AllImageFiles>Всички файлове с изображения</AllImageFiles>
     <BitmapFiles>Bitmap файлове</BitmapFiles>
     <BmpFiles>BMP картинка (*.bmp)|*.bmp</BmpFiles>
+    <BusinessIntelligence>Business Intelligence (*.sbi)|*.sbi</BusinessIntelligence>
     <CalcFiles>OpenDocument Calc файлове (*.ods)|*.ods</CalcFiles>
     <CsvFiles>CSV файлове (*.csv)|*.csv</CsvFiles>
     <DataSetXmlData>DataSet XML данни (*.xml)|*.xml</DataSetXmlData>
@@ -795,6 +833,7 @@
     <EncryptedDocumentFiles>Файл кодирани документи (*.mdx)|*.mdx</EncryptedDocumentFiles>
     <EncryptedReportFiles>Файл кодирани отчети (*.mrx)|*.mrx</EncryptedReportFiles>
     <Excel2007Files>Microsoft Excel 2007/2013 файлове (*.xlsx)|*.xlsx</Excel2007Files>
+    <ExcelAllFiles>Microsoft Excel (*.xlsx;*.xls)|*.xlsx;*.xls</ExcelAllFiles>
     <ExcelFiles>Microsoft Excel файлове (*.xls)|*.xls</ExcelFiles>
     <ExcelXmlFiles>Microsoft Excel XML файлове (*.xls)|*.xls</ExcelXmlFiles>
     <ExeFiles>EXE файлове (*.exe)|*.exe</ExeFiles>
@@ -963,6 +1002,7 @@
     <UniDirectEdit>Редакция Uni Direct връзка</UniDirectEdit>
     <UniDirectNew>Нова Uni Direct връзка</UniDirectNew>
     <Unpin>Откачи</Unpin>
+    <UseBearerAuthentication>Използвай Bearer автентикация</UseBearerAuthentication>
     <VistaDBEdit>Редакция VistaDB връзка</VistaDBEdit>
     <VistaDBNew>Нова VistaDB връзка</VistaDBNew>
     <XmlEdit>Редакция XML данни</XmlEdit>
@@ -993,7 +1033,7 @@
     <ShowDescription>Покажи описание</ShowDescription>
     <SLPreview>Silverlight преглед</SLPreview>
     <title>Дизайнер</title>
-    <WebPreview>Web преглед</WebPreview>
+    <WebPreview>Flash преглед</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Действия</Actions>
@@ -1044,6 +1084,8 @@
     <QueryTimeout>Таймаут на заявка</QueryTimeout>
     <RelationEdit>Редакция релация</RelationEdit>
     <RelationNew>Нова релация</RelationNew>
+    <ResourceEdit>Редактиране на ресурсите</ResourceEdit>
+    <ResourceNew>Нов ресурс</ResourceNew>
     <RetrieveColumns>Извлечи колоните</RetrieveColumns>
     <RetrieveColumnsAllowRun>Разреши изпънение на Съхранени процедури</RetrieveColumnsAllowRun>
     <RetrieveColumnsAndParameters>Получаване на Колони и Параметри</RetrieveColumnsAndParameters>
@@ -1055,6 +1097,9 @@
     <SortItems>Сортиране на елементи</SortItems>
     <Synchronize>Синхронизиране</Synchronize>
     <SynchronizeHint>Синхронизира съдържанието на източника бна данни и съдържанието на речника</SynchronizeHint>
+    <TextDropDataFileHere>Пусни файла с данни тук</TextDropDataFileHere>
+    <TextDropFileHere>Пусни файла тук</TextDropFileHere>
+    <TextDropImageHere>Пусни файла с картинка тук</TextDropImageHere>
     <title>Дизайнер речник</title>
     <ValueNew>Нова стойност</ValueNew>
     <VariableEdit>Редакция на променлива</VariableEdit>
@@ -1351,10 +1396,35 @@
   </FormViewerFind>
   <Gauge>
     <AddNewItem>Добави Нов</AddNewItem>
+    <BarRangeList>Списък диапазон ивица</BarRangeList>
     <GaugeEditorForm>Gauge Редактор</GaugeEditorForm>
     <Kind>Вид</Kind>
+    <LinearBar>Линейна ивица</LinearBar>
+    <LinearMarker>Линеен маркер</LinearMarker>
+    <LinearRange>Линеен диапазон</LinearRange>
+    <LinearRangeList>Списък линеен диапазон</LinearRangeList>
     <LinearScale>Линеен мащаб</LinearScale>
+    <LinearTickLabelCustom>Дефиниран етикет линейна отметка</LinearTickLabelCustom>
+    <LinearTickLabelMajor>Главен етикет линейна отметка</LinearTickLabelMajor>
+    <LinearTickLabelMinor>Второстепенен етикет линейна отметка</LinearTickLabelMinor>
+    <LinearTickMarkCustom>Дефиниран маркер линейна отметка</LinearTickMarkCustom>
+    <LinearTickMarkMajor>Главен маркер линейна отметка</LinearTickMarkMajor>
+    <LinearTickMarkMinor>Второстепенен маркер линейна отметка</LinearTickMarkMinor>
+    <Needle>Стрелка</Needle>
+    <RadialBar>Радиална ивица</RadialBar>
+    <RadialMarker>Радиален маркер</RadialMarker>
+    <RadialRange>Радиален диапазон</RadialRange>
+    <RadialRangeList>Списък радиален диапазон</RadialRangeList>
     <RadialScale>Радиалиен мащаб</RadialScale>
+    <RadialTickLabelCustom>Дефиниран етикет радиална отметка</RadialTickLabelCustom>
+    <RadialTickLabelMajor>Главен етикет радиална отметка</RadialTickLabelMajor>
+    <RadialTickLabelMinor>Второстепенен етикет радиална отметка</RadialTickLabelMinor>
+    <RadialTickMarkCustom>Дефиниран маркер радиална отметка</RadialTickMarkCustom>
+    <RadialTickMarkMajor>Главен маркер радиална отметка</RadialTickMarkMajor>
+    <RadialTickMarkMinor>Второстепенен маркер радиална отметка</RadialTickMarkMinor>
+    <StateIndicator>Индикатор на състояние</StateIndicator>
+    <StateIndicatorFilter>Филтър индикатор състояние</StateIndicatorFilter>
+    <TickCustomValue>Стойност дефинирана отметка</TickCustomValue>
   </Gauge>
   <Gui>
     <barname_cancel>Отказ</barname_cancel>
@@ -1773,6 +1843,7 @@
     <menuEditRedoText>&amp;Повтори {0}</menuEditRedoText>
     <menuEditRelationNew>Нова релация...</menuEditRelationNew>
     <menuEditRemoveUnused>Премахване неизползвани елементи</menuEditRemoveUnused>
+    <menuEditResourceNew>Нов ресурс...</menuEditResourceNew>
     <menuEditSelectAll>Избери &amp;Всичко</menuEditSelectAll>
     <menuEditSynchronize>Синфронизирай</menuEditSynchronize>
     <menuEditUndo>&amp;Отмени</menuEditUndo>
@@ -1933,6 +2004,9 @@
     <NotificationItemTransfer>Елементите се прехвърлят.</NotificationItemTransfer>
     <NotificationItemTransferComplete>Елементите са прехвърлени успешно.</NotificationItemTransferComplete>
     <NotificationItemWaitingProcessing>Елементите изчакват обработка.</NotificationItemWaitingProcessing>
+    <NotificationMailing>Изпращане</NotificationMailing>
+    <NotificationMailingComplete>Пощата "{0}" е изпратена.</NotificationMailingComplete>
+    <NotificationMailingWaitingProcessing>Изпращането на пощата "{0}" очаква изпълнение.</NotificationMailingWaitingProcessing>
     <NotificationOperationAborted>Операцията е прекъсната!</NotificationOperationAborted>
     <NotificationRecycleBinCleaning>Кошчето се почивства.</NotificationRecycleBinCleaning>
     <NotificationRecycleBinCleaningComplete>Кошчето е почистено успешно.</NotificationRecycleBinCleaningComplete>
@@ -1948,6 +2022,7 @@
     <NotificationTitleFilesUploading>Качване на файлове</NotificationTitleFilesUploading>
     <NotificationTitleItemRefreshing>Опресняване елемент "{0}"</NotificationTitleItemRefreshing>
     <NotificationTitleItemTransferring>Прехвърляне елемент "{0}"</NotificationTitleItemTransferring>
+    <NotificationTitleMailing>Изпращане поща "{0}"</NotificationTitleMailing>
     <NotificationTitleReportExporting>Експортва се отчет "{0}"</NotificationTitleReportExporting>
     <NotificationTitleReportRendering>Изпълнява се отчет "{0}"</NotificationTitleReportRendering>
     <NotificationTitleSchedulerRunning>Стартиране се задание "{0}"</NotificationTitleSchedulerRunning>
@@ -1959,6 +2034,7 @@
     <QuotaMaximumComputingCyclesCountExceeded>Превишени са максималните изчислителни цикли за преброяване.</QuotaMaximumComputingCyclesCountExceeded>
     <QuotaMaximumFileSizeExceeded>Превишен е максималният размер на файла.</QuotaMaximumFileSizeExceeded>
     <QuotaMaximumReportPagesCountExceeded>Превишен е максиманлия брой страници на отчета.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumResourcesCountExceeded>Максималния брой на ресурсите е превишен.</QuotaMaximumResourcesCountExceeded>
     <QuotaMaximumUsersCountExceeded>Превишен е максимания брой потребители.</QuotaMaximumUsersCountExceeded>
     <QuotaMaximumWorkspacesCountExceeded>Превишен е максималния брой работни пространства.</QuotaMaximumWorkspacesCountExceeded>
     <SchedulerCantRunItSelf>Заданието не може да стартира себе си!</SchedulerCantRunItSelf>
@@ -2336,6 +2412,10 @@
     <SelectionModeMultiSimple>Мулти опростен</SelectionModeMultiSimple>
     <SelectionModeNone>Няма</SelectionModeNone>
     <SelectionModeOne>Едно</SelectionModeOne>
+    <StiAnchorModeBottom>Долу</StiAnchorModeBottom>
+    <StiAnchorModeLeft>Ляво</StiAnchorModeLeft>
+    <StiAnchorModeRight>Дясно</StiAnchorModeRight>
+    <StiAnchorModeTop>Горе</StiAnchorModeTop>
     <StiAngleAngle0>0 градуса</StiAngleAngle0>
     <StiAngleAngle180>180 градуса</StiAngleAngle180>
     <StiAngleAngle270>270 градуса</StiAngleAngle270>
@@ -2821,6 +2901,7 @@
     <Sphere>Sphere</Sphere>
     <Trellis>Trellis</Trellis>
     <Vertical>Vertical</Vertical>
+    <Wave>Вълна</Wave>
     <Weave>Weave</Weave>
     <WideDownwardDiagonal>Wide Downward Diagonal</WideDownwardDiagonal>
     <WideUpwardDiagonal>Wide Upward Diagonal</WideUpwardDiagonal>
@@ -2861,6 +2942,7 @@
     <AllowUseVertAlignment>Разреши използване вертик. подравняване</AllowUseVertAlignment>
     <AllowUsingAsSqlParameter>Разреши използване като SQL параметър</AllowUsingAsSqlParameter>
     <AlternatingBackColor>Алтернативен цвят на фона</AlternatingBackColor>
+    <Anchor>Котва</Anchor>
     <Angle>Ъгъл</Angle>
     <Antialiasing>Прозрачност</Antialiasing>
     <Area>Област</Area>
@@ -2900,6 +2982,7 @@
     <Border>Граница</Border>
     <BorderBrush>Четка на граница</BorderBrush>
     <BorderColor>Цвят граница</BorderColor>
+    <BorderColorNegative>Негативна цветна граница</BorderColorNegative>
     <Borders>Граници</Borders>
     <BorderSize>Рзмер Ивица</BorderSize>
     <BorderStyle>Стил граница</BorderStyle>
@@ -3159,6 +3242,7 @@
     <ImportRelations>Релации картинка</ImportRelations>
     <Increment>Нарастване</Increment>
     <Indent>Отстъп</Indent>
+    <InfographicsTitle>Заглавие</InfographicsTitle>
     <InitBy>Инициализирано от</InitBy>
     <Insert>Вмъкни</Insert>
     <Interaction>Взаимодействие</Interaction>
@@ -3385,6 +3469,8 @@
     <ResetDataSource>Начално състояние източник данни</ResetDataSource>
     <ResetPageNumber>Начално състояние номер на страница</ResetPageNumber>
     <Resize>Оразмеряване</Resize>
+    <Resource>Ресурс</Resource>
+    <Resources>Ресурси</Resources>
     <Restrictions>Ограничения</Restrictions>
     <RetrieveOnlyUsedData>Изтегляне само на използваните данни</RetrieveOnlyUsedData>
     <ReturnValue>Върната стойност</ReturnValue>
@@ -3418,6 +3504,8 @@
     <SeriesLabelsBorderColor>Цвят на Граница</SeriesLabelsBorderColor>
     <SeriesLabelsBrush>Етикет на Четка</SeriesLabelsBrush>
     <SeriesLabelsColor>Цвят на Етикети</SeriesLabelsColor>
+    <SeriesLighting>Серии на осветеност</SeriesLighting>
+    <SeriesShowShadow>Серии на сенки</SeriesShowShadow>
     <Shadow>Сянка</Shadow>
     <ShadowBrush>Четка сянка</ShadowBrush>
     <ShadowColor>Цвят сянка</ShadowColor>
@@ -3691,7 +3779,7 @@
     <SelectAllFromRight>Избиране на всички от дясно</SelectAllFromRight>
     <SwitchToDerivedTable>Превключване до Derived таблица</SwitchToDerivedTable>
     <Tables>Таблици</Tables>
-    <UnexpectedTokenAt>Неочакван символ \"{0}\" на ред {1}, позиция {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Неочакван символ "{0}" на ред {1}, позиция {2}!</UnexpectedTokenAt>
     <Unions>Обединения</Unions>
     <UnionSubMenu>Обединение</UnionSubMenu>
     <ViewQuery>Преглед заявка</ViewQuery>
@@ -3706,6 +3794,7 @@
     <qnRemoveService>Желаете ли премахване на сервиза?</qnRemoveService>
     <qnRemoveServiceCategory>Желаете ли премахване на категория?</qnRemoveServiceCategory>
     <qnRemoveUnused>Желаете ли премахване на неизползвани?</qnRemoveUnused>
+    <qnReplace>Искате ли да замените съществуващия елемент {0}?</qnReplace>
     <qnRestoreDefault>Възтановяване по подразбиране?</qnRestoreDefault>
     <qnSaveChanges>Да се съхранят ли промените в {0}?</qnSaveChanges>
     <qnSaveChangesToPreviewPage>Желаете ли съхранение на промените в страницата?</qnSaveChangesToPreviewPage>
@@ -3713,6 +3802,7 @@
     <qnSynchronizeServices>Да се синхронизират ли сервизите?</qnSynchronizeServices>
   </Questions>
   <Report>
+    <Address>Адрес</Address>
     <Alphabetical>По азбучен ред</Alphabetical>
     <Bands>Секции</Bands>
     <Basic>Основен</Basic>
@@ -3741,7 +3831,9 @@
     <FilterOr>ИЛИ</FilterOr>
     <FinishingReport>Завършване отчета</FinishingReport>
     <FirstPass>Първи преход</FirstPass>
+    <Gallery>Галерия</Gallery>
     <GenerateNewCode>Генериране на нов код</GenerateNewCode>
+    <History>История</History>
     <Infographics>Инфографика</Infographics>
     <InfoMessage>{0} - {1} намерени.</InfoMessage>
     <InformationMessages>Информационни съобщения</InformationMessages>
@@ -3769,6 +3861,7 @@
     <LabelNestedLevel>Ниво на вложеност:</LabelNestedLevel>
     <LabelPassword>Парола:</LabelPassword>
     <LabelPixels>Пиксели:</LabelPixels>
+    <LabelQueryTimeout>Таймаут на запитване:</LabelQueryTimeout>
     <LabelSystemVariable>Системна променлива:</LabelSystemVariable>
     <LabelTotals>Сумарно</LabelTotals>
     <LabelType>Тип:</LabelType>
@@ -3819,6 +3912,8 @@
   <ReportInfo>
     <CheckIssuesAdditionalDescription>Проверка на отчета за грешки и намиране неточностите в него.</CheckIssuesAdditionalDescription>
     <EncryptWithPassword>Шифроване с парола</EncryptWithPassword>
+    <EncryptWithPasswordAdditionalDescription>Задайте парола за да се предотврати неоторизиран достъп до отчета.</EncryptWithPasswordAdditionalDescription>
+    <EncryptWithPasswordDescription>Защита на отчета</EncryptWithPasswordDescription>
     <Info>Инфо</Info>
     <ReportOptions>Опции на отчета</ReportOptions>
     <ReportOptionsAdditionalDescription>Задаване на основна информация и параметри на отчета.</ReportOptionsAdditionalDescription>

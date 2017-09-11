@@ -185,6 +185,8 @@
     <StiNoNameInSourceDataSourceCheckShort>У источника данных не заполнено поле 'Наименование в источнике данных'</StiNoNameInSourceDataSourceCheckShort>
     <StiUndefinedDataSourceCheckLong>В отчете найден источник данных '{0}' неизвестного типа. Генератор отчетов не сможет корректно обработать такой тип источника данных! Возможно в отчете используются пользовательские источники данных. Такой отчет не может быть построен!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>Неизвестный источник данных</StiUndefinedDataSourceCheckShort>
+    <StiCalculatedColumnRecursionCheckLong>Вычисляемая колонка '{0}' источника данных '{1}' содержит выражение с рекурсией. Нельзя ссылаться на вычисляемую колонку в выражении этой же колонки.</StiCalculatedColumnRecursionCheckLong>
+    <StiCalculatedColumnRecursionCheckShort>Рекурсивное выражение</StiCalculatedColumnRecursionCheckShort>
   </CheckDataSource>
   <CheckGlobal>
     <Error>Ошибка! </Error>
@@ -211,6 +213,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>В отчете найдены связи '{0}', которые имеют одинаковые значения ('{1}') в поле Наименование в источнике (NameInSource). Все значения в поле Наименование в источнике (NameInSource) должны быть уникальными в пределах одного соединения, к одной базе данных! Необходимо скорректировать эти поля у связей.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Дубликаты в связях</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
   </CheckReport>
+  <CheckVariable>
+    <StiVariableRecursionCheckLong>Переменная '{0}' содержит выражение с рекурсией. Нельзя ссылаться на переменную в выражении этой же переменной.</StiVariableRecursionCheckLong>
+    <StiVariableRecursionCheckShort>Рекурсивное выражение</StiVariableRecursionCheckShort>
+  </CheckVariable>
   <Font>
     <Bold>Значение определяет, что текст жирный.</Bold>
     <Italic>Значение определяет, что текст наклонный.</Italic>

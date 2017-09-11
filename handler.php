@@ -37,6 +37,8 @@ $handler->onEndExportReport = function ($event) {
 	$data = $event->data; // Base64 export data
 	$fileName = $event->fileName; // Report file name
 	
+	file_put_contents('reports/'.$fileName.'.'.strtolower($format), base64_decode($data));
+	
 	//return StiResult::success();
 	return StiResult::success("Export OK. Message from server side.");
 	//return StiResult::error("Export ERROR. Message from server side.");

@@ -3092,7 +3092,7 @@
     <SelectAllFromRight>Guztiak eskuinean aukeratu</SelectAllFromRight>
     <SwitchToDerivedTable>Taula Deribatura aldatu</SwitchToDerivedTable>
     <Tables>Taulak</Tables>
-    <UnexpectedTokenAt>Ezusteko adierazpena  \"{0}\" {1} lerroan, {2} ondotik!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Ezusteko adierazpena "{0}" {1} lerroan, {2} ondotik!</UnexpectedTokenAt>
     <Unions>Loturak</Unions>
     <UnionSubMenu>Lotura</UnionSubMenu>
     <ViewQuery>Kontsulta bistaratu</ViewQuery>

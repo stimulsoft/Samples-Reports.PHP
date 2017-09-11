@@ -3682,7 +3682,7 @@
     <SelectAllFromRight>Pilih Semua dari Kanan</SelectAllFromRight>
     <SwitchToDerivedTable>Pindah ke Tabel Asal</SwitchToDerivedTable>
     <Tables>Tabel</Tables>
-    <UnexpectedTokenAt>Tidak diharapkan \"{0}\" at line {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Tidak diharapkan "{0}" at line {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Unions</Unions>
     <UnionSubMenu>Union</UnionSubMenu>
     <ViewQuery>Lihat Query</ViewQuery>

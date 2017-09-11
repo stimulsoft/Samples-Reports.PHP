@@ -827,7 +827,7 @@
     <ShowDescription>Показувати опис</ShowDescription>
     <SLPreview>Silverlight перегляд</SLPreview>
     <title>Дизайнер</title>
-    <WebPreview>Web перегляд</WebPreview>
+    <WebPreview>Flash перегляд</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Дії</Actions>
@@ -3242,7 +3242,7 @@
     <SelectAllFromRight>Вибрати все справа</SelectAllFromRight>
     <SwitchToDerivedTable>Перемкнути на отриману таблицю</SwitchToDerivedTable>
     <Tables>Таблиці</Tables>
-    <UnexpectedTokenAt>Неочікуваний знак \"{0}\" у стрічці {1}, позиція {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Неочікуваний знак "{0}" у стрічці {1}, позиція {2}!</UnexpectedTokenAt>
     <Unions>Об'єднання</Unions>
     <UnionSubMenu>Об'єднання</UnionSubMenu>
     <ViewQuery>Перегляд запиту</ViewQuery>

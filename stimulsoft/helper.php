@@ -336,7 +336,16 @@ class StiHandler {
 
 
 class StiHelper {
-	public static function initialize($url = "handler.php", $timeout = 30) {
+	public static function createOptions() {
+		$options = new stdClasS();
+		$options->handler = "handler.php";
+		$options->timeout = 30;
+		
+		return $options;
+	}
+	
+	public static function initialize($options) {
+		if (!isset($options)) $options = StiHelper::createOptions();
 ?>
 	<script type="text/javascript">
 		StiHelper.prototype.process = function (args, callback) {
@@ -404,12 +413,33 @@ class StiHelper {
 			return vars;
 		}
 		
+		StiHelper.prototype.getLicense = function () {
+			var request = new XMLHttpRequest();
+			request.open("get", "stimulsoft/license.php", true);
+			request.timeout = this.timeout * 1000;
+			request.onload = function () {
+				if (request.status == 200) {
+					var license = request.responseText;
+					if (typeof license == "string" && license != "") Stimulsoft.Base.StiLicense.key = license;
+				}
+				else {
+					Stimulsoft.System.StiError.showError("[" + request.status + "] " + request.statusText, false);
+				}
+			};
+			request.onerror = function (e) {
+				var errorMessage = "Connect to remote error: [" + request.status + "] " + request.statusText;
+				Stimulsoft.System.StiError.showError(errorMessage, false);
+			};
+			request.send();
+		}
+		
 		function StiHelper(url, timeout) {
 			this.url = url;
 			this.timeout = timeout;
+			this.getLicense();
 		}
 		
-		jsHelper = new StiHelper("<?php echo $url; ?>", <?php echo $timeout; ?>);
+		jsHelper = new StiHelper("<?php echo $options->handler; ?>", <?php echo $options->timeout; ?>);
 </script>
 <?php
 	}

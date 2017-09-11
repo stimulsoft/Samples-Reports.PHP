@@ -2001,7 +2001,7 @@
     <SelectAllFromRight>انتخاب همه از راست</SelectAllFromRight>
     <SwitchToDerivedTable>سوییچ به جدول تحویلی</SwitchToDerivedTable>
     <Tables>جدول ها</Tables>
-    <UnexpectedTokenAt>علامت غیرمنتظره \"{0}\" در خط {1}, پست {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>علامت غیرمنتظره "{0}" در خط {1}, پست {2}!</UnexpectedTokenAt>
     <Unions>اتحادها</Unions>
     <UnionSubMenu>اتحاد</UnionSubMenu>
     <ViewQuery>درخواست از دید</ViewQuery>

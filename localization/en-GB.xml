@@ -863,7 +863,7 @@
     <ShowDescription>Show Description</ShowDescription>
     <SLPreview>Silverlight Preview</SLPreview>
     <title>Designer</title>
-    <WebPreview>Web Preview</WebPreview>
+    <WebPreview>Flash Preview</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Actions</Actions>
@@ -1679,7 +1679,7 @@
     <menuFileSaveAs>Save As...</menuFileSaveAs>
     <menuHelp>&amp;Help</menuHelp>
     <menuHelpAboutProgramm>&amp;About...</menuHelpAboutProgramm>
-    <menuHelpContents>&amp;Contents...</menuHelpContents>
+    <menuHelpContents>&amp;Contents</menuHelpContents>
     <menuHelpFAQPage>FAQ Page</menuHelpFAQPage>
     <menuHelpHowToRegister>How to Register</menuHelpHowToRegister>
     <menuHelpProductHomePage>Product Home Page</menuHelpProductHomePage>
@@ -1748,7 +1748,7 @@
     <ReportAbuse>Report Abuse:</ReportAbuse>
     <RetrievingInformation>Retrieving information...</RetrievingInformation>
     <Tags>Tags:</Tags>
-    <Title>Download Data Adapter</Title>
+    <Title>Data Adapter from NuGet</Title>
     <ViewLicense>View License</ViewLicense>
   </NuGet>
   <Panels>
@@ -3397,7 +3397,7 @@
     <SelectAllFromRight>Select All from Right</SelectAllFromRight>
     <SwitchToDerivedTable>Switch to Derived Table</SwitchToDerivedTable>
     <Tables>Tables</Tables>
-    <UnexpectedTokenAt>Unexpected token \"{0}\" at line {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Unexpected token "{0}" at line {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Unions</Unions>
     <UnionSubMenu>Union</UnionSubMenu>
     <ViewQuery>View Query</ViewQuery>

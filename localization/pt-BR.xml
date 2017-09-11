@@ -1754,7 +1754,7 @@ sucedida</ConnectionSuccessfull>
     <menuConvertToText>Converter para Texto</menuConvertToText>
     <menuDeleteColumn>Excluir Coluna</menuDeleteColumn>
     <menuDeleteRow>Excluir Linha</menuDeleteRow>
-    <menuEdit>&amp; Editar</menuEdit>
+    <menuEdit>&amp;Editar</menuEdit>
     <menuEditBusinessObjectFromDataSetNew>Novos Objeto de Negócios De DataSet...</menuEditBusinessObjectFromDataSetNew>
     <menuEditBusinessObjectNew>Objeto novo do negócio...</menuEditBusinessObjectNew>
     <menuEditCalcColumnNew>Nova Coluna Calculada...</menuEditCalcColumnNew>
@@ -3711,7 +3711,7 @@ Ele contém um link para confirmar seu registro. Para completar o registro por f
     <SelectAllFromRight>Selecionar todos da direita</SelectAllFromRight>
     <SwitchToDerivedTable>Mudar para Tabela derivada</SwitchToDerivedTable>
     <Tables>Tabelas</Tables>
-    <UnexpectedTokenAt>Símbolo inesperado \"{0}\" a linha {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Símbolo inesperado "{0}" a linha {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Uniões</Unions>
     <UnionSubMenu>União</UnionSubMenu>
     <ViewQuery>Visão Query</ViewQuery>
@@ -3844,6 +3844,8 @@ contexto do painel de propriedades.</qnConfiguration>
     <CheckIssuesAdditionalDescription>Verifique o relatório de erros e imprecisões encontrar nele.</CheckIssuesAdditionalDescription>
     <CheckIssuesDescription>Inspecionar documento</CheckIssuesDescription>
     <EncryptWithPassword>Criptografar com senha</EncryptWithPassword>
+    <EncryptWithPasswordAdditionalDescription>Definir a senha para impedir o trabalho não autorizado com o documento.</EncryptWithPasswordAdditionalDescription>
+    <EncryptWithPasswordDescription>Proteger documento</EncryptWithPasswordDescription>
     <Info>Informações</Info>
     <ReportOptions>Opções de relatório</ReportOptions>
     <ReportOptionsAdditionalDescription>Setup básicas de informações e parâmetros no relatório.</ReportOptionsAdditionalDescription>

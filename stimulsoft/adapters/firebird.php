@@ -11,6 +11,7 @@ class StiFirebirdAdapter {
 	}
 	
 	private function connect() {
+		if (!function_exists("ibase_connect")) return StiResult::error("Firebird driver not found. Please configure your PHP server to work with Firebird.");
 		$this->link = ibase_connect($this->connectionInfo->host."/".$this->connectionInfo->port.":".$this->connectionInfo->database, $this->connectionInfo->userId, $this->connectionInfo->password, $this->connectionInfo->charset);
 		if (!$this->link) return $this->getLastErrorResult();
 		return StiResult::success();

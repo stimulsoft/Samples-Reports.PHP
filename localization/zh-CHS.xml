@@ -3232,7 +3232,7 @@
     <SelectAllFromRight>右边所有数据</SelectAllFromRight>
     <SwitchToDerivedTable>切换到派生表</SwitchToDerivedTable>
     <Tables>表</Tables>
-    <UnexpectedTokenAt>未知错误 \"{0}\" 在行 {1}, 列 {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>未知错误 "{0}" 在行 {1}, 列 {2}!</UnexpectedTokenAt>
     <Unions>联合查询</Unions>
     <UnionSubMenu>联合查询</UnionSubMenu>
     <ViewQuery>视图查询</ViewQuery>

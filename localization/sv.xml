@@ -859,7 +859,7 @@
     <ShowDescription>Visa beskrivning</ShowDescription>
     <SLPreview>Silverlight förhandsgranska</SLPreview>
     <title>Designverktyg</title>
-    <WebPreview>Webb förhandsgranska</WebPreview>
+    <WebPreview>Flash förhandsgranska</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Händelser</Actions>
@@ -3350,7 +3350,7 @@
     <SelectAllFromRight>Ersätt alla från höger</SelectAllFromRight>
     <SwitchToDerivedTable>Byt till härledd tabell</SwitchToDerivedTable>
     <Tables>Tabeller</Tables>
-    <UnexpectedTokenAt>Oväntat tecken \"{0}\" på rad {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Oväntat tecken "{0}" på rad {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Unions</Unions>
     <UnionSubMenu>Un?on</UnionSubMenu>
     <ViewQuery>Visa fråga</ViewQuery>

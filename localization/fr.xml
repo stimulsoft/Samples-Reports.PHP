@@ -993,7 +993,7 @@
     <ShowDescription>Afficher les descriptions</ShowDescription>
     <SLPreview>Aperçu Silverlight</SLPreview>
     <title>Concepteur</title>
-    <WebPreview>Aperçu Web</WebPreview>
+    <WebPreview>Aperçu Flash</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Actions</Actions>
@@ -3708,7 +3708,7 @@ Il contient un lien pour confirmer votre enregistrement. Pour terminer votre enr
     <SelectAllFromRight>Selectionner tout à droite</SelectAllFromRight>
     <SwitchToDerivedTable>Basculer vers la sous-requêtes</SwitchToDerivedTable>
     <Tables>Tables</Tables>
-    <UnexpectedTokenAt>Mot clé invalide \"{0}\" à la ligne {1}, position {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Mot clé invalide "{0}" à la ligne {1}, position {2}!</UnexpectedTokenAt>
     <Unions>Unions</Unions>
     <UnionSubMenu>Union</UnionSubMenu>
     <ViewQuery>Voir la requête</ViewQuery>

@@ -357,8 +357,13 @@
     <ArrowHeight>Faktor für die Pfeilgröße.</ArrowHeight>
     <ArrowWidth>Faktor für die Pfeilbreite.</ArrowWidth>
   </StiArrowShapeType>
+  <StiAustraliaPost4StateBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiAustraliaPost4StateBarCodeType>
   <StiAxis>
     <ArrowStyle>Art des Achsenpfeils.</ArrowStyle>
+    <Interaction>Interaktion der Optionen dieser Komponente.</Interaction>
     <Labels>Einrichtung der Achsen Bezeichnungen.</Labels>
     <LineColor>Farbe zum Zeichnen der Achsenlinie.</LineColor>
     <LineStyle>Form der Achsenlinie.</LineStyle>
@@ -487,20 +492,36 @@
     <AllowUseTextBrush>Wert, der angibt, ob der Textpinsel verwendet werden soll.</AllowUseTextBrush>
     <AllowUseTextOptions>Wert, der angibt, ob die Textoptionen angewendet werden sollen.</AllowUseTextOptions>
     <AllowUseVertAlignment>Wert, der angibt, ob die vertikale Ausrichtung angewendet werden soll.</AllowUseVertAlignment>
+    <AxisLabelsColor>Die Farbe des Labels zeichnen.</AxisLabelsColor>
+    <AxisLineColor>Die Farbe der Linie, die für Zeichnen der Achse verwendet wird.</AxisLineColor>
+    <AxisTitleColor>Die Farbe, die für Zeichnen des Titels verwendet wird.</AxisTitleColor>
     <BackColor>Die Hintergrundfarbe, welche dieser Stil anwendet.</BackColor>
     <BasicStyleColor>Die Hauptfarbe, welche dieser Stil verwendet.</BasicStyleColor>
     <Border>Der Rahmen der Komponente.</Border>
     <Brush>Der Pinsel, welcher dieser Stil anwendet.</Brush>
     <BrushType>Der Pinseltyp, welcher dieser Stil anwendet.</BrushType>
+    <ChartAreaBorderColor>Die Randfarbe des Bereiches.</ChartAreaBorderColor>
+    <ChartAreaBrush>Der Pinsel für Füllung des Bereiches.</ChartAreaBrush>
     <CollectionName>Der Name der Stilesammlung.</CollectionName>
     <Color>Die Farbe, welche von diesem Stil verwendet wird.</Color>
     <Conditions>Die Bedingungen, die das Verhalten des Stils steuern.</Conditions>
     <Description>Die Beschreibung des Stils.</Description>
     <Font>Schriftart, welche dieser Stil anwendet.</Font>
     <ForeColor>Die Vordergrundfarbe, welche dieser Stil anwendet.</ForeColor>
+    <GridLinesHorColor>Die Farbe, die für Zeichnen der horizontalen Gitternetzlinien verwendet wird.</GridLinesHorColor>
+    <GridLinesVertColor>Die Farbe, die für Zeichnen der vertikalen Gitternetzlinien verwendet wird.</GridLinesVertColor>
     <HorAlignment>Die horizontale Ausrichtung des Stils.</HorAlignment>
     <Image>Das Bild, welches vom Stil der Bild-Eigenschaft der Komponente zugewiesen wird.</Image>
+    <InterlacingHorBrush>Der Pinsel, der für Zeichnen der horizontalen Verschränkungsbalken verwendet wird.</InterlacingHorBrush>
+    <InterlacingVertBrush>Der Pinsel, der für Zeichnen der vertikalen Verschränkungsbalken verwendet wird.</InterlacingVertBrush>
+    <LegendBorderColor>Die Randfarbe.</LegendBorderColor>
+    <LegendBrush>Der Hintergrund-Pinsel der Beschriftung.</LegendBrush>
+    <LegendLabelsColor>Die Label-Farbe.</LegendLabelsColor>
+    <LegendTitleColor>Titelfarbe der Beschriftung.</LegendTitleColor>
     <Name>Der Name des Stils.</Name>
+    <SeriesLabelsBorderColor>Die Randfarbe der Label-Serien.</SeriesLabelsBorderColor>
+    <SeriesLabelsBrush>Der Pinsel für Füllung des Bereiches von Label-Serien.</SeriesLabelsBrush>
+    <SeriesLabelsColor>Die Vordergrundfarbe der Label-Serien.</SeriesLabelsColor>
     <StyleColors>Eine Liste von Farben, welche der Stil für die Darstellung von Reihen in Diagrammen verwendet.</StyleColors>
     <TextBrush>Der Pinsel, mit welchem der Stil Text darstellt.</TextBrush>
     <VertAlignment>Die vertikale Ausrichtung des Stils.</VertAlignment>
@@ -632,6 +653,58 @@
   <StiClusteredColumnSeries>
     <Width>Breitenfaktor einer Balkenreihe. Der Wert entspricht 100%.</Width>
   </StiClusteredColumnSeries>
+  <StiCodabarBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiCodabarBarCodeType>
+  <StiCode11BarCodeType>
+    <Checksum>Liest oder setzt den Modus der Prüfsumme.</Checksum>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiCode11BarCodeType>
+  <StiCode128aBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiCode128aBarCodeType>
+  <StiCode128AutoBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiCode128AutoBarCodeType>
+  <StiCode128BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiCode128BarCodeType>
+  <StiCode128bBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiCode128bBarCodeType>
+  <StiCode128cBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiCode128cBarCodeType>
+  <StiCode39BarCodeType>
+    <CheckSum>Liest oder setzt den Modus der Prüfsumme.</CheckSum>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiCode39BarCodeType>
+  <StiCode39ExtBarCodeType>
+    <CheckSum>Liest oder setzt den Modus der Prüfsumme.</CheckSum>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiCode39ExtBarCodeType>
+  <StiCode93BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiCode93BarCodeType>
+  <StiCode93ExtBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiCode93ExtBarCodeType>
   <StiComboBoxControl>
     <DropDownStyle>Wert zur Spezifizierung der Art.</DropDownStyle>
     <DropDownWidth>Breite des angezeigten Dropdown-Bereichs.</DropDownWidth>
@@ -650,6 +723,7 @@
   <StiComponent>
     <AfterPrintEvent>Tritt auf nach der Ausgabe der Komponente.</AfterPrintEvent>
     <Alias>Ein Text wird an Stelle eines Komponenten-Namens angezeigt. Wenn der Text nicht angegeben wird, wird der Name angezeigt.</Alias>
+    <Anchor>Liest oder setzt den Wert, der den Modus der Verknüpfung der Komponentenposition zur übergeordneten Komponentengröße anzeigt.</Anchor>
     <BeforePrintEvent>Tritt auf vor der Ausgabe der Komponente.</BeforePrintEvent>
     <Bookmark>Ausdruck, um eine Bookmark-Komponente zu füllen.</Bookmark>
     <Border>Rahmen einer Komponente.</Border>
@@ -813,6 +887,13 @@
     <NameInSource>Originalname der Spalte in der Datenbank.</NameInSource>
     <Type>Art der Spaltendaten.</Type>
   </StiDataColumn>
+  <StiDataMatrixBarCodeType>
+    <EncodingType>Liest oder setzt den Typ des Verschlüsselungstyps.</EncodingType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <MatrixSize>Liest oder setzt die Matrix-Größe.</MatrixSize>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <UseRectangularSymbols>Liest oder setzt den Wert, der zeigt an, ob RectangularSymbols angezeigt werden wird.</UseRectangularSymbols>
+  </StiDataMatrixBarCodeType>
   <StiDataParameter>
     <Alias>Der Alias-Name des Datenparameters.</Alias>
     <Expression>Der Ausdruck, der den Wert der berechneten Spalte ermittelt.</Expression>
@@ -866,6 +947,10 @@
     <Expression>Ausdruck, um einen Drill-down Parameter zu füllen.</Expression>
     <Name>Name eines Drill-down Parameter.</Name>
   </StiDrillDownParameter>
+  <StiDutchKIXBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiDutchKIXBarCodeType>
   <StiDynamicBand>
     <BreakIfLessThan>Wert, der anzeigt, wieviel Leerraum auf einer Seite (in Prozent) für den Aufbau einer neuen Seite oder einer neuen Spalte zu reservieren ist. Dieser Wert ist zwischen 0 und 100 anzugeben. Wenn der Wert 100 beträgt, wird generell eine neue Seite oder eine neue Spalte aufgebaut. Diese Eigenschaft wird gemeinsam verwendet mit den Eigenschaften 'Vor der neuen Seite', 'Nach der neuen Seite', 'Vor der neuen Spalte', 'Nach der neuen Spalte'.</BreakIfLessThan>
     <NewColumnAfter>Wenn der Wert dieser Eigenschaft wahr ist, wird nach der Ausgabe des Bandes eine neue Spalte.</NewColumnAfter>
@@ -875,6 +960,36 @@
     <PrintAtBottom>Wert, der anzeigt; dass der Fuß am Ende der Seite ausgegeben wird.</PrintAtBottom>
     <SkipFirst>Wenn der Wert dieser Eigenschaft wahr ist, wird eine neue Seite/Spalte erzeugt auf Grund einer neuen Gruppenstufe.</SkipFirst>
   </StiDynamicBand>
+  <StiEAN128aBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiEAN128aBarCodeType>
+  <StiEAN128AutoBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiEAN128AutoBarCodeType>
+  <StiEAN128bBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiEAN128bBarCodeType>
+  <StiEAN128cBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiEAN128cBarCodeType>
+  <StiEAN13BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiEAN13BarCodeType>
+  <StiEAN8BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiEAN8BarCodeType>
   <StiEmptyBand>
     <BeginRenderEvent>Tritt zu Beginn der Band-Aufbereitung auf.</BeginRenderEvent>
     <EndRenderEvent>Tritt zum Ende der Band-Aufbereitung auf.</EndRenderEvent>
@@ -883,6 +998,11 @@
     <RenderingEvent>Tritt bei der Aufbereitung der Datenzeile auf.</RenderingEvent>
     <SizeMode>Diese Eigenschaft erlaubt die Angabe, wie der Umfang der letzten Zeile auf der Seite geändert werden kann.</SizeMode>
   </StiEmptyBand>
+  <StiFIMBarCodeType>
+    <AddClearZone>Liest oder setzt den Wert, der zeigt an, ob Clear Zone angezeigt werden wird.</AddClearZone>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiFIMBarCodeType>
   <StiFooterBand>
     <KeepFooterTogether>Wert, der anzeigt, dass der Fuß mit Daten ausgegeben wird.</KeepFooterTogether>
     <PrintIfEmpty>Wert der anzeigt, dass der Fuß auszugeben ist, wenn keine Daten verfügbar sind.</PrintIfEmpty>
@@ -1045,6 +1165,45 @@
     <InterlacedBrush>Pinsel zur Darstellung der Interlacing-Bar.</InterlacedBrush>
     <Visible>Sichtbarkeit der Interlacing-Bar.</Visible>
   </StiInterlacing>
+  <StiInterleaved2of5BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiInterleaved2of5BarCodeType>
+  <StiIsbn10BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiIsbn10BarCodeType>
+  <StiIsbn13BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiIsbn13BarCodeType>
+  <StiITF14BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <PrintVerticalBars>Liest oder setzt den Wert, der zeigt an, ob die vertikalen Sektionen gedruckt werden wird.</PrintVerticalBars>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiITF14BarCodeType>
+  <StiJan13BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiJan13BarCodeType>
+  <StiJan8BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiJan8BarCodeType>
   <StiLabelControl>
     <Text>Text verbunden mit dem Steuerelement.</Text>
     <TextAlign>Textausrichtung im Bezeichnungsfeld.</TextAlign>
@@ -1109,6 +1268,12 @@
     <Type>Art der Markierung.</Type>
     <Visible>Sichtbarkeit der Markierung.</Visible>
   </StiMarker>
+  <StiMsiBarCodeType>
+    <CheckSum1>Liest oder setzt den Modus der Prüfsumme1.</CheckSum1>
+    <CheckSum2>Liest oder setzt den Modus der Prüfsumme2.</CheckSum2>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiMsiBarCodeType>
   <StiNumericUpDownControl>
     <Increment>Wert zur Erhöhung oder Verminderung des up-down Steuerelements wenn die up-down Schaltfläche angeklickt wird.</Increment>
     <Maximum>Maximal erlaubter Wert für das up-down Steuerelement.</Maximum>
@@ -1132,6 +1297,7 @@
     <LargeHeight>Wert, der die Überlänge im Designer anzeigt.</LargeHeight>
     <LargeHeightFactor>Überlängenfaktor für die Eigenschaft 'Überlänge' dieser Seite.</LargeHeightFactor>
     <Margins>Seitenbegrenzung.</Margins>
+    <MirrorMargins>Ein Wert, der die Ränder der Seite spiegelt wider, abhängig davon, ob die Seite gerade oder ungerade ist.</MirrorMargins>
     <NumberOfCopies>Anzahl der Kopien je Seite.</NumberOfCopies>
     <Orientation>Seitenausrichtigung.</Orientation>
     <PageHeight>Maximale Höhe einer Seite.</PageHeight>
@@ -1162,6 +1328,22 @@
   <StiPanelControl>
     <BorderStyle>Zeigt die Rahmenart des Steuerelementes an.</BorderStyle>
   </StiPanelControl>
+  <StiPdf417BarCodeType>
+    <AspectRatio>Liest oder setzt den Wert, der das Seitenverhältnis zwischen horizontale und vertikale Seiten des Barcodes setzt.</AspectRatio>
+    <AutoDataColumns>Liest oder setzt den Wert, der zeigt an, dass die Anzahl der Spalten automatisch berechnet wird.</AutoDataColumns>
+    <AutoDataRows>Liest oder setzt den Wert, der zeigt an, dass die Anzahl der Zeilen automatisch berechnet wird.</AutoDataRows>
+    <DataColumns>Liest oder setzt die Anzahl der Datenspalten.</DataColumns>
+    <DataRows>Liest oder setzt die Anzahl der Datenzeilen.</DataRows>
+    <EncodingMode>Liest oder setzt den Typ des Verschlüsselungstyps.</EncodingMode>
+    <ErrorsCorrectionLevel>Liest oder setzt die Fehlerkorrektur-Stufe. Die höher Stufe ist mehr Information, die in den Barcode für die Wiederherstellung hinzugefügt ist.</ErrorsCorrectionLevel>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <RatioY>Liest oder setzt vertikales Verhältnis des Barcodes. Der Wert muss zwischen 2 und 5 sein.</RatioY>
+  </StiPdf417BarCodeType>
+  <StiPharmacodeBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiPharmacodeBarCodeType>
   <StiPictureBoxControl>
     <BorderStyle>Zeigt die Rahmenart des Steuerelementes an.</BorderStyle>
     <Image>Ein Bild, das die PictureBox anzeigt.</Image>
@@ -1177,6 +1359,17 @@
     <GetCutPieListEvent>Erscheint beim Erhalt der Tortenstückliste.</GetCutPieListEvent>
     <StartAngle>Drehungswinkel von Reihen.</StartAngle>
   </StiPieSeries>
+  <StiPlesseyBarCodeType>
+    <CheckSum1>Liest oder setzt den Modus der Prüfsumme1.</CheckSum1>
+    <CheckSum2>Liest oder setzt den Modus der Prüfsumme2.</CheckSum2>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiPlesseyBarCodeType>
+  <StiPostnetBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Space>Liest oder setzt den Raum zwischen Elementen des Barcodes.</Space>
+  </StiPostnetBarCodeType>
   <StiPrinterSettings>
     <Collate>Wert, der anzeigt, ob der Sortierungsmodus für die Ausgabe benutzt wird.</Collate>
     <Copies>Anzahl der Kopien für die Ausführung des Reports.</Copies>
@@ -1184,6 +1377,12 @@
     <PrinterName>Name der Ausgabeeinheit, der für den Bericht benutzt wird.</PrinterName>
     <ShowDialog>Wert, der angibt, ob der Ausgabedialog angezeigt wird.</ShowDialog>
   </StiPrinterSettings>
+  <StiQRCodeBarCodeType>
+    <ErrorCorrectionLevel>Liest oder setzt die Fehlerkorrektur-Stufe.</ErrorCorrectionLevel>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <MatrixSize>Liest oder setzt die Matrix-Größe.</MatrixSize>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiQRCodeBarCodeType>
   <StiRadarAxis>
     <Visible>Sichtbarkeit der Achsen.</Visible>
   </StiRadarAxis>
@@ -1217,6 +1416,7 @@
     <AutoLocalizeReportOnRun>Eigenschaft, die es erlaubt, Reports beim Start automatisch zu lokalisieren.</AutoLocalizeReportOnRun>
     <BeginRenderEvent>Tritt auf, wenn die Reportausführung startet.</BeginRenderEvent>
     <CacheAllData>Wert, der anzeigt, ob es notwendig ist, die gesamten Daten für einen Report in einem Dataset zwischenzuspeichen.</CacheAllData>
+    <CacheTotals>Die Eigenschaft enthält Caching der Summen des Berichtes, die mit dem Summen-Präfix verwendet werden. Diese Eigenschaft beschleunigt das Bericht-Rendering bei der Verwendung verschiedene Summen mit gleichen Eingangsparametern auf einem Band.</CacheTotals>
     <CalculationMode>Wert, der angibt, welche Methode für das Berechnen von Ausdrücken beim Rendern verwendet wird.</CalculationMode>
     <Collate>Wert für die Seitensortierung. Der Wert darf nicht kleiner sein als 1.</Collate>
     <ConvertNulls>Wert, der anzeigt, ob es notwendig, Null oder DBNull zu konvertieren.</ConvertNulls>
@@ -1290,6 +1490,11 @@
   <StiRoundedRectangleShapeType>
     <Round>Faktor für die Abrundung.</Round>
   </StiRoundedRectangleShapeType>
+  <StiRoyalMail4StateBarCodeType>
+    <CheckSum>Liest oder setzt den Modus der Prüfsumme.</CheckSum>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+  </StiRoyalMail4StateBarCodeType>
   <StiSeries>
     <AllowApplyBrushNegative>Wert, der angibt, ob der Pinsel für negative Werte verwendet werden soll.</AllowApplyBrushNegative>
     <AllowApplyColorNegative>Wert, der angibt, ob die Farbe für negative Werte verwendet werden soll.</AllowApplyColorNegative>
@@ -1429,6 +1634,18 @@
   <StiSolidBrush>
     <Color>Farbe des Füllpinsels.</Color>
   </StiSolidBrush>
+  <StiSSCC18BarCodeType>
+    <CompanyPrefix>Liest oder setzt das GS1-Company-Präfix (7-10 Ziffern).</CompanyPrefix>
+    <ExtensionDigit>Liest oder setzt die Erweiterungsziffern.</ExtensionDigit>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes..</Module>
+    <SerialNumber>Liest oder setzt die Serien- und Referenznummer (6-9 Ziffern).</SerialNumber>
+  </StiSSCC18BarCodeType>
+  <StiStandard2of5BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
+  </StiStandard2of5BarCodeType>
   <StiStrips>
     <Antialiasing>Wert, der die Glättung des Darstellungsmodus steuert.</Antialiasing>
     <Font>Zeichensatz für den Titeltext.</Font>
@@ -1529,6 +1746,29 @@
     <LineWidth>Die Breite der Trendlinie.</LineWidth>
     <ShowShadow>Ein Wert gibt an, ob der Schatten angezeigt wird.</ShowShadow>
   </StiTrendLine>
+  <StiUpcABarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiUpcABarCodeType>
+  <StiUpcEBarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <SupplementCode>Liest oder setzt die Komponente der Barcode-Ergänzung.</SupplementCode>
+    <SupplementType>Liest oder setzt den Typ der Code-Ergänzung.</SupplementType>
+  </StiUpcEBarCodeType>
+  <StiUpcSup2BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+  </StiUpcSup2BarCodeType>
+  <StiUpcSup5BarCodeType>
+    <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
+    <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
+    <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
+  </StiUpcSup5BarCodeType>
   <StiVariable>
     <Alias>Der Alias-Name der Variable.</Alias>
     <Category>Die Kategorie, zu welcher die Variable gehört.</Category>

@@ -3410,7 +3410,7 @@
     <SelectAllFromRight>Selecionar todos da direita</SelectAllFromRight>
     <SwitchToDerivedTable>Mudar para tabela derivada</SwitchToDerivedTable>
     <Tables>Tabelas</Tables>
-    <UnexpectedTokenAt>Símbolo inesperado \"{0}\" a linha {1}, pos {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Símbolo inesperado "{0}" a linha {1}, pos {2}!</UnexpectedTokenAt>
     <Unions>Uniões</Unions>
     <UnionSubMenu>União</UnionSubMenu>
     <ViewQuery>Ver query</ViewQuery>

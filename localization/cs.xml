@@ -793,7 +793,7 @@
     <ShowDescription>Zobrazit popis</ShowDescription>
     <SLPreview>Silverlight náhled</SLPreview>
     <title>Návrhář</title>
-    <WebPreview>Webový náhled</WebPreview>
+    <WebPreview>Flash náhled</WebPreview>
   </FormDesigner>
   <FormDictionaryDesigner>
     <Actions>Akce</Actions>
@@ -3087,7 +3087,7 @@
     <SelectAllFromRight>Vybrat vše z prava</SelectAllFromRight>
     <SwitchToDerivedTable>Přepnout na odvozenou tabulku</SwitchToDerivedTable>
     <Tables>Tabulky</Tables>
-    <UnexpectedTokenAt>Neočekávaný příznak \"{0}\" v řádku {1}, pozice {2}!</UnexpectedTokenAt>
+    <UnexpectedTokenAt>Neočekávaný příznak "{0}" v řádku {1}, pozice {2}!</UnexpectedTokenAt>
     <Unions>Sjednocení</Unions>
     <UnionSubMenu>Sjednocení</UnionSubMenu>
     <ViewQuery>Zobrazit dotaz</ViewQuery>

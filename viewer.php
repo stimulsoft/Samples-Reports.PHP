@@ -15,7 +15,12 @@ require_once 'stimulsoft/helper.php';
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 	
-	<?php StiHelper::initialize(); ?>
+	<?php 
+		$options = StiHelper::createOptions();
+		$options->handler = "handler.php";
+		$options->timeout = 30;
+		StiHelper::initialize($options);
+	?>
 	<script type="text/javascript">
 		var options = new Stimulsoft.Viewer.StiViewerOptions();
 		options.appearance.fullScreenMode = true;
