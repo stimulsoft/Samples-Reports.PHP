@@ -2944,6 +2944,7 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <ZigZag>ZickZag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
+    <DataUrl>Daten-URL</DataUrl>
     <AcceptsReturn>Returns akzeptieren</AcceptsReturn>
     <AcceptsTab>Tabs akzeptieren</AcceptsTab>
     <AddClearZone>Leeres Bereich hinzufügen</AddClearZone>

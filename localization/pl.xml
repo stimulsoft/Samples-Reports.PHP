@@ -111,6 +111,7 @@
     <Ok>&amp;OK</Ok>
     <Open>Otwórz</Open>
     <Print>Drukuj</Print>
+    <Publish>publikować</Publish>
     <QuickPrint>Szybki wydruk</QuickPrint>
     <Remove>Usuń</Remove>
     <RemoveAll>Usuń wszystko</RemoveAll>
@@ -317,11 +318,13 @@
   </ChartRibbon>
   <Cloud>
     <AccountSettings>Ustawienia konta</AccountSettings>
+    <AddAPlace>dodaj miejsce</AddAPlace>
     <ButtonChangePassword>Zmień hasło</ButtonChangePassword>
     <ButtonDeleteAll>Usuń wszystko</ButtonDeleteAll>
     <ButtonDesign>Projektuj</ButtonDesign>
     <ButtonLogout>Wyloguj</ButtonLogout>
     <ButtonPublish>Publikuj</ButtonPublish>
+    <ButtonPurchase>przycisk</ButtonPurchase>
     <ButtonRecover>Odzyskaj</ButtonRecover>
     <ButtonRenew>Odnów</ButtonRenew>
     <ButtonResendEmail>Wyślij ponownie e-mail</ButtonResendEmail>
@@ -344,6 +347,7 @@
     <DashboardWindowTitleNew>New Dashboard</DashboardWindowTitleNew>
     <DeleteFile>Usuń plik</DeleteFile>
     <ExecutionError>Execution error</ExecutionError>
+    <ExpiredDate>data wygaśnięcia</ExpiredDate>
     <FileStorageWindowTitleEdit>Edit File Storage</FileStorageWindowTitleEdit>
     <FileStorageWindowTitleNew>New File Storage</FileStorageWindowTitleNew>
     <FolderWindowTitleEdit>Edit Folder</FolderWindowTitleEdit>
@@ -373,11 +377,14 @@
     <LabelNextTime>Next Time:</LabelNextTime>
     <labelPassword>Hasło:</labelPassword>
     <LabelPermission>Permission:</LabelPermission>
+    <LabelPicture>obraz:</LabelPicture>
     <LabelRenderedReport>Rendered report</LabelRenderedReport>
     <LabelResponseAsFile>Response as File</LabelResponseAsFile>
     <LabelSeparateReport>Separate report (and scripts) file</LabelSeparateReport>
     <LabelShowReport>Show report:</LabelShowReport>
     <labelUserName>Nazwa użytkownika:</labelUserName>
+    <License>Licencja</License>
+    <LicenseInformation>Informacjce o licencji</LicenseInformation>
     <Login>Login</Login>
     <NofM>{0}: {1} of {2}</NofM>
     <Open>Otwórz</Open>
@@ -390,12 +397,15 @@
     <OperationRename>Zmień nazwę z '{0}' na '{1}'</OperationRename>
     <OperationUpload>Załaduj '{0}' na serwer</OperationUpload>
     <page>strona</page>
+    <Platforms>Platforma</Platforms>
+    <Products>Produkty</Products>
     <questionOpenThisFile>Czy na pewno chcesz otworzyć element '{0}'?</questionOpenThisFile>
     <questionOverrideItem>Czy na pewno chcesz nadpisać element '{0}'?</questionOverrideItem>
     <questionRemoveItem>Czy na pewno chcesz usunąć element '{0}'?</questionRemoveItem>
     <RefreshList>Odśwież listę</RefreshList>
     <ReportDocumentFormatNotRecognized>Format elementu '{0}' nie rozpoznano jako format wyrenderowanego raportu!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Format elementu '{0}' nie rozpoznano jako format szablonu raportu!</ReportTemplateFormatNotRecognized>
+    <RequestChangesWhenSavingToCloud>zażadaj zamin podczas zapisywania w chmurze</RequestChangesWhenSavingToCloud>
     <RibbonButtonAddRole>Add Role</RibbonButtonAddRole>
     <RibbonButtonAddUser>Add User</RibbonButtonAddUser>
     <RibbonButtonAddWorkspace>Add Workspace</RibbonButtonAddWorkspace>
@@ -408,18 +418,22 @@
     <SaveFile>Zapisz plik</SaveFile>
     <ShareWindowTitleNew>Share</ShareWindowTitleNew>
     <ShowAllFiles>Pokaż wszystkie pliki</ShowAllFiles>
+    <Subscriptions>subskrybcje</Subscriptions>
     <TabItemEmbedCode>Embed Code</TabItemEmbedCode>
     <TabItemQRCode>QR Code</TabItemQRCode>
     <TabItemShare>Link to Share</TabItemShare>
     <TextActivated>Activated</TextActivated>
+    <TextActivationDate>data aktywacji</TextActivationDate>
     <TextDelete>Delete</TextDelete>
     <TextDeletingItems>Deleting items...</TextDeletingItems>
+    <TextDescriptionChanges>proszę wpisać opis zmian:</TextDescriptionChanges>
     <TextFirstName>First Name</TextFirstName>
     <TextFromTo>From {0} to {1} (Total - {2})</TextFromTo>
     <TextItemsWorkspace>Workspace</TextItemsWorkspace>
     <TextLastName>Last Name</TextLastName>
     <TextModify>Modify</TextModify>
     <TextNoNotifications>No Notifications</TextNoNotifications>
+    <TextOwner>autor</TextOwner>
     <TextProfile>Profile</TextProfile>
     <TextReports>Reports</TextReports>
     <TextRestoringItems>Restoring items...</TextRestoringItems>
@@ -462,6 +476,7 @@
     <ToolTipThumbnailMode>Thumbnail View</ToolTipThumbnailMode>
     <ToolTipViewFile>Show the selected file.</ToolTipViewFile>
     <ToolTipViewReport>Show the selected report in the viewer.</ToolTipViewReport>
+    <WeDidntFindAnything>Nic nie znaleźliśmy, żeby tu pokazać.</WeDidntFindAnything>
     <WindowDescriptionDelete>Are you sure you want to delete the selected items?</WindowDescriptionDelete>
     <WindowDescriptionRecover>Selected items will be recovered from the Recycle Bin.</WindowDescriptionRecover>
     <WindowTitleDelete>Delete Items</WindowTitleDelete>
@@ -510,6 +525,7 @@
     <StiCrossSummaryHeader>Krzyżowanie: Nagłówek podsumowania</StiCrossSummaryHeader>
     <StiCrossTab>Krzyżowanie: Tabela</StiCrossTab>
     <StiCrossTitle>Cross-Title</StiCrossTitle>
+    <StiDashboard>Dashboard</StiDashboard>
     <StiDataBand>Grupa danych</StiDataBand>
     <StiEmptyBand>Pusta grupa</StiEmptyBand>
     <StiFooterBand>Stopka</StiFooterBand>
@@ -542,6 +558,22 @@
     <StiWinControl>Kontrolka Windows</StiWinControl>
     <StiZipCode>Kod pocztowy</StiZipCode>
   </Components>
+  <Dashboard>
+    <ChangeChartType>zmień typ wykresu</ChangeChartType>
+    <ChangeMapType>zmień typ mapy</ChangeMapType>
+    <ClearFilterFrom>wyczyśc filtr z '{0}'</ClearFilterFrom>
+    <DataNotDefined>niezdefiniowana data</DataNotDefined>
+    <Dimension>wymiar</Dimension>
+    <Dimensions>wymiary</Dimensions>
+    <DragDropDataFromDictionary>przeciagnij dane ze słownika</DragDropDataFromDictionary>
+    <EmptyDashboardFooter>przeciagnij składniki z "Narzędzi" lub dane ze słownika</EmptyDashboardFooter>
+    <EmptyDashboardHeader>Dashboard jest pusty</EmptyDashboardHeader>
+    <ImageNotSpecified>obraz nie jest określony</ImageNotSpecified>
+    <Measure>miernik</Measure>
+    <Measures>mierniki</Measures>
+    <NumberFilters>filtry liczbowe</NumberFilters>
+    <StringFilters>filtry ciągu</StringFilters>
+  </Dashboard>
   <Database>
     <Connection>Połączenia</Connection>
     <Database>Połączenie {0}</Database>
@@ -816,12 +848,14 @@
     <Zoom>Powiększenie:</Zoom>
   </Export>
   <FileFilters>
+    <AllFiles>Wszystkie pliki</AllFiles>
     <AllImageFiles>Wszystkie pliki graficzne</AllImageFiles>
     <BitmapFiles>Pliki map bitowych</BitmapFiles>
     <BmpFiles>Obraz BMP (*.bmp)|*.bmp</BmpFiles>
     <BusinessIntelligence>Business Intelligence (*.sbi)|*.sbi</BusinessIntelligence>
     <CalcFiles>Pliki Calc OpenDocument (*.ods)|*.ods</CalcFiles>
     <CsvFiles>Pliki CSV (*.csv)|*.csv</CsvFiles>
+    <DashboardTemplates>Dashboard szablony (*.sbi)|*.sbi</DashboardTemplates>
     <DataSetXmlData>Dane bazy danych XML (*.xml)|*.xml</DataSetXmlData>
     <DataSetXmlSchema>Schemat bazy danych XML (*.xsd)|*.xsd</DataSetXmlSchema>
     <DbfFiles>Pliki DBF (*.dbf)|*.dbf</DbfFiles>
@@ -958,6 +992,7 @@
   </FormCrossTabDesigner>
   <FormDatabaseEdit>
     <ConnectionString>Połączenie:</ConnectionString>
+    <DashboardConnections>Dashboard Connections</DashboardConnections>
     <DB2Edit>Edytuj połączenie z bazą IBM DB2</DB2Edit>
     <DB2New>Nowe połączenie z bazą IBM DB2</DB2New>
     <EditConnection>Edytuj połączenie {0}</EditConnection>
@@ -1017,6 +1052,7 @@
     <CompilingReport>Kompilowanie raportu</CompilingReport>
     <DockingPanels>Panele</DockingPanels>
     <HtmlPreview>Podgląd HTML</HtmlPreview>
+    <JsPreview>JS zapowiedź</JsPreview>
     <labelPleaseSelectTypeOfInterface>Proszę wybrać typ interfejsu</labelPleaseSelectTypeOfInterface>
     <LoadImage>Ładowanie obrazu...</LoadImage>
     <LocalizePropertyGrid>Lokalizacja Localize siatki właściwości</LocalizePropertyGrid>
@@ -1045,8 +1081,11 @@
     <CategoryNew>Nowa kategoria</CategoryNew>
     <ChildOfBusinessObject>Dziecko obiektu biznesowego</ChildOfBusinessObject>
     <ChildSource>Potomne źródło danych:</ChildSource>
+    <ClickHere>kliknij tutaj</ClickHere>
     <ColumnEdit>Edytuj kolumnę</ColumnEdit>
     <ColumnNew>Nowa kolumna</ColumnNew>
+    <CreateNewDataSource>utwórz nowe żródło danych</CreateNewDataSource>
+    <CreateNewReport>utwórz nowy raport</CreateNewReport>
     <CsvSeparatorComma>Comma</CsvSeparatorComma>
     <CsvSeparatorOther>Other</CsvSeparatorOther>
     <CsvSeparatorSemicolon>Semicolon</CsvSeparatorSemicolon>
@@ -1067,6 +1106,8 @@
     <DictionaryNew>Nowy słownik...</DictionaryNew>
     <DictionaryOpen>Otwórz słownik...</DictionaryOpen>
     <DictionarySaveAs>Zapisz słownik jako...</DictionarySaveAs>
+    <DragNewDataSource>przeciągnij dane bezpośrednio do tego panelu</DragNewDataSource>
+    <DragNewReport>przeciągnij dane bezpośrednio do tego panelu</DragNewReport>
     <EditQuery>Edytuj zapytanie</EditQuery>
     <ExecutedSQLStatementSuccessfully>Zapytanie SQL zakończone powodzeniem</ExecutedSQLStatementSuccessfully>
     <ExpressionNew>Nowe wyrażenie</ExpressionNew>
@@ -1539,6 +1580,7 @@
     <StiHierarchicalBand>Ten komponent jest połączony ze źródłem danych i wyświetlany tyle razy ile jest wierszy w źródle. Dane są wyświetlane w formie drzewa.</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>Ten komponent służy do wyświetlania linii.</StiHorizontalLinePrimitive>
     <StiImage>Ten komponent służy do wyświetlania obrazów. Obsługuje następujące formaty: BMP, JPG, JPEG, GIF, TIFF, PNG, ICO, WMF, EMF.</StiImage>
+    <StiMap>ten komponent służy do wyświetlania danych geograficznych.</StiMap>
     <StiOverlayBand>Ten komponent służy do wyświetlania znaków wodnych na stronie.</StiOverlayBand>
     <StiPageFooterBand>Ten komponent służy do wyświetlania informacji na dole każdej strony. Ten element jest używany do wyświetlania numerów stron, dat oraz innych dodatkowych informacji.</StiPageFooterBand>
     <StiPageHeaderBand>Ten komponent służy do wyświetlania nagłówka na każdej stronie. Ten element jest używany do wyświetlania numerów stron, dat oraz innych dodatkowych informacji.</StiPageHeaderBand>
@@ -1809,6 +1851,12 @@
     <ZoomTwoPages>Zbliż raport tak, by dwie strony mieściły się w oknie.</ZoomTwoPages>
     <ZoomTxt> Rozmiar raportu (skala): X – zmiana skali poziomej, Y – zmiana skali pionowej </ZoomTxt>
   </HelpViewer>
+  <Interface>
+    <Mouse>myszka</Mouse>
+    <MouseDescription>zoptymalizowany do użycia z myszą</MouseDescription>
+    <Touch>Touch</Touch>
+    <TouchDescription>zoptymalizowany pod kątem dotyku</TouchDescription>
+  </Interface>
   <MainMenu>
     <menuCheckIssues>Wyszukaj problemy</menuCheckIssues>
     <menuContextClone>Klonuj...</menuContextClone>
@@ -1852,6 +1900,8 @@
     <menuEditViewData>Widok danych...</menuEditViewData>
     <menuFile>&amp;Plik</menuFile>
     <menuFileClose>&amp;Zamknij</menuFileClose>
+    <menuFileDashboardOpen>&amp;otwórz Dashboard...</menuFileDashboardOpen>
+    <menuFileDashboardSaveAs>Save Dashboard &amp;As...</menuFileDashboardSaveAs>
     <menuFileExit>Za&amp;mknij</menuFileExit>
     <menuFileExportXMLSchema>Eksportuj schemat XML...</menuFileExportXMLSchema>
     <menuFileFormNew>Nowy fromularz</menuFileFormNew>
@@ -1916,8 +1966,10 @@
     <menuViewQuickInfoShowFieldsOnly>Pokaż tylko pola</menuViewQuickInfoShowFieldsOnly>
     <menuViewShowGrid>Pokaż siatkę</menuViewShowGrid>
     <menuViewShowHeaders>Pokaż nagłówki</menuViewShowHeaders>
+    <menuViewShowInsertTab>Show 'Insert' Tab</menuViewShowInsertTab>
     <menuViewShowOrder>Pokaż kolejność</menuViewShowOrder>
     <menuViewShowRulers>Pokaż linijkę</menuViewShowRulers>
+    <menuViewShowToolbox>pokarz przybornik</menuViewShowToolbox>
     <menuViewToolbars>Paski narzędzi</menuViewToolbars>
   </MainMenu>
   <Map>
@@ -1940,6 +1992,7 @@ It contains a link to confirm your registration. To complete the registration pl
   </Messages>
   <Notices>
     <AccessDenied>Access Denied!</AccessDenied>
+    <AccountLocked>Twoje konto jest zablokowane. Aby rozwiązać problem, wyśluj zapytanie na sales@stimulsoft.com</AccountLocked>
     <ActivationExpiriedBeforeFirstRelease>Your Subscription of Stimulsoft Reports.Ultimate expired earlier than the first version of our Stimulsoft Reports.Server was released!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>License file is not correct! Please contact our sales department at sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Your account is locked. Please contact our sales department at sales@stimulsoft.com!</ActivationLockedAccount>
@@ -1977,9 +2030,11 @@ It contains a link to confirm your registration. To complete the registration pl
     <AuthUserNameShouldLookLikeAnEmailAddress>The username should be similar to the Email address!</AuthUserNameShouldLookLikeAnEmailAddress>
     <AuthWorkspaceNameAlreadyInUse>The workspace name is already in use!</AuthWorkspaceNameAlreadyInUse>
     <CommandTimeOut>Waiting time of processing the command is elapsed!</CommandTimeOut>
+    <Congratulations>Gratulacje!</Congratulations>
     <EndDateShouldBeGreaterThanCurrentDate>The end date should be greater than the current date!</EndDateShouldBeGreaterThanCurrentDate>
     <EndDateShouldBeGreaterThanStartDate>The end date should be greater than start date!</EndDateShouldBeGreaterThanStartDate>
     <ExecutionError>Execution error</ExecutionError>
+    <IsIdentical>"{0}" and "{1}"są identyczne"</IsIdentical>
     <IsNotAuthorized>No access to "{0}"!</IsNotAuthorized>
     <IsNotCorrect>"{0}" is incorrect!</IsNotCorrect>
     <IsNotDeleted>"{0}" is not deleted!</IsNotDeleted>
@@ -1993,6 +2048,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <ItemCantBeMovedToSpecifiedPlace>The item cannot be moved to a specified place!</ItemCantBeMovedToSpecifiedPlace>
     <ItemDoesNotSupport>The item does not support "{0}"!</ItemDoesNotSupport>
     <KeyAndToKeyAreEqual>A Key and ToKey are equal!</KeyAndToKeyAreEqual>
+    <NewProduct>nowy produkt jest dodany do Twojej subskrybcji!</NewProduct>
     <NotificationFailed>Failed result!</NotificationFailed>
     <NotificationFilesUploadingComplete>The files uploaded successfully.</NotificationFilesUploadingComplete>
     <NotificationFileUploading>The file "{0}" is uploading.</NotificationFileUploading>
@@ -2031,6 +2087,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <OutOfRange>Out of range ("{0}")!</OutOfRange>
     <ParsingCommandException>An exception of processing the command in the specified xml: {0}</ParsingCommandException>
     <QuotaMaximumComputingCyclesCountExceeded>Maximum computing cycles count exceeded.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumDataRowsCountExceeded>maksymalna liczbawierszy danych przekroczyła jedno źródło danych.</QuotaMaximumDataRowsCountExceeded>
     <QuotaMaximumFileSizeExceeded>Maximum file size exceeded.</QuotaMaximumFileSizeExceeded>
     <QuotaMaximumReportPagesCountExceeded>Maximum report pages count exceeded.</QuotaMaximumReportPagesCountExceeded>
     <QuotaMaximumResourcesCountExceeded>Maximum resources count exceeded.</QuotaMaximumResourcesCountExceeded>
@@ -2040,6 +2097,11 @@ It contains a link to confirm your registration. To complete the registration pl
     <SessionTimeOut>Session timeout</SessionTimeOut>
     <SnapshotAlreadyProcessed>The report snapshot is already processed!</SnapshotAlreadyProcessed>
     <SpecifiedItemIsNot>The specified item is not "{0}"!</SpecifiedItemIsNot>
+    <SubscriptionExpired>subskrypcja wygasła!</SubscriptionExpired>
+    <SubscriptionsOut10>zostało 10 dni do wygaśnięcia subskrypcji!</SubscriptionsOut10>
+    <SubscriptionsOut20>okres subskrypcji wygaśnie w ciągu 20 dni!</SubscriptionsOut20>
+    <SuccessfullyRenewed>subskrypcja została pomyślnie zaktualizowana!</SuccessfullyRenewed>
+    <TrialToLicense>Dziękujemy za wybranie Stimulsoft!</TrialToLicense>
     <VersionCopyFromItem>Copy from item "{0}".</VersionCopyFromItem>
     <VersionCreatedFromFile>Created from file "{0}".</VersionCreatedFromFile>
     <VersionCreatedFromItem>Created from item "{0}".</VersionCreatedFromItem>
@@ -2048,6 +2110,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <WindowClosePreventWhileUploading>Some files are uploading now, if you close page they will lost. Are you sure you want to close page?</WindowClosePreventWhileUploading>
     <WithSpecifiedKeyIsNotFound>"{0}" with the specified key is not found!</WithSpecifiedKeyIsNotFound>
     <YourTimeSessionHasExpired>Your time session has expired!</YourTimeSessionHasExpired>
+    <YouUsingTrialVersion>używasz wersji próbnej!</YouUsingTrialVersion>
   </Notices>
   <NuGet>
     <AlreadyDownloaded>Already Downloaded</AlreadyDownloaded>
@@ -2057,6 +2120,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <Dependencies>Dependencies:</Dependencies>
     <Download>Download</Download>
     <DownloadAll>Download All</DownloadAll>
+    <DownloadAndInstall>ściagnij i zainstaluj</DownloadAndInstall>
     <Downloads>Downloads:</Downloads>
     <IAccept>I Accept</IAccept>
     <IDecline>I Decline</IDecline>
@@ -2179,6 +2243,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <PrimitiveCategory>Prymityw</PrimitiveCategory>
     <PrintEventsCategory>Zdarzenia drukowania</PrintEventsCategory>
     <RenderEventsCategory>Zdarzenia renderingu</RenderEventsCategory>
+    <SeriesCategory>seria</SeriesCategory>
     <SeriesLabelsCategory>Series Labels</SeriesLabelsCategory>
     <ShapeCategory>Kształt</ShapeCategory>
     <Size>Size</Size>
@@ -2947,6 +3012,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <Area>Obszar</Area>
     <Argument>Argument</Argument>
     <ArgumentDataColumn>Kolumna argumentów</ArgumentDataColumn>
+    <Arguments>Argumenty</Arguments>
     <ArrowHeight>Wysokość strzełki</ArrowHeight>
     <ArrowStyle>Styl strzałki</ArrowStyle>
     <ArrowWidth>Szerokość strzałki</ArrowWidth>
@@ -3048,6 +3114,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <Columns>Kolumny</Columns>
     <ColumnWidth>Szerokość kolumny</ColumnWidth>
     <CommandTimeout>Limit czasu odpowiedzi komendy</CommandTimeout>
+    <CompanyPrefix>prefix firmy</CompanyPrefix>
     <ComponentStyle>Styl komponentu</ComponentStyle>
     <Condition>Warunek</Condition>
     <ConditionOptions>Opcje warunku</ConditionOptions>
@@ -3083,6 +3150,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <DataSources>Źródła danych</DataSources>
     <DataTextField>Pole danych tekstowych</DataTextField>
     <DataType>Typ danych</DataType>
+    <DataUrl>Data URL</DataUrl>
     <DateInfo>Informacje o danych</DateInfo>
     <DateTimeStep>Data godzina krok</DateTimeStep>
     <Default>Domyślny</Default>
@@ -3145,6 +3213,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <Exponential> Wykładniczy/-a </Exponential>
     <ExportAsImage>Eksportuj jako obraz</ExportAsImage>
     <Expression>Wyrażenie</Expression>
+    <ExtensionDigit>numer rozszerzenia</ExtensionDigit>
     <FaqPage>Strona FAQ</FaqPage>
     <FieldIs>Pole jest</FieldIs>
     <File>Plik</File>
@@ -3433,6 +3502,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <ProcessAt>Przetwarzaj w</ProcessAt>
     <ProcessAtEnd>Przetwarzaj na końcu</ProcessAtEnd>
     <ProcessingDuplicates>Przetwarzanie duplikatów</ProcessingDuplicates>
+    <ProcessTilde>Process Tilde</ProcessTilde>
     <ProductHomePage>Strona domowa produktu</ProductHomePage>
     <RadarStyle>Styl radarowy</RadarStyle>
     <Radius>Radius</Radius>
@@ -3498,6 +3568,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <SelectionEnabled>Zaznaczenie włączone</SelectionEnabled>
     <SelectionForeColor>Kolor przedni zaznaczenia</SelectionForeColor>
     <SelectionMode>Tryb zaznaczenia</SelectionMode>
+    <SerialNumber>Serial Number</SerialNumber>
     <Series>Serie</Series>
     <SeriesLabels>Etykiety serii</SeriesLabels>
     <SeriesLabelsBorderColor>Border Color</SeriesLabelsBorderColor>
@@ -3677,6 +3748,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <Watermark>Znak wodny</Watermark>
     <Weight>Waga</Weight>
     <WeightDataColumn>Kolumna danych wag</WeightDataColumn>
+    <Weights>waga</Weights>
     <Width>Szerokość</Width>
     <WindowState>Stan okna</WindowState>
     <WordWrap>Zawijanie słów</WordWrap>
@@ -3822,6 +3894,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <CrossBands>Krzyżowane grupy danych</CrossBands>
     <Dialogs>Okna dialogowe</Dialogs>
     <EditStyles>[Edytuj style]</EditStyles>
+    <Enhancements>ulepszenie</Enhancements>
     <Errors>Błędy</Errors>
     <EventsTab>Zakładka zdarzeń</EventsTab>
     <ExpandAll>Rozwiń wszystko</ExpandAll>
@@ -3829,6 +3902,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <FilterOr>lub</FilterOr>
     <FinishingReport>Kończenie raportu</FinishingReport>
     <FirstPass>Pierwszy przebieg</FirstPass>
+    <FixedBugs>naprawione błędy</FixedBugs>
     <Gallery>Gallery</Gallery>
     <GenerateNewCode>Generuj nowy kod</GenerateNewCode>
     <History>History</History>
@@ -3866,8 +3940,11 @@ It contains a link to confirm your registration. To complete the registration pl
     <LabelValue>Wartość:</LabelValue>
     <LoadingReport>Ładowanie raportu</LoadingReport>
     <nameAssembly>Assembly</nameAssembly>
+    <NewFeatures>nowe funkcje</NewFeatures>
     <No>Nie</No>
+    <NoFixes>nie ma żadnych poprawek ani aktualizacji dka tej wersji!</NoFixes>
     <NoIssues>Brak problemów</NoIssues>
+    <NoNewVersions>Tnie ma nowych dostepnych wersji!</NoNewVersions>
     <NotAssigned>Nie przypisane</NotAssigned>
     <Office2010Back>Wstecz</Office2010Back>
     <PageNofM>Strona {0} z {1}</PageNofM>
@@ -3902,6 +3979,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <StyleNote>Uwaga</StyleNote>
     <StyleWarning>Ostrzeżenie</StyleWarning>
     <Warnings>Ostrzeżenia</Warnings>
+    <WhatsNewInVersion>co nowego w {0}</WhatsNewInVersion>
     <When>gdy {0} {1}</When>
     <WhenAnd>gdy {0} {1} i</WhenAnd>
     <WhenValueIs>gdy wartość jest</WhenValueIs>
@@ -4089,6 +4167,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <title>Pasek narzędzi</title>
   </Toolbox>
   <Wizards>
+    <BlankDashboard>pusty Dashboard</BlankDashboard>
     <BlankReport>Pusty raport</BlankReport>
     <ButtonBack>&lt; &amp;Wróć</ButtonBack>
     <ButtonCancel>Anuluj</ButtonCancel>
@@ -4102,6 +4181,7 @@ It contains a link to confirm your registration. To complete the registration pl
     <DefaultThemes>Tematy domyślne</DefaultThemes>
     <Filters>Filtry</Filters>
     <FromReportTemplate>Z szablonu raportu</FromReportTemplate>
+    <groupCreateNewDashboard>stwórz nowy Dashboard</groupCreateNewDashboard>
     <groupCreateNewPageOrForm>Stwórz nową stronę lub formularz</groupCreateNewPageOrForm>
     <groupCreateNewReport>Stwórz nowy raport</groupCreateNewReport>
     <Groups>Grupy</Groups>

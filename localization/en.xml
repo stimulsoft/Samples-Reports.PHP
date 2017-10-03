@@ -89,7 +89,6 @@
     <AdapterVistaDBConnection>Data from VistaDB Connection</AdapterVistaDBConnection>
   </Adapters>
   <Buttons>
-    <Publish>Publish</Publish>
     <Add>Add</Add>
     <AddAllColumns>Add All Columns</AddAllColumns>
     <Attach>Attach</Attach>
@@ -112,6 +111,7 @@
     <Ok>&amp;OK</Ok>
     <Open>Open</Open>
     <Print>Print</Print>
+    <Publish>Publish</Publish>
     <QuickPrint>Quick Print</QuickPrint>
     <Remove>Remove</Remove>
     <RemoveAll>Remove All</RemoveAll>
@@ -361,7 +361,7 @@
     <HyperlinkRegisterAccount>Register FREE account</HyperlinkRegisterAccount>
     <labelCollectionName>Collection Name:</labelCollectionName>
     <LabelCreated>Created:</LabelCreated>
-    <LabelCreateFolder>Creating a new category in which you can place other items.</LabelCreateFolder>
+    <LabelCreateFolder>Create a new category in which you can place other items.</LabelCreateFolder>
     <LabelCreateReportTemplate>Create report template.</LabelCreateReportTemplate>
     <LabelCurrentPassword>Current Password:</LabelCurrentPassword>
     <LabelDataFile>Data File:</LabelDataFile>
@@ -405,6 +405,7 @@
     <RefreshList>Refresh List</RefreshList>
     <ReportDocumentFormatNotRecognized>Format of '{0}' item is not recognized as rendered report format!</ReportDocumentFormatNotRecognized>
     <ReportTemplateFormatNotRecognized>Format of '{0}' item is not recognized as report template format!</ReportTemplateFormatNotRecognized>
+    <RequestChangesWhenSavingToCloud>Request Changes when Saving to Cloud</RequestChangesWhenSavingToCloud>
     <RibbonButtonAddRole>Add Role</RibbonButtonAddRole>
     <RibbonButtonAddUser>Add User</RibbonButtonAddUser>
     <RibbonButtonAddWorkspace>Add Workspace</RibbonButtonAddWorkspace>
@@ -425,6 +426,7 @@
     <TextActivationDate>Activation Date</TextActivationDate>
     <TextDelete>Delete</TextDelete>
     <TextDeletingItems>Deleting items...</TextDeletingItems>
+    <TextDescriptionChanges>Please, type a description of the changes:</TextDescriptionChanges>
     <TextFirstName>First Name</TextFirstName>
     <TextFromTo>From {0} to {1} (Total - {2})</TextFromTo>
     <TextItemsWorkspace>Workspace</TextItemsWorkspace>
@@ -474,6 +476,7 @@
     <ToolTipThumbnailMode>Thumbnail View</ToolTipThumbnailMode>
     <ToolTipViewFile>Show the selected file.</ToolTipViewFile>
     <ToolTipViewReport>Show the selected report in the viewer.</ToolTipViewReport>
+    <WeDidntFindAnything>We didn't find anything to show here.</WeDidntFindAnything>
     <WindowDescriptionDelete>Are you sure you want to delete the selected items?</WindowDescriptionDelete>
     <WindowDescriptionRecover>Selected items will be recovered from the Recycle Bin.</WindowDescriptionRecover>
     <WindowTitleDelete>Delete Items</WindowTitleDelete>
@@ -558,6 +561,7 @@
   <Dashboard>
     <ChangeChartType>Change Chart Type</ChangeChartType>
     <ChangeMapType>Change Map Type</ChangeMapType>
+    <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
     <DataNotDefined>Data is not defined</DataNotDefined>
     <Dimension>Dimension</Dimension>
     <Dimensions>Dimensions</Dimensions>
@@ -569,7 +573,6 @@
     <Measures>Measures</Measures>
     <NumberFilters>Number Filters</NumberFilters>
     <StringFilters>String Filters</StringFilters>
-    <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
   </Dashboard>
   <Database>
     <Connection>Connection</Connection>
@@ -845,6 +848,7 @@
     <Zoom>Zoom:</Zoom>
   </Export>
   <FileFilters>
+    <AllFiles>All Files</AllFiles>
     <AllImageFiles>All Image Files</AllImageFiles>
     <BitmapFiles>Bitmap Files</BitmapFiles>
     <BmpFiles>BMP Images (*.bmp)|*.bmp</BmpFiles>
@@ -986,6 +990,7 @@
     <title>Cross-Tab Designer</title>
   </FormCrossTabDesigner>
   <FormDatabaseEdit>
+    <Favorites>Favorites</Favorites>
     <ConnectionString>Connection String:</ConnectionString>
     <DashboardConnections>Dashboard Connections</DashboardConnections>
     <DB2Edit>Edit IBM DB2 Connection</DB2Edit>
@@ -1079,7 +1084,8 @@
     <ClickHere>Click here</ClickHere>
     <ColumnEdit>Edit Column</ColumnEdit>
     <ColumnNew>New Column</ColumnNew>
-    <CreateNewDataSource>to create new data source</CreateNewDataSource>
+    <CreateNewDataSource>to create the new data source</CreateNewDataSource>
+    <CreateNewReport>to create the new report</CreateNewReport>
     <CsvSeparatorComma>Comma</CsvSeparatorComma>
     <CsvSeparatorOther>Other</CsvSeparatorOther>
     <CsvSeparatorSemicolon>Semicolon</CsvSeparatorSemicolon>
@@ -1100,6 +1106,8 @@
     <DictionaryNew>New Dictionary...</DictionaryNew>
     <DictionaryOpen>Open Dictionary...</DictionaryOpen>
     <DictionarySaveAs>Save Dictionary As...</DictionarySaveAs>
+    <DragNewDataSource>drag your data directly to this panel</DragNewDataSource>
+    <DragNewReport>drag your report directly to this panel</DragNewReport>
     <EditQuery>Edit Query</EditQuery>
     <ExecutedSQLStatementSuccessfully>Executed SQL statement successfully</ExecutedSQLStatementSuccessfully>
     <ExpressionNew>New Expression</ExpressionNew>
@@ -1547,7 +1555,6 @@
     <sys_morebuttons>More Buttons</sys_morebuttons>
   </Gui>
   <HelpComponents>
-  	<StiMap>This component is used to display data that is geographically targeted.</StiMap>
     <StiBarCode>This component allows showing bar codes in a report. Bar code data are sent to an object as a string. The string may contain any symbols but only allowed symbols for the selected chart can be displayed.</StiBarCode>
     <StiChart>This component allows showing charts in a report. Different types of charts are available. Among them are bar, line, pie, doughnut, lines, areas, Gantt, scatter charts etc. </StiChart>
     <StiCheckBox>This component allows showing a checkbox in a report. It can display two modes: "enable" or "disable".</StiCheckBox>
@@ -1572,6 +1579,7 @@
     <StiHierarchicalBand>This band is connected to the data source and output as many times as there are rows in the data source. Data are output as a tree.</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>This component is used to output a line.</StiHorizontalLinePrimitive>
     <StiImage>This component is used to output images. It supports the following graphic formats, such as BMP, JPG, JPEG, GIF, TIFF, PNG, ICO, WMF, EMF.</StiImage>
+    <StiMap>This component is used to display data that is geographically targeted.</StiMap>
     <StiOverlayBand>This band is used to output watermarks on a page.</StiOverlayBand>
     <StiPageFooterBand>This band is used to output the information on the bottom of each page such as page numbers, dates, and other additional information.</StiPageFooterBand>
     <StiPageHeaderBand>This band is used to output the page header such as page numbers, dates, and other additional information. It is output on the top of each page.</StiPageHeaderBand>
@@ -1985,6 +1993,7 @@
   </Messages>
   <Notices>
     <AccessDenied>Access Denied!</AccessDenied>
+    <AccountLocked>Your account is locked! In order to resolve it, please send your request to sales@stimulsoft.com!</AccountLocked>
     <ActivationExpiriedBeforeFirstRelease>Your Subscription of Stimulsoft Reports.Ultimate expired earlier than the first version of our Stimulsoft Reports.Server was released!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>License file is not correct! Please contact our sales department at sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Your account is locked. Please contact our sales department at sales@stimulsoft.com!</ActivationLockedAccount>
@@ -2022,6 +2031,7 @@
     <AuthUserNameShouldLookLikeAnEmailAddress>The username should be similar to the Email address!</AuthUserNameShouldLookLikeAnEmailAddress>
     <AuthWorkspaceNameAlreadyInUse>The workspace name is already in use!</AuthWorkspaceNameAlreadyInUse>
     <CommandTimeOut>Waiting time of processing the command is elapsed!</CommandTimeOut>
+    <Congratulations>Congratulations!</Congratulations>
     <EndDateShouldBeGreaterThanCurrentDate>The end date should be greater than the current date!</EndDateShouldBeGreaterThanCurrentDate>
     <EndDateShouldBeGreaterThanStartDate>The end date should be greater than start date!</EndDateShouldBeGreaterThanStartDate>
     <ExecutionError>Execution error</ExecutionError>
@@ -2039,6 +2049,7 @@
     <ItemCantBeMovedToSpecifiedPlace>The item cannot be moved to a specified place!</ItemCantBeMovedToSpecifiedPlace>
     <ItemDoesNotSupport>The item does not support "{0}"!</ItemDoesNotSupport>
     <KeyAndToKeyAreEqual>A Key and ToKey are equal!</KeyAndToKeyAreEqual>
+    <NewProduct>A new product is added to your subscription!</NewProduct>
     <NotificationFailed>Failed result!</NotificationFailed>
     <NotificationFilesUploadingComplete>The files uploaded successfully.</NotificationFilesUploadingComplete>
     <NotificationFileUploading>The file "{0}" is uploading.</NotificationFileUploading>
@@ -2077,8 +2088,10 @@
     <OutOfRange>Out of range ("{0}")!</OutOfRange>
     <ParsingCommandException>An exception of processing the command in the specified xml: {0}</ParsingCommandException>
     <QuotaMaximumComputingCyclesCountExceeded>Maximum computing cycles count exceeded.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumDataRowsCountExceeded>Maximum data rows count in one data source exceeded.</QuotaMaximumDataRowsCountExceeded>
     <QuotaMaximumFileSizeExceeded>Maximum file size exceeded.</QuotaMaximumFileSizeExceeded>
-    <QuotaMaximumReportPagesCountExceeded>Maximum report pages count exceeded.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumItemsCountExceeded>Maximum items count exceeded.</QuotaMaximumItemsCountExceeded>
+	<QuotaMaximumReportPagesCountExceeded>Maximum report pages count exceeded.</QuotaMaximumReportPagesCountExceeded>
     <QuotaMaximumResourcesCountExceeded>Maximum resources count exceeded.</QuotaMaximumResourcesCountExceeded>
     <QuotaMaximumUsersCountExceeded>Maximum users count exceeded.</QuotaMaximumUsersCountExceeded>
     <QuotaMaximumWorkspacesCountExceeded>Maximum workspaces count exceeded.</QuotaMaximumWorkspacesCountExceeded>
@@ -2086,6 +2099,11 @@
     <SessionTimeOut>Session timeout</SessionTimeOut>
     <SnapshotAlreadyProcessed>The report snapshot is already processed!</SnapshotAlreadyProcessed>
     <SpecifiedItemIsNot>The specified item is not "{0}"!</SpecifiedItemIsNot>
+    <SubscriptionExpired>Your subscription has expired!</SubscriptionExpired>
+    <SubscriptionsOut10>10 days left when the subscription expires!</SubscriptionsOut10>
+    <SubscriptionsOut20>The subscription period will expire in 20 days!</SubscriptionsOut20>
+    <SuccessfullyRenewed>Your subscription has been successfully updated!</SuccessfullyRenewed>
+    <TrialToLicense>Thank you for choosing Stimulsoft!</TrialToLicense>
     <VersionCopyFromItem>Copy from item "{0}".</VersionCopyFromItem>
     <VersionCreatedFromFile>Created from file "{0}".</VersionCreatedFromFile>
     <VersionCreatedFromItem>Created from item "{0}".</VersionCreatedFromItem>
@@ -3133,6 +3151,7 @@
     <DataSources>Data Sources</DataSources>
     <DataTextField>Data Text Field</DataTextField>
     <DataType>Data Type</DataType>
+    <DataUrl>Data URL</DataUrl>
     <DateInfo>Date Info</DateInfo>
     <DateTimeStep>Date Time Step</DateTimeStep>
     <Default>Default</Default>
@@ -3483,6 +3502,7 @@
     <ProcessAt>Process at</ProcessAt>
     <ProcessAtEnd>Process at End</ProcessAtEnd>
     <ProcessingDuplicates>Processing Duplicates</ProcessingDuplicates>
+    <ProcessTilde>Process Tilde</ProcessTilde>
     <ProductHomePage>Product Home Page</ProductHomePage>
     <RadarStyle>Radar Style</RadarStyle>
     <Radius>Radius</Radius>
@@ -3631,6 +3651,8 @@
     <StretchToPrintArea>Stretch to Print Area</StretchToPrintArea>
     <StripBrush>Strip Brush</StripBrush>
     <Strips>Strips</Strips>
+    <StructuredAppendPosition>Structured Append Position</StructuredAppendPosition>
+    <StructuredAppendTotal>Structured Append Total</StructuredAppendTotal>
     <Style>Style</Style>
     <StyleColors>Style Colors</StyleColors>
     <Styles>Styles</Styles>
@@ -3684,6 +3706,7 @@
     <TrendLineColor>Color</TrendLineColor>
     <TrendLineShowShadow>Show Shadow</TrendLineShowShadow>
     <Trimming>Trimming</Trimming>
+	<TrimExcessData>Trim Excess Data</TrimExcessData>
     <Type>Type</Type>
     <TypeName>Type Name</TypeName>
     <Types>Types</Types>

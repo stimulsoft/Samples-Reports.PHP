@@ -793,6 +793,7 @@
   </Export>
   <FileFilters>
     <AllImageFiles>Tutti i file immagine</AllImageFiles>
+    <AllFiles>Tutti i file</AllFiles>
     <BitmapFiles>File Bitmap</BitmapFiles>
     <BmpFiles>BMP immagine (*.bmp)|*.bmp</BmpFiles>
     <CalcFiles>File OpenDocument Calc (*.ods)|*.ods</CalcFiles>
