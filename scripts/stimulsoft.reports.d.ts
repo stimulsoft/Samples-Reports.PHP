@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2017.2.1
-Build date: 2017.10.02
+Version: 2017.2.2
+Build date: 2017.10.05
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -19833,8 +19833,13 @@ declare module Stimulsoft.Report.Engine {
         Minutes = 19,
         Seconds = 20,
         Ticks = 21,
-        Count = 22,
-        BusinessObjectValue = 23,
+        TotalDays = 22,
+        TotalHours = 23,
+        TotalMinutes = 24,
+        TotalSeconds = 25,
+        TotalMilliseconds = 26,
+        Count = 27,
+        BusinessObjectValue = 28,
     }
     enum StiFunctionType {
         NameSpace = 0,
