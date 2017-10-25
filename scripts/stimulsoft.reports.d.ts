@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2017.2.2
-Build date: 2017.10.05
+Version: 2017.2.3
+Build date: 2017.10.24
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -1557,7 +1557,7 @@ declare module Stimulsoft.System.Drawing {
         private static measureHash;
         static measureString(text1: string, font: Font, width?: number, useCache?: boolean, multiple?: number, angle?: number): Size;
         static measureChars(chars: Array<number>, count: number, font: Font): Size;
-        private static rotate(size, angle);
+        private static rotate(size, angle, useCache);
         constructor(context: CanvasRenderingContext2D);
     }
 }
@@ -2502,7 +2502,7 @@ declare module Stimulsoft.System {
         toOADate(): number;
         toNetJsonString(): string;
         static fromNetJsonString(jsonDate: string): DateTime;
-        static fromOADate(d: number): DateTime;
+        static fromOADate(oadate: number): DateTime;
         static fromString(d?: string): DateTime;
         constructor(date: Date);
         constructor(ticks: number);
@@ -10398,7 +10398,7 @@ declare module Stimulsoft.Report.Chart {
     import PointD = Stimulsoft.Base.Drawing.PointD;
     class StiStackedBaseLineSeriesCoreXF extends StiSeriesCoreXF {
         applyStyle(style: IStiChartStyle, color: Color): void;
-        clipLinePoints(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], REFnewStartPoints: any, REFnewEndPoints: any, startIndex: number, endIndex: number): void;
+        clipLinePoints(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], REFnewStartPoints: any, REFnewEndPoints: any, REFstartIndex: any, REFendIndex: any): void;
         renderMarkers(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
         renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
         renderAreas(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[]): void;
@@ -10767,6 +10767,7 @@ declare module Stimulsoft.Report.Chart {
         reportChartStyle: Stimulsoft.Report.Styles.StiChartStyle;
         readonly chartAreaBrush: StiBrush;
         readonly chartAreaBorderColor: Color;
+        readonly seriesShowShadow: boolean;
         readonly seriesLabelsBrush: StiBrush;
         readonly seriesLabelsColor: Color;
         readonly seriesLabelsBorderColor: Color;
@@ -11603,6 +11604,15 @@ declare module Stimulsoft.Report.Chart {
 declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
     class StiLegendCandelstickMarker implements IStiLegendMarker {
         private static implementsStiLegendCandelstickMarker;
         implements(): string[];
@@ -11646,10 +11656,85 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiLegendMarkerHelper {
+        static getSteppedMarkerPath(rect: RectangleD): StiSegmentGeom[];
+        static getAreaMarkerPath(rect: RectangleD): StiSegmentGeom[];
+        static getAreaMarkerLinePoints(rect: RectangleD): PointD[];
+        static getSplineAreaMarkerPath(rect: RectangleD): StiSegmentGeom[];
+        static getSplineAreaMarkerLinePoints(rect: RectangleD): PointD[];
+    }
+}
+declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
     class StiLegendPieMarker implements IStiLegendMarker {
         private static implementsStiLegendPieMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendRangeMarker implements IStiLegendMarker {
+        private static implementsStiLegendRangeMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSplineAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendSplineAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSplineRangeMarker implements IStiLegendMarker {
+        private static implementsStiLegendSplineRangeMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendStackedAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendStackedAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendStackedSplineAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendStackedSplineAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSteppedAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendSteppedAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSteppedRangeMarker implements IStiLegendMarker {
+        private static implementsStiSteppedRangeSeries;
         implements(): string[];
         draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
     }
@@ -12286,14 +12371,17 @@ declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import TimeSpan = Stimulsoft.System.TimeSpan;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
     import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
     class StiCandlestickSeriesElementGeom extends StiFinancialSeriesElementGeom {
         private _brush;
         readonly brush: StiBrush;
+        private _borderColor;
+        readonly borderColor: Color;
         private _beginTime;
         readonly beginTime: TimeSpan;
         draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, bodyStart: number, bodyEnd: number, high: number, low: number, positionX: number, index: number, brush: StiBrush, beginTime: TimeSpan);
+        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, bodyStart: number, bodyEnd: number, high: number, low: number, positionX: number, index: number, brush: StiBrush, borderColor: Color, beginTime: TimeSpan);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13677,6 +13765,7 @@ declare module Stimulsoft.Report.Chart {
     var IStiCandlestickSeries: string;
     interface IStiCandlestickSeries extends IStiSeries, IStiFinancialSeries {
         borderColor: Color;
+        borderColorNegative: Color;
         borderWidth: number;
         brush: StiBrush;
         brushNegative: StiBrush;
@@ -16423,6 +16512,8 @@ declare module Stimulsoft.Report.Chart {
         valueDataColumnLow: string;
         private _borderColor;
         borderColor: Color;
+        private _borderColorNegative;
+        borderColorNegative: Color;
         private _borderWidth;
         borderWidth: number;
         private _brush;
@@ -20286,66 +20377,67 @@ declare module Stimulsoft.Report.Engine {
         ToCurrencyWordsRu = 441,
         ToCurrencyWordsThai = 442,
         ToCurrencyWordsUa = 443,
-        ToLowerCase = 444,
-        ToProperCase = 445,
-        ToUpperCase = 446,
-        ToWords = 447,
-        ToWordsEs = 448,
-        ToWordsEnIn = 449,
-        ToWordsFa = 450,
-        ToWordsPl = 451,
-        ToWordsPt = 452,
-        ToWordsRu = 453,
-        ToWordsUa = 454,
-        Trim = 455,
-        TryParseDecimal = 456,
-        TryParseDouble = 457,
-        TryParseLong = 458,
-        Arabic = 459,
-        Persian = 460,
-        ToOrdinal = 461,
-        Left = 462,
-        Mid = 463,
-        Right = 464,
-        IsNull = 465,
-        Next = 466,
-        NextIsNull = 467,
-        Previous = 468,
-        PreviousIsNull = 469,
-        IIF = 470,
-        Choose = 471,
-        Switch = 472,
-        ToString = 473,
-        Format = 474,
-        SystemConvertToBoolean = 475,
-        SystemConvertToByte = 476,
-        SystemConvertToChar = 477,
-        SystemConvertToDateTime = 478,
-        SystemConvertToDecimal = 479,
-        SystemConvertToDouble = 480,
-        SystemConvertToInt16 = 481,
-        SystemConvertToInt32 = 482,
-        SystemConvertToInt64 = 483,
-        SystemConvertToSByte = 484,
-        SystemConvertToSingle = 485,
-        SystemConvertToString = 486,
-        SystemConvertToUInt16 = 487,
-        SystemConvertToUInt32 = 488,
-        SystemConvertToUInt64 = 489,
-        MathRound = 490,
-        MathPow = 491,
-        AddAnchor = 492,
-        GetAnchorPageNumber = 493,
-        GetAnchorPageNumberThrough = 494,
-        ConvertRtf = 495,
-        ParseInt = 496,
-        ParseDouble = 497,
-        ParseDecimal = 498,
-        ParseDateTime = 499,
-        StringIsNullOrEmpty = 500,
-        StringIsNullOrWhiteSpace = 501,
-        EngineHelperJoinColumnContent = 502,
-        EngineHelperToQueryString = 503,
+        ToCurrencyWordsZh = 444,
+        ToLowerCase = 445,
+        ToProperCase = 446,
+        ToUpperCase = 447,
+        ToWords = 448,
+        ToWordsEs = 449,
+        ToWordsEnIn = 450,
+        ToWordsFa = 451,
+        ToWordsPl = 452,
+        ToWordsPt = 453,
+        ToWordsRu = 454,
+        ToWordsUa = 455,
+        Trim = 456,
+        TryParseDecimal = 457,
+        TryParseDouble = 458,
+        TryParseLong = 459,
+        Arabic = 460,
+        Persian = 461,
+        ToOrdinal = 462,
+        Left = 463,
+        Mid = 464,
+        Right = 465,
+        IsNull = 466,
+        Next = 467,
+        NextIsNull = 468,
+        Previous = 469,
+        PreviousIsNull = 470,
+        IIF = 471,
+        Choose = 472,
+        Switch = 473,
+        ToString = 474,
+        Format = 475,
+        SystemConvertToBoolean = 476,
+        SystemConvertToByte = 477,
+        SystemConvertToChar = 478,
+        SystemConvertToDateTime = 479,
+        SystemConvertToDecimal = 480,
+        SystemConvertToDouble = 481,
+        SystemConvertToInt16 = 482,
+        SystemConvertToInt32 = 483,
+        SystemConvertToInt64 = 484,
+        SystemConvertToSByte = 485,
+        SystemConvertToSingle = 486,
+        SystemConvertToString = 487,
+        SystemConvertToUInt16 = 488,
+        SystemConvertToUInt32 = 489,
+        SystemConvertToUInt64 = 490,
+        MathRound = 491,
+        MathPow = 492,
+        AddAnchor = 493,
+        GetAnchorPageNumber = 494,
+        GetAnchorPageNumberThrough = 495,
+        ConvertRtf = 496,
+        ParseInt = 497,
+        ParseDouble = 498,
+        ParseDecimal = 499,
+        ParseDateTime = 500,
+        StringIsNullOrEmpty = 501,
+        StringIsNullOrWhiteSpace = 502,
+        EngineHelperJoinColumnContent = 503,
+        EngineHelperToQueryString = 504,
         m_Substring = 1000,
         m_ToString = 1001,
         m_ToLower = 1002,
@@ -28071,10 +28163,12 @@ declare module Stimulsoft.Report.Engine {
     }
 }
 declare module Stimulsoft.Report.Engine {
+    import EventArgs = Stimulsoft.System.EventArgs;
     import StiPage = Stimulsoft.Report.Components.StiPage;
     import Promise = Stimulsoft.System.Promise;
     class StiRenderProvider {
         static render(report: StiReport, state: StiRenderState): void;
+        static StiRenderProviderV2_AddAnchor_Rendering(sender: any, e: EventArgs): void;
         static connectToDataAsync(report: StiReport): Promise<void>;
         static connectToData(report: StiReport): void;
         private static disconnectFromData(report);
@@ -31930,10 +32024,15 @@ declare module Stimulsoft.Report {
         checkExcelValue(sender: any, value: Object): Object;
         toString(sender: any, obj: Object, allowExcelCheck?: boolean): string;
         private generateReportGuid();
+        addAnchor(value: any, component?: any): void;
+        getAnchorPageNumber(value: any): number;
+        getAnchorPageNumberThrough(value: any): number;
+        private getAnchor(value);
         getComponents(): StiComponentsCollection;
         getComponentsCount(): number;
         renameStyle(oldStylename: string, newStyleName: string): void;
         localizeReport(cultureName: string): void;
+        private anchors;
         subReportsMasterReport: StiReport;
         subReportsResetPageNumber: boolean;
         subReportsPrintOnPreviousPage: boolean;
@@ -32346,26 +32445,28 @@ declare module Stimulsoft.Viewer {
     import StiHtmlExportMode = Stimulsoft.Report.Export.StiHtmlExportMode;
     class StiAppearanceOptions {
         backgroundColor: Color;
+        pageBorderColor: Color;
         rightToLeft: boolean;
         fullScreenMode: boolean;
         scrollbarsMode: boolean;
-        openLinksTarget: string;
-        openExportedReportTarget: string;
+        openLinksWindow: string;
+        openExportedReportWindow: string;
         showTooltips: boolean;
         showTooltipsHelp: boolean;
         pageAlignment: StiContentAlignment;
         showPageShadow: boolean;
-        pageBorderColor: Color;
         bookmarksPrint: boolean;
         bookmarksTreeWidth: number;
+        parametersPanelPosition: StiParametersPanelPosition;
         parametersPanelMaxHeight: number;
         parametersPanelColumnsCount: number;
         parametersPanelDateFormat: string;
         interfaceType: StiInterfaceType;
         chartRenderType: StiChartRenderType;
-        htmlRenderMode: StiHtmlExportMode;
+        reportDisplayMode: StiHtmlExportMode;
         datePickerFirstDayOfWeek: StiFirstDayOfWeek;
-        parametersPanelPosition: StiParametersPanelPosition;
+        allowTouchZoom: boolean;
+        htmlRenderMode: StiHtmlExportMode;
     }
 }
 declare module Stimulsoft.Viewer {
@@ -32416,6 +32517,7 @@ declare module Stimulsoft.Viewer {
     import Color = Stimulsoft.System.Drawing.Color;
     class StiToolbarOptions {
         visible: boolean;
+        displayMode: StiToolbarDisplayMode;
         backgroundColor: Color;
         borderColor: Color;
         fontColor: Color;
@@ -32440,6 +32542,7 @@ declare module Stimulsoft.Viewer {
         showViewModeButton: boolean;
         showDesignButton: boolean;
         showAboutButton: boolean;
+        showPinToolbarButton: boolean;
         printDestination: StiPrintDestination;
         viewMode: StiWebViewMode;
         multiPageWidthCount: number;
@@ -32448,7 +32551,7 @@ declare module Stimulsoft.Viewer {
         zoom: number;
         menuAnimation: boolean;
         showMenuMode: StiShowMenuMode;
-        displayMode: StiToolbarDisplayMode;
+        autoHide: boolean;
     }
 }
 declare module Stimulsoft.Viewer {
@@ -32462,6 +32565,7 @@ declare module Stimulsoft.Viewer {
         Auto = 0,
         Mouse = 1,
         Touch = 2,
+        Mobile = 3,
     }
     enum StiChartRenderType {
         Vector = 2,
@@ -32588,6 +32692,7 @@ declare module Stimulsoft.Viewer {
         width: string;
         height: string;
         viewerId: string;
+        reportDesignerMode: boolean;
         private requestStylesUrl;
         private productVersion;
         private actions;
@@ -33742,6 +33847,7 @@ declare module Stimulsoft.Designer {
         showPreviewButton: boolean;
         showSaveButton: boolean;
         showAboutButton: boolean;
+        showPublishButton: boolean;
         showFileMenu: boolean;
         showFileMenuNew: boolean;
         showFileMenuOpen: boolean;

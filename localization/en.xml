@@ -317,6 +317,7 @@
     <VerticalNone>&lt;b&gt;None&lt;/b&gt;&lt;br&gt;Do not display Vertical Gridlines&lt;/br&gt;</VerticalNone>
   </ChartRibbon>
   <Cloud>
+    <ShowNotificationMessages>Show Notification Messages</ShowNotificationMessages>
     <AccountSettings>Account Settings</AccountSettings>
     <AddAPlace>Add a Place</AddAPlace>
     <ButtonChangePassword>Change Password</ButtonChangePassword>
@@ -542,6 +543,7 @@
     <StiPageFooterBand>Page Footer</StiPageFooterBand>
     <StiPageHeaderBand>Page Header</StiPageHeaderBand>
     <StiPanel>Panel</StiPanel>
+    <StiPivot>Pivot</StiPivot>
     <StiRectanglePrimitive>Rectangle</StiRectanglePrimitive>
     <StiReport>Report</StiReport>
     <StiReportSummaryBand>Report Summary</StiReportSummaryBand>
@@ -562,6 +564,7 @@
     <ChangeChartType>Change Chart Type</ChangeChartType>
     <ChangeMapType>Change Map Type</ChangeMapType>
     <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
+    <DataBars>Data Bars</DataBars>
     <DataNotDefined>Data is not defined</DataNotDefined>
     <Dimension>Dimension</Dimension>
     <Dimensions>Dimensions</Dimensions>
@@ -1899,6 +1902,7 @@
     <menuEditViewData>View Data...</menuEditViewData>
     <menuFile>&amp;File</menuFile>
     <menuFileClose>&amp;Close</menuFileClose>
+    <menuFileDashboardNew>New Dashboard</menuFileDashboardNew>
     <menuFileDashboardOpen>&amp;Open Dashboard...</menuFileDashboardOpen>
     <menuFileDashboardSaveAs>Save Dashboard &amp;As...</menuFileDashboardSaveAs>
     <menuFileExit>E&amp;xit</menuFileExit>
@@ -1990,8 +1994,11 @@
       It contains a link to confirm your registration. To complete the registration please follow the link from the email you received.
     </TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>This Field is Not Specified!</ThisFieldIsNotSpecified>
+    <DoNotShowAgain>Do not show again</DoNotShowAgain>
   </Messages>
   <Notices>
+    <NewVersionsAvailable>New version available!</NewVersionsAvailable>
+    <WouldYouLikeToUpdateNow>Would you like to update now?</WouldYouLikeToUpdateNow>
     <AccessDenied>Access Denied!</AccessDenied>
     <AccountLocked>Your account is locked! In order to resolve it, please send your request to sales@stimulsoft.com!</AccountLocked>
     <ActivationExpiriedBeforeFirstRelease>Your Subscription of Stimulsoft Reports.Ultimate expired earlier than the first version of our Stimulsoft Reports.Server was released!</ActivationExpiriedBeforeFirstRelease>
@@ -2091,7 +2098,7 @@
     <QuotaMaximumDataRowsCountExceeded>Maximum data rows count in one data source exceeded.</QuotaMaximumDataRowsCountExceeded>
     <QuotaMaximumFileSizeExceeded>Maximum file size exceeded.</QuotaMaximumFileSizeExceeded>
     <QuotaMaximumItemsCountExceeded>Maximum items count exceeded.</QuotaMaximumItemsCountExceeded>
-	<QuotaMaximumReportPagesCountExceeded>Maximum report pages count exceeded.</QuotaMaximumReportPagesCountExceeded>
+	  <QuotaMaximumReportPagesCountExceeded>Maximum report pages count exceeded.</QuotaMaximumReportPagesCountExceeded>
     <QuotaMaximumResourcesCountExceeded>Maximum resources count exceeded.</QuotaMaximumResourcesCountExceeded>
     <QuotaMaximumUsersCountExceeded>Maximum users count exceeded.</QuotaMaximumUsersCountExceeded>
     <QuotaMaximumWorkspacesCountExceeded>Maximum workspaces count exceeded.</QuotaMaximumWorkspacesCountExceeded>
@@ -2109,6 +2116,7 @@
     <VersionCreatedFromItem>Created from item "{0}".</VersionCreatedFromItem>
     <VersionLoadedFromFile>Loaded from file "{0}".</VersionLoadedFromFile>
     <VersionNewItemCreation>New item creation.</VersionNewItemCreation>
+    <Warning>Warning</Warning>
     <WindowClosePreventWhileUploading>Some files are uploading now, if you close page they will lost. Are you sure you want to close page?</WindowClosePreventWhileUploading>
     <WithSpecifiedKeyIsNotFound>"{0}" with the specified key is not found!</WithSpecifiedKeyIsNotFound>
     <YourTimeSessionHasExpired>Your time session has expired!</YourTimeSessionHasExpired>

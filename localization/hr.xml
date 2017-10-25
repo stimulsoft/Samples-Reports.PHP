@@ -1444,12 +1444,12 @@
     <LinearRange>Linearni raspon</LinearRange>
     <LinearRangeList>Lista linearnih raspona</LinearRangeList>
     <LinearScale>Linearna skala</LinearScale>
-    <LinearTickLabelCustom>Linear Tick Label Custom</LinearTickLabelCustom>
-    <LinearTickLabelMajor>Linear Tick Label Major</LinearTickLabelMajor>
-    <LinearTickLabelMinor>Linear Tick Label Minor</LinearTickLabelMinor>
-    <LinearTickMarkCustom>Linear Tick Mark Custom</LinearTickMarkCustom>
-    <LinearTickMarkMajor>Linear Tick Mark Major</LinearTickMarkMajor>
-    <LinearTickMarkMinor>Linear Tick Mark Minor</LinearTickMarkMinor>
+    <LinearTickLabelCustom>Linearna oznaka prilagođeno</LinearTickLabelCustom>
+    <LinearTickLabelMajor>Linearna oznaka glavni</LinearTickLabelMajor>
+    <LinearTickLabelMinor>Linearna oznaka sekundarni</LinearTickLabelMinor>
+    <LinearTickMarkCustom>Linearna oznaka znak prilagođeno</LinearTickMarkCustom>
+    <LinearTickMarkMajor>Linearna oznaka znak glavni</LinearTickMarkMajor>
+    <LinearTickMarkMinor>Linearna oznaka znak sekundarni</LinearTickMarkMinor>
     <Needle>Igla</Needle>
     <RadialBar>Radijalni stupac</RadialBar>
     <RadialMarker>Radijalni marker</RadialMarker>
