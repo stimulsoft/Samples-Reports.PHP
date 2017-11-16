@@ -14,7 +14,9 @@ $handler->registerErrorHandlers();
 
 
 $handler->onBeginProcessData = function ($event) {
-	$database = $event->database;
+	$database = $event->database; // Current database type
+	$connection = $event->connection; // Current connection name
+	$dataSource = $event->dataSource; // Current data source name
 	$connectionString = $event->connectionString;
 	$queryString = $event->queryString;
 	//$event->parameters["Variable1"] = 10;

@@ -70,6 +70,8 @@ class StiHandler {
 		$args->database = $request->database;
 		$args->connectionString = $request->connectionString;
 		$args->queryString = $request->queryString;
+		$args->dataSource = $request->dataSource;
+		$args->connection = $request->connection;
 		if (isset($request->queryString)) $args->parameters = $this->getQueryParameters($request->queryString);
 		
 		$result = $this->checkEventResult($this->onBeginProcessData, $args);

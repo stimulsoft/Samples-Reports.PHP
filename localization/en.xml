@@ -136,6 +136,8 @@
     <AddSeries>&amp;Add Series</AddSeries>
     <AddStrip>Add Strip</AddStrip>
     <Area>Area</Area>
+    <Column>Column</Column>
+    <WinLoss>Win / Loss</WinLoss>
     <Axes>Axes</Axes>
     <AxisReverse>Reverse</AxisReverse>
     <AxisX>Axis X</AxisX>
@@ -529,6 +531,8 @@
     <StiDashboard>Dashboard</StiDashboard>
     <StiDataBand>Data</StiDataBand>
     <StiEmptyBand>Empty Data</StiEmptyBand>
+    <StiProgress>Progress</StiProgress>
+    <StiIndicator>Indicator</StiIndicator>
     <StiFooterBand>Footer</StiFooterBand>
     <StiGauge>Gauge</StiGauge>
     <StiGroupFooterBand>Group Footer</StiGroupFooterBand>
@@ -565,6 +569,10 @@
     <ChangeMapType>Change Map Type</ChangeMapType>
     <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
     <DataBars>Data Bars</DataBars>
+    <ColorScale>Color Scale</ColorScale>
+    <Sparklines>Sparklines</Sparklines>
+    <Delta>Delta</Delta>
+    <Trend>Trend</Trend>
     <DataNotDefined>Data is not defined</DataNotDefined>
     <Dimension>Dimension</Dimension>
     <Dimensions>Dimensions</Dimensions>
@@ -1203,6 +1211,7 @@
     <HyperlinkUsingInteractionTag>Hyperlink using Tag</HyperlinkUsingInteractionTag>
   </FormInteraction>
   <FormOptions>
+    <ShowDialogForms>Show Dialog Forms</ShowDialogForms>
     <AutoSave>Auto Save</AutoSave>
     <AutoSaveReportToReportClass>Auto Save Report to C# or VB.NET File</AutoSaveReportToReportClass>
     <Default>Default</Default>
@@ -2848,6 +2857,8 @@
     <StiViewModePageBreakPreview>Page Break Preview</StiViewModePageBreakPreview>
     <StiXmlTypeAdoNetXml>ADO.NET XML</StiXmlTypeAdoNetXml>
     <StiXmlTypeXml>XML</StiXmlTypeXml>
+    <StiGaugeTypeRadialBar>Radial Bar</StiGaugeTypeRadialBar>
+    <StiGaugeTypeHalfDonuts>Half Donuts</StiGaugeTypeHalfDonuts>
     <StringAlignmentCenter>Center</StringAlignmentCenter>
     <StringAlignmentFar>Far</StringAlignmentFar>
     <StringAlignmentNear>Near</StringAlignmentNear>
@@ -2983,6 +2994,7 @@
   </PropertyHatchStyle>
   <PropertyMain>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
+    <Target>Target</Target>
     <AcceptsTab>Accepts Tab</AcceptsTab>
     <AddClearZone>Add Clear Zone</AddClearZone>
     <Advanced>Advanced</Advanced>

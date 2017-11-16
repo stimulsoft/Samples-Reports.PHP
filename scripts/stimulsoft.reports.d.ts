@@ -1,13 +1,13 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2017.2.3
-Build date: 2017.10.24
+Version: 2017.2.4
+Build date: 2017.11.14
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
-    class CollectionBase implements IList, ICollection, IEnumerable {
-        protected _list: Array<any>;
-        readonly list: Array<any>;
+    class CollectionBase<T> implements IList, ICollection<T>, IEnumerable {
+        protected _list: Array<T>;
+        readonly list: Array<T>;
         implements(): string[];
         readonly count: number;
         clear(): void;
@@ -45,9 +45,11 @@ declare module Stimulsoft.System.Collections {
 }
 declare module Stimulsoft.System.Collections {
     var ICollection: string;
-    interface ICollection {
+    interface ICollection<T> {
+        list: Array<T>;
         clear(): any;
         removeAt(index: number): any;
+        count: number;
     }
 }
 declare module Stimulsoft.System.Collections {
@@ -352,8 +354,7 @@ declare module Stimulsoft.System.Data {
 }
 declare module Stimulsoft.System.Data {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class DataColumnCollection extends CollectionBase {
-        readonly list: DataColumn[];
+    class DataColumnCollection extends CollectionBase<DataColumn> {
         private _table;
         readonly table: DataTable;
         private baseAdd(column);
@@ -400,8 +401,7 @@ declare module Stimulsoft.System.Data {
 }
 declare module Stimulsoft.System.Data {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class DataRelationCollection extends CollectionBase {
-        readonly list: DataRelation[];
+    class DataRelationCollection extends CollectionBase<DataRelation> {
         addCore(relation: DataRelation): void;
         add(relation: DataRelation): void;
         addRange(relations: any[]): void;
@@ -438,8 +438,7 @@ declare module Stimulsoft.System.Data {
 }
 declare module Stimulsoft.System.Data {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class DataRowCollection extends CollectionBase {
-        readonly list: DataRow[];
+    class DataRowCollection extends CollectionBase<DataRow> {
         private _table;
         readonly table: DataTable;
         add(row: DataRow): number;
@@ -598,8 +597,7 @@ declare module Stimulsoft.System.Data {
 }
 declare module Stimulsoft.System.Data {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class DataTableCollection extends CollectionBase {
-        readonly list: Array<DataTable>;
+    class DataTableCollection extends CollectionBase<DataTable> {
         add(table: DataTable): void;
         remove(table: DataTable): void;
         private baseAdd(table);
@@ -990,8 +988,7 @@ declare module Stimulsoft.System.Drawing.Imaging {
 }
 declare module Stimulsoft.System.Drawing.Printing.PrinterSettings {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class PaperSizeCollection extends CollectionBase {
-        readonly list: PaperSize[];
+    class PaperSizeCollection extends CollectionBase<PaperSize> {
         add(paperSize: PaperSize): void;
     }
 }
@@ -2154,8 +2151,7 @@ declare module Stimulsoft.System.Xml {
 }
 declare module Stimulsoft.System.Xml {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class XmlAttrCollection extends CollectionBase {
-        readonly list: XmlAttr[];
+    class XmlAttrCollection extends CollectionBase<XmlAttr> {
         readonly length: number;
         add(value: XmlAttr): void;
         getNamedItem(name: string): XmlAttr;
@@ -2601,6 +2597,7 @@ declare module Stimulsoft.System {
     class NodeJs {
         private static isInitialize;
         static initialize(onResult?: Function): void;
+        private static convert;
         static platform(): any;
         static callRemoteApi(command: any, timeout: number): Promise<string>;
         private static processFirebird;
@@ -6777,8 +6774,7 @@ declare module Stimulsoft.Report.Components {
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiConditionsCollection extends CollectionBase implements ICloneable, IStiJsonReportObject {
-        readonly list: Array<StiBaseCondition>;
+    class StiConditionsCollection extends CollectionBase<StiBaseCondition> implements ICloneable, IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -6921,7 +6917,7 @@ declare module Stimulsoft.Report.Components {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import PointD = Stimulsoft.Base.Drawing.PointD;
     import StiBaseStyle = Stimulsoft.Report.Styles.StiBaseStyle;
-    class StiComponent extends StiBase implements IStiComponentGuid, IStiCanGrow, IStiCanShrink, IStiUnitConvert, IStiShift, IStiGrowToHeight, IStiAnchor, IStiConditions, IStiPrintOn, IStiInherited, IStiStateSaveRestore, IStiJsonReportObject {
+    class StiComponent extends StiBase implements IStiComponentGuid, IStiCanGrow, IStiCanShrink, IStiUnitConvert, IStiShift, IStiGrowToHeight, IStiAnchor, IStiConditions, IStiPrintOn, IStiInherited, IStiStateSaveRestore, IStiJsonReportObject, IStiComponent {
         private static ImplementsStiComponent;
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
@@ -8352,4494 +8348,6 @@ declare module Stimulsoft.Report.BarCodes {
     }
 }
 declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import StiFilterItem = Stimulsoft.Report.Components.StiFilterItem;
-    import StiFilterDataType = Stimulsoft.Report.Components.StiFilterDataType;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiFilterCondition = Stimulsoft.Report.Components.StiFilterCondition;
-    class StiChartFilter implements IStiJsonReportObject, IStiChartFilter, ICloneable {
-        private static implementsStiChartFilter;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
-        clone(): StiChartFilter;
-        readonly index: number;
-        private _condition;
-        condition: StiFilterCondition;
-        private _dataType;
-        dataType: StiFilterDataType;
-        private _item;
-        item: StiFilterItem;
-        private _valueObj;
-        value: string;
-        toString(): string;
-        filters: StiChartFiltersCollection;
-        constructor(item?: StiFilterItem, dataType?: StiFilterDataType, condition?: StiFilterCondition, value?: string);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiFilterCondition = Stimulsoft.Report.Components.StiFilterCondition;
-    import StiFilterDataType = Stimulsoft.Report.Components.StiFilterDataType;
-    import StiFilterItem = Stimulsoft.Report.Components.StiFilterItem;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiChartCondition extends StiChartFilter implements IStiChartCondition, IStiChartFilter {
-        private static implementsStiChartCondition;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
-        clone(): StiChartCondition;
-        private _color;
-        color: Color;
-        conditions: StiChartConditionsCollection;
-        constructor(color?: Color, item?: StiFilterItem, dataType?: StiFilterDataType, condition?: StiFilterCondition, value?: string);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiChartConditionsCollection extends Stimulsoft.System.Collections.CollectionBase implements IStiJsonReportObject, ICloneable {
-        private static implementsStiChartConditionsCollection;
-        implements(): string[];
-        readonly list: StiChartCondition[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiChartConditionsCollection;
-        add(condition: StiChartCondition): void;
-        addRange(conditions: StiChartConditionsCollection): void;
-        addRange2(conditions: StiChartCondition[]): void;
-        contains(condition: StiChartCondition): boolean;
-        indexOf(condition: StiChartCondition): number;
-        insert(index: number, condition: StiChartCondition): void;
-        remove(condition: StiChartCondition): void;
-        getByIndex(index: number): StiChartCondition;
-        setByIndex(index: number, value: StiChartCondition): void;
-    }
-}
-declare module Stimulsoft.Report.Events {
-    import EventHandler = Stimulsoft.System.EventHandler;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    let StiGetExcelValueEventHandler: EventHandler;
-    class StiGetExcelValueEventArgs extends EventArgs {
-        value: string;
-        storeToPrinted: boolean;
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    class StiFormatService extends StiService implements IStiJsonReportObject {
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        static loadFormatFromXml(xmlNode: XmlNode): StiFormatService;
-        static loadFromJsonObjectInternal(jObject: StiJson): StiFormatService;
-        readonly position: Number;
-        readonly sample: Object;
-        readonly nativeFormatString: string;
-        readonly isFormatStringFromVariable: boolean;
-        private _stringFormat;
-        stringFormat: string;
-        format(arg: any): string;
-        format2(format: string, arg: any): string;
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    class StiCustomFormatService extends StiFormatService {
-        readonly sample: Object;
-        constructor(stringFormat?: string);
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiTimeFormatService extends StiFormatService {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly sample: Object;
-        format(arg: any): string;
-        format2(format: string, arg: any): string;
-        constructor(stringFormat?: string);
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiDateFormatService extends StiFormatService {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly sample: Object;
-        format(arg: any): string;
-        format2(format: string, arg: any): string;
-        private _nullDisplay;
-        nullDisplay: string;
-        constructor(stringFormat?: string, nullDisplay?: string);
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import NumberFormatInfo = Stimulsoft.System.Globalization.NumberFormatInfo;
-    import StiTextFormatState = Stimulsoft.Report.Components.StiTextFormatState;
-    class StiNumberFormatService extends StiFormatService {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): any;
-        private bits;
-        nullDisplay: string;
-        negativePattern: number;
-        decimalSeparator: string;
-        decimalDigits: number;
-        groupSeparator: string;
-        groupSize: number;
-        useGroupSeparator: boolean;
-        useLocalSetting: boolean;
-        readonly sample: Object;
-        readonly nativeFormatString: string;
-        stiEquals(obj: Object): boolean;
-        state: StiTextFormatState;
-        fillLocalSetting(format: NumberFormatInfo): void;
-        format(arg: any): string;
-        format2(format: string, arg: any): string;
-        formatStr(format: NumberFormatInfo, arg: Object): string;
-        constructor(negativePattern?: number, decimalPlaces?: number, decimalSeparator?: string, decimalDigits?: number, groupSeparator?: string, groupSize?: number, useGroupSeparator?: boolean, useLocalSetting?: boolean, nullDisplay?: string, state?: StiTextFormatState);
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import NumberFormatInfo = Stimulsoft.System.Globalization.NumberFormatInfo;
-    class StiCurrencyFormatService extends StiNumberFormatService {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _positivePattern;
-        positivePattern: number;
-        private _symbol;
-        symbol: string;
-        readonly nativeFormatString: string;
-        readonly sample: Object;
-        stiEquals(obj: Object): boolean;
-        format(arg: any): string;
-        format2(format: string, arg: any): string;
-        formatStr(format: NumberFormatInfo, arg: Object): string;
-        constructor(positivePattern?: number, negativePattern?: number, decimalPlaces?: number, decimalSeparator?: string, decimalDigits?: number, groupSeparator?: string, groupSize?: number, symbol?: string, useGroupSeparator?: boolean, useLocalSetting?: boolean, nullDisplay?: string, state?: StiTextFormatState);
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import NumberFormatInfo = Stimulsoft.System.Globalization.NumberFormatInfo;
-    class StiPercentageFormatService extends StiCurrencyFormatService {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        format(arg: any): string;
-        format2(format: string, arg: any): string;
-        formatStr(format: NumberFormatInfo, arg: Object): string;
-        constructor(positivePattern?: number, negativePattern?: number, decimalPlaces?: number, decimalSeparator?: string, decimalDigits?: number, groupSeparator?: string, groupSize?: number, symbol?: string, useGroupSeparator?: boolean, useLocalSetting?: boolean, nullDisplay?: string, state?: StiTextFormatState);
-    }
-}
-declare module Stimulsoft.Report.Components.TextFormats {
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiGeneralFormatService extends StiFormatService {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly sample: string;
-        stiEquals(obj: Object): boolean;
-        static default: StiGeneralFormatService;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Events {
-    class StiGetValueEvent extends StiEvent {
-        toString(): string;
-    }
-}
-declare module Stimulsoft.Report.Events {
-    import EventHandler = Stimulsoft.System.EventHandler;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    let StiGetValueEventHandler: EventHandler;
-    class StiGetValueEventArgs extends EventArgs {
-        value: string;
-        storeToPrinted: boolean;
-    }
-}
-declare module Stimulsoft.Report.Components {
-    var IStiEditable: string;
-    interface IStiEditable {
-        editable: boolean;
-    }
-}
-declare module Stimulsoft.Report.Components {
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    var IStiText: string;
-    interface IStiText {
-        text: string;
-        textValue: string;
-        setText(getValue: Object): any;
-        linesOfUnderline: StiPenStyle;
-        hideZeros: boolean;
-        processingDuplicates: StiProcessingDuplicatesType;
-        onlyText: boolean;
-        maxNumberOfLines: number;
-        getTextInternal(): string;
-        setTextInternal(value: string): any;
-    }
-}
-declare module Stimulsoft.Report.Components {
-    import StiGetValueEvent = Stimulsoft.Report.Events.StiGetValueEvent;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import IStiEditable = Stimulsoft.Report.Components.IStiEditable;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiValueEventArgs = Stimulsoft.Report.Events.StiValueEventArgs;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiSimpleText extends StiComponent implements IStiText, IStiEditable {
-        private static ImplementsStiSimpleText;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
-        protected static propertyGlobalizedName: Object;
-        globalizedName: string;
-        clone(cloneProperties: boolean): StiSimpleText;
-        memberwiseClone(): StiSimpleText;
-        getTextWithoutZero(text: string): string;
-        setText(getValue?: Object, value?: string): void;
-        private setTextTo(comp, runtime, getValue, value);
-        private _linesOfUnderline;
-        linesOfUnderline: StiPenStyle;
-        linesOfUnderlining: boolean;
-        private _hideZeros;
-        hideZeros: boolean;
-        mergeDuplicates: boolean;
-        private static propertyProcessingDuplicates;
-        processingDuplicates: StiProcessingDuplicatesType;
-        private static propertyMaxNumberOfLines;
-        maxNumberOfLines: number;
-        processText(text: string): string;
-        private static propertyOnlyText;
-        onlyText: boolean;
-        private _editable;
-        editable: boolean;
-        processAtEnd: boolean;
-        protected static propertyProcessAt: Object;
-        processAt: StiProcessAt;
-        invokeRenderTo(textBox: StiSimpleText): void;
-        private _text;
-        text: string;
-        getTextInternal(): string;
-        setTextInternal(value: string): void;
-        private _textValue;
-        textValue: string;
-        private static eventGetValue;
-        protected onGetValue(e: StiGetValueEventArgs): void;
-        invokeGetValue(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getValueEvent: StiGetValueEvent;
-        private static eventTextProcess;
-        protected onTextProcess(e: StiValueEventArgs): void;
-        invokeTextProcess(sender: StiComponent, e: StiValueEventArgs): void;
-        private applyConditionsAssignExpression(sender, conditions);
-        _totalValueHelp: string;
-        totalValueHelp: string;
-        constructor(rect?: RectangleD, isSuper?: boolean);
-        protected construct(): void;
-    }
-}
-declare module Stimulsoft.Report.Events {
-    class StiGetExcelValueEvent extends StiEvent {
-        toString(): string;
-    }
-}
-declare module Stimulsoft.Report.Components {
-    import Image = Stimulsoft.System.Drawing.Image;
-    import StiGetExcelValueEvent = Stimulsoft.Report.Events.StiGetExcelValueEvent;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import IStiEditable = Stimulsoft.Report.Components.IStiEditable;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import Font = Stimulsoft.System.Drawing.Font;
-    import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
-    import StiVertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment;
-    import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import StiTextOptions = Stimulsoft.Base.Drawing.StiTextOptions;
-    import StringTrimming = Stimulsoft.System.Drawing.StringTrimming;
-    import StiFormatService = Stimulsoft.Report.Components.TextFormats.StiFormatService;
-    import StiGetExcelValueEventArgs = Stimulsoft.Report.Events.StiGetExcelValueEventArgs;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import SizeD = Stimulsoft.Base.Drawing.SizeD;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiText extends StiSimpleText implements IStiTextOptions, IStiAutoWidth, IStiTextHorAlignment, IStiVertAlignment, IStiBorder, IStiFont, IStiBrush, IStiTextBrush, IStiBreakable, IStiGlobalizationProvider, IStiEditable {
-        private static ImplementsStiText;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        parseTextFromXml(xmlNode: XmlNode): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
-        readonly componentId: StiComponentId;
-        private _indicator;
-        indicator: StiIndicator;
-        getImage(REFzoom: any, format?: StiExportFormat): Image;
-        isExportAsImage(format: StiExportFormat): boolean;
-        setString(propertyName: string, value: string): void;
-        getString(propertyName: string): string;
-        getAllStrings(): string[];
-        private static propertyCanBreak;
-        canBreak: boolean;
-        break(dividedComponent: StiComponent, devideFactor: number, REFdivideLine: any): boolean;
-        private static propertyAutoWidth;
-        autoWidth: boolean;
-        protected static propertyRenderTo: Object;
-        renderTo: string;
-        invokeRenderTo(textFrom: StiSimpleText): void;
-        private getVisibleTextForRenderTo(rect, REFtext, checkedText);
-        private _horAlignment;
-        horAlignment: StiTextHorAlignment;
-        private _vertAlignment;
-        vertAlignment: StiVertAlignment;
-        private _font;
-        font: Font;
-        private _border;
-        border: StiBorder;
-        private _brush;
-        brush: StiBrush;
-        private _textBrush;
-        textBrush: StiBrush;
-        private _textFormat;
-        textFormat: StiFormatService;
-        private _format;
-        format: string;
-        private _textOptions;
-        textOptions: StiTextOptions;
-        clone(cloneProperties: boolean): StiText;
-        memberwiseClone(): StiText;
-        convertTextMargins(rect: RectangleD, convert: boolean): RectangleD;
-        convertTextBorders(rect: RectangleD, convert: boolean): RectangleD;
-        getTextForPaint(): string;
-        getActualSize(): SizeD;
-        prepare(): void;
-        private _excelDataValue;
-        excelDataValue: string;
-        excelValue: string;
-        invokeEvents(): void;
-        private static eventGetExcelValue;
-        protected onGetExcelValue(e: StiGetExcelValueEventArgs): void;
-        invokeGetExcelValue(sender: StiComponent, e: StiGetExcelValueEventArgs): void;
-        getExcelValueEvent: StiGetExcelValueEvent;
-        protected static propertyNullValue: Object;
-        nullValue: string;
-        protected static propertyType: Object;
-        type: StiSystemTextType;
-        wordWrap: boolean;
-        rightToLeft: boolean;
-        trimming: StringTrimming;
-        angle: number;
-        private static propertyExportAsImage;
-        exportAsImage: boolean;
-        private static propertyTextQuality;
-        textQuality: StiTextQuality;
-        private static propertyAllowHtmlTags;
-        allowHtmlTags: boolean;
-        private static propertyMargins;
-        margins: StiMargins;
-        private static propertyShrinkFontToFit;
-        shrinkFontToFit: boolean;
-        private static propertyShrinkFontToFitMinimumSize;
-        shrinkFontToFitMinimumSize: number;
-        createNew(): StiComponent;
-        checkAllowHtmlTags(): boolean;
-        getActualFont(text: string, minFontSize?: number): Font;
-        constructor(rect?: RectangleD, isSuper?: boolean);
-        protected construct(): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiNewAutoSeriesEventArgs = Stimulsoft.Report.Events.StiNewAutoSeriesEventArgs;
-    import StiGetTitleEventArgs = Stimulsoft.Report.Events.StiGetTitleEventArgs;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiValueEventArgs = Stimulsoft.Report.Events.StiValueEventArgs;
-    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
-    import StiPage = Stimulsoft.Report.Components.StiPage;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    class StiSeries extends StiService implements IStiJsonReportObject, ICloneable, IStiSeries, IStiJsonReportObject {
-        private static implementsStiSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiSeries;
-        baseTransform(context: Object, x: number, y: number, angle: number, dx: number, dy: number): void;
-        readonly parent: StiComponent;
-        readonly serviceName: string;
-        readonly serviceCategory: string;
-        readonly serviceType: Stimulsoft.System.Type;
-        private _core;
-        core: StiSeriesCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _format;
-        format: string;
-        private _sortBy;
-        sortBy: StiSeriesSortType;
-        private _sortDirection;
-        sortDirection: StiSeriesSortDirection;
-        private _showInLegend;
-        showInLegend: boolean;
-        showLabels: boolean;
-        private _showSeriesLabels;
-        showSeriesLabels: StiShowSeriesLabels;
-        private _showShadow;
-        showShadow: boolean;
-        private _filterMode;
-        filterMode: StiFilterMode;
-        private _filters;
-        filters: StiChartFiltersCollection;
-        private _conditions;
-        conditions: StiChartConditionsCollection;
-        private _topN;
-        topN: IStiSeriesTopN;
-        private _yAxis;
-        yAxis: StiSeriesYAxis;
-        private _seriesLabels;
-        seriesLabels: IStiSeriesLabels;
-        private _trendLine;
-        trendLine: IStiTrendLine;
-        private _chart;
-        chart: IStiChart;
-        private _values;
-        values: number[];
-        private _valueDataColumn;
-        valueDataColumn: string;
-        valuesString: string;
-        private _arguments;
-        arguments: Object[];
-        protected getArguments(): Object[];
-        protected setArguments(value: Object[]): void;
-        private _argumentDataColumn;
-        argumentDataColumn: string;
-        argumentsString: string;
-        private _autoSeriesTitleDataColumn;
-        autoSeriesTitleDataColumn: string;
-        private _autoSeriesKeyDataColumn;
-        autoSeriesKeyDataColumn: string;
-        private _autoSeriesColorDataColumn;
-        autoSeriesColorDataColumn: string;
-        private _toolTips;
-        toolTips: string[];
-        private _toolTipDataColumn;
-        toolTipDataColumn: string;
-        toolTipsString: string;
-        private _tags;
-        tags: Object[];
-        private _tagDataColumn;
-        tagDataColumn: string;
-        tagString: string;
-        private _hyperlinks;
-        hyperlinks: string[];
-        private _hyperlinkDataColumn;
-        hyperlinkDataColumn: string;
-        hyperlinkString: string;
-        private _drillDownEnabled;
-        drillDownEnabled: boolean;
-        private _drillDownReport;
-        drillDownReport: string;
-        drillDownPage: StiPage;
-        private _drillDownPageGuid;
-        drillDownPageGuid: string;
-        private _allowSeries;
-        allowSeries: boolean;
-        private _allowSeriesElements;
-        allowSeriesElements: boolean;
-        coreTitle: string;
-        private _interaction;
-        interaction: IStiSeriesInteraction;
-        processSeriesColors(pointIndex: number, seriesColor: Color): Color;
-        processSeriesBrushes(pointIndex: number, seriesBrush: StiBrush): StiBrush;
-        private getConditionResult(pointIndex, condition);
-        toString(): string;
-        static getNullableValuesFromString(series: StiSeries, list: string): number[];
-        static getValuesFromString(list: string): number[];
-        static getStringsFromString(list: string): string[];
-        static getArgumentsFromString(list: string): Object[];
-        createNew(): StiSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        newAutoSeries: Function;
-        invokeNewAutoSeries(e: StiNewAutoSeriesEventArgs): void;
-        getValue: Function;
-        protected onGetValue(e: StiGetValueEventArgs): void;
-        invokeGetValue(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValues: Function;
-        protected onGetListOfValues(e: StiGetValueEventArgs): void;
-        invokeGetListOfValues(sender: StiComponent, e: StiGetValueEventArgs, series: StiSeries): void;
-        getArgument: Function;
-        protected onGetArgument(e: StiValueEventArgs): void;
-        invokeGetArgument(sender: StiComponent, e: StiValueEventArgs): void;
-        getListOfArguments: Function;
-        protected onGetListOfArguments(e: StiGetValueEventArgs): void;
-        invokeGetListOfArguments(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getTitle: Function;
-        protected onGetTitle(e: StiGetTitleEventArgs): void;
-        invokeGetTitle(sender: StiComponent, e: StiGetTitleEventArgs): void;
-        getToolTip: Function;
-        protected onGetToolTip(e: StiValueEventArgs): void;
-        invokeGetToolTip(sender: Object, e: StiValueEventArgs): void;
-        getListOfToolTips: Function;
-        protected onGetListOfToolTips(e: StiGetValueEventArgs): void;
-        invokeGetListOfToolTips(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getTag: Function;
-        protected onGetTag(e: StiValueEventArgs): void;
-        invokeGetTag(sender: Object, e: StiValueEventArgs): void;
-        getListOfTags: Function;
-        protected onGetListOfTags(e: StiGetValueEventArgs): void;
-        invokeGetListOfTags(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getHyperlink: Function;
-        protected onGetHyperlink(e: StiValueEventArgs): void;
-        invokeGetHyperlink(sender: Object, e: StiValueEventArgs): void;
-        getListOfHyperlinks: Function;
-        protected onGetListOfHyperlinks(e: StiGetValueEventArgs): void;
-        invokeGetListOfHyperlinks(sender: StiComponent, e: StiGetValueEventArgs): void;
-        private valueObj;
-        value: string;
-        private _listOfValues;
-        listOfValues: string;
-        private _argument;
-        argument: string;
-        private _listOfArguments;
-        listOfArguments: string;
-        private _titleValue;
-        titleValue: string;
-        private _title;
-        title: string;
-        private _toolTip;
-        toolTip: string;
-        private _listOfToolTips;
-        listOfToolTips: string;
-        private _tag;
-        tag: string;
-        private _listOfTags;
-        listOfTags: string;
-        private _hyperlink;
-        hyperlink: string;
-        private _listOfHyperlinks;
-        listOfHyperlinks: string;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiBaseLineSeries extends StiSeries implements IStiJsonReportObject, IStiBaseLineSeries, ICloneable, IStiSeries, IStiAllowApplyColorNegative {
-        private static implementsStiBaseLineSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiBaseLineSeries;
-        private _showNulls;
-        showNulls: boolean;
-        showMarker: boolean;
-        markerColor: Color;
-        markerSize: number;
-        markerType: StiMarkerType;
-        private _marker;
-        marker: IStiMarker;
-        private _lineMarker;
-        lineMarker: IStiLineMarker;
-        private _lineColor;
-        lineColor: Color;
-        getLineColor(): Color;
-        setLineColor(value: Color): void;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lighting;
-        lighting: boolean;
-        private _lineWidth;
-        lineWidth: number;
-        private _labelsOffset;
-        labelsOffset: number;
-        private _lineColorNegative;
-        lineColorNegative: Color;
-        private _allowApplyColorNegative;
-        allowApplyColorNegative: boolean;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiScatterSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, IStiSeries, ICloneable, IStiScatterSeries, IStiAllowApplyColorNegative {
-        private static implementsStiScatterSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly componentId: StiComponentId;
-        clone(): StiScatterSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        getLineColor(): Color;
-        setLineColor(value: Color): void;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiScatterLineSeries extends StiScatterSeries implements IStiScatterLineSeries, IStiBaseLineSeries, IStiScatterSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
-        private static implementsStiScatterLineSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        clone(): StiScatterLineSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAreaCoreXF implements ICloneable, IStiApplyStyle {
-        private static implementsStiAreaCoreXF;
-        implements(): string[];
-        clone(): StiAreaCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        protected prepareInfo(rect: RectangleD): void;
-        checkInLabelsTypes(typeForCheck: Stimulsoft.System.Type): boolean;
-        getSeries(): IStiSeries[];
-        isAcceptableSeries(seriesType: Stimulsoft.System.Type): boolean;
-        isAcceptableSeriesLabels(seriesLabelsType: Stimulsoft.System.Type): boolean;
-        private _area;
-        area: IStiArea;
-        readonly localizedName: string;
-        readonly seriesOrientation: StiChartSeriesOrientation;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiAxisAreaCoreXF extends StiAreaCoreXF {
-        applyStyle(style: IStiChartStyle): void;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        private calculateScrollValuesX(rect, axisArea);
-        private calculateScrollValuesY(rect, axisArea);
-        protected prepareInfo(rect: RectangleD): void;
-        private renderSeries(context, rect, geom, seriesCollection);
-        isAutoRangeXAxis(axis: IStiAxis): boolean;
-        isAutoRangeYAxis(axis: IStiAxis): boolean;
-        calculateMinimumAndMaximumXAxis(axis: IStiAxis): void;
-        calculateMinimumAndMaximumYAxis(axis: IStiAxis): void;
-        getArgumentLabel(line: StiStripLineXF, series: IStiSeries): string;
-        switchOff(): void;
-        private swap(REFvalue1, REFvalue2);
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        protected createStripLinesXAxis(axis: IStiAxis): void;
-        protected createStripLinesYAxis(axis: IStiAxis, isDateTimeValues: boolean): void;
-        protected checkStripLinesAndMaximumMinimumXAxis(axis: IStiAxis): void;
-        protected checkStripLinesAndMaximumMinimumYAxis(axis: IStiAxis): void;
-        private calculateStepX(axis, topPosition, bottomPosition);
-        private calculateStepY(axis, topPosition, bottomPosition);
-        private checkStartFromZeroYAxis(axis);
-        calculatePositions(axis: IStiAxis, REFcollection: any, step: number): void;
-        private calculateDivider(axis);
-        private static rotateStripLines(axis);
-        getDividerX(): number;
-        getDividerY(): number;
-        getDividerRightY(): number;
-        valuesCount: number;
-        readonly scrollDistanceX: number;
-        readonly scrollDistanceY: number;
-        private _scrollRangeX;
-        readonly scrollRangeX: number;
-        private _scrollRangeY;
-        readonly scrollRangeY: number;
-        private _scrollViewX;
-        readonly scrollViewX: number;
-        private _scrollViewY;
-        readonly scrollViewY: number;
-        private _blockScrollValueX;
-        blockScrollValueX: boolean;
-        private _blockScrollValueY;
-        blockScrollValueY: boolean;
-        private _scrollValueX;
-        scrollValueX: number;
-        private _scrollValueY;
-        scrollValueY: number;
-        private _scrollDpiX;
-        readonly scrollDpiX: number;
-        private _scrollDpiY;
-        readonly scrollDpiY: number;
-        private _scrollDragStartValue;
-        scrollDragStartValue: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiClusteredColumnAreaCoreXF extends StiAxisAreaCoreXF {
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiScatterAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        private isArgumentDateTime;
-        private isXAxisAutoRange(xAxis);
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        protected checkStripLinesAndMaximumMinimumXAxis(axis: IStiAxis): void;
-        protected createStripLinesXAxis(axis: IStiAxis): void;
-        protected createStripLinesYAxis(axis: IStiAxis, isDateTimeValues: boolean): void;
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiBubbleAreaCoreXF extends StiScatterAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiCandlestickAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        protected createStripLinesXAxis(axis: IStiAxis): void;
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiClusteredBarAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly seriesOrientation: StiChartSeriesOrientation;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiAreaAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiLineAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiSplineAreaAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiSplineAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiSteppedAreaAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiSteppedLineAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiPieAreaCoreXF extends StiAreaCoreXF {
-        valuesCount: number;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
-        protected prepareInfo(rect: RectangleD): void;
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiDoughnutAreaCoreXF extends StiPieAreaCoreXF {
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStackedBarAreaCoreXF extends StiClusteredBarAreaCoreXF {
-        private prepareSeriesRange(seriesType);
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        readonly localizedName: string;
-        readonly seriesOrientation: StiChartSeriesOrientation;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedBarAreaCoreXF extends StiStackedBarAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStackedColumnAreaCoreXF extends StiAxisAreaCoreXF {
-        private prepareSeriesRange(seriesType);
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedColumnAreaCoreXF extends StiStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedAreaAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedLineAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedSplineAreaAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedSplineAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiFunnelAreaCoreXF extends StiAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
-        protected prepareInfo(rect: RectangleD): void;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiGanttAreaCoreXF extends StiClusteredBarAreaCoreXF {
-        protected createStripLinesXAxis(axis: IStiAxis): void;
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        readonly localizedName: string;
-        readonly seriesOrientation: StiChartSeriesOrientation;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiRadarAreaCoreXF extends StiAreaCoreXF {
-        applyStyle(style: IStiChartStyle): void;
-        valuesCount: number;
-        points: PointD[];
-        arguments: Object[];
-        centerPoint: PointD;
-        render(context: StiContext, areaRect: RectangleD): StiCellGeom;
-        private static centerArea(rect);
-        measureLabels(context: StiContext, rect: RectangleD): RectangleD;
-        renderArguments(context: StiContext, geom: StiRadarAreaGeom, series: IStiSeries): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
-        protected prepareInfo(rect: RectangleD): void;
-        protected createStripLinesAxis(axis: IStiYRadarAxis, minimum: number, maximum: number): void;
-        private calculateStep(axis, topPosition, bottomPosition);
-        calculatePositions(axis: IStiYRadarAxis, REFcollection: any, step: number): void;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiRadarAreaAreaCoreXF extends StiRadarAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiRadarLineAreaCoreXF extends StiRadarAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiRadarPointAreaCoreXF extends StiRadarAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiRangeAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiRangeBarAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        protected createStripLinesXAxis(axis: IStiAxis): void;
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiSplineRangeAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiSteppedRangeAreaCoreXF extends StiClusteredColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStackedAreaAreaCoreXF extends StiStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStackedLineAreaCoreXF extends StiStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStackedSplineAreaAreaCoreXF extends StiStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStackedSplineAreaCoreXF extends StiStackedColumnAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStockAreaCoreXF extends StiCandlestickAreaCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiTreemapAreaCoreXF extends StiAreaCoreXF {
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderSeries(context: StiContext, boxes: RectangleD[], boxRoot: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
-        private cutArea(container, area);
-        squarify(data: number[], currentrow: number[], container: RectangleD, stack: RectangleD[]): RectangleD[];
-        private improvesRatio(currentrow, nextnode, length);
-        private calculateRatio(row, length);
-        normalizeDataForArea(data: number[], area: number): number[];
-        private getCoordinates(rootContainer, rowData);
-        prepareInfo(rect: RectangleD): void;
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(area: IStiArea);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStripLineCalculatorXF {
-        private static getInterval1(interval);
-        static getInterval(minValue: number, maxValue: number, num: number): number;
-        static getStripLines(minValue: number, maxValue: number, step: number, asDateTimeValue: boolean): StiStripLinesXF;
-        private static getCountAfterComma(num);
-        static getStripLinesLogScale(minValue: number, maxValue: number): StiStripLinesXF;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStripLineXF {
-        private _valueObject;
-        valueObject: Object;
-        private valueObj;
-        value: number;
-        constructor(valueObject: Object, value: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiStripLinesXF extends CollectionBase {
-        readonly list: StiStripLineXF[];
-        add(valueObject: Object, value: number): void;
-        add2(line: StiStripLineXF): void;
-        addRange(lines: StiStripLineXF[]): void;
-        contains(value: StiStripLineXF): boolean;
-        indexOf(value: StiStripLineXF): number;
-        insert(index: number, value: StiStripLineXF): void;
-        remove(value: StiStripLineXF): void;
-        getByindex(index: number): StiStripLineXF;
-        setByIndex(index: number, value: StiStripLineXF): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStripPositionXF {
-        position: number;
-        stripLine: StiStripLineXF;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
-    import SizeD = Stimulsoft.Base.Drawing.SizeD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisCoreXF implements ICloneable, IStiApplyStyle {
-        private static implementsStiAxisCoreXF;
-        implements(): string[];
-        clone(): StiAxisCoreXF;
-        private _isMouseOverDecreaseButton;
-        isMouseOverDecreaseButton: boolean;
-        private _isMouseOverIncreaseButton;
-        isMouseOverIncreaseButton: boolean;
-        private _isMouseOverTrackBar;
-        isMouseOverTrackBar: boolean;
-        applyStyle(style: IStiChartStyle): void;
-        getStartFromZero(): boolean;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderView(context: StiContext, rect: RectangleD): StiCellGeom;
-        calculateStripPositions(topPosition: number, bottomPosition: number): void;
-        getTicksMaxLength(context: StiContext): number;
-        getArrowHeight(context: StiContext): number;
-        getLabelsSpaceAxis(context: StiContext): number;
-        getLabelsTwoLinesDestination(context: StiContext): number;
-        getFontGeom(context: StiContext): StiFontGeom;
-        getTextAlignment(): StiHorAlignment;
-        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
-        protected getAxisTitleSize(context: StiContext): SizeD;
-        static defaultScrollBarSize: number;
-        static defaultScrollBarSmallFactor: number;
-        static defaultScrollBarFirstRecallTime: number;
-        static defaultScrollBarOtherRecallTime: number;
-        readonly ticksMaxLength: number;
-        readonly arrowWidth: number;
-        readonly arrowHeight: number;
-        private _axis;
-        axis: IStiAxis;
-        info: StiAxisInfoXF;
-        constructor(axis: IStiAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisInfoXF implements ICloneable {
-        private static implementsStiAxisInfoXF;
-        implements(): string[];
-        clone(): StiAxisInfoXF;
-        dpi: number;
-        step: number;
-        readonly range: number;
-        stripLines: StiStripLinesXF;
-        stripPositions: number[];
-        ticksCollection: StiStripPositionXF[];
-        labelsCollection: StiStripPositionXF[];
-        minimum: number;
-        _maximum: number;
-        maximum: number;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiAxisLabelInfoXF {
-        clientRectangle: RectangleD;
-        textPoint: PointD;
-        angle: number;
-        rotationMode: StiRotationMode;
-        text: string;
-        stripLine: StiStripLineXF;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisLabelsCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiAxisLabelsCoreXF;
-        implements(): string[];
-        clone(): StiAxisLabelsCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        private _labels;
-        labels: IStiAxisLabels;
-        constructor(labels: IStiAxisLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisTitleCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiAxisTitleCoreXF;
-        implements(): string[];
-        clone(): StiAxisTitleCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        private _title;
-        title: IStiAxisTitle;
-        constructor(title: IStiAxisTitle);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiXAxisCoreXF extends StiAxisCoreXF {
-        getStartFromZero(): boolean;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderView(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderScrollBar(context: StiContext, axisRect: RectangleD, axisGeom: StiXAxisViewGeom): void;
-        renderCenter(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderCenterView(context: StiContext, rect: RectangleD): StiCellGeom;
-        getLabelText(line: StiStripLineXF, series: IStiSeries): string;
-        private readonly isLabelsAngleByWidth;
-        private measureStripLines(context, rect);
-        getCenterAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean): RectangleD;
-        getAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsWidth: boolean, isDrawing: boolean, includeScrollBar: boolean): RectangleD;
-        private renderLabels(context, rect, geom);
-        private renderTitle(context, axisRect, geom);
-        private isArgumentDateTime1(positions);
-        private isArgumentDateTime2(infos);
-        readonly dock: StiXAxisDock;
-        readonly isTopSide: boolean;
-        readonly isBottomSide: boolean;
-        constructor(axis: IStiAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiXBottomAxisCoreXF extends StiXAxisCoreXF {
-        readonly dock: StiXAxisDock;
-        constructor(axis: IStiAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiXTopAxisCoreXF extends StiXAxisCoreXF {
-        readonly dock: StiXAxisDock;
-        constructor(axis: IStiAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiYAxisCoreXF extends StiAxisCoreXF {
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderView(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderScrollBar(context: StiContext, axisRect: RectangleD, axisGeom: StiYAxisViewGeom): void;
-        renderCenter(context: StiContext, rect: RectangleD): StiCellGeom;
-        renderCenterView(context: StiContext, rect: RectangleD): StiCellGeom;
-        getLabelText(line: StiStripLineXF, series: IStiSeries): string;
-        private measureStripLines(context, rect);
-        getCenterAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean): RectangleD;
-        getAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean, includeScrollBar: boolean): RectangleD;
-        private renderLabels(context, rect, geom);
-        private renderTitle(context, axisRect, geom);
-        readonly dock: StiYAxisDock;
-        readonly isLeftSide: boolean;
-        readonly isRightSide: boolean;
-        constructor(axis: IStiAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiYLeftAxisCoreXF extends StiYAxisCoreXF {
-        readonly dock: StiYAxisDock;
-        constructor(axis: IStiAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiYRightAxisCoreXF extends StiYAxisCoreXF {
-        readonly dock: StiYAxisDock;
-        getStartFromZero(): boolean;
-        constructor(axis: IStiAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiChartTitleCoreXF implements ICloneable, IStiApplyStyle {
-        private static implementsStiChartTitleCoreXF;
-        implements(): string[];
-        clone(): StiChartTitleCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        render(context: StiContext, chartTitle: IStiChartTitle, rect: RectangleD): StiCellGeom;
-        private _chartTitle;
-        chartTitle: IStiChartTitle;
-        constructor(chartTitle: IStiChartTitle);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiConstantLinesCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiConstantLinesCoreXF;
-        implements(): string[];
-        clone(): Object;
-        applyStyle(style: IStiChartStyle): void;
-        renderXConstantLines(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
-        renderYConstantLines(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
-        render(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
-        private _constantLines;
-        constantLines: IStiConstantLines;
-        constructor(constantLines: IStiConstantLines);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiGridLinesCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiGridLinesCoreXF;
-        implements(): string[];
-        clone(): StiGridLinesCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        private _gridLines;
-        gridLines: IStiGridLines;
-        constructor(gridLines: IStiGridLines);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarGridLinesCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiRadarGridLinesCoreXF;
-        implements(): string[];
-        clone(): StiRadarGridLinesCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        private _gridLines;
-        gridLines: IStiRadarGridLines;
-        constructor(gridLines: IStiRadarGridLines);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiInterlacingCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiInterlacingCoreXF;
-        implements(): string[];
-        clone(): StiInterlacingCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        private _interlacing;
-        interlacing: IStiInterlacing;
-        constructor(interlacing: IStiInterlacing);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import SizeD = Stimulsoft.Base.Drawing.SizeD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiLegendCoreXF implements ICloneable, IStiApplyStyle {
-        private static implementsStiLegendCoreXF;
-        implements(): string[];
-        applyStyle(style: IStiChartStyle): void;
-        clone(): StiLegendCoreXF;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        getArgumentText(series: IStiSeries, index: number): string;
-        getLegendItemColumn(seriesItems: StiLegendItemCoreXF[], seriesItem: StiLegendItemCoreXF): number;
-        getTitleSize(context: StiContext): SizeD;
-        getItemSize1(context: StiContext, seriesItems: StiLegendItemCoreXF[], seriesIndex: number): SizeD;
-        getItemSize2(context: StiContext, seriesItems: StiLegendItemCoreXF[], seriesItem: StiLegendItemCoreXF): SizeD;
-        getItemsSize(context: StiContext, seriesItems: StiLegendItemCoreXF[]): SizeD;
-        getSeriesSize(context: StiContext): SizeD;
-        getLegendSize(context: StiContext): SizeD;
-        getLegendItems(REFcount: any): StiLegendItemCoreXF[];
-        private _legend;
-        legend: IStiLegend;
-        constructor(legend: IStiLegend);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiLegendItemCoreXF {
-        private _text;
-        readonly text: string;
-        private _series;
-        readonly series: IStiSeries;
-        private _index;
-        readonly index: number;
-        private _colorIndex;
-        readonly colorIndex: number;
-        constructor(text: string, series: IStiSeries, index: number, colorIndex: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiPenGeom = Stimulsoft.Base.Context.StiPenGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiMarkerCoreXF {
-        private static implementsStiMarkerCoreXF;
-        implements(): string[];
-        clone(): StiMarkerCoreXF;
-        drawMarkers(context: StiContext, points: PointD[], showShadow: boolean): void;
-        static getMarkerRect(position: PointD, markerSize: number, zoom: number): RectangleD;
-        draw(context: StiContext, marker: IStiMarker, position: PointD, zoom: number, showShadow: boolean, isMouseOver: boolean, isAnimation: boolean, tag: Object): void;
-        drawLine(context: StiContext, x1: number, y1: number, x2: number, y2: number, scale: number, brushMarker: StiBrush, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): void;
-        drawLines(context: StiContext, points: PointD[], scale: number, brushMarker: Object, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): void;
-        drawPoint(context: StiContext, x: number, y: number, scale: number, brush: Object, pen: StiPenGeom, markerType: StiMarkerType, markerSize: number, angle: number, isMouseOver: boolean, isAnimation: boolean, tag: Object): void;
-        private drawPolygon(context, fillBrush, borderPen, centerX, centerY, radius, count, startAngle, isStar, isMouseOver);
-        private _marker;
-        marker: IStiMarker;
-        constructor(marker: IStiMarker);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarAxisCoreXF implements ICloneable, IStiApplyStyle {
-        private static implementsStiRadarAxisCoreXF;
-        implements(): string[];
-        clone(): StiRadarAxisCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        private _axis;
-        axis: IStiRadarAxis;
-        constructor(axis: IStiRadarAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarAxisLabelsCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiRadarAxisLabelsCoreXF;
-        implements(): string[];
-        clone(): StiRadarAxisLabelsCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        private _labels;
-        labels: IStiRadarAxisLabels;
-        constructor(labels: IStiRadarAxisLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiXRadarAxisCoreXF extends StiRadarAxisCoreXF {
-        applyStyle(style: IStiChartStyle): void;
-        renderLabel(context: StiContext, series: IStiSeries, point: PointD, argument: Object, angle: number, colorIndex: number, colorCount: number): StiXRadarAxisLabelGeom;
-        getLabelText(value: Object): string;
-        getLabelRect(context: StiContext, point: PointD, text: string, angle: number): RectangleD;
-        readonly xAxis: IStiXRadarAxis;
-        constructor(axis: IStiRadarAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiYRadarAxisCoreXF extends StiRadarAxisCoreXF {
-        applyStyle(style: IStiChartStyle): void;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        private measureStripLines(context, rect);
-        private renderLabels(context, rect, geom);
-        calculateStripPositions(topPosition: number, bottomPosition: number): void;
-        getAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean): RectangleD;
-        getTicksMaxLength(context: StiContext): number;
-        getLabelsSpaceAxis(context: StiContext): number;
-        getLabelsTwoLinesDestination(context: StiContext): number;
-        getTextAlignment(): StiHorAlignment;
-        getLabelText(line: StiStripLineXF, series: IStiSeries): string;
-        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
-        getFontGeom(context: StiContext): StiFontGeom;
-        readonly yAxis: IStiYRadarAxis;
-        info: StiAxisInfoXF;
-        readonly ticksMaxLength: number;
-        constructor(axis: IStiRadarAxis);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSeriesLabelsCoreXF implements ICloneable, IStiApplyStyle {
-        private static implementsStiSeriesLabelsCoreXF;
-        implements(): string[];
-        clone(): StiSeriesLabelsCoreXF;
-        applyStyle(style: IStiChartStyle): void;
-        readonly position: number;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        private _seriesLabels;
-        seriesLabels: IStiSeriesLabels;
-        readonly localizedName: string;
-        processSeriesColors(pointIndex: number, brush: StiBrush, series: IStiSeries): StiBrush;
-        getSeriesLabelColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
-        getBorderColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
-        getLabelColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
-        recalcValue(value: number, signs: number): number;
-        getLabelText(series: IStiSeries, value: number, argument: string, tag: string, seriesName: string, useLegendValueType?: boolean): string;
-        getLabelText2(series: IStiSeries, value: number, argument: string, tag: string, seriesName: string, weight: number, useLegendValueType: boolean): string;
-        private getArgument(series, argument);
-        private getFormatted(series, value, isDateTime);
-        getFormattedValue(series: IStiSeries, value: number): string;
-        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiAxisSeriesLabelsCoreXF extends StiSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
-        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
-        recalcValue(value: number, signs: number): number;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        currentIndex: number;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiCenterAxisLabelsCoreXF extends StiAxisSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
-        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiInsideBaseAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiInsideEndAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
-        readonly position: number;
-        readonly localizedName: string;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiLeftAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiOutsideAxisLabelsCoreXF extends StiAxisSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiOutsideBaseAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiOutsideEndAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiRightAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiValueAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiFunnelSeriesLabelsCoreXF extends StiSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiCenterFunnelLabelsCoreXF extends StiFunnelSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
-        private getSumLastValues(series, indexCurrent);
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiOutsideLeftFunnelLabelsCoreXF extends StiFunnelSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiOutsideRightFunnelLabelsCoreXF extends StiFunnelSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiPieSeriesLabelsCoreXF extends StiSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, centerPie: PointD, radius: number, radius2: number, pieAngle: number, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, measure: boolean, colorIndex: number, colorCount: number, percentPerValue: number, REFmeasureRect: any, drawValue: boolean, deltaY: number): StiSeriesLabelsGeom;
-        recalcValue(value: number, signs: number): number;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        percentPerValue: number;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiCenterPieLabelsCoreXF extends StiPieSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, centerPie: PointD, radius: number, radius2: number, pieAngle: number, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, measure: boolean, colorIndex: number, colorCount: number, percentPerValue: number, REFmeasureRect: any, drawValue: boolean, deltaY: number): StiSeriesLabelsGeom;
-        getLabelPoint(centerPie: PointD, radius: number, angleRad: number): PointD;
-        getLabelRect(context: StiContext, labelPoint: PointD, labelText: string, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiInsideEndPieLabelsCoreXF extends StiCenterPieLabelsCoreXF {
-        readonly localizedName: string;
-        readonly position: number;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiOutsidePieLabelsCoreXF extends StiCenterPieLabelsCoreXF {
-        applyStyle(style: IStiChartStyle): void;
-        readonly position: number;
-        readonly localizedName: string;
-        getLineColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiTwoColumnsPieLabelsCoreXF extends StiOutsidePieLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, centerPie: PointD, radius: number, radius2: number, pieAngle: number, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, measure: boolean, colorIndex: number, colorCount: number, percentPerValue: number, REFmeasureRect: any, drawValue: boolean, deltaY: number): StiSeriesLabelsGeom;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
-    class StiCenterTreemapLabelsCoreXF extends StiSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, animation?: StiAnimation): StiSeriesLabelsGeom;
-        getLabelRect(context: StiContext, rect: RectangleD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
-        readonly position: number;
-        readonly localizedName: string;
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiNoneLabelsCoreXF extends StiSeriesLabelsCoreXF {
-        readonly seriesLabelsType: StiSeriesLabelsType;
-        readonly position: number;
-        readonly localizedName: string;
-        constructor(seriesLabels: IStiSeriesLabels);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSeriesCoreXF implements ICloneable, IStiApplyStyleSeries {
-        private static implementsStiSeriesCoreXF;
-        implements(): string[];
-        clone(): StiSeriesCoreXF;
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        checkLabelsRect(labels: IStiSeriesLabels, geom: StiAreaGeom, labelsRect: RectangleD): RectangleD;
-        private getRectangle(labelsRect, angle);
-        private rotatePoint(pointToRotate, centerPoint, angleInDegrees);
-        checkIntersectionLabels(geom: StiAreaGeom): void;
-        private getLabelRectangle(angle, rect);
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        getSeriesLabels(): IStiAxisSeriesLabels;
-        getTag(tagIndex: number): string;
-        private static falseObject;
-        private static trueObject;
-        private isMouseOverSeriesElementHashtable;
-        getIsMouseOverSeriesElement(seriesIndex: number): boolean;
-        setIsMouseOverSeriesElement(seriesIndex: number, value: boolean): void;
-        private _isMouseOver;
-        isMouseOver: boolean;
-        readonly localizedName: string;
-        private _isDateTimeValues;
-        isDateTimeValues: boolean;
-        private _isDateTimeArguments;
-        isDateTimeArguments: boolean;
-        private _series;
-        series: IStiSeries;
-        interaction: IStiSeriesInteraction;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiBaseLineSeriesCoreXF extends StiSeriesCoreXF implements IStiApplyStyleSeries {
-        private static implementsStiBaseLineSeriesCoreXF;
-        implements(): string[];
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        protected clipLinePoints(context: StiContext, geom: StiAreaGeom, points: PointD[], REFstartIndex: any, REFendIndex: any): PointD[];
-        renderMarkers(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        getInteractions(context: StiContext, geom: StiAreaGeom, points: PointD[]): StiSeriesInteractionData[];
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        private optimizePoints(points);
-        private isTopmostLine(series);
-        correctPoint(point: PointD, rect: RectangleD, correctY: number): PointD;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiScatterSeriesCoreXF extends StiBaseLineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiBubbleSeriesCoreXF extends StiScatterSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        renderBubbles(context: StiContext, geom: StiAreaGeom, series: IStiBubbleSeries, points: PointD[], weights: number[]): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiClusteredColumnSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        protected correctPoint(point: PointD, rect: RectangleD): PointD;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiClusteredBarSeriesCoreXF extends StiClusteredColumnSeriesCoreXF implements IStiApplyStyleSeries {
-        private static implementsStiClusteredBarSeriesCoreXF;
-        implements(): string[];
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        protected correctPoint(point: PointD, rect: RectangleD): PointD;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiLineSeriesCoreXF extends StiBaseLineSeriesCoreXF {
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiAreaSeriesCoreXF extends StiLineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSplineSeriesCoreXF extends StiBaseLineSeriesCoreXF {
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSplineAreaSeriesCoreXF extends StiSplineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSteppedLineSeriesCoreXF extends StiBaseLineSeriesCoreXF {
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSteppedAreaSeriesCoreXF extends StiSteppedLineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiPieSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        private correctBrush(brush);
-        private renderPieElement(context, center, radius, borderColor, brush, start, angle, value, index, currentSeries, distance, geom, beginTime);
-        private renderPieElementShadow(context, center, radius, brush, start, angle, currentSeries, distance);
-        private measurePieElement(context, center, radius, start, angle, currentSeries, distance);
-        private measurePieElementCore(context, center, radius, start, angle, currentSeries, distance, REFpath, REFpathLight, REFrectPie);
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        private checkIntersectionTwoColumnsLabels(geom, rect);
-        private checkLabelPosition(labels, rect);
-        protected getGradPerValue(series: IStiSeries[]): number;
-        getPercentPerValue(series: IStiSeries[]): number;
-        getPointCenter(rect: RectangleD): PointD;
-        getRadius(context: StiContext, rect: RectangleD): number;
-        getPoint(centerPie: PointD, radius: number, angle: number): PointD;
-        protected getArgumentText(series: IStiSeries, index: number): string;
-        getPieDistance(pieIndex: number): number;
-        getPieDistance2(series: IStiPieSeries, pieIndex: number): number;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiDoughnutSeriesCoreXF extends StiPieSeriesCoreXF {
-        private renderDoughnutElement(context, center, radius, radiusDt, borderColor, brush, start, angle, value, index, currentSeries, shadow, areaGeom, beginTime);
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        protected getGradPerValue(series: IStiSeries[]): number;
-        getPercentPerValue(series: IStiSeries[]): number;
-        protected getArgumentText(series: IStiSeries, index: number): string;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiCandlestickSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStockSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStackedBarSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        private calculateTotalWidth(series, pointIndex, REFtotalPositiveWidth, REFtotalNegativeWidth);
-        private correctRect(columnRect, rect);
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedBarSeriesCoreXF extends StiStackedBarSeriesCoreXF {
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiStackedBaseLineSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        clipLinePoints(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], REFnewStartPoints: any, REFnewEndPoints: any, REFstartIndex: any, REFendIndex: any): void;
-        renderMarkers(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        renderAreas(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[]): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        private calculateTotalHeight(series, pointIndex, REFtotalPositiveHeight, REFtotalNegativeHeight);
-        private correctPoint(point, rect);
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        readonly isFullStacked: boolean;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiStackedLineSeriesCoreXF extends StiStackedBaseLineSeriesCoreXF {
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStackedAreaSeriesCoreXF extends StiStackedLineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderAreas(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[]): void;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedAreaSeriesCoreXF extends StiStackedAreaSeriesCoreXF {
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStackedColumnSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        private calculateTotalHeight(series, pointIndex, REFtotalPositiveHeight, REFtotalNegativeHeight);
-        private correctRect(columnRect, rect);
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedColumnSeriesCoreXF extends StiStackedColumnSeriesCoreXF {
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedLineSeriesCoreXF extends StiStackedLineSeriesCoreXF {
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiStackedSplineSeriesCoreXF extends StiStackedBaseLineSeriesCoreXF {
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStackedSplineAreaSeriesCoreXF extends StiStackedSplineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderAreas(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[]): void;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedSplineAreaSeriesCoreXF extends StiStackedSplineAreaSeriesCoreXF {
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiFullStackedSplineSeriesCoreXF extends StiStackedSplineSeriesCoreXF {
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiFunnelSeriesCoreXF extends StiSeriesCoreXF {
-        private labels;
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        private getValues(funnelSeries);
-        private getArgumentText(series, index);
-        private renderFunnelElement(borderColor, brush, value, valueNext, index, currentSeries, geom, rect, singleValueHeight, singleValueWidth, beginTime);
-        private getSingleValueHeight(values, rect);
-        private getSingleValueWidth(funnelSeries, rect);
-        private measureFunnelElementCore(REFpath, value, valueNext, index, rect, singleValueHeight, singleValueWidth);
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiFunnelWeightedSlicesSeriesCoreXF extends StiSeriesCoreXF {
-        private labels;
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        private getValues(funnelSeries);
-        private getArgumentText(series, index);
-        private renderFunnelElement(borderColor, brush, value, index, currentSeries, geom, rect, singleValueHeight, beginTime);
-        private getSumValues();
-        private getSumLastValues(indexCurrent);
-        private measureFunnelElementCore(index, rect, singleValueHeight);
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiGanttSeriesCoreXF extends StiClusteredBarSeriesCoreXF {
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiRadarSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        renderAreas(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
-        renderLines(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
-        renderPoints(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
-        private getArgument(series, pointIndex);
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarAreaSeriesCoreXF extends StiRadarSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        readonly localizedName: string;
-        renderLines(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
-        renderAreas(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarLineSeriesCoreXF extends StiRadarSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        readonly localizedName: string;
-        renderLines(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarPointSeriesCoreXF extends StiRadarSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiRangeBarSeriesCoreXF extends StiClusteredColumnSeriesCoreXF {
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRangeSeriesCoreXF extends StiLineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        private renderLines2(context, geom, points, values, series);
-        private renderMarkers2(context, geom, points, values, series);
-        private getYPoint(value, currentSeries, axisArea, index);
-        private renderAreas2(geom, points, pointsEnd, series);
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiSplineRangeSeriesCoreXF extends StiSplineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        private renderLines2(context, geom, points, values, series);
-        private renderMarkers2(context, geom, points, values, series);
-        private getYPoint(value, currentSeries, axisArea, index);
-        private renderAreas2(context, geom, points, pointsEnd, series);
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiSteppedRangeSeriesCoreXF extends StiSteppedLineSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
-        private renderAreas2(context, geom, points, pointsEnd, series);
-        private renderLines2(context, geom, points, values, series);
-        private renderMarkers2(context, geom, points, values, series);
-        private getYPoint(value, currentSeries, axisArea, index);
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiScatterLineSeriesCoreXF extends StiScatterSeriesCoreXF {
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiScatterSplineSeriesCoreXF extends StiScatterSeriesCoreXF {
-        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiTreemapSeriesCoreXF extends StiSeriesCoreXF {
-        applyStyle(style: IStiChartStyle, color: Color): void;
-        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
-        getArgumentText(series: IStiSeries, index: number): string;
-        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
-        getSeriesBorderColor(colorIndex: number, colorCount: number): any;
-        readonly localizedName: string;
-        constructor(series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStripsCoreXF implements IStiApplyStyle, ICloneable {
-        private static implementsStiStripsCoreXF;
-        implements(): string[];
-        clone(): Object;
-        applyStyle(style: IStiChartStyle): void;
-        renderXStrips(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
-        renderYStrips(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
-        render(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
-        private _strips;
-        strips: IStiStrips;
-        constructor(strips: IStiStrips);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Font = Stimulsoft.System.Drawing.Font;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStyleCoreXF {
-        readonly localizedName: string;
-        readonly styleId: StiChartStyleId;
-        readonly chartBrush: StiBrush;
-        readonly chartAreaBrush: StiBrush;
-        readonly chartAreaBorderColor: Color;
-        private _chart;
-        chart: IStiChart;
-        readonly seriesLabelsBrush: StiBrush;
-        readonly seriesLabelsColor: Color;
-        readonly seriesLabelsBorderColor: Color;
-        readonly seriesLabelsFont: Font;
-        readonly legendBrush: StiBrush;
-        readonly legendLabelsColor: Color;
-        readonly legendBorderColor: Color;
-        readonly legendTitleColor: Color;
-        readonly legendShowShadow: boolean;
-        readonly legendFont: Font;
-        readonly axisTitleColor: Color;
-        readonly axisLineColor: Color;
-        readonly axisLabelsColor: Color;
-        readonly interlacingHorBrush: StiBrush;
-        readonly interlacingVertBrush: StiBrush;
-        readonly gridLinesHorColor: Color;
-        readonly gridLinesVertColor: Color;
-        readonly seriesLighting: boolean;
-        readonly seriesShowShadow: boolean;
-        readonly markerVisible: boolean;
-        readonly firstStyleColor: Color;
-        readonly lastStyleColor: Color;
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): void;
-        getAreaBrush(color: Color): StiBrush;
-        getColumnBrush(color: Color): StiBrush;
-        getColumnBorder(color: Color): Color;
-        getColors(seriesCount: number): Color[];
-        getColorByIndex(index: number, count: number): Color;
-        getColorBySeries(series: IStiSeries): Color;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF01 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiCustomStyleCoreXF extends StiStyleCoreXF01 {
-        private _base;
-        readonly localizedName: string;
-        reportChartStyle: Stimulsoft.Report.Styles.StiChartStyle;
-        readonly chartAreaBrush: StiBrush;
-        readonly chartAreaBorderColor: Color;
-        readonly seriesShowShadow: boolean;
-        readonly seriesLabelsBrush: StiBrush;
-        readonly seriesLabelsColor: Color;
-        readonly seriesLabelsBorderColor: Color;
-        readonly legendBrush: StiBrush;
-        readonly legendLabelsColor: Color;
-        readonly legendBorderColor: Color;
-        readonly legendTitleColor: Color;
-        readonly axisTitleColor: Color;
-        readonly axisLineColor: Color;
-        readonly axisLabelsColor: Color;
-        readonly interlacingHorBrush: StiBrush;
-        readonly interlacingVertBrush: StiBrush;
-        readonly gridLinesHorColor: Color;
-        readonly gridLinesVertColor: Color;
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        private _reportStyleName;
-        reportStyleName: string;
-        readonly reportStyle: Stimulsoft.Report.Styles.StiChartStyle;
-        private _customStyle;
-        readonly customStyle: StiCustomStyle;
-        getColumnBrush(color: Color): StiBrush;
-        constructor(customStyle: StiCustomStyle);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF02 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleColors: Color[];
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF03 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF04 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleColors: Color[];
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF05 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF06 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF07 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF08 extends StiStyleCoreXF03 {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF09 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF10 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF11 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF12 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF13 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF14 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF15 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF16 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF17 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF18 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): void;
-        getColumnBrush(color: Color): StiBrush;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF19 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly interlacingHorBrush: StiBrush;
-        readonly interlacingVertBrush: StiBrush;
-        readonly chartAreaBrush: StiBrush;
-        readonly chartBrush: StiBrush;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF20 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly axisLineColor: Color;
-        readonly chartAreaBorderColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF21 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        readonly chartBrush: StiBrush;
-        readonly chartAreaBrush: StiBrush;
-        readonly chartAreaBorderColor: Color;
-        readonly seriesLabelsBrush: StiBrush;
-        readonly seriesLabelsColor: Color;
-        readonly seriesLabelsBorderColor: Color;
-        readonly legendBrush: StiBrush;
-        readonly legendLabelsColor: Color;
-        readonly axisTitleColor: Color;
-        readonly axisLineColor: Color;
-        readonly axisLabelsColor: Color;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-        getColumnBorder(color: Color): Color;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF22 extends StiStyleCoreXF {
-        readonly localizedName: string;
-        readonly chartBrush: StiBrush;
-        readonly chartAreaBrush: StiBrush;
-        readonly chartAreaBorderColor: Color;
-        readonly seriesLabelsBrush: StiBrush;
-        readonly seriesLabelsColor: Color;
-        readonly seriesLabelsBorderColor: Color;
-        readonly legendBrush: StiBrush;
-        readonly legendLabelsColor: Color;
-        readonly axisTitleColor: Color;
-        readonly axisLineColor: Color;
-        readonly axisLabelsColor: Color;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly basicStyleColor: Color;
-        readonly styleId: StiChartStyleId;
-        getColumnBrush(color: Color): StiBrush;
-        getColumnBorder(color: Color): Color;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF23 extends StiStyleCoreXF22 {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStyleCoreXF24 extends StiStyleCoreXF22 {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    import Font = Stimulsoft.System.Drawing.Font;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStyleCoreXF25 extends StiStyleCoreXF22 {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly styleId: StiChartStyleId;
-        readonly legendShowShadow: boolean;
-        readonly legendBorderColor: Color;
-        readonly seriesLabelsBrush: StiBrush;
-        readonly seriesLabelsColor: Color;
-        readonly seriesLabelsBorderColor: Color;
-        readonly seriesLabelsFont: Font;
-        readonly seriesLighting: boolean;
-        readonly seriesShowShadow: boolean;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Font = Stimulsoft.System.Drawing.Font;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStyleCoreXF26 extends StiStyleCoreXF22 {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly chartAreaBrush: StiBrush;
-        readonly legendShowShadow: boolean;
-        readonly legendBorderColor: Color;
-        readonly seriesLabelsBrush: StiBrush;
-        readonly seriesLabelsColor: Color;
-        readonly seriesLabelsBorderColor: Color;
-        readonly seriesLabelsFont: Font;
-        readonly seriesLighting: boolean;
-        readonly seriesShowShadow: boolean;
-        readonly markerVisible: boolean;
-        readonly styleId: StiChartStyleId;
-        getColumnBorder(color: Color): Color;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Font = Stimulsoft.System.Drawing.Font;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStyleCoreXF27 extends StiStyleCoreXF22 {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly styleColors: Color[];
-        readonly chartBrush: StiBrush;
-        readonly chartAreaBrush: StiBrush;
-        readonly seriesLabelsBrush: StiBrush;
-        readonly seriesLabelsColor: Color;
-        readonly seriesLabelsBorderColor: Color;
-        readonly seriesLabelsFont: Font;
-        readonly legendBrush: StiBrush;
-        readonly legendLabelsColor: Color;
-        readonly legendBorderColor: Color;
-        readonly legendTitleColor: Color;
-        readonly legendShowShadow: boolean;
-        readonly legendFont: Font;
-        readonly seriesLighting: boolean;
-        getColumnBorder(color: Color): Color;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Font = Stimulsoft.System.Drawing.Font;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStyleCoreXF28 extends StiStyleCoreXF22 {
-        readonly localizedName: string;
-        protected _styleColor: Color[];
-        readonly chartBrush: StiBrush;
-        readonly chartAreaBrush: StiBrush;
-        readonly axisTitleColor: Color;
-        readonly axisLineColor: Color;
-        readonly axisLabelsColor: Color;
-        readonly seriesLabelsColor: Color;
-        readonly legendBrush: StiBrush;
-        readonly legendLabelsColor: Color;
-        readonly legendBorderColor: Color;
-        readonly legendTitleColor: Color;
-        readonly legendShowShadow: boolean;
-        readonly legendFont: Font;
-        readonly styleId: StiChartStyleId;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiChartTableCore implements ICloneable, IStiApplyStyle {
-        private static implementsStiChartTableCore;
-        implements(): string[];
-        applyStyle(style: IStiChartStyle): void;
-        clone(): StiChartTableCore;
-        private _chartTable;
-        chartTable: IStiChartTable;
-        showTable(): boolean;
-        getHeightTable(context: StiContext, widthTable: number): number;
-        getHeightHeaderTable(context: StiContext, widthTable: number): number;
-        getWidthCellLegend(context: StiContext): number;
-        render(context: StiContext, rect: RectangleD): StiCellGeom;
-        private getMaxCountValues(series);
-        private getArguments();
-        private getTableValues();
-        constructor(table: IStiChartTable);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiTrendLineCoreXF {
-        private static implementsStiTrendLineCoreXF;
-        implements(): string[];
-        clone(): StiTrendLineCoreXF;
-        readonly localizedName: string;
-        private _trendLine;
-        trendLine: IStiTrendLine;
-        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
-        sum(values: number[]): number;
-        sumSqr(values: number[]): number;
-        sumProductions(valuesX: number[], valuesY: number[]): number;
-        sumProductionsXLogY(valuesX: number[], valuesY: number[]): number;
-        sumLn(values: number[]): number;
-        constructor(trendLine: IStiTrendLine);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiTrendLineExponentialCoreXF extends StiTrendLineCoreXF {
-        readonly localizedName: string;
-        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
-        constructor(trendLine: IStiTrendLine);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiTrendLineLinearCoreXF extends StiTrendLineCoreXF {
-        readonly localizedName: string;
-        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
-        constructor(trendLine: IStiTrendLine);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiTrendLineLogarithmicCoreXF extends StiTrendLineCoreXF {
-        readonly localizedName: string;
-        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
-        constructor(trendLine: IStiTrendLine);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiTrendLineNoneCoreXF extends StiTrendLineCoreXF {
-        readonly localizedName: string;
-        constructor(trendLine: IStiTrendLine);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiChartCoreXF implements ICloneable, IStiApplyStyle {
-        private static implementsStiChartCoreXF;
-        implements(): string[];
-        clone(): Object;
-        applyStyle(style: IStiChartStyle): void;
-        render(context: StiContext, rect: RectangleD, useMargins: boolean): StiCellGeom;
-        private setLegendRect(context, chart, REFfullRectangle, REFareaRect, REFlegendRect);
-        private _chart;
-        chart: IStiChart;
-        constructor(chart: IStiChart);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiGeom = Stimulsoft.Base.Context.StiGeom;
-    import StiGeomType = Stimulsoft.Base.Context.StiGeomType;
-    class StiCellGeom extends StiGeom implements IStiGeomInteraction {
-        private static implementsStiCellGeom;
-        implements(): string[];
-        invokeClick(options: StiInteractionOptions): void;
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeMouseDown(options: StiInteractionOptions): void;
-        invokeMouseUp(options: StiInteractionOptions): void;
-        invokeDrag(options: StiInteractionOptions): void;
-        readonly invisible: boolean;
-        readonly type: StiGeomType;
-        private _childGeoms;
-        readonly childGeoms: StiCellGeom[];
-        private _clientRectangle;
-        clientRectangle: RectangleD;
-        dispose(): void;
-        contains(x: number, y: number): boolean;
-        getGeomAt(parent: StiCellGeom, x: number, y: number): StiCellGeom;
-        getSeriesGeoms(): StiCellGeom[];
-        getRect(geom: StiGeom): RectangleD;
-        createChildGeoms(): void;
-        draw(context: StiContext): void;
-        drawGeom(context: StiContext): void;
-        drawChildGeoms(context: StiContext): void;
-        protected allowChildDrawing(cellGeom: StiCellGeom): boolean;
-        constructor(clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiAreaGeom extends StiCellGeom {
-        private _area;
-        readonly area: IStiArea;
-        draw(context: StiContext): void;
-        constructor(area: IStiArea, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiAxisAreaGeom extends StiAreaGeom {
-        private _view;
-        readonly view: StiAxisAreaViewGeom;
-        private minWidth;
-        private drawInterlacingHor(context, rect);
-        private drawInterlacingVer(context, rect);
-        private drawGridLinesHor(context, rect, gridLinesHor, isLeftAxis);
-        private drawGridLinesVer(context, rect, gridLinesVert, isBottomAxis);
-        protected allowChildDrawing(cellGeom: StiCellGeom): boolean;
-        isChildVisibleInView(cellGeom: StiCellGeom): boolean;
-        draw(context: StiContext): void;
-        constructor(view: StiAxisAreaViewGeom, area: IStiArea, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiAxisAreaViewGeom extends StiAreaGeom {
-        drawGeom(context: StiContext): void;
-        drawChildGeoms(context: StiContext): void;
-        private drawBorder(context);
-        constructor(area: IStiArea, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiPieAreaGeom extends StiAreaGeom {
-        draw(context: StiContext): void;
-        constructor(area: IStiArea, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiDoughnutAreaGeom extends StiPieAreaGeom {
-        constructor(area: IStiArea, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiRadarAreaGeom extends StiAreaGeom {
-        private _valuesCount;
-        readonly valuesCount: number;
-        private drawHor(context, fill, draw);
-        private drawVert(context, fill, draw);
-        private drawBackground(context);
-        draw(context: StiContext): void;
-        constructor(area: IStiArea, clientRectangle: RectangleD, valuesCount: number);
-    }
-}
-declare namespace Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiTreemapAreaGeom extends StiAreaGeom {
-        draw(context: StiContext): void;
-        constructor(area: IStiArea, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiDownButtonGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeMouseDown(options: StiInteractionOptions): void;
-        private moveDown();
-        private _axis;
-        readonly axis: IStiYAxis;
-        draw(context: StiContext): void;
-        constructor(axis: IStiYAxis, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiHorzScrollBarGeom extends StiCellGeom {
-        invokeMouseDown(options: StiInteractionOptions): void;
-        draw(context: StiContext): void;
-        private _axis;
-        readonly axis: IStiXAxis;
-        constructor(axis: IStiXAxis, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiHorzTrackBarGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeMouseDown(options: StiInteractionOptions): void;
-        invokeDrag(options: StiInteractionOptions): void;
-        draw(context: StiContext): void;
-        private _axis;
-        readonly axis: IStiXAxis;
-        private _scrollBar;
-        readonly scrollBar: StiHorzScrollBarGeom;
-        constructor(axis: IStiXAxis, clientRectangle: RectangleD, scrollBar: StiHorzScrollBarGeom);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLeftButtonGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeMouseDown(options: StiInteractionOptions): void;
-        private moveLeft();
-        private _axis;
-        readonly axis: IStiXAxis;
-        draw(context: StiContext): void;
-        constructor(axis: IStiXAxis, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiRightButtonGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeMouseDown(options: StiInteractionOptions): void;
-        private moveRight();
-        private _axis;
-        readonly axis: IStiXAxis;
-        draw(context: StiContext): void;
-        constructor(axis: IStiXAxis, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiUpButtonGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeMouseDown(options: StiInteractionOptions): void;
-        private moveUp();
-        private _axis;
-        readonly axis: IStiYAxis;
-        draw(context: StiContext): void;
-        constructor(axis: IStiYAxis, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiVertScrollBarGeom extends StiCellGeom {
-        invokeMouseDown(options: StiInteractionOptions): void;
-        draw(context: StiContext): void;
-        private _axis;
-        readonly axis: IStiYAxis;
-        constructor(axis: IStiYAxis, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiVertTrackBarGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeMouseDown(options: StiInteractionOptions): void;
-        invokeDrag(options: StiInteractionOptions): void;
-        draw(context: StiContext): void;
-        private _axis;
-        readonly axis: IStiYAxis;
-        private _scrollBar;
-        readonly scrollBar: StiVertScrollBarGeom;
-        constructor(axis: IStiYAxis, clientRectangle: RectangleD, scrollBar: StiVertScrollBarGeom);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiAxisLabelGeom extends StiCellGeom {
-        private _rotationMode;
-        readonly rotationMode: StiRotationMode;
-        private _textPoint;
-        readonly textPoint: PointD;
-        private _angle;
-        readonly angle: number;
-        private _axis;
-        readonly axis: IStiAxis;
-        private _text;
-        readonly text: string;
-        private _stripLine;
-        readonly stripLine: StiStripLineXF;
-        draw(context: StiContext): void;
-        constructor(axis: IStiAxis, clientRectangle: RectangleD, textPoint: PointD, text: string, stripLine: StiStripLineXF, angle: number, rotationMode: StiRotationMode);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StringAlignment = Stimulsoft.System.Drawing.StringAlignment;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiAxisTitleGeom extends StiCellGeom {
-        private _axis;
-        readonly axis: IStiAxis;
-        private _angle;
-        readonly angle: number;
-        draw(context: StiContext): void;
-        constructor(axis: IStiAxis, clientRectangle: RectangleD, angle: number, stringAlignment: StringAlignment);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiXAxisGeom extends StiCellGeom {
-        private _axis;
-        readonly axis: IStiXAxis;
-        private _isCenterAxis;
-        readonly isCenterAxis: boolean;
-        private _view;
-        view: StiXAxisViewGeom;
-        drawArrow(context: StiContext, rect: RectangleD): void;
-        private drawAxisLine(context, rect);
-        private drawMinorTicks(context, pen, posX1, posX2, posY, ticks);
-        private drawTicks(context, rect, ticks, penLine);
-        private isArgumentDateTime(infos);
-        private drawAxis(context, rect);
-        private getViewclipRect();
-        allowChildDrawing(cellGeom: StiCellGeom): boolean;
-        draw(context: StiContext): void;
-        constructor(axis: IStiXAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiXAxisViewGeom extends StiXAxisGeom {
-        drawChildGeoms(context: StiContext): void;
-        draw(context: StiContext): void;
-        constructor(axis: IStiXAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiYAxisGeom extends StiCellGeom {
-        private _axis;
-        readonly axis: IStiYAxis;
-        private _isCenterAxis;
-        readonly isCenterAxis: boolean;
-        private _view;
-        view: StiYAxisViewGeom;
-        drawArrow(context: StiContext, rect: RectangleD): void;
-        private drawAxisLine(context, rect);
-        private drawMinorTicks(context, pen, posX, posY1, posY2, ticks);
-        private drawTicks(context, rect, ticks, penLine);
-        private drawAxis(context, rect);
-        private getViewclipRect();
-        allowChildDrawing(cellGeom: StiCellGeom): boolean;
-        draw(context: StiContext): void;
-        constructor(axis: IStiYAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiYAxisViewGeom extends StiYAxisGeom {
-        drawChildGeoms(context: StiContext): void;
-        draw(context: StiContext): void;
-        constructor(axis: IStiYAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiChartTitleGeom extends StiCellGeom {
-        private _title;
-        readonly title: IStiChartTitle;
-        draw(context: StiContext): void;
-        constructor(title: IStiChartTitle, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiConstantLinesVerticalGeom extends StiCellGeom {
-        private _line;
-        readonly line: IStiConstantLines;
-        private _point;
-        readonly point: PointD;
-        private _mode;
-        readonly mode: StiRotationMode;
-        draw(context: StiContext): void;
-        constructor(line: IStiConstantLines, clientRectangle: RectangleD, point: PointD, mode: StiRotationMode);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiConstantLinesYGeom extends StiCellGeom {
-        private _line;
-        readonly line: IStiConstantLines;
-        private _point;
-        readonly point: PointD;
-        private _mode;
-        readonly mode: StiRotationMode;
-        draw(context: StiContext): void;
-        constructor(line: IStiConstantLines, clientRectangle: RectangleD, point: PointD, mode: StiRotationMode);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendAreaMarker implements IStiLegendMarker {
-        private static implementsStiLegendAreaMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendCandelstickMarker implements IStiLegendMarker {
-        private static implementsStiLegendCandelstickMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendColumnMarker implements IStiLegendMarker {
-        private static implementsStiLegendColumnMarker;
-        implements(): string[];
-        draw(context: StiContext, series: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendDoughnutMarker implements IStiLegendMarker {
-        private static implementsStiLegendDoughnutMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendFunnelMarker implements IStiLegendMarker {
-        private static implementsStiLegendFunnelMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendLineMarker implements IStiLegendMarker {
-        private static implementsStiLegendLineMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiLegendMarkerHelper {
-        static getSteppedMarkerPath(rect: RectangleD): StiSegmentGeom[];
-        static getAreaMarkerPath(rect: RectangleD): StiSegmentGeom[];
-        static getAreaMarkerLinePoints(rect: RectangleD): PointD[];
-        static getSplineAreaMarkerPath(rect: RectangleD): StiSegmentGeom[];
-        static getSplineAreaMarkerLinePoints(rect: RectangleD): PointD[];
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendPieMarker implements IStiLegendMarker {
-        private static implementsStiLegendPieMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendRangeMarker implements IStiLegendMarker {
-        private static implementsStiLegendRangeMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendSplineAreaMarker implements IStiLegendMarker {
-        private static implementsStiLegendSplineAreaMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendSplineRangeMarker implements IStiLegendMarker {
-        private static implementsStiLegendSplineRangeMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendStackedAreaMarker implements IStiLegendMarker {
-        private static implementsStiLegendStackedAreaMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendStackedSplineAreaMarker implements IStiLegendMarker {
-        private static implementsStiLegendStackedSplineAreaMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendSteppedAreaMarker implements IStiLegendMarker {
-        private static implementsStiLegendSteppedAreaMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendSteppedRangeMarker implements IStiLegendMarker {
-        private static implementsStiSteppedRangeSeries;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendStockMarker implements IStiLegendMarker {
-        private static implementsStiLegendStockMarker;
-        implements(): string[];
-        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiMarkerLegendFactory {
-        static createMarker(series: IStiSeries): IStiLegendMarker;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendGeom extends StiCellGeom {
-        private _legend;
-        readonly legend: IStiLegend;
-        private _seriesItems;
-        readonly seriesItems: StiLegendItemCoreXF[];
-        private _legendTitleGeom;
-        legendTitleGeom: StiLegendTitleGeom;
-        dispose(): void;
-        draw(context: StiContext): void;
-        constructor(legend: IStiLegend, clientRectangle: RectangleD, seriesItems: StiLegendItemCoreXF[]);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendItemGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeClick(options: StiInteractionOptions): void;
-        readonly allowMouseOver: boolean;
-        private readonly isColorEach;
-        isMouseOver: boolean;
-        private _legend;
-        readonly legend: IStiLegend;
-        private _item;
-        readonly item: StiLegendItemCoreXF;
-        private _colorIndex;
-        readonly colorIndex: number;
-        private _legendItemsCount;
-        readonly legendItemsCount: number;
-        draw(context: StiContext): void;
-        constructor(legend: IStiLegend, item: StiLegendItemCoreXF, clientRectangle: RectangleD, colorIndex: number, legendItemsCount: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiLegendTitleGeom extends StiCellGeom {
-        private _legend;
-        readonly legend: IStiLegend;
-        draw(context: StiContext): void;
-        constructor(legend: IStiLegend, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiMarkerGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeClick(options: StiInteractionOptions): void;
-        private getValueIndex();
-        getHyperlink(): string;
-        private getHyperlink2(valueIndex);
-        getToolTip(): string;
-        private getToolTip2(valueIndex);
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _interaction;
-        interaction: StiSeriesInteractionData;
-        private _index;
-        readonly index: number;
-        private _point;
-        readonly point: PointD;
-        private _marker;
-        readonly marker: IStiMarker;
-        private _value;
-        readonly value: number;
-        private _showShadow;
-        readonly showShadow: boolean;
-        private _series;
-        readonly series: IStiSeries;
-        contains(x: number, y: number): boolean;
-        getMouseOverRect(): RectangleD;
-        draw(context: StiContext): void;
-        constructor(series: IStiSeries, index: number, value: number, point: PointD, marker: IStiMarker, showShadow: boolean, zoom: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiRadarAxisGeom extends StiCellGeom {
-        private _axis;
-        readonly axis: IStiYRadarAxis;
-        private drawAxisLine(context, rect);
-        private drawMinorTicks(context, pen, posX, posY1, posY2, ticks);
-        private drawTicks(context, rect, ticks, penLine);
-        private drawAxis(context, rect);
-        draw(context: StiContext): void;
-        constructor(axis: IStiYRadarAxis, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiXRadarAxisLabelGeom extends StiCellGeom {
-        private _borderColor;
-        readonly borderColor: Color;
-        private _labelBrush;
-        readonly labelBrush: StiBrush;
-        private _text;
-        readonly text: string;
-        private _angle;
-        readonly angle: number;
-        private _point;
-        readonly point: PointD;
-        private _labelRect;
-        readonly labelRect: RectangleD;
-        private _axis;
-        readonly axis: IStiXRadarAxis;
-        draw(context: StiContext): void;
-        constructor(axis: IStiXRadarAxis, text: string, labelBrush: StiBrush, borderColor: Color, angle: number, clientRectangle: RectangleD, labelRect: RectangleD, point: PointD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiYRadarAxisLabelGeom extends StiCellGeom {
-        private _rotationMode;
-        readonly rotationMode: StiRotationMode;
-        private _textPoint;
-        readonly textPoint: PointD;
-        private _angle;
-        readonly angle: number;
-        private _axis;
-        readonly axis: IStiYRadarAxis;
-        private _text;
-        readonly text: string;
-        private _stripLine;
-        readonly stripLine: StiStripLineXF;
-        draw(context: StiContext): void;
-        constructor(axis: IStiYRadarAxis, clientRectangle: RectangleD, textPoint: PointD, text: string, stripLine: StiStripLineXF, angle: number, rotationMode: StiRotationMode);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiSeriesLabelsGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        private getValueIndex();
-        private getHyperlink(valueIndex);
-        private getToolTip(valueIndex);
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _value;
-        readonly value: number;
-        private _index;
-        readonly index: number;
-        private _series;
-        readonly series: IStiSeries;
-        private _seriesLabels;
-        readonly seriesLabels: IStiSeriesLabels;
-        private _beginTime;
-        beginTime: TimeSpan;
-        private _duration;
-        duration: TimeSpan;
-        drawMarker(context: StiContext, itemRect: Rectangle, markerColor: Object, markerBrush: StiBrush): void;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiCenterAxisLabelsGeom extends StiSeriesLabelsGeom {
-        private _labelColor;
-        readonly labelColor: Color;
-        private _labelBorderColor;
-        readonly labelBorderColor: Color;
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesLabelsBrush;
-        readonly seriesLabelsBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _font;
-        readonly font: StiFontGeom;
-        private _text;
-        readonly text: string;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesLabelsBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiOutsideAxisLabelsGeom extends StiSeriesLabelsGeom {
-        private _labelColor;
-        readonly labelColor: Color;
-        private _labelBorderColor;
-        readonly labelBorderColor: Color;
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _font;
-        readonly font: StiFontGeom;
-        private _text;
-        readonly text: string;
-        private _startPoint;
-        readonly startPoint: PointD;
-        private _endPoint;
-        readonly endPoint: PointD;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom, startPoint: PointD, endPoint: PointD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiCenterFunnelLabelsGeom extends StiSeriesLabelsGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _borderColor;
-        readonly borderColor: Color;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _labelBrush;
-        readonly labelBrush: StiBrush;
-        private _text;
-        readonly text: string;
-        private _labelRect;
-        readonly labelRect: RectangleD;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, labelRect: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiOutsideFunnelLabelsGeom extends StiCenterFunnelLabelsGeom {
-        private _startPointLine;
-        readonly startPointLine: PointD;
-        private _endPointLine;
-        readonly endPointLine: PointD;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, labelRect: RectangleD, startPointLine: PointD, endPointLine: PointD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiCenterPieLabelsGeom extends StiSeriesLabelsGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _borderColor;
-        readonly borderColor: Color;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _seriesLabelsBrush;
-        readonly seriesLabelsBrush: StiBrush;
-        private _labelBrush;
-        readonly labelBrush: StiBrush;
-        private _text;
-        readonly text: string;
-        private _rotationMode;
-        readonly rotationMode: StiRotationMode;
-        private _labelRect;
-        readonly labelRect: RectangleD;
-        private _angleToUse;
-        readonly angleToUse: number;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, rotationMode: StiRotationMode, labelRect: RectangleD, angleToUse: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiOutsidePieLabelsGeom extends StiCenterPieLabelsGeom {
-        private _lineColor;
-        readonly lineColor: Color;
-        private _labelPoint;
-        readonly labelPoint: PointD;
-        private _startPoint;
-        readonly startPoint: PointD;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, rotationMode: StiRotationMode, labelRect: RectangleD, angleToUse: number, lineColor: Color, labelPoint: PointD, startPoint: PointD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiTwoColumnsPieLabelsGeom extends StiSeriesLabelsGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _borderColor;
-        readonly borderColor: Color;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _labelBrush;
-        readonly labelBrush: StiBrush;
-        private _seriesLabelsBrush;
-        readonly seriesLabelsBrush: StiBrush;
-        private _text;
-        readonly text: string;
-        private _labelRect;
-        readonly labelRect: RectangleD;
-        private _lineColor;
-        readonly lineColor: Color;
-        private _startPoint;
-        readonly startPoint: PointD;
-        private _endPoint;
-        endPoint: PointD;
-        private _arcPoint;
-        readonly arcPoint: PointD;
-        private _centerPie;
-        readonly centerPie: PointD;
-        draw(context: StiContext): void;
-        drawMarker(context: StiContext, itemRect: Rectangle, markerColor: Object, markerBrush: StiBrush): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, labelRect: RectangleD, lineColor: Color, startPoint: PointD, endPoint: PointD, arcPoint: PointD, centerPie: PointD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
-    class StiCenterTreemapLabelsGeom extends StiSeriesLabelsGeom {
-        private _labelColor;
-        readonly labelColor: Color;
-        private _labelBorderColor;
-        readonly labelBorderColor: Color;
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesLabelsBrush;
-        readonly seriesLabelsBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _font;
-        readonly font: StiFontGeom;
-        private _text;
-        readonly text: string;
-        private _animation;
-        readonly animation: StiAnimation;
-        draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: any, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesLabelsBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom, animation: StiAnimation);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiSeriesElementGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeClick(options: StiInteractionOptions): void;
-        protected getValueIndex(): number;
-        getHyperlink(): string;
-        private getHyperlink2(valueIndex);
-        getToolTip(): string;
-        private getToolTip2(valueIndex);
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _value;
-        readonly value: number;
-        private _index;
-        readonly index: number;
-        private _series;
-        readonly series: IStiSeries;
-        private _interaction;
-        interaction: StiSeriesInteractionData;
-        private _areaGeom;
-        areaGeom: StiAreaGeom;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiBubbleSeriesElementGeom extends StiSeriesElementGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiClusteredBarSeriesElementGeom extends StiSeriesElementGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiSeriesGeom extends StiCellGeom {
-        private _series;
-        readonly series: IStiSeries;
-        private _interactions;
-        interactions: StiSeriesInteractionData[];
-        private _areaGeom;
-        areaGeom: StiAreaGeom;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiBaseLineSeriesGeom extends StiSeriesGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _points;
-        readonly points: PointD[];
-        static getClientRectangle(points: PointD[]): RectangleD;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiLineSeriesGeom extends StiBaseLineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        private getPointCross(point1, point2, posY);
-        private drawLine(context, pen, listPoints);
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiAreaSeriesGeom extends StiLineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiClusteredColumnSeriesElementGeom extends StiSeriesElementGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSplineSeriesGeom extends StiBaseLineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSplineAreaSeriesGeom extends StiSplineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSteppedLineSeriesGeom extends StiBaseLineSeriesGeom {
-        getConvertedPoints(points: PointD[]): PointD[];
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        private intersectionAxis(point, pointNext, points, pointsNext, posY);
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSteppedAreaSeriesGeom extends StiSteppedLineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiDoughnutSeriesElementGeom extends StiSeriesElementGeom {
-        private _path;
-        readonly path: StiSegmentGeom[];
-        private _pathLight;
-        readonly pathLight: StiSegmentGeom[];
-        private _pathDark;
-        readonly pathDark: StiSegmentGeom[];
-        private _borderColor;
-        readonly borderColor: Color;
-        private _brush;
-        readonly brush: StiBrush;
-        private _brushLight;
-        readonly brushLight: StiBrush;
-        private _brushDark;
-        readonly brushDark: StiBrush;
-        private _startAngle;
-        readonly startAngle: number;
-        private _endAngle;
-        readonly endAngle: number;
-        private _radiusFrom;
-        readonly radiusFrom: number;
-        private _radiusTo;
-        readonly radiusTo: number;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiDoughnutSeries, clientRectangle: RectangleD, path: StiSegmentGeom[], pathLight: StiSegmentGeom[], pathDark: StiSegmentGeom[], borderColor: Color, brush: StiBrush, brushLight: StiBrush, brushDark: StiBrush, startAngle: number, endAngle: number, radiusFrom: number, radiusTo: number, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiFinancialSeriesElementGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeClick(options: StiInteractionOptions): void;
-        private getValueIndex();
-        private getHyperlink(valueIndex);
-        private getToolTip(valueIndex);
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _series;
-        readonly series: IStiSeries;
-        private _interaction;
-        interaction: StiSeriesInteractionData;
-        private _open;
-        readonly open: number;
-        private _close;
-        readonly close: number;
-        private _high;
-        readonly high: number;
-        private _low;
-        readonly low: number;
-        private _positionX;
-        readonly positionX: number;
-        private _areaGeom;
-        readonly areaGeom: StiAreaGeom;
-        private _index;
-        readonly index: number;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, open: number, close: number, high: number, low: number, positionX: number, index: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiCandlestickSeriesElementGeom extends StiFinancialSeriesElementGeom {
-        private _brush;
-        readonly brush: StiBrush;
-        private _borderColor;
-        readonly borderColor: Color;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, bodyStart: number, bodyEnd: number, high: number, low: number, positionX: number, index: number, brush: StiBrush, borderColor: Color, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStockSeriesElementGeom extends StiFinancialSeriesElementGeom {
-        private _color;
-        readonly color: Color;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, open: number, close: number, high: number, low: number, positionX: number, index: number, color: Color, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiFunnelSeriesElementGeom extends StiSeriesElementGeom {
-        private _path;
-        readonly path: StiSegmentGeom[];
-        private _borderColor;
-        readonly borderColor: Color;
-        private _brush;
-        readonly brush: StiBrush;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD, brush: StiBrush, borderColor: Color, path: StiSegmentGeom[], beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiGanttSeriesElementGeom extends StiSeriesElementGeom {
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiPieSeriesElementGeom extends StiSeriesElementGeom {
-        private _path;
-        readonly path: StiSegmentGeom[];
-        private _pathLight;
-        readonly pathLight: StiSegmentGeom[];
-        private _borderColor;
-        readonly borderColor: Color;
-        private _brush;
-        readonly brush: StiBrush;
-        private _startAngle;
-        startAngle: number;
-        private _endAngle;
-        endAngle: number;
-        private _radius;
-        radius: number;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiPieSeries, clientRectangle: RectangleD, path: StiSegmentGeom[], pathLight: StiSegmentGeom[], borderColor: Color, brush: StiBrush, startAngle: number, endAngle: number, radius: number, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiPieSeriesFullElementGeom extends StiCellGeom {
-        private _series;
-        readonly series: IStiPieSeries;
-        private _brush;
-        readonly brush: StiBrush;
-        private _borderColor;
-        readonly borderColor: Color;
-        draw(context: StiContext): void;
-        constructor(series: IStiPieSeries, clientRectangle: RectangleD, brush: StiBrush, borderColor: Color);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiPieSeriesShadowElementGeom extends StiCellGeom {
-        readonly invisible: boolean;
-        private _series;
-        readonly series: IStiPieSeries;
-        private _shadowContext;
-        readonly shadowContext: StiContext;
-        private _radius;
-        readonly radius: number;
-        private _duration;
-        readonly duration: TimeSpan;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        private _isAnimation;
-        readonly isAnimation: boolean;
-        draw(context: StiContext): void;
-        constructor(series: IStiPieSeries, clientRectangle: RectangleD, radius: number, shadowContext: StiContext, duration: TimeSpan, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiRadarAreaSeriesGeom extends StiCellGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _series;
-        readonly series: IStiSeries;
-        private _points;
-        readonly points: PointD[];
-        private _centerPoint;
-        readonly centerPoint: PointD;
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(series: IStiSeries, points: PointD[], centerPoint: PointD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiRadarPointSeriesElementGeom extends StiSeriesElementGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        invokeClick(options: StiInteractionOptions): void;
-        protected getValueIndex(): number;
-        private getHyperlink3(valueIndex);
-        private getToolTip3(valueIndex);
-        private _point;
-        readonly point: PointD;
-        contains(x: number, y: number): boolean;
-        getMouseOverRect(): RectangleD;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiRadarSeries, point: PointD, zoom: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiRangeBarElementGeom extends StiSeriesElementGeom {
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiRangeSeriesGeom extends StiLineSeriesGeom {
-        private _pointsEnd;
-        pointsEnd: PointD[];
-        draw(context: StiContext): void;
-        private getBrush(areaSeries, point, pointEnd);
-        private fillPath(context, brush, pointsLine, pointsLineEnd);
-        private intersection(point, pointEnd, pointNext, pointNextEnd);
-        private getPointCross2(point, pointEnd, pointNext, pointNextEnd);
-        constructor(areaGeom: StiAreaGeom, points: PointD[], pointsEnd: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSplineRangeSeriesGeom extends StiSplineSeriesGeom {
-        private _pointsEnd;
-        pointsEnd: PointD[];
-        draw(context: StiContext): void;
-        private fillPath(context, points, pointsEnd);
-        constructor(areaGeom: StiAreaGeom, points: PointD[], pointsEnd: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSteppedRangeSeriesGeom extends StiSteppedLineSeriesGeom {
-        private _pointsEnd;
-        pointsEnd: PointD[];
-        draw(context: StiContext): void;
-        private getBrush(areaSeries, point, pointEnd);
-        private fillPath(context, brush, pointsLine, pointsLineEnd);
-        private intersection(point, pointEnd, pointNext, pointNextEnd);
-        constructor(areaGeom: StiAreaGeom, points: PointD[], pointsEnd: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiScatterSplineSeriesGeom extends StiBaseLineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStackedBarSeriesElementGeom extends StiSeriesElementGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStackedBarSeriesShadowElementGeom extends StiCellGeom {
-        readonly invisible: boolean;
-        private _series;
-        readonly series: IStiSeries;
-        private _isLeftShadow;
-        readonly isLeftShadow: boolean;
-        private _isRightShadow;
-        readonly isRightShadow: boolean;
-        draw(context: StiContext): void;
-        constructor(series: IStiSeries, clientRectangle: RectangleD, isLeftShadow: boolean, isRightShadow: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStackedAreaSeriesGeom extends StiSeriesGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _startPoints;
-        readonly startPoints: PointD[];
-        private _endPoints;
-        readonly endPoints: PointD[];
-        contains(x: number, y: number): boolean;
-        static getClientRectangle(startPoints: PointD[], endPoints: PointD[]): RectangleD;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStackedBaseLineSeriesGeom extends StiSeriesGeom {
-        private _points;
-        readonly points: PointD[];
-        static getClientRectangle(points: PointD[]): RectangleD;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStackedColumnSeriesElementGeom extends StiSeriesElementGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _beginTime;
-        readonly beginTime: TimeSpan;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStackedColumnSeriesShadowElementGeom extends StiCellGeom {
-        readonly invisible: boolean;
-        private _series;
-        readonly series: IStiSeries;
-        private _isTopShadow;
-        readonly isTopShadow: boolean;
-        private _isBottomShadow;
-        readonly isBottomShadow: boolean;
-        draw(context: StiContext): void;
-        constructor(series: IStiSeries, clientRectangle: RectangleD, isTopShadow: boolean, isBottomShadow: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiStackedLineSeriesGeom extends StiBaseLineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        private getPointCross(point1, point2, posY);
-        private drawLine(context, pen, listPoints);
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStackedSplineAreaSeriesGeom extends StiSeriesGeom {
-        invokeMouseEnter(options: StiInteractionOptions): void;
-        invokeMouseLeave(options: StiInteractionOptions): void;
-        readonly allowMouseOver: boolean;
-        isMouseOver: boolean;
-        private _startPoints;
-        readonly startPoints: PointD[];
-        private _endPoints;
-        readonly endPoints: PointD[];
-        contains(x: number, y: number): boolean;
-        static getClientRectangle(startPoints: PointD[], endPoints: PointD[]): RectangleD;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], series: IStiSeries);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiStackedSplineSeriesGeom extends StiBaseLineSeriesGeom {
-        contains(x: number, y: number): boolean;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
-    }
-}
-declare namespace Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
-    class StiTreemapSeriesElementGeom extends StiSeriesElementGeom {
-        private _seriesBrush;
-        readonly seriesBrush: StiBrush;
-        private _seriesBorderColor;
-        readonly seriesBorderColor: Color;
-        private _animation;
-        readonly animation: StiAnimation;
-        draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, animation: StiAnimation);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiMouseOverHelper {
-        static getMouseOverColor(): Color;
-        static getLineMouseOverColor(): Color;
-        static mouseOverLineDistance: number;
-        static mouseOverSplineDistance: number;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStripsXGeom extends StiCellGeom {
-        private _strip;
-        readonly strip: IStiStrips;
-        draw(context: StiContext): void;
-        constructor(strip: IStiStrips, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiStripsYGeom extends StiCellGeom {
-        private _strip;
-        readonly strip: IStiStrips;
-        draw(context: StiContext): void;
-        constructor(strip: IStiStrips, clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiChartTableGeom extends StiCellGeom {
-        constructor(clientRectangle: RectangleD, table: string[][], widthCellLegendTableChart: number, heightCellHeader: number, chartTable: IStiChartTable);
-        private table;
-        private widthCellLegendTableChart;
-        private heightCellHeader;
-        private chartTable;
-        private pen;
-        private font;
-        private fontHeader;
-        private labelBrush;
-        private sf;
-        private sfHeader;
-        private labelHeaderBrush;
-        draw(context: StiContext): void;
-        private drawHeaderArgument(context, rect, listArgument, startFromZero);
-        private drawTitleLegend(context, rect, list);
-        private drawRootTable(context, rect, startFromZero);
-        private checkFontSize(context, text, fontGeom, rectangleF);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiTrendCurveGeom extends StiCellGeom {
-        private _points;
-        readonly points: PointD[];
-        private _trendLine;
-        readonly trendLine: IStiTrendLine;
-        draw(context: StiContext): void;
-        constructor(points: PointD[], trendLine: IStiTrendLine);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiTrendLineGeom extends StiCellGeom {
-        private trendLine;
-        private pointStart;
-        private pointEnd;
-        draw(context: StiContext): void;
-        private static getArray(pointStart, pointEnd);
-        constructor(pointStart: PointD, pointEnd: PointD, trendLine: IStiTrendLine);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    class StiChartGeom extends StiCellGeom {
-        draw(context: StiContext): void;
-        constructor(clientRectangle: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiPenGeom = Stimulsoft.Base.Context.StiPenGeom;
-    import StiContext = Stimulsoft.Base.Context.StiContext;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiNullableDrawing {
-        static drawLines(context: StiContext, penGeom: StiPenGeom, points: PointD[], isAnimation?: boolean): void;
-        static drawCurve(context: StiContext, penGeom: StiPenGeom, points: PointD[], tension: number, isAnimation?: boolean): void;
-        static getPointsList(points: PointD[]): PointD[][];
-        static getNullablePointsList(points: PointD[]): PointD[][];
-        static getPointsList2(points1: PointD[], points2: PointD[], REFlist1: any, REFlist2: any): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
     var IStiBubbleArea: string;
     interface IStiBubbleArea extends IStiScatterArea {
     }
@@ -13038,7 +8546,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiArea: string;
     interface IStiArea extends ICloneable, IStiJsonReportObject {
-        core: StiAreaCoreXF;
+        core: IStiAreaCoreXF;
         chart: IStiChart;
         allowApplyStyle: boolean;
         colorEach: boolean;
@@ -13054,9 +8562,22 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiAreaCoreXF: string;
+    interface IStiAreaCoreXF extends IStiApplyStyle {
+        isAcceptableSeries(seriesType: Stimulsoft.System.Type): boolean;
+        isAcceptableSeriesLabels(seriesLabelsType: Stimulsoft.System.Type): boolean;
+        render(context: StiContext, rect: RectangleD): IStiCellGeom;
+        checkInLabelsTypes(typeForCheck: Stimulsoft.System.Type): boolean;
+        seriesOrientation: StiChartSeriesOrientation;
+        getSeries(): IStiSeries[];
+    }
+}
+declare module Stimulsoft.Report.Chart {
     var IStiAxisArea: string;
     interface IStiAxisArea extends IStiArea {
-        axisCore: StiAxisAreaCoreXF;
+        axisCore: IStiAxisAreaCoreXF;
         interlacingHor: IStiInterlacingHor;
         interlacingVert: IStiInterlacingVert;
         gridLinesHor: IStiGridLinesHor;
@@ -13071,6 +8592,43 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    var IStiAxisAreaCoreXF: string;
+    interface IStiAxisAreaCoreXF extends IStiAreaCoreXF {
+        switchOff(): any;
+        getDividerX(): number;
+        getDividerY(): number;
+        getDividerRightY(): number;
+        valuesCount: number;
+        scrollRangeX: number;
+        scrollRangeY: number;
+        scrollDpiX: number;
+        scrollDpiY: number;
+        getArgumentLabel(line: IStiStripLineXF, series: IStiSeries): string;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiStripLineXF: string;
+    interface IStiStripLineXF {
+        valueObject: Object;
+        value: number;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICollection = Stimulsoft.System.Collections.ICollection;
+    var IStiStripLinesXF: string;
+    interface IStiStripLinesXF extends ICollection<IStiStripLineXF> {
+        add(valueObject: Object, value: number): any;
+        getByindex(index: number): IStiStripLineXF;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiStripPositionXF: string;
+    interface IStiStripPositionXF {
+        stripLine: IStiStripLineXF;
+        position: number;
+    }
+}
+declare module Stimulsoft.Report.Chart {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
     import Color = Stimulsoft.System.Drawing.Color;
@@ -13079,7 +8637,7 @@ declare module Stimulsoft.Report.Chart {
     var IStiAxis: string;
     interface IStiAxis extends ICloneable, IStiJsonReportObject {
         logarithmicScale: boolean;
-        core: StiAxisCoreXF;
+        core: IStiAxisCoreXF;
         allowApplyStyle: boolean;
         startFromZero: boolean;
         step: number;
@@ -13094,8 +8652,30 @@ declare module Stimulsoft.Report.Chart {
         lineWidth: number;
         visible: boolean;
         area: IStiAxisArea;
-        info: StiAxisInfoXF;
+        info: IStiAxisInfoXF;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    var IStiAxisCoreXF: string;
+    interface IStiAxisCoreXF extends IStiApplyStyle {
+        arrowHeight: number;
+        arrowWidth: number;
+        ticksMaxLength: number;
+        renderView(context: StiContext, rect: RectangleD): IStiCellGeom;
+        render(context: StiContext, rect: RectangleD): IStiCellGeom;
+        applyStyle(style: IStiChartStyle): any;
+        getStartFromZero(): boolean;
+        calculateStripPositions(topPosition: number, bottomPosition: number): any;
+        getFontGeom(context: StiContext): StiFontGeom;
+        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
+        isMouseOverDecreaseButton: boolean;
+        isMouseOverIncreaseButton: boolean;
+        isMouseOverTrackBar: boolean;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13108,6 +8688,22 @@ declare module Stimulsoft.Report.Chart {
         numberOfValues: number;
         interpolation: boolean;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    var IStiAxisInfoXF: string;
+    interface IStiAxisInfoXF extends ICloneable {
+        minimum: number;
+        maximum: number;
+        stripLines: IStiStripLinesXF;
+        stripPositions: number[];
+        dpi: number;
+        ticksCollection: IStiStripPositionXF[];
+        labelsCollection: IStiStripPositionXF[];
+        step: number;
+        range: number;
+        clone(): IStiAxisInfoXF;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13130,7 +8726,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiAxisLabels: string;
     interface IStiAxisLabels extends ICloneable, IStiJsonReportObject {
-        core: StiAxisLabelsCoreXF;
+        core: IStiAxisLabelsCoreXF;
         allowApplyStyle: boolean;
         format: string;
         angle: number;
@@ -13145,6 +8741,12 @@ declare module Stimulsoft.Report.Chart {
         step: number;
         wordWrap: boolean;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiAxisLabelsCoreXF: string;
+    interface IStiAxisLabelsCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13184,7 +8786,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiAxisTitle: string;
     interface IStiAxisTitle extends ICloneable, IStiJsonReportObject {
-        core: StiAxisTitleCoreXF;
+        core: IStiAxisTitleCoreXF;
         allowApplyStyle: boolean;
         font: Font;
         text: string;
@@ -13194,6 +8796,12 @@ declare module Stimulsoft.Report.Chart {
         direction: StiDirection;
         position: StiTitlePosition;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiAxisTitleCoreXF: string;
+    interface IStiAxisTitleCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13242,7 +8850,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiChartTitle: string;
     interface IStiChartTitle extends ICloneable, IStiJsonReportObject {
-        core: StiChartTitleCoreXF;
+        core: IStiChartTitleCoreXF;
         allowApplyStyle: boolean;
         font: Font;
         text: string;
@@ -13256,10 +8864,25 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiChartTitleCoreXF: string;
+    interface IStiChartTitleCoreXF extends IStiApplyStyle {
+        render(context: StiContext, chartTitle: IStiChartTitle, rect: RectangleD): IStiCellGeom;
+    }
+}
+declare module Stimulsoft.Report.Chart {
     import Color = Stimulsoft.System.Drawing.Color;
     var IStiChartCondition: string;
     interface IStiChartCondition extends IStiChartFilter {
         color: Color;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICollection = Stimulsoft.System.Collections.ICollection;
+    var IStiChartConditionsCollection: string;
+    interface IStiChartConditionsCollection extends ICollection<IStiChartCondition> {
+        add(condition: IStiChartCondition): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13270,7 +8893,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiConstantLines: string;
     interface IStiConstantLines extends ICloneable, IStiJsonReportObject {
-        core: StiConstantLinesCoreXF;
+        core: IStiConstantLinesCoreXF;
         allowApplyStyle: boolean;
         antialiasing: boolean;
         position: StiConstantLines_StiTextPosition;
@@ -13289,15 +8912,50 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    import ICollection = Stimulsoft.System.Collections.ICollection;
+    var IStiConstantLinesCollection: string;
+    interface IStiConstantLinesCollection extends ICollection<IStiConstantLines>, IStiApplyStyle {
+        add(value: IStiConstantLines): any;
+        insert(index: number, value: IStiConstantLines): any;
+        getByIndex(index: number): IStiConstantLines;
+        applyStyle(style: IStiChartStyle): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiConstantLinesCoreXF: string;
+    interface IStiConstantLinesCoreXF extends IStiApplyStyle {
+        render(context: StiContext, geom: IStiCellGeom, rect: RectangleD): any;
+        applyStyle(style: IStiChartStyle): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
     import StiFilterCondition = Stimulsoft.Report.Components.StiFilterCondition;
     import StiFilterDataType = Stimulsoft.Report.Components.StiFilterDataType;
     import StiFilterItem = Stimulsoft.Report.Components.StiFilterItem;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
     var IStiChartFilter: string;
-    interface IStiChartFilter {
+    interface IStiChartFilter extends IStiJsonReportObject, ICloneable {
+        clone(): any;
         condition: StiFilterCondition;
         dataType: StiFilterDataType;
         item: StiFilterItem;
         value: string;
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICollection = Stimulsoft.System.Collections.ICollection;
+    var IStiChartFiltersCollection: string;
+    interface IStiChartFiltersCollection extends ICollection<IStiChartFilter> {
+        add(value: IStiChartFilter): any;
+        getByIndex(index: number): IStiChartFilter;
+        insert(index: number, value: IStiChartFilter): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13308,7 +8966,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiGridLines: string;
     interface IStiGridLines extends ICloneable, IStiJsonReportObject {
-        core: StiGridLinesCoreXF;
+        core: IStiGridLinesCoreXF;
         allowApplyStyle: boolean;
         color: Color;
         minorColor: Color;
@@ -13319,6 +8977,12 @@ declare module Stimulsoft.Report.Chart {
         minorCount: number;
         area: IStiArea;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiGridLinesCoreXF: string;
+    interface IStiGridLinesCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13339,13 +9003,19 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiRadarGridLines: string;
     interface IStiRadarGridLines extends ICloneable, IStiJsonReportObject {
-        core: StiRadarGridLinesCoreXF;
+        core: IStiRadarGridLinesCoreXF;
         allowApplyStyle: boolean;
         color: Color;
         style: StiPenStyle;
         visible: boolean;
         area: IStiArea;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiRadarGridLinesCoreXF: string;
+    interface IStiRadarGridLinesCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13365,12 +9035,18 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiInterlacing: string;
     interface IStiInterlacing extends ICloneable, IStiJsonReportObject {
-        core: StiInterlacingCoreXF;
+        core: IStiInterlacingCoreXF;
         allowApplyStyle: boolean;
         interlacedBrush: StiBrush;
         visible: boolean;
         area: IStiArea;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiInterlacingCoreXF: string;
+    interface IStiInterlacingCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13392,7 +9068,7 @@ declare module Stimulsoft.Report.Chart {
     import Color = Stimulsoft.System.Drawing.Color;
     var IStiLegend: string;
     interface IStiLegend extends ICloneable, IStiJsonReportObject {
-        core: StiLegendCoreXF;
+        core: IStiLegendCoreXF;
         allowApplyStyle: boolean;
         chart: IStiChart;
         hideSeriesWithEmptyTitle: boolean;
@@ -13421,6 +9097,14 @@ declare module Stimulsoft.Report.Chart {
 declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiLegendCoreXF: string;
+    interface IStiLegendCoreXF extends IStiApplyStyle {
+        render(context: StiContext, rect: RectangleD): IStiCellGeom;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
     var IStiLegendMarker: string;
     interface IStiLegendMarker {
         draw(context: StiContext, series: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): any;
@@ -13440,7 +9124,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiMarker: string;
     interface IStiMarker extends ICloneable, IStiJsonReportObject {
-        core: StiMarkerCoreXF;
+        core: IStiMarkerCoreXF;
         showInLegend: boolean;
         visible: boolean;
         brush: StiBrush;
@@ -13452,16 +9136,34 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import StiPenGeom = Stimulsoft.Base.Context.StiPenGeom;
+    var IStiMarkerCoreXF: string;
+    interface IStiMarkerCoreXF {
+        draw(context: StiContext, marker: IStiMarker, position: PointD, zoom: number, showShadow: boolean, isMouseOver: boolean, isAnimation: boolean, tag: Object): any;
+        drawLine(context: StiContext, x1: number, y1: number, x2: number, y2: number, scale: number, brushMarker: StiBrush, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): any;
+        drawLines(context: StiContext, points: PointD[], scale: number, brushMarker: Object, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiRadarAxis: string;
     interface IStiRadarAxis extends ICloneable, IStiJsonReportObject {
-        core: StiRadarAxisCoreXF;
+        core: IStiRadarAxisCoreXF;
         allowApplyStyle: boolean;
         area: IStiRadarArea;
         visible: boolean;
         loadFromXml(xmlNode: XmlNode): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiRadarAxisCoreXF: string;
+    interface IStiRadarAxisCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13473,7 +9175,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiRadarAxisLabels: string;
     interface IStiRadarAxisLabels extends ICloneable, IStiJsonReportObject {
-        core: StiRadarAxisLabelsCoreXF;
+        core: IStiRadarAxisLabelsCoreXF;
         rotationLabels: boolean;
         allowApplyStyle: boolean;
         drawBorder: boolean;
@@ -13491,10 +9193,26 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    var IStiRadarAxisLabelsCoreXF: string;
+    interface IStiRadarAxisLabelsCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
     var IStiXRadarAxis: string;
     interface IStiXRadarAxis extends IStiRadarAxis {
-        xCore: StiXRadarAxisCoreXF;
+        xCore: IStiXRadarAxisCoreXF;
         labels: IStiRadarAxisLabels;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    var IStiXRadarAxisCoreXF: string;
+    interface IStiXRadarAxisCoreXF {
+        renderLabel(context: StiContext, series: IStiSeries, point: PointD, argument: Object, angle: number, colorIndex: number, colorCount: number): IStiCellGeom;
+        getLabelRect(context: StiContext, point: PointD, text: string, angle: number): RectangleD;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13502,13 +9220,27 @@ declare module Stimulsoft.Report.Chart {
     import Color = Stimulsoft.System.Drawing.Color;
     var IStiYRadarAxis: string;
     interface IStiYRadarAxis extends IStiRadarAxis {
-        yCore: StiYRadarAxisCoreXF;
+        yCore: IStiYRadarAxisCoreXF;
         labels: IStiAxisLabels;
         ticks: IStiAxisTicks;
         lineStyle: StiPenStyle;
         lineColor: Color;
         lineWidth: number;
-        info: StiAxisInfoXF;
+        info: IStiAxisInfoXF;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    var IStiYRadarAxisCoreXF: string;
+    interface IStiYRadarAxisCoreXF {
+        render(context: StiContext, rect: RectangleD): IStiCellGeom;
+        ticksMaxLength: number;
+        getFontGeom(context: StiContext): StiFontGeom;
+        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
+        calculateStripPositions(topPosition: number, bottomPosition: number): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13661,10 +9393,23 @@ declare module Stimulsoft.Report.Chart {
         brush: StiBrush;
         font: Font;
         chart: IStiChart;
-        core: StiSeriesLabelsCoreXF;
+        core: IStiSeriesLabelsCoreXF;
         preventIntersection: boolean;
         wordWrap: boolean;
         width: number;
+        createNew(): IStiSeriesLabels;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    var IStiSeriesLabelsCoreXF: string;
+    interface IStiSeriesLabelsCoreXF extends IStiApplyStyle {
+        recalcValue(value: number, signs: number): number;
+        getLabelColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
+        getLabelText(series: IStiSeries, value: number, argument: string, tag: string, seriesName: string, useLegendValueType: boolean): string;
+        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -14044,9 +9789,10 @@ declare module Stimulsoft.Report.Chart {
     import Color = Stimulsoft.System.Drawing.Color;
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
     var IStiSeries: string;
     interface IStiSeries extends ICloneable, IStiJsonReportObject {
-        core: StiSeriesCoreXF;
+        core: IStiSeriesCoreXF;
         allowApplyStyle: boolean;
         format: string;
         coreTitle: string;
@@ -14055,9 +9801,9 @@ declare module Stimulsoft.Report.Chart {
         showInLegend: boolean;
         showSeriesLabels: StiShowSeriesLabels;
         showShadow: boolean;
-        filters: StiChartFiltersCollection;
+        filters: IStiChartFiltersCollection;
         topN: IStiSeriesTopN;
-        conditions: StiChartConditionsCollection;
+        conditions: IStiChartConditionsCollection;
         yAxis: StiSeriesYAxis;
         seriesLabels: IStiSeriesLabels;
         chart: IStiChart;
@@ -14067,9 +9813,44 @@ declare module Stimulsoft.Report.Chart {
         tags: Object[];
         hyperlinks: string[];
         interaction: IStiSeriesInteraction;
+        argumentDataColumn: string;
+        argument: string;
+        title: string;
+        filterMode: StiFilterMode;
         processSeriesColors(pointIndex: number, seriesColor: Color): Color;
         processSeriesBrushes(pointIndex: number, seriesBrush: StiBrush): StiBrush;
         getDefaultAreaType(): Stimulsoft.System.Type;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICollection = Stimulsoft.System.Collections.ICollection;
+    var IStiSeriesCollection: string;
+    interface IStiSeriesCollection extends ICollection<IStiSeries>, IStiApplyStyle {
+        add(value: IStiSeries): any;
+        getByIndex(index: number): IStiSeries;
+        insert(index: number, value: IStiSeries): any;
+        indexOf(value: IStiSeries): number;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    var IStiSeriesCoreXF: string;
+    interface IStiSeriesCoreXF {
+        renderSeries(context: StiContext, rect: RectangleD, geom: IStiCellGeom, seriesArray: IStiSeries[]): any;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        getSeriesLabels(): IStiAxisSeriesLabels;
+        setIsMouseOverSeriesElement(seriesIndex: number, value: boolean): any;
+        isDateTimeValues: boolean;
+        applyStyle(style: IStiChartStyle, color: Color): any;
+        getTag(tagIndex: number): string;
+        getIsMouseOverSeriesElement(seriesIndex: number): boolean;
+        interaction: IStiSeriesInteraction;
+        isDateTimeArguments: boolean;
+        isMouseOver: boolean;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -14080,7 +9861,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiStrips: string;
     interface IStiStrips extends ICloneable, IStiJsonReportObject {
-        core: StiStripsCoreXF;
+        core: IStiStripsCoreXF;
         allowApplyStyle: boolean;
         showBehind: boolean;
         stripBrush: StiBrush;
@@ -14098,11 +9879,87 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    import ICollection = Stimulsoft.System.Collections.ICollection;
+    var IStiStripsCollection: string;
+    interface IStiStripsCollection extends ICollection<IStiStrips>, IStiApplyStyle {
+        add(value: IStiStrips): any;
+        insert(index: number, value: IStiStrips): any;
+        getByIndex(index: number): IStiStrips;
+        applyStyle(style: IStiChartStyle): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiStripsCoreXF: string;
+    interface IStiStripsCoreXF extends IStiApplyStyle {
+        render(context: StiContext, geom: IStiCellGeom, rect: RectangleD): any;
+        applyStyle(style: IStiChartStyle): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiChartStyle: string;
     interface IStiChartStyle extends ICloneable, IStiJsonReportObject {
-        core: StiStyleCoreXF;
+        core: IStiStyleCoreXF;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiCustomStyle: string;
+    interface IStiCustomStyle extends IStiChartStyle {
+        customCore: IStiCustomStyleCoreXF;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiChartStyle = Stimulsoft.Report.Styles.StiChartStyle;
+    var IStiCustomStyleCoreXF: string;
+    interface IStiCustomStyleCoreXF extends IStiStyleCoreXF {
+        reportStyle: StiChartStyle;
+        reportStyleName: string;
+        reportChartStyle: Stimulsoft.Report.Styles.StiChartStyle;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Font = Stimulsoft.System.Drawing.Font;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiStyleCoreXF: string;
+    interface IStiStyleCoreXF {
+        chart: IStiChart;
+        chartBrush: StiBrush;
+        chartAreaBrush: StiBrush;
+        chartAreaBorderColor: Color;
+        seriesShowShadow: boolean;
+        seriesLighting: boolean;
+        seriesLabelsFont: Font;
+        seriesLabelsColor: Color;
+        seriesLabelsBrush: StiBrush;
+        seriesLabelsBorderColor: Color;
+        axisLineColor: Color;
+        axisLabelsColor: Color;
+        axisTitleColor: Color;
+        gridLinesHorColor: Color;
+        gridLinesVertColor: Color;
+        interlacingHorBrush: StiBrush;
+        interlacingVertBrush: StiBrush;
+        legendBrush: StiBrush;
+        legendLabelsColor: Color;
+        legendBorderColor: Color;
+        legendTitleColor: Color;
+        legendShowShadow: boolean;
+        legendFont: Font;
+        getAreaBrush(color: Color): StiBrush;
+        getColumnBrush(color: Color): StiBrush;
+        getColumnBorder(color: Color): Color;
+        getColors(seriesCount: number): Color[];
+        getColorByIndex(index: number, count: number): Color;
+        getColorBySeries(series: IStiSeries): Color;
+        basicStyleColor: Color;
+        markerVisible: boolean;
+        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -14112,7 +9969,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiChartTable: string;
     interface IStiChartTable extends ICloneable, IStiJsonReportObject {
-        core: StiChartTableCore;
+        core: IStiChartTableCoreXF;
         chart: IStiChart;
         allowApplyStyle: boolean;
         font: Font;
@@ -14126,6 +9983,17 @@ declare module Stimulsoft.Report.Chart {
         format: string;
         header: IStiChartTableHeader;
         dataCells: IStiChartTableDataCells;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiChartTableCoreXF: string;
+    interface IStiChartTableCoreXF extends IStiApplyStyle {
+        showTable(): boolean;
+        getWidthCellLegend(context: StiContext): number;
+        getHeightTable(context: StiContext, widthTable: number): number;
+        render(context: StiContext, rect: RectangleD): IStiCellGeom;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -14175,11 +10043,18 @@ declare module Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     var IStiTrendLine: string;
     interface IStiTrendLine extends ICloneable, IStiJsonReportObject {
-        core: StiTrendLineCoreXF;
+        core: IStiTrendLineCoreXF;
         lineWidth: number;
         lineStyle: StiPenStyle;
         lineColor: Color;
         showShadow: boolean;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    var IStiTrendLineCoreXF: string;
+    interface IStiTrendLineCoreXF {
+        renderTrendLine(geom: IStiCellGeom, points: PointD[], posY: number): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -14216,35 +10091,92 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    var IStiCellGeom: string;
+    interface IStiCellGeom {
+        drawGeom(context: StiContext): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import IStiComponent = Stimulsoft.Report.Components.IStiComponent;
+    import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
+    import StiFiltersCollection = Stimulsoft.Report.Components.StiFiltersCollection;
+    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
+    import StiDataSource = Stimulsoft.Report.Dictionary.StiDataSource;
+    import StiDataRelation = Stimulsoft.Report.Dictionary.StiDataRelation;
+    import StiBusinessObject = Stimulsoft.Report.Dictionary.StiBusinessObject;
+    import IStiCanGrow = Stimulsoft.Report.Components.IStiCanGrow;
+    import IStiCanShrink = Stimulsoft.Report.Components.IStiCanShrink;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     var IStiChart: string;
-    interface IStiChart {
-        seriesLabelsConditions: StiChartConditionsCollection;
-        series: StiSeriesCollection;
+    interface IStiChart extends IStiComponent, IStiName, IStiCanGrow, IStiCanShrink {
+        seriesLabelsConditions: IStiChartConditionsCollection;
+        series: IStiSeriesCollection;
         area: IStiArea;
         style: IStiChartStyle;
         seriesLabels: IStiSeriesLabels;
         legend: IStiLegend;
         title: IStiChartTitle;
         table: IStiChartTable;
-        strips: StiStripsCollection;
-        constantLines: StiConstantLinesCollection;
+        strips: IStiStripsCollection;
+        constantLines: IStiConstantLinesCollection;
         horSpacing: number;
         vertSpacing: number;
         isDesigning: boolean;
+        isAnimation: boolean;
         brush: StiBrush;
+        core: IStiChartCoreXF;
+        allowApplyStyle: boolean;
+        masterComponent: IStiComponent;
+        jsonMasterComponentTemp: string;
+        dataSourceName: string;
+        chartInfo: IStiChartInfo;
+        processAtEnd: boolean;
         convertToHInches(value: number): number;
+        saveState(stateName: string): any;
+        restoreState(stateName: string): any;
+        customStyleName: string;
+        name: string;
+        border: StiBorder;
+        filters: StiFiltersCollection;
+        filterMode: StiFilterMode;
+        filterOn: boolean;
+        dataSource: StiDataSource;
+        dataRelation: StiDataRelation;
+        countData: number;
+        businessObject: StiBusinessObject;
+        canGrow: boolean;
+        canShrink: boolean;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    var IStiChartCoreXF: string;
+    interface IStiChartCoreXF extends IStiApplyStyle {
+        applyStyle(style: IStiChartStyle): any;
+        render(context: StiContext, rect: RectangleD, useMargins: boolean): IStiCellGeom;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiText = Stimulsoft.Report.Components.StiText;
+    var IStiChartInfo: string;
+    interface IStiChartInfo {
+        interactiveComps: StiText[];
+        storedForProcessAtEndChart: IStiChart;
     }
 }
 declare module Stimulsoft.Report.Chart {
     var IStiGeomInteraction: string;
     interface IStiGeomInteraction {
-        invokeClick(options: StiInteractionOptions): any;
-        invokeMouseEnter(options: StiInteractionOptions): any;
-        invokeMouseLeave(options: StiInteractionOptions): any;
-        invokeMouseDown(options: StiInteractionOptions): any;
-        invokeMouseUp(options: StiInteractionOptions): any;
-        invokeDrag(options: StiInteractionOptions): any;
+        invokeClick(options: any): any;
+        invokeMouseEnter(options: any): any;
+        invokeMouseLeave(options: any): any;
+        invokeMouseDown(options: any): any;
+        invokeMouseUp(options: any): any;
+        invokeDrag(options: any): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -14257,3591 +10189,7 @@ declare module Stimulsoft.Report.Chart {
         allowSeries: boolean;
         allowSeriesElements: boolean;
         loadFromXml(xmlNode: XmlNode): any;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    class StiArea extends StiService implements IStiJsonReportObject, IStiArea, ICloneable {
-        private static implementsStiArea;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        static loadFromJsonObjectInternal(jObject: StiJson): IStiArea;
-        static loadAreaFromXml(xmlNode: XmlNode, chart: Stimulsoft.Report.Components.StiChart): StiArea;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiArea;
-        createNew(): StiArea;
-        toString(): string;
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        readonly serviceCategory: string;
-        readonly serviceType: Stimulsoft.System.Type;
-        readonly isDefaultSeriesTypeFullStackedColumnSeries: boolean;
-        readonly isDefaultSeriesTypeFullStackedBarSeries: boolean;
-        private _core;
-        core: StiAreaCoreXF;
-        private _chart;
-        chart: IStiChart;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _colorEach;
-        colorEach: boolean;
-        private _showShadow;
-        showShadow: boolean;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisArea extends StiArea implements IStiJsonReportObject, IStiAxisArea, IStiArea, ICloneable {
-        private static implementsStiAxisArea;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxisArea;
-        readonly axisCore: StiAxisAreaCoreXF;
-        private _interlacingHor;
-        interlacingHor: IStiInterlacingHor;
-        private _interlacingVert;
-        interlacingVert: IStiInterlacingVert;
-        private _gridLinesHor;
-        gridLinesHor: IStiGridLinesHor;
-        private _gridLinesHorRight;
-        gridLinesHorRight: IStiGridLinesHor;
-        private _gridLinesVert;
-        gridLinesVert: IStiGridLinesVert;
-        private _yAxis;
-        yAxis: IStiYAxis;
-        private _yRightAxis;
-        yRightAxis: IStiYAxis;
-        private _xAxis;
-        xAxis: IStiXAxis;
-        private _xTopAxis;
-        xTopAxis: IStiXAxis;
-        private _reverseHor;
-        reverseHor: boolean;
-        private _reverseVert;
-        reverseVert: boolean;
-        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiClusteredColumnArea extends StiAxisArea implements IStiJsonReportObject, IStiClusteredColumnArea, IStiAxisArea, ICloneable, IStiArea {
-        private static implementsStiClusteredColumnArea;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiScatterArea extends StiClusteredColumnArea implements IStiScatterArea, IStiArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiScatterArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiBubbleArea extends StiScatterArea implements IStiScatterArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, ICloneable, IStiBubbleArea {
-        private static implementsStiBubbleArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiCandlestickArea extends StiClusteredColumnArea implements IStiCandlestickArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, IStiArea, ICloneable {
-        private static implementsStiCandlestickArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiClusteredBarArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredBarArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiClusteredBarArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAreaArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredColumnArea, IStiAxisArea, IStiAreaArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiAreaArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiLineArea extends StiClusteredColumnArea implements IStiArea, IStiLineArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiLineArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSplineArea extends StiClusteredColumnArea implements IStiArea, IStiSplineArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiSplineArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSplineAreaArea extends StiClusteredColumnArea implements IStiArea, IStiSplineAreaArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiSplineAreaArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSteppedAreaArea extends StiClusteredColumnArea implements IStiArea, IStiSteppedAreaArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiSteppedAreaArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSteppedLineArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredColumnArea, IStiAxisArea, IStiSteppedLineArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiSteppedLineArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiPieArea extends StiArea implements IStiJsonReportObject, IStiPieArea, IStiArea, ICloneable {
-        private static implementsStiPieArea;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly componentId: StiComponentId;
-        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiDoughnutArea extends StiPieArea implements IStiJsonReportObject, IStiPieArea, IStiArea, ICloneable, IStiDoughnutArea {
-        private static implementsStiDoughnutArea;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedBarArea extends StiClusteredBarArea implements IStiClusteredBarArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, IStiStackedBarArea, ICloneable {
-        private static implementsStiStackedBarArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedBarArea extends StiStackedBarArea implements IStiClusteredBarArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiFullStackedBarArea, IStiStackedBarArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiFullStackedBarArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedColumnArea extends StiAxisArea implements IStiJsonReportObject, IStiStackedColumnArea, IStiAxisArea, ICloneable, IStiArea {
-        private static implementsStiStackedColumnArea;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedColumnArea extends StiStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiFullStackedColumnArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedAreaArea extends StiFullStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable, IStiFullStackedAreaArea {
-        private static implementsStiFullStackedAreaArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedLineArea extends StiFullStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable, IStiFullStackedLineArea {
-        private static implementsStiFullStackedLineArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedSplineArea extends StiFullStackedColumnArea implements IStiFullStackedSplineArea, IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiFullStackedSplineArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedSplineAreaArea extends StiFullStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiFullStackedSplineAreaArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiFullStackedSplineAreaArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFunnelArea extends StiArea implements IStiJsonReportObject, IStiArea, ICloneable, IStiFunnelArea {
-        private static implementsStiFunnelArea;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly componentId: StiComponentId;
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiGanttArea extends StiClusteredBarArea implements IStiClusteredBarArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, IStiGanttArea, ICloneable {
-        private static implementsStiGanttArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarArea extends StiArea implements IStiJsonReportObject, IStiRadarArea, IStiArea, ICloneable {
-        private static implementsStiRadarArea;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiRadarArea;
-        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        private _interlacingHor;
-        interlacingHor: IStiInterlacingHor;
-        private _interlacingVert;
-        interlacingVert: IStiInterlacingVert;
-        private _gridLinesHor;
-        gridLinesHor: IStiRadarGridLinesHor;
-        private _gridLinesVert;
-        gridLinesVert: IStiRadarGridLinesVert;
-        private _radarStyle;
-        radarStyle: StiRadarStyle;
-        private _xAxis;
-        xAxis: IStiXRadarAxis;
-        private _yAxis;
-        yAxis: IStiYRadarAxis;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarAreaArea extends StiRadarArea implements IStiJsonReportObject, IStiRadarArea, IStiArea, IStiRadarAreaArea, ICloneable {
-        private static implementsStiRadarAreaArea;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarLineArea extends StiRadarArea implements IStiJsonReportObject, IStiRadarArea, IStiArea, ICloneable, IStiRadarLineArea {
-        private static implementsStiRadarLineArea;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarPointArea extends StiRadarArea implements IStiJsonReportObject, IStiRadarPointArea, IStiRadarArea, IStiArea, ICloneable {
-        private static implementsStiRadarPointArea;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRangeArea extends StiClusteredColumnArea implements IStiArea, IStiRangeArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiRangeArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRangeBarArea extends StiClusteredColumnArea implements IStiArea, IStiRangeBarArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiRangeBarArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSplineRangeArea extends StiClusteredColumnArea implements IStiArea, IStiAxisArea, IStiClusteredColumnArea, IStiSplineRangeArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiSplineRangeArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSteppedRangeArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredColumnArea, IStiSteppedRangeArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiSteppedRangeArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedAreaArea extends StiStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiStackedAreaArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiStackedAreaArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedLineArea extends StiStackedColumnArea implements IStiStackedLineArea, IStiArea, IStiAxisArea, IStiStackedColumnArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiStackedLineArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedSplineArea extends StiStackedColumnArea implements IStiStackedSplineArea, IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiStackedSplineArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedSplineAreaArea extends StiStackedColumnArea implements IStiAxisArea, IStiStackedColumnArea, IStiArea, IStiStackedSplineAreaArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiStackedSplineAreaArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStockArea extends StiClusteredColumnArea implements IStiArea, IStiStockArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
-        private static implementsStiStockArea;
-        implements(): string[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        readonly componentId: StiComponentId;
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiTreemapArea extends StiArea implements IStiJsonReportObject, IStiTreemapArea, ICloneable {
-        private static implementsStiTreemapArea;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
-        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
-        getDefaultSeriesType(): Stimulsoft.System.Type;
-        getSeriesTypes(): Stimulsoft.System.Type[];
-        createNew(): StiArea;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiAxis implements IStiAxis {
-        private static implementsStiAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxis;
-        private _logarithmicScale;
-        logarithmicScale: boolean;
-        private _core;
-        core: StiAxisCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _startFromZero;
-        startFromZero: boolean;
-        step: number;
-        private _interaction;
-        interaction: IStiAxisInteraction;
-        private _labels;
-        labels: IStiAxisLabels;
-        private _range;
-        range: IStiAxisRange;
-        private _title;
-        title: IStiAxisTitle;
-        private _ticks;
-        ticks: IStiAxisTicks;
-        private _arrowStyle;
-        arrowStyle: StiArrowStyle;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lineColor;
-        lineColor: Color;
-        private _lineWidth;
-        lineWidth: number;
-        private _visible;
-        visible: boolean;
-        titleDirection: StiLegendDirection;
-        private _area;
-        area: IStiAxisArea;
-        private _info;
-        info: StiAxisInfoXF;
-        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, allowApplyStyle?: boolean, logarithmicScale?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    class StiAxisDateTimeStep implements IStiAxisDateTimeStep {
-        private static implementsStiAxisDateTimeStep;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxisDateTimeStep;
-        private _step;
-        step: StiTimeDateStep;
-        private _numberOfValues;
-        numberOfValues: number;
-        private _interpolation;
-        interpolation: boolean;
-        constructor(step?: StiTimeDateStep, numberOfValues?: number, interpolation?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisInteraction implements IStiJsonReportObject, IStiAxisInteraction, ICloneable {
-        private static implementsStiAxisInteraction;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxisInteraction;
-        private _showScrollBar;
-        showScrollBar: boolean;
-        private _rangeScrollEnabled;
-        rangeScrollEnabled: boolean;
-        constructor(showScrollBar?: boolean, rangeScrollEnabled?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiAxisLabels implements IStiJsonReportObject, IStiAxisLabels, ICloneable {
-        private static implementsStiAxisLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxisLabels;
-        private _core;
-        core: StiAxisLabelsCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _format;
-        format: string;
-        private _angle;
-        angle: number;
-        private _width;
-        width: number;
-        private _textBefore;
-        textBefore: string;
-        private _textAfter;
-        textAfter: string;
-        private _font;
-        font: Font;
-        private _antialiasing;
-        antialiasing: boolean;
-        private _placement;
-        placement: StiLabelsPlacement;
-        private _color;
-        color: Color;
-        private _textAlignment;
-        textAlignment: StiHorAlignment;
-        private _step;
-        step: number;
-        private _wordWrap;
-        wordWrap: boolean;
-        constructor(format?: string, textBefore?: string, textAfter?: string, angle?: number, font?: Font, antialiasing?: boolean, placement?: StiLabelsPlacement, color?: Color, width?: number, textAlignment?: StiHorAlignment, step?: number, allowApplyStyle?: boolean, wordWrap?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisRange implements IStiJsonReportObject, ICloneable, IStiAxisRange {
-        private static implementsStiAxisRange;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxisRange;
-        private _minimum;
-        minimum: number;
-        private _maximum;
-        maximum: number;
-        private _auto;
-        auto: boolean;
-        constructor(auto?: boolean, minimum?: number, maximum?: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisTicks implements IStiJsonReportObject, IStiAxisTicks, ICloneable {
-        private static implementsStiAxisTicks;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxisTicks;
-        private _lengthUnderLabels;
-        lengthUnderLabels: number;
-        private _length;
-        length: number;
-        private _minorLength;
-        minorLength: number;
-        private _minorCount;
-        minorCount: number;
-        private _step;
-        step: number;
-        private _minorVisible;
-        minorVisible: boolean;
-        private _visible;
-        visible: boolean;
-        constructor(visible?: boolean, length?: number, minorVisible?: boolean, minorLength?: number, minorCount?: number, step?: number, lengthUnderLabels?: number);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StringAlignment = Stimulsoft.System.Drawing.StringAlignment;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiAxisTitle implements IStiAxisTitle, ICloneable, IStiJsonReportObject {
-        private static implementsStiAxisTitle;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiAxisTitle;
-        private _core;
-        core: StiAxisTitleCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _font;
-        readonly font: Font;
-        get: Font;
-        private _text;
-        text: string;
-        private _color;
-        color: Color;
-        private _antialiasing;
-        antialiasing: boolean;
-        private _alignment;
-        alignment: StringAlignment;
-        private _position;
-        position: StiTitlePosition;
-        private _direction;
-        direction: StiDirection;
-        constructor(font?: Font, text?: string, color?: Color, antialiasing?: boolean, alignment?: StringAlignment, direction?: StiDirection, allowApplyStyle?: boolean, position?: StiTitlePosition);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiXAxis extends StiAxis implements IStiJsonReportObject, IStiAxis, IStiXAxis, ICloneable {
-        private static implementsStiXAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        private _showEdgeValues;
-        showEdgeValues: boolean;
-        private _showXAxis;
-        showXAxis: StiShowXAxis;
-        private _dateTimeStep;
-        dateTimeStep: IStiAxisDateTimeStep;
-        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showXAxis?: StiShowXAxis, showEdgeValues?: boolean, allowApplyStyle?: boolean, dateTimeStep?: IStiAxisDateTimeStep, logarithmicScale?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiXBottomAxis extends StiXAxis implements IStiJsonReportObject, IStiXAxis, ICloneable, IStiXBottomAxis, IStiAxis {
-        private static implementsStiXBottomAxis;
-        implements(): string[];
-        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showXAxis?: StiShowXAxis, showEdgeValues?: boolean, allowApplyStyle?: boolean, dateTimeStep?: IStiAxisDateTimeStep, logarithmicScale?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiXTopAxis extends StiXAxis implements IStiXTopAxis, ICloneable, IStiAxis, IStiXAxis, IStiJsonReportObject {
-        private static implementsStiXTopAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly componentId: StiComponentId;
-        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showXAxis?: StiShowXAxis, showEdgeValues?: boolean, allowApplyStyle?: boolean, logarithmicScale?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiYAxis extends StiAxis implements IStiJsonReportObject, IStiYAxis, ICloneable, IStiAxis {
-        private static implementsStiYAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        private _showYAxis;
-        showYAxis: StiShowYAxis;
-        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showYAxis?: StiShowYAxis, allowApplyStyle?: boolean, logarithmicScale?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiYLeftAxis extends StiYAxis implements IStiJsonReportObject, IStiYAxis, ICloneable, IStiAxis, IStiYLeftAxis {
-        private static implementsStiYLeftAxis;
-        implements(): string[];
-        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showYAxis?: StiShowYAxis, allowApplyStyle?: boolean, logarithmicScale?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiYRightAxis extends StiYAxis implements IStiJsonReportObject, IStiYAxis, ICloneable, IStiAxis, IStiYRightAxis {
-        private static implementsStiYRightAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly componentId: StiComponentId;
-        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, allowApplyStyle?: boolean, logarithmicScale?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StringAlignment = Stimulsoft.System.Drawing.StringAlignment;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiChartTitle implements IStiChartTitle, ICloneable, IStiJsonReportObject {
-        private static implementsStiChartTitle;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiChartTitle;
-        private _core;
-        core: StiChartTitleCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _font;
-        font: Font;
-        private _text;
-        text: string;
-        private _brush;
-        brush: StiBrush;
-        private _antialiasing;
-        antialiasing: boolean;
-        private _alignment;
-        alignment: StringAlignment;
-        private _dock;
-        dock: StiChartTitleDock;
-        private _spacing;
-        spacing: number;
-        private _visible;
-        visible: boolean;
-        private _chart;
-        chart: IStiChart;
-        constructor(font?: Font, text?: string, brush?: StiBrush, antialiasing?: boolean, alignment?: StringAlignment, dock?: StiChartTitleDock, spacing?: number, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    import Font = Stimulsoft.System.Drawing.Font;
-    enum StiConstantLines_StiOrientation {
-        Horizontal = 0,
-        Vertical = 1,
-        HorizontalRight = 2,
-    }
-    enum StiConstantLines_StiTextPosition {
-        LeftTop = 0,
-        LeftBottom = 1,
-        CenterTop = 2,
-        CenterBottom = 3,
-        RightTop = 4,
-        RightBottom = 5,
-    }
-    class StiConstantLines extends StiService implements IStiConstantLines, ICloneable, IStiJsonReportObject {
-        private static implementsStiConstantLines;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiConstantLines;
-        readonly serviceCategory: string;
-        readonly ServiceType: Stimulsoft.System.Type;
-        private _core;
-        core: StiConstantLinesCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _antialiasing;
-        antialiasing: boolean;
-        private _position;
-        position: StiConstantLines_StiTextPosition;
-        private _font;
-        font: Font;
-        private _text;
-        text: string;
-        private _titleVisible;
-        titleVisible: boolean;
-        private _orientation;
-        orientation: StiConstantLines_StiOrientation;
-        private _lineWidth;
-        lineWidth: number;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lineColor;
-        lineColor: Color;
-        private _showInLegend;
-        showInLegend: boolean;
-        private _showBehind;
-        showBehind: boolean;
-        private _axisValue;
-        axisValue: string;
-        private _visible;
-        visible: boolean;
-        private _chart;
-        chart: IStiChart;
-        toString(): string;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiChart = Stimulsoft.Report.Components.StiChart;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiConstantLinesCollection extends CollectionBase implements IStiJsonReportObject, IStiApplyStyle {
-        private static implementsStiConstantLinesCollection;
-        implements(): string[];
-        readonly list: IStiConstantLines[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        applyStyle(style: IStiChartStyle): void;
-        private getConstantLineTitle();
-        private addCore(value);
-        add(value: IStiConstantLines): void;
-        addRange(values: IStiConstantLines[]): void;
-        addRange2(values: StiConstantLinesCollection): void;
-        contains(value: IStiConstantLines): boolean;
-        indexOf(value: IStiConstantLines): number;
-        insert(index: number, value: IStiConstantLines): void;
-        onClear(): void;
-        remove(value: IStiConstantLines): void;
-        getByIndex(index: number): IStiConstantLines;
-        setByIndex(index: number, value: IStiConstantLines): void;
-        constantLinesAdded: Function;
-        onConstantLinesAdded(e: EventArgs): void;
-        private invokeConstantLinesAdded(sender, index);
-        constantLinesRemoved: Function;
-        onConstantLinesRemoved(e: EventArgs): void;
-        private invokeConstantLinesRemoved(sender, index);
-        private _chart;
-        chart: StiChart;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Events {
-    import IStiSeries = Stimulsoft.Report.Chart.IStiSeries;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    class StiGetTitleEventArgs extends EventArgs {
-        private valueObject;
-        value: string;
-        private _index;
-        index: number;
-        private _series;
-        series: IStiSeries;
-    }
-}
-declare module Stimulsoft.Report.Events {
-    import EventArgs = Stimulsoft.System.EventArgs;
-    import IStiSeries = Stimulsoft.Report.Chart.IStiSeries;
-    class StiNewAutoSeriesEventArgs extends EventArgs {
-        private _seriesIndex;
-        seriesIndex: number;
-        private _color;
-        color: Object;
-        private _series;
-        series: IStiSeries;
-        constructor(seriesIndex: number, series: IStiSeries, color: Object);
-    }
-}
-declare module Stimulsoft.Report.Events {
-    class StiProcessChartEvent extends StiEvent {
-        toString(): string;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiChartFiltersCollection extends CollectionBase implements IStiJsonReportObject, ICloneable {
-        private static implementsStiChartFiltersCollection;
-        implements(): string[];
-        readonly list: StiChartFilter[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiChartFiltersCollection;
-        add(filter: StiChartFilter): void;
-        addRange(filters: StiChartFiltersCollection): void;
-        addRange2(filters: StiChartFilter[]): void;
-        contains(filter: StiChartFilter): boolean;
-        indexOf(filter: StiChartFilter): number;
-        insert(index: number, filter: StiChartFilter): void;
-        remove(filter: StiChartFilter): void;
-        getByIndex(index: number): StiChartFilter;
-        setByIndex(index: number, value: StiChartFilter): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IComparer = Stimulsoft.System.Collections.IComparer;
-    class StiDataItem {
-        argument: Object;
-        value: Object;
-        valueEnd: Object;
-        weight: Object;
-        valueOpen: Object;
-        valueClose: Object;
-        valueLow: Object;
-        valueHigh: Object;
-        title: Object;
-        key: Object;
-        color: Object;
-        toolTip: any;
-        constructor(argument: Object, value: Object, valueEnd: Object, weight: Object, valueOpen: Object, valueClose: Object, valueLow: Object, valueHight: Object, title: Object, key: Object, color: Object, toolTip: Object);
-    }
-    class StiDataItemComparer implements IComparer<StiDataItem> {
-        compare(x: StiDataItem, y: StiDataItem): number;
-        private directionFactor;
-        private sortType;
-        constructor(sortType: StiSeriesSortType, sortDirection: StiSeriesSortDirection);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiGridLines implements IStiJsonReportObject, IStiGridLines, ICloneable {
-        private static implementsStiGridLines;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        needSetAreaJsonPropertyInternal: boolean;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiGridLines;
-        private _core;
-        core: StiGridLinesCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _color;
-        color: Color;
-        private _minorColor;
-        minorColor: Color;
-        private _style;
-        style: StiPenStyle;
-        private _minorStyle;
-        minorStyle: StiPenStyle;
-        private _visible;
-        visible: boolean;
-        private _minorVisible;
-        minorVisible: boolean;
-        private _minorCount;
-        minorCount: number;
-        private _area;
-        area: IStiArea;
-        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, minorColor?: Color, minorStyle?: StiPenStyle, minorVisible?: boolean, minorCount?: number, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiGridLinesHor extends StiGridLines implements IStiJsonReportObject, IStiGridLines, IStiGridLinesHor, ICloneable {
-        private static implementsStiGridLinesHor;
-        implements(): string[];
-        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, minorColor?: Color, minorStyle?: StiPenStyle, minorVisible?: boolean, minorCount?: number, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiGridLinesVert extends StiGridLines implements IStiJsonReportObject, IStiGridLines, ICloneable, IStiGridLinesVert {
-        private static implementsStiGridLinesVert;
-        implements(): string[];
-        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, minorColor?: Color, minorStyle?: StiPenStyle, minorVisible?: boolean, minorCount?: number, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarGridLines implements IStiJsonReportObject, IStiRadarGridLines, ICloneable {
-        private static implementsStiRadarGridLines;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        needSetAreaJsonPropertyInternal: boolean;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiRadarGridLines;
-        private _core;
-        core: StiRadarGridLinesCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _color;
-        color: Color;
-        private _style;
-        style: StiPenStyle;
-        private _visible;
-        visible: boolean;
-        private _area;
-        area: IStiArea;
-        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarGridLinesHor extends StiRadarGridLines implements IStiJsonReportObject, IStiRadarGridLines, IStiRadarGridLinesHor, ICloneable {
-        private static implementsStiRadarGridLinesHor;
-        implements(): string[];
-        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarGridLinesVert extends StiRadarGridLines implements IStiJsonReportObject, IStiRadarGridLines, IStiRadarGridLinesVert, ICloneable {
-        private static implementsStiRadarGridLinesVert;
-        implements(): string[];
-        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiInterlacing implements IStiInterlacing, ICloneable, IStiJsonReportObject {
-        private static implementsStiInterlacing;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        needSetAreaJsonPropertyInternal: boolean;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiInterlacing;
-        private _core;
-        core: StiInterlacingCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _interlacedBrush;
-        interlacedBrush: StiBrush;
-        private _visible;
-        visible: boolean;
-        private _area;
-        area: IStiArea;
-        constructor(interlacedBrush?: StiBrush, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiInterlacingHor extends StiInterlacing implements IStiInterlacing, IStiInterlacingHor, IStiJsonReportObject, ICloneable {
-        private static implementsStiInterlacingHor;
-        implements(): string[];
-        constructor(interlacedBrush?: StiBrush, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiInterlacingVert extends StiInterlacing implements IStiInterlacingVert {
-        private static implementsStiInterlacingVert;
-        implements(): string[];
-        constructor(interlacedBrush?: StiBrush, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import SizeD = Stimulsoft.Base.Drawing.SizeD;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiLegend implements IStiJsonReportObject, ICloneable, IStiLegend {
-        private static implementsStiLegend;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiLegend;
-        private _core;
-        core: StiLegendCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _chart;
-        chart: IStiChart;
-        private _hideSeriesWithEmptyTitle;
-        hideSeriesWithEmptyTitle: boolean;
-        private _showShadow;
-        showShadow: boolean;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _titleColor;
-        titleColor: Color;
-        private _labelsColor;
-        labelsColor: Color;
-        private _direction;
-        direction: StiLegendDirection;
-        private _horAlignment;
-        horAlignment: StiLegendHorAlignment;
-        private _vertAlignment;
-        vertAlignment: StiLegendVertAlignment;
-        private _titleFont;
-        titleFont: Font;
-        private _font;
-        font: Font;
-        private _visible;
-        visible: boolean;
-        private _markerVisible;
-        markerVisible: boolean;
-        private _markerBorder;
-        markerBorder: boolean;
-        private _markerSize;
-        markerSize: SizeD;
-        private _markerAlignment;
-        markerAlignment: StiMarkerAlignment;
-        private _columns;
-        columns: number;
-        private _horSpacing;
-        horSpacing: number;
-        private _vertSpacing;
-        vertSpacing: number;
-        private _size;
-        size: SizeD;
-        private _title;
-        title: string;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiMarker implements IStiJsonReportObject, IStiMarker, ICloneable {
-        private static implementsStiMarker;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiMarker;
-        private _core;
-        core: StiMarkerCoreXF;
-        private _showInLegend;
-        showInLegend: boolean;
-        private _visible;
-        visible: boolean;
-        private _brush;
-        brush: StiBrush;
-        private _borderColor;
-        borderColor: Color;
-        private _size;
-        size: number;
-        private _angle;
-        angle: number;
-        private _type;
-        type: StiMarkerType;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiLineMarker extends StiMarker implements IStiJsonReportObject, IStiLineMarker, IStiMarker, ICloneable {
-        private static implementsStiLineMarker;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        private _step;
-        step: number;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarAxis implements IStiJsonReportObject, IStiRadarAxis, ICloneable {
-        private static implementsStiRadarAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        jsonLoadFromJsonObjectArea: boolean;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiRadarAxis;
-        private _core;
-        core: StiRadarAxisCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _visible;
-        visible: boolean;
-        private _area;
-        area: IStiRadarArea;
-        constructor(visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiRadarAxisLabels implements IStiJsonReportObject, IStiRadarAxisLabels, ICloneable {
-        private static implementsStiRadarAxisLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiRadarAxisLabels;
-        private _core;
-        core: StiRadarAxisLabelsCoreXF;
-        private _rotationLabels;
-        rotationLabels: boolean;
-        private _textBefore;
-        textBefore: string;
-        private _textAfter;
-        textAfter: string;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _drawBorder;
-        drawBorder: boolean;
-        private _format;
-        format: string;
-        private _font;
-        font: Font;
-        private _antialiasing;
-        antialiasing: boolean;
-        private _color;
-        color: Color;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _width;
-        width: number;
-        private _wordWrap;
-        wordWrap: boolean;
-        constructor(format?: string, font?: Font, antialiasing?: boolean, drawBorder?: boolean, color?: Color, borderColor?: Color, brush?: StiBrush, allowApplyStyle?: boolean, rotationLabels?: boolean, width?: number, wordWrap?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiXRadarAxis extends StiRadarAxis implements IStiXRadarAxis, IStiRadarAxis, ICloneable, IStiJsonReportObject {
-        private static implementsStiXRadarAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiXRadarAxis;
-        readonly xCore: StiXRadarAxisCoreXF;
-        private _labels;
-        labels: IStiRadarAxisLabels;
-        constructor(labels?: IStiRadarAxisLabels, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    class StiYRadarAxis extends StiRadarAxis implements IStiYRadarAxis, IStiRadarAxis, ICloneable, IStiJsonReportObject {
-        private static implementsStiYRadarAxis;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiYRadarAxis;
-        readonly yCore: StiYRadarAxisCoreXF;
-        private _labels;
-        labels: IStiAxisLabels;
-        private _ticks;
-        ticks: IStiAxisTicks;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lineColor;
-        lineColor: Color;
-        private _lineWidth;
-        lineWidth: number;
-        private _info;
-        info: StiAxisInfoXF;
-        constructor(labels?: IStiAxisLabels, ticks?: IStiAxisTicks, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, allowApplyStyle?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiChart = Stimulsoft.Report.Components.StiChart;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import SizeD = Stimulsoft.Base.Drawing.SizeD;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiSeriesLabels extends StiService implements IStiJsonReportObject, IStiSeriesLabels, ICloneable {
-        private static implementsStiSeriesLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        static loadFromJsonObjectInternal(jObject: StiJson, chart: StiChart): IStiSeriesLabels;
-        static loadLabelsFromXml(xmlNode: XmlNode, chart: StiChart): StiSeriesLabels;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiSeriesLabels;
-        readonly serviceName: string;
-        readonly serviceCategory: string;
-        readonly serviceType: Stimulsoft.System.Type;
-        private _preventIntersection;
-        preventIntersection: boolean;
-        private _core;
-        core: StiSeriesLabelsCoreXF;
-        readonly axisCore: StiAxisSeriesLabelsCoreXF;
-        readonly pieCore: StiPieSeriesLabelsCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        conditions: StiChartConditionsCollection;
-        showOnZeroValues: boolean;
-        private _showZeros;
-        showZeros: boolean;
-        private _showNulls;
-        showNulls: boolean;
-        private _markerVisible;
-        markerVisible: boolean;
-        private _markerSize;
-        markerSize: SizeD;
-        private _markerAlignment;
-        markerAlignment: StiMarkerAlignment;
-        private _step;
-        step: number;
-        private _valueType;
-        valueType: StiSeriesLabelsValueType;
-        private _valueTypeSeparator;
-        valueTypeSeparator: string;
-        private _legendValueType;
-        legendValueType: StiSeriesLabelsValueType;
-        private _textBefore;
-        textBefore: string;
-        private _textAfter;
-        textAfter: string;
-        private _angle;
-        angle: number;
-        private _format;
-        format: string;
-        private _antialiasing;
-        antialiasing: boolean;
-        private _visible;
-        visible: boolean;
-        private _drawBorder;
-        drawBorder: boolean;
-        private _useSeriesColor;
-        useSeriesColor: boolean;
-        private _labelColor;
-        labelColor: Color;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _font;
-        font: Font;
-        private _chart;
-        chart: IStiChart;
-        private _wordWrap;
-        wordWrap: boolean;
-        private _width;
-        width: number;
-        toString(): string;
-        createNew(): StiSeriesLabels;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiAxisSeriesLabels extends StiSeriesLabels implements IStiJsonReportObject, IStiSeriesLabels, ICloneable, IStiAxisSeriesLabels {
-        private static implementsStiAxisSeriesLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _showInPercent;
-        showInPercent: boolean;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiCenterAxisLabels extends StiAxisSeriesLabels implements IStiJsonReportObject, IStiSeriesLabels, IStiCenterAxisLabels, IStiAxisSeriesLabels, ICloneable {
-        private static implementsStiCenterAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiInsideBaseAxisLabels extends StiCenterAxisLabels implements IStiInsideBaseAxisLabels, IStiSeriesLabels, ICloneable, IStiAxisSeriesLabels, IStiJsonReportObject {
-        private static implementsStiInsideBaseAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiInsideEndAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiSeriesLabels, IStiJsonReportObject, IStiInsideEndAxisLabels, ICloneable {
-        private static implementsStiInsideEndAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiLeftAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiLeftAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
-        private static implementsStiLeftAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiOutsideAxisLabels extends StiAxisSeriesLabels implements IStiOutsideAxisLabels, IStiSeriesLabels, ICloneable, IStiAxisSeriesLabels, IStiJsonReportObject {
-        private static implementsStiOutsideAxisLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        private _lineLength;
-        lineLength: number;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiOutsideBaseAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiOutsideBaseAxisLabels, IStiSeriesLabels, ICloneable {
-        private static implementsStiOutsideBaseAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiOutsideEndAxisLabels extends StiCenterAxisLabels implements IStiOutsideEndAxisLabels, IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
-        private static implementsStiOutsideEndAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRightAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiRightAxisLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
-        private static implementsStiRightAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiValueAxisLabels extends StiCenterAxisLabels implements IStiValueAxisLabels, IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
-        private static implementsStiValueAxisLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFunnelSeriesLabels extends StiSeriesLabels implements IStiJsonReportObject, IStiFunnelSeriesLabels, ICloneable, IStiSeriesLabels {
-        private static implementsStiFunnelSeriesLabels;
-        implements(): string[];
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiCenterFunnelLabels extends StiFunnelSeriesLabels implements IStiJsonReportObject, IStiSeriesLabels, IStiFunnelSeriesLabels, ICloneable, IStiCenterFunnelLabels {
-        private static implementsStiCenterFunnelLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiOutsideLeftFunnelLabels extends StiFunnelSeriesLabels implements IStiCenterFunnelLabels, IStiOutsideLeftFunnelLabels, IStiJsonReportObject, IStiSeriesLabels, IStiFunnelSeriesLabels, ICloneable {
-        private static implementsStiOutsideLeftFunnelLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiOutsideRightFunnelLabels extends StiFunnelSeriesLabels implements IStiOutsideRightFunnelLabels, IStiCenterFunnelLabels, IStiJsonReportObject, IStiSeriesLabels, IStiFunnelSeriesLabels, ICloneable {
-        private static implementsStiOutsideRightFunnelLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiPieSeriesLabels extends StiSeriesLabels implements IStiJsonReportObject, IStiPieSeriesLabels, IStiSeriesLabels, ICloneable {
-        private static implementsStiPieSeriesLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _showInPercent;
-        showInPercent: boolean;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiCenterPieLabels extends StiPieSeriesLabels implements IStiJsonReportObject, IStiPieSeriesLabels, IStiSeriesLabels, IStiCenterPieLabels, ICloneable {
-        private static implementsStiCenterPieLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        private _autoRotate;
-        autoRotate: boolean;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiInsideEndPieLabels extends StiCenterPieLabels implements IStiCenterPieLabels, IStiSeriesLabels, IStiPieSeriesLabels, IStiInsideEndPieLabels, IStiJsonReportObject, ICloneable {
-        private static implementsStiInsideEndPieLabels;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiOutsidePieLabels extends StiCenterPieLabels implements IStiOutsidePieLabels, IStiCenterPieLabels, IStiPieSeriesLabels, IStiSeriesLabels, IStiJsonReportObject, ICloneable {
-        private static implementsStiOutsidePieLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        private _showValue;
-        showValue: boolean;
-        private _lineLength;
-        lineLength: number;
-        private _lineColor;
-        lineColor: Color;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiTwoColumnsPieLabels extends StiOutsidePieLabels implements IStiTwoColumnsPieLabels, IStiOutsidePieLabels, IStiCenterPieLabels, IStiPieSeriesLabels, IStiSeriesLabels, IStiJsonReportObject, ICloneable {
-        private static implementsStiTwoColumnsPieLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiCenterTreemapLabels extends StiAxisSeriesLabels implements IStiCenterAxisLabels {
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiNoneLabels extends StiSeriesLabels implements IStiNoneLabels, IStiSeriesLabels, ICloneable, IStiJsonReportObject {
-        private static implementsStiNoneLabels;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        readonly componentId: StiComponentId;
-        createNew(): StiSeriesLabels;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiBubbleSeries extends StiScatterSeries implements IStiBaseLineSeries, IStiBubbleSeries, IStiScatterSeries, IStiJsonReportObject, IStiSeries, ICloneable {
-        private static implementsStiBubbleSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiBubbleSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _weights;
-        weights: number[];
-        weightsString: string;
-        private _weightDataColumn;
-        weightDataColumn: string;
-        getWeight: Function;
-        onGetWeight(e: StiGetValueEventArgs): void;
-        invokeGetWeight(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfWeights: Function;
-        onGetListOfWeights(e: StiGetValueEventArgs): void;
-        invokeGetListOfWeights(sender: StiComponent, e: StiGetValueEventArgs): void;
-        private _weight;
-        weight: string;
-        private _listOfWeights;
-        listOfWeights: string;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiClusteredColumnSeries extends StiSeries implements IStiJsonReportObject, IStiClusteredColumnSeries, ICloneable, IStiSeries, IStiAllowApplyBrushNegative {
-        private static implementsStiClusteredColumnSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiClusteredColumnSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        private _showZeros;
-        showZeros: boolean;
-        private _width;
-        width: number;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiClusteredBarSeries extends StiClusteredColumnSeries implements IStiJsonReportObject, IStiClusteredColumnSeries, IStiSeries, ICloneable, IStiClusteredBarSeries, IStiAllowApplyBrushNegative {
-        private static implementsStiClusteredBarSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiLineSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, IStiLineSeries, ICloneable, IStiSeries, IStiAllowApplyColorNegative {
-        private static implementsStiLineSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiAreaSeries extends StiLineSeries implements IStiLineSeries, IStiBaseLineSeries, IStiAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
-        private static implementsStiAreaSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiAreaSeries;
-        private _topmostLine;
-        topmostLine: boolean;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSplineSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, ICloneable, IStiSeries, IStiSplineSeries, IStiAllowApplyColorNegative {
-        private static implementsStiSplineSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _tension;
-        tension: number;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSplineAreaSeries extends StiSplineSeries implements IStiSplineSeries, IStiBaseLineSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiSplineAreaSeries, IStiAllowApplyColorNegative {
-        private static implementsStiSplineAreaSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiSplineAreaSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _topmostLine;
-        topmostLine: boolean;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSteppedLineSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, IStiSeries, ICloneable, IStiSteppedLineSeries, IStiAllowApplyColorNegative {
-        private static implementsStiSteppedLineSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _pointAtCenter;
-        pointAtCenter: boolean;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSteppedAreaSeries extends StiSteppedLineSeries implements IStiSteppedLineSeries, IStiBaseLineSeries, IStiJsonReportObject, IStiSteppedAreaSeries, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
-        private static implementsStiSteppedAreaSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiSteppedAreaSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _topmostLine;
-        topmostLine: boolean;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Components.Design {
-    class StiSeriesInteractionConverter {
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiPieSeries extends StiSeries implements IStiPieSeries, ICloneable, IStiSeries, IStiJsonReportObject, IStiAllowApplyBorderColor, IStiAllowApplyBrush {
-        private static implementsStiPieSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiPieSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _allowApplyBrush;
-        allowApplyBrush: boolean;
-        private _allowApplyBorderColor;
-        allowApplyBorderColor: boolean;
-        getArguments(): Object[];
-        setArguments(value: Object[]): void;
-        private _startAngle;
-        startAngle: number;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _lighting;
-        lighting: boolean;
-        private _diameter;
-        diameter: number;
-        private _distance;
-        distance: number;
-        private _cutPieListValues;
-        cutPieListValues: number[];
-        cuttedPieList: string;
-        private _cutPieList;
-        cutPieList: string;
-        getCutPieList: Function;
-        onGetCutPieList(e: StiGetValueEventArgs): void;
-        invokeGetCutPieList(sender: StiComponent, e: StiGetValueEventArgs): void;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiDoughnutSeries extends StiPieSeries implements IStiPieSeries, IStiSeries, ICloneable, IStiDoughnutSeries, IStiJsonReportObject, IStiAllowApplyBorderColor, IStiAllowApplyBrush {
-        private static implementsStiDoughnutSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiCandlestickSeries extends StiSeries implements IStiJsonReportObject, IStiSeries, IStiFinancialSeries, ICloneable, IStiCandlestickSeries {
-        private static implementsStiCandlestickSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiCandlestickSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _valuesOpen;
-        valuesOpen: number[];
-        private _valuesClose;
-        valuesClose: number[];
-        valuesStringOpen: string;
-        valuesStringClose: string;
-        valuesStringHigh: string;
-        valuesStringLow: string;
-        private _valuesHigh;
-        valuesHigh: number[];
-        private _valuesLow;
-        valuesLow: number[];
-        private _valueDataColumnOpen;
-        valueDataColumnOpen: string;
-        private _valueDataColumnClose;
-        valueDataColumnClose: string;
-        private _valueDataColumnHigh;
-        valueDataColumnHigh: string;
-        private _valueDataColumnLow;
-        valueDataColumnLow: string;
-        private _borderColor;
-        borderColor: Color;
-        private _borderColorNegative;
-        borderColorNegative: Color;
-        private _borderWidth;
-        borderWidth: number;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        getValueOpen: Function;
-        protected onGetValueOpen(e: StiGetValueEventArgs): void;
-        invokeGetValueOpen(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesOpen: Function;
-        protected onGetListOfValuesOpen(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesOpen(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getValueClose: Function;
-        protected onGetValueClose(e: StiGetValueEventArgs): void;
-        invokeGetValueClose(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesClose: Function;
-        protected onGetListOfValuesClose(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesClose(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getValueHigh: Function;
-        protected onGetValueHigh(e: StiGetValueEventArgs): void;
-        invokeGetValueHigh(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesHigh: Function;
-        protected onGetListOfValuesHigh(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesHigh(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getValueLow: Function;
-        protected onGetValueLow(e: StiGetValueEventArgs): void;
-        invokeGetValueLow(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesLow: Function;
-        protected onGetListOfValuesLow(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesLow(sender: StiComponent, e: StiGetValueEventArgs): void;
-        private valueObjOpen;
-        valueOpen: string;
-        private _listOfValuesOpen;
-        listOfValuesOpen: string;
-        private valueObjClose;
-        valueClose: string;
-        private _listOfValuesClose;
-        listOfValuesClose: string;
-        private valueObjHigh;
-        valueHigh: string;
-        private _listOfValuesHigh;
-        listOfValuesHigh: string;
-        private valueObjLow;
-        valueLow: string;
-        private _listOfValuesLow;
-        listOfValuesLow: string;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStockSeries extends StiCandlestickSeries implements IStiJsonReportObject, IStiStockSeries, IStiFinancialSeries, ICloneable, IStiSeries, IStiAllowApplyColorNegative {
-        private static implementsStiStockSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiStockSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _lineColor;
-        lineColor: Color;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lineWidth;
-        lineWidth: number;
-        private _lineColorNegative;
-        lineColorNegative: Color;
-        private _allowApplyColorNegative;
-        allowApplyColorNegative: boolean;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStackedBarSeries extends StiSeries implements IStiJsonReportObject, IStiStackedBarSeries, ICloneable, IStiSeries, IStiAllowApplyBrushNegative {
-        private static implementsStiStackedBarSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiStackedBarSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _showZeros;
-        showZeros: boolean;
-        private _width;
-        width: number;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedBarSeries extends StiStackedBarSeries implements IStiJsonReportObject, IStiStackedBarSeries, ICloneable, IStiSeries, IStiFullStackedBarSeries {
-        private static implementsStiFullStackedBarSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStackedBaseLineSeries extends StiSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, ICloneable, IStiSeries {
-        private static implementsStiStackedBaseLineSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiStackedBaseLineSeries;
-        private _showNulls;
-        showNulls: boolean;
-        showMarker: boolean;
-        markerColor: Color;
-        markerSize: number;
-        markerType: StiMarkerType;
-        private _marker;
-        marker: IStiMarker;
-        private _lineMarker;
-        lineMarker: IStiLineMarker;
-        private _lighting;
-        lighting: boolean;
-        private _lineColor;
-        lineColor: Color;
-        private _lineWidth;
-        lineWidth: number;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lineColorNegative;
-        lineColorNegative: Color;
-        private _allowApplyColorNegative;
-        allowApplyColorNegative: boolean;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedLineSeries extends StiStackedBaseLineSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, IStiStackedLineSeries, IStiSeries, ICloneable {
-        private static implementsStiStackedLineSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStackedAreaSeries extends StiStackedLineSeries implements ICloneable, IStiStackedBaseLineSeries, IStiStackedLineSeries, IStiJsonReportObject, IStiSeries, IStiStackedAreaSeries, IStiAllowApplyBrushNegative {
-        private static implementsStiStackedAreaSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiStackedAreaSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        coreBrush: StiBrush;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedAreaSeries extends StiStackedAreaSeries implements IStiStackedAreaSeries, IStiStackedBaseLineSeries, IStiSeries, IStiJsonReportObject, IStiFullStackedAreaSeries, IStiStackedLineSeries, ICloneable, IStiAllowApplyBrushNegative {
-        private static implementsStiFullStackedAreaSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiStackedColumnSeries extends StiSeries implements IStiJsonReportObject, IStiStackedColumnSeries, ICloneable, IStiSeries, IStiAllowApplyBrushNegative {
-        private static implementsStiStackedColumnSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiStackedColumnSeries;
-        private _showZeros;
-        showZeros: boolean;
-        private _width;
-        width: number;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedColumnSeries extends StiStackedColumnSeries implements IStiFullStackedColumnSeries, IStiStackedColumnSeries, ICloneable, IStiSeries, IStiJsonReportObject, IStiAllowApplyBrushNegative {
-        private static implementsStiFullStackedColumnSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedLineSeries extends StiStackedLineSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, IStiStackedLineSeries, IStiSeries, ICloneable {
-        private static implementsStiFullStackedLineSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiStackedSplineSeries extends StiStackedBaseLineSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, ICloneable, IStiSeries, IStiStackedSplineSeries, IStiAllowApplyColorNegative {
-        private static implementsStiStackedSplineSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        private _tension;
-        tension: number;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStackedSplineAreaSeries extends StiStackedSplineSeries implements IStiStackedSplineSeries, IStiStackedBaseLineSeries, IStiStackedSplineAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
-        private static implementsStiStackedSplineAreaSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiStackedSplineAreaSeries;
-        private _brush;
-        brush: StiBrush;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedSplineAreaSeries extends StiStackedSplineAreaSeries implements IStiStackedSplineSeries, IStiFullStackedSplineAreaSeries, IStiStackedBaseLineSeries, IStiStackedSplineAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
-        private static implementsStiFullStackedSplineAreaSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedSplineSeries extends StiStackedSplineSeries implements IStiStackedSplineSeries, IStiStackedBaseLineSeries, IStiFullStackedSplineSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
-        private static implementsStiFullStackedSplineSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiFunnelSeries extends StiSeries implements IStiJsonReportObject, IStiFunnelSeries, IStiSeries, ICloneable {
-        private static implementsStiFunnelSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiFunnelSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _showZeros;
-        showZeros: boolean;
-        private _allowApplyBrush;
-        allowApplyBrush: boolean;
-        private _allowApplyBorderColor;
-        allowApplyBorderColor: boolean;
-        private _brush;
-        brush: StiBrush;
-        private _borderColor;
-        borderColor: Color;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFunnelWeightedSlicesSeries extends StiFunnelSeries implements IStiJsonReportObject, IStiFunnelSeries, IStiFunnelWeightedSlicesSeries, IStiSeries, ICloneable {
-        private static implementsStiFunnelWeightedSlicesSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        clone(): StiFunnelWeightedSlicesSeries;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    class StiGanttSeries extends StiClusteredBarSeries implements IStiClusteredColumnSeries, IStiClusteredBarSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, IStiGanttSeries, ICloneable, IStiAllowApplyBrushNegative {
-        private static implementsStiGanttSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiGanttSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _valuesEnd;
-        valuesEnd: number[];
-        valuesStringEnd: string;
-        private _valueDataColumnEnd;
-        valueDataColumnEnd: string;
-        getValueEnd: Function;
-        protected onGetValueEnd(e: StiGetValueEventArgs): void;
-        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesEnd: Function;
-        protected onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiGanttSeries): void;
-        private valueObjEnd;
-        valueEnd: string;
-        private _listOfValuesEnd;
-        listOfValuesEnd: string;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarSeries extends StiSeries implements IStiJsonReportObject, ICloneable, IStiSeries, IStiRadarSeries {
-        private static implementsStiRadarSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiRadarSeries;
-        private _showNulls;
-        showNulls: boolean;
-        private _marker;
-        marker: IStiMarker;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarAreaSeries extends StiRadarSeries implements IStiRadarSeries, IStiRadarLineSeries, IStiJsonReportObject, IStiSeries, IStiRadarAreaSeries, ICloneable {
-        private static implementsStiRadarAreaSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        private _lineColor;
-        lineColor: Color;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lighting;
-        lighting: boolean;
-        private _lineWidth;
-        lineWidth: number;
-        private _brush;
-        brush: StiBrush;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    class StiRadarLineSeries extends StiRadarSeries implements IStiJsonReportObject, IStiRadarLineSeries, ICloneable, IStiSeries, IStiRadarSeries {
-        private static implementsStiRadarLineSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        private _lineColor;
-        lineColor: Color;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _lighting;
-        lighting: boolean;
-        private _lineWidth;
-        lineWidth: number;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiRadarPointSeries extends StiRadarSeries implements IStiJsonReportObject, IStiRadarPointSeries, ICloneable, IStiSeries, IStiRadarSeries {
-        private static implementsStiRadarPointSeries;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    class StiRangeBarSeries extends StiClusteredColumnSeries implements IStiRangeBarSeries, IStiClusteredColumnSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
-        private static implementsStiRangeBarSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiRangeBarSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _valuesEnd;
-        valuesEnd: number[];
-        valuesStringEnd: string;
-        private _valueDataColumnEnd;
-        valueDataColumnEnd: string;
-        getValueEnd: Function;
-        protected onGetValueEnd(e: StiGetValueEventArgs): void;
-        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesEnd: Function;
-        protected onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiRangeBarSeries): void;
-        private valueObjEnd;
-        valueEnd: string;
-        private _listOfValuesEnd;
-        listOfValuesEnd: string;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiRangeSeries extends StiLineSeries implements IStiLineSeries, IStiLineRangeSeries, IStiBaseLineSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
-        private static implementsStiRangeSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiRangeSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _brush;
-        brush: StiBrush;
-        private _valuesEnd;
-        valuesEnd: number[];
-        valuesStringEnd: string;
-        private _valueDataColumnEnd;
-        valueDataColumnEnd: string;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        getValueEnd: Function;
-        onGetValueEnd(e: StiGetValueEventArgs): void;
-        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesEnd: Function;
-        onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiRangeSeries): void;
-        private valueObjEnd;
-        valueEnd: string;
-        private _listOfValuesEnd;
-        listOfValuesEnd: string;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSplineRangeSeries extends StiSplineSeries implements IStiSplineSeries, IStiSplineRangeSeries, IStiBaseLineSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
-        private static implementsStiSplineRangeSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiSplineRangeSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _brush;
-        brush: StiBrush;
-        private _valuesEnd;
-        valuesEnd: number[];
-        valuesStringEnd: string;
-        private _valueDataColumnEnd;
-        valueDataColumnEnd: string;
-        getValueEnd: Function;
-        onGetValueEnd(e: StiGetValueEventArgs): void;
-        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesEnd: Function;
-        onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiSplineRangeSeries): void;
-        private valueObjEnd;
-        valueEnd: string;
-        private _listOfValuesEnd;
-        listOfValuesEnd: string;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiSteppedRangeSeries extends StiSteppedLineSeries implements IStiSteppedLineSeries, IStiBaseLineSeries, IStiRangeSeries, IStiSteppedRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
-        private static implementsStiSteppedRangeSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiSteppedRangeSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _brush;
-        brush: StiBrush;
-        private _valuesEnd;
-        valuesEnd: number[];
-        valuesStringEnd: string;
-        private _valueDataColumnEnd;
-        valueDataColumnEnd: string;
-        private _brushNegative;
-        brushNegative: StiBrush;
-        private _allowApplyBrushNegative;
-        allowApplyBrushNegative: boolean;
-        getValueEnd: Function;
-        onGetValueEnd(e: StiGetValueEventArgs): void;
-        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
-        getListOfValuesEnd: Function;
-        onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
-        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiSteppedRangeSeries): void;
-        private valueObjEnd;
-        valueEnd: string;
-        private _listOfValuesEnd;
-        listOfValuesEnd: string;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiScatterSplineSeries extends StiScatterSeries implements ICloneable, IStiScatterLineSeries, IStiBaseLineSeries, IStiScatterSplineSeries, IStiJsonReportObject, IStiSeries, IStiScatterSeries, IStiAllowApplyColorNegative {
-        private static implementsStiScatterSplineSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        clone(): StiScatterSplineSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        private _tension;
-        tension: number;
-        createNew(): StiSeries;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiTreemapSeries extends StiSeries implements IStiJsonReportObject, IStiTreemapSeries, ICloneable, IStiSeries {
-        private static implementsStiTreemapSeries;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiTreemapSeries;
-        getDefaultAreaType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiSeries;
-        private _borderColor;
-        borderColor: Color;
-        private _brush;
-        brush: StiBrush;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiChart = Stimulsoft.Report.Components.StiChart;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiSeriesCollection extends CollectionBase implements IStiJsonReportObject, IStiApplyStyle {
-        private static implementsStiSeriesCollection;
-        implements(): string[];
-        readonly list: IStiSeries[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, chart: StiChart): void;
-        applyStyle(style: IStiChartStyle): void;
-        private getSeriesTitle();
-        private addCore(value);
-        add(value: IStiSeries): void;
-        addRange(values: IStiSeries[]): void;
-        addRange2(values: StiSeriesCollection): void;
-        contains(value: IStiSeries): boolean;
-        indexOf(value: IStiSeries): number;
-        insert(index: number, value: IStiSeries): void;
-        onClear(): void;
-        remove(value: IStiSeries): void;
-        getByIndex(index: number): IStiSeries;
-        setByIndex(index: number, value: IStiSeries): void;
-        getByName(name: string): IStiSeries;
-        setByName(index: number, value: IStiSeries): void;
-        seriesAdded: Function;
-        onSeriesAdded(e: EventArgs): void;
-        private invokeSeriesAdded(sender, index);
-        onRemove(index: number, value: Object): void;
-        seriesRemoved: Function;
-        onSeriesRemoved(e: EventArgs): void;
-        private invokeSeriesRemoved(sender, index);
-        private _chart;
-        chart: StiChart;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPage = Stimulsoft.Report.Components.StiPage;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    class StiSeriesInteraction implements IStiSeriesInteraction, IStiJsonReportObject, ICloneable {
-        private static implementsStiSeriesInteraction;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        getReport(): any;
-        clone(): StiSeriesInteraction;
-        readonly isDefault: boolean;
-        hyperlink: string;
-        tag: string;
-        toolTip: string;
-        hyperlinkDataColumn: string;
-        tagDataColumn: string;
-        toolTipDataColumn: string;
-        listOfHyperlinks: string;
-        listOfTags: string;
-        listOfToolTips: string;
-        allowSeries: boolean;
-        allowSeriesElements: boolean;
-        drillDownEnabled: boolean;
-        drillDownReport: string;
-        drillDownPage: StiPage;
         drillDownPageGuid: string;
-        readonly parentComponent: StiComponent;
-        parentSeries: StiSeries;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSeriesInteractionData {
-        private _isElements;
-        isElements: boolean;
-        private _tag;
-        readonly tag: Object;
-        private _tooltip;
-        readonly tooltip: string;
-        private _hyperlink;
-        readonly hyperlink: string;
-        private _argument;
-        readonly argument: Object;
-        private _value;
-        readonly value: number;
-        private _series;
-        series: IStiSeries;
-        private _pointIndex;
-        readonly pointIndex: number;
-        private _point;
-        point: PointD;
-        fill(area: IStiArea, series: IStiSeries, pointIndex: number): void;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    import Font = Stimulsoft.System.Drawing.Font;
-    enum StiStrips_StiOrientation {
-        Horizontal = 0,
-        Vertical = 1,
-        HorizontalRight = 2,
-    }
-    class StiStrips extends StiService implements IStiJsonReportObject, IStiStrips, ICloneable {
-        private static implementsStiStrips;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiStrips;
-        readonly serviceCategory: string;
-        readonly serviceType: Stimulsoft.System.Type;
-        private _core;
-        core: StiStripsCoreXF;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _showBehind;
-        showBehind: boolean;
-        private _stripBrush;
-        stripBrush: StiBrush;
-        private _antialiasing;
-        antialiasing: boolean;
-        private _font;
-        font: Font;
-        private _text;
-        text: string;
-        private _titleVisible;
-        titleVisible: boolean;
-        private _titleColor;
-        titleColor: Color;
-        private _orientation;
-        orientation: StiStrips_StiOrientation;
-        private _showInLegend;
-        showInLegend: boolean;
-        private _maxValue;
-        maxValue: string;
-        private _minValue;
-        minValue: string;
-        private _visible;
-        visible: boolean;
-        private _chart;
-        chart: IStiChart;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiChart = Stimulsoft.Report.Components.StiChart;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiStripsCollection extends CollectionBase implements IStiJsonReportObject, IStiApplyStyle {
-        private static implementsStiStripsCollection;
-        implements(): string[];
-        readonly list: IStiStrips[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        applyStyle(style: IStiChartStyle): void;
-        private getStripsTitle();
-        private addCore(value);
-        add(value: IStiStrips): void;
-        addRange(values: IStiStrips[]): void;
-        addRange2(values: StiStripsCollection): void;
-        contains(value: IStiStrips): boolean;
-        indexOf(value: IStiStrips): number;
-        insert(index: number, value: IStiStrips): void;
-        onClear(): void;
-        remove(value: IStiStrips): void;
-        getByIndex(index: number): IStiStrips;
-        setByIndex(index: number, value: IStiStrips): void;
-        stripsAdded: Function;
-        onStripsAdded(e: EventArgs): void;
-        private invokeStripsAdded(sender, index);
-        stripsRemoved: Function;
-        onStripsRemoved(e: EventArgs): void;
-        private invokeStripsRemoved(sender, index);
-        private _chart;
-        chart: StiChart;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    class StiChartStyle extends StiService implements IStiJsonReportObject, IStiChartStyle, ICloneable {
-        private static implementsStiChartStyle;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        static loadFromXml(xmlNode: XmlNode): StiChartStyle;
-        static loadFromJsonObjectInternal(jObject: StiJson): StiChartStyle;
-        readonly serviceName: string;
-        readonly serviceCategory: string;
-        readonly serviceType: Stimulsoft.System.Type;
-        readonly isOffice2015Style: boolean;
-        private _core;
-        core: StiStyleCoreXF;
-        toString(): string;
-        compareChartStyle(style: StiChartStyle): boolean;
-        createNew(): StiChartStyle;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle01 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiCustomStyle extends StiStyle01 {
-        readonly serviceName: string;
-        readonly customCore: StiCustomStyleCoreXF;
-        constructor(reportStyleName?: string);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle02 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle03 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle04 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle05 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle06 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle07 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle08 extends StiStyle03 {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle09 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle10 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle11 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle12 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle13 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle14 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle15 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle16 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle17 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle18 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle19 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle20 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle21 extends StiChartStyle {
-        readonly isOffice2015Style: boolean;
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle22 extends StiChartStyle {
-        readonly isOffice2015Style: boolean;
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle23 extends StiChartStyle {
-        readonly isOffice2015Style: boolean;
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle24 extends StiChartStyle {
-        readonly isOffice2015Style: boolean;
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle25 extends StiChartStyle {
-        readonly isOffice2015Style: boolean;
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle26 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle27 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiStyle28 extends StiChartStyle {
-        createNew(): StiChartStyle;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiChartTable implements IStiJsonReportObject, IStiChartTable, ICloneable {
-        private static implementsStiChartTable;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiChartTable;
-        font: Font;
-        private _visible;
-        visible: boolean;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _markerVisible;
-        markerVisible: boolean;
-        private _gridLineColor;
-        gridLineColor: Color;
-        textColor: Color;
-        private _gridLinesHor;
-        gridLinesHor: boolean;
-        private _gridLinesVert;
-        gridLinesVert: boolean;
-        private _gridOutline;
-        gridOutline: boolean;
-        private _format;
-        format: string;
-        private _header;
-        header: IStiChartTableHeader;
-        private _core;
-        core: StiChartTableCore;
-        private _dataCells;
-        dataCells: StiChartTableDataCells;
-        private _chart;
-        chart: IStiChart;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiChartTableDataCells implements IStiChartTableDataCells {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiChartTableDataCells;
-        private _font;
-        font: Font;
-        private _textColor;
-        textColor: Color;
-        private _shrinkFontToFit;
-        shrinkFontToFit: boolean;
-        private _shrinkFontToFitMinimumSize;
-        shrinkFontToFitMinimumSize: number;
-        constructor(shrinkFontToFit?: boolean, shrinkFontToFitMinimumSize?: number, font?: Font, textColor?: Color);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import Font = Stimulsoft.System.Drawing.Font;
-    class StiChartTableHeader implements IStiJsonReportObject, IStiChartTableHeader, ICloneable {
-        private static implementsStiChartTableHeader;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiChartTableHeader;
-        private _brush;
-        brush: StiBrush;
-        private _font;
-        font: Font;
-        private _textColor;
-        textColor: Color;
-        private _wordWrap;
-        wordWrap: boolean;
-        constructor(brush?: StiBrush, font?: Font, textColor?: Color, wordWrap?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiSeriesTopN implements IStiJsonReportObject, IStiSeriesTopN, ICloneable {
-        private static implementsStiSeriesTopN;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiSeriesTopN;
-        private _mode;
-        mode: StiTopNMode;
-        private _count;
-        count: number;
-        private _showOthers;
-        showOthers: boolean;
-        private _othersText;
-        othersText: string;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    class StiTrendLine extends StiService implements IStiTrendLine, ICloneable, IStiJsonReportObject {
-        private static implementsStiTrendLine;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        static loadFromJsonObjectInternal(jObject: StiJson): IStiTrendLine;
-        loadFromXml(xmlNode: XmlNode): void;
-        static loadTrendLineFromXml(xmlNode: XmlNode): StiTrendLine;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        clone(): StiTrendLine;
-        readonly serviceName: string;
-        readonly serviceCategory: string;
-        readonly serviceType: Stimulsoft.System.Type;
-        private _core;
-        core: StiTrendLineCoreXF;
-        private _lineColor;
-        lineColor: Color;
-        private _lineWidth;
-        lineWidth: number;
-        private _lineStyle;
-        lineStyle: StiPenStyle;
-        private _showShadow;
-        showShadow: boolean;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        createNew(): StiTrendLine;
-        toString(): string;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiTrendLineExponential extends StiTrendLine implements IStiTrendLine, ICloneable, IStiJsonReportObject, IStiTrendLineExponential {
-        private static implementsStiTrendLineExponential;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiTrendLine;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiTrendLineLinear extends StiTrendLine implements IStiTrendLine, IStiTrendLineLinear, ICloneable, IStiJsonReportObject {
-        private static implementsStiTrendLineLinear;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiTrendLine;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiTrendLineLogarithmic extends StiTrendLine implements IStiTrendLine, IStiTrendLineLogarithmic, ICloneable, IStiJsonReportObject {
-        private static implementsStiTrendLineLogarithmic;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiTrendLine;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiTrendLineNone extends StiTrendLine implements IStiTrendLine, IStiTrendLineNone, IStiJsonReportObject, ICloneable {
-        private static implementsStiTrendLineNone;
-        implements(): string[];
-        readonly componentId: StiComponentId;
-        createNew(): StiTrendLine;
-        constructor();
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -18182,405 +10530,23 @@ declare module Stimulsoft.Report.Chart {
         StiStyle29 = 28,
         StiStyle30 = 29,
     }
-}
-declare module Stimulsoft.Report.Dictionary.Design {
-    import Type = Stimulsoft.System.Type;
-    class StiDataColumnConverter {
-        static convertTypeToString(type: Type): string;
+    enum StiStrips_StiOrientation {
+        Horizontal = 0,
+        Vertical = 1,
+        HorizontalRight = 2,
     }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    class StiDataColumn implements IStiJsonReportObject, ICloneable, IStiName, IStiInherited {
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        clone(): StiDataColumn;
-        memberwiseClone(): StiDataColumn;
-        private _name;
-        name: string;
-        inherited: boolean;
-        dataColumnsCollection: StiDataColumnsCollection;
-        private _dataSource;
-        dataSource: StiDataSource;
-        private _businessObject;
-        businessObject: StiBusinessObject;
-        private _index;
-        index: number;
-        private _nameInSource;
-        nameInSource: string;
-        private _alias;
-        alias: string;
-        private _type;
-        type: Stimulsoft.System.Type;
-        private _key;
-        key: string;
-        getColumnPath(): string;
-        toString(): string;
-        static getDataColumnFromColumnName(dictionary: StiDictionary, column: string): StiDataColumn;
-        static getRelationName(dictionary: StiDictionary, dataSource: StiDataSource, relationName: string): string;
-        static getDataFromBusinessObject(dictionary: StiDictionary, column: string): Object;
-        static getBusinessObjectFromDataColumn(dictionary: StiDictionary, column: string): StiBusinessObject;
-        static getDataFromDataColumn(dictionary: StiDictionary, column: string, useRelationName?: boolean): Object;
-        static getDataSourceFromDataColumn(dictionary: StiDictionary, column: string): StiDataSource;
-        static getColumnNameFromDataColumn(dictionary: StiDictionary, column: string): string;
-        static getDataListFromDataColumn(dictionary: StiDictionary, column: string, maxRows?: number): any[];
-        static getDatasFromDataColumn(dictionary: StiDictionary, column: string, maxRows?: number): any[];
-        constructor(nameInSource?: string, name?: string, alias?: string, type?: Stimulsoft.System.Type, key?: string);
+    enum StiConstantLines_StiOrientation {
+        Horizontal = 0,
+        Vertical = 1,
+        HorizontalRight = 2,
     }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiChart = Stimulsoft.Report.Components.StiChart;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiChartHelper {
-        static globalDurationElement: TimeSpan;
-        static globalBeginTimeElement: TimeSpan;
-        static fillSeriesData(series: StiSeries, items: StiDataItem[]): void;
-        static getFilterData(report: StiReport, filter: StiChartFilter, filterMethodName: string): Object;
-        static getFilterResult(filter: StiChartFilter, itemArgument: Object, itemValue: Object, itemValueEnd: Object, itemValueOpen: Object, itemValueClose: Object, itemValueLow: Object, itemValueHigh: Object, data: Object): boolean;
-        static convertStringToColor(colorStr: string): Object;
-        static createChart(masterChart: StiChart, chartComp: StiChart): void;
-        static getShorterListPoints(series: StiSeries): PointD[];
-        private static checkValueNaN(values);
-        private static checkArgumentsDateTimeStep(series);
-        private static createValuesTopN(series);
-        private static getNextDate(firstDate, step);
-        private static getKey(key);
-        private static sortArray(REFarrayString);
-        private static findIndex(array, value);
-        private static getValueForDate(dateStart, dateEnd, _arguments, values);
-        private static getTotalTimeSpans(step, dateMax, dateMin);
-        private static isArgumentsDateTime(_arguments);
-        private static maximumDate(dates);
-        private static minimumDate(dates);
-        private static getAutoSeriesColorFromautoSeriesColorDataColumn(masterChart, series);
-        private static getAutoSeriesTitleFromAutoSeriesTitleDataColumn(masterChart, series);
-        private static getAutoSeriesKeysFromAutoSeriesKeyDataColumn(masterChart, series);
-        private static setTitle(masterChart, seriesIndex, series);
-        private static setCutPieList(masterChart, series);
-        private static getArguments(masterChart, series);
-        private static getArgumentsFromArgumentExpression(masterChart, series);
-        private static getArgumentsFromArgumentDataColumn(masterChart, series);
-        private static getArgumentsFromListOfArguments(masterChart, series);
-        private static getValues(masterChart, series);
-        private static getValuesFromValueExpression(masterChart, series);
-        private static getValuesFromValueDataColumn(masterChart, series);
-        private static getValuesFromListOfValues(masterChart, series);
-        private static getValuesEnd(masterChart, series, valueDataColumnEnd, listValuesEnd, valuesEnd);
-        private static getValuesEndFromValueEndExpression(masterChart, valuesEnd, series);
-        private static getValuesEndFromValueDataColumnEnd(masterChart, series, valueDataColumnEnd);
-        private static getValuesEndFromListOfValuesEnd(masterChart, series, listValues);
-        private static getValuesOpen(masterChart, series);
-        private static getValuesOpenFromValuesOpenExpression(masterChart, series);
-        private static getValuesOpenFromValueDataColumnOpen(masterChart, series);
-        private static getValuesOpenFromListOfValuesOpen(masterChart, series);
-        private static getValuesClose(masterChart, series);
-        private static getValuesCloseFromValuesCloseExpression(masterChart, series);
-        private static getValuesCloseFromValueDataColumnClose(masterChart, series);
-        private static getValuesCloseFromListOfValuesClose(masterChart, series);
-        private static getValuesHigh(masterChart, series);
-        private static getValuesHighFromValuesHighExpression(masterChart, series);
-        private static getValuesHighFromValueDataColumnHigh(masterChart, series);
-        private static getValuesHighFromListOfValuesHigh(masterChart, series);
-        private static getValuesLow(masterChart, series);
-        private static getValuesLowFromValuesLowExpression(masterChart, series);
-        private static getValuesLowFromValueDataColumnLow(masterChart, series);
-        private static getValuesLowFromListOfValuesLow(masterChart, series);
-        private static getWeights(masterChart, series);
-        private static getWeightsWeightExpression(masterChart, series);
-        private static getWeightsFromWeightDataColumn(masterChart, series);
-        private static getWeightsFromListOfWeights(masterChart, series);
-        private static getHyperlinks(masterChart, series);
-        private static getHyperlinksFromHyperlinkExpression(masterChart, series);
-        private static getHyperlinksFromHyperlinkDataColumn(masterChart, series);
-        private static getHyperlinksFromListOfHyperlinks(masterChart, series);
-        private static getTags(masterChart, series);
-        private static getTagsFromTagExpression(masterChart, series);
-        private static getTagsFromTagDataColumn(masterChart, series);
-        private static getTagsFromListOfTags(masterChart, series);
-        private static getToolTips(masterChart, series);
-        private static getToolTipsFromToolTipExpression(masterChart, series);
-        private static getToolTipsFromToolTipDataColumn(masterChart, series);
-        private static getToolTipsFromListOfToolTips(masterChart, series);
-    }
-}
-declare module Stimulsoft.Report.Components {
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFilter implements ICloneable, IStiJsonReportObject {
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        clone(): StiFilter;
-        memberwiseClone(): StiFilter;
-        private _condition;
-        condition: StiFilterCondition;
-        private _dataType;
-        dataType: StiFilterDataType;
-        private _column;
-        column: string;
-        private _item;
-        item: StiFilterItem;
-        private valueObj1;
-        value1: string;
-        private valueObj2;
-        value2: string;
-        private _expression;
-        expression: string;
-        constructor(item?: StiFilterItem, column?: string, condition?: StiFilterCondition, value1?: string, value2?: string, dataType?: StiFilterDataType, expression?: string);
-    }
-}
-declare module Stimulsoft.Report.Components {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiFiltersCollection extends Stimulsoft.System.Collections.CollectionBase implements ICloneable, IStiJsonReportObject {
-        readonly list: Array<StiFilter>;
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        clone(): StiFiltersCollection;
-        add(filter: StiFilter): void;
-        addRange(filters: StiFilter[]): any;
-        addRange(filters: StiFiltersCollection): any;
-        contains(filter: StiFilter): boolean;
-        indexOf(filter: StiFilter): number;
-        insert(index: number, filter: StiFilter): void;
-        remove(filter: StiFilter): void;
-        getByIndex(index: number): StiFilter;
-        setByIndex(index: number, filter: StiFilter): void;
-    }
-}
-declare module Stimulsoft.Report.Engine {
-    import ICloneable = Stimulsoft.System.ICloneable;
-    class StiComponentInfo implements ICloneable {
-        implements(): string[];
-        clone(): StiComponentInfo;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import StiChart = Stimulsoft.Report.Components.StiChart;
-    import StiComponentInfo = Stimulsoft.Report.Engine.StiComponentInfo;
-    import StiText = Stimulsoft.Report.Components.StiText;
-    class StiChartInfo extends StiComponentInfo {
-        storedForProcessAtEndChart: StiChart;
-        interactiveComps: StiText[];
-    }
-}
-declare module Stimulsoft.Report.Components {
-    import StiProcessChartEvent = Stimulsoft.Report.Events.StiProcessChartEvent;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiChartConditionsCollection = Stimulsoft.Report.Chart.StiChartConditionsCollection;
-    import IStiArea = Stimulsoft.Report.Chart.IStiArea;
-    import IStiChart = Stimulsoft.Report.Chart.IStiChart;
-    import IStiChartTable = Stimulsoft.Report.Chart.IStiChartTable;
-    import IStiChartTitle = Stimulsoft.Report.Chart.IStiChartTitle;
-    import IStiLegend = Stimulsoft.Report.Chart.IStiLegend;
-    import IStiSeriesLabels = Stimulsoft.Report.Chart.IStiSeriesLabels;
-    import StiChartCoreXF = Stimulsoft.Report.Chart.StiChartCoreXF;
-    import StiChartInfo = Stimulsoft.Report.Chart.StiChartInfo;
-    import StiConstantLinesCollection = Stimulsoft.Report.Chart.StiConstantLinesCollection;
-    import IStiChartStyle = Stimulsoft.Report.Chart.IStiChartStyle;
-    import StiStripsCollection = Stimulsoft.Report.Chart.StiStripsCollection;
-    import StiSeriesCollection = Stimulsoft.Report.Chart.StiSeriesCollection;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiImageRotation = Stimulsoft.Report.Components.StiImageRotation;
-    import StiComponentType = Stimulsoft.Report.Components.StiComponentType;
-    import StiDataRelation = Stimulsoft.Report.Dictionary.StiDataRelation;
-    import StiBusinessObject = Stimulsoft.Report.Dictionary.StiBusinessObject;
-    import StiDataSource = Stimulsoft.Report.Dictionary.StiDataSource;
-    import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
-    import StiFiltersCollection = Stimulsoft.Report.Components.StiFiltersCollection;
-    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
-    import StiUnit = Stimulsoft.Report.Units.StiUnit;
-    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import Image = Stimulsoft.System.Drawing.Image;
-    class StiChart extends StiComponent implements IStiBorder, IStiBusinessObject, IStiBrush, IStiDataSource, IStiDataRelation, IStiMasterComponent, IStiSort, IStiFilter, IStiExportImage, IStiExportImageExtended, IStiIgnoryStyle, IStiGlobalizationProvider, IStiChart {
-        private static implementsStiChart;
-        implements(): string[];
-        jsonMasterComponentTemp: string;
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
-        readonly componentId: StiComponentId;
-        convert(oldUnit: StiUnit, newUnit: StiUnit, isReportSnapshot?: boolean): void;
-        convertToHInches(value: number): number;
-        setString(propertyName: string, value: string): void;
-        getString(propertyName: string): string;
-        getAllStrings(): string[];
-        clone(): StiChart;
-        saveState(stateName: string): void;
-        restoreState(stateName: string): void;
-        getImage(REFzoom: any, format?: StiExportFormat): Image;
-        isExportAsImage(format: StiExportFormat): boolean;
-        private _filterMethodHandler;
-        filterMethodHandler: Function;
-        private _filterMode;
-        filterMode: StiFilterMode;
-        private _filters;
-        filters: StiFiltersCollection;
-        filter: string;
-        private _filterOn;
-        filterOn: boolean;
-        private _border;
-        border: StiBorder;
-        private _brush;
-        brush: StiBrush;
-        private _sort;
-        sort: string[];
-        readonly dataSource: StiDataSource;
-        private _dataSourceName;
-        dataSourceName: string;
-        readonly isDataSourceEmpty: boolean;
-        readonly isBusinessObjectEmpty: boolean;
-        readonly businessObject: StiBusinessObject;
-        private _businessObjectGuid;
-        businessObjectGuid: string;
-        private _masterComponent;
-        masterComponent: StiComponent;
-        private _countData;
-        countData: number;
-        first(): void;
-        prior(): void;
-        next(): void;
-        last(): void;
-        isEofValue: boolean;
-        isEof: boolean;
-        isBofValue: boolean;
-        isBof: boolean;
-        readonly isEmpty: boolean;
-        positionValue: number;
-        position: number;
-        readonly count: number;
-        private isCacheValues;
-        private cachedCount;
-        private cachedIsBusinessObjectEmpty;
-        private cachedIsDataSourceEmpty;
-        private cachedDataSource;
-        private cachedBusinessObject;
-        cacheValues(cache: boolean): void;
-        readonly dataRelation: StiDataRelation;
-        private _dataRelationName;
-        dataRelationName: string;
-        private _processAtEnd;
-        processAtEnd: boolean;
-        readonly priority: number;
-        readonly localizedCategory: string;
-        readonly defaultClientRectangle: RectangleD;
-        readonly componentType: StiComponentType;
-        readonly localizedName: string;
-        invokeEvents(): void;
-        protected onProcessChart(e: EventArgs): void;
-        invokeProcessChart(sender: Object, e: EventArgs): void;
-        processChartEvent: StiProcessChartEvent;
-        private series_SeriesAdded(sender);
-        private series_SeriesRemoved(sender);
-        private _seriesLabelsConditions;
-        seriesLabelsConditions: StiChartConditionsCollection;
-        chartType: IStiArea;
-        createNew(): StiComponent;
-        simplifyValues(): void;
-        private _core;
-        core: StiChartCoreXF;
-        private _rotation;
-        rotation: StiImageRotation;
-        private _series;
-        series: StiSeriesCollection;
-        private _area;
-        area: IStiArea;
-        private _table;
-        table: IStiChartTable;
-        private _style;
-        style: IStiChartStyle;
-        private _allowApplyStyle;
-        allowApplyStyle: boolean;
-        private _customStyleName;
-        customStyleName: string;
-        private _horSpacing;
-        horSpacing: number;
-        private _vertSpacing;
-        vertSpacing: number;
-        private _seriesLabels;
-        seriesLabels: IStiSeriesLabels;
-        private _legend;
-        legend: IStiLegend;
-        private _title;
-        title: IStiChartTitle;
-        private _strips;
-        strips: StiStripsCollection;
-        private _constantLines;
-        constantLines: StiConstantLinesCollection;
-        private _isAnimation;
-        isAnimation: boolean;
-        private _chartInfo;
-        readonly chartInfo: StiChartInfo;
-        constructor(rect?: RectangleD);
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    class StiChartOptions {
-        private static _oldChartPercentMode;
-        static oldChartPercentMode: boolean;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    import SizeD = Stimulsoft.Base.Drawing.SizeD;
-    class StiInteractionOptions {
-        private _updateContext;
-        updateContext: boolean;
-        private _recallEvent;
-        recallEvent: boolean;
-        private _recallTime;
-        recallTime: TimeSpan;
-        private _isRecalled;
-        isRecalled: boolean;
-        private _mousePoint;
-        mousePoint: PointD;
-        private _dragEnabled;
-        dragEnabled: boolean;
-        private _dragDelta;
-        dragDelta: SizeD;
-        private _interactionToolTip;
-        interactionToolTip: string;
-        private _interactionHyperlink;
-        interactionHyperlink: string;
-        private _seriesInteractionData;
-        seriesInteractionData: StiSeriesInteractionData;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiPointHelper {
-        private static getPointClassify(basePoint, point1, point2);
-        static isPointInTriangle(p: PointD, a: PointD, b: PointD, c: PointD): boolean;
-        static isPointInPolygon(p: PointD, points: PointD[]): boolean;
-        static getLineOffsetRectangle(point1: PointD, point2: PointD, offset: number): PointD[];
-        static isLineContainsPoint(startPoint: PointD, endPoint: PointD, offset: number, point: PointD): boolean;
-    }
-}
-declare module Stimulsoft.Report.Chart {
-    import PointD = Stimulsoft.Base.Drawing.PointD;
-    class StiSimplifyHelper {
-        private static getSquareDistance(p1, p2);
-        private static getSquareSegmentDistance(p, p1, p2);
-        private static simplifyRadialDistance(points, sqTolerance);
-        private static simplifyDouglasPeucker(points, sqTolerance);
-        static simplify(points: PointD[], tolerance: number, highestQuality: boolean): PointD[];
+    enum StiConstantLines_StiTextPosition {
+        LeftTop = 0,
+        LeftBottom = 1,
+        CenterTop = 2,
+        CenterBottom = 3,
+        RightTop = 4,
+        RightBottom = 5,
     }
 }
 declare module Stimulsoft.Report.CodeDom {
@@ -18926,14 +10892,13 @@ declare module Stimulsoft.Report.Dictionary {
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiBusinessObjectsCollection extends CollectionBase implements IStiJsonReportObject, ICloneable, IComparer<Object> {
+    class StiBusinessObjectsCollection extends CollectionBase<StiBusinessObject> implements IStiJsonReportObject, ICloneable, IComparer<Object> {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
         private directionFactor;
         compare(x: Object, y: Object): number;
-        readonly list: Array<StiBusinessObject>;
         readonly toList: Array<StiBusinessObject>;
         protected onSet(index: number, oldValue: Object, newValue: Object): void;
         protected onInsert(index: number, value: Object): void;
@@ -19216,6 +11181,352 @@ declare module Stimulsoft.Report.Events {
 declare module Stimulsoft.Report.Events {
     class StiGetGroupConditionEvent extends StiEvent {
         toString(): string;
+    }
+}
+declare module Stimulsoft.Report.Events {
+    import EventHandler = Stimulsoft.System.EventHandler;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    let StiGetExcelValueEventHandler: EventHandler;
+    class StiGetExcelValueEventArgs extends EventArgs {
+        value: string;
+        storeToPrinted: boolean;
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    class StiFormatService extends StiService implements IStiJsonReportObject {
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        static loadFormatFromXml(xmlNode: XmlNode): StiFormatService;
+        static loadFromJsonObjectInternal(jObject: StiJson): StiFormatService;
+        readonly position: Number;
+        readonly sample: Object;
+        readonly nativeFormatString: string;
+        readonly isFormatStringFromVariable: boolean;
+        private _stringFormat;
+        stringFormat: string;
+        format(arg: any): string;
+        format2(format: string, arg: any): string;
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    class StiCustomFormatService extends StiFormatService {
+        readonly sample: Object;
+        constructor(stringFormat?: string);
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiTimeFormatService extends StiFormatService {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly sample: Object;
+        format(arg: any): string;
+        format2(format: string, arg: any): string;
+        constructor(stringFormat?: string);
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiDateFormatService extends StiFormatService {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly sample: Object;
+        format(arg: any): string;
+        format2(format: string, arg: any): string;
+        private _nullDisplay;
+        nullDisplay: string;
+        constructor(stringFormat?: string, nullDisplay?: string);
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import NumberFormatInfo = Stimulsoft.System.Globalization.NumberFormatInfo;
+    import StiTextFormatState = Stimulsoft.Report.Components.StiTextFormatState;
+    class StiNumberFormatService extends StiFormatService {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): any;
+        private bits;
+        nullDisplay: string;
+        negativePattern: number;
+        decimalSeparator: string;
+        decimalDigits: number;
+        groupSeparator: string;
+        groupSize: number;
+        useGroupSeparator: boolean;
+        useLocalSetting: boolean;
+        readonly sample: Object;
+        readonly nativeFormatString: string;
+        stiEquals(obj: Object): boolean;
+        state: StiTextFormatState;
+        fillLocalSetting(format: NumberFormatInfo): void;
+        format(arg: any): string;
+        format2(format: string, arg: any): string;
+        formatStr(format: NumberFormatInfo, arg: Object): string;
+        constructor(negativePattern?: number, decimalPlaces?: number, decimalSeparator?: string, decimalDigits?: number, groupSeparator?: string, groupSize?: number, useGroupSeparator?: boolean, useLocalSetting?: boolean, nullDisplay?: string, state?: StiTextFormatState);
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import NumberFormatInfo = Stimulsoft.System.Globalization.NumberFormatInfo;
+    class StiCurrencyFormatService extends StiNumberFormatService {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _positivePattern;
+        positivePattern: number;
+        private _symbol;
+        symbol: string;
+        readonly nativeFormatString: string;
+        readonly sample: Object;
+        stiEquals(obj: Object): boolean;
+        format(arg: any): string;
+        format2(format: string, arg: any): string;
+        formatStr(format: NumberFormatInfo, arg: Object): string;
+        constructor(positivePattern?: number, negativePattern?: number, decimalPlaces?: number, decimalSeparator?: string, decimalDigits?: number, groupSeparator?: string, groupSize?: number, symbol?: string, useGroupSeparator?: boolean, useLocalSetting?: boolean, nullDisplay?: string, state?: StiTextFormatState);
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import NumberFormatInfo = Stimulsoft.System.Globalization.NumberFormatInfo;
+    class StiPercentageFormatService extends StiCurrencyFormatService {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        format(arg: any): string;
+        format2(format: string, arg: any): string;
+        formatStr(format: NumberFormatInfo, arg: Object): string;
+        constructor(positivePattern?: number, negativePattern?: number, decimalPlaces?: number, decimalSeparator?: string, decimalDigits?: number, groupSeparator?: string, groupSize?: number, symbol?: string, useGroupSeparator?: boolean, useLocalSetting?: boolean, nullDisplay?: string, state?: StiTextFormatState);
+    }
+}
+declare module Stimulsoft.Report.Components.TextFormats {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiGeneralFormatService extends StiFormatService {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly sample: string;
+        stiEquals(obj: Object): boolean;
+        static default: StiGeneralFormatService;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Events {
+    class StiGetValueEvent extends StiEvent {
+        toString(): string;
+    }
+}
+declare module Stimulsoft.Report.Events {
+    import EventHandler = Stimulsoft.System.EventHandler;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    let StiGetValueEventHandler: EventHandler;
+    class StiGetValueEventArgs extends EventArgs {
+        value: string;
+        storeToPrinted: boolean;
+    }
+}
+declare module Stimulsoft.Report.Components {
+    var IStiEditable: string;
+    interface IStiEditable {
+        editable: boolean;
+    }
+}
+declare module Stimulsoft.Report.Components {
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    var IStiText: string;
+    interface IStiText {
+        text: string;
+        textValue: string;
+        setText(getValue: Object): any;
+        linesOfUnderline: StiPenStyle;
+        hideZeros: boolean;
+        processingDuplicates: StiProcessingDuplicatesType;
+        onlyText: boolean;
+        maxNumberOfLines: number;
+        getTextInternal(): string;
+        setTextInternal(value: string): any;
+    }
+}
+declare module Stimulsoft.Report.Components {
+    import StiGetValueEvent = Stimulsoft.Report.Events.StiGetValueEvent;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import IStiEditable = Stimulsoft.Report.Components.IStiEditable;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiValueEventArgs = Stimulsoft.Report.Events.StiValueEventArgs;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiSimpleText extends StiComponent implements IStiText, IStiEditable {
+        private static ImplementsStiSimpleText;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        protected static propertyGlobalizedName: Object;
+        globalizedName: string;
+        clone(cloneProperties: boolean): StiSimpleText;
+        memberwiseClone(): StiSimpleText;
+        getTextWithoutZero(text: string): string;
+        setText(getValue?: Object, value?: string): void;
+        private setTextTo(comp, runtime, getValue, value);
+        private _linesOfUnderline;
+        linesOfUnderline: StiPenStyle;
+        linesOfUnderlining: boolean;
+        private _hideZeros;
+        hideZeros: boolean;
+        mergeDuplicates: boolean;
+        private static propertyProcessingDuplicates;
+        processingDuplicates: StiProcessingDuplicatesType;
+        private static propertyMaxNumberOfLines;
+        maxNumberOfLines: number;
+        processText(text: string): string;
+        private static propertyOnlyText;
+        onlyText: boolean;
+        private _editable;
+        editable: boolean;
+        processAtEnd: boolean;
+        protected static propertyProcessAt: Object;
+        processAt: StiProcessAt;
+        invokeRenderTo(textBox: StiSimpleText): void;
+        private _text;
+        text: string;
+        getTextInternal(): string;
+        setTextInternal(value: string): void;
+        private _textValue;
+        textValue: string;
+        private static eventGetValue;
+        protected onGetValue(e: StiGetValueEventArgs): void;
+        invokeGetValue(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getValueEvent: StiGetValueEvent;
+        private static eventTextProcess;
+        protected onTextProcess(e: StiValueEventArgs): void;
+        invokeTextProcess(sender: StiComponent, e: StiValueEventArgs): void;
+        private applyConditionsAssignExpression(sender, conditions);
+        _totalValueHelp: string;
+        totalValueHelp: string;
+        constructor(rect?: RectangleD, isSuper?: boolean);
+        protected construct(): void;
+    }
+}
+declare module Stimulsoft.Report.Events {
+    class StiGetExcelValueEvent extends StiEvent {
+        toString(): string;
+    }
+}
+declare module Stimulsoft.Report.Components {
+    import Image = Stimulsoft.System.Drawing.Image;
+    import StiGetExcelValueEvent = Stimulsoft.Report.Events.StiGetExcelValueEvent;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import IStiEditable = Stimulsoft.Report.Components.IStiEditable;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import Font = Stimulsoft.System.Drawing.Font;
+    import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
+    import StiVertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment;
+    import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import StiTextOptions = Stimulsoft.Base.Drawing.StiTextOptions;
+    import StringTrimming = Stimulsoft.System.Drawing.StringTrimming;
+    import StiFormatService = Stimulsoft.Report.Components.TextFormats.StiFormatService;
+    import StiGetExcelValueEventArgs = Stimulsoft.Report.Events.StiGetExcelValueEventArgs;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import SizeD = Stimulsoft.Base.Drawing.SizeD;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiText extends StiSimpleText implements IStiTextOptions, IStiAutoWidth, IStiTextHorAlignment, IStiVertAlignment, IStiBorder, IStiFont, IStiBrush, IStiTextBrush, IStiBreakable, IStiGlobalizationProvider, IStiEditable {
+        private static ImplementsStiText;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        parseTextFromXml(xmlNode: XmlNode): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        readonly componentId: StiComponentId;
+        private _indicator;
+        indicator: StiIndicator;
+        getImage(REFzoom: any, format?: StiExportFormat): Image;
+        isExportAsImage(format: StiExportFormat): boolean;
+        setString(propertyName: string, value: string): void;
+        getString(propertyName: string): string;
+        getAllStrings(): string[];
+        private static propertyCanBreak;
+        canBreak: boolean;
+        break(dividedComponent: StiComponent, devideFactor: number, REFdivideLine: any): boolean;
+        private static propertyAutoWidth;
+        autoWidth: boolean;
+        protected static propertyRenderTo: Object;
+        renderTo: string;
+        invokeRenderTo(textFrom: StiSimpleText): void;
+        private getVisibleTextForRenderTo(rect, REFtext, checkedText);
+        private _horAlignment;
+        horAlignment: StiTextHorAlignment;
+        private _vertAlignment;
+        vertAlignment: StiVertAlignment;
+        private _font;
+        font: Font;
+        private _border;
+        border: StiBorder;
+        private _brush;
+        brush: StiBrush;
+        private _textBrush;
+        textBrush: StiBrush;
+        private _textFormat;
+        textFormat: StiFormatService;
+        private _format;
+        format: string;
+        private _textOptions;
+        textOptions: StiTextOptions;
+        clone(cloneProperties: boolean): StiText;
+        memberwiseClone(): StiText;
+        convertTextMargins(rect: RectangleD, convert: boolean): RectangleD;
+        convertTextBorders(rect: RectangleD, convert: boolean): RectangleD;
+        getTextForPaint(): string;
+        getActualSize(): SizeD;
+        prepare(): void;
+        private _excelDataValue;
+        excelDataValue: string;
+        excelValue: string;
+        invokeEvents(): void;
+        private static eventGetExcelValue;
+        protected onGetExcelValue(e: StiGetExcelValueEventArgs): void;
+        invokeGetExcelValue(sender: StiComponent, e: StiGetExcelValueEventArgs): void;
+        getExcelValueEvent: StiGetExcelValueEvent;
+        protected static propertyNullValue: Object;
+        nullValue: string;
+        protected static propertyType: Object;
+        type: StiSystemTextType;
+        wordWrap: boolean;
+        rightToLeft: boolean;
+        trimming: StringTrimming;
+        angle: number;
+        private static propertyExportAsImage;
+        exportAsImage: boolean;
+        private static propertyTextQuality;
+        textQuality: StiTextQuality;
+        private static propertyAllowHtmlTags;
+        allowHtmlTags: boolean;
+        private static propertyMargins;
+        margins: StiMargins;
+        private static propertyShrinkFontToFit;
+        shrinkFontToFit: boolean;
+        private static propertyShrinkFontToFitMinimumSize;
+        shrinkFontToFitMinimumSize: number;
+        createNew(): StiComponent;
+        checkAllowHtmlTags(): boolean;
+        getActualFont(text: string, minFontSize?: number): Font;
+        constructor(rect?: RectangleD, isSuper?: boolean);
+        protected construct(): void;
     }
 }
 declare module Stimulsoft.Report.Dictionary {
@@ -21115,6 +13426,34 @@ declare module Stimulsoft.Report.Components {
     }
 }
 declare module Stimulsoft.Report.Components {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFilter implements ICloneable, IStiJsonReportObject {
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        clone(): StiFilter;
+        memberwiseClone(): StiFilter;
+        private _condition;
+        condition: StiFilterCondition;
+        private _dataType;
+        dataType: StiFilterDataType;
+        private _column;
+        column: string;
+        private _item;
+        item: StiFilterItem;
+        private valueObj1;
+        value1: string;
+        private valueObj2;
+        value2: string;
+        private _expression;
+        expression: string;
+        constructor(item?: StiFilterItem, column?: string, condition?: StiFilterCondition, value1?: string, value2?: string, dataType?: StiFilterDataType, expression?: string);
+    }
+}
+declare module Stimulsoft.Report.Components {
     class StiBaseCondition extends StiFilter {
         implements(): string[];
         private _tag;
@@ -21650,6 +13989,20 @@ declare module Stimulsoft.Report.Components {
     var IStiCanShrink: string;
     interface IStiCanShrink {
         canShrink: boolean;
+    }
+}
+declare module Stimulsoft.Report.Components {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    var IStiComponent: string;
+    interface IStiComponent extends ICloneable, IStiGrowToHeight, IStiPrintOn, IStiName {
+        report: StiReport;
+        parent: StiContainer;
+        growToHeight: boolean;
+        printOn: StiPrintOnType;
+        printable: boolean;
+        enabled: boolean;
+        dockStyle: StiDockStyle;
+        name: string;
     }
 }
 declare module Stimulsoft.Report.Components {
@@ -23407,8 +15760,7 @@ declare module Stimulsoft.Report.Components {
 }
 declare module Stimulsoft.Report.Components {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiBookmarksCollection extends CollectionBase {
-        readonly list: StiBookmark[];
+    class StiBookmarksCollection extends CollectionBase<StiBookmark> {
         add(bookmark: StiBookmark): void;
         addRange(bookmarks: StiBookmark[]): any;
         addRange(bookmarks: StiBookmarksCollection): any;
@@ -23436,8 +15788,7 @@ declare module Stimulsoft.Report.Components {
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiComponentsCollection extends CollectionBase implements ICloneable, IStiJsonReportObject {
-        readonly list: Array<StiComponent>;
+    class StiComponentsCollection extends CollectionBase<StiComponent> implements ICloneable, IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -23650,6 +16001,30 @@ declare module Stimulsoft.Report.Components {
 declare module Stimulsoft.Report.Components {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiFiltersCollection extends CollectionBase<StiFilter> implements ICloneable, IStiJsonReportObject {
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiFiltersCollection;
+        add(filter: StiFilter): void;
+        addRange(filters: StiFilter[]): any;
+        addRange(filters: StiFiltersCollection): any;
+        contains(filter: StiFilter): boolean;
+        indexOf(filter: StiFilter): number;
+        insert(index: number, filter: StiFilter): void;
+        remove(filter: StiFilter): void;
+        getByIndex(index: number): StiFilter;
+        setByIndex(index: number, filter: StiFilter): void;
+    }
+}
+declare module Stimulsoft.Report.Components {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import StiJson = Stimulsoft.Base.StiJson;
     class StiMargins {
         implements(): string[];
@@ -23693,6 +16068,13 @@ declare module Stimulsoft.Report.Components {
     class StiPageHelper {
         static getPaperSizeFromPaperKind(paperKind: PaperKind): PaperSize;
         static getPaperSize(page: StiPage, paperSize: PaperSize): SizeD;
+    }
+}
+declare module Stimulsoft.Report.Engine {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiComponentInfo implements ICloneable {
+        implements(): string[];
+        clone(): StiComponentInfo;
     }
 }
 declare module Stimulsoft.Report.Components {
@@ -23972,8 +16354,7 @@ declare module Stimulsoft.Report.Components {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiPagesCollection extends CollectionBase implements IStiStateSaveRestore, IStiJsonReportObject {
-        readonly list: Array<StiPage>;
+    class StiPagesCollection extends CollectionBase<StiPage> implements IStiStateSaveRestore, IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -24041,8 +16422,7 @@ declare module Stimulsoft.Report.Components {
     import StiJson = Stimulsoft.Base.StiJson;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiParametersCollection extends CollectionBase {
-        readonly list: StiParameter[];
+    class StiParametersCollection extends CollectionBase<StiParameter> {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         clone(): StiParametersCollection;
@@ -24182,12 +16562,11 @@ declare module Stimulsoft.Report.CrossTab.Core {
 }
 declare module Stimulsoft.Report.CrossTab.Core {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiColumnCollection extends CollectionBase {
+    class StiColumnCollection extends CollectionBase<StiColumn> {
         private directionFactor;
         private compare(x, y);
         private sortType;
         private items;
-        readonly list: Array<StiColumn>;
         insert(position: number, value: StiColumn): void;
         add2(value: Object, displayValue: Object): void;
         add(col: StiColumn): void;
@@ -24334,12 +16713,11 @@ declare module Stimulsoft.Report.CrossTab.Core {
 }
 declare module Stimulsoft.Report.CrossTab.Core {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiRowCollection extends CollectionBase {
+    class StiRowCollection extends CollectionBase<StiRow> {
         private directionFactor;
         private compare(x, y);
         private sortType;
         private items;
-        readonly list: Array<StiRow>;
         insert(position: number, value: StiRow): void;
         add2(value: Object, displayValue: Object): void;
         add(row: StiRow): void;
@@ -24636,12 +17014,11 @@ declare module Stimulsoft.Report.Styles.Conditions {
     import StiStyleConditionElement = Stimulsoft.Report.Styles.Conditions.Elements.StiStyleConditionElement;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiStyleConditionsCollection extends CollectionBase implements ICloneable, IStiJsonReportObject {
+    class StiStyleConditionsCollection extends CollectionBase<StiStyleCondition> implements ICloneable, IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
-        readonly list: Array<StiStyleCondition>;
         clone(): StiStyleConditionsCollection;
         add(condition: StiStyleCondition): any;
         add(elements: StiStyleConditionElement[]): any;
@@ -24707,7 +17084,6 @@ declare module Stimulsoft.Report.CrossTab {
     import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
     import StiBusinessObject = Stimulsoft.Report.Dictionary.StiBusinessObject;
     import StiDataSource = Stimulsoft.Report.Dictionary.StiDataSource;
-    import StiFiltersCollection = Stimulsoft.Report.Components.StiFiltersCollection;
     import StiUnit = Stimulsoft.Report.Units.StiUnit;
     import StiSummaryDirection = Stimulsoft.Report.CrossTab.Core.StiSummaryDirection;
     import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
@@ -24766,7 +17142,7 @@ declare module Stimulsoft.Report.CrossTab {
         filterMode: StiFilterMode;
         filterMethodHandler: Function;
         private _filters;
-        filters: StiFiltersCollection;
+        filters: Stimulsoft.Report.Components.StiFiltersCollection;
         filter: string;
         private _filterOn;
         filterOn: boolean;
@@ -25774,7 +18150,6 @@ declare module Stimulsoft.Report.Dictionary {
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import IStiFilter = Stimulsoft.Report.Components.IStiFilter;
     import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
-    import StiFiltersCollection = Stimulsoft.Report.Components.StiFiltersCollection;
     import Type = Stimulsoft.System.Type;
     class StiVirtualSource extends StiDataStoreSource implements IStiFilter {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
@@ -25787,7 +18162,7 @@ declare module Stimulsoft.Report.Dictionary {
         private _filterMode;
         filterMode: StiFilterMode;
         private _filters;
-        filters: StiFiltersCollection;
+        filters: Stimulsoft.Report.Components.StiFiltersCollection;
         protected getDataAdapterType(): Type;
         private _groupColumns;
         groupColumns: string[];
@@ -25979,7 +18354,7 @@ declare module Stimulsoft.Report.Dictionary {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
     import Promise = Stimulsoft.System.Promise;
-    class StiDataSourcesCollection extends CollectionBase implements IStiJsonReportObject, ICloneable, IComparer<Object> {
+    class StiDataSourcesCollection extends CollectionBase<StiDataSource> implements IStiJsonReportObject, ICloneable, IComparer<Object> {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -26010,7 +18385,6 @@ declare module Stimulsoft.Report.Dictionary {
         connectAsync(loadData: boolean, datas?: StiDataCollection): Promise<void>;
         connect(loadData: boolean, datas?: StiDataCollection): void;
         disconnect(): void;
-        readonly list: StiDataSource[];
         constructor(dictionary: StiDictionary);
     }
 }
@@ -26376,12 +18750,11 @@ declare module Stimulsoft.Report.Dictionary {
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiDatabaseCollection extends CollectionBase implements ICloneable, IStiJsonReportObject {
+    class StiDatabaseCollection extends CollectionBase<StiDatabase> implements ICloneable, IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
-        readonly list: StiDatabase[];
         toList(): StiDatabase[];
         add(data: StiDatabase): void;
         addRange(datas: StiDatabase[]): any;
@@ -26414,6 +18787,12 @@ declare module Stimulsoft.Report.Dictionary {
         Other = 2,
         Rest = 3,
         Custom = 4,
+    }
+}
+declare module Stimulsoft.Report.Dictionary.Design {
+    import Type = Stimulsoft.System.Type;
+    class StiDataColumnConverter {
+        static convertTypeToString(type: Type): string;
     }
 }
 declare module Stimulsoft.Report.Dictionary {
@@ -26584,6 +18963,49 @@ declare module Stimulsoft.Report.Dictionary {
 }
 declare module Stimulsoft.Report.Dictionary {
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    class StiDataColumn implements IStiJsonReportObject, ICloneable, IStiName, IStiInherited {
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        clone(): StiDataColumn;
+        memberwiseClone(): StiDataColumn;
+        private _name;
+        name: string;
+        inherited: boolean;
+        dataColumnsCollection: StiDataColumnsCollection;
+        private _dataSource;
+        dataSource: StiDataSource;
+        private _businessObject;
+        businessObject: StiBusinessObject;
+        private _index;
+        index: number;
+        private _nameInSource;
+        nameInSource: string;
+        private _alias;
+        alias: string;
+        private _type;
+        type: Stimulsoft.System.Type;
+        private _key;
+        key: string;
+        getColumnPath(): string;
+        toString(): string;
+        static getDataColumnFromColumnName(dictionary: StiDictionary, column: string): StiDataColumn;
+        static getRelationName(dictionary: StiDictionary, dataSource: StiDataSource, relationName: string): string;
+        static getDataFromBusinessObject(dictionary: StiDictionary, column: string): Object;
+        static getBusinessObjectFromDataColumn(dictionary: StiDictionary, column: string): StiBusinessObject;
+        static getDataFromDataColumn(dictionary: StiDictionary, column: string, useRelationName?: boolean): Object;
+        static getDataSourceFromDataColumn(dictionary: StiDictionary, column: string): StiDataSource;
+        static getColumnNameFromDataColumn(dictionary: StiDictionary, column: string): string;
+        static getDataListFromDataColumn(dictionary: StiDictionary, column: string, maxRows?: number): any[];
+        static getDatasFromDataColumn(dictionary: StiDictionary, column: string, maxRows?: number): any[];
+        constructor(nameInSource?: string, name?: string, alias?: string, type?: Stimulsoft.System.Type, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import Type = Stimulsoft.System.Type;
     import StiJson = Stimulsoft.Base.StiJson;
     class StiCalcDataColumn extends StiDataColumn {
@@ -26631,8 +19053,7 @@ declare module Stimulsoft.Report.Dictionary {
 declare module Stimulsoft.Report.Dictionary {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
     import Type = Stimulsoft.System.Type;
-    class StiDataCollection extends CollectionBase {
-        readonly list: Array<StiData>;
+    class StiDataCollection extends CollectionBase<StiData> {
         toList(): StiData[];
         add(data: StiData): void;
         addRange(data: StiData[]): void;
@@ -26664,13 +19085,12 @@ declare module Stimulsoft.Report.Dictionary {
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import StiJson = Stimulsoft.Base.StiJson;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    class StiDataColumnsCollection extends CollectionBase implements IStiJsonReportObject {
+    class StiDataColumnsCollection extends CollectionBase<StiDataColumn> implements IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         private decodeTypeName(typeName);
         loadFromXml(node: XmlNode): void;
-        readonly list: Array<StiDataColumn>;
         cachedDataColumns: Hashtable;
         private directionFactor;
         dataSource: StiDataSource;
@@ -26730,14 +19150,13 @@ declare module Stimulsoft.Report.Dictionary {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiDataParametersCollection extends CollectionBase implements IStiJsonReportObject {
+    class StiDataParametersCollection extends CollectionBase<StiDataParameter> implements IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
         private dataSource;
         private cachedDataParameters;
-        readonly list: Array<StiDataParameter>;
         toList(): Array<StiDataParameter>;
         onInsert(index: number, value: Object): void;
         add(parameter: StiDataParameter): void;
@@ -26807,13 +19226,12 @@ declare module Stimulsoft.Report.Dictionary {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
     import ICloneable = Stimulsoft.System.ICloneable;
-    class StiDataRelationsCollection extends CollectionBase implements ICloneable, IStiJsonReportObject {
+    class StiDataRelationsCollection extends CollectionBase<StiDataRelation> implements ICloneable, IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
         clone(): StiDataRelationsCollection;
-        readonly list: Array<StiDataRelation>;
         private dictionary;
         cachedDataRelations: Hashtable;
         toList(): Array<StiDataRelation>;
@@ -27227,7 +19645,7 @@ declare module Stimulsoft.Report.Dictionary {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
     import IComparer = Stimulsoft.System.Collections.IComparer;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiResourcesCollection extends CollectionBase implements IComparer<StiResource> {
+    class StiResourcesCollection extends CollectionBase<StiResource> implements IComparer<StiResource> {
         implements(): string[];
         clone(): StiResourcesCollection;
         saveToJsonObjectEx(mode: StiJsonSaveMode): StiJson;
@@ -27236,7 +19654,6 @@ declare module Stimulsoft.Report.Dictionary {
         private directionFactor;
         compare(x: StiResource, y: StiResource): number;
         sort(order?: StiSortOrder): void;
-        readonly list: Array<StiResource>;
         toList(): Array<StiResource>;
         add(resource: StiResource): void;
         addRange(resources: StiResourcesCollection): void;
@@ -27319,8 +19736,7 @@ declare module Stimulsoft.Report.Dictionary {
 }
 declare module Stimulsoft.Report.Dictionary {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiTypesCollection extends CollectionBase {
-        readonly list: StiType[];
+    class StiTypesCollection extends CollectionBase<StiType> {
         add(type: StiType): void;
         addRange(type: StiType[]): void;
         contains(type: StiType): boolean;
@@ -27419,7 +19835,7 @@ declare module Stimulsoft.Report.Dictionary {
     import ICloneable = Stimulsoft.System.ICloneable;
     import IComparer = Stimulsoft.System.Collections.IComparer;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiVariablesCollection extends CollectionBase implements IComparer<StiVariable>, ICloneable {
+    class StiVariablesCollection extends CollectionBase<StiVariable> implements IComparer<StiVariable>, ICloneable {
         implements(): string[];
         saveToJsonObjectEx(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObjectEx(jObject: StiJson, report: StiReport): void;
@@ -27427,7 +19843,6 @@ declare module Stimulsoft.Report.Dictionary {
         private directionFactor;
         compare(x: StiVariable, y: StiVariable): number;
         sort(order?: StiSortOrder): void;
-        readonly list: Array<StiVariable>;
         toList(): Array<StiVariable>;
         add(variable: StiVariable): void;
         addRange(variables: StiVariablesCollection): void;
@@ -27451,11 +19866,11 @@ declare module Stimulsoft.Report.Dictionary {
     }
 }
 declare module Stimulsoft.Report.Engine {
-    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import IStiChart = Stimulsoft.Report.Chart.IStiChart;
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
     class StiChartBuilder extends StiComponentBuilder {
-        static renderAtEnd(masterChart: StiChart): void;
-        static renderChart(masterChart: StiChart): StiComponent;
+        static renderAtEnd(masterChart: IStiChart): void;
+        static renderChart(masterChart: IStiChart): StiComponent;
         prepare(masterComp: StiComponent): void;
         internalRender(masterComp: StiComponent): StiComponent;
     }
@@ -28079,8 +20494,7 @@ declare module Stimulsoft.Report.Engine {
 }
 declare module Stimulsoft.Report.Engine {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiPageNumberCollection extends CollectionBase {
-        readonly list: StiPageNumber[];
+    class StiPageNumberCollection extends CollectionBase<StiPageNumber> {
         add(pageNumber: StiPageNumber): void;
         getByIndex(index: number): StiPageNumber;
         setByIndex(index: number, value: StiPageNumber): void;
@@ -28834,7 +21248,7 @@ declare module Stimulsoft.Report.Export {
     }
 }
 declare module Stimulsoft.Report.Export {
-    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import IStiChart = Stimulsoft.Report.Chart.IStiChart;
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
@@ -28937,7 +21351,7 @@ declare module Stimulsoft.Report.Export {
         static getFile(assemblyName: string, fileName: string): Uint8Array;
         private assembleGuidUsedInBookmark(node, hash);
         private prepareSvg(sWriter, width, height);
-        prepareChartData(chart: StiChart, width: number, height: number): void;
+        prepareChartData(chart: IStiChart, width: number, height: number): void;
         prepareMapData(writer: StiHtmlTextWriter, map: any, width: number, height: number): string;
         getChartScript(): string;
         clear(): void;
@@ -30777,10 +23191,9 @@ declare module Stimulsoft.Report {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    class StiGlobalizationContainerCollection extends CollectionBase implements IStiJsonReportObject {
+    class StiGlobalizationContainerCollection extends CollectionBase<StiGlobalizationContainer> implements IStiJsonReportObject {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
-        readonly list: StiGlobalizationContainer[];
         add(data: StiGlobalizationContainer): void;
         addRange(data: StiGlobalizationContainer[]): void;
         contains(data: StiGlobalizationContainer): boolean;
@@ -30820,8 +23233,7 @@ declare module Stimulsoft.Report {
 declare module Stimulsoft.Report {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
     import IComparer = Stimulsoft.System.Collections.IComparer;
-    class StiGlobalizationItemCollection extends CollectionBase implements IComparer<StiGlobalizationItem> {
-        readonly list: StiGlobalizationItem[];
+    class StiGlobalizationItemCollection extends CollectionBase<StiGlobalizationItem> implements IComparer<StiGlobalizationItem> {
         compare(item1: StiGlobalizationItem, item2: StiGlobalizationItem): number;
         add(data: StiGlobalizationItem): void;
         addRange(data: StiGlobalizationItem[]): void;
@@ -31378,12 +23790,11 @@ declare module Stimulsoft.Report.Styles {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    class StiStylesCollection extends CollectionBase implements IStiJsonReportObject {
+    class StiStylesCollection extends CollectionBase<StiBaseStyle> implements IStiJsonReportObject {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
-        readonly list: Array<StiBaseStyle>;
         add(style: StiBaseStyle): void;
         clear(): void;
         addRange(styles: StiBaseStyle[]): any;
@@ -31731,15 +24142,15 @@ declare module StiOptions {
         private static _ranges;
         static readonly ranges: Stimulsoft.Report.Range[];
         private static _chartAreas;
-        static readonly chartAreas: Stimulsoft.Report.Chart.StiArea[];
+        static readonly chartAreas: Stimulsoft.Report.Chart.IStiArea[];
         private static _chartSeries;
-        static readonly chartSeries: Stimulsoft.Report.Chart.StiSeries[];
+        static readonly chartSeries: Stimulsoft.Report.Chart.IStiSeries[];
         private static _chartTrendLines;
-        static readonly chartTrendLines: Stimulsoft.Report.Chart.StiTrendLine[];
+        static readonly chartTrendLines: Stimulsoft.Report.Chart.IStiTrendLine[];
         private static _chartSerieLabels;
-        static readonly chartSerieLabels: Stimulsoft.Report.Chart.StiSeriesLabels[];
+        static readonly chartSerieLabels: Stimulsoft.Report.Chart.IStiSeriesLabels[];
         private static _chartStyles;
-        static readonly chartStyles: Stimulsoft.Report.Chart.StiChartStyle[];
+        static readonly chartStyles: Stimulsoft.Report.Chart.IStiChartStyle[];
         private static _shapes;
         static readonly shapes: Stimulsoft.Report.Components.StiShapeTypeService[];
         private static _barCodes;
@@ -31917,6 +24328,7 @@ declare module Stimulsoft.Report {
         saveFile(path: string): void;
         saveDocumentToJsonString(): string;
         saveDocumentFile(path: string): void;
+        saveEncryptedDocumentToByteArray(key: string): number[];
         private _pageNumber;
         pageNumber: number;
         readonly pageNumberThrough: number;
@@ -32154,8 +24566,7 @@ declare module Stimulsoft.Report {
 }
 declare module Stimulsoft.Report {
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
-    class StiReportsCollection extends CollectionBase {
-        readonly list: StiReport[];
+    class StiReportsCollection extends CollectionBase<StiReport> {
         add(report: StiReport, resetPageNumber?: boolean, printOnPreviousPage?: boolean): void;
         getByIndex(index: number): StiReport;
         setByIndex(index: number, value: StiReport): void;
@@ -32386,6 +24797,8023 @@ declare module Stimulsoft.Reflection {
     }
 }
 declare let _module: any;
+
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiFilterItem = Stimulsoft.Report.Components.StiFilterItem;
+    import StiFilterDataType = Stimulsoft.Report.Components.StiFilterDataType;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiFilterCondition = Stimulsoft.Report.Components.StiFilterCondition;
+    class StiChartFilter implements IStiJsonReportObject, IStiChartFilter, ICloneable {
+        private static implementsStiChartFilter;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        clone(): StiChartFilter;
+        readonly index: number;
+        private _condition;
+        condition: StiFilterCondition;
+        private _dataType;
+        dataType: StiFilterDataType;
+        private _item;
+        item: StiFilterItem;
+        private _valueObj;
+        value: string;
+        toString(): string;
+        filters: StiChartFiltersCollection;
+        constructor(item?: StiFilterItem, dataType?: StiFilterDataType, condition?: StiFilterCondition, value?: string);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiFilterCondition = Stimulsoft.Report.Components.StiFilterCondition;
+    import StiFilterDataType = Stimulsoft.Report.Components.StiFilterDataType;
+    import StiFilterItem = Stimulsoft.Report.Components.StiFilterItem;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiChartCondition extends StiChartFilter implements IStiChartCondition, IStiChartFilter {
+        private static implementsStiChartCondition;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        clone(): StiChartCondition;
+        private _color;
+        color: Color;
+        conditions: StiChartConditionsCollection;
+        constructor(color?: Color, item?: StiFilterItem, dataType?: StiFilterDataType, condition?: StiFilterCondition, value?: string);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    class StiChartConditionsCollection extends CollectionBase<StiChartCondition> implements IStiJsonReportObject, ICloneable, IStiChartConditionsCollection {
+        private static implementsStiChartConditionsCollection;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiChartConditionsCollection;
+        add(condition: StiChartCondition): void;
+        addRange(conditions: StiChartConditionsCollection): void;
+        addRange2(conditions: StiChartCondition[]): void;
+        contains(condition: StiChartCondition): boolean;
+        indexOf(condition: StiChartCondition): number;
+        insert(index: number, condition: StiChartCondition): void;
+        remove(condition: StiChartCondition): void;
+        getByIndex(index: number): StiChartCondition;
+        setByIndex(index: number, value: StiChartCondition): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiNewAutoSeriesEventArgs = Stimulsoft.Report.Events.StiNewAutoSeriesEventArgs;
+    import StiGetTitleEventArgs = Stimulsoft.Report.Events.StiGetTitleEventArgs;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiValueEventArgs = Stimulsoft.Report.Events.StiValueEventArgs;
+    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
+    import StiPage = Stimulsoft.Report.Components.StiPage;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    class StiSeries extends StiService implements IStiJsonReportObject, ICloneable, IStiSeries, IStiJsonReportObject {
+        private static implementsStiSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiSeries;
+        baseTransform(context: Object, x: number, y: number, angle: number, dx: number, dy: number): void;
+        readonly parent: StiComponent;
+        readonly serviceName: string;
+        readonly serviceCategory: string;
+        readonly serviceType: Stimulsoft.System.Type;
+        private _core;
+        core: StiSeriesCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _format;
+        format: string;
+        private _sortBy;
+        sortBy: StiSeriesSortType;
+        private _sortDirection;
+        sortDirection: StiSeriesSortDirection;
+        private _showInLegend;
+        showInLegend: boolean;
+        showLabels: boolean;
+        private _showSeriesLabels;
+        showSeriesLabels: StiShowSeriesLabels;
+        private _showShadow;
+        showShadow: boolean;
+        private _filterMode;
+        filterMode: StiFilterMode;
+        private _filters;
+        filters: StiChartFiltersCollection;
+        private _conditions;
+        conditions: StiChartConditionsCollection;
+        private _topN;
+        topN: IStiSeriesTopN;
+        private _yAxis;
+        yAxis: StiSeriesYAxis;
+        private _seriesLabels;
+        seriesLabels: IStiSeriesLabels;
+        private _trendLine;
+        trendLine: IStiTrendLine;
+        private _chart;
+        chart: IStiChart;
+        private _values;
+        values: number[];
+        private _valueDataColumn;
+        valueDataColumn: string;
+        valuesString: string;
+        private _arguments;
+        arguments: Object[];
+        protected getArguments(): Object[];
+        protected setArguments(value: Object[]): void;
+        private _argumentDataColumn;
+        argumentDataColumn: string;
+        argumentsString: string;
+        private _autoSeriesTitleDataColumn;
+        autoSeriesTitleDataColumn: string;
+        private _autoSeriesKeyDataColumn;
+        autoSeriesKeyDataColumn: string;
+        private _autoSeriesColorDataColumn;
+        autoSeriesColorDataColumn: string;
+        private _toolTips;
+        toolTips: string[];
+        private _toolTipDataColumn;
+        toolTipDataColumn: string;
+        toolTipsString: string;
+        private _tags;
+        tags: Object[];
+        private _tagDataColumn;
+        tagDataColumn: string;
+        tagString: string;
+        private _hyperlinks;
+        hyperlinks: string[];
+        private _hyperlinkDataColumn;
+        hyperlinkDataColumn: string;
+        hyperlinkString: string;
+        private _drillDownEnabled;
+        drillDownEnabled: boolean;
+        private _drillDownReport;
+        drillDownReport: string;
+        drillDownPage: StiPage;
+        private _drillDownPageGuid;
+        drillDownPageGuid: string;
+        private _allowSeries;
+        allowSeries: boolean;
+        private _allowSeriesElements;
+        allowSeriesElements: boolean;
+        coreTitle: string;
+        private _interaction;
+        interaction: IStiSeriesInteraction;
+        processSeriesColors(pointIndex: number, seriesColor: Color): Color;
+        processSeriesBrushes(pointIndex: number, seriesBrush: StiBrush): StiBrush;
+        private getConditionResult(pointIndex, condition);
+        toString(): string;
+        static getNullableValuesFromString(series: StiSeries, list: string): number[];
+        static getValuesFromString(list: string): number[];
+        static getStringsFromString(list: string): string[];
+        static getArgumentsFromString(list: string): Object[];
+        createNew(): StiSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        newAutoSeries: Function;
+        invokeNewAutoSeries(e: StiNewAutoSeriesEventArgs): void;
+        getValue: Function;
+        protected onGetValue(e: StiGetValueEventArgs): void;
+        invokeGetValue(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValues: Function;
+        protected onGetListOfValues(e: StiGetValueEventArgs): void;
+        invokeGetListOfValues(sender: StiComponent, e: StiGetValueEventArgs, series: StiSeries): void;
+        getArgument: Function;
+        protected onGetArgument(e: StiValueEventArgs): void;
+        invokeGetArgument(sender: StiComponent, e: StiValueEventArgs): void;
+        getListOfArguments: Function;
+        protected onGetListOfArguments(e: StiGetValueEventArgs): void;
+        invokeGetListOfArguments(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getTitle: Function;
+        protected onGetTitle(e: StiGetTitleEventArgs): void;
+        invokeGetTitle(sender: StiComponent, e: StiGetTitleEventArgs): void;
+        getToolTip: Function;
+        protected onGetToolTip(e: StiValueEventArgs): void;
+        invokeGetToolTip(sender: Object, e: StiValueEventArgs): void;
+        getListOfToolTips: Function;
+        protected onGetListOfToolTips(e: StiGetValueEventArgs): void;
+        invokeGetListOfToolTips(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getTag: Function;
+        protected onGetTag(e: StiValueEventArgs): void;
+        invokeGetTag(sender: Object, e: StiValueEventArgs): void;
+        getListOfTags: Function;
+        protected onGetListOfTags(e: StiGetValueEventArgs): void;
+        invokeGetListOfTags(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getHyperlink: Function;
+        protected onGetHyperlink(e: StiValueEventArgs): void;
+        invokeGetHyperlink(sender: Object, e: StiValueEventArgs): void;
+        getListOfHyperlinks: Function;
+        protected onGetListOfHyperlinks(e: StiGetValueEventArgs): void;
+        invokeGetListOfHyperlinks(sender: StiComponent, e: StiGetValueEventArgs): void;
+        private valueObj;
+        value: string;
+        private _listOfValues;
+        listOfValues: string;
+        private _argument;
+        argument: string;
+        private _listOfArguments;
+        listOfArguments: string;
+        private _titleValue;
+        titleValue: string;
+        private _title;
+        title: string;
+        private _toolTip;
+        toolTip: string;
+        private _listOfToolTips;
+        listOfToolTips: string;
+        private _tag;
+        tag: string;
+        private _listOfTags;
+        listOfTags: string;
+        private _hyperlink;
+        hyperlink: string;
+        private _listOfHyperlinks;
+        listOfHyperlinks: string;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiBaseLineSeries extends StiSeries implements IStiJsonReportObject, IStiBaseLineSeries, ICloneable, IStiSeries, IStiAllowApplyColorNegative {
+        private static implementsStiBaseLineSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiBaseLineSeries;
+        private _showNulls;
+        showNulls: boolean;
+        showMarker: boolean;
+        markerColor: Color;
+        markerSize: number;
+        markerType: StiMarkerType;
+        private _marker;
+        marker: IStiMarker;
+        private _lineMarker;
+        lineMarker: IStiLineMarker;
+        private _lineColor;
+        lineColor: Color;
+        getLineColor(): Color;
+        setLineColor(value: Color): void;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lighting;
+        lighting: boolean;
+        private _lineWidth;
+        lineWidth: number;
+        private _labelsOffset;
+        labelsOffset: number;
+        private _lineColorNegative;
+        lineColorNegative: Color;
+        private _allowApplyColorNegative;
+        allowApplyColorNegative: boolean;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiScatterSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, IStiSeries, ICloneable, IStiScatterSeries, IStiAllowApplyColorNegative {
+        private static implementsStiScatterSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        clone(): StiScatterSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        getLineColor(): Color;
+        setLineColor(value: Color): void;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiScatterLineSeries extends StiScatterSeries implements IStiScatterLineSeries, IStiBaseLineSeries, IStiScatterSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
+        private static implementsStiScatterLineSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        clone(): StiScatterLineSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAreaCoreXF implements ICloneable, IStiApplyStyle, IStiAreaCoreXF {
+        private static implementsStiAreaCoreXF;
+        implements(): string[];
+        clone(): StiAreaCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        protected prepareInfo(rect: RectangleD): void;
+        checkInLabelsTypes(typeForCheck: Stimulsoft.System.Type): boolean;
+        getSeries(): IStiSeries[];
+        isAcceptableSeries(seriesType: Stimulsoft.System.Type): boolean;
+        isAcceptableSeriesLabels(seriesLabelsType: Stimulsoft.System.Type): boolean;
+        private _area;
+        area: IStiArea;
+        readonly localizedName: string;
+        readonly seriesOrientation: StiChartSeriesOrientation;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiAxisAreaCoreXF extends StiAreaCoreXF implements IStiAxisAreaCoreXF {
+        private static implementsStiAxisAreaCoreXF;
+        implements(): string[];
+        applyStyle(style: IStiChartStyle): void;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        private calculateScrollValuesX(rect, axisArea);
+        private calculateScrollValuesY(rect, axisArea);
+        protected prepareInfo(rect: RectangleD): void;
+        private renderSeries(context, rect, geom, seriesCollection);
+        isAutoRangeXAxis(axis: IStiAxis): boolean;
+        isAutoRangeYAxis(axis: IStiAxis): boolean;
+        calculateMinimumAndMaximumXAxis(axis: IStiAxis): void;
+        calculateMinimumAndMaximumYAxis(axis: IStiAxis): void;
+        getArgumentLabel(line: StiStripLineXF, series: IStiSeries): string;
+        switchOff(): void;
+        private swap(REFvalue1, REFvalue2);
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        protected createStripLinesXAxis(axis: IStiAxis): void;
+        protected createStripLinesYAxis(axis: IStiAxis, isDateTimeValues: boolean): void;
+        protected checkStripLinesAndMaximumMinimumXAxis(axis: IStiAxis): void;
+        protected checkStripLinesAndMaximumMinimumYAxis(axis: IStiAxis): void;
+        private calculateStepX(axis, topPosition, bottomPosition);
+        private calculateStepY(axis, topPosition, bottomPosition);
+        private checkStartFromZeroYAxis(axis);
+        calculatePositions(axis: IStiAxis, REFcollection: any, step: number): void;
+        private calculateDivider(axis);
+        private static rotateStripLines(axis);
+        getDividerX(): number;
+        getDividerY(): number;
+        getDividerRightY(): number;
+        valuesCount: number;
+        readonly scrollDistanceX: number;
+        readonly scrollDistanceY: number;
+        private _scrollRangeX;
+        readonly scrollRangeX: number;
+        private _scrollRangeY;
+        readonly scrollRangeY: number;
+        private _scrollViewX;
+        readonly scrollViewX: number;
+        private _scrollViewY;
+        readonly scrollViewY: number;
+        private _blockScrollValueX;
+        blockScrollValueX: boolean;
+        private _blockScrollValueY;
+        blockScrollValueY: boolean;
+        private _scrollValueX;
+        scrollValueX: number;
+        private _scrollValueY;
+        scrollValueY: number;
+        private _scrollDpiX;
+        readonly scrollDpiX: number;
+        private _scrollDpiY;
+        readonly scrollDpiY: number;
+        private _scrollDragStartValue;
+        scrollDragStartValue: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiClusteredColumnAreaCoreXF extends StiAxisAreaCoreXF {
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiScatterAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        private isArgumentDateTime;
+        private isXAxisAutoRange(xAxis);
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        protected checkStripLinesAndMaximumMinimumXAxis(axis: IStiAxis): void;
+        protected createStripLinesXAxis(axis: IStiAxis): void;
+        protected createStripLinesYAxis(axis: IStiAxis, isDateTimeValues: boolean): void;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiBubbleAreaCoreXF extends StiScatterAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiCandlestickAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        protected createStripLinesXAxis(axis: IStiAxis): void;
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiClusteredBarAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly seriesOrientation: StiChartSeriesOrientation;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiAreaAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiLineAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiSplineAreaAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiSplineAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiSteppedAreaAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiSteppedLineAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiPieAreaCoreXF extends StiAreaCoreXF {
+        valuesCount: number;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
+        protected prepareInfo(rect: RectangleD): void;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiDoughnutAreaCoreXF extends StiPieAreaCoreXF {
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStackedBarAreaCoreXF extends StiClusteredBarAreaCoreXF {
+        private prepareSeriesRange(seriesType);
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        readonly localizedName: string;
+        readonly seriesOrientation: StiChartSeriesOrientation;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedBarAreaCoreXF extends StiStackedBarAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStackedColumnAreaCoreXF extends StiAxisAreaCoreXF {
+        private prepareSeriesRange(seriesType);
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedColumnAreaCoreXF extends StiStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedAreaAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedLineAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedSplineAreaAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedSplineAreaCoreXF extends StiFullStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiFunnelAreaCoreXF extends StiAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
+        protected prepareInfo(rect: RectangleD): void;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiGanttAreaCoreXF extends StiClusteredBarAreaCoreXF {
+        protected createStripLinesXAxis(axis: IStiAxis): void;
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        readonly localizedName: string;
+        readonly seriesOrientation: StiChartSeriesOrientation;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiRadarAreaCoreXF extends StiAreaCoreXF {
+        applyStyle(style: IStiChartStyle): void;
+        valuesCount: number;
+        points: PointD[];
+        arguments: Object[];
+        centerPoint: PointD;
+        render(context: StiContext, areaRect: RectangleD): StiCellGeom;
+        private static centerArea(rect);
+        measureLabels(context: StiContext, rect: RectangleD): RectangleD;
+        renderArguments(context: StiContext, geom: StiRadarAreaGeom, series: IStiSeries): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
+        protected prepareInfo(rect: RectangleD): void;
+        protected createStripLinesAxis(axis: IStiYRadarAxis, minimum: number, maximum: number): void;
+        private calculateStep(axis, topPosition, bottomPosition);
+        calculatePositions(axis: IStiYRadarAxis, REFcollection: any, step: number): void;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiRadarAreaAreaCoreXF extends StiRadarAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiRadarLineAreaCoreXF extends StiRadarAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiRadarPointAreaCoreXF extends StiRadarAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiRangeAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiRangeBarAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        protected createStripLinesXAxis(axis: IStiAxis): void;
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiSplineRangeAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiSteppedRangeAreaCoreXF extends StiClusteredColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        protected prepareRange(specXAxis: IStiAxis, specXTopAxis: IStiAxis, specYAxis: IStiAxis, specYRightAxis: IStiAxis): void;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStackedAreaAreaCoreXF extends StiStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStackedLineAreaCoreXF extends StiStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStackedSplineAreaAreaCoreXF extends StiStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStackedSplineAreaCoreXF extends StiStackedColumnAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStockAreaCoreXF extends StiCandlestickAreaCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiTreemapAreaCoreXF extends StiAreaCoreXF {
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderSeries(context: StiContext, boxes: RectangleD[], boxRoot: RectangleD, geom: StiAreaGeom, seriesCollection: IStiSeries[]): void;
+        private cutArea(container, area);
+        squarify(data: number[], currentrow: number[], container: RectangleD, stack: RectangleD[]): RectangleD[];
+        private improvesRatio(currentrow, nextnode, length);
+        private calculateRatio(row, length);
+        normalizeDataForArea(data: number[], area: number): number[];
+        private getCoordinates(rootContainer, rowData);
+        prepareInfo(rect: RectangleD): void;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStripLineCalculatorXF {
+        private static getInterval1(interval);
+        static getInterval(minValue: number, maxValue: number, num: number): number;
+        static getStripLines(minValue: number, maxValue: number, step: number, asDateTimeValue: boolean): StiStripLinesXF;
+        private static getCountAfterComma(num);
+        static getStripLinesLogScale(minValue: number, maxValue: number): StiStripLinesXF;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStripLineXF implements IStiStripLineXF {
+        private static implementsStiStripLineXF;
+        implements(): string[];
+        private _valueObject;
+        valueObject: Object;
+        private valueObj;
+        value: number;
+        constructor(valueObject: Object, value: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    class StiStripLinesXF extends CollectionBase<StiStripLineXF> implements IStiStripLinesXF {
+        private static implementsStiStripLinesXF;
+        implements(): string[];
+        add(valueObject: Object, value: number): void;
+        add2(line: StiStripLineXF): void;
+        addRange(lines: StiStripLineXF[]): void;
+        contains(value: StiStripLineXF): boolean;
+        indexOf(value: StiStripLineXF): number;
+        insert(index: number, value: StiStripLineXF): void;
+        remove(value: StiStripLineXF): void;
+        getByindex(index: number): StiStripLineXF;
+        setByIndex(index: number, value: StiStripLineXF): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStripPositionXF implements IStiStripPositionXF {
+        private static implementsStiStripPositionXF;
+        implements(): string[];
+        position: number;
+        stripLine: StiStripLineXF;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
+    import SizeD = Stimulsoft.Base.Drawing.SizeD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisCoreXF implements ICloneable, IStiApplyStyle, IStiAxisCoreXF {
+        private static implementsStiAxisCoreXF;
+        implements(): string[];
+        clone(): StiAxisCoreXF;
+        private _isMouseOverDecreaseButton;
+        isMouseOverDecreaseButton: boolean;
+        private _isMouseOverIncreaseButton;
+        isMouseOverIncreaseButton: boolean;
+        private _isMouseOverTrackBar;
+        isMouseOverTrackBar: boolean;
+        applyStyle(style: IStiChartStyle): void;
+        getStartFromZero(): boolean;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderView(context: StiContext, rect: RectangleD): StiCellGeom;
+        calculateStripPositions(topPosition: number, bottomPosition: number): void;
+        getTicksMaxLength(context: StiContext): number;
+        getArrowHeight(context: StiContext): number;
+        getLabelsSpaceAxis(context: StiContext): number;
+        getLabelsTwoLinesDestination(context: StiContext): number;
+        getFontGeom(context: StiContext): StiFontGeom;
+        getTextAlignment(): StiHorAlignment;
+        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
+        protected getAxisTitleSize(context: StiContext): SizeD;
+        static defaultScrollBarSize: number;
+        static defaultScrollBarSmallFactor: number;
+        static defaultScrollBarFirstRecallTime: number;
+        static defaultScrollBarOtherRecallTime: number;
+        readonly ticksMaxLength: number;
+        readonly arrowWidth: number;
+        readonly arrowHeight: number;
+        private _axis;
+        axis: IStiAxis;
+        info: StiAxisInfoXF;
+        constructor(axis: IStiAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisInfoXF implements ICloneable, IStiAxisInfoXF {
+        private static implementsStiAxisInfoXF;
+        implements(): string[];
+        clone(): StiAxisInfoXF;
+        dpi: number;
+        step: number;
+        readonly range: number;
+        stripLines: StiStripLinesXF;
+        stripPositions: number[];
+        ticksCollection: StiStripPositionXF[];
+        labelsCollection: StiStripPositionXF[];
+        minimum: number;
+        _maximum: number;
+        maximum: number;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiAxisLabelInfoXF {
+        clientRectangle: RectangleD;
+        textPoint: PointD;
+        angle: number;
+        rotationMode: StiRotationMode;
+        text: string;
+        stripLine: StiStripLineXF;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisLabelsCoreXF implements IStiApplyStyle, ICloneable, IStiAxisLabelsCoreXF {
+        private static implementsStiAxisLabelsCoreXF;
+        implements(): string[];
+        clone(): StiAxisLabelsCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        private _labels;
+        labels: IStiAxisLabels;
+        constructor(labels: IStiAxisLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisTitleCoreXF implements IStiApplyStyle, ICloneable, IStiAxisTitleCoreXF {
+        private static implementsStiAxisTitleCoreXF;
+        implements(): string[];
+        clone(): StiAxisTitleCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        private _title;
+        title: IStiAxisTitle;
+        constructor(title: IStiAxisTitle);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiXAxisCoreXF extends StiAxisCoreXF {
+        getStartFromZero(): boolean;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderView(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderScrollBar(context: StiContext, axisRect: RectangleD, axisGeom: StiXAxisViewGeom): void;
+        renderCenter(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderCenterView(context: StiContext, rect: RectangleD): StiCellGeom;
+        getLabelText(line: StiStripLineXF, series: IStiSeries): string;
+        private readonly isLabelsAngleByWidth;
+        private measureStripLines(context, rect);
+        getCenterAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean): RectangleD;
+        getAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsWidth: boolean, isDrawing: boolean, includeScrollBar: boolean): RectangleD;
+        private renderLabels(context, rect, geom);
+        private renderTitle(context, axisRect, geom);
+        private isArgumentDateTime1(positions);
+        private isArgumentDateTime2(infos);
+        readonly dock: StiXAxisDock;
+        readonly isTopSide: boolean;
+        readonly isBottomSide: boolean;
+        constructor(axis: IStiAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiXBottomAxisCoreXF extends StiXAxisCoreXF {
+        readonly dock: StiXAxisDock;
+        constructor(axis: IStiAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiXTopAxisCoreXF extends StiXAxisCoreXF {
+        readonly dock: StiXAxisDock;
+        constructor(axis: IStiAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiYAxisCoreXF extends StiAxisCoreXF {
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderView(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderScrollBar(context: StiContext, axisRect: RectangleD, axisGeom: StiYAxisViewGeom): void;
+        renderCenter(context: StiContext, rect: RectangleD): StiCellGeom;
+        renderCenterView(context: StiContext, rect: RectangleD): StiCellGeom;
+        getLabelText(line: StiStripLineXF, series: IStiSeries): string;
+        private measureStripLines(context, rect);
+        getCenterAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean): RectangleD;
+        getAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean, includeScrollBar: boolean): RectangleD;
+        private renderLabels(context, rect, geom);
+        private renderTitle(context, axisRect, geom);
+        readonly dock: StiYAxisDock;
+        readonly isLeftSide: boolean;
+        readonly isRightSide: boolean;
+        constructor(axis: IStiAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiYLeftAxisCoreXF extends StiYAxisCoreXF {
+        readonly dock: StiYAxisDock;
+        constructor(axis: IStiAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiYRightAxisCoreXF extends StiYAxisCoreXF {
+        readonly dock: StiYAxisDock;
+        getStartFromZero(): boolean;
+        constructor(axis: IStiAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiChartTitleCoreXF implements ICloneable, IStiApplyStyle, IStiChartTitleCoreXF {
+        private static implementsStiChartTitleCoreXF;
+        implements(): string[];
+        clone(): StiChartTitleCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        render(context: StiContext, chartTitle: IStiChartTitle, rect: RectangleD): StiCellGeom;
+        private _chartTitle;
+        chartTitle: IStiChartTitle;
+        constructor(chartTitle: IStiChartTitle);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiConstantLinesCoreXF implements IStiApplyStyle, ICloneable, IStiConstantLinesCoreXF {
+        private static implementsStiConstantLinesCoreXF;
+        implements(): string[];
+        clone(): Object;
+        applyStyle(style: IStiChartStyle): void;
+        renderXConstantLines(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
+        renderYConstantLines(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
+        render(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
+        private _constantLines;
+        constantLines: IStiConstantLines;
+        constructor(constantLines: IStiConstantLines);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiGridLinesCoreXF implements IStiApplyStyle, ICloneable, IStiGridLinesCoreXF {
+        private static implementsStiGridLinesCoreXF;
+        implements(): string[];
+        clone(): StiGridLinesCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        private _gridLines;
+        gridLines: IStiGridLines;
+        constructor(gridLines: IStiGridLines);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarGridLinesCoreXF implements IStiApplyStyle, ICloneable, IStiRadarGridLinesCoreXF {
+        private static implementsStiRadarGridLinesCoreXF;
+        implements(): string[];
+        clone(): StiRadarGridLinesCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        private _gridLines;
+        gridLines: IStiRadarGridLines;
+        constructor(gridLines: IStiRadarGridLines);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiInterlacingCoreXF implements IStiApplyStyle, ICloneable, IStiInterlacingCoreXF {
+        private static implementsStiInterlacingCoreXF;
+        implements(): string[];
+        clone(): StiInterlacingCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        private _interlacing;
+        interlacing: IStiInterlacing;
+        constructor(interlacing: IStiInterlacing);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import SizeD = Stimulsoft.Base.Drawing.SizeD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiLegendCoreXF implements ICloneable, IStiApplyStyle, IStiLegendCoreXF {
+        private static implementsStiLegendCoreXF;
+        implements(): string[];
+        applyStyle(style: IStiChartStyle): void;
+        clone(): StiLegendCoreXF;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        getArgumentText(series: IStiSeries, index: number): string;
+        getLegendItemColumn(seriesItems: StiLegendItemCoreXF[], seriesItem: StiLegendItemCoreXF): number;
+        getTitleSize(context: StiContext): SizeD;
+        getItemSize1(context: StiContext, seriesItems: StiLegendItemCoreXF[], seriesIndex: number): SizeD;
+        getItemSize2(context: StiContext, seriesItems: StiLegendItemCoreXF[], seriesItem: StiLegendItemCoreXF): SizeD;
+        getItemsSize(context: StiContext, seriesItems: StiLegendItemCoreXF[]): SizeD;
+        getSeriesSize(context: StiContext): SizeD;
+        getLegendSize(context: StiContext): SizeD;
+        getLegendItems(REFcount: any): StiLegendItemCoreXF[];
+        private _legend;
+        legend: IStiLegend;
+        constructor(legend: IStiLegend);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiLegendItemCoreXF {
+        private _text;
+        readonly text: string;
+        private _series;
+        readonly series: IStiSeries;
+        private _index;
+        readonly index: number;
+        private _colorIndex;
+        readonly colorIndex: number;
+        constructor(text: string, series: IStiSeries, index: number, colorIndex: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiPenGeom = Stimulsoft.Base.Context.StiPenGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiMarkerCoreXF implements ICloneable, IStiMarkerCoreXF {
+        private static implementsStiMarkerCoreXF;
+        implements(): string[];
+        clone(): StiMarkerCoreXF;
+        drawMarkers(context: StiContext, points: PointD[], showShadow: boolean): void;
+        static getMarkerRect(position: PointD, markerSize: number, zoom: number): RectangleD;
+        draw(context: StiContext, marker: IStiMarker, position: PointD, zoom: number, showShadow: boolean, isMouseOver: boolean, isAnimation: boolean, tag: Object): void;
+        drawLine(context: StiContext, x1: number, y1: number, x2: number, y2: number, scale: number, brushMarker: StiBrush, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): void;
+        drawLines(context: StiContext, points: PointD[], scale: number, brushMarker: Object, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): void;
+        drawPoint(context: StiContext, x: number, y: number, scale: number, brush: Object, pen: StiPenGeom, markerType: StiMarkerType, markerSize: number, angle: number, isMouseOver: boolean, isAnimation: boolean, tag: Object): void;
+        private drawPolygon(context, fillBrush, borderPen, centerX, centerY, radius, count, startAngle, isStar, isMouseOver);
+        private _marker;
+        marker: IStiMarker;
+        constructor(marker: IStiMarker);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarAxisCoreXF implements ICloneable, IStiApplyStyle, IStiRadarAxisCoreXF {
+        private static implementsStiRadarAxisCoreXF;
+        implements(): string[];
+        clone(): StiRadarAxisCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        private _axis;
+        axis: IStiRadarAxis;
+        constructor(axis: IStiRadarAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarAxisLabelsCoreXF implements IStiApplyStyle, ICloneable, IStiRadarAxisLabelsCoreXF {
+        private static implementsStiRadarAxisLabelsCoreXF;
+        implements(): string[];
+        clone(): StiRadarAxisLabelsCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        private _labels;
+        labels: IStiRadarAxisLabels;
+        constructor(labels: IStiRadarAxisLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiXRadarAxisCoreXF extends StiRadarAxisCoreXF implements IStiXRadarAxisCoreXF {
+        private static implementsStiXRadarAxisCoreXF;
+        implements(): string[];
+        applyStyle(style: IStiChartStyle): void;
+        renderLabel(context: StiContext, series: IStiSeries, point: PointD, argument: Object, angle: number, colorIndex: number, colorCount: number): StiXRadarAxisLabelGeom;
+        getLabelText(value: Object): string;
+        getLabelRect(context: StiContext, point: PointD, text: string, angle: number): RectangleD;
+        readonly xAxis: IStiXRadarAxis;
+        constructor(axis: IStiRadarAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiYRadarAxisCoreXF extends StiRadarAxisCoreXF implements IStiYRadarAxisCoreXF {
+        private static implementsStiYRadarAxisCoreXF;
+        implements(): string[];
+        applyStyle(style: IStiChartStyle): void;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        private measureStripLines(context, rect);
+        private renderLabels(context, rect, geom);
+        calculateStripPositions(topPosition: number, bottomPosition: number): void;
+        getAxisRect(context: StiContext, rect: RectangleD, includeAxisArrow: boolean, includeLabelsHeight: boolean, isDrawing: boolean): RectangleD;
+        getTicksMaxLength(context: StiContext): number;
+        getLabelsSpaceAxis(context: StiContext): number;
+        getLabelsTwoLinesDestination(context: StiContext): number;
+        getTextAlignment(): StiHorAlignment;
+        getLabelText(line: StiStripLineXF, series: IStiSeries): string;
+        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
+        getFontGeom(context: StiContext): StiFontGeom;
+        readonly yAxis: IStiYRadarAxis;
+        info: StiAxisInfoXF;
+        readonly ticksMaxLength: number;
+        constructor(axis: IStiRadarAxis);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSeriesLabelsCoreXF implements ICloneable, IStiApplyStyle, IStiSeriesLabelsCoreXF {
+        private static implementsStiSeriesLabelsCoreXF;
+        implements(): string[];
+        clone(): StiSeriesLabelsCoreXF;
+        applyStyle(style: IStiChartStyle): void;
+        readonly position: number;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        private _seriesLabels;
+        seriesLabels: IStiSeriesLabels;
+        readonly localizedName: string;
+        processSeriesColors(pointIndex: number, brush: StiBrush, series: IStiSeries): StiBrush;
+        getSeriesLabelColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
+        getBorderColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
+        getLabelColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
+        recalcValue(value: number, signs: number): number;
+        getLabelText(series: IStiSeries, value: number, argument: string, tag: string, seriesName: string, useLegendValueType?: boolean): string;
+        getLabelText2(series: IStiSeries, value: number, argument: string, tag: string, seriesName: string, weight: number, useLegendValueType: boolean): string;
+        private getArgument(series, argument);
+        private getFormatted(series, value, isDateTime);
+        getFormattedValue(series: IStiSeries, value: number): string;
+        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiAxisSeriesLabelsCoreXF extends StiSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
+        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
+        recalcValue(value: number, signs: number): number;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        currentIndex: number;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiCenterAxisLabelsCoreXF extends StiAxisSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
+        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiInsideBaseAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiInsideEndAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
+        readonly position: number;
+        readonly localizedName: string;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiLeftAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiOutsideAxisLabelsCoreXF extends StiAxisSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiOutsideBaseAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiOutsideEndAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiRightAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiValueAxisLabelsCoreXF extends StiCenterAxisLabelsCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiFunnelSeriesLabelsCoreXF extends StiSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiCenterFunnelLabelsCoreXF extends StiFunnelSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
+        private getSumLastValues(series, indexCurrent);
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiOutsideLeftFunnelLabelsCoreXF extends StiFunnelSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiOutsideRightFunnelLabelsCoreXF extends StiFunnelSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, valueNext: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, singleValueHeight: number, singleValueWidth: number, centerAxis: number, REFmeasureRect: any): StiSeriesLabelsGeom;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiPieSeriesLabelsCoreXF extends StiSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, centerPie: PointD, radius: number, radius2: number, pieAngle: number, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, measure: boolean, colorIndex: number, colorCount: number, percentPerValue: number, REFmeasureRect: any, drawValue: boolean, deltaY: number): StiSeriesLabelsGeom;
+        recalcValue(value: number, signs: number): number;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        percentPerValue: number;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiCenterPieLabelsCoreXF extends StiPieSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, centerPie: PointD, radius: number, radius2: number, pieAngle: number, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, measure: boolean, colorIndex: number, colorCount: number, percentPerValue: number, REFmeasureRect: any, drawValue: boolean, deltaY: number): StiSeriesLabelsGeom;
+        getLabelPoint(centerPie: PointD, radius: number, angleRad: number): PointD;
+        getLabelRect(context: StiContext, labelPoint: PointD, labelText: string, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiInsideEndPieLabelsCoreXF extends StiCenterPieLabelsCoreXF {
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiOutsidePieLabelsCoreXF extends StiCenterPieLabelsCoreXF {
+        applyStyle(style: IStiChartStyle): void;
+        readonly position: number;
+        readonly localizedName: string;
+        getLineColor(series: IStiSeries, colorIndex: number, colorCount: number): Color;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiTwoColumnsPieLabelsCoreXF extends StiOutsidePieLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, centerPie: PointD, radius: number, radius2: number, pieAngle: number, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, measure: boolean, colorIndex: number, colorCount: number, percentPerValue: number, REFmeasureRect: any, drawValue: boolean, deltaY: number): StiSeriesLabelsGeom;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
+    class StiCenterTreemapLabelsCoreXF extends StiSeriesLabelsCoreXF {
+        renderLabel(series: IStiSeries, context: StiContext, pointIndex: number, value: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, animation?: StiAnimation): StiSeriesLabelsGeom;
+        getLabelRect(context: StiContext, rect: RectangleD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
+        readonly position: number;
+        readonly localizedName: string;
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiNoneLabelsCoreXF extends StiSeriesLabelsCoreXF {
+        readonly seriesLabelsType: StiSeriesLabelsType;
+        readonly position: number;
+        readonly localizedName: string;
+        constructor(seriesLabels: IStiSeriesLabels);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSeriesCoreXF implements ICloneable, IStiApplyStyleSeries, IStiSeriesCoreXF {
+        private static implementsStiSeriesCoreXF;
+        implements(): string[];
+        clone(): StiSeriesCoreXF;
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        checkLabelsRect(labels: IStiSeriesLabels, geom: StiAreaGeom, labelsRect: RectangleD): RectangleD;
+        private getRectangle(labelsRect, angle);
+        private rotatePoint(pointToRotate, centerPoint, angleInDegrees);
+        checkIntersectionLabels(geom: StiAreaGeom): void;
+        private getLabelRectangle(angle, rect);
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        getSeriesLabels(): IStiAxisSeriesLabels;
+        getTag(tagIndex: number): string;
+        private static falseObject;
+        private static trueObject;
+        private isMouseOverSeriesElementHashtable;
+        getIsMouseOverSeriesElement(seriesIndex: number): boolean;
+        setIsMouseOverSeriesElement(seriesIndex: number, value: boolean): void;
+        private _isMouseOver;
+        isMouseOver: boolean;
+        readonly localizedName: string;
+        private _isDateTimeValues;
+        isDateTimeValues: boolean;
+        private _isDateTimeArguments;
+        isDateTimeArguments: boolean;
+        private _series;
+        series: IStiSeries;
+        interaction: IStiSeriesInteraction;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiBaseLineSeriesCoreXF extends StiSeriesCoreXF implements IStiApplyStyleSeries {
+        private static implementsStiBaseLineSeriesCoreXF;
+        implements(): string[];
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        protected clipLinePoints(context: StiContext, geom: StiAreaGeom, points: PointD[], REFstartIndex: any, REFendIndex: any): PointD[];
+        renderMarkers(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        getInteractions(context: StiContext, geom: StiAreaGeom, points: PointD[]): StiSeriesInteractionData[];
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        private optimizePoints(points);
+        private isTopmostLine(series);
+        correctPoint(point: PointD, rect: RectangleD, correctY: number): PointD;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiScatterSeriesCoreXF extends StiBaseLineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiBubbleSeriesCoreXF extends StiScatterSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        renderBubbles(context: StiContext, geom: StiAreaGeom, series: IStiBubbleSeries, points: PointD[], weights: number[]): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiClusteredColumnSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        protected correctPoint(point: PointD, rect: RectangleD): PointD;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiClusteredBarSeriesCoreXF extends StiClusteredColumnSeriesCoreXF implements IStiApplyStyleSeries {
+        private static implementsStiClusteredBarSeriesCoreXF;
+        implements(): string[];
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        protected correctPoint(point: PointD, rect: RectangleD): PointD;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiLineSeriesCoreXF extends StiBaseLineSeriesCoreXF {
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiAreaSeriesCoreXF extends StiLineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSplineSeriesCoreXF extends StiBaseLineSeriesCoreXF {
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSplineAreaSeriesCoreXF extends StiSplineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSteppedLineSeriesCoreXF extends StiBaseLineSeriesCoreXF {
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSteppedAreaSeriesCoreXF extends StiSteppedLineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderAreas(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiPieSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        private correctBrush(brush);
+        private renderPieElement(context, center, radius, borderColor, brush, start, angle, value, index, currentSeries, distance, geom, beginTime);
+        private renderPieElementShadow(context, center, radius, brush, start, angle, currentSeries, distance);
+        private measurePieElement(context, center, radius, start, angle, currentSeries, distance);
+        private measurePieElementCore(context, center, radius, start, angle, currentSeries, distance, REFpath, REFpathLight, REFrectPie);
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        private checkIntersectionTwoColumnsLabels(geom, rect);
+        private checkLabelPosition(labels, rect);
+        protected getGradPerValue(series: IStiSeries[]): number;
+        getPercentPerValue(series: IStiSeries[]): number;
+        getPointCenter(rect: RectangleD): PointD;
+        getRadius(context: StiContext, rect: RectangleD): number;
+        getPoint(centerPie: PointD, radius: number, angle: number): PointD;
+        protected getArgumentText(series: IStiSeries, index: number): string;
+        getPieDistance(pieIndex: number): number;
+        getPieDistance2(series: IStiPieSeries, pieIndex: number): number;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiDoughnutSeriesCoreXF extends StiPieSeriesCoreXF {
+        private renderDoughnutElement(context, center, radius, radiusDt, borderColor, brush, start, angle, value, index, currentSeries, shadow, areaGeom, beginTime);
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        protected getGradPerValue(series: IStiSeries[]): number;
+        getPercentPerValue(series: IStiSeries[]): number;
+        protected getArgumentText(series: IStiSeries, index: number): string;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiCandlestickSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStockSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStackedBarSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        private calculateTotalWidth(series, pointIndex, REFtotalPositiveWidth, REFtotalNegativeWidth);
+        private correctRect(columnRect, rect);
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedBarSeriesCoreXF extends StiStackedBarSeriesCoreXF {
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiStackedBaseLineSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        clipLinePoints(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], REFnewStartPoints: any, REFnewEndPoints: any, REFstartIndex: any, REFendIndex: any): void;
+        renderMarkers(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        renderAreas(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[]): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        private calculateTotalHeight(series, pointIndex, REFtotalPositiveHeight, REFtotalNegativeHeight);
+        private correctPoint(point, rect);
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        readonly isFullStacked: boolean;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiStackedLineSeriesCoreXF extends StiStackedBaseLineSeriesCoreXF {
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStackedAreaSeriesCoreXF extends StiStackedLineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderAreas(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[]): void;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedAreaSeriesCoreXF extends StiStackedAreaSeriesCoreXF {
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStackedColumnSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        private calculateTotalHeight(series, pointIndex, REFtotalPositiveHeight, REFtotalNegativeHeight);
+        private correctRect(columnRect, rect);
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedColumnSeriesCoreXF extends StiStackedColumnSeriesCoreXF {
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedLineSeriesCoreXF extends StiStackedLineSeriesCoreXF {
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiStackedSplineSeriesCoreXF extends StiStackedBaseLineSeriesCoreXF {
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStackedSplineAreaSeriesCoreXF extends StiStackedSplineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderAreas(context: StiContext, geom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[]): void;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedSplineAreaSeriesCoreXF extends StiStackedSplineAreaSeriesCoreXF {
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiFullStackedSplineSeriesCoreXF extends StiStackedSplineSeriesCoreXF {
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiFunnelSeriesCoreXF extends StiSeriesCoreXF {
+        private labels;
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        private getValues(funnelSeries);
+        private getArgumentText(series, index);
+        private renderFunnelElement(borderColor, brush, value, valueNext, index, currentSeries, geom, rect, singleValueHeight, singleValueWidth, beginTime);
+        private getSingleValueHeight(values, rect);
+        private getSingleValueWidth(funnelSeries, rect);
+        private measureFunnelElementCore(REFpath, value, valueNext, index, rect, singleValueHeight, singleValueWidth);
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiFunnelWeightedSlicesSeriesCoreXF extends StiSeriesCoreXF {
+        private labels;
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        private getValues(funnelSeries);
+        private getArgumentText(series, index);
+        private renderFunnelElement(borderColor, brush, value, index, currentSeries, geom, rect, singleValueHeight, beginTime);
+        private getSumValues();
+        private getSumLastValues(indexCurrent);
+        private measureFunnelElementCore(index, rect, singleValueHeight);
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiGanttSeriesCoreXF extends StiClusteredBarSeriesCoreXF {
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiRadarSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        renderAreas(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
+        renderLines(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
+        renderPoints(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
+        private getArgument(series, pointIndex);
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): Object;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarAreaSeriesCoreXF extends StiRadarSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        readonly localizedName: string;
+        renderLines(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
+        renderAreas(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarLineSeriesCoreXF extends StiRadarSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        readonly localizedName: string;
+        renderLines(context: StiContext, series: IStiRadarSeries, points: PointD[], geom: StiAreaGeom): void;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarPointSeriesCoreXF extends StiRadarSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiRangeBarSeriesCoreXF extends StiClusteredColumnSeriesCoreXF {
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRangeSeriesCoreXF extends StiLineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        private renderLines2(context, geom, points, values, series);
+        private renderMarkers2(context, geom, points, values, series);
+        private getYPoint(value, currentSeries, axisArea, index);
+        private renderAreas2(geom, points, pointsEnd, series);
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiSplineRangeSeriesCoreXF extends StiSplineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        private renderLines2(context, geom, points, values, series);
+        private renderMarkers2(context, geom, points, values, series);
+        private getYPoint(value, currentSeries, axisArea, index);
+        private renderAreas2(context, geom, points, pointsEnd, series);
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiSteppedRangeSeriesCoreXF extends StiSteppedLineSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, series: IStiSeries[]): void;
+        private renderAreas2(context, geom, points, pointsEnd, series);
+        private renderLines2(context, geom, points, values, series);
+        private renderMarkers2(context, geom, points, values, series);
+        private getYPoint(value, currentSeries, axisArea, index);
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiScatterLineSeriesCoreXF extends StiScatterSeriesCoreXF {
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiScatterSplineSeriesCoreXF extends StiScatterSeriesCoreXF {
+        renderLines(context: StiContext, geom: StiAreaGeom, points: PointD[]): void;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiTreemapSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        getArgumentText(series: IStiSeries, index: number): string;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        getSeriesBorderColor(colorIndex: number, colorCount: number): any;
+        readonly localizedName: string;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStripsCoreXF implements IStiApplyStyle, ICloneable, IStiStripsCoreXF {
+        private static implementsStiStripsCoreXF;
+        implements(): string[];
+        clone(): Object;
+        applyStyle(style: IStiChartStyle): void;
+        renderXStrips(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
+        renderYStrips(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
+        render(context: StiContext, geom: StiAxisAreaGeom, rect: RectangleD): void;
+        private _strips;
+        strips: IStiStrips;
+        constructor(strips: IStiStrips);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Font = Stimulsoft.System.Drawing.Font;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStyleCoreXF implements IStiStyleCoreXF {
+        private static implementsStiStyleCoreXF;
+        implements(): string[];
+        readonly localizedName: string;
+        readonly styleId: StiChartStyleId;
+        readonly chartBrush: StiBrush;
+        readonly chartAreaBrush: StiBrush;
+        readonly chartAreaBorderColor: Color;
+        private _chart;
+        chart: IStiChart;
+        readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLabelsColor: Color;
+        readonly seriesLabelsBorderColor: Color;
+        readonly seriesLabelsFont: Font;
+        readonly legendBrush: StiBrush;
+        readonly legendLabelsColor: Color;
+        readonly legendBorderColor: Color;
+        readonly legendTitleColor: Color;
+        readonly legendShowShadow: boolean;
+        readonly legendFont: Font;
+        readonly axisTitleColor: Color;
+        readonly axisLineColor: Color;
+        readonly axisLabelsColor: Color;
+        readonly interlacingHorBrush: StiBrush;
+        readonly interlacingVertBrush: StiBrush;
+        readonly gridLinesHorColor: Color;
+        readonly gridLinesVertColor: Color;
+        readonly seriesLighting: boolean;
+        readonly seriesShowShadow: boolean;
+        readonly markerVisible: boolean;
+        readonly firstStyleColor: Color;
+        readonly lastStyleColor: Color;
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): void;
+        getAreaBrush(color: Color): StiBrush;
+        getColumnBrush(color: Color): StiBrush;
+        getColumnBorder(color: Color): Color;
+        getColors(seriesCount: number): Color[];
+        getColorByIndex(index: number, count: number): Color;
+        getColorBySeries(series: IStiSeries): Color;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF01 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiCustomStyleCoreXF extends StiStyleCoreXF01 {
+        private _base;
+        readonly localizedName: string;
+        reportChartStyle: Stimulsoft.Report.Styles.StiChartStyle;
+        readonly chartAreaBrush: StiBrush;
+        readonly chartAreaBorderColor: Color;
+        readonly seriesShowShadow: boolean;
+        readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLabelsColor: Color;
+        readonly seriesLabelsBorderColor: Color;
+        readonly legendBrush: StiBrush;
+        readonly legendLabelsColor: Color;
+        readonly legendBorderColor: Color;
+        readonly legendTitleColor: Color;
+        readonly axisTitleColor: Color;
+        readonly axisLineColor: Color;
+        readonly axisLabelsColor: Color;
+        readonly interlacingHorBrush: StiBrush;
+        readonly interlacingVertBrush: StiBrush;
+        readonly gridLinesHorColor: Color;
+        readonly gridLinesVertColor: Color;
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        private _reportStyleName;
+        reportStyleName: string;
+        readonly reportStyle: Stimulsoft.Report.Styles.StiChartStyle;
+        private _customStyle;
+        readonly customStyle: StiCustomStyle;
+        getColumnBrush(color: Color): StiBrush;
+        constructor(customStyle: StiCustomStyle);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF02 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleColors: Color[];
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF03 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF04 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleColors: Color[];
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF05 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF06 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF07 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF08 extends StiStyleCoreXF03 {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF09 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF10 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF11 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF12 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF13 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF14 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF15 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF16 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF17 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF18 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): void;
+        getColumnBrush(color: Color): StiBrush;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF19 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly interlacingHorBrush: StiBrush;
+        readonly interlacingVertBrush: StiBrush;
+        readonly chartAreaBrush: StiBrush;
+        readonly chartBrush: StiBrush;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF20 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly axisLineColor: Color;
+        readonly chartAreaBorderColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF21 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        readonly chartBrush: StiBrush;
+        readonly chartAreaBrush: StiBrush;
+        readonly chartAreaBorderColor: Color;
+        readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLabelsColor: Color;
+        readonly seriesLabelsBorderColor: Color;
+        readonly legendBrush: StiBrush;
+        readonly legendLabelsColor: Color;
+        readonly axisTitleColor: Color;
+        readonly axisLineColor: Color;
+        readonly axisLabelsColor: Color;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+        getColumnBorder(color: Color): Color;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF22 extends StiStyleCoreXF {
+        readonly localizedName: string;
+        readonly chartBrush: StiBrush;
+        readonly chartAreaBrush: StiBrush;
+        readonly chartAreaBorderColor: Color;
+        readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLabelsColor: Color;
+        readonly seriesLabelsBorderColor: Color;
+        readonly legendBrush: StiBrush;
+        readonly legendLabelsColor: Color;
+        readonly axisTitleColor: Color;
+        readonly axisLineColor: Color;
+        readonly axisLabelsColor: Color;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly basicStyleColor: Color;
+        readonly styleId: StiChartStyleId;
+        getColumnBrush(color: Color): StiBrush;
+        getColumnBorder(color: Color): Color;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF23 extends StiStyleCoreXF22 {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStyleCoreXF24 extends StiStyleCoreXF22 {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    import Font = Stimulsoft.System.Drawing.Font;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStyleCoreXF25 extends StiStyleCoreXF22 {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly styleId: StiChartStyleId;
+        readonly legendShowShadow: boolean;
+        readonly legendBorderColor: Color;
+        readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLabelsColor: Color;
+        readonly seriesLabelsBorderColor: Color;
+        readonly seriesLabelsFont: Font;
+        readonly seriesLighting: boolean;
+        readonly seriesShowShadow: boolean;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Font = Stimulsoft.System.Drawing.Font;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStyleCoreXF26 extends StiStyleCoreXF22 {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly chartAreaBrush: StiBrush;
+        readonly legendShowShadow: boolean;
+        readonly legendBorderColor: Color;
+        readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLabelsColor: Color;
+        readonly seriesLabelsBorderColor: Color;
+        readonly seriesLabelsFont: Font;
+        readonly seriesLighting: boolean;
+        readonly seriesShowShadow: boolean;
+        readonly markerVisible: boolean;
+        readonly styleId: StiChartStyleId;
+        getColumnBorder(color: Color): Color;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Font = Stimulsoft.System.Drawing.Font;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStyleCoreXF27 extends StiStyleCoreXF22 {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly styleColors: Color[];
+        readonly chartBrush: StiBrush;
+        readonly chartAreaBrush: StiBrush;
+        readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLabelsColor: Color;
+        readonly seriesLabelsBorderColor: Color;
+        readonly seriesLabelsFont: Font;
+        readonly legendBrush: StiBrush;
+        readonly legendLabelsColor: Color;
+        readonly legendBorderColor: Color;
+        readonly legendTitleColor: Color;
+        readonly legendShowShadow: boolean;
+        readonly legendFont: Font;
+        readonly seriesLighting: boolean;
+        getColumnBorder(color: Color): Color;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Font = Stimulsoft.System.Drawing.Font;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStyleCoreXF28 extends StiStyleCoreXF22 {
+        readonly localizedName: string;
+        protected _styleColor: Color[];
+        readonly chartBrush: StiBrush;
+        readonly chartAreaBrush: StiBrush;
+        readonly axisTitleColor: Color;
+        readonly axisLineColor: Color;
+        readonly axisLabelsColor: Color;
+        readonly seriesLabelsColor: Color;
+        readonly legendBrush: StiBrush;
+        readonly legendLabelsColor: Color;
+        readonly legendBorderColor: Color;
+        readonly legendTitleColor: Color;
+        readonly legendShowShadow: boolean;
+        readonly legendFont: Font;
+        readonly styleId: StiChartStyleId;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiChartTableCoreXF implements ICloneable, IStiApplyStyle, IStiChartTableCoreXF {
+        private static implementsStiChartTableCoreXF;
+        implements(): string[];
+        applyStyle(style: IStiChartStyle): void;
+        clone(): StiChartTableCoreXF;
+        private _chartTable;
+        chartTable: IStiChartTable;
+        showTable(): boolean;
+        getHeightTable(context: StiContext, widthTable: number): number;
+        getHeightHeaderTable(context: StiContext, widthTable: number): number;
+        getWidthCellLegend(context: StiContext): number;
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        private getMaxCountValues(series);
+        private getArguments();
+        private getTableValues();
+        constructor(table: IStiChartTable);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTrendLineCoreXF implements ICloneable, IStiTrendLineCoreXF {
+        private static implementsStiTrendLineCoreXF;
+        implements(): string[];
+        clone(): StiTrendLineCoreXF;
+        readonly localizedName: string;
+        private _trendLine;
+        trendLine: IStiTrendLine;
+        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
+        sum(values: number[]): number;
+        sumSqr(values: number[]): number;
+        sumProductions(valuesX: number[], valuesY: number[]): number;
+        sumProductionsXLogY(valuesX: number[], valuesY: number[]): number;
+        sumLn(values: number[]): number;
+        constructor(trendLine: IStiTrendLine);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiTrendLineExponentialCoreXF extends StiTrendLineCoreXF {
+        readonly localizedName: string;
+        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
+        constructor(trendLine: IStiTrendLine);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiTrendLineLinearCoreXF extends StiTrendLineCoreXF {
+        readonly localizedName: string;
+        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
+        constructor(trendLine: IStiTrendLine);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiTrendLineLogarithmicCoreXF extends StiTrendLineCoreXF {
+        readonly localizedName: string;
+        renderTrendLine(geom: StiAreaGeom, points: PointD[], posY: number): void;
+        constructor(trendLine: IStiTrendLine);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiTrendLineNoneCoreXF extends StiTrendLineCoreXF {
+        readonly localizedName: string;
+        constructor(trendLine: IStiTrendLine);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiChartCoreXF implements ICloneable, IStiApplyStyle, IStiChartCoreXF {
+        private static implementsStiChartCoreXF;
+        implements(): string[];
+        clone(): Object;
+        applyStyle(style: IStiChartStyle): void;
+        render(context: StiContext, rect: RectangleD, useMargins: boolean): StiCellGeom;
+        private setLegendRect(context, chart, REFfullRectangle, REFareaRect, REFlegendRect);
+        private _chart;
+        chart: IStiChart;
+        constructor(chart: IStiChart);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiGeom = Stimulsoft.Base.Context.StiGeom;
+    import StiGeomType = Stimulsoft.Base.Context.StiGeomType;
+    class StiCellGeom extends StiGeom implements IStiGeomInteraction, IStiCellGeom {
+        private static implementsStiCellGeom;
+        implements(): string[];
+        invokeClick(options: StiInteractionOptions): void;
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeMouseDown(options: StiInteractionOptions): void;
+        invokeMouseUp(options: StiInteractionOptions): void;
+        invokeDrag(options: StiInteractionOptions): void;
+        readonly invisible: boolean;
+        readonly type: StiGeomType;
+        private _childGeoms;
+        readonly childGeoms: StiCellGeom[];
+        private _clientRectangle;
+        clientRectangle: RectangleD;
+        dispose(): void;
+        contains(x: number, y: number): boolean;
+        getGeomAt(parent: StiCellGeom, x: number, y: number): StiCellGeom;
+        getSeriesGeoms(): StiCellGeom[];
+        getRect(geom: StiGeom): RectangleD;
+        createChildGeoms(): void;
+        draw(context: StiContext): void;
+        drawGeom(context: StiContext): void;
+        drawChildGeoms(context: StiContext): void;
+        protected allowChildDrawing(cellGeom: StiCellGeom): boolean;
+        constructor(clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiAreaGeom extends StiCellGeom {
+        private _area;
+        readonly area: IStiArea;
+        draw(context: StiContext): void;
+        constructor(area: IStiArea, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiAxisAreaGeom extends StiAreaGeom {
+        private _view;
+        readonly view: StiAxisAreaViewGeom;
+        private minWidth;
+        private drawInterlacingHor(context, rect);
+        private drawInterlacingVer(context, rect);
+        private drawGridLinesHor(context, rect, gridLinesHor, isLeftAxis);
+        private drawGridLinesVer(context, rect, gridLinesVert, isBottomAxis);
+        protected allowChildDrawing(cellGeom: StiCellGeom): boolean;
+        isChildVisibleInView(cellGeom: StiCellGeom): boolean;
+        draw(context: StiContext): void;
+        constructor(view: StiAxisAreaViewGeom, area: IStiArea, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiAxisAreaViewGeom extends StiAreaGeom {
+        drawGeom(context: StiContext): void;
+        drawChildGeoms(context: StiContext): void;
+        private drawBorder(context);
+        constructor(area: IStiArea, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiPieAreaGeom extends StiAreaGeom {
+        draw(context: StiContext): void;
+        constructor(area: IStiArea, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiDoughnutAreaGeom extends StiPieAreaGeom {
+        constructor(area: IStiArea, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiRadarAreaGeom extends StiAreaGeom {
+        private _valuesCount;
+        readonly valuesCount: number;
+        private drawHor(context, fill, draw);
+        private drawVert(context, fill, draw);
+        private drawBackground(context);
+        draw(context: StiContext): void;
+        constructor(area: IStiArea, clientRectangle: RectangleD, valuesCount: number);
+    }
+}
+declare namespace Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiTreemapAreaGeom extends StiAreaGeom {
+        draw(context: StiContext): void;
+        constructor(area: IStiArea, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiDownButtonGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeMouseDown(options: StiInteractionOptions): void;
+        private moveDown();
+        private _axis;
+        readonly axis: IStiYAxis;
+        draw(context: StiContext): void;
+        constructor(axis: IStiYAxis, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiHorzScrollBarGeom extends StiCellGeom {
+        invokeMouseDown(options: StiInteractionOptions): void;
+        draw(context: StiContext): void;
+        private _axis;
+        readonly axis: IStiXAxis;
+        constructor(axis: IStiXAxis, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiHorzTrackBarGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeMouseDown(options: StiInteractionOptions): void;
+        invokeDrag(options: StiInteractionOptions): void;
+        draw(context: StiContext): void;
+        private _axis;
+        readonly axis: IStiXAxis;
+        private _scrollBar;
+        readonly scrollBar: StiHorzScrollBarGeom;
+        constructor(axis: IStiXAxis, clientRectangle: RectangleD, scrollBar: StiHorzScrollBarGeom);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLeftButtonGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeMouseDown(options: StiInteractionOptions): void;
+        private moveLeft();
+        private _axis;
+        readonly axis: IStiXAxis;
+        draw(context: StiContext): void;
+        constructor(axis: IStiXAxis, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiRightButtonGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeMouseDown(options: StiInteractionOptions): void;
+        private moveRight();
+        private _axis;
+        readonly axis: IStiXAxis;
+        draw(context: StiContext): void;
+        constructor(axis: IStiXAxis, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiUpButtonGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeMouseDown(options: StiInteractionOptions): void;
+        private moveUp();
+        private _axis;
+        readonly axis: IStiYAxis;
+        draw(context: StiContext): void;
+        constructor(axis: IStiYAxis, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiVertScrollBarGeom extends StiCellGeom {
+        invokeMouseDown(options: StiInteractionOptions): void;
+        draw(context: StiContext): void;
+        private _axis;
+        readonly axis: IStiYAxis;
+        constructor(axis: IStiYAxis, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiVertTrackBarGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeMouseDown(options: StiInteractionOptions): void;
+        invokeDrag(options: StiInteractionOptions): void;
+        draw(context: StiContext): void;
+        private _axis;
+        readonly axis: IStiYAxis;
+        private _scrollBar;
+        readonly scrollBar: StiVertScrollBarGeom;
+        constructor(axis: IStiYAxis, clientRectangle: RectangleD, scrollBar: StiVertScrollBarGeom);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiAxisLabelGeom extends StiCellGeom {
+        private _rotationMode;
+        readonly rotationMode: StiRotationMode;
+        private _textPoint;
+        readonly textPoint: PointD;
+        private _angle;
+        readonly angle: number;
+        private _axis;
+        readonly axis: IStiAxis;
+        private _text;
+        readonly text: string;
+        private _stripLine;
+        readonly stripLine: StiStripLineXF;
+        draw(context: StiContext): void;
+        constructor(axis: IStiAxis, clientRectangle: RectangleD, textPoint: PointD, text: string, stripLine: StiStripLineXF, angle: number, rotationMode: StiRotationMode);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StringAlignment = Stimulsoft.System.Drawing.StringAlignment;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiAxisTitleGeom extends StiCellGeom {
+        private _axis;
+        readonly axis: IStiAxis;
+        private _angle;
+        readonly angle: number;
+        draw(context: StiContext): void;
+        constructor(axis: IStiAxis, clientRectangle: RectangleD, angle: number, stringAlignment: StringAlignment);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiXAxisGeom extends StiCellGeom {
+        private _axis;
+        readonly axis: IStiXAxis;
+        private _isCenterAxis;
+        readonly isCenterAxis: boolean;
+        private _view;
+        view: StiXAxisViewGeom;
+        drawArrow(context: StiContext, rect: RectangleD): void;
+        private drawAxisLine(context, rect);
+        private drawMinorTicks(context, pen, posX1, posX2, posY, ticks);
+        private drawTicks(context, rect, ticks, penLine);
+        private isArgumentDateTime(infos);
+        private drawAxis(context, rect);
+        private getViewclipRect();
+        allowChildDrawing(cellGeom: StiCellGeom): boolean;
+        draw(context: StiContext): void;
+        constructor(axis: IStiXAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiXAxisViewGeom extends StiXAxisGeom {
+        drawChildGeoms(context: StiContext): void;
+        draw(context: StiContext): void;
+        constructor(axis: IStiXAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiYAxisGeom extends StiCellGeom {
+        private _axis;
+        readonly axis: IStiYAxis;
+        private _isCenterAxis;
+        readonly isCenterAxis: boolean;
+        private _view;
+        view: StiYAxisViewGeom;
+        drawArrow(context: StiContext, rect: RectangleD): void;
+        private drawAxisLine(context, rect);
+        private drawMinorTicks(context, pen, posX, posY1, posY2, ticks);
+        private drawTicks(context, rect, ticks, penLine);
+        private drawAxis(context, rect);
+        private getViewclipRect();
+        allowChildDrawing(cellGeom: StiCellGeom): boolean;
+        draw(context: StiContext): void;
+        constructor(axis: IStiYAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiYAxisViewGeom extends StiYAxisGeom {
+        drawChildGeoms(context: StiContext): void;
+        draw(context: StiContext): void;
+        constructor(axis: IStiYAxis, clientRectangle: RectangleD, isCenterAxis: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiChartTitleGeom extends StiCellGeom {
+        private _title;
+        readonly title: IStiChartTitle;
+        draw(context: StiContext): void;
+        constructor(title: IStiChartTitle, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiConstantLinesVerticalGeom extends StiCellGeom {
+        private _line;
+        readonly line: IStiConstantLines;
+        private _point;
+        readonly point: PointD;
+        private _mode;
+        readonly mode: StiRotationMode;
+        draw(context: StiContext): void;
+        constructor(line: IStiConstantLines, clientRectangle: RectangleD, point: PointD, mode: StiRotationMode);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiConstantLinesYGeom extends StiCellGeom {
+        private _line;
+        readonly line: IStiConstantLines;
+        private _point;
+        readonly point: PointD;
+        private _mode;
+        readonly mode: StiRotationMode;
+        draw(context: StiContext): void;
+        constructor(line: IStiConstantLines, clientRectangle: RectangleD, point: PointD, mode: StiRotationMode);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendCandelstickMarker implements IStiLegendMarker {
+        private static implementsStiLegendCandelstickMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendColumnMarker implements IStiLegendMarker {
+        private static implementsStiLegendColumnMarker;
+        implements(): string[];
+        draw(context: StiContext, series: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendDoughnutMarker implements IStiLegendMarker {
+        private static implementsStiLegendDoughnutMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendFunnelMarker implements IStiLegendMarker {
+        private static implementsStiLegendFunnelMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendLineMarker implements IStiLegendMarker {
+        private static implementsStiLegendLineMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiLegendMarkerHelper {
+        static getSteppedMarkerPath(rect: RectangleD): StiSegmentGeom[];
+        static getAreaMarkerPath(rect: RectangleD): StiSegmentGeom[];
+        static getAreaMarkerLinePoints(rect: RectangleD): PointD[];
+        static getSplineAreaMarkerPath(rect: RectangleD): StiSegmentGeom[];
+        static getSplineAreaMarkerLinePoints(rect: RectangleD): PointD[];
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendPieMarker implements IStiLegendMarker {
+        private static implementsStiLegendPieMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendRangeMarker implements IStiLegendMarker {
+        private static implementsStiLegendRangeMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSplineAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendSplineAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSplineRangeMarker implements IStiLegendMarker {
+        private static implementsStiLegendSplineRangeMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendStackedAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendStackedAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendStackedSplineAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendStackedSplineAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSteppedAreaMarker implements IStiLegendMarker {
+        private static implementsStiLegendSteppedAreaMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendSteppedRangeMarker implements IStiLegendMarker {
+        private static implementsStiSteppedRangeSeries;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendStockMarker implements IStiLegendMarker {
+        private static implementsStiLegendStockMarker;
+        implements(): string[];
+        draw(context: StiContext, serie: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiMarkerLegendFactory {
+        static createMarker(series: IStiSeries): IStiLegendMarker;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendGeom extends StiCellGeom {
+        private _legend;
+        readonly legend: IStiLegend;
+        private _seriesItems;
+        readonly seriesItems: StiLegendItemCoreXF[];
+        private _legendTitleGeom;
+        legendTitleGeom: StiLegendTitleGeom;
+        dispose(): void;
+        draw(context: StiContext): void;
+        constructor(legend: IStiLegend, clientRectangle: RectangleD, seriesItems: StiLegendItemCoreXF[]);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendItemGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeClick(options: StiInteractionOptions): void;
+        readonly allowMouseOver: boolean;
+        private readonly isColorEach;
+        isMouseOver: boolean;
+        private _legend;
+        readonly legend: IStiLegend;
+        private _item;
+        readonly item: StiLegendItemCoreXF;
+        private _colorIndex;
+        readonly colorIndex: number;
+        private _legendItemsCount;
+        readonly legendItemsCount: number;
+        draw(context: StiContext): void;
+        constructor(legend: IStiLegend, item: StiLegendItemCoreXF, clientRectangle: RectangleD, colorIndex: number, legendItemsCount: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiLegendTitleGeom extends StiCellGeom {
+        private _legend;
+        readonly legend: IStiLegend;
+        draw(context: StiContext): void;
+        constructor(legend: IStiLegend, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiMarkerGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeClick(options: StiInteractionOptions): void;
+        private getValueIndex();
+        getHyperlink(): string;
+        private getHyperlink2(valueIndex);
+        getToolTip(): string;
+        private getToolTip2(valueIndex);
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _interaction;
+        interaction: StiSeriesInteractionData;
+        private _index;
+        readonly index: number;
+        private _point;
+        readonly point: PointD;
+        private _marker;
+        readonly marker: IStiMarker;
+        private _value;
+        readonly value: number;
+        private _showShadow;
+        readonly showShadow: boolean;
+        private _series;
+        readonly series: IStiSeries;
+        contains(x: number, y: number): boolean;
+        getMouseOverRect(): RectangleD;
+        draw(context: StiContext): void;
+        constructor(series: IStiSeries, index: number, value: number, point: PointD, marker: IStiMarker, showShadow: boolean, zoom: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiRadarAxisGeom extends StiCellGeom {
+        private _axis;
+        readonly axis: IStiYRadarAxis;
+        private drawAxisLine(context, rect);
+        private drawMinorTicks(context, pen, posX, posY1, posY2, ticks);
+        private drawTicks(context, rect, ticks, penLine);
+        private drawAxis(context, rect);
+        draw(context: StiContext): void;
+        constructor(axis: IStiYRadarAxis, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiXRadarAxisLabelGeom extends StiCellGeom {
+        private _borderColor;
+        readonly borderColor: Color;
+        private _labelBrush;
+        readonly labelBrush: StiBrush;
+        private _text;
+        readonly text: string;
+        private _angle;
+        readonly angle: number;
+        private _point;
+        readonly point: PointD;
+        private _labelRect;
+        readonly labelRect: RectangleD;
+        private _axis;
+        readonly axis: IStiXRadarAxis;
+        draw(context: StiContext): void;
+        constructor(axis: IStiXRadarAxis, text: string, labelBrush: StiBrush, borderColor: Color, angle: number, clientRectangle: RectangleD, labelRect: RectangleD, point: PointD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiYRadarAxisLabelGeom extends StiCellGeom {
+        private _rotationMode;
+        readonly rotationMode: StiRotationMode;
+        private _textPoint;
+        readonly textPoint: PointD;
+        private _angle;
+        readonly angle: number;
+        private _axis;
+        readonly axis: IStiYRadarAxis;
+        private _text;
+        readonly text: string;
+        private _stripLine;
+        readonly stripLine: StiStripLineXF;
+        draw(context: StiContext): void;
+        constructor(axis: IStiYRadarAxis, clientRectangle: RectangleD, textPoint: PointD, text: string, stripLine: StiStripLineXF, angle: number, rotationMode: StiRotationMode);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiSeriesLabelsGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        private getValueIndex();
+        private getHyperlink(valueIndex);
+        private getToolTip(valueIndex);
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _value;
+        readonly value: number;
+        private _index;
+        readonly index: number;
+        private _series;
+        readonly series: IStiSeries;
+        private _seriesLabels;
+        readonly seriesLabels: IStiSeriesLabels;
+        private _beginTime;
+        beginTime: TimeSpan;
+        private _duration;
+        duration: TimeSpan;
+        drawMarker(context: StiContext, itemRect: Rectangle, markerColor: Object, markerBrush: StiBrush): void;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiCenterAxisLabelsGeom extends StiSeriesLabelsGeom {
+        private _labelColor;
+        readonly labelColor: Color;
+        private _labelBorderColor;
+        readonly labelBorderColor: Color;
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesLabelsBrush;
+        readonly seriesLabelsBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _font;
+        readonly font: StiFontGeom;
+        private _text;
+        readonly text: string;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesLabelsBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiOutsideAxisLabelsGeom extends StiSeriesLabelsGeom {
+        private _labelColor;
+        readonly labelColor: Color;
+        private _labelBorderColor;
+        readonly labelBorderColor: Color;
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _font;
+        readonly font: StiFontGeom;
+        private _text;
+        readonly text: string;
+        private _startPoint;
+        readonly startPoint: PointD;
+        private _endPoint;
+        readonly endPoint: PointD;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom, startPoint: PointD, endPoint: PointD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiCenterFunnelLabelsGeom extends StiSeriesLabelsGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _borderColor;
+        readonly borderColor: Color;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _labelBrush;
+        readonly labelBrush: StiBrush;
+        private _text;
+        readonly text: string;
+        private _labelRect;
+        readonly labelRect: RectangleD;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, labelRect: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiOutsideFunnelLabelsGeom extends StiCenterFunnelLabelsGeom {
+        private _startPointLine;
+        readonly startPointLine: PointD;
+        private _endPointLine;
+        readonly endPointLine: PointD;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, labelRect: RectangleD, startPointLine: PointD, endPointLine: PointD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiCenterPieLabelsGeom extends StiSeriesLabelsGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _borderColor;
+        readonly borderColor: Color;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _seriesLabelsBrush;
+        readonly seriesLabelsBrush: StiBrush;
+        private _labelBrush;
+        readonly labelBrush: StiBrush;
+        private _text;
+        readonly text: string;
+        private _rotationMode;
+        readonly rotationMode: StiRotationMode;
+        private _labelRect;
+        readonly labelRect: RectangleD;
+        private _angleToUse;
+        readonly angleToUse: number;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, rotationMode: StiRotationMode, labelRect: RectangleD, angleToUse: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiOutsidePieLabelsGeom extends StiCenterPieLabelsGeom {
+        private _lineColor;
+        readonly lineColor: Color;
+        private _labelPoint;
+        readonly labelPoint: PointD;
+        private _startPoint;
+        readonly startPoint: PointD;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, rotationMode: StiRotationMode, labelRect: RectangleD, angleToUse: number, lineColor: Color, labelPoint: PointD, startPoint: PointD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiTwoColumnsPieLabelsGeom extends StiSeriesLabelsGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _borderColor;
+        readonly borderColor: Color;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _labelBrush;
+        readonly labelBrush: StiBrush;
+        private _seriesLabelsBrush;
+        readonly seriesLabelsBrush: StiBrush;
+        private _text;
+        readonly text: string;
+        private _labelRect;
+        readonly labelRect: RectangleD;
+        private _lineColor;
+        readonly lineColor: Color;
+        private _startPoint;
+        readonly startPoint: PointD;
+        private _endPoint;
+        endPoint: PointD;
+        private _arcPoint;
+        readonly arcPoint: PointD;
+        private _centerPie;
+        readonly centerPie: PointD;
+        draw(context: StiContext): void;
+        drawMarker(context: StiContext, itemRect: Rectangle, markerColor: Object, markerBrush: StiBrush): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, labelRect: RectangleD, lineColor: Color, startPoint: PointD, endPoint: PointD, arcPoint: PointD, centerPie: PointD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
+    class StiCenterTreemapLabelsGeom extends StiSeriesLabelsGeom {
+        private _labelColor;
+        readonly labelColor: Color;
+        private _labelBorderColor;
+        readonly labelBorderColor: Color;
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesLabelsBrush;
+        readonly seriesLabelsBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _font;
+        readonly font: StiFontGeom;
+        private _text;
+        readonly text: string;
+        private _animation;
+        readonly animation: StiAnimation;
+        draw(context: StiContext): void;
+        constructor(seriesLabels: IStiSeriesLabels, series: any, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesLabelsBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom, animation: StiAnimation);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiSeriesElementGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeClick(options: StiInteractionOptions): void;
+        protected getValueIndex(): number;
+        getHyperlink(): string;
+        private getHyperlink2(valueIndex);
+        getToolTip(): string;
+        private getToolTip2(valueIndex);
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _value;
+        readonly value: number;
+        private _index;
+        readonly index: number;
+        private _series;
+        readonly series: IStiSeries;
+        private _interaction;
+        interaction: StiSeriesInteractionData;
+        private _areaGeom;
+        areaGeom: StiAreaGeom;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiBubbleSeriesElementGeom extends StiSeriesElementGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiClusteredBarSeriesElementGeom extends StiSeriesElementGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiSeriesGeom extends StiCellGeom {
+        private _series;
+        readonly series: IStiSeries;
+        private _interactions;
+        interactions: StiSeriesInteractionData[];
+        private _areaGeom;
+        areaGeom: StiAreaGeom;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiBaseLineSeriesGeom extends StiSeriesGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _points;
+        readonly points: PointD[];
+        static getClientRectangle(points: PointD[]): RectangleD;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiLineSeriesGeom extends StiBaseLineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        private getPointCross(point1, point2, posY);
+        private drawLine(context, pen, listPoints);
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiAreaSeriesGeom extends StiLineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiClusteredColumnSeriesElementGeom extends StiSeriesElementGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSplineSeriesGeom extends StiBaseLineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSplineAreaSeriesGeom extends StiSplineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSteppedLineSeriesGeom extends StiBaseLineSeriesGeom {
+        getConvertedPoints(points: PointD[]): PointD[];
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        private intersectionAxis(point, pointNext, points, pointsNext, posY);
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSteppedAreaSeriesGeom extends StiSteppedLineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiDoughnutSeriesElementGeom extends StiSeriesElementGeom {
+        private _path;
+        readonly path: StiSegmentGeom[];
+        private _pathLight;
+        readonly pathLight: StiSegmentGeom[];
+        private _pathDark;
+        readonly pathDark: StiSegmentGeom[];
+        private _borderColor;
+        readonly borderColor: Color;
+        private _brush;
+        readonly brush: StiBrush;
+        private _brushLight;
+        readonly brushLight: StiBrush;
+        private _brushDark;
+        readonly brushDark: StiBrush;
+        private _startAngle;
+        readonly startAngle: number;
+        private _endAngle;
+        readonly endAngle: number;
+        private _radiusFrom;
+        readonly radiusFrom: number;
+        private _radiusTo;
+        readonly radiusTo: number;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiDoughnutSeries, clientRectangle: RectangleD, path: StiSegmentGeom[], pathLight: StiSegmentGeom[], pathDark: StiSegmentGeom[], borderColor: Color, brush: StiBrush, brushLight: StiBrush, brushDark: StiBrush, startAngle: number, endAngle: number, radiusFrom: number, radiusTo: number, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiFinancialSeriesElementGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeClick(options: StiInteractionOptions): void;
+        private getValueIndex();
+        private getHyperlink(valueIndex);
+        private getToolTip(valueIndex);
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _series;
+        readonly series: IStiSeries;
+        private _interaction;
+        interaction: StiSeriesInteractionData;
+        private _open;
+        readonly open: number;
+        private _close;
+        readonly close: number;
+        private _high;
+        readonly high: number;
+        private _low;
+        readonly low: number;
+        private _positionX;
+        readonly positionX: number;
+        private _areaGeom;
+        readonly areaGeom: StiAreaGeom;
+        private _index;
+        readonly index: number;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, open: number, close: number, high: number, low: number, positionX: number, index: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiCandlestickSeriesElementGeom extends StiFinancialSeriesElementGeom {
+        private _brush;
+        readonly brush: StiBrush;
+        private _borderColor;
+        readonly borderColor: Color;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, bodyStart: number, bodyEnd: number, high: number, low: number, positionX: number, index: number, brush: StiBrush, borderColor: Color, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStockSeriesElementGeom extends StiFinancialSeriesElementGeom {
+        private _color;
+        readonly color: Color;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, series: IStiSeries, clientRectangle: RectangleD, open: number, close: number, high: number, low: number, positionX: number, index: number, color: Color, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiFunnelSeriesElementGeom extends StiSeriesElementGeom {
+        private _path;
+        readonly path: StiSegmentGeom[];
+        private _borderColor;
+        readonly borderColor: Color;
+        private _brush;
+        readonly brush: StiBrush;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD, brush: StiBrush, borderColor: Color, path: StiSegmentGeom[], beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiGanttSeriesElementGeom extends StiSeriesElementGeom {
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiSegmentGeom = Stimulsoft.Base.Context.StiSegmentGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiPieSeriesElementGeom extends StiSeriesElementGeom {
+        private _path;
+        readonly path: StiSegmentGeom[];
+        private _pathLight;
+        readonly pathLight: StiSegmentGeom[];
+        private _borderColor;
+        readonly borderColor: Color;
+        private _brush;
+        readonly brush: StiBrush;
+        private _startAngle;
+        startAngle: number;
+        private _endAngle;
+        endAngle: number;
+        private _radius;
+        radius: number;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiPieSeries, clientRectangle: RectangleD, path: StiSegmentGeom[], pathLight: StiSegmentGeom[], borderColor: Color, brush: StiBrush, startAngle: number, endAngle: number, radius: number, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiPieSeriesFullElementGeom extends StiCellGeom {
+        private _series;
+        readonly series: IStiPieSeries;
+        private _brush;
+        readonly brush: StiBrush;
+        private _borderColor;
+        readonly borderColor: Color;
+        draw(context: StiContext): void;
+        constructor(series: IStiPieSeries, clientRectangle: RectangleD, brush: StiBrush, borderColor: Color);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiPieSeriesShadowElementGeom extends StiCellGeom {
+        readonly invisible: boolean;
+        private _series;
+        readonly series: IStiPieSeries;
+        private _shadowContext;
+        readonly shadowContext: StiContext;
+        private _radius;
+        readonly radius: number;
+        private _duration;
+        readonly duration: TimeSpan;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        private _isAnimation;
+        readonly isAnimation: boolean;
+        draw(context: StiContext): void;
+        constructor(series: IStiPieSeries, clientRectangle: RectangleD, radius: number, shadowContext: StiContext, duration: TimeSpan, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiRadarAreaSeriesGeom extends StiCellGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _series;
+        readonly series: IStiSeries;
+        private _points;
+        readonly points: PointD[];
+        private _centerPoint;
+        readonly centerPoint: PointD;
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(series: IStiSeries, points: PointD[], centerPoint: PointD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiRadarPointSeriesElementGeom extends StiSeriesElementGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        invokeClick(options: StiInteractionOptions): void;
+        protected getValueIndex(): number;
+        private getHyperlink3(valueIndex);
+        private getToolTip3(valueIndex);
+        private _point;
+        readonly point: PointD;
+        contains(x: number, y: number): boolean;
+        getMouseOverRect(): RectangleD;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiRadarSeries, point: PointD, zoom: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiRangeBarElementGeom extends StiSeriesElementGeom {
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiRangeSeriesGeom extends StiLineSeriesGeom {
+        private _pointsEnd;
+        pointsEnd: PointD[];
+        draw(context: StiContext): void;
+        private getBrush(areaSeries, point, pointEnd);
+        private fillPath(context, brush, pointsLine, pointsLineEnd);
+        private intersection(point, pointEnd, pointNext, pointNextEnd);
+        private getPointCross2(point, pointEnd, pointNext, pointNextEnd);
+        constructor(areaGeom: StiAreaGeom, points: PointD[], pointsEnd: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSplineRangeSeriesGeom extends StiSplineSeriesGeom {
+        private _pointsEnd;
+        pointsEnd: PointD[];
+        draw(context: StiContext): void;
+        private fillPath(context, points, pointsEnd);
+        constructor(areaGeom: StiAreaGeom, points: PointD[], pointsEnd: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSteppedRangeSeriesGeom extends StiSteppedLineSeriesGeom {
+        private _pointsEnd;
+        pointsEnd: PointD[];
+        draw(context: StiContext): void;
+        private getBrush(areaSeries, point, pointEnd);
+        private fillPath(context, brush, pointsLine, pointsLineEnd);
+        private intersection(point, pointEnd, pointNext, pointNextEnd);
+        constructor(areaGeom: StiAreaGeom, points: PointD[], pointsEnd: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiScatterSplineSeriesGeom extends StiBaseLineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStackedBarSeriesElementGeom extends StiSeriesElementGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStackedBarSeriesShadowElementGeom extends StiCellGeom {
+        readonly invisible: boolean;
+        private _series;
+        readonly series: IStiSeries;
+        private _isLeftShadow;
+        readonly isLeftShadow: boolean;
+        private _isRightShadow;
+        readonly isRightShadow: boolean;
+        draw(context: StiContext): void;
+        constructor(series: IStiSeries, clientRectangle: RectangleD, isLeftShadow: boolean, isRightShadow: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStackedAreaSeriesGeom extends StiSeriesGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _startPoints;
+        readonly startPoints: PointD[];
+        private _endPoints;
+        readonly endPoints: PointD[];
+        contains(x: number, y: number): boolean;
+        static getClientRectangle(startPoints: PointD[], endPoints: PointD[]): RectangleD;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStackedBaseLineSeriesGeom extends StiSeriesGeom {
+        private _points;
+        readonly points: PointD[];
+        static getClientRectangle(points: PointD[]): RectangleD;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStackedColumnSeriesElementGeom extends StiSeriesElementGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _beginTime;
+        readonly beginTime: TimeSpan;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStackedColumnSeriesShadowElementGeom extends StiCellGeom {
+        readonly invisible: boolean;
+        private _series;
+        readonly series: IStiSeries;
+        private _isTopShadow;
+        readonly isTopShadow: boolean;
+        private _isBottomShadow;
+        readonly isBottomShadow: boolean;
+        draw(context: StiContext): void;
+        constructor(series: IStiSeries, clientRectangle: RectangleD, isTopShadow: boolean, isBottomShadow: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiStackedLineSeriesGeom extends StiBaseLineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        private getPointCross(point1, point2, posY);
+        private drawLine(context, pen, listPoints);
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStackedSplineAreaSeriesGeom extends StiSeriesGeom {
+        invokeMouseEnter(options: StiInteractionOptions): void;
+        invokeMouseLeave(options: StiInteractionOptions): void;
+        readonly allowMouseOver: boolean;
+        isMouseOver: boolean;
+        private _startPoints;
+        readonly startPoints: PointD[];
+        private _endPoints;
+        readonly endPoints: PointD[];
+        contains(x: number, y: number): boolean;
+        static getClientRectangle(startPoints: PointD[], endPoints: PointD[]): RectangleD;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, startPoints: PointD[], endPoints: PointD[], series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiStackedSplineSeriesGeom extends StiBaseLineSeriesGeom {
+        contains(x: number, y: number): boolean;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
+    }
+}
+declare namespace Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
+    class StiTreemapSeriesElementGeom extends StiSeriesElementGeom {
+        private _seriesBrush;
+        readonly seriesBrush: StiBrush;
+        private _seriesBorderColor;
+        readonly seriesBorderColor: Color;
+        private _animation;
+        readonly animation: StiAnimation;
+        draw(context: StiContext): void;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, animation: StiAnimation);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiMouseOverHelper {
+        static getMouseOverColor(): Color;
+        static getLineMouseOverColor(): Color;
+        static mouseOverLineDistance: number;
+        static mouseOverSplineDistance: number;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStripsXGeom extends StiCellGeom {
+        private _strip;
+        readonly strip: IStiStrips;
+        draw(context: StiContext): void;
+        constructor(strip: IStiStrips, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiStripsYGeom extends StiCellGeom {
+        private _strip;
+        readonly strip: IStiStrips;
+        draw(context: StiContext): void;
+        constructor(strip: IStiStrips, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiChartTableGeom extends StiCellGeom {
+        constructor(clientRectangle: RectangleD, table: string[][], widthCellLegendTableChart: number, heightCellHeader: number, chartTable: IStiChartTable);
+        private table;
+        private widthCellLegendTableChart;
+        private heightCellHeader;
+        private chartTable;
+        private pen;
+        private font;
+        private fontHeader;
+        private labelBrush;
+        private sf;
+        private sfHeader;
+        private labelHeaderBrush;
+        draw(context: StiContext): void;
+        private drawHeaderArgument(context, rect, listArgument, startFromZero);
+        private drawTitleLegend(context, rect, list);
+        private drawRootTable(context, rect, startFromZero);
+        private checkFontSize(context, text, fontGeom, rectangleF);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiTrendCurveGeom extends StiCellGeom {
+        private _points;
+        readonly points: PointD[];
+        private _trendLine;
+        readonly trendLine: IStiTrendLine;
+        draw(context: StiContext): void;
+        constructor(points: PointD[], trendLine: IStiTrendLine);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiTrendLineGeom extends StiCellGeom {
+        private trendLine;
+        private pointStart;
+        private pointEnd;
+        draw(context: StiContext): void;
+        private static getArray(pointStart, pointEnd);
+        constructor(pointStart: PointD, pointEnd: PointD, trendLine: IStiTrendLine);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    class StiChartGeom extends StiCellGeom {
+        draw(context: StiContext): void;
+        constructor(clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiPenGeom = Stimulsoft.Base.Context.StiPenGeom;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiNullableDrawing {
+        static drawLines(context: StiContext, penGeom: StiPenGeom, points: PointD[], isAnimation?: boolean): void;
+        static drawCurve(context: StiContext, penGeom: StiPenGeom, points: PointD[], tension: number, isAnimation?: boolean): void;
+        static getPointsList(points: PointD[]): PointD[][];
+        static getNullablePointsList(points: PointD[]): PointD[][];
+        static getPointsList2(points1: PointD[], points2: PointD[], REFlist1: any, REFlist2: any): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiAxis implements IStiAxis {
+        private static implementsStiAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxis;
+        private _logarithmicScale;
+        logarithmicScale: boolean;
+        private _core;
+        core: StiAxisCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _startFromZero;
+        startFromZero: boolean;
+        step: number;
+        private _interaction;
+        interaction: IStiAxisInteraction;
+        private _labels;
+        labels: IStiAxisLabels;
+        private _range;
+        range: IStiAxisRange;
+        private _title;
+        title: IStiAxisTitle;
+        private _ticks;
+        ticks: IStiAxisTicks;
+        private _arrowStyle;
+        arrowStyle: StiArrowStyle;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lineColor;
+        lineColor: Color;
+        private _lineWidth;
+        lineWidth: number;
+        private _visible;
+        visible: boolean;
+        titleDirection: StiLegendDirection;
+        private _area;
+        area: IStiAxisArea;
+        private _info;
+        info: StiAxisInfoXF;
+        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, allowApplyStyle?: boolean, logarithmicScale?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiYAxis extends StiAxis implements IStiJsonReportObject, IStiYAxis, ICloneable, IStiAxis {
+        private static implementsStiYAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        private _showYAxis;
+        showYAxis: StiShowYAxis;
+        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showYAxis?: StiShowYAxis, allowApplyStyle?: boolean, logarithmicScale?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiYRightAxis extends StiYAxis implements IStiJsonReportObject, IStiYAxis, ICloneable, IStiAxis, IStiYRightAxis {
+        private static implementsStiYRightAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, allowApplyStyle?: boolean, logarithmicScale?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiXAxis extends StiAxis implements IStiJsonReportObject, IStiAxis, IStiXAxis, ICloneable {
+        private static implementsStiXAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        private _showEdgeValues;
+        showEdgeValues: boolean;
+        private _showXAxis;
+        showXAxis: StiShowXAxis;
+        private _dateTimeStep;
+        dateTimeStep: IStiAxisDateTimeStep;
+        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showXAxis?: StiShowXAxis, showEdgeValues?: boolean, allowApplyStyle?: boolean, dateTimeStep?: IStiAxisDateTimeStep, logarithmicScale?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiXTopAxis extends StiXAxis implements IStiXTopAxis, ICloneable, IStiAxis, IStiXAxis, IStiJsonReportObject {
+        private static implementsStiXTopAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showXAxis?: StiShowXAxis, showEdgeValues?: boolean, allowApplyStyle?: boolean, logarithmicScale?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiYLeftAxis extends StiYAxis implements IStiJsonReportObject, IStiYAxis, ICloneable, IStiAxis, IStiYLeftAxis {
+        private static implementsStiYLeftAxis;
+        implements(): string[];
+        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showYAxis?: StiShowYAxis, allowApplyStyle?: boolean, logarithmicScale?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiAxisLabels implements IStiJsonReportObject, IStiAxisLabels, ICloneable {
+        private static implementsStiAxisLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxisLabels;
+        private _core;
+        core: StiAxisLabelsCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _format;
+        format: string;
+        private _angle;
+        angle: number;
+        private _width;
+        width: number;
+        private _textBefore;
+        textBefore: string;
+        private _textAfter;
+        textAfter: string;
+        private _font;
+        font: Font;
+        private _antialiasing;
+        antialiasing: boolean;
+        private _placement;
+        placement: StiLabelsPlacement;
+        private _color;
+        color: Color;
+        private _textAlignment;
+        textAlignment: StiHorAlignment;
+        private _step;
+        step: number;
+        private _wordWrap;
+        wordWrap: boolean;
+        constructor(format?: string, textBefore?: string, textAfter?: string, angle?: number, font?: Font, antialiasing?: boolean, placement?: StiLabelsPlacement, color?: Color, width?: number, textAlignment?: StiHorAlignment, step?: number, allowApplyStyle?: boolean, wordWrap?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisRange implements IStiJsonReportObject, ICloneable, IStiAxisRange {
+        private static implementsStiAxisRange;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxisRange;
+        private _minimum;
+        minimum: number;
+        private _maximum;
+        maximum: number;
+        private _auto;
+        auto: boolean;
+        constructor(auto?: boolean, minimum?: number, maximum?: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisTicks implements IStiJsonReportObject, IStiAxisTicks, ICloneable {
+        private static implementsStiAxisTicks;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxisTicks;
+        private _lengthUnderLabels;
+        lengthUnderLabels: number;
+        private _length;
+        length: number;
+        private _minorLength;
+        minorLength: number;
+        private _minorCount;
+        minorCount: number;
+        private _step;
+        step: number;
+        private _minorVisible;
+        minorVisible: boolean;
+        private _visible;
+        visible: boolean;
+        constructor(visible?: boolean, length?: number, minorVisible?: boolean, minorLength?: number, minorCount?: number, step?: number, lengthUnderLabels?: number);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisInteraction implements IStiJsonReportObject, IStiAxisInteraction, ICloneable {
+        private static implementsStiAxisInteraction;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxisInteraction;
+        private _showScrollBar;
+        showScrollBar: boolean;
+        private _rangeScrollEnabled;
+        rangeScrollEnabled: boolean;
+        constructor(showScrollBar?: boolean, rangeScrollEnabled?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    class StiAxisDateTimeStep implements IStiAxisDateTimeStep {
+        private static implementsStiAxisDateTimeStep;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxisDateTimeStep;
+        private _step;
+        step: StiTimeDateStep;
+        private _numberOfValues;
+        numberOfValues: number;
+        private _interpolation;
+        interpolation: boolean;
+        constructor(step?: StiTimeDateStep, numberOfValues?: number, interpolation?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiXBottomAxis extends StiXAxis implements IStiJsonReportObject, IStiXAxis, ICloneable, IStiXBottomAxis, IStiAxis {
+        private static implementsStiXBottomAxis;
+        implements(): string[];
+        constructor(labels?: IStiAxisLabels, range?: IStiAxisRange, title?: IStiAxisTitle, ticks?: IStiAxisTicks, interaction?: IStiAxisInteraction, arrowStyle?: StiArrowStyle, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, startFromZero?: boolean, showXAxis?: StiShowXAxis, showEdgeValues?: boolean, allowApplyStyle?: boolean, dateTimeStep?: IStiAxisDateTimeStep, logarithmicScale?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiGridLines implements IStiJsonReportObject, IStiGridLines, ICloneable {
+        private static implementsStiGridLines;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        needSetAreaJsonPropertyInternal: boolean;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiGridLines;
+        private _core;
+        core: StiGridLinesCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _color;
+        color: Color;
+        private _minorColor;
+        minorColor: Color;
+        private _style;
+        style: StiPenStyle;
+        private _minorStyle;
+        minorStyle: StiPenStyle;
+        private _visible;
+        visible: boolean;
+        private _minorVisible;
+        minorVisible: boolean;
+        private _minorCount;
+        minorCount: number;
+        private _area;
+        area: IStiArea;
+        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, minorColor?: Color, minorStyle?: StiPenStyle, minorVisible?: boolean, minorCount?: number, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiGridLinesVert extends StiGridLines implements IStiJsonReportObject, IStiGridLines, ICloneable, IStiGridLinesVert {
+        private static implementsStiGridLinesVert;
+        implements(): string[];
+        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, minorColor?: Color, minorStyle?: StiPenStyle, minorVisible?: boolean, minorCount?: number, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiGridLinesHor extends StiGridLines implements IStiJsonReportObject, IStiGridLines, IStiGridLinesHor, ICloneable {
+        private static implementsStiGridLinesHor;
+        implements(): string[];
+        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, minorColor?: Color, minorStyle?: StiPenStyle, minorVisible?: boolean, minorCount?: number, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiInterlacing implements IStiInterlacing, ICloneable, IStiJsonReportObject {
+        private static implementsStiInterlacing;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        needSetAreaJsonPropertyInternal: boolean;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiInterlacing;
+        private _core;
+        core: StiInterlacingCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _interlacedBrush;
+        interlacedBrush: StiBrush;
+        private _visible;
+        visible: boolean;
+        private _area;
+        area: IStiArea;
+        constructor(interlacedBrush?: StiBrush, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiInterlacingVert extends StiInterlacing implements IStiInterlacingVert {
+        private static implementsStiInterlacingVert;
+        implements(): string[];
+        constructor(interlacedBrush?: StiBrush, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiInterlacingHor extends StiInterlacing implements IStiInterlacing, IStiInterlacingHor, IStiJsonReportObject, ICloneable {
+        private static implementsStiInterlacingHor;
+        implements(): string[];
+        constructor(interlacedBrush?: StiBrush, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    class StiArea extends StiService implements IStiJsonReportObject, IStiArea, ICloneable {
+        private static implementsStiArea;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        static loadFromJsonObjectInternal(jObject: StiJson): IStiArea;
+        static loadAreaFromXml(xmlNode: XmlNode, chart: Stimulsoft.Report.Components.StiChart): StiArea;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiArea;
+        createNew(): StiArea;
+        toString(): string;
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        readonly serviceCategory: string;
+        readonly serviceType: Stimulsoft.System.Type;
+        readonly isDefaultSeriesTypeFullStackedColumnSeries: boolean;
+        readonly isDefaultSeriesTypeFullStackedBarSeries: boolean;
+        private _core;
+        core: StiAreaCoreXF;
+        private _chart;
+        chart: IStiChart;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _colorEach;
+        colorEach: boolean;
+        private _showShadow;
+        showShadow: boolean;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisArea extends StiArea implements IStiJsonReportObject, IStiAxisArea, IStiArea, ICloneable {
+        private static implementsStiAxisArea;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxisArea;
+        readonly axisCore: StiAxisAreaCoreXF;
+        private _interlacingHor;
+        interlacingHor: IStiInterlacingHor;
+        private _interlacingVert;
+        interlacingVert: IStiInterlacingVert;
+        private _gridLinesHor;
+        gridLinesHor: IStiGridLinesHor;
+        private _gridLinesHorRight;
+        gridLinesHorRight: IStiGridLinesHor;
+        private _gridLinesVert;
+        gridLinesVert: IStiGridLinesVert;
+        private _yAxis;
+        yAxis: IStiYAxis;
+        private _yRightAxis;
+        yRightAxis: IStiYAxis;
+        private _xAxis;
+        xAxis: IStiXAxis;
+        private _xTopAxis;
+        xTopAxis: IStiXAxis;
+        private _reverseHor;
+        reverseHor: boolean;
+        private _reverseVert;
+        reverseVert: boolean;
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiClusteredColumnArea extends StiAxisArea implements IStiJsonReportObject, IStiClusteredColumnArea, IStiAxisArea, ICloneable, IStiArea {
+        private static implementsStiClusteredColumnArea;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiScatterArea extends StiClusteredColumnArea implements IStiScatterArea, IStiArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiScatterArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiBubbleArea extends StiScatterArea implements IStiScatterArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, ICloneable, IStiBubbleArea {
+        private static implementsStiBubbleArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiCandlestickArea extends StiClusteredColumnArea implements IStiCandlestickArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, IStiArea, ICloneable {
+        private static implementsStiCandlestickArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiClusteredBarArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredBarArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiClusteredBarArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAreaArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredColumnArea, IStiAxisArea, IStiAreaArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiAreaArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiLineArea extends StiClusteredColumnArea implements IStiArea, IStiLineArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiLineArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSplineArea extends StiClusteredColumnArea implements IStiArea, IStiSplineArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiSplineArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSplineAreaArea extends StiClusteredColumnArea implements IStiArea, IStiSplineAreaArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiSplineAreaArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSteppedAreaArea extends StiClusteredColumnArea implements IStiArea, IStiSteppedAreaArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiSteppedAreaArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSteppedLineArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredColumnArea, IStiAxisArea, IStiSteppedLineArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiSteppedLineArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiPieArea extends StiArea implements IStiJsonReportObject, IStiPieArea, IStiArea, ICloneable {
+        private static implementsStiPieArea;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiDoughnutArea extends StiPieArea implements IStiJsonReportObject, IStiPieArea, IStiArea, ICloneable, IStiDoughnutArea {
+        private static implementsStiDoughnutArea;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedBarArea extends StiClusteredBarArea implements IStiClusteredBarArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, IStiStackedBarArea, ICloneable {
+        private static implementsStiStackedBarArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedBarArea extends StiStackedBarArea implements IStiClusteredBarArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiFullStackedBarArea, IStiStackedBarArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiFullStackedBarArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedColumnArea extends StiAxisArea implements IStiJsonReportObject, IStiStackedColumnArea, IStiAxisArea, ICloneable, IStiArea {
+        private static implementsStiStackedColumnArea;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedColumnArea extends StiStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiFullStackedColumnArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedAreaArea extends StiFullStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable, IStiFullStackedAreaArea {
+        private static implementsStiFullStackedAreaArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedLineArea extends StiFullStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable, IStiFullStackedLineArea {
+        private static implementsStiFullStackedLineArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedSplineArea extends StiFullStackedColumnArea implements IStiFullStackedSplineArea, IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiFullStackedSplineArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedSplineAreaArea extends StiFullStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiFullStackedColumnArea, IStiFullStackedSplineAreaArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiFullStackedSplineAreaArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFunnelArea extends StiArea implements IStiJsonReportObject, IStiArea, ICloneable, IStiFunnelArea {
+        private static implementsStiFunnelArea;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiGanttArea extends StiClusteredBarArea implements IStiClusteredBarArea, IStiClusteredColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, IStiGanttArea, ICloneable {
+        private static implementsStiGanttArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarArea extends StiArea implements IStiJsonReportObject, IStiRadarArea, IStiArea, ICloneable {
+        private static implementsStiRadarArea;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiRadarArea;
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        private _interlacingHor;
+        interlacingHor: IStiInterlacingHor;
+        private _interlacingVert;
+        interlacingVert: IStiInterlacingVert;
+        private _gridLinesHor;
+        gridLinesHor: IStiRadarGridLinesHor;
+        private _gridLinesVert;
+        gridLinesVert: IStiRadarGridLinesVert;
+        private _radarStyle;
+        radarStyle: StiRadarStyle;
+        private _xAxis;
+        xAxis: IStiXRadarAxis;
+        private _yAxis;
+        yAxis: IStiYRadarAxis;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarAreaArea extends StiRadarArea implements IStiJsonReportObject, IStiRadarArea, IStiArea, IStiRadarAreaArea, ICloneable {
+        private static implementsStiRadarAreaArea;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarLineArea extends StiRadarArea implements IStiJsonReportObject, IStiRadarArea, IStiArea, ICloneable, IStiRadarLineArea {
+        private static implementsStiRadarLineArea;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarPointArea extends StiRadarArea implements IStiJsonReportObject, IStiRadarPointArea, IStiRadarArea, IStiArea, ICloneable {
+        private static implementsStiRadarPointArea;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRangeArea extends StiClusteredColumnArea implements IStiArea, IStiRangeArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiRangeArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRangeBarArea extends StiClusteredColumnArea implements IStiArea, IStiRangeBarArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiRangeBarArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSplineRangeArea extends StiClusteredColumnArea implements IStiArea, IStiAxisArea, IStiClusteredColumnArea, IStiSplineRangeArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiSplineRangeArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSteppedRangeArea extends StiClusteredColumnArea implements IStiArea, IStiClusteredColumnArea, IStiSteppedRangeArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiSteppedRangeArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedAreaArea extends StiStackedColumnArea implements IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiStackedAreaArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiStackedAreaArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedLineArea extends StiStackedColumnArea implements IStiStackedLineArea, IStiArea, IStiAxisArea, IStiStackedColumnArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiStackedLineArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedSplineArea extends StiStackedColumnArea implements IStiStackedSplineArea, IStiStackedColumnArea, IStiArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiStackedSplineArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedSplineAreaArea extends StiStackedColumnArea implements IStiAxisArea, IStiStackedColumnArea, IStiArea, IStiStackedSplineAreaArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiStackedSplineAreaArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStockArea extends StiClusteredColumnArea implements IStiArea, IStiStockArea, IStiClusteredColumnArea, IStiAxisArea, IStiJsonReportObject, ICloneable {
+        private static implementsStiStockArea;
+        implements(): string[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTreemapArea extends StiArea implements IStiJsonReportObject, IStiTreemapArea, ICloneable {
+        private static implementsStiTreemapArea;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StringAlignment = Stimulsoft.System.Drawing.StringAlignment;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiAxisTitle implements IStiAxisTitle, ICloneable, IStiJsonReportObject {
+        private static implementsStiAxisTitle;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiAxisTitle;
+        private _core;
+        core: StiAxisTitleCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _font;
+        readonly font: Font;
+        get: Font;
+        private _text;
+        text: string;
+        private _color;
+        color: Color;
+        private _antialiasing;
+        antialiasing: boolean;
+        private _alignment;
+        alignment: StringAlignment;
+        private _position;
+        position: StiTitlePosition;
+        private _direction;
+        direction: StiDirection;
+        constructor(font?: Font, text?: string, color?: Color, antialiasing?: boolean, alignment?: StringAlignment, direction?: StiDirection, allowApplyStyle?: boolean, position?: StiTitlePosition);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StringAlignment = Stimulsoft.System.Drawing.StringAlignment;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiChartTitle implements IStiChartTitle, ICloneable, IStiJsonReportObject {
+        private static implementsStiChartTitle;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiChartTitle;
+        private _core;
+        core: StiChartTitleCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _font;
+        font: Font;
+        private _text;
+        text: string;
+        private _brush;
+        brush: StiBrush;
+        private _antialiasing;
+        antialiasing: boolean;
+        private _alignment;
+        alignment: StringAlignment;
+        private _dock;
+        dock: StiChartTitleDock;
+        private _spacing;
+        spacing: number;
+        private _visible;
+        visible: boolean;
+        private _chart;
+        chart: IStiChart;
+        constructor(font?: Font, text?: string, brush?: StiBrush, antialiasing?: boolean, alignment?: StringAlignment, dock?: StiChartTitleDock, spacing?: number, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiConstantLines extends StiService implements IStiConstantLines, ICloneable, IStiJsonReportObject {
+        private static implementsStiConstantLines;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiConstantLines;
+        readonly serviceCategory: string;
+        readonly ServiceType: Stimulsoft.System.Type;
+        private _core;
+        core: StiConstantLinesCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _antialiasing;
+        antialiasing: boolean;
+        private _position;
+        position: StiConstantLines_StiTextPosition;
+        private _font;
+        font: Font;
+        private _text;
+        text: string;
+        private _titleVisible;
+        titleVisible: boolean;
+        private _orientation;
+        orientation: StiConstantLines_StiOrientation;
+        private _lineWidth;
+        lineWidth: number;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lineColor;
+        lineColor: Color;
+        private _showInLegend;
+        showInLegend: boolean;
+        private _showBehind;
+        showBehind: boolean;
+        private _axisValue;
+        axisValue: string;
+        private _visible;
+        visible: boolean;
+        private _chart;
+        chart: IStiChart;
+        toString(): string;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    class StiConstantLinesCollection extends CollectionBase<IStiConstantLines> implements IStiJsonReportObject, IStiApplyStyle, IStiConstantLinesCollection {
+        private static implementsStiConstantLinesCollection;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        applyStyle(style: IStiChartStyle): void;
+        private getConstantLineTitle();
+        private addCore(value);
+        add(value: IStiConstantLines): void;
+        addRange(values: IStiConstantLines[]): void;
+        addRange2(values: StiConstantLinesCollection): void;
+        contains(value: IStiConstantLines): boolean;
+        indexOf(value: IStiConstantLines): number;
+        insert(index: number, value: IStiConstantLines): void;
+        onClear(): void;
+        remove(value: IStiConstantLines): void;
+        getByIndex(index: number): IStiConstantLines;
+        setByIndex(index: number, value: IStiConstantLines): void;
+        constantLinesAdded: Function;
+        onConstantLinesAdded(e: EventArgs): void;
+        private invokeConstantLinesAdded(sender, index);
+        constantLinesRemoved: Function;
+        onConstantLinesRemoved(e: EventArgs): void;
+        private invokeConstantLinesRemoved(sender, index);
+        private _chart;
+        chart: StiChart;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Events {
+    import IStiSeries = Stimulsoft.Report.Chart.IStiSeries;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    class StiGetTitleEventArgs extends EventArgs {
+        private valueObject;
+        value: string;
+        private _index;
+        index: number;
+        private _series;
+        series: IStiSeries;
+    }
+}
+declare module Stimulsoft.Report.Events {
+    import EventArgs = Stimulsoft.System.EventArgs;
+    import IStiSeries = Stimulsoft.Report.Chart.IStiSeries;
+    class StiNewAutoSeriesEventArgs extends EventArgs {
+        private _seriesIndex;
+        seriesIndex: number;
+        private _color;
+        color: Object;
+        private _series;
+        series: IStiSeries;
+        constructor(seriesIndex: number, series: IStiSeries, color: Object);
+    }
+}
+declare module Stimulsoft.Report.Events {
+    class StiProcessChartEvent extends StiEvent {
+        toString(): string;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    class StiChartFiltersCollection extends CollectionBase<IStiChartFilter> implements IStiJsonReportObject, ICloneable {
+        private static implementsStiChartFiltersCollection;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiChartFiltersCollection;
+        add(filter: StiChartFilter): void;
+        addRange(filters: StiChartFiltersCollection): void;
+        addRange2(filters: StiChartFilter[]): void;
+        contains(filter: StiChartFilter): boolean;
+        indexOf(filter: StiChartFilter): number;
+        insert(index: number, filter: StiChartFilter): void;
+        remove(filter: StiChartFilter): void;
+        getByIndex(index: number): StiChartFilter;
+        setByIndex(index: number, value: StiChartFilter): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IComparer = Stimulsoft.System.Collections.IComparer;
+    class StiDataItem {
+        argument: Object;
+        value: Object;
+        valueEnd: Object;
+        weight: Object;
+        valueOpen: Object;
+        valueClose: Object;
+        valueLow: Object;
+        valueHigh: Object;
+        title: Object;
+        key: Object;
+        color: Object;
+        toolTip: any;
+        constructor(argument: Object, value: Object, valueEnd: Object, weight: Object, valueOpen: Object, valueClose: Object, valueLow: Object, valueHight: Object, title: Object, key: Object, color: Object, toolTip: Object);
+    }
+    class StiDataItemComparer implements IComparer<StiDataItem> {
+        compare(x: StiDataItem, y: StiDataItem): number;
+        private directionFactor;
+        private sortType;
+        constructor(sortType: StiSeriesSortType, sortDirection: StiSeriesSortDirection);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarGridLines implements IStiJsonReportObject, IStiRadarGridLines, ICloneable {
+        private static implementsStiRadarGridLines;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        needSetAreaJsonPropertyInternal: boolean;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiRadarGridLines;
+        private _core;
+        core: StiRadarGridLinesCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _color;
+        color: Color;
+        private _style;
+        style: StiPenStyle;
+        private _visible;
+        visible: boolean;
+        private _area;
+        area: IStiArea;
+        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarGridLinesHor extends StiRadarGridLines implements IStiJsonReportObject, IStiRadarGridLines, IStiRadarGridLinesHor, ICloneable {
+        private static implementsStiRadarGridLinesHor;
+        implements(): string[];
+        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarGridLinesVert extends StiRadarGridLines implements IStiJsonReportObject, IStiRadarGridLines, IStiRadarGridLinesVert, ICloneable {
+        private static implementsStiRadarGridLinesVert;
+        implements(): string[];
+        constructor(color?: Color, style?: StiPenStyle, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import SizeD = Stimulsoft.Base.Drawing.SizeD;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiLegend implements IStiJsonReportObject, ICloneable, IStiLegend {
+        private static implementsStiLegend;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiLegend;
+        private _core;
+        core: StiLegendCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _chart;
+        chart: IStiChart;
+        private _hideSeriesWithEmptyTitle;
+        hideSeriesWithEmptyTitle: boolean;
+        private _showShadow;
+        showShadow: boolean;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _titleColor;
+        titleColor: Color;
+        private _labelsColor;
+        labelsColor: Color;
+        private _direction;
+        direction: StiLegendDirection;
+        private _horAlignment;
+        horAlignment: StiLegendHorAlignment;
+        private _vertAlignment;
+        vertAlignment: StiLegendVertAlignment;
+        private _titleFont;
+        titleFont: Font;
+        private _font;
+        font: Font;
+        private _visible;
+        visible: boolean;
+        private _markerVisible;
+        markerVisible: boolean;
+        private _markerBorder;
+        markerBorder: boolean;
+        private _markerSize;
+        markerSize: SizeD;
+        private _markerAlignment;
+        markerAlignment: StiMarkerAlignment;
+        private _columns;
+        columns: number;
+        private _horSpacing;
+        horSpacing: number;
+        private _vertSpacing;
+        vertSpacing: number;
+        private _size;
+        size: SizeD;
+        private _title;
+        title: string;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiMarker implements IStiJsonReportObject, IStiMarker, ICloneable {
+        private static implementsStiMarker;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiMarker;
+        private _core;
+        core: StiMarkerCoreXF;
+        private _showInLegend;
+        showInLegend: boolean;
+        private _visible;
+        visible: boolean;
+        private _brush;
+        brush: StiBrush;
+        private _borderColor;
+        borderColor: Color;
+        private _size;
+        size: number;
+        private _angle;
+        angle: number;
+        private _type;
+        type: StiMarkerType;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiLineMarker extends StiMarker implements IStiJsonReportObject, IStiLineMarker, IStiMarker, ICloneable {
+        private static implementsStiLineMarker;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        private _step;
+        step: number;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarAxis implements IStiJsonReportObject, IStiRadarAxis, ICloneable {
+        private static implementsStiRadarAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        jsonLoadFromJsonObjectArea: boolean;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiRadarAxis;
+        private _core;
+        core: StiRadarAxisCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _visible;
+        visible: boolean;
+        private _area;
+        area: IStiRadarArea;
+        constructor(visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiRadarAxisLabels implements IStiJsonReportObject, IStiRadarAxisLabels, ICloneable {
+        private static implementsStiRadarAxisLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiRadarAxisLabels;
+        private _core;
+        core: StiRadarAxisLabelsCoreXF;
+        private _rotationLabels;
+        rotationLabels: boolean;
+        private _textBefore;
+        textBefore: string;
+        private _textAfter;
+        textAfter: string;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _drawBorder;
+        drawBorder: boolean;
+        private _format;
+        format: string;
+        private _font;
+        font: Font;
+        private _antialiasing;
+        antialiasing: boolean;
+        private _color;
+        color: Color;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _width;
+        width: number;
+        private _wordWrap;
+        wordWrap: boolean;
+        constructor(format?: string, font?: Font, antialiasing?: boolean, drawBorder?: boolean, color?: Color, borderColor?: Color, brush?: StiBrush, allowApplyStyle?: boolean, rotationLabels?: boolean, width?: number, wordWrap?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiXRadarAxis extends StiRadarAxis implements IStiXRadarAxis, IStiRadarAxis, ICloneable, IStiJsonReportObject {
+        private static implementsStiXRadarAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiXRadarAxis;
+        readonly xCore: StiXRadarAxisCoreXF;
+        private _labels;
+        labels: IStiRadarAxisLabels;
+        constructor(labels?: IStiRadarAxisLabels, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    class StiYRadarAxis extends StiRadarAxis implements IStiYRadarAxis, IStiRadarAxis, ICloneable, IStiJsonReportObject {
+        private static implementsStiYRadarAxis;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiYRadarAxis;
+        readonly yCore: StiYRadarAxisCoreXF;
+        private _labels;
+        labels: IStiAxisLabels;
+        private _ticks;
+        ticks: IStiAxisTicks;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lineColor;
+        lineColor: Color;
+        private _lineWidth;
+        lineWidth: number;
+        private _info;
+        info: StiAxisInfoXF;
+        constructor(labels?: IStiAxisLabels, ticks?: IStiAxisTicks, lineStyle?: StiPenStyle, lineColor?: Color, lineWidth?: number, visible?: boolean, allowApplyStyle?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import SizeD = Stimulsoft.Base.Drawing.SizeD;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiSeriesLabels extends StiService implements IStiJsonReportObject, IStiSeriesLabels, ICloneable {
+        private static implementsStiSeriesLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        static loadFromJsonObjectInternal(jObject: StiJson, chart: StiChart): IStiSeriesLabels;
+        static loadLabelsFromXml(xmlNode: XmlNode, chart: StiChart): StiSeriesLabels;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiSeriesLabels;
+        readonly serviceName: string;
+        readonly serviceCategory: string;
+        readonly serviceType: Stimulsoft.System.Type;
+        private _preventIntersection;
+        preventIntersection: boolean;
+        private _core;
+        core: StiSeriesLabelsCoreXF;
+        readonly axisCore: StiAxisSeriesLabelsCoreXF;
+        readonly pieCore: StiPieSeriesLabelsCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        conditions: StiChartConditionsCollection;
+        showOnZeroValues: boolean;
+        private _showZeros;
+        showZeros: boolean;
+        private _showNulls;
+        showNulls: boolean;
+        private _markerVisible;
+        markerVisible: boolean;
+        private _markerSize;
+        markerSize: SizeD;
+        private _markerAlignment;
+        markerAlignment: StiMarkerAlignment;
+        private _step;
+        step: number;
+        private _valueType;
+        valueType: StiSeriesLabelsValueType;
+        private _valueTypeSeparator;
+        valueTypeSeparator: string;
+        private _legendValueType;
+        legendValueType: StiSeriesLabelsValueType;
+        private _textBefore;
+        textBefore: string;
+        private _textAfter;
+        textAfter: string;
+        private _angle;
+        angle: number;
+        private _format;
+        format: string;
+        private _antialiasing;
+        antialiasing: boolean;
+        private _visible;
+        visible: boolean;
+        private _drawBorder;
+        drawBorder: boolean;
+        private _useSeriesColor;
+        useSeriesColor: boolean;
+        private _labelColor;
+        labelColor: Color;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _font;
+        font: Font;
+        private _chart;
+        chart: IStiChart;
+        private _wordWrap;
+        wordWrap: boolean;
+        private _width;
+        width: number;
+        toString(): string;
+        createNew(): StiSeriesLabels;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiAxisSeriesLabels extends StiSeriesLabels implements IStiJsonReportObject, IStiSeriesLabels, ICloneable, IStiAxisSeriesLabels {
+        private static implementsStiAxisSeriesLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _showInPercent;
+        showInPercent: boolean;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiCenterAxisLabels extends StiAxisSeriesLabels implements IStiJsonReportObject, IStiSeriesLabels, IStiCenterAxisLabels, IStiAxisSeriesLabels, ICloneable {
+        private static implementsStiCenterAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiInsideBaseAxisLabels extends StiCenterAxisLabels implements IStiInsideBaseAxisLabels, IStiSeriesLabels, ICloneable, IStiAxisSeriesLabels, IStiJsonReportObject {
+        private static implementsStiInsideBaseAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiInsideEndAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiSeriesLabels, IStiJsonReportObject, IStiInsideEndAxisLabels, ICloneable {
+        private static implementsStiInsideEndAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiLeftAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiLeftAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
+        private static implementsStiLeftAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiOutsideAxisLabels extends StiAxisSeriesLabels implements IStiOutsideAxisLabels, IStiSeriesLabels, ICloneable, IStiAxisSeriesLabels, IStiJsonReportObject {
+        private static implementsStiOutsideAxisLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        private _lineLength;
+        lineLength: number;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiOutsideBaseAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiOutsideBaseAxisLabels, IStiSeriesLabels, ICloneable {
+        private static implementsStiOutsideBaseAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiOutsideEndAxisLabels extends StiCenterAxisLabels implements IStiOutsideEndAxisLabels, IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
+        private static implementsStiOutsideEndAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRightAxisLabels extends StiCenterAxisLabels implements IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiRightAxisLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
+        private static implementsStiRightAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiValueAxisLabels extends StiCenterAxisLabels implements IStiValueAxisLabels, IStiCenterAxisLabels, IStiAxisSeriesLabels, IStiJsonReportObject, IStiSeriesLabels, ICloneable {
+        private static implementsStiValueAxisLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFunnelSeriesLabels extends StiSeriesLabels implements IStiJsonReportObject, IStiFunnelSeriesLabels, ICloneable, IStiSeriesLabels {
+        private static implementsStiFunnelSeriesLabels;
+        implements(): string[];
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiCenterFunnelLabels extends StiFunnelSeriesLabels implements IStiJsonReportObject, IStiSeriesLabels, IStiFunnelSeriesLabels, ICloneable, IStiCenterFunnelLabels {
+        private static implementsStiCenterFunnelLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiOutsideLeftFunnelLabels extends StiFunnelSeriesLabels implements IStiCenterFunnelLabels, IStiOutsideLeftFunnelLabels, IStiJsonReportObject, IStiSeriesLabels, IStiFunnelSeriesLabels, ICloneable {
+        private static implementsStiOutsideLeftFunnelLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiOutsideRightFunnelLabels extends StiFunnelSeriesLabels implements IStiOutsideRightFunnelLabels, IStiCenterFunnelLabels, IStiJsonReportObject, IStiSeriesLabels, IStiFunnelSeriesLabels, ICloneable {
+        private static implementsStiOutsideRightFunnelLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiPieSeriesLabels extends StiSeriesLabels implements IStiJsonReportObject, IStiPieSeriesLabels, IStiSeriesLabels, ICloneable {
+        private static implementsStiPieSeriesLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _showInPercent;
+        showInPercent: boolean;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiCenterPieLabels extends StiPieSeriesLabels implements IStiJsonReportObject, IStiPieSeriesLabels, IStiSeriesLabels, IStiCenterPieLabels, ICloneable {
+        private static implementsStiCenterPieLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        private _autoRotate;
+        autoRotate: boolean;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiInsideEndPieLabels extends StiCenterPieLabels implements IStiCenterPieLabels, IStiSeriesLabels, IStiPieSeriesLabels, IStiInsideEndPieLabels, IStiJsonReportObject, ICloneable {
+        private static implementsStiInsideEndPieLabels;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiOutsidePieLabels extends StiCenterPieLabels implements IStiOutsidePieLabels, IStiCenterPieLabels, IStiPieSeriesLabels, IStiSeriesLabels, IStiJsonReportObject, ICloneable {
+        private static implementsStiOutsidePieLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        private _showValue;
+        showValue: boolean;
+        private _lineLength;
+        lineLength: number;
+        private _lineColor;
+        lineColor: Color;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTwoColumnsPieLabels extends StiOutsidePieLabels implements IStiTwoColumnsPieLabels, IStiOutsidePieLabels, IStiCenterPieLabels, IStiPieSeriesLabels, IStiSeriesLabels, IStiJsonReportObject, ICloneable {
+        private static implementsStiTwoColumnsPieLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiCenterTreemapLabels extends StiAxisSeriesLabels implements IStiCenterAxisLabels {
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiNoneLabels extends StiSeriesLabels implements IStiNoneLabels, IStiSeriesLabels, ICloneable, IStiJsonReportObject {
+        private static implementsStiNoneLabels;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        createNew(): StiSeriesLabels;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiBubbleSeries extends StiScatterSeries implements IStiBaseLineSeries, IStiBubbleSeries, IStiScatterSeries, IStiJsonReportObject, IStiSeries, ICloneable {
+        private static implementsStiBubbleSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiBubbleSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _weights;
+        weights: number[];
+        weightsString: string;
+        private _weightDataColumn;
+        weightDataColumn: string;
+        getWeight: Function;
+        onGetWeight(e: StiGetValueEventArgs): void;
+        invokeGetWeight(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfWeights: Function;
+        onGetListOfWeights(e: StiGetValueEventArgs): void;
+        invokeGetListOfWeights(sender: StiComponent, e: StiGetValueEventArgs): void;
+        private _weight;
+        weight: string;
+        private _listOfWeights;
+        listOfWeights: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiClusteredColumnSeries extends StiSeries implements IStiJsonReportObject, IStiClusteredColumnSeries, ICloneable, IStiSeries, IStiAllowApplyBrushNegative {
+        private static implementsStiClusteredColumnSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiClusteredColumnSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        private _showZeros;
+        showZeros: boolean;
+        private _width;
+        width: number;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiClusteredBarSeries extends StiClusteredColumnSeries implements IStiJsonReportObject, IStiClusteredColumnSeries, IStiSeries, ICloneable, IStiClusteredBarSeries, IStiAllowApplyBrushNegative {
+        private static implementsStiClusteredBarSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiLineSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, IStiLineSeries, ICloneable, IStiSeries, IStiAllowApplyColorNegative {
+        private static implementsStiLineSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiAreaSeries extends StiLineSeries implements IStiLineSeries, IStiBaseLineSeries, IStiAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
+        private static implementsStiAreaSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiAreaSeries;
+        private _topmostLine;
+        topmostLine: boolean;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSplineSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, ICloneable, IStiSeries, IStiSplineSeries, IStiAllowApplyColorNegative {
+        private static implementsStiSplineSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _tension;
+        tension: number;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSplineAreaSeries extends StiSplineSeries implements IStiSplineSeries, IStiBaseLineSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiSplineAreaSeries, IStiAllowApplyColorNegative {
+        private static implementsStiSplineAreaSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiSplineAreaSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _topmostLine;
+        topmostLine: boolean;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSteppedLineSeries extends StiBaseLineSeries implements IStiJsonReportObject, IStiBaseLineSeries, IStiSeries, ICloneable, IStiSteppedLineSeries, IStiAllowApplyColorNegative {
+        private static implementsStiSteppedLineSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _pointAtCenter;
+        pointAtCenter: boolean;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSteppedAreaSeries extends StiSteppedLineSeries implements IStiSteppedLineSeries, IStiBaseLineSeries, IStiJsonReportObject, IStiSteppedAreaSeries, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
+        private static implementsStiSteppedAreaSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiSteppedAreaSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _topmostLine;
+        topmostLine: boolean;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Components.Design {
+    class StiSeriesInteractionConverter {
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiPieSeries extends StiSeries implements IStiPieSeries, ICloneable, IStiSeries, IStiJsonReportObject, IStiAllowApplyBorderColor, IStiAllowApplyBrush {
+        private static implementsStiPieSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiPieSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _allowApplyBrush;
+        allowApplyBrush: boolean;
+        private _allowApplyBorderColor;
+        allowApplyBorderColor: boolean;
+        getArguments(): Object[];
+        setArguments(value: Object[]): void;
+        private _startAngle;
+        startAngle: number;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _lighting;
+        lighting: boolean;
+        private _diameter;
+        diameter: number;
+        private _distance;
+        distance: number;
+        private _cutPieListValues;
+        cutPieListValues: number[];
+        cuttedPieList: string;
+        private _cutPieList;
+        cutPieList: string;
+        getCutPieList: Function;
+        onGetCutPieList(e: StiGetValueEventArgs): void;
+        invokeGetCutPieList(sender: StiComponent, e: StiGetValueEventArgs): void;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiDoughnutSeries extends StiPieSeries implements IStiPieSeries, IStiSeries, ICloneable, IStiDoughnutSeries, IStiJsonReportObject, IStiAllowApplyBorderColor, IStiAllowApplyBrush {
+        private static implementsStiDoughnutSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiCandlestickSeries extends StiSeries implements IStiJsonReportObject, IStiSeries, IStiFinancialSeries, ICloneable, IStiCandlestickSeries {
+        private static implementsStiCandlestickSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiCandlestickSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _valuesOpen;
+        valuesOpen: number[];
+        private _valuesClose;
+        valuesClose: number[];
+        valuesStringOpen: string;
+        valuesStringClose: string;
+        valuesStringHigh: string;
+        valuesStringLow: string;
+        private _valuesHigh;
+        valuesHigh: number[];
+        private _valuesLow;
+        valuesLow: number[];
+        private _valueDataColumnOpen;
+        valueDataColumnOpen: string;
+        private _valueDataColumnClose;
+        valueDataColumnClose: string;
+        private _valueDataColumnHigh;
+        valueDataColumnHigh: string;
+        private _valueDataColumnLow;
+        valueDataColumnLow: string;
+        private _borderColor;
+        borderColor: Color;
+        private _borderColorNegative;
+        borderColorNegative: Color;
+        private _borderWidth;
+        borderWidth: number;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        getValueOpen: Function;
+        protected onGetValueOpen(e: StiGetValueEventArgs): void;
+        invokeGetValueOpen(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesOpen: Function;
+        protected onGetListOfValuesOpen(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesOpen(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getValueClose: Function;
+        protected onGetValueClose(e: StiGetValueEventArgs): void;
+        invokeGetValueClose(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesClose: Function;
+        protected onGetListOfValuesClose(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesClose(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getValueHigh: Function;
+        protected onGetValueHigh(e: StiGetValueEventArgs): void;
+        invokeGetValueHigh(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesHigh: Function;
+        protected onGetListOfValuesHigh(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesHigh(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getValueLow: Function;
+        protected onGetValueLow(e: StiGetValueEventArgs): void;
+        invokeGetValueLow(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesLow: Function;
+        protected onGetListOfValuesLow(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesLow(sender: StiComponent, e: StiGetValueEventArgs): void;
+        private valueObjOpen;
+        valueOpen: string;
+        private _listOfValuesOpen;
+        listOfValuesOpen: string;
+        private valueObjClose;
+        valueClose: string;
+        private _listOfValuesClose;
+        listOfValuesClose: string;
+        private valueObjHigh;
+        valueHigh: string;
+        private _listOfValuesHigh;
+        listOfValuesHigh: string;
+        private valueObjLow;
+        valueLow: string;
+        private _listOfValuesLow;
+        listOfValuesLow: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStockSeries extends StiCandlestickSeries implements IStiJsonReportObject, IStiStockSeries, IStiFinancialSeries, ICloneable, IStiSeries, IStiAllowApplyColorNegative {
+        private static implementsStiStockSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiStockSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _lineColor;
+        lineColor: Color;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lineWidth;
+        lineWidth: number;
+        private _lineColorNegative;
+        lineColorNegative: Color;
+        private _allowApplyColorNegative;
+        allowApplyColorNegative: boolean;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStackedBarSeries extends StiSeries implements IStiJsonReportObject, IStiStackedBarSeries, ICloneable, IStiSeries, IStiAllowApplyBrushNegative {
+        private static implementsStiStackedBarSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiStackedBarSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _showZeros;
+        showZeros: boolean;
+        private _width;
+        width: number;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedBarSeries extends StiStackedBarSeries implements IStiJsonReportObject, IStiStackedBarSeries, ICloneable, IStiSeries, IStiFullStackedBarSeries {
+        private static implementsStiFullStackedBarSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStackedBaseLineSeries extends StiSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, ICloneable, IStiSeries {
+        private static implementsStiStackedBaseLineSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiStackedBaseLineSeries;
+        private _showNulls;
+        showNulls: boolean;
+        showMarker: boolean;
+        markerColor: Color;
+        markerSize: number;
+        markerType: StiMarkerType;
+        private _marker;
+        marker: IStiMarker;
+        private _lineMarker;
+        lineMarker: IStiLineMarker;
+        private _lighting;
+        lighting: boolean;
+        private _lineColor;
+        lineColor: Color;
+        private _lineWidth;
+        lineWidth: number;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lineColorNegative;
+        lineColorNegative: Color;
+        private _allowApplyColorNegative;
+        allowApplyColorNegative: boolean;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedLineSeries extends StiStackedBaseLineSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, IStiStackedLineSeries, IStiSeries, ICloneable {
+        private static implementsStiStackedLineSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStackedAreaSeries extends StiStackedLineSeries implements ICloneable, IStiStackedBaseLineSeries, IStiStackedLineSeries, IStiJsonReportObject, IStiSeries, IStiStackedAreaSeries, IStiAllowApplyBrushNegative {
+        private static implementsStiStackedAreaSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiStackedAreaSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        coreBrush: StiBrush;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedAreaSeries extends StiStackedAreaSeries implements IStiStackedAreaSeries, IStiStackedBaseLineSeries, IStiSeries, IStiJsonReportObject, IStiFullStackedAreaSeries, IStiStackedLineSeries, ICloneable, IStiAllowApplyBrushNegative {
+        private static implementsStiFullStackedAreaSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiStackedColumnSeries extends StiSeries implements IStiJsonReportObject, IStiStackedColumnSeries, ICloneable, IStiSeries, IStiAllowApplyBrushNegative {
+        private static implementsStiStackedColumnSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiStackedColumnSeries;
+        private _showZeros;
+        showZeros: boolean;
+        private _width;
+        width: number;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedColumnSeries extends StiStackedColumnSeries implements IStiFullStackedColumnSeries, IStiStackedColumnSeries, ICloneable, IStiSeries, IStiJsonReportObject, IStiAllowApplyBrushNegative {
+        private static implementsStiFullStackedColumnSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedLineSeries extends StiStackedLineSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, IStiStackedLineSeries, IStiSeries, ICloneable {
+        private static implementsStiFullStackedLineSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiStackedSplineSeries extends StiStackedBaseLineSeries implements IStiJsonReportObject, IStiStackedBaseLineSeries, ICloneable, IStiSeries, IStiStackedSplineSeries, IStiAllowApplyColorNegative {
+        private static implementsStiStackedSplineSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        private _tension;
+        tension: number;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiStackedSplineAreaSeries extends StiStackedSplineSeries implements IStiStackedSplineSeries, IStiStackedBaseLineSeries, IStiStackedSplineAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
+        private static implementsStiStackedSplineAreaSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiStackedSplineAreaSeries;
+        private _brush;
+        brush: StiBrush;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedSplineAreaSeries extends StiStackedSplineAreaSeries implements IStiStackedSplineSeries, IStiFullStackedSplineAreaSeries, IStiStackedBaseLineSeries, IStiStackedSplineAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
+        private static implementsStiFullStackedSplineAreaSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFullStackedSplineSeries extends StiStackedSplineSeries implements IStiStackedSplineSeries, IStiStackedBaseLineSeries, IStiFullStackedSplineSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
+        private static implementsStiFullStackedSplineSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiFunnelSeries extends StiSeries implements IStiJsonReportObject, IStiFunnelSeries, IStiSeries, ICloneable {
+        private static implementsStiFunnelSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiFunnelSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _showZeros;
+        showZeros: boolean;
+        private _allowApplyBrush;
+        allowApplyBrush: boolean;
+        private _allowApplyBorderColor;
+        allowApplyBorderColor: boolean;
+        private _brush;
+        brush: StiBrush;
+        private _borderColor;
+        borderColor: Color;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiFunnelWeightedSlicesSeries extends StiFunnelSeries implements IStiJsonReportObject, IStiFunnelSeries, IStiFunnelWeightedSlicesSeries, IStiSeries, ICloneable {
+        private static implementsStiFunnelWeightedSlicesSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        clone(): StiFunnelWeightedSlicesSeries;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    class StiGanttSeries extends StiClusteredBarSeries implements IStiClusteredColumnSeries, IStiClusteredBarSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, IStiGanttSeries, ICloneable, IStiAllowApplyBrushNegative {
+        private static implementsStiGanttSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiGanttSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _valuesEnd;
+        valuesEnd: number[];
+        valuesStringEnd: string;
+        private _valueDataColumnEnd;
+        valueDataColumnEnd: string;
+        getValueEnd: Function;
+        protected onGetValueEnd(e: StiGetValueEventArgs): void;
+        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesEnd: Function;
+        protected onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiGanttSeries): void;
+        private valueObjEnd;
+        valueEnd: string;
+        private _listOfValuesEnd;
+        listOfValuesEnd: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarSeries extends StiSeries implements IStiJsonReportObject, ICloneable, IStiSeries, IStiRadarSeries {
+        private static implementsStiRadarSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiRadarSeries;
+        private _showNulls;
+        showNulls: boolean;
+        private _marker;
+        marker: IStiMarker;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarAreaSeries extends StiRadarSeries implements IStiRadarSeries, IStiRadarLineSeries, IStiJsonReportObject, IStiSeries, IStiRadarAreaSeries, ICloneable {
+        private static implementsStiRadarAreaSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        private _lineColor;
+        lineColor: Color;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lighting;
+        lighting: boolean;
+        private _lineWidth;
+        lineWidth: number;
+        private _brush;
+        brush: StiBrush;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiRadarLineSeries extends StiRadarSeries implements IStiJsonReportObject, IStiRadarLineSeries, ICloneable, IStiSeries, IStiRadarSeries {
+        private static implementsStiRadarLineSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        private _lineColor;
+        lineColor: Color;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _lighting;
+        lighting: boolean;
+        private _lineWidth;
+        lineWidth: number;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiRadarPointSeries extends StiRadarSeries implements IStiJsonReportObject, IStiRadarPointSeries, ICloneable, IStiSeries, IStiRadarSeries {
+        private static implementsStiRadarPointSeries;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    class StiRangeBarSeries extends StiClusteredColumnSeries implements IStiRangeBarSeries, IStiClusteredColumnSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
+        private static implementsStiRangeBarSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiRangeBarSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _valuesEnd;
+        valuesEnd: number[];
+        valuesStringEnd: string;
+        private _valueDataColumnEnd;
+        valueDataColumnEnd: string;
+        getValueEnd: Function;
+        protected onGetValueEnd(e: StiGetValueEventArgs): void;
+        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesEnd: Function;
+        protected onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiRangeBarSeries): void;
+        private valueObjEnd;
+        valueEnd: string;
+        private _listOfValuesEnd;
+        listOfValuesEnd: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiRangeSeries extends StiLineSeries implements IStiLineSeries, IStiLineRangeSeries, IStiBaseLineSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
+        private static implementsStiRangeSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiRangeSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _brush;
+        brush: StiBrush;
+        private _valuesEnd;
+        valuesEnd: number[];
+        valuesStringEnd: string;
+        private _valueDataColumnEnd;
+        valueDataColumnEnd: string;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        getValueEnd: Function;
+        onGetValueEnd(e: StiGetValueEventArgs): void;
+        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesEnd: Function;
+        onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiRangeSeries): void;
+        private valueObjEnd;
+        valueEnd: string;
+        private _listOfValuesEnd;
+        listOfValuesEnd: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSplineRangeSeries extends StiSplineSeries implements IStiSplineSeries, IStiSplineRangeSeries, IStiBaseLineSeries, IStiRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
+        private static implementsStiSplineRangeSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiSplineRangeSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _brush;
+        brush: StiBrush;
+        private _valuesEnd;
+        valuesEnd: number[];
+        valuesStringEnd: string;
+        private _valueDataColumnEnd;
+        valueDataColumnEnd: string;
+        getValueEnd: Function;
+        onGetValueEnd(e: StiGetValueEventArgs): void;
+        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesEnd: Function;
+        onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiSplineRangeSeries): void;
+        private valueObjEnd;
+        valueEnd: string;
+        private _listOfValuesEnd;
+        listOfValuesEnd: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiGetValueEventArgs = Stimulsoft.Report.Events.StiGetValueEventArgs;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiSteppedRangeSeries extends StiSteppedLineSeries implements IStiSteppedLineSeries, IStiBaseLineSeries, IStiRangeSeries, IStiSteppedRangeSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyColorNegative {
+        private static implementsStiSteppedRangeSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiSteppedRangeSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _brush;
+        brush: StiBrush;
+        private _valuesEnd;
+        valuesEnd: number[];
+        valuesStringEnd: string;
+        private _valueDataColumnEnd;
+        valueDataColumnEnd: string;
+        private _brushNegative;
+        brushNegative: StiBrush;
+        private _allowApplyBrushNegative;
+        allowApplyBrushNegative: boolean;
+        getValueEnd: Function;
+        onGetValueEnd(e: StiGetValueEventArgs): void;
+        invokeGetValueEnd(sender: StiComponent, e: StiGetValueEventArgs): void;
+        getListOfValuesEnd: Function;
+        onGetListOfValuesEnd(e: StiGetValueEventArgs): void;
+        invokeGetListOfValuesEnd(sender: StiComponent, e: StiGetValueEventArgs, series: StiSteppedRangeSeries): void;
+        private valueObjEnd;
+        valueEnd: string;
+        private _listOfValuesEnd;
+        listOfValuesEnd: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiScatterSplineSeries extends StiScatterSeries implements ICloneable, IStiScatterLineSeries, IStiBaseLineSeries, IStiScatterSplineSeries, IStiJsonReportObject, IStiSeries, IStiScatterSeries, IStiAllowApplyColorNegative {
+        private static implementsStiScatterSplineSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        clone(): StiScatterSplineSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        private _tension;
+        tension: number;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTreemapSeries extends StiSeries implements IStiJsonReportObject, IStiTreemapSeries, ICloneable, IStiSeries {
+        private static implementsStiTreemapSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiTreemapSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiSeries;
+        private _borderColor;
+        borderColor: Color;
+        private _brush;
+        brush: StiBrush;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    class StiSeriesCollection extends CollectionBase<IStiSeries> implements IStiJsonReportObject, IStiApplyStyle, IStiSeriesCollection {
+        private static implementsStiSeriesCollection;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, chart: StiChart): void;
+        applyStyle(style: IStiChartStyle): void;
+        private getSeriesTitle();
+        private addCore(value);
+        add(value: IStiSeries): void;
+        addRange(values: IStiSeries[]): void;
+        addRange2(values: StiSeriesCollection): void;
+        contains(value: IStiSeries): boolean;
+        indexOf(value: IStiSeries): number;
+        insert(index: number, value: IStiSeries): void;
+        onClear(): void;
+        remove(value: IStiSeries): void;
+        getByIndex(index: number): IStiSeries;
+        setByIndex(index: number, value: IStiSeries): void;
+        getByName(name: string): IStiSeries;
+        setByName(index: number, value: IStiSeries): void;
+        seriesAdded: Function;
+        onSeriesAdded(e: EventArgs): void;
+        private invokeSeriesAdded(sender, index);
+        onRemove(index: number, value: Object): void;
+        seriesRemoved: Function;
+        onSeriesRemoved(e: EventArgs): void;
+        private invokeSeriesRemoved(sender, index);
+        private _chart;
+        chart: StiChart;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPage = Stimulsoft.Report.Components.StiPage;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    class StiSeriesInteraction implements IStiSeriesInteraction, IStiJsonReportObject, ICloneable {
+        private static implementsStiSeriesInteraction;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        getReport(): any;
+        clone(): StiSeriesInteraction;
+        readonly isDefault: boolean;
+        hyperlink: string;
+        tag: string;
+        toolTip: string;
+        hyperlinkDataColumn: string;
+        tagDataColumn: string;
+        toolTipDataColumn: string;
+        listOfHyperlinks: string;
+        listOfTags: string;
+        listOfToolTips: string;
+        allowSeries: boolean;
+        allowSeriesElements: boolean;
+        drillDownEnabled: boolean;
+        drillDownReport: string;
+        drillDownPage: StiPage;
+        drillDownPageGuid: string;
+        readonly parentComponent: StiComponent;
+        parentSeries: StiSeries;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSeriesInteractionData {
+        private _isElements;
+        isElements: boolean;
+        private _tag;
+        readonly tag: Object;
+        private _tooltip;
+        readonly tooltip: string;
+        private _hyperlink;
+        readonly hyperlink: string;
+        private _argument;
+        readonly argument: Object;
+        private _value;
+        readonly value: number;
+        private _series;
+        series: IStiSeries;
+        private _pointIndex;
+        readonly pointIndex: number;
+        private _point;
+        point: PointD;
+        fill(area: IStiArea, series: IStiSeries, pointIndex: number): void;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiStrips extends StiService implements IStiJsonReportObject, IStiStrips, ICloneable {
+        private static implementsStiStrips;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiStrips;
+        readonly serviceCategory: string;
+        readonly serviceType: Stimulsoft.System.Type;
+        private _core;
+        core: StiStripsCoreXF;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _showBehind;
+        showBehind: boolean;
+        private _stripBrush;
+        stripBrush: StiBrush;
+        private _antialiasing;
+        antialiasing: boolean;
+        private _font;
+        font: Font;
+        private _text;
+        text: string;
+        private _titleVisible;
+        titleVisible: boolean;
+        private _titleColor;
+        titleColor: Color;
+        private _orientation;
+        orientation: StiStrips_StiOrientation;
+        private _showInLegend;
+        showInLegend: boolean;
+        private _maxValue;
+        maxValue: string;
+        private _minValue;
+        minValue: string;
+        private _visible;
+        visible: boolean;
+        private _chart;
+        chart: IStiChart;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    class StiStripsCollection extends CollectionBase<IStiStrips> implements IStiJsonReportObject, IStiApplyStyle, IStiStripsCollection {
+        private static implementsStiStripsCollection;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        applyStyle(style: IStiChartStyle): void;
+        private getStripsTitle();
+        private addCore(value);
+        add(value: IStiStrips): void;
+        addRange(values: IStiStrips[]): void;
+        addRange2(values: StiStripsCollection): void;
+        contains(value: IStiStrips): boolean;
+        indexOf(value: IStiStrips): number;
+        insert(index: number, value: IStiStrips): void;
+        onClear(): void;
+        remove(value: IStiStrips): void;
+        getByIndex(index: number): IStiStrips;
+        setByIndex(index: number, value: IStiStrips): void;
+        stripsAdded: Function;
+        onStripsAdded(e: EventArgs): void;
+        private invokeStripsAdded(sender, index);
+        stripsRemoved: Function;
+        onStripsRemoved(e: EventArgs): void;
+        private invokeStripsRemoved(sender, index);
+        private _chart;
+        chart: StiChart;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    class StiChartStyle extends StiService implements IStiJsonReportObject, IStiChartStyle, ICloneable {
+        private static implementsStiChartStyle;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        static loadFromXml(xmlNode: XmlNode): StiChartStyle;
+        static loadFromJsonObjectInternal(jObject: StiJson): StiChartStyle;
+        readonly serviceName: string;
+        readonly serviceCategory: string;
+        readonly serviceType: Stimulsoft.System.Type;
+        readonly isOffice2015Style: boolean;
+        private _core;
+        core: StiStyleCoreXF;
+        toString(): string;
+        compareChartStyle(style: StiChartStyle): boolean;
+        createNew(): StiChartStyle;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle01 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiCustomStyle extends StiStyle01 implements IStiCustomStyle {
+        private static implementsStiCustomStyle;
+        implements(): string[];
+        readonly serviceName: string;
+        readonly customCore: StiCustomStyleCoreXF;
+        constructor(reportStyleName?: string);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle02 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle03 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle04 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle05 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle06 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle07 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle08 extends StiStyle03 {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle09 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle10 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle11 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle12 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle13 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle14 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle15 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle16 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle17 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle18 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle19 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle20 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle21 extends StiChartStyle {
+        readonly isOffice2015Style: boolean;
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle22 extends StiChartStyle {
+        readonly isOffice2015Style: boolean;
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle23 extends StiChartStyle {
+        readonly isOffice2015Style: boolean;
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle24 extends StiChartStyle {
+        readonly isOffice2015Style: boolean;
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle25 extends StiChartStyle {
+        readonly isOffice2015Style: boolean;
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle26 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle27 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiStyle28 extends StiChartStyle {
+        createNew(): StiChartStyle;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiChartTable implements IStiJsonReportObject, IStiChartTable, ICloneable {
+        private static implementsStiChartTable;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiChartTable;
+        font: Font;
+        private _visible;
+        visible: boolean;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _markerVisible;
+        markerVisible: boolean;
+        private _gridLineColor;
+        gridLineColor: Color;
+        textColor: Color;
+        private _gridLinesHor;
+        gridLinesHor: boolean;
+        private _gridLinesVert;
+        gridLinesVert: boolean;
+        private _gridOutline;
+        gridOutline: boolean;
+        private _format;
+        format: string;
+        private _header;
+        header: IStiChartTableHeader;
+        private _core;
+        core: StiChartTableCoreXF;
+        private _dataCells;
+        dataCells: StiChartTableDataCells;
+        private _chart;
+        chart: IStiChart;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiChartTableDataCells implements IStiChartTableDataCells {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiChartTableDataCells;
+        private _font;
+        font: Font;
+        private _textColor;
+        textColor: Color;
+        private _shrinkFontToFit;
+        shrinkFontToFit: boolean;
+        private _shrinkFontToFitMinimumSize;
+        shrinkFontToFitMinimumSize: number;
+        constructor(shrinkFontToFit?: boolean, shrinkFontToFitMinimumSize?: number, font?: Font, textColor?: Color);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import Font = Stimulsoft.System.Drawing.Font;
+    class StiChartTableHeader implements IStiJsonReportObject, IStiChartTableHeader, ICloneable {
+        private static implementsStiChartTableHeader;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        clone(): StiChartTableHeader;
+        private _brush;
+        brush: StiBrush;
+        private _font;
+        font: Font;
+        private _textColor;
+        textColor: Color;
+        private _wordWrap;
+        wordWrap: boolean;
+        constructor(brush?: StiBrush, font?: Font, textColor?: Color, wordWrap?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiSeriesTopN implements IStiJsonReportObject, IStiSeriesTopN, ICloneable {
+        private static implementsStiSeriesTopN;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiSeriesTopN;
+        private _mode;
+        mode: StiTopNMode;
+        private _count;
+        count: number;
+        private _showOthers;
+        showOthers: boolean;
+        private _othersText;
+        othersText: string;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    class StiTrendLine extends StiService implements IStiTrendLine, ICloneable, IStiJsonReportObject {
+        private static implementsStiTrendLine;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        static loadFromJsonObjectInternal(jObject: StiJson): IStiTrendLine;
+        loadFromXml(xmlNode: XmlNode): void;
+        static loadTrendLineFromXml(xmlNode: XmlNode): StiTrendLine;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        clone(): StiTrendLine;
+        readonly serviceName: string;
+        readonly serviceCategory: string;
+        readonly serviceType: Stimulsoft.System.Type;
+        private _core;
+        core: StiTrendLineCoreXF;
+        private _lineColor;
+        lineColor: Color;
+        private _lineWidth;
+        lineWidth: number;
+        private _lineStyle;
+        lineStyle: StiPenStyle;
+        private _showShadow;
+        showShadow: boolean;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        createNew(): StiTrendLine;
+        toString(): string;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTrendLineExponential extends StiTrendLine implements IStiTrendLine, ICloneable, IStiJsonReportObject, IStiTrendLineExponential {
+        private static implementsStiTrendLineExponential;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiTrendLine;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTrendLineLinear extends StiTrendLine implements IStiTrendLine, IStiTrendLineLinear, ICloneable, IStiJsonReportObject {
+        private static implementsStiTrendLineLinear;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiTrendLine;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTrendLineLogarithmic extends StiTrendLine implements IStiTrendLine, IStiTrendLineLogarithmic, ICloneable, IStiJsonReportObject {
+        private static implementsStiTrendLineLogarithmic;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiTrendLine;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiTrendLineNone extends StiTrendLine implements IStiTrendLine, IStiTrendLineNone, IStiJsonReportObject, ICloneable {
+        private static implementsStiTrendLineNone;
+        implements(): string[];
+        readonly componentId: StiComponentId;
+        createNew(): StiTrendLine;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiChartHelper {
+        static globalDurationElement: TimeSpan;
+        static globalBeginTimeElement: TimeSpan;
+        static fillSeriesData(series: StiSeries, items: StiDataItem[]): void;
+        static getFilterData(report: StiReport, filter: StiChartFilter, filterMethodName: string): Object;
+        static getFilterResult(filter: StiChartFilter, itemArgument: Object, itemValue: Object, itemValueEnd: Object, itemValueOpen: Object, itemValueClose: Object, itemValueLow: Object, itemValueHigh: Object, data: Object): boolean;
+        static convertStringToColor(colorStr: string): Object;
+        static createChart(masterChart: StiChart, chartComp: StiChart): void;
+        static getShorterListPoints(series: StiSeries): PointD[];
+        private static checkValueNaN(values);
+        private static checkArgumentsDateTimeStep(series);
+        private static createValuesTopN(series);
+        private static getNextDate(firstDate, step);
+        private static getKey(key);
+        private static sortArray(REFarrayString);
+        private static findIndex(array, value);
+        private static getValueForDate(dateStart, dateEnd, _arguments, values);
+        private static getTotalTimeSpans(step, dateMax, dateMin);
+        private static isArgumentsDateTime(_arguments);
+        private static maximumDate(dates);
+        private static minimumDate(dates);
+        private static getAutoSeriesColorFromautoSeriesColorDataColumn(masterChart, series);
+        private static getAutoSeriesTitleFromAutoSeriesTitleDataColumn(masterChart, series);
+        private static getAutoSeriesKeysFromAutoSeriesKeyDataColumn(masterChart, series);
+        private static setTitle(masterChart, seriesIndex, series);
+        private static setCutPieList(masterChart, series);
+        private static getArguments(masterChart, series);
+        private static getArgumentsFromArgumentExpression(masterChart, series);
+        private static getArgumentsFromArgumentDataColumn(masterChart, series);
+        private static getArgumentsFromListOfArguments(masterChart, series);
+        private static getValues(masterChart, series);
+        private static getValuesFromValueExpression(masterChart, series);
+        private static getValuesFromValueDataColumn(masterChart, series);
+        private static getValuesFromListOfValues(masterChart, series);
+        private static getValuesEnd(masterChart, series, valueDataColumnEnd, listValuesEnd, valuesEnd);
+        private static getValuesEndFromValueEndExpression(masterChart, valuesEnd, series);
+        private static getValuesEndFromValueDataColumnEnd(masterChart, series, valueDataColumnEnd);
+        private static getValuesEndFromListOfValuesEnd(masterChart, series, listValues);
+        private static getValuesOpen(masterChart, series);
+        private static getValuesOpenFromValuesOpenExpression(masterChart, series);
+        private static getValuesOpenFromValueDataColumnOpen(masterChart, series);
+        private static getValuesOpenFromListOfValuesOpen(masterChart, series);
+        private static getValuesClose(masterChart, series);
+        private static getValuesCloseFromValuesCloseExpression(masterChart, series);
+        private static getValuesCloseFromValueDataColumnClose(masterChart, series);
+        private static getValuesCloseFromListOfValuesClose(masterChart, series);
+        private static getValuesHigh(masterChart, series);
+        private static getValuesHighFromValuesHighExpression(masterChart, series);
+        private static getValuesHighFromValueDataColumnHigh(masterChart, series);
+        private static getValuesHighFromListOfValuesHigh(masterChart, series);
+        private static getValuesLow(masterChart, series);
+        private static getValuesLowFromValuesLowExpression(masterChart, series);
+        private static getValuesLowFromValueDataColumnLow(masterChart, series);
+        private static getValuesLowFromListOfValuesLow(masterChart, series);
+        private static getWeights(masterChart, series);
+        private static getWeightsWeightExpression(masterChart, series);
+        private static getWeightsFromWeightDataColumn(masterChart, series);
+        private static getWeightsFromListOfWeights(masterChart, series);
+        private static getHyperlinks(masterChart, series);
+        private static getHyperlinksFromHyperlinkExpression(masterChart, series);
+        private static getHyperlinksFromHyperlinkDataColumn(masterChart, series);
+        private static getHyperlinksFromListOfHyperlinks(masterChart, series);
+        private static getTags(masterChart, series);
+        private static getTagsFromTagExpression(masterChart, series);
+        private static getTagsFromTagDataColumn(masterChart, series);
+        private static getTagsFromListOfTags(masterChart, series);
+        private static getToolTips(masterChart, series);
+        private static getToolTipsFromToolTipExpression(masterChart, series);
+        private static getToolTipsFromToolTipDataColumn(masterChart, series);
+        private static getToolTipsFromListOfToolTips(masterChart, series);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiChart = Stimulsoft.Report.Components.StiChart;
+    import StiComponentInfo = Stimulsoft.Report.Engine.StiComponentInfo;
+    import StiText = Stimulsoft.Report.Components.StiText;
+    class StiChartInfo extends StiComponentInfo implements IStiChartInfo {
+        private static implementsStiChartInfo;
+        implements(): string[];
+        storedForProcessAtEndChart: StiChart;
+        interactiveComps: StiText[];
+    }
+}
+declare module Stimulsoft.Report.Components {
+    import StiProcessChartEvent = Stimulsoft.Report.Events.StiProcessChartEvent;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiChartConditionsCollection = Stimulsoft.Report.Chart.StiChartConditionsCollection;
+    import IStiArea = Stimulsoft.Report.Chart.IStiArea;
+    import IStiChart = Stimulsoft.Report.Chart.IStiChart;
+    import IStiChartTable = Stimulsoft.Report.Chart.IStiChartTable;
+    import IStiChartTitle = Stimulsoft.Report.Chart.IStiChartTitle;
+    import IStiLegend = Stimulsoft.Report.Chart.IStiLegend;
+    import IStiSeriesLabels = Stimulsoft.Report.Chart.IStiSeriesLabels;
+    import StiChartCoreXF = Stimulsoft.Report.Chart.StiChartCoreXF;
+    import StiChartInfo = Stimulsoft.Report.Chart.StiChartInfo;
+    import StiConstantLinesCollection = Stimulsoft.Report.Chart.StiConstantLinesCollection;
+    import IStiChartStyle = Stimulsoft.Report.Chart.IStiChartStyle;
+    import StiStripsCollection = Stimulsoft.Report.Chart.StiStripsCollection;
+    import StiSeriesCollection = Stimulsoft.Report.Chart.StiSeriesCollection;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiImageRotation = Stimulsoft.Report.Components.StiImageRotation;
+    import StiComponentType = Stimulsoft.Report.Components.StiComponentType;
+    import StiDataRelation = Stimulsoft.Report.Dictionary.StiDataRelation;
+    import StiBusinessObject = Stimulsoft.Report.Dictionary.StiBusinessObject;
+    import StiDataSource = Stimulsoft.Report.Dictionary.StiDataSource;
+    import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
+    import StiFiltersCollection = Stimulsoft.Report.Components.StiFiltersCollection;
+    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
+    import StiUnit = Stimulsoft.Report.Units.StiUnit;
+    import RectangleD = Stimulsoft.Base.Drawing.RectangleD;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import Image = Stimulsoft.System.Drawing.Image;
+    class StiChart extends StiComponent implements IStiBorder, IStiBusinessObject, IStiBrush, IStiDataSource, IStiDataRelation, IStiMasterComponent, IStiSort, IStiFilter, IStiExportImage, IStiExportImageExtended, IStiIgnoryStyle, IStiGlobalizationProvider, IStiChart {
+        private static implementsStiChart;
+        implements(): string[];
+        jsonMasterComponentTemp: string;
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        readonly componentId: StiComponentId;
+        convert(oldUnit: StiUnit, newUnit: StiUnit, isReportSnapshot?: boolean): void;
+        convertToHInches(value: number): number;
+        setString(propertyName: string, value: string): void;
+        getString(propertyName: string): string;
+        getAllStrings(): string[];
+        clone(): StiChart;
+        saveState(stateName: string): void;
+        restoreState(stateName: string): void;
+        getImage(REFzoom: any, format?: StiExportFormat): Image;
+        isExportAsImage(format: StiExportFormat): boolean;
+        private _filterMethodHandler;
+        filterMethodHandler: Function;
+        private _filterMode;
+        filterMode: StiFilterMode;
+        private _filters;
+        filters: StiFiltersCollection;
+        filter: string;
+        private _filterOn;
+        filterOn: boolean;
+        private _border;
+        border: StiBorder;
+        private _brush;
+        brush: StiBrush;
+        private _sort;
+        sort: string[];
+        readonly dataSource: StiDataSource;
+        private _dataSourceName;
+        dataSourceName: string;
+        readonly isDataSourceEmpty: boolean;
+        readonly isBusinessObjectEmpty: boolean;
+        readonly businessObject: StiBusinessObject;
+        private _businessObjectGuid;
+        businessObjectGuid: string;
+        private _masterComponent;
+        masterComponent: StiComponent;
+        private _countData;
+        countData: number;
+        first(): void;
+        prior(): void;
+        next(): void;
+        last(): void;
+        isEofValue: boolean;
+        isEof: boolean;
+        isBofValue: boolean;
+        isBof: boolean;
+        readonly isEmpty: boolean;
+        positionValue: number;
+        position: number;
+        readonly count: number;
+        private isCacheValues;
+        private cachedCount;
+        private cachedIsBusinessObjectEmpty;
+        private cachedIsDataSourceEmpty;
+        private cachedDataSource;
+        private cachedBusinessObject;
+        cacheValues(cache: boolean): void;
+        readonly dataRelation: StiDataRelation;
+        private _dataRelationName;
+        dataRelationName: string;
+        private _processAtEnd;
+        processAtEnd: boolean;
+        readonly priority: number;
+        readonly localizedCategory: string;
+        readonly defaultClientRectangle: RectangleD;
+        readonly componentType: StiComponentType;
+        readonly localizedName: string;
+        invokeEvents(): void;
+        protected onProcessChart(e: EventArgs): void;
+        invokeProcessChart(sender: Object, e: EventArgs): void;
+        processChartEvent: StiProcessChartEvent;
+        private series_SeriesAdded(sender);
+        private series_SeriesRemoved(sender);
+        private _seriesLabelsConditions;
+        seriesLabelsConditions: StiChartConditionsCollection;
+        chartType: IStiArea;
+        createNew(): StiComponent;
+        simplifyValues(): void;
+        private _core;
+        core: StiChartCoreXF;
+        private _rotation;
+        rotation: StiImageRotation;
+        private _series;
+        series: StiSeriesCollection;
+        private _area;
+        area: IStiArea;
+        private _table;
+        table: IStiChartTable;
+        private _style;
+        style: IStiChartStyle;
+        private _allowApplyStyle;
+        allowApplyStyle: boolean;
+        private _customStyleName;
+        customStyleName: string;
+        private _horSpacing;
+        horSpacing: number;
+        private _vertSpacing;
+        vertSpacing: number;
+        private _seriesLabels;
+        seriesLabels: IStiSeriesLabels;
+        private _legend;
+        legend: IStiLegend;
+        private _title;
+        title: IStiChartTitle;
+        private _strips;
+        strips: StiStripsCollection;
+        private _constantLines;
+        constantLines: StiConstantLinesCollection;
+        private _isAnimation;
+        isAnimation: boolean;
+        private _chartInfo;
+        readonly chartInfo: StiChartInfo;
+        constructor(rect?: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    class StiChartOptions {
+        private static _oldChartPercentMode;
+        static oldChartPercentMode: boolean;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    import SizeD = Stimulsoft.Base.Drawing.SizeD;
+    class StiInteractionOptions {
+        private _updateContext;
+        updateContext: boolean;
+        private _recallEvent;
+        recallEvent: boolean;
+        private _recallTime;
+        recallTime: TimeSpan;
+        private _isRecalled;
+        isRecalled: boolean;
+        private _mousePoint;
+        mousePoint: PointD;
+        private _dragEnabled;
+        dragEnabled: boolean;
+        private _dragDelta;
+        dragDelta: SizeD;
+        private _interactionToolTip;
+        interactionToolTip: string;
+        private _interactionHyperlink;
+        interactionHyperlink: string;
+        private _seriesInteractionData;
+        seriesInteractionData: StiSeriesInteractionData;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiPointHelper {
+        private static getPointClassify(basePoint, point1, point2);
+        static isPointInTriangle(p: PointD, a: PointD, b: PointD, c: PointD): boolean;
+        static isPointInPolygon(p: PointD, points: PointD[]): boolean;
+        static getLineOffsetRectangle(point1: PointD, point2: PointD, offset: number): PointD[];
+        static isLineContainsPoint(startPoint: PointD, endPoint: PointD, offset: number, point: PointD): boolean;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import PointD = Stimulsoft.Base.Drawing.PointD;
+    class StiSimplifyHelper {
+        private static getSquareDistance(p1, p2);
+        private static getSquareSegmentDistance(p, p1, p2);
+        private static simplifyRadialDistance(points, sqTolerance);
+        private static simplifyDouglasPeucker(points, sqTolerance);
+        static simplify(points: PointD[], tolerance: number, highestQuality: boolean): PointD[];
+    }
+}
 
 declare module Stimulsoft.Viewer {
     class StiCollectionsHelper {
@@ -32650,6 +33078,7 @@ declare module Stimulsoft.Viewer {
         onDesignReport: Function;
         onShowReport: Function;
         onLoadDocument: Function;
+        onGetReport: Function;
         private reportCache;
         private _viewerId;
         readonly viewerId: string;
@@ -32674,6 +33103,7 @@ declare module Stimulsoft.Viewer {
         private invokeDesignReport();
         private invokeShowReport();
         private invokeLoadDocument(callback);
+        private invokeGetReport();
         private callRemoteApi(commad, timeout?);
         private getReportPage(report, service, pageIndex, zoom, openLinksTarget);
         private getPagesArray(report, options, requestParams);
@@ -33781,6 +34211,8 @@ declare module Stimulsoft.Designer {
         private _showLocalization;
         showLocalization: boolean;
         allowChangeWindowTitle: boolean;
+        showPropertiesGrid: boolean;
+        showReportTree: boolean;
     }
 }
 declare module Stimulsoft.Designer {
@@ -34051,35 +34483,34 @@ declare module Stimulsoft.Designer {
     }
 }
 declare module Stimulsoft.Designer {
-    import StiSeriesLabels = Stimulsoft.Report.Chart.StiSeriesLabels;
     import IStiSeriesLabels = Stimulsoft.Report.Chart.IStiSeriesLabels;
-    import StiStrips = Stimulsoft.Report.Chart.StiStrips;
-    import StiConstantLines = Stimulsoft.Report.Chart.StiConstantLines;
-    import StiArea = Stimulsoft.Report.Chart.StiArea;
-    import StiChartConditionsCollection = Stimulsoft.Report.Chart.StiChartConditionsCollection;
-    import StiChartFiltersCollection = Stimulsoft.Report.Chart.StiChartFiltersCollection;
     import StiReport = Stimulsoft.Report.StiReport;
-    import StiChart = Stimulsoft.Report.Components.StiChart;
-    import StiSeries = Stimulsoft.Report.Chart.StiSeries;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
+    import IStiChart = Stimulsoft.Report.Chart.IStiChart;
+    import IStiSeries = Stimulsoft.Report.Chart.IStiSeries;
+    import IStiArea = Stimulsoft.Report.Chart.IStiArea;
+    import IStiConstantLines = Stimulsoft.Report.Chart.IStiConstantLines;
+    import IStiStrips = Stimulsoft.Report.Chart.IStiStrips;
+    import IStiChartConditionsCollection = Stimulsoft.Report.Chart.IStiChartConditionsCollection;
+    import IStiChartFiltersCollection = Stimulsoft.Report.Chart.IStiChartFiltersCollection;
     class StiChartHelper {
-        static getChartProperties(chart: StiChart): any;
-        static getSeriesArray(chart: StiChart): any[];
-        static getSeries(series: StiSeries): any;
-        static getConditions(conditions: StiChartConditionsCollection): any[];
-        static getFilters(filters: StiChartFiltersCollection): any[];
-        static getTypesCollection(chart: StiChart): any[];
-        static getArea(chart: StiChart): any;
-        static getStyle(chart: StiChart): any;
-        static getMainProperties(chart: StiChart): any;
-        static getConstantLines(chart: StiChart): any[];
-        static getConstantLineProperties(constantLine: StiConstantLines): any;
-        static getStrips(chart: StiChart): any[];
-        static getStripsProperties(strip: StiStrips): any;
+        static getChartProperties(chart: IStiChart): any;
+        static getSeriesArray(chart: IStiChart): any[];
+        static getSeries(series: IStiSeries): any;
+        static getConditions(conditions: IStiChartConditionsCollection): any[];
+        static getFilters(filters: IStiChartFiltersCollection): any[];
+        static getTypesCollection(chart: IStiChart): any[];
+        static getArea(chart: IStiChart): any;
+        static getStyle(chart: IStiChart): any;
+        static getMainProperties(chart: IStiChart): any;
+        static getConstantLines(chart: IStiChart): any[];
+        static getConstantLineProperties(constantLine: IStiConstantLines): any;
+        static getStrips(chart: IStiChart): any[];
+        static getStripsProperties(strip: IStiStrips): any;
         static getLabels(seriesLabels: IStiSeriesLabels): any;
-        static getSeriesProperties(series: StiSeries): any;
-        static getAreaProperties(area: StiArea): any;
-        static getLabelsProperties(labels: StiSeriesLabels): any;
+        static getSeriesProperties(series: IStiSeries): any;
+        static getAreaProperties(area: IStiArea): any;
+        static getLabelsProperties(labels: IStiSeriesLabels): any;
         private static setConditionsValue(conditions, conditionValues);
         private static setFiltersValue(filters, filterValues);
         static getChartSampleSvg(svgData: StiSvgData): string;
