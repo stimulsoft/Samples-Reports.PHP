@@ -130,14 +130,17 @@
     <Yes>&amp;Yes</Yes>
   </Buttons>
   <Chart>
+    <Pictorial>Pictorial</Pictorial>
     <AddCondition>&amp;Add Condition</AddCondition>
     <AddConstantLine>Add Constant Line</AddConstantLine>
     <AddFilter>&amp;Add Filter</AddFilter>
     <AddSeries>&amp;Add Series</AddSeries>
     <AddStrip>Add Strip</AddStrip>
     <Area>Area</Area>
-    <Column>Column</Column>
-    <WinLoss>Win / Loss</WinLoss>
+    <SparklinesArea>Area</SparklinesArea>
+    <SparklinesLine>Line</SparklinesLine>
+    <SparklinesColumn>Column</SparklinesColumn>
+    <SparklinesWinLoss>Win / Loss</SparklinesWinLoss>
     <Axes>Axes</Axes>
     <AxisReverse>Reverse</AxisReverse>
     <AxisX>Axis X</AxisX>
@@ -319,6 +322,7 @@
     <VerticalNone>&lt;b&gt;None&lt;/b&gt;&lt;br&gt;Do not display Vertical Gridlines&lt;/br&gt;</VerticalNone>
   </ChartRibbon>
   <Cloud>
+    <SavingToStimulsoftCloudPleaseWait>Saving the report to Stimulsoft Cloud. Please wait!</SavingToStimulsoftCloudPleaseWait>
     <ShowNotificationMessages>Show Notification Messages</ShowNotificationMessages>
     <AccountSettings>Account Settings</AccountSettings>
     <AddAPlace>Add a Place</AddAPlace>
@@ -330,6 +334,7 @@
     <ButtonPurchase>Purchase</ButtonPurchase>
     <ButtonRecover>Recover</ButtonRecover>
     <ButtonRenew>Renew</ButtonRenew>
+    <ButtonLater>Later</ButtonLater>
     <ButtonResendEmail>Resend Email</ButtonResendEmail>
     <ButtonResetPassword>Reset Password</ButtonResetPassword>
     <ButtonRun>Run</ButtonRun>
@@ -2427,6 +2432,8 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
+    <StiGaugeTypeFullCircular>Full Circular</StiGaugeTypeFullCircular>
+    <StiGaugeTypeHalfCircular>Half-Circular</StiGaugeTypeHalfCircular>
     <boolFalse>False</boolFalse>
     <boolTrue>True</boolTrue>
     <BorderStyleFixed3D>Fixed 3D</BorderStyleFixed3D>
@@ -2857,8 +2864,6 @@
     <StiViewModePageBreakPreview>Page Break Preview</StiViewModePageBreakPreview>
     <StiXmlTypeAdoNetXml>ADO.NET XML</StiXmlTypeAdoNetXml>
     <StiXmlTypeXml>XML</StiXmlTypeXml>
-    <StiGaugeTypeRadialBar>Radial Bar</StiGaugeTypeRadialBar>
-    <StiGaugeTypeHalfDonuts>Half Donuts</StiGaugeTypeHalfDonuts>
     <StringAlignmentCenter>Center</StringAlignmentCenter>
     <StringAlignmentFar>Far</StringAlignmentFar>
     <StringAlignmentNear>Near</StringAlignmentNear>
@@ -2993,6 +2998,8 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
+    <Actual>Actual</Actual>
+    <RoundValues>Round Values</RoundValues>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
     <Target>Target</Target>
     <AcceptsTab>Accepts Tab</AcceptsTab>
@@ -4189,6 +4196,9 @@
     <title>Toolbox</title>
   </Toolbox>
   <Wizards>
+    <SelectTemplate>Template</SelectTemplate>
+    <Mapping>Mapping</Mapping>
+    <Company>Company</Company>
     <BlankDashboard>Blank Dashboard</BlankDashboard>
     <BlankReport>Blank Report</BlankReport>
     <ButtonBack>&lt; &amp;Back</ButtonBack>
@@ -4209,6 +4219,9 @@
     <Groups>Groups</Groups>
     <groupTemplates>Templates</groupTemplates>
     <groupWizards>Wizards</groupWizards>
+    <infoSelectTemplate>Choose the appropriate template for your needs.</infoSelectTemplate>
+    <infoLanguages>Select the report culture.</infoLanguages>
+    <infoCompanyInfo>Enter your company information.</infoCompanyInfo>
     <infoColumnsOrder>Arrange columns in the necessary order.</infoColumnsOrder>
     <infoDataSource>Select one Data Source from available.</infoDataSource>
     <infoDataSources>Select Data Sources from available. The first selected one will be the Master data source.</infoDataSources>

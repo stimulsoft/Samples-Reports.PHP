@@ -68,10 +68,10 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->database = $request->database;
-		$args->connectionString = $request->connectionString;
-		$args->queryString = $request->queryString;
-		$args->dataSource = $request->dataSource;
-		$args->connection = $request->connection;
+		$args->connectionString = isset($request->connectionString) ? $request->connectionString : null;
+		$args->queryString = isset($request->queryString) ? $request->queryString : null;
+		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
+		$args->connection = isset($request->connection) ? $request->connection : null;
 		if (isset($request->queryString)) $args->parameters = $this->getQueryParameters($request->queryString);
 		
 		$result = $this->checkEventResult($this->onBeginProcessData, $args);
@@ -328,6 +328,9 @@ class StiHandler {
 				
 			case StiExportFormat::Word2007:
 				return "docx";
+				
+			case StiExportFormat::Csv:
+				return "csv";
 		}
 		return "";
 	}

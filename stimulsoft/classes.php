@@ -49,6 +49,7 @@ class StiExportFormat {
 	const Pdf = "Pdf";
 	const Excel2007 = "Excel2007";
 	const Word2007 = "Word2007";
+	const Csv = "Csv";
 }
 
 class StiRequest {
