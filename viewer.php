@@ -54,10 +54,13 @@ require_once 'stimulsoft/helper.php';
 		var report = new Stimulsoft.Report.StiReport();
 		report.loadFile("reports/SimpleList.mrt");
 		viewer.report = report;
-		viewer.renderHtml("viewerContent");
+		
+		function onLoad() {
+			viewer.renderHtml("viewerContent");
+		}
 	</script>
 	</head>
-<body>
+<body onload="onLoad();">
 	<div id="viewerContent"></div>
 </body>
 </html>

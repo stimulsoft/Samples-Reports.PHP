@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.1
-Build date: 2017.11.30
+Version: 2018.1.2
+Build date: 2017.12.05
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -1550,6 +1550,10 @@ declare module Stimulsoft.System.Drawing {
         drawString(text: string, font: Font, brush: Brush, x: number, y: number): void;
         translateTransform(dx: number, dy: number): void;
         static opentypeFonts: Hashtable;
+        static getOpentypeFont(fontName: string, fontStyle: FontStyle): any;
+        static getCustomFontsCss(): string;
+        static getCustomFontName(fontName: string, fontStyle: FontStyle): string;
+        static allowStyle(fontName: string, fontStyle: FontStyle): boolean;
         private static measureHash;
         static measureString(text1: string, font: Font, width?: number, useCache?: boolean, multiple?: number, angle?: number): Size;
         static measureChars(chars: Array<number>, count: number, font: Font): Size;
@@ -5657,15 +5661,15 @@ declare module Stimulsoft.Base {
     }
 }
 declare module Stimulsoft.Base {
-    import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import FontFamily = Stimulsoft.System.Drawing.FontFamily;
+    import FontStyle = Stimulsoft.System.Drawing.FontStyle;
     class StiFontCollection {
-        static binFonts: Hashtable;
-        static addOpentypeFont(font: any, fontName?: string, binFont?: any, filePath?: string): void;
-        static addOpentypeFontFile(filePath: string, fontName?: string): void;
-        static addOpentypeFontFileAsync(callback: Function, filePath: string, fontName?: string): void;
+        static addOpentypeFont(font: any, fontName?: string, binFont?: any, filePath?: string, fontStyle?: FontStyle): void;
+        static addOpentypeFontFile(filePath: string, fontName?: string, fontStyle?: FontStyle): void;
+        static addOpentypeFontFileAsync(callback: Function, filePath: string, fontName?: string, fontStyle?: FontStyle): void;
         static getFontFamilies(): FontFamily[];
-        static getBinFont(fontName: string): any;
+        static getBinFont(fontName: string, fontStyle?: FontStyle): any;
+        static getBinFonts(): string[];
     }
 }
 declare module Stimulsoft.Base {
@@ -38026,6 +38030,7 @@ declare module Stimulsoft.Designer {
         ActionOpenReport(): any;
         SendCommandSaveStyle(stylesCollection: any[]): any;
         GetFontNamesItems(): any;
+        AddCustomFontsCss(customFontsCss: string): any;
         constructor(parameters: any);
     }
     class StiDesigner {

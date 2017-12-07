@@ -44,10 +44,13 @@ require_once 'stimulsoft/helper.php';
 		var report = new Stimulsoft.Report.StiReport();
 		report.loadFile("reports/SimpleList.mrt");
 		designer.report = report;
-		designer.renderHtml("designerContent");
+		
+		function onLoad() {
+			designer.renderHtml("designerContent");
+		}
 	</script>
 	</head>
-<body>
+<body onload="onLoad();">
 	<div id="designerContent"></div>
 </body>
 </html>
