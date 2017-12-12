@@ -21,6 +21,7 @@ $handler->onBeginProcessData = function ($event) {
 	$queryString = $event->queryString;
 	//$event->parameters["Variable1"] = 10;
 	//$event->parameters["Variable2"] = "text value";
+	
 	return StiResult::success();
 };
 

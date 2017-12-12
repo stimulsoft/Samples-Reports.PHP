@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.2
-Build date: 2017.12.05
+Version: 2018.1.3
+Build date: 2017.12.08
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -1626,6 +1626,7 @@ declare module Stimulsoft.System.Drawing {
         stiEquals(point: Point): boolean;
         constructor(x?: number, y?: number);
     }
+    var PointD: typeof Point;
 }
 declare module Stimulsoft.System.Drawing {
     class Rectangle {
@@ -1654,6 +1655,7 @@ declare module Stimulsoft.System.Drawing {
         size: Size;
         constructor(x?: number, y?: number, width?: number, height?: number);
     }
+    var RectangleD: typeof Rectangle;
 }
 declare module Stimulsoft.System.Drawing {
     class Size {
@@ -1668,6 +1670,7 @@ declare module Stimulsoft.System.Drawing {
         constructor(size: Size);
         constructor(width: number, height: number);
     }
+    var SizeD: typeof Size;
 }
 declare module Stimulsoft.System.Drawing {
     class SolidBrush extends Brush {
@@ -1796,10 +1799,24 @@ declare module Stimulsoft.System.Globalization {
         constructor(numberDecimalSeparator?: string, numberDecimalDigits?: number, numberGroupSeparator?: string, numberGroupSizes?: number[], numberNegativePattern?: number, currencyDecimalDigits?: number, currencyDecimalSeparator?: string, currencyGroupSeparator?: string, currencyGroupSizes?: number[], currencyNegativePattern?: number, currencyPositivePattern?: number, currencySymbol?: string, percentDecimalDigits?: number, percentDecimalSeparator?: string, percentGroupSeparator?: string, percentGroupSizes?: number[], percentNegativePattern?: number, percentPositivePattern?: number, percentSymbol?: string, perMilleSymbol?: string, positiveInfinitySymbol?: string, positiveSign?: string, NaNSymbol?: string, negativeInfinitySymbol?: string, negativeSign?: string);
     }
 }
-declare module Stimulsoft.System.IO.Compression {
-    enum CompressionMode {
-        Decompress = 0,
-        Compress = 1,
+declare module Stimulsoft.System.IO {
+    enum SeekOrigin {
+        Begin = 0,
+        Current = 1,
+        End = 2,
+    }
+}
+declare module Stimulsoft.System.IO {
+    class File {
+        static getFile(filePath: string, binary?: boolean, contentType?: string): any;
+        static getFileAsync(callback: Function, filePath: string, binary?: boolean, contentType?: string): void;
+        static saveFile(filePath: string, fileData: string): void;
+    }
+}
+declare module Stimulsoft.System.IO {
+    class Http {
+        static getFile(filePath: string, binary?: boolean, contentType?: string): any;
+        static getFileAsync(callback: Function, filePath: string, binary?: boolean, contentType?: string): void;
     }
 }
 declare module Stimulsoft.System.IO {
@@ -1825,168 +1842,6 @@ declare module Stimulsoft.System.IO {
         flush(): void;
         close(): void;
         constructor(array?: number[]);
-    }
-}
-declare module Stimulsoft.System.IO.Compression {
-    class DeflateStream extends MemoryStream {
-        private _stream;
-        private _mode;
-        private _leaveOpen;
-        flush(): void;
-        close(): void;
-        constructor(stream: MemoryStream, mode: CompressionMode, leaveOpen: boolean);
-    }
-}
-declare module Stimulsoft.System.IO.Compression {
-    class Helper {
-        private static _helper;
-        static deflate(data: string | number[], level?: number): number[];
-        static inflate(data: number[]): number[];
-        private _deflateData;
-        private _deflatePos;
-        private _inflateData;
-        private _inflatePos;
-        private _freeQueue;
-        private _qHead;
-        private _qTail;
-        private _initFlag;
-        private _outBuffer;
-        private _outCount;
-        private _outOffset;
-        private _complete;
-        private _window;
-        private _dBuffer;
-        private _lBuffer;
-        private _prev;
-        private _biBuffer;
-        private _biValid;
-        private _blockStart;
-        private _insH;
-        private _hashHead;
-        private _prevMatch;
-        private _matchAvailable;
-        private _matchLength;
-        private _prevLength;
-        private _strStart;
-        private _matchStart;
-        private _eoFile;
-        private _lookahead;
-        private _maxChainLength;
-        private _maxLazyMatch;
-        private _compressLevel;
-        private _goodMatch;
-        private _niceMatch;
-        private _dynamicLtree;
-        private _dynamicDtree;
-        private _staticLtree;
-        private _staticDtree;
-        private _blTree;
-        private _lDesc;
-        private _dDesc;
-        private _blDesc;
-        private _blCount;
-        private _heap;
-        private _heapLen;
-        private _heapMax;
-        private _depth;
-        private _lengthCode;
-        private _distCode;
-        private _baseLength;
-        private _baseDist;
-        private _flagBuf;
-        private _lastLit;
-        private _lastDist;
-        private _lastFlags;
-        private _flags;
-        private _flagBit;
-        private _optLen;
-        private _staticLen;
-        private _slide;
-        private _wp;
-        private _fixedTL;
-        private _fixedTD;
-        private _fixedBL;
-        private _fixedBD;
-        private _bitBuffer;
-        private _bitLength;
-        private _method;
-        private _eof;
-        private _copyLength;
-        private _copyDist;
-        private _tl;
-        private _td;
-        private _bl;
-        private _bd;
-        private deflateStart(level);
-        private deflateEnd();
-        private reuseQueue(p);
-        private newQueue();
-        private head1(i);
-        private head2(i, val);
-        private putByte(c);
-        private putShort(w);
-        private insertString();
-        private sendCode(c, tree);
-        private dCode(dist);
-        private smaller(tree, n, m);
-        private readBuffer(buffer, offset, n);
-        private lmInit();
-        private longestMatch(curMatch);
-        private fillWindow();
-        private deflateFast();
-        private deflateBetter();
-        private initDeflate();
-        private deflateInternal(buffer, offset, bufferSize);
-        private qCopy(buffer, offset, bufferSize);
-        ctInit(): void;
-        private initBlock();
-        private pqDownHeap(tree, k);
-        private genBitLength(desc);
-        private genCodes(tree, maxCode);
-        private buildTree(desc);
-        private scanTree(tree, maxCode);
-        private sendTree(tree, maxCode);
-        private buildBlTree();
-        private sendAllTrees(lCodes, dCodes, blCodes);
-        private flushBlock(eof);
-        private ctTally(dist, lc);
-        private compressBlock(lTree, dTree);
-        private sendBits(value, length);
-        private biReverse(code, len);
-        private biWindup();
-        private qOutBuffer();
-        deflate(data: number[], level?: number): number[];
-        private getByte();
-        private needBits(n);
-        private getBits(n);
-        private dumpBits(n);
-        private inflateCodes(buffer, offset, size);
-        private inflateStored(buffer, offset, size);
-        private inflateFixed(buffer, offset, size);
-        private inflateDynamic(buffer, offset, size);
-        inflateStart(): void;
-        private inflateInternal(buffer, offset, size);
-        inflate(data: number[]): number[];
-    }
-}
-declare module Stimulsoft.System.IO {
-    enum SeekOrigin {
-        Begin = 0,
-        Current = 1,
-        End = 2,
-    }
-}
-declare module Stimulsoft.System.IO {
-    class File {
-        static getFile(filePath: string, binary?: boolean, contentType?: string): any;
-        static getFileAsync(callback: Function, filePath: string, binary?: boolean, contentType?: string): void;
-        static saveFile(filePath: string, fileData: string): void;
-    }
-}
-declare module Stimulsoft.System.IO {
-    class Http {
-        static getFile(filePath: string, binary?: boolean, contentType?: string): any;
-        static getFileAsync(callback: Function, filePath: string, binary?: boolean, contentType?: string): void;
     }
 }
 declare module Stimulsoft.System.IO {
@@ -5546,24 +5401,6 @@ declare let JSZip: {
 };
 declare module "jszip" {
     export = JSZip;
-}
-interface Deflate {
-    (options: Object): Deflate;
-    new (options: Object): Deflate;
-    push(data: Uint8Array | any[] | String, mode: boolean): boolean;
-    deflate(input: Uint8Array | any[] | String, options?: Object): boolean;
-    deflateRaw(input: Uint8Array | any[] | String, options?: Object): boolean;
-    gzip(input: Uint8Array | any[] | String, options?: Object): boolean;
-    chunks(): any[];
-    result(): Uint8Array | any[];
-    err(): number;
-    msg(): string;
-}
-declare let pako: {
-    Deflate: Deflate;
-};
-declare module "pako_deflate" {
-    export = pako;
 }
 declare module Stimulsoft.Base {
     class StiGZipHelper {
@@ -11601,6 +11438,7 @@ declare module Stimulsoft.Report.Components {
         private static eventGetValue;
         protected onGetValue(e: StiGetValueEventArgs): void;
         invokeGetValue(sender: StiComponent, e: StiGetValueEventArgs): void;
+        checkDuplicates(sender: StiComponent, e: StiGetValueEventArgs): void;
         getValueEvent: StiGetValueEvent;
         private static eventTextProcess;
         protected onTextProcess(e: StiValueEventArgs): void;
@@ -18762,6 +18600,7 @@ declare module Stimulsoft.Report.Dictionary {
     }
 }
 declare module Stimulsoft.Report.Dictionary {
+    import DataSet = Stimulsoft.System.Data.DataSet;
     class StiExcelDatabase extends StiFileDatabase {
         createNew(): StiDatabase;
         readonly serviceName: string;
@@ -18771,7 +18610,7 @@ declare module Stimulsoft.Report.Dictionary {
         getDatabaseInformation(dictionary: StiDictionary): StiDatabaseInformation;
         regData(dictionary: StiDictionary, loadData: boolean): void;
         private getDataSet(dictionary);
-        private getDataSetPrivate(workbook);
+        getDataSetPrivate(workbook: IWorkBook): DataSet;
         constructor(name?: string, pathData?: string, key?: string, firstRowIsHeader?: boolean);
     }
 }
@@ -20622,7 +20461,7 @@ declare module Stimulsoft.Report.Engine {
         private checkFreeSpace2(value);
         private storeLatestDataBand(band);
         private setReportVariables(band);
-        checkForDuplicate(textName: string, value: string): string;
+        checkForDuplicate(textName: string, value: string, tag: string): boolean;
         resetProcessingDuplicates1(componentName: string): void;
         resetProcessingDuplicates2(component: StiSimpleText): void;
         getSumTagsOnPage(page: StiPage, componentName: string): number;
@@ -38031,6 +37870,7 @@ declare module Stimulsoft.Designer {
         SendCommandSaveStyle(stylesCollection: any[]): any;
         GetFontNamesItems(): any;
         AddCustomFontsCss(customFontsCss: string): any;
+        InitializeSelectDataForm(func: any): any;
         constructor(parameters: any);
     }
     class StiDesigner {
