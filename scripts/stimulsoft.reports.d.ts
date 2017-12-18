@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.3
-Build date: 2017.12.08
+Version: 2018.1.4
+Build date: 2017.12.15
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -1626,7 +1626,6 @@ declare module Stimulsoft.System.Drawing {
         stiEquals(point: Point): boolean;
         constructor(x?: number, y?: number);
     }
-    var PointD: typeof Point;
 }
 declare module Stimulsoft.System.Drawing {
     class Rectangle {
@@ -1655,7 +1654,6 @@ declare module Stimulsoft.System.Drawing {
         size: Size;
         constructor(x?: number, y?: number, width?: number, height?: number);
     }
-    var RectangleD: typeof Rectangle;
 }
 declare module Stimulsoft.System.Drawing {
     class Size {
@@ -1670,7 +1668,6 @@ declare module Stimulsoft.System.Drawing {
         constructor(size: Size);
         constructor(width: number, height: number);
     }
-    var SizeD: typeof Size;
 }
 declare module Stimulsoft.System.Drawing {
     class SolidBrush extends Brush {
@@ -4501,6 +4498,15 @@ declare let XLSX: {
 };
 declare module "xlsx" {
     export = XLSX;
+}
+declare module Stimulsoft.Base.Drawing {
+    var PointD: typeof System.Drawing.Point;
+}
+declare module Stimulsoft.Base.Drawing {
+    var RectangleD1: typeof System.Drawing.Rectangle;
+}
+declare module Stimulsoft.Base.Drawing {
+    var SizeD: typeof System.Drawing.Size;
 }
 declare module Stimulsoft.Base.Drawing {
     import Point = Stimulsoft.System.Drawing.Point;
@@ -37067,6 +37073,7 @@ declare module Stimulsoft.Designer {
         static strPermissionsToConditionPermissionsObject(strPermissions: string): StiConditionPermissions;
         static getReportFileName(report: StiReport): string;
         static createInfographicComponent(componentTypeArray: string): StiComponent;
+        static createShapeComponent(componentTypeArray: string): StiComponent;
         private static applyStyleCollection(comp, stylesCollection);
         static applyStyles(comp: StiComponent, stylesCollection: StiStylesCollection): void;
         static getComponentMainProperties(component: StiComponent, zoom: number): any;

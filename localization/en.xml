@@ -107,6 +107,7 @@
     <MoreOptions>More Options</MoreOptions>
     <MoveLeft>Move Left</MoveLeft>
     <MoveRight>Move Right</MoveRight>
+    <MoveToResource>Move to Resource</MoveToResource>
     <No>&amp;No</No>
     <Ok>&amp;OK</Ok>
     <Open>Open</Open>
@@ -3003,6 +3004,7 @@
   </PropertyHatchStyle>
   <PropertyMain>
     <Actual>Actual</Actual>
+    <Label>Label</Label>
     <RoundValues>Round Values</RoundValues>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
     <Target>Target</Target>
