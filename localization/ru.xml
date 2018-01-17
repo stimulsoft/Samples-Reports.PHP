@@ -104,9 +104,11 @@
     <Help>Помощь</Help>
     <LessOptions>Меньше параметров</LessOptions>
     <LoadDataSet>Загрузить DataSet (*.data)</LoadDataSet>
+    <More>Больше</More>
     <MoreOptions>Больше параметров</MoreOptions>
     <MoveLeft>Переместить влево</MoveLeft>
     <MoveRight>Переместить вправо</MoveRight>
+    <MoveToResource>Переместить в ресурс</MoveToResource>
     <No>&amp;Нет</No>
     <Ok>&amp;ОК</Ok>
     <Open>Открыть</Open>
@@ -422,6 +424,7 @@
     <Save>Сохранить</Save>
     <SaveAccountSettings>Запомнить настройки аккаунта</SaveAccountSettings>
     <SaveFile>Сохранить файл</SaveFile>
+    <SavingToStimulsoftCloudPleaseWait>Отчет сохраняется в облако. Пожалуйста, ожидайте!</SavingToStimulsoftCloudPleaseWait>
     <ShareWindowTitleNew>Доступ</ShareWindowTitleNew>
     <ShowAllFiles>Показать все файлы</ShowAllFiles>
     <ShowNotificationMessages>Показывать уведомления</ShowNotificationMessages>
@@ -542,7 +545,7 @@
     <StiHeaderBand>Заголовок данных</StiHeaderBand>
     <StiHierarchicalBand>Дерево</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>Горизонтальная линия</StiHorizontalLinePrimitive>
-    <StiImage>Картинка</StiImage>
+    <StiImage>Изображение</StiImage>
     <StiIndicator>Индикатор</StiIndicator>
     <StiMap>Карта</StiMap>
     <StiOverlayBand>Водяной знак</StiOverlayBand>
@@ -575,16 +578,23 @@
     <ColorScale>Цветовая шкала</ColorScale>
     <DataBars>Гистограмма</DataBars>
     <DataNotDefined>Данные не указаны</DataNotDefined>
-    <Delta>Изменение</Delta>
     <Dimension>Измерение</Dimension>
     <Dimensions>Измерения</Dimensions>
     <DragDropDataFromDictionary>Перетащите данные из Словаря данных</DragDropDataFromDictionary>
+    <DuplicateField>Создать копию поля</DuplicateField>
+    <EditExpression>Изменить выражение</EditExpression>
     <EmptyDashboardFooter>Перетащите компонент из Инструментария или данные из Словаря данных</EmptyDashboardFooter>
     <EmptyDashboardHeader>Пустая панель индикаторов</EmptyDashboardHeader>
+    <FirstLastPoints>Первая / Последняя точки</FirstLastPoints>
+    <HighLowPoints>Максимальная / Минимальная точки</HighLowPoints>
     <ImageNotSpecified>Изображение не выбрано</ImageNotSpecified>
+    <Indicator>Индикатор</Indicator>
     <Measure>Показатель</Measure>
     <Measures>Показатели</Measures>
+    <NewDimension>Новое измерение</NewDimension>
+    <NewMeasure>Новый показатель</NewMeasure>
     <NumberFilters>Числовые фильтры</NumberFilters>
+    <RemoveField>Удалить поле</RemoveField>
     <Sparklines>Спарклайны</Sparklines>
     <StringFilters>Строковые фильтры</StringFilters>
     <Trend>Тренд</Trend>
@@ -1042,6 +1052,7 @@
     <PromptUserNameAndPassword>Запрос имени пользователя и пароля</PromptUserNameAndPassword>
     <RecentConnections>Последние</RecentConnections>
     <ReportConnections>Соединения отчета</ReportConnections>
+    <SelectData>Выберите данные</SelectData>
     <SqlCeEdit>Редактировать SQLServerCE соединение</SqlCeEdit>
     <SqlCeNew>Новое SQLServerCE соединение</SqlCeNew>
     <SqlEdit>Изменение SQL соединения</SqlEdit>
@@ -1336,6 +1347,7 @@
   </FormRichTextEditor>
   <FormStyleDesigner>
     <Add>Добавить новый стиль</Add>
+    <AddCollectionName>Добавить наименование коллекции</AddCollectionName>
     <ApplyStyleCollectionToReportComponents>Применить коллекцию стилей к компонентам отчета</ApplyStyleCollectionToReportComponents>
     <ApplyStyles>Применить стили</ApplyStyles>
     <ColorCollectionEditor>Редактор коллекции цветов</ColorCollectionEditor>
@@ -1813,7 +1825,7 @@
     <ExportModeRtf>Представление данных отчета после экспорта. Таблица - отчет будет представлять собой таблицу, где каждый компонент отчета - ячейка в таблице. Рамка - каждый компонент будет представлять собой отдельную рамку, но взамосвязи между ними не будет.</ExportModeRtf>
     <ExportObjectFormatting>Применять форматирование к экспорту с бэндов Данные (компонент Таблица, бэнд Дерево).</ExportObjectFormatting>
     <ExportPageBreaks>Отобразить границы страниц отчета на листе в Excel.</ExportPageBreaks>
-    <ExportRtfTextAsImage>Конвертация RTF текста в картинку при экспорте. Если параметр выключен, то RichText при экспорте раскладывается на более простые примитивы, поддерживаемые форматом PDF. RichText со сложным форматированием (вложенные изображения, таблицы) не всегда может быть преобразован корректно. В этом случае рекомендуется включить данный параметр.</ExportRtfTextAsImage>
+    <ExportRtfTextAsImage>Конвертация RTF текста в изображение при экспорте. Если параметр выключен, то RichText при экспорте раскладывается на более простые примитивы, поддерживаемые форматом PDF. RichText со сложным форматированием (вложенные изображения, таблицы) не всегда может быть преобразован корректно. В этом случае рекомендуется включить данный параметр.</ExportRtfTextAsImage>
     <Find>Поиск текста в отчете.</Find>
     <FullScreen>Полноэкранный просмотр отчета.</FullScreen>
     <GetCertificateFromCryptoUI>Использование интерфейса системной библиотеки криптографии.</GetCertificateFromCryptoUI>
@@ -1892,7 +1904,7 @@
     <menuContextDesign>Редактировать...</menuContextDesign>
     <menuContextTextFormat>Формат...</menuContextTextFormat>
     <menuConvertToCheckBox>Конвертировать во Флажок</menuConvertToCheckBox>
-    <menuConvertToImage>Конвертировать в Картинку</menuConvertToImage>
+    <menuConvertToImage>Конвертировать в Изображение</menuConvertToImage>
     <MenuConvertToRichText>Конвертировать в Rich-текст</MenuConvertToRichText>
     <menuConvertToText>Конвертировать в Текст</menuConvertToText>
     <menuDeleteColumn>Удалить колонку</menuDeleteColumn>
@@ -2294,11 +2306,13 @@
     <ExportCategory>Экспорт</ExportCategory>
     <ExportEventsCategory>События экспорта</ExportEventsCategory>
     <FooterTableCategory>Итог таблицы</FooterTableCategory>
+    <GaugeCategory>Индикатор</GaugeCategory>
     <GridLinesCategory>Линии сетки</GridLinesCategory>
     <HeaderTableCategory>Заголовок таблицы</HeaderTableCategory>
     <HierarchicalCategory>Дерево</HierarchicalCategory>
-    <ImageAdditionalCategory>Картинка, дополнительные</ImageAdditionalCategory>
-    <ImageCategory>Картинка</ImageCategory>
+    <ImageAdditionalCategory>Изображение, дополнительные</ImageAdditionalCategory>
+    <ImageCategory>Изображение</ImageCategory>
+    <IndicatorCategory>Индикатор</IndicatorCategory>
     <InterlacingCategory>Чередование</InterlacingCategory>
     <LegendCategory>Легенда</LegendCategory>
     <MainCategory>Основные</MainCategory>
@@ -2316,6 +2330,7 @@
     <PositionCategory>Расположение</PositionCategory>
     <PrimitiveCategory>Примитив</PrimitiveCategory>
     <PrintEventsCategory>Печать</PrintEventsCategory>
+    <ProgressCategory>Прогресс</ProgressCategory>
     <RenderEventsCategory>Построение</RenderEventsCategory>
     <SeriesCategory>Серии</SeriesCategory>
     <SeriesLabelsCategory>Заголовки рядов</SeriesLabelsCategory>
@@ -2681,6 +2696,10 @@
     <StiFormStartModeOnEnd>В конце</StiFormStartModeOnEnd>
     <StiFormStartModeOnPreview>В предварительном просмотре</StiFormStartModeOnPreview>
     <StiFormStartModeOnStart>В начале</StiFormStartModeOnStart>
+    <StiGaugeCalculationModeAuto>Авто</StiGaugeCalculationModeAuto>
+    <StiGaugeCalculationModeCustom>По выбору</StiGaugeCalculationModeCustom>
+    <StiGaugeTypeFullCircular>Полный циферблат</StiGaugeTypeFullCircular>
+    <StiGaugeTypeHalfCircular>Половина циферблата</StiGaugeTypeHalfCircular>
     <StiGroupSortDirectionAscending>По возрастанию</StiGroupSortDirectionAscending>
     <StiGroupSortDirectionDescending>По убыванию</StiGroupSortDirectionDescending>
     <StiGroupSortDirectionNone>Нет</StiGroupSortDirectionNone>
@@ -2803,6 +2822,9 @@
     <StiProcessingDuplicatesTypeMerge>Соединить</StiProcessingDuplicatesTypeMerge>
     <StiProcessingDuplicatesTypeNone>Нет</StiProcessingDuplicatesTypeNone>
     <StiProcessingDuplicatesTypeRemoveText>Удалить текст</StiProcessingDuplicatesTypeRemoveText>
+    <StiProgressElementModeCircle>Кольцо</StiProgressElementModeCircle>
+    <StiProgressElementModeDataBars>Гистограмма</StiProgressElementModeDataBars>
+    <StiProgressElementModePie>Круг</StiProgressElementModePie>
     <StiRadarStyleXFCircle>Окружность</StiRadarStyleXFCircle>
     <StiRadarStyleXFPolygon>Многоугольник</StiRadarStyleXFPolygon>
     <StiReportCacheModeAuto>Авто</StiReportCacheModeAuto>
@@ -2867,7 +2889,7 @@
     <StiStyleComponentTypeChart>Диаграмма</StiStyleComponentTypeChart>
     <StiStyleComponentTypeCheckBox>Флажок</StiStyleComponentTypeCheckBox>
     <StiStyleComponentTypeCrossTab>Кросс-таблица</StiStyleComponentTypeCrossTab>
-    <StiStyleComponentTypeImage>Картинка</StiStyleComponentTypeImage>
+    <StiStyleComponentTypeImage>Изображение</StiStyleComponentTypeImage>
     <StiStyleComponentTypePrimitive>Примитив</StiStyleComponentTypePrimitive>
     <StiStyleComponentTypeText>Текст</StiStyleComponentTypeText>
     <StiStyleConditionTypeComponentName>Наименование компонента</StiStyleConditionTypeComponentName>
@@ -2880,7 +2902,7 @@
     <StiSummaryValuesSkipNulls>Пропускать недействительные</StiSummaryValuesSkipNulls>
     <StiSummaryValuesSkipZerosAndNulls>Пропускать нули и недействительные</StiSummaryValuesSkipZerosAndNulls>
     <StiTablceCellTypeCheckBox>Флажок</StiTablceCellTypeCheckBox>
-    <StiTablceCellTypeImage>Картинка</StiTablceCellTypeImage>
+    <StiTablceCellTypeImage>Изображение</StiTablceCellTypeImage>
     <StiTablceCellTypeRichText>Rich-текст</StiTablceCellTypeRichText>
     <StiTablceCellTypeText>Текст</StiTablceCellTypeText>
     <StiTableAutoWidthNone>Нет</StiTableAutoWidthNone>
@@ -2958,7 +2980,7 @@
     <GetExcelValueEvent>Взять Excel значение</GetExcelValueEvent>
     <GetHyperlinkEvent>Взять гиперссылку</GetHyperlinkEvent>
     <GetImageDataEvent>Взять изображение</GetImageDataEvent>
-    <GetImageURLEvent>Взять гиперссылку на картинку</GetImageURLEvent>
+    <GetImageURLEvent>Взять гиперссылку на изображение</GetImageURLEvent>
     <GetListOfArgumentsEvent>Взять список аргументов</GetListOfArgumentsEvent>
     <GetListOfHyperlinksEvent>Взять список гиперссылок</GetListOfHyperlinksEvent>
     <GetListOfTagsEvent>Взять список тегов</GetListOfTagsEvent>
@@ -3051,6 +3073,7 @@
   </PropertyHatchStyle>
   <PropertyMain>
     <AcceptsReturn>Принимать Returns</AcceptsReturn>
+<ImageHyperlink>Гиперссылка на изображение</ImageHyperlink>
     <AcceptsTab>Принимать Tabs</AcceptsTab>
     <Actual>Актуальный</Actual>
     <AddClearZone>Добавлять поля</AddClearZone>
@@ -3295,6 +3318,7 @@
     <Expression>Выражение</Expression>
     <ExtensionDigit>Дополнительный Разряд</ExtensionDigit>
     <FaqPage>FAQ страница</FaqPage>
+    <Field>Поле</Field>
     <FieldIs>Поле</FieldIs>
     <File>Файл</File>
     <Fill>Заполнение</Fill>
@@ -3385,7 +3409,7 @@
     <ImageStretch>Растягивание изображения</ImageStretch>
     <ImageTiling>Повтор изображения</ImageTiling>
     <ImageTransparency>Прозрачность изображения</ImageTransparency>
-    <ImageURL>Гиперссылка на картинку</ImageURL>
+    <ImageURL>Гиперссылка на изображение</ImageURL>
     <ImageVertAlignment>Вертикальное выравнивание изображения</ImageVertAlignment>
     <ImportRelations>Импорт связей</ImportRelations>
     <Increment>Приращение</Increment>
@@ -3419,6 +3443,7 @@
     <Key>Ключ</Key>
     <KeyDataColumn>Колонка данных с ключом</KeyDataColumn>
     <Keys>Ключи</Keys>
+    <Label>Метка</Label>
     <LabelColor>Цвет заголовка</LabelColor>
     <LabelRotationMode>Режим поворота подписей</LabelRotationMode>
     <Labels>Заголовки</Labels>
@@ -4108,6 +4133,7 @@
     <Division>Деление</Division>
     <Equal>Равенство</Equal>
     <EquationShapes>Примитивы операций</EquationShapes>
+    <Flowchart>Схема</Flowchart>
     <FlowchartCard>Блок-схема: карточка</FlowchartCard>
     <FlowchartCollate>Блок-схема: сопоставление</FlowchartCollate>
     <FlowchartDecision>Блок-схема: решение</FlowchartDecision>
@@ -4253,9 +4279,6 @@
     <title>Инструментарий</title>
   </Toolbox>
   <Wizards>
-    <SelectTemplate>Шаблон</SelectTemplate>
-    <Mapping>Соответствие данных</Mapping>
-    <Company>Компания</Company>
     <BlankDashboard>Пустая панель индикаторов</BlankDashboard>
     <BlankReport>Пустой отчет</BlankReport>
     <ButtonBack>&lt; &amp;Назад</ButtonBack>
@@ -4263,6 +4286,7 @@
     <ButtonFinish>&amp;Готово</ButtonFinish>
     <ButtonNext>&amp;Далее &gt;</ButtonNext>
     <ColumnsOrder>Порядок колонок</ColumnsOrder>
+    <Company>Компания</Company>
     <Custom>По выбору</Custom>
     <DataRelation>Связь</DataRelation>
     <DataSource>Источник данных</DataSource>
@@ -4276,18 +4300,18 @@
     <Groups>Группировки</Groups>
     <groupTemplates>Шаблоны</groupTemplates>
     <groupWizards>Мастера построения отчета</groupWizards>
-    <infoSelectTemplate>Выберите шаблон отчета.</infoSelectTemplate>
-    <infoLanguages>Выберите культуру отчета.</infoLanguages>
-    <infoCompanyInfo>Введите данные вашей компании.</infoCompanyInfo>
     <infoColumnsOrder>Расположите колонки в необходимом порядке.</infoColumnsOrder>
+    <infoCompanyInfo>Введите данные вашей компании.</infoCompanyInfo>
     <infoDataSource>Выберите один источник данных.</infoDataSource>
     <infoDataSources>Выберите Источники Данных из доступных.</infoDataSources>
     <infoFilters>Фильтрация данных</infoFilters>
     <infoGroups>Выберите колонки, по которым необходимо сгруппировать данные.</infoGroups>
     <infoLabelSettings>Выберите параметры этикеток.</infoLabelSettings>
+    <infoLanguages>Выберите культуру отчета.</infoLanguages>
     <infoLayout>Определите формат отчета.</infoLayout>
     <infoRelation>Выберите одну Связь из доступных.</infoRelation>
     <infoSelectColumns>Выберите колонки для размещения в отчете.</infoSelectColumns>
+    <infoSelectTemplate>Выберите шаблон отчета.</infoSelectTemplate>
     <infoSort>Настройте сортировку данных. Допускается сортировка сразу по нескольким полям.</infoSort>
     <infoThemes>Выберите тему оформления для Вашего отчета.</infoThemes>
     <infoTotals>Добавьте итоговую информацию в отчет.</infoTotals>
@@ -4307,6 +4331,7 @@
     <LabelVerticalGap>Верт. промежуток:</LabelVerticalGap>
     <LabelWidth>Ширина:</LabelWidth>
     <Layout>Формат</Layout>
+    <Mapping>Соответствие данных</Mapping>
     <MarkAll>Отметить &amp;Все</MarkAll>
     <MasterDetailReport>Master-Detail отчет</MasterDetailReport>
     <NoFunction>[Нет]</NoFunction>
@@ -4315,6 +4340,7 @@
     <Reset>&amp;Сбросить</Reset>
     <Results>Результаты</Results>
     <SelectColumns>Выбор колонок</SelectColumns>
+    <SelectTemplate>Шаблон</SelectTemplate>
     <Sort>Сортировка</Sort>
     <StandardReport>Стандартный отчет</StandardReport>
     <Themes>Темы</Themes>

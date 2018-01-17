@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.4
-Build date: 2017.12.15
+Version: 2018.1.5
+Build date: 2018.01.16
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -1554,6 +1554,7 @@ declare module Stimulsoft.System.Drawing {
         static getCustomFontsCss(): string;
         static getCustomFontName(fontName: string, fontStyle: FontStyle): string;
         static allowStyle(fontName: string, fontStyle: FontStyle): boolean;
+        private static measureDiv;
         private static measureHash;
         static measureString(text1: string, font: Font, width?: number, useCache?: boolean, multiple?: number, angle?: number): Size;
         static measureChars(chars: Array<number>, count: number, font: Font): Size;
@@ -2239,6 +2240,7 @@ interface Array<T> {
     min(): number;
     max(): number;
     skip(index: number): T[];
+    sti_indexOf(searchElement: any, fromIndex: number): number;
 }
 interface ArrayConstructor {
     create(type: Stimulsoft.System.Type, ...values: any[]): any;
@@ -2356,6 +2358,7 @@ declare module Stimulsoft.System {
         static compare(t1: DateTime, t2: DateTime): number;
         private static doubleDateToTicks(value);
         private static ticksToOADate(value);
+        static ticksNetToTicksJs(ticks: number): number;
         negate(): DateTime;
         addYears(value: number): DateTime;
         addMonths(value: number): DateTime;
@@ -2568,6 +2571,10 @@ declare module Stimulsoft.System {
         callCatch(catchArgument?: any): void;
         private callFinally(finalyArgument);
         callTimeout(): void;
+        private nextPromises;
+        abort(previusPromise?: Promise<any>): Promise<Type>;
+        private abortFunction;
+        onAbort(abortFunction: Function): void;
         constructor();
     }
 }
@@ -2585,14 +2592,14 @@ declare module Stimulsoft.Report {
         constructor();
     }
     class CharRange extends Range {
-        from: Stimulsoft.System.Char;
-        to: Stimulsoft.System.Char;
+        from: string;
+        to: string;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Char): boolean;
-        constructor(from?: Stimulsoft.System.Char, to?: Stimulsoft.System.Char);
+        contains(value: string): boolean;
+        constructor(from?: string, to?: string);
     }
     class DateTimeRange extends Range {
         from: Stimulsoft.System.NullableDateTime;
@@ -2620,74 +2627,74 @@ declare module Stimulsoft.Report {
         constructor(from?: Stimulsoft.System.TimeSpan, to?: Stimulsoft.System.TimeSpan);
     }
     class DecimalRange extends Range {
-        from: Stimulsoft.System.Decimal;
-        to: Stimulsoft.System.Decimal;
+        from: number;
+        to: number;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Decimal): boolean;
-        constructor(from?: Stimulsoft.System.Decimal, to?: Stimulsoft.System.Decimal);
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
     }
     class FloatRange extends Range {
-        from: Stimulsoft.System.Single;
-        to: Stimulsoft.System.Single;
+        from: number;
+        to: number;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Single): boolean;
-        constructor(from?: Stimulsoft.System.Single, to?: Stimulsoft.System.Single);
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
     }
     class DoubleRange extends Range {
-        from: Stimulsoft.System.Double;
-        to: Stimulsoft.System.Double;
+        from: number;
+        to: number;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Double): boolean;
-        constructor(from?: Stimulsoft.System.Double, to?: Stimulsoft.System.Double);
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
     }
     class ByteRange extends Range {
-        from: Stimulsoft.System.Byte;
-        to: Stimulsoft.System.Byte;
+        from: number;
+        to: number;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Byte): boolean;
-        constructor(from?: Stimulsoft.System.Byte, to?: Stimulsoft.System.Byte);
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
     }
     class ShortRange extends Range {
-        from: Stimulsoft.System.Int16;
-        to: Stimulsoft.System.Int16;
+        from: number;
+        to: number;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Int16): boolean;
-        constructor(from?: Stimulsoft.System.Int16, to?: Stimulsoft.System.Int16);
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
     }
     class IntRange extends Range {
-        from: Stimulsoft.System.Int32;
-        to: Stimulsoft.System.Int32;
+        from: number;
+        to: number;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Int32): boolean;
-        constructor(from?: Stimulsoft.System.Int32, to?: Stimulsoft.System.Int32);
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
     }
     class LongRange extends Range {
-        from: Stimulsoft.System.Int64;
-        to: Stimulsoft.System.Int64;
+        from: number;
+        to: number;
         readonly rangeName: string;
         readonly rangeType: Stimulsoft.System.Type;
         fromObject: any;
         toObject: any;
-        contains(value: Stimulsoft.System.Int64): boolean;
-        constructor(from?: Stimulsoft.System.Int64, to?: Stimulsoft.System.Int64);
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
     }
     class GuidRange extends Range {
         from: Stimulsoft.System.Guid;
@@ -2826,7 +2833,7 @@ declare module Stimulsoft.System {
     }
     class SByte {
     }
-    class Single {
+    class Single extends Number {
     }
     class UInt {
     }
@@ -5541,6 +5548,7 @@ declare module Stimulsoft.Base {
         private static findTypes;
         private static getCorrectTypeName(typeName);
         static getStiType(typeName: string): Stimulsoft.System.Type;
+        private static addTypeFF(exType, typeForFinding, result);
         private static getTypeFF(exType, typeForFinding);
         static findType(exType: Stimulsoft.System.Type, typeForFinding: Stimulsoft.System.Type): boolean;
     }
@@ -7141,13 +7149,13 @@ declare module Stimulsoft.Report.Components {
         alias: string;
         private _events;
         protected readonly events: Hashtable;
-        protected static propertyRestrictions: Object;
+        protected static propertyRestrictions: string;
         restrictions: StiRestrictions;
         getRestrictions(): StiRestrictions;
         setRestrictions(value: StiRestrictions): void;
         ignoreNamingRule: boolean;
         setName(value: string): void;
-        protected static propertyPlaceOnToolbox: Object;
+        protected static propertyPlaceOnToolbox: string;
         placeOnToolbox: boolean;
         readonly isPrinting: boolean;
         readonly isExporting: boolean;
@@ -7155,20 +7163,20 @@ declare module Stimulsoft.Report.Components {
         allowDelete(): boolean;
         readonly priority: number;
         readonly componentType: StiComponentType;
-        protected static propertyDockable: Object;
+        protected static propertyDockable: string;
         dockable: boolean;
         highlightState: StiHighlightState;
         private _componentPlacement;
         componentPlacement: string;
         private _drillDownParameters;
         drillDownParameters: any[];
-        protected static propertyComponentStyle: Object;
+        protected static propertyComponentStyle: string;
         componentStyle: string;
         getComponentStyle(): string;
         setComponentStyle(value: string): void;
-        protected static propertyLocked: Object;
+        protected static propertyLocked: string;
         locked: boolean;
-        protected static propertyLinked: Object;
+        protected static propertyLinked: string;
         linked: boolean;
         getLinked(): boolean;
         setLinked(value: boolean): void;
@@ -8476,6 +8484,13 @@ declare module Stimulsoft.Report.Chart {
     }
 }
 declare module Stimulsoft.Report.Chart {
+    var IStiPictorialArea: string;
+    interface IStiPictorialArea extends IStiArea {
+        roundValues: boolean;
+        actual: boolean;
+    }
+}
+declare module Stimulsoft.Report.Chart {
     var IStiPieArea: string;
     interface IStiPieArea extends IStiArea {
     }
@@ -9623,6 +9638,14 @@ declare module Stimulsoft.Report.Chart {
 }
 declare module Stimulsoft.Report.Chart {
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    var IStiPictorialSeries: string;
+    interface IStiPictorialSeries extends IStiSeries {
+        brush: StiBrush;
+        icon: StiFontIcons;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import Color = Stimulsoft.System.Drawing.Color;
     var IStiPieSeries: string;
     interface IStiPieSeries extends IStiSeries, IStiAllowApplyBorderColor, IStiAllowApplyBrush {
@@ -10405,6 +10428,7 @@ declare module Stimulsoft.Report.Chart {
         Candlestick = 110,
         Stock = 120,
         Treemap = 130,
+        Pictorial = 131,
     }
     enum StiChartSeriesOrientation {
         Horizontal = 0,
@@ -10659,7 +10683,7 @@ declare module Stimulsoft.Report.Components {
         readonly defaultClientRectangle: RectangleD;
         private _components;
         components: StiComponentsCollection;
-        protected static propertyBlocked: Object;
+        protected static propertyBlocked: string;
         blocked: boolean;
         setParentStylesToChilds(style?: Stimulsoft.Report.Styles.StiBaseStyle): void;
         offsetLocation(offsetX: number, offsetY: number): void;
@@ -11070,9 +11094,9 @@ declare module Stimulsoft.Report.Components {
         filter: string;
         private _filterOn;
         filterOn: boolean;
-        static propertyEvenStyle: Object;
+        static propertyEvenStyle: string;
         evenStyle: string;
-        static propertyOddStyle: Object;
+        static propertyOddStyle: string;
         oddStyle: string;
         readonly headerStartColor: Color;
         readonly headerEndColor: Color;
@@ -11409,7 +11433,7 @@ declare module Stimulsoft.Report.Components {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
-        protected static propertyGlobalizedName: Object;
+        protected static propertyGlobalizedName: string;
         globalizedName: string;
         clone(cloneProperties: boolean): StiSimpleText;
         memberwiseClone(): StiSimpleText;
@@ -11432,7 +11456,7 @@ declare module Stimulsoft.Report.Components {
         private _editable;
         editable: boolean;
         processAtEnd: boolean;
-        protected static propertyProcessAt: Object;
+        protected static propertyProcessAt: string;
         processAt: StiProcessAt;
         invokeRenderTo(textBox: StiSimpleText): void;
         private _text;
@@ -11499,7 +11523,7 @@ declare module Stimulsoft.Report.Components {
         break(dividedComponent: StiComponent, devideFactor: number, REFdivideLine: any): boolean;
         private static propertyAutoWidth;
         autoWidth: boolean;
-        protected static propertyRenderTo: Object;
+        protected static propertyRenderTo: string;
         renderTo: string;
         invokeRenderTo(textFrom: StiSimpleText): void;
         private getVisibleTextForRenderTo(rect, REFtext, checkedText);
@@ -11536,9 +11560,9 @@ declare module Stimulsoft.Report.Components {
         protected onGetExcelValue(e: StiGetExcelValueEventArgs): void;
         invokeGetExcelValue(sender: StiComponent, e: StiGetExcelValueEventArgs): void;
         getExcelValueEvent: StiGetExcelValueEvent;
-        protected static propertyNullValue: Object;
+        protected static propertyNullValue: string;
         nullValue: string;
-        protected static propertyType: Object;
+        protected static propertyType: string;
         type: StiSystemTextType;
         wordWrap: boolean;
         rightToLeft: boolean;
@@ -11589,6 +11613,65 @@ declare module Stimulsoft.Report {
         High = 0,
         Normal = 1,
         Low = 2,
+    }
+    enum StiFontIcons {
+        Latin4 = 0,
+        Latin3 = 1,
+        Latin2 = 2,
+        Latin1 = 3,
+        QuarterFull = 4,
+        QuarterThreeFourth = 5,
+        QuarterHalf = 6,
+        QuarterQuarter = 7,
+        QuarterNone = 8,
+        Rating4 = 9,
+        Rating3 = 10,
+        Rating2 = 11,
+        Rating1 = 12,
+        Rating0 = 13,
+        Square0 = 14,
+        Square1 = 15,
+        Square2 = 16,
+        Square3 = 17,
+        Square4 = 18,
+        StarFull = 19,
+        StarThreeFourth = 20,
+        StarHalf = 21,
+        StarQuarter = 22,
+        StarNone = 23,
+        ArrowDown = 24,
+        ArrowRight = 25,
+        ArrowRightDown = 26,
+        ArrowRightUp = 27,
+        ArrowUp = 28,
+        Check = 29,
+        Circle = 30,
+        CircleCheck = 31,
+        CircleCross = 32,
+        CircleExclamation = 33,
+        Cross = 34,
+        Rhomb = 35,
+        Exclamation = 36,
+        Flag = 37,
+        Minus = 38,
+        Triangle = 39,
+        TriangleDown = 40,
+        TriangleUp = 41,
+        Home = 42,
+        Cart = 43,
+        Phone = 44,
+        Mobile = 45,
+        Mug = 46,
+        Airplane = 47,
+        Man = 48,
+        Woman = 49,
+        UserTie = 50,
+        Truck = 51,
+        Earth = 52,
+        ManWoman = 53,
+        Appleinc = 54,
+        Android = 55,
+        Windows8 = 56,
     }
     enum StiResizeReportOptions {
         ProcessAllPages = 1,
@@ -11834,291 +11917,293 @@ declare module Stimulsoft.Report {
         StiCenterTreemapLabels = 117,
         StiTreemapArea = 118,
         StiTreemapSeries = 119,
-        StiFullStackedColumnSeries = 120,
-        StiFullStackedLineSeries = 121,
-        StiFullStackedAreaSeries = 122,
-        StiFullStackedSplineSeries = 123,
-        StiFullStackedSplineAreaSeries = 124,
-        StiClusteredBarSeries = 125,
-        StiStackedBarSeries = 126,
-        StiFullStackedBarSeries = 127,
-        StiPieSeries = 128,
-        StiDoughnutSeries = 129,
-        StiGanttSeries = 130,
-        StiScatterSeries = 131,
-        StiScatterLineSeries = 132,
-        StiScatterSplineSeries = 133,
-        StiRadarAreaSeries = 134,
-        StiRadarLineSeries = 135,
-        StiRadarPointSeries = 136,
-        StiRangeSeries = 137,
-        StiSteppedRangeSeries = 138,
-        StiFunnelSeries = 139,
-        StiFunnelWeightedSlicesSeries = 140,
-        StiRangeBarSeries = 141,
-        StiSplineRangeSeries = 142,
-        StiCandlestickSeries = 143,
-        StiStockSeries = 144,
-        StiChartTitle = 145,
-        StiLineMarker = 146,
-        StiMarker = 147,
-        StiChartTable = 148,
-        StiSeriesTopN = 149,
-        StiSeriesInteraction = 150,
-        StiTrendLine = 151,
-        StiSeriesLabels = 152,
-        StiNoneLabels = 153,
-        StiInsideEndAxisLabels = 154,
-        StiInsideBaseAxisLabels = 155,
-        StiCenterAxisLabels = 156,
-        StiOutsideEndAxisLabels = 157,
-        StiOutsideBaseAxisLabels = 158,
-        StiOutsideAxisLabels = 159,
-        StiLeftAxisLabels = 160,
-        StiValueAxisLabels = 161,
-        StiRightAxisLabels = 162,
-        StiCenterFunnelLabels = 163,
-        StiCenterPieLabels = 164,
-        StiOutsidePieLabels = 165,
-        StiTwoColumnsPieLabels = 166,
-        StiOutsideLeftFunnelLabels = 167,
-        StiOutsideRightFunnelLabels = 168,
-        StiLegend = 169,
-        StiClusteredColumnArea = 170,
-        StiPieArea = 171,
-        StiFunnelArea = 172,
-        StiRadarAreaArea = 173,
-        StiRadarLineArea = 174,
-        StiRadarPointArea = 175,
-        StiStackedColumnArea = 176,
-        StiGridLines = 177,
-        StiInterlacing = 178,
-        StiXAxis = 179,
-        StiXTopAxis = 180,
-        StiYAxis = 181,
-        StiYRightAxis = 182,
-        StiRadarGridLines = 183,
-        StiXRadarAxis = 184,
-        StiYRadarAxis = 185,
-        StiDialogInfoItem = 186,
-        StiStringDialogInfoItem = 187,
-        StiGuidDialogInfoItem = 188,
-        StiCharDialogInfoItem = 189,
-        StiBoolDialogInfoItem = 190,
-        StiImageDialogInfoItem = 191,
-        StiDateTimeDialogInfoItem = 192,
-        StiTimeSpanDialogInfoItem = 193,
-        StiDoubleDialogInfoItem = 194,
-        StiDecimalDialogInfoItem = 195,
-        StiLongDialogInfoItem = 196,
-        StiExpressionDialogInfoItem = 197,
-        StiStringRangeDialogInfoItem = 198,
-        StiGuidRangeDialogInfoItem = 199,
-        StiCharRangeDialogInfoItem = 200,
-        StiDateTimeRangeDialogInfoItem = 201,
-        StiTimeSpanRangeDialogInfoItem = 202,
-        StiDoubleRangeDialogInfoItem = 203,
-        StiDecimalRangeDialogInfoItem = 204,
-        StiLongRangeDialogInfoItem = 205,
-        StiExpressionRangeDialogInfoItem = 206,
-        OracleConnectionStringBuilder = 207,
-        StiStrips = 208,
-        StiConstantLines = 209,
-        StiShapeTypeService = 210,
-        StiDiagonalDownLineShapeType = 211,
-        StiRoundedRectangleShapeType = 212,
-        StiTriangleShapeType = 213,
-        StiComplexArrowShapeType = 214,
-        StiBentArrowShapeType = 215,
-        StiChevronShapeType = 216,
-        StiEqualShapeType = 217,
-        StiFlowchartCollateShapeType = 218,
-        StiFlowchartOffPageConnectorShapeType = 219,
-        StiArrowShapeType = 220,
-        StiOctagonShapeType = 221,
-        StiAustraliaPost4StateBarCodeType = 222,
-        StiCode11BarCodeType = 223,
-        StiCode128aBarCodeType = 224,
-        StiCode128bBarCodeType = 225,
-        StiCode128cBarCodeType = 226,
-        StiCode128AutoBarCodeType = 227,
-        StiCode39BarCodeType = 228,
-        StiCode39ExtBarCodeType = 229,
-        StiCode93BarCodeType = 230,
-        StiCode93ExtBarCodeType = 231,
-        StiCodabarBarCodeType = 232,
-        StiEAN128aBarCodeType = 233,
-        StiEAN128bBarCodeType = 234,
-        StiEAN128cBarCodeType = 235,
-        StiEAN128AutoBarCodeType = 236,
-        StiGS1_128BarCodeType = 237,
-        StiEAN13BarCodeType = 238,
-        StiEAN8BarCodeType = 239,
-        StiFIMBarCodeType = 240,
-        StiIsbn10BarCodeType = 241,
-        StiIsbn13BarCodeType = 242,
-        StiITF14BarCodeType = 243,
-        StiJan13BarCodeType = 244,
-        StiJan8BarCodeType = 245,
-        StiMsiBarCodeType = 246,
-        StiPdf417BarCodeType = 247,
-        StiPharmacodeBarCodeType = 248,
-        StiPlesseyBarCodeType = 249,
-        StiPostnetBarCodeType = 250,
-        StiQRCodeBarCodeType = 251,
-        StiRoyalMail4StateBarCodeType = 252,
-        StiDutchKIXBarCodeType = 253,
-        StiSSCC18BarCodeType = 254,
-        StiUpcABarCodeType = 255,
-        StiUpcEBarCodeType = 256,
-        StiUpcSup2BarCodeType = 257,
-        StiUpcSup5BarCodeType = 258,
-        StiInterleaved2of5BarCodeType = 259,
-        StiStandard2of5BarCodeType = 260,
-        StiDataMatrixBarCodeType = 261,
-        StiMaxicodeBarCodeType = 262,
-        StiDatabase = 263,
-        StiFileDatabase = 264,
-        StiCsvDatabase = 265,
-        StiDBaseDatabase = 266,
-        StiExcelDatabase = 267,
-        StiJsonDatabase = 268,
-        StiXmlDatabase = 269,
-        StiSqlDatabase = 270,
-        StiGauge = 271,
-        StiMap = 272,
-        StiFullStackedColumnArea = 273,
-        StiClusteredBarArea = 274,
-        StiStackedBarArea = 275,
-        StiFullStackedBarArea = 276,
-        StiDoughnutArea = 277,
-        StiLineArea = 278,
-        StiSteppedLineArea = 279,
-        StiStackedLineArea = 280,
-        StiFullStackedLineArea = 281,
-        StiSplineArea = 282,
-        StiStackedSplineArea = 283,
-        StiFullStackedSplineArea = 284,
-        StiAreaArea = 285,
-        StiSteppedAreaArea = 286,
-        StiStackedAreaArea = 287,
-        StiFullStackedAreaArea = 288,
-        StiSplineAreaArea = 289,
-        StiStackedSplineAreaArea = 290,
-        StiFullStackedSplineAreaArea = 291,
-        StiGanttArea = 292,
-        StiScatterArea = 293,
-        StiBubbleArea = 294,
-        StiRangeArea = 295,
-        StiSteppedRangeArea = 296,
-        StiRangeBarArea = 297,
-        StiSplineRangeArea = 298,
-        StiCandlestickArea = 299,
-        StiStockArea = 300,
-        StiInsideEndPieLabels = 301,
-        StiTrendLineNone = 302,
-        StiTrendLineLinear = 303,
-        StiTrendLineExponential = 304,
-        StiTrendLineLogarithmic = 305,
-        StiDB2Database = 306,
-        StiDotConnectUniversalDatabase = 307,
-        StiFirebirdDatabase = 308,
-        StiInformixDatabase = 309,
-        StiMongoDbDatabase = 310,
-        StiMySqlDatabase = 311,
-        StiMSAccessDatabase = 312,
-        StiOdbcDatabase = 313,
-        StiOleDbDatabase = 314,
-        StiOracleDatabase = 315,
-        StiPostgreSQLDatabase = 316,
-        StiSQLiteDatabase = 317,
-        StiSqlCeDatabase = 318,
-        StiSybaseDatabase = 319,
-        StiTeradataDatabase = 320,
-        StiVistaDBDatabase = 321,
-        StiODataDatabase = 322,
-        StiDataTableSource = 323,
-        StiDataViewSource = 324,
-        StiUndefinedDataSource = 325,
-        StiCsvSource = 326,
-        StiDBaseSource = 327,
-        StiBusinessObjectSource = 328,
-        StiCrossTabDataSource = 329,
-        StiEnumerableSource = 330,
-        StiUserSource = 331,
-        StiVirtualSource = 332,
-        StiOracleODPSource = 333,
-        StiFirebirdSource = 334,
-        StiInformixSource = 335,
-        StiMongoDbSource = 336,
-        StiMSAccessSource = 337,
-        StiMySqlSource = 338,
-        StiOdbcSource = 339,
-        StiOleDbSource = 340,
-        StiOracleSource = 341,
-        StiPostgreSQLSource = 342,
-        StiSqlCeSource = 343,
-        StiSQLiteSource = 344,
-        StiSqlSource = 345,
-        StiNoSqlSource = 346,
-        StiSybaseSource = 347,
-        StiTeradataSource = 348,
-        StiVistaDBSource = 349,
-        StiDB2Source = 350,
-        StiDiagonalUpLineShapeType = 351,
-        StiHorizontalLineShapeType = 352,
-        StiLeftAndRightLineShapeType = 353,
-        StiOvalShapeType = 354,
-        StiRectangleShapeType = 355,
-        StiTopAndBottomLineShapeType = 356,
-        StiVerticalLineShapeType = 357,
-        StiDivisionShapeType = 358,
-        StiFlowchartCardShapeType = 359,
-        StiFlowchartDecisionShapeType = 360,
-        StiFlowchartManualInputShapeType = 361,
-        StiFlowchartSortShapeType = 362,
-        StiFrameShapeType = 363,
-        StiMinusShapeType = 364,
-        StiMultiplyShapeType = 365,
-        StiParallelogramShapeType = 366,
-        StiPlusShapeType = 367,
-        StiRegularPentagonShapeType = 368,
-        StiTrapezoidShapeType = 369,
-        StiSnipSameSideCornerRectangleShapeType = 370,
-        StiSnipDiagonalSideCornerRectangleShapeType = 371,
-        StiFlowchartPreparationShapeType = 372,
-        StiRadialScale = 373,
-        StiLinearScale = 374,
-        StiLinearBar = 375,
-        StiRadialBar = 376,
-        StiNeedle = 377,
-        StiRadialMarker = 378,
-        StiScaleRangeList = 379,
-        StiRadialRange = 380,
-        StiStateIndicator = 381,
-        StiStateIndicatorFilter = 382,
-        StiRadialRangeList = 383,
-        StiLinearRangeList = 384,
-        StiLinearRange = 385,
-        StiLinearTickMarkMajor = 386,
-        StiLinearTickMarkMinor = 387,
-        StiLinearTickMarkCustomValue = 388,
-        StiLinearTickLabelMajor = 389,
-        StiLinearTickLabelMinor = 390,
-        StiLinearTickLabelCustom = 391,
-        StiLinearTickLabelCustomValue = 392,
-        StiRadialTickMarkMajor = 393,
-        StiRadialTickMarkMinor = 394,
-        StiRadialTickMarkCustom = 395,
-        StiRadialTickMarkCustomValue = 396,
-        StiRadialTickLabelMajor = 397,
-        StiRadialTickLabelMinor = 398,
-        StiRadialTickLabelCustom = 399,
-        StiRadialTickLabelCustomValue = 400,
-        StiLinearMarker = 401,
-        StiLinearTickMarkCustom = 402,
-        StiLinearIndicatorRangeInfo = 403,
-        StiRadialIndicatorRangeInfo = 404,
+        StiPictorialSeries = 120,
+        StiFullStackedColumnSeries = 121,
+        StiFullStackedLineSeries = 122,
+        StiFullStackedAreaSeries = 123,
+        StiFullStackedSplineSeries = 124,
+        StiFullStackedSplineAreaSeries = 125,
+        StiClusteredBarSeries = 126,
+        StiStackedBarSeries = 127,
+        StiFullStackedBarSeries = 128,
+        StiPieSeries = 129,
+        StiDoughnutSeries = 130,
+        StiGanttSeries = 131,
+        StiScatterSeries = 132,
+        StiScatterLineSeries = 133,
+        StiScatterSplineSeries = 134,
+        StiRadarAreaSeries = 135,
+        StiRadarLineSeries = 136,
+        StiRadarPointSeries = 137,
+        StiRangeSeries = 138,
+        StiSteppedRangeSeries = 139,
+        StiFunnelSeries = 140,
+        StiFunnelWeightedSlicesSeries = 141,
+        StiRangeBarSeries = 142,
+        StiSplineRangeSeries = 143,
+        StiCandlestickSeries = 144,
+        StiStockSeries = 145,
+        StiChartTitle = 146,
+        StiLineMarker = 147,
+        StiMarker = 148,
+        StiChartTable = 149,
+        StiSeriesTopN = 150,
+        StiSeriesInteraction = 151,
+        StiTrendLine = 152,
+        StiSeriesLabels = 153,
+        StiNoneLabels = 154,
+        StiInsideEndAxisLabels = 155,
+        StiInsideBaseAxisLabels = 156,
+        StiCenterAxisLabels = 157,
+        StiOutsideEndAxisLabels = 158,
+        StiOutsideBaseAxisLabels = 159,
+        StiOutsideAxisLabels = 160,
+        StiLeftAxisLabels = 161,
+        StiValueAxisLabels = 162,
+        StiRightAxisLabels = 163,
+        StiCenterFunnelLabels = 164,
+        StiCenterPieLabels = 165,
+        StiOutsidePieLabels = 166,
+        StiTwoColumnsPieLabels = 167,
+        StiOutsideLeftFunnelLabels = 168,
+        StiOutsideRightFunnelLabels = 169,
+        StiLegend = 170,
+        StiClusteredColumnArea = 171,
+        StiPieArea = 172,
+        StiFunnelArea = 173,
+        StiPictorialArea = 174,
+        StiRadarAreaArea = 175,
+        StiRadarLineArea = 176,
+        StiRadarPointArea = 177,
+        StiStackedColumnArea = 178,
+        StiGridLines = 179,
+        StiInterlacing = 180,
+        StiXAxis = 181,
+        StiXTopAxis = 182,
+        StiYAxis = 183,
+        StiYRightAxis = 184,
+        StiRadarGridLines = 185,
+        StiXRadarAxis = 186,
+        StiYRadarAxis = 187,
+        StiDialogInfoItem = 188,
+        StiStringDialogInfoItem = 189,
+        StiGuidDialogInfoItem = 190,
+        StiCharDialogInfoItem = 191,
+        StiBoolDialogInfoItem = 192,
+        StiImageDialogInfoItem = 193,
+        StiDateTimeDialogInfoItem = 194,
+        StiTimeSpanDialogInfoItem = 195,
+        StiDoubleDialogInfoItem = 196,
+        StiDecimalDialogInfoItem = 197,
+        StiLongDialogInfoItem = 198,
+        StiExpressionDialogInfoItem = 199,
+        StiStringRangeDialogInfoItem = 200,
+        StiGuidRangeDialogInfoItem = 201,
+        StiCharRangeDialogInfoItem = 202,
+        StiDateTimeRangeDialogInfoItem = 203,
+        StiTimeSpanRangeDialogInfoItem = 204,
+        StiDoubleRangeDialogInfoItem = 205,
+        StiDecimalRangeDialogInfoItem = 206,
+        StiLongRangeDialogInfoItem = 207,
+        StiExpressionRangeDialogInfoItem = 208,
+        OracleConnectionStringBuilder = 209,
+        StiStrips = 210,
+        StiConstantLines = 211,
+        StiShapeTypeService = 212,
+        StiDiagonalDownLineShapeType = 213,
+        StiRoundedRectangleShapeType = 214,
+        StiTriangleShapeType = 215,
+        StiComplexArrowShapeType = 216,
+        StiBentArrowShapeType = 217,
+        StiChevronShapeType = 218,
+        StiEqualShapeType = 219,
+        StiFlowchartCollateShapeType = 220,
+        StiFlowchartOffPageConnectorShapeType = 221,
+        StiArrowShapeType = 222,
+        StiOctagonShapeType = 223,
+        StiAustraliaPost4StateBarCodeType = 224,
+        StiCode11BarCodeType = 225,
+        StiCode128aBarCodeType = 226,
+        StiCode128bBarCodeType = 227,
+        StiCode128cBarCodeType = 228,
+        StiCode128AutoBarCodeType = 229,
+        StiCode39BarCodeType = 230,
+        StiCode39ExtBarCodeType = 231,
+        StiCode93BarCodeType = 232,
+        StiCode93ExtBarCodeType = 233,
+        StiCodabarBarCodeType = 234,
+        StiEAN128aBarCodeType = 235,
+        StiEAN128bBarCodeType = 236,
+        StiEAN128cBarCodeType = 237,
+        StiEAN128AutoBarCodeType = 238,
+        StiGS1_128BarCodeType = 239,
+        StiEAN13BarCodeType = 240,
+        StiEAN8BarCodeType = 241,
+        StiFIMBarCodeType = 242,
+        StiIsbn10BarCodeType = 243,
+        StiIsbn13BarCodeType = 244,
+        StiITF14BarCodeType = 245,
+        StiJan13BarCodeType = 246,
+        StiJan8BarCodeType = 247,
+        StiMsiBarCodeType = 248,
+        StiPdf417BarCodeType = 249,
+        StiPharmacodeBarCodeType = 250,
+        StiPlesseyBarCodeType = 251,
+        StiPostnetBarCodeType = 252,
+        StiQRCodeBarCodeType = 253,
+        StiRoyalMail4StateBarCodeType = 254,
+        StiDutchKIXBarCodeType = 255,
+        StiSSCC18BarCodeType = 256,
+        StiUpcABarCodeType = 257,
+        StiUpcEBarCodeType = 258,
+        StiUpcSup2BarCodeType = 259,
+        StiUpcSup5BarCodeType = 260,
+        StiInterleaved2of5BarCodeType = 261,
+        StiStandard2of5BarCodeType = 262,
+        StiDataMatrixBarCodeType = 263,
+        StiMaxicodeBarCodeType = 264,
+        StiDatabase = 265,
+        StiFileDatabase = 266,
+        StiCsvDatabase = 267,
+        StiDBaseDatabase = 268,
+        StiExcelDatabase = 269,
+        StiJsonDatabase = 270,
+        StiXmlDatabase = 271,
+        StiSqlDatabase = 272,
+        StiGauge = 273,
+        StiMap = 274,
+        StiFullStackedColumnArea = 275,
+        StiClusteredBarArea = 276,
+        StiStackedBarArea = 277,
+        StiFullStackedBarArea = 278,
+        StiDoughnutArea = 279,
+        StiLineArea = 280,
+        StiSteppedLineArea = 281,
+        StiStackedLineArea = 282,
+        StiFullStackedLineArea = 283,
+        StiSplineArea = 284,
+        StiStackedSplineArea = 285,
+        StiFullStackedSplineArea = 286,
+        StiAreaArea = 287,
+        StiSteppedAreaArea = 288,
+        StiStackedAreaArea = 289,
+        StiFullStackedAreaArea = 290,
+        StiSplineAreaArea = 291,
+        StiStackedSplineAreaArea = 292,
+        StiFullStackedSplineAreaArea = 293,
+        StiGanttArea = 294,
+        StiScatterArea = 295,
+        StiBubbleArea = 296,
+        StiRangeArea = 297,
+        StiSteppedRangeArea = 298,
+        StiRangeBarArea = 299,
+        StiSplineRangeArea = 300,
+        StiCandlestickArea = 301,
+        StiStockArea = 302,
+        StiInsideEndPieLabels = 303,
+        StiTrendLineNone = 304,
+        StiTrendLineLinear = 305,
+        StiTrendLineExponential = 306,
+        StiTrendLineLogarithmic = 307,
+        StiDB2Database = 308,
+        StiDotConnectUniversalDatabase = 309,
+        StiFirebirdDatabase = 310,
+        StiInformixDatabase = 311,
+        StiMongoDbDatabase = 312,
+        StiMySqlDatabase = 313,
+        StiMSAccessDatabase = 314,
+        StiOdbcDatabase = 315,
+        StiOleDbDatabase = 316,
+        StiOracleDatabase = 317,
+        StiPostgreSQLDatabase = 318,
+        StiSQLiteDatabase = 319,
+        StiSqlCeDatabase = 320,
+        StiSybaseDatabase = 321,
+        StiTeradataDatabase = 322,
+        StiVistaDBDatabase = 323,
+        StiODataDatabase = 324,
+        StiDataTableSource = 325,
+        StiDataViewSource = 326,
+        StiUndefinedDataSource = 327,
+        StiCsvSource = 328,
+        StiDBaseSource = 329,
+        StiBusinessObjectSource = 330,
+        StiCrossTabDataSource = 331,
+        StiEnumerableSource = 332,
+        StiUserSource = 333,
+        StiVirtualSource = 334,
+        StiOracleODPSource = 335,
+        StiFirebirdSource = 336,
+        StiInformixSource = 337,
+        StiMongoDbSource = 338,
+        StiMSAccessSource = 339,
+        StiMySqlSource = 340,
+        StiOdbcSource = 341,
+        StiOleDbSource = 342,
+        StiOracleSource = 343,
+        StiPostgreSQLSource = 344,
+        StiSqlCeSource = 345,
+        StiSQLiteSource = 346,
+        StiSqlSource = 347,
+        StiNoSqlSource = 348,
+        StiSybaseSource = 349,
+        StiTeradataSource = 350,
+        StiVistaDBSource = 351,
+        StiDB2Source = 352,
+        StiDiagonalUpLineShapeType = 353,
+        StiHorizontalLineShapeType = 354,
+        StiLeftAndRightLineShapeType = 355,
+        StiOvalShapeType = 356,
+        StiRectangleShapeType = 357,
+        StiTopAndBottomLineShapeType = 358,
+        StiVerticalLineShapeType = 359,
+        StiDivisionShapeType = 360,
+        StiFlowchartCardShapeType = 361,
+        StiFlowchartDecisionShapeType = 362,
+        StiFlowchartManualInputShapeType = 363,
+        StiFlowchartSortShapeType = 364,
+        StiFrameShapeType = 365,
+        StiMinusShapeType = 366,
+        StiMultiplyShapeType = 367,
+        StiParallelogramShapeType = 368,
+        StiPlusShapeType = 369,
+        StiRegularPentagonShapeType = 370,
+        StiTrapezoidShapeType = 371,
+        StiSnipSameSideCornerRectangleShapeType = 372,
+        StiSnipDiagonalSideCornerRectangleShapeType = 373,
+        StiFlowchartPreparationShapeType = 374,
+        StiRadialScale = 375,
+        StiLinearScale = 376,
+        StiLinearBar = 377,
+        StiRadialBar = 378,
+        StiNeedle = 379,
+        StiRadialMarker = 380,
+        StiScaleRangeList = 381,
+        StiRadialRange = 382,
+        StiStateIndicator = 383,
+        StiStateIndicatorFilter = 384,
+        StiRadialRangeList = 385,
+        StiLinearRangeList = 386,
+        StiLinearRange = 387,
+        StiLinearTickMarkMajor = 388,
+        StiLinearTickMarkMinor = 389,
+        StiLinearTickMarkCustomValue = 390,
+        StiLinearTickLabelMajor = 391,
+        StiLinearTickLabelMinor = 392,
+        StiLinearTickLabelCustom = 393,
+        StiLinearTickLabelCustomValue = 394,
+        StiRadialTickMarkMajor = 395,
+        StiRadialTickMarkMinor = 396,
+        StiRadialTickMarkCustom = 397,
+        StiRadialTickMarkCustomValue = 398,
+        StiRadialTickLabelMajor = 399,
+        StiRadialTickLabelMinor = 400,
+        StiRadialTickLabelCustom = 401,
+        StiRadialTickLabelCustomValue = 402,
+        StiLinearMarker = 403,
+        StiLinearTickMarkCustom = 404,
+        StiLinearIndicatorRangeInfo = 405,
+        StiRadialIndicatorRangeInfo = 406,
     }
     enum StiRankOrder {
         Asc = 0,
@@ -12245,6 +12330,9 @@ declare module Stimulsoft.Report.Engine {
         Or = 2039,
         Or2 = 2040,
         Xor = 2041,
+        Jump = 2042,
+        JumpTrue = 2043,
+        JumpFalse = 2044,
     }
     enum StiSystemVariableType {
         Column = 0,
@@ -15111,7 +15199,7 @@ declare module Stimulsoft.Report.Components {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
-        protected static propertyCanBreak: Object;
+        protected static propertyCanBreak: string;
         canBreak: boolean;
         clone(cloneProperties: boolean): StiRichText;
         private static eventGetDataUrl;
@@ -15161,9 +15249,9 @@ declare module Stimulsoft.Report.Components {
     }
 }
 declare module Stimulsoft.Report.Components {
+    import Image = Stimulsoft.System.Drawing.Image;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import Image = Stimulsoft.System.Drawing.Image;
     import StiJson = Stimulsoft.Base.StiJson;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import Color = Stimulsoft.System.Drawing.Color;
@@ -15172,7 +15260,7 @@ declare module Stimulsoft.Report.Components {
     import StiUnit = Stimulsoft.Report.Units.StiUnit;
     import IStiBorderColor = Stimulsoft.Report.Components.IStiBorderColor;
     import IStiShape = Stimulsoft.Report.Components.IStiShape;
-    class StiShape extends StiComponent implements IStiBrush, IStiBorderColor, IStiExportImageExtended, IStiShape {
+    class StiShape extends StiComponent implements IStiBrush, IStiBorderColor, IStiExportImageExtended, IStiExportImage, IStiShape {
         private _implementsStiShape;
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
@@ -21040,11 +21128,13 @@ declare module Stimulsoft.Report.Export {
     import Image = Stimulsoft.System.Drawing.Image;
     import TimeSpan = Stimulsoft.System.TimeSpan;
     class StiChartSvgHelper {
+        private static isAddStimulsoftIconFont;
         private static dx;
         private static dy;
         private static listTransformGeom;
         static getImage(svgData: StiSvgData): Image;
         static addAnimation(writer: XmlTextWriter, actions: string, begin: TimeSpan, duration: TimeSpan, numberr?: string): void;
+        static writeStimulsoftIconFont(): void;
         static writeChart(writer: XmlTextWriter, svgData: StiSvgData): void;
         private static getPathData(geoms);
         private static addArcPath(arcSegment, path);
@@ -21336,7 +21426,7 @@ declare module Stimulsoft.Report.Export {
         private static writeText(writer, svgData, REFclipCounter, xmlIndentation, useClip);
         private static writeImage(writer, svgData, imageResolution, imageFormat, imageQuality, imageCodec, REFclipCounter);
         private static writeBarCode(writer, svgData);
-        private static writeShape(writer, svgData);
+        static writeShape(writer: XmlTextWriter, svgData: StiSvgData): void;
         private static writeRoundedRectanglePrimitive(writer, svgData);
         private static writeIndicator(writer, svgData);
         private static writeIconSetIndicatorTypePainter(writer, textComp, rect);
@@ -21486,6 +21576,7 @@ declare module Stimulsoft.Report.Export {
         prepareMapData(writer: StiHtmlTextWriter, map: any, width: number, height: number): string;
         getChartScript(): string;
         clear(): void;
+        private isComponentHasInteraction(component);
         exportHtml(report: StiReport, writer: StiHtmlTextWriter, settings: StiHtmlExportSettings, pages?: StiPagesCollection): void;
         constructor();
     }
@@ -23378,6 +23469,12 @@ declare module Stimulsoft.Report {
         getByIndex(index: number): StiGlobalizationItem;
         setByIndex(index: number, value: StiGlobalizationItem): void;
         sort(): void;
+    }
+}
+declare module Stimulsoft.Report {
+    class StiFontIconsHelper {
+        static getContent(fontIcons: StiFontIcons): string;
+        private static getNetContent(fontIcons);
     }
 }
 declare module Stimulsoft.Report.Helpers {
@@ -25663,6 +25760,16 @@ declare module Stimulsoft.Report.Chart {
 declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    class StiPictorialAreaCoreXF extends StiAreaCoreXF {
+        render(context: StiContext, rect: RectangleD): StiCellGeom;
+        readonly localizedName: string;
+        readonly position: number;
+        constructor(area: IStiArea);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import PointD = Stimulsoft.System.Drawing.Point;
     class StiRadarAreaCoreXF extends StiAreaCoreXF {
         applyStyle(style: IStiChartStyle): void;
@@ -26914,6 +27021,30 @@ declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import Color = Stimulsoft.System.Drawing.Color;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import SizeD = Stimulsoft.System.Drawing.Size;
+    import StiFontIcons = Stimulsoft.Report.StiFontIcons;
+    class DataPictorial {
+        private _value;
+        value: number;
+        private _icon;
+        icon: StiFontIcons;
+        constructor(value: number, icon: StiFontIcons);
+    }
+    class StiPictorialSeriesCoreXF extends StiSeriesCoreXF {
+        applyStyle(style: IStiChartStyle, color: Color): void;
+        readonly localizedName: string;
+        private singleSizeConst;
+        getSingleSize(context: StiContext): SizeD;
+        renderSeries(context: StiContext, rect: RectangleD, geom: StiAreaGeom, seriesArray: IStiSeries[]): void;
+        getSeriesBrush(colorIndex: number, colorCount: number): StiBrush;
+        constructor(series: IStiSeries);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import Color = Stimulsoft.System.Drawing.Color;
     import PointD = Stimulsoft.System.Drawing.Point;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     class StiRadarSeriesCoreXF extends StiSeriesCoreXF {
@@ -27702,6 +27833,14 @@ declare module Stimulsoft.Report.Chart {
 declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    class StiPictorialAreaGeom extends StiAreaGeom {
+        draw(context: StiContext): void;
+        constructor(area: IStiArea, clientRectangle: RectangleD);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     class StiRadarAreaGeom extends StiAreaGeom {
         private _valuesCount;
         readonly valuesCount: number;
@@ -28032,6 +28171,15 @@ declare module Stimulsoft.Report.Chart {
         static getAreaMarkerLinePoints(rect: RectangleD): PointD[];
         static getSplineAreaMarkerPath(rect: RectangleD): StiSegmentGeom[];
         static getSplineAreaMarkerLinePoints(rect: RectangleD): PointD[];
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    class StiLegendPictorialMarker implements IStiLegendMarker {
+        private static implementsStiLegendPictorialMarker;
+        implements(): string[];
+        draw(context: StiContext, series: IStiSeries, rect: RectangleD, colorIndex: number, colorCount: number): void;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -28794,6 +28942,29 @@ declare module Stimulsoft.Report.Chart {
         readonly beginTime: TimeSpan;
         draw(context: StiContext): void;
         constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
+    import StiStringFormatGeom = Stimulsoft.Base.Context.StiStringFormatGeom;
+    import StiFontIcons = Stimulsoft.Report.StiFontIcons;
+    class StiPictorialSeriesElementGeom extends StiSeriesElementGeom {
+        private _icon;
+        icon: StiFontIcons;
+        private _drawRectangles;
+        drawRectangles: RectangleD[];
+        private _clipRectangles;
+        clipRectangles: RectangleD[];
+        private _seriesBrush;
+        seriesBrush: StiBrush;
+        private _animation;
+        animation: StiAnimation;
+        draw(context: StiContext): void;
+        getStringFormatGeom(context: StiContext): StiStringFormatGeom;
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, series: IStiSeries, icon: StiFontIcons, drawRectangles: RectangleD[], clipRectangles: RectangleD[], clientRectangle: RectangleD, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -29993,6 +30164,28 @@ declare module Stimulsoft.Report.Chart {
         getSeriesTypes(): Stimulsoft.System.Type[];
         getSeriesLabelsTypes(): Stimulsoft.System.Type[];
         readonly componentId: StiComponentId;
+        createNew(): StiArea;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    class StiPictorialArea extends StiArea implements IStiJsonReportObject, IStiPictorialArea, IStiArea, ICloneable {
+        private static implementsStiPictorialArea;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        readonly componentId: StiComponentId;
+        private _roundValues;
+        roundValues: boolean;
+        private _actual;
+        actual: boolean;
+        getDefaultSeriesLabelsType(): Stimulsoft.System.Type;
+        getSeriesLabelsTypes(): Stimulsoft.System.Type[];
+        getDefaultSeriesType(): Stimulsoft.System.Type;
+        getSeriesTypes(): Stimulsoft.System.Type[];
         createNew(): StiArea;
         constructor();
     }
@@ -31865,6 +32058,30 @@ declare module Stimulsoft.Report.Chart {
         valueEnd: string;
         private _listOfValuesEnd;
         listOfValuesEnd: string;
+        createNew(): StiSeries;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    class StiPictorialSeries extends StiSeries implements IStiPictorialSeries, ICloneable, IStiSeries, IStiJsonReportObject {
+        private static implementsStiPictorialSeries;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _brush;
+        brush: StiBrush;
+        private _icon;
+        icon: StiFontIcons;
+        readonly componentId: StiComponentId;
+        clone(): StiPictorialSeries;
+        getDefaultAreaType(): Stimulsoft.System.Type;
         createNew(): StiSeries;
         constructor();
     }
@@ -35751,6 +35968,7 @@ declare module Stimulsoft.Viewer {
         controls: any;
         reportParams: any;
         assignReport(report: StiReport): any;
+        initAutoUpdateCache(jsText: any, jsObject: any): any;
         postAjax(url: string, data: any, callback?: any): any;
         postAction(action: string, bookmarkPage?: any, bookmarkAnchor?: any): any;
         postEmail(format: string, settingsObject: any): any;
@@ -37180,6 +37398,7 @@ declare module Stimulsoft.Designer {
         static setEventValue(report: StiReport, param: any, callbackResult: any): void;
         static changeSizeComponents(report: StiReport, param: any, callbackResult: any): void;
         static createMovingCopyComponent(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): void;
+        static updateReportAliases(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): void;
     }
 }
 declare module Stimulsoft.Designer {
@@ -37878,6 +38097,7 @@ declare module Stimulsoft.Designer {
         GetFontNamesItems(): any;
         AddCustomFontsCss(customFontsCss: string): any;
         InitializeSelectDataForm(func: any): any;
+        InitializeImageForm(func: any): any;
         constructor(parameters: any);
     }
     class StiDesigner {
@@ -37939,6 +38159,7 @@ declare module Stimulsoft.Designer {
         private copyReportDictionary(reportFrom, reportTo);
         private getNewReport();
         private getReportFileName();
+        private static asyncPromise;
         private raiseCallbackEventAsync(onResult, param);
         constructor(options?: StiDesignerOptions, designerId?: string, renderAfterCreate?: boolean);
     }

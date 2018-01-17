@@ -105,6 +105,7 @@
     <LessOptions>Less Options</LessOptions>
     <LoadDataSet>Load DataSet (*.data)</LoadDataSet>
     <MoreOptions>More Options</MoreOptions>
+    <More>More</More>
     <MoveLeft>Move Left</MoveLeft>
     <MoveRight>Move Right</MoveRight>
     <MoveToResource>Move to Resource</MoveToResource>
@@ -130,6 +131,10 @@
     <Upload>Upload</Upload>
     <Yes>&amp;Yes</Yes>
   </Buttons>
+  <BarCode>
+    <Post>Post</Post>
+    <TwoDimensional>Two-Dimensional</TwoDimensional>
+  </BarCode>
   <Chart>
     <Pictorial>Pictorial</Pictorial>
     <AddCondition>&amp;Add Condition</AddCondition>
@@ -571,13 +576,20 @@
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
+    <EditExpression>Edit Expression</EditExpression>
+    <RemoveField>Remove Field</RemoveField>
+    <DuplicateField>Duplicate Field</DuplicateField>
     <ChangeChartType>Change Chart Type</ChangeChartType>
     <ChangeMapType>Change Map Type</ChangeMapType>
     <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
     <DataBars>Data Bars</DataBars>
+    <HighLowPoints>High / Low Points</HighLowPoints>
+    <FirstLastPoints>First / Last Points</FirstLastPoints>
     <ColorScale>Color Scale</ColorScale>
     <Sparklines>Sparklines</Sparklines>
-    <Delta>Delta</Delta>
+    <NewDimension>New Dimension</NewDimension>
+    <NewMeasure>New Measure</NewMeasure>
+    <Indicator>Indicator</Indicator>
     <Trend>Trend</Trend>
     <DataNotDefined>Data is not defined</DataNotDefined>
     <Dimension>Dimension</Dimension>
@@ -1336,6 +1348,7 @@
   </FormRichTextEditor>
   <FormStyleDesigner>
     <Add>Add Style</Add>
+    <AddCollectionName>Add Collection Name</AddCollectionName>
     <ApplyStyleCollectionToReportComponents>Apply Style Collection to Report Components</ApplyStyleCollectionToReportComponents>
     <ApplyStyles>Apply Styles</ApplyStyles>
     <ColorCollectionEditor>Color Collection Editor</ColorCollectionEditor>
@@ -2250,8 +2263,11 @@
     <HeaderTableCategory>Header Table</HeaderTableCategory>
     <HierarchicalCategory>Hierarchical</HierarchicalCategory>
     <ImageAdditionalCategory>Image Additional</ImageAdditionalCategory>
+    <GaugeCategory>Gauge</GaugeCategory>
     <ImageCategory>Image</ImageCategory>
     <InterlacingCategory>Interlacing</InterlacingCategory>
+    <IndicatorCategory>Indicator</IndicatorCategory>
+    <ProgressCategory>Progress</ProgressCategory>
     <LegendCategory>Legend</LegendCategory>
     <MainCategory>Main</MainCategory>
     <MarkerCategory>Marker</MarkerCategory>
@@ -2434,9 +2450,11 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
-    <StiDeltaTypeDifference>Difference</StiDeltaTypeDifference>
-    <StiDeltaTypePercentageDifference>Percentage Difference</StiDeltaTypePercentageDifference>
-    <StiDeltaTypePercentOfTarget>Percent of Target</StiDeltaTypePercentOfTarget>
+    <StiProgressElementModePie>Pie</StiProgressElementModePie>
+    <StiProgressElementModeCircle>Circle</StiProgressElementModeCircle>
+    <StiProgressElementModeDataBars>DataBars</StiProgressElementModeDataBars>    
+    <StiGaugeCalculationModeAuto>Auto</StiGaugeCalculationModeAuto>
+    <StiGaugeCalculationModeCustom>Custom</StiGaugeCalculationModeCustom>
     <StiGaugeTypeFullCircular>Full Circular</StiGaugeTypeFullCircular>
     <StiGaugeTypeHalfCircular>Half-Circular</StiGaugeTypeHalfCircular>
     <boolFalse>False</boolFalse>
@@ -3250,6 +3268,7 @@
     <ExtensionDigit>Extension Digit</ExtensionDigit>
     <FaqPage>FAQ Page</FaqPage>
     <FieldIs>Field Is</FieldIs>
+    <Field>Field</Field>
     <File>File</File>
     <Fill>Fill</Fill>
     <FillColor>Fill Color</FillColor>
