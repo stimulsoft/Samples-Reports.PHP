@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.5
-Build date: 2018.01.16
+Version: 2018.1.6
+Build date: 2018.01.20
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -21957,6 +21957,22 @@ declare module Stimulsoft.Report.Export {
         readonly Top: number;
         constructor(service: StiPdfExportService);
     }
+    class StiEditableObject {
+        X: number;
+        Y: number;
+        Width: number;
+        Height: number;
+        Page: number;
+        Text: string;
+        Content: number[];
+        Content2: number[];
+        Multiline: boolean;
+        Alignment: Stimulsoft.Base.Drawing.StiTextHorAlignment;
+        FontNumber: number;
+        FontSize: number;
+        FontColor: Color;
+        Component: StiComponent;
+    }
     class StiPdfExportService extends StiExportService {
         readonly exportFormat: StiExportFormat;
         exportTo(report: StiReport, stream: MemoryStream, settings: StiExportSettings): void;
@@ -21979,7 +21995,7 @@ declare module Stimulsoft.Report.Export {
         private bookmarksCounter;
         private linksCounter;
         private annotsCounter;
-        private annotsCurrent;
+        annotsCurrent: number;
         private annots2Counter;
         private annots2Current;
         private unsignedSignaturesCounter;
@@ -22006,6 +22022,9 @@ declare module Stimulsoft.Report.Export {
         private allowEditable;
         private fontGlyphsReduceNotNeed;
         private xref;
+        annotsArray: Array<StiEditableObject>;
+        private annots2Array;
+        private unsignedSignaturesArray;
         private shadingArray;
         private hatchArray;
         private haveBookmarks;
@@ -22064,6 +22083,7 @@ declare module Stimulsoft.Report.Export {
         private renderPatternTable();
         private writeHatchPattern(indexHatch);
         private writeShadingPattern(indexShading);
+        private renderAnnotTable();
         private renderExtGStateRecord();
         storeImageData(image: Image, imageResolution: number, isImageComponent: boolean, needSmoothing: boolean): number;
         private writeImageInfo(pp, imageResolution);
@@ -22286,6 +22306,7 @@ declare module Stimulsoft.Report.Export {
 declare module Stimulsoft.Report.Export {
     import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
     import StiShape = Stimulsoft.Report.Components.StiShape;
+    import StiCheckBox = Stimulsoft.Report.Components.StiCheckBox;
     class StiPdfRenderPrimitives {
         static renderBorder1(pp: StiPdfData): void;
         static renderBorder2(pp: StiPdfData): void;
@@ -22293,7 +22314,8 @@ declare module Stimulsoft.Report.Export {
         static getPenStyleDashString(style: StiPenStyle, step: number, pp: StiPdfData): string;
         static checkShape(shape: StiShape): boolean;
         static renderShape(pp: StiPdfData, imageResolution: number): void;
-        static renderCheckbox(pp: StiPdfData, reverse?: boolean): void;
+        static renderCheckbox(pp: StiPdfData, checkBoxValue: boolean, storeShading?: boolean): void;
+        static getCheckBoxValue(checkbox: StiCheckBox): boolean;
     }
 }
 declare module Stimulsoft.Report.Export {
@@ -22327,7 +22349,7 @@ declare module Stimulsoft.Report.Export {
         addRef(): void;
         toString(): string;
     }
-    class StiPdfPageObjInfo extends StiPdfObjInfo {
+    class StiPdfContentObjInfo extends StiPdfObjInfo {
         content: StiPdfObjInfo;
     }
     class StiPdfXObjectObjInfo extends StiPdfObjInfo {
@@ -22357,9 +22379,12 @@ declare module Stimulsoft.Report.Export {
         aP: StiPdfObjInfo;
         aA: StiPdfObjInfo[];
     }
+    class StiPdfCheckBoxObjInfo {
+        items: StiPdfAnnotObjInfo[];
+    }
     class StiPdfAcroFormObjInfo extends StiPdfObjInfo {
         annots: StiPdfAnnotObjInfo[];
-        annots2: StiPdfAnnotObjInfo[];
+        checkBoxes: StiPdfCheckBoxObjInfo[];
         unsignedSignatures: StiPdfAnnotObjInfo[];
         signatures: StiPdfAnnotObjInfo[];
         tooltips: StiPdfAnnotObjInfo[];
@@ -22371,7 +22396,7 @@ declare module Stimulsoft.Report.Export {
         colorSpace: StiPdfObjInfo;
         pages: StiPdfObjInfo;
         structTreeRoot: StiPdfObjInfo;
-        pageList: StiPdfPageObjInfo[];
+        pageList: StiPdfContentObjInfo[];
         xObjectList: StiPdfXObjectObjInfo[];
         fontList: StiPdfFontObjInfo[];
         outlines: StiPdfOutlinesObjInfo;
@@ -22383,12 +22408,13 @@ declare module Stimulsoft.Report.Export {
         metadata: StiPdfObjInfo;
         destOutputProfile: StiPdfObjInfo;
         outputIntents: StiPdfObjInfo;
-        embeddedJS: StiPdfPageObjInfo;
+        embeddedJS: StiPdfContentObjInfo;
+        embeddedFilesList: StiPdfContentObjInfo[];
         private objectsCounter;
         private objects;
         addRef(info: StiPdfObjInfo): void;
         createObject(addRef?: boolean): StiPdfObjInfo;
-        createPageObject(addRef?: boolean): StiPdfPageObjInfo;
+        createContentObject(addRef?: boolean): StiPdfContentObjInfo;
         createXObject(addRef?: boolean, haveMask?: boolean): StiPdfXObjectObjInfo;
         createFontObject(addRef?: boolean, useUnicodeMode?: boolean, standardPdfFonts?: boolean, embeddedFonts?: boolean, annotFont?: boolean): StiPdfFontObjInfo;
         createOutlinesObject(addRef?: boolean): StiPdfOutlinesObjInfo;
@@ -37224,7 +37250,6 @@ declare module Stimulsoft.Designer {
         static getBarCodeProperties(barCode: StiBarCode): any;
         static applyBarCodeProperties(report: StiReport, param: any, callbackResult: any): void;
         static getBarCodeSampleImage(barCode: StiBarCode): string;
-        static getBarCodeSamples(report: StiReport, param: any, callbackResult: any): void;
     }
 }
 declare module Stimulsoft.Designer {
@@ -37292,6 +37317,7 @@ declare module Stimulsoft.Designer {
         static getReportFileName(report: StiReport): string;
         static createInfographicComponent(componentTypeArray: string): StiComponent;
         static createShapeComponent(componentTypeArray: string): StiComponent;
+        private static createBarCodeComponent(componentTypeArray);
         private static applyStyleCollection(comp, stylesCollection);
         static applyStyles(comp: StiComponent, stylesCollection: StiStylesCollection): void;
         static getComponentMainProperties(component: StiComponent, zoom: number): any;

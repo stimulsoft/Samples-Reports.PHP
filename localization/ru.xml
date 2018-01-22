@@ -88,6 +88,10 @@
     <AdapterVirtualSource>Данные на основе других данных</AdapterVirtualSource>
     <AdapterVistaDBConnection>Данные из VistaDB соединения</AdapterVistaDBConnection>
   </Adapters>
+  <BarCode>
+    <Post>Почтовый</Post>
+    <TwoDimensional>Двухмерный</TwoDimensional>
+  </BarCode>
   <Buttons>
     <Add>Добавить</Add>
     <AddAllColumns>Добавить все колонки</AddAllColumns>
@@ -539,7 +543,7 @@
     <StiDataBand>Данные</StiDataBand>
     <StiEmptyBand>Пустые данные</StiEmptyBand>
     <StiFooterBand>Итог данных</StiFooterBand>
-    <StiGauge>Индикатор</StiGauge>
+    <StiGauge>Измерительный прибор</StiGauge>
     <StiGroupFooterBand>Итог группы</StiGroupFooterBand>
     <StiGroupHeaderBand>Заголовок группы</StiGroupHeaderBand>
     <StiHeaderBand>Заголовок данных</StiHeaderBand>
@@ -1496,7 +1500,7 @@
     <RadialTickMarkMajor>Основные радиальные метки</RadialTickMarkMajor>
     <RadialTickMarkMinor>Промежуточные радиальные метки</RadialTickMarkMinor>
     <StateIndicator>Индикатор состояния</StateIndicator>
-    <StateIndicatorFilter>Фильтр состояния индикатораr</StateIndicatorFilter>
+    <StateIndicatorFilter>Фильтр состояния индикатора</StateIndicatorFilter>
     <TickCustomValue>Метка значения</TickCustomValue>
   </Gauge>
   <Gui>
@@ -2306,7 +2310,7 @@
     <ExportCategory>Экспорт</ExportCategory>
     <ExportEventsCategory>События экспорта</ExportEventsCategory>
     <FooterTableCategory>Итог таблицы</FooterTableCategory>
-    <GaugeCategory>Индикатор</GaugeCategory>
+    <GaugeCategory>Измерительный прибор</GaugeCategory>
     <GridLinesCategory>Линии сетки</GridLinesCategory>
     <HeaderTableCategory>Заголовок таблицы</HeaderTableCategory>
     <HierarchicalCategory>Дерево</HierarchicalCategory>
@@ -3073,7 +3077,6 @@
   </PropertyHatchStyle>
   <PropertyMain>
     <AcceptsReturn>Принимать Returns</AcceptsReturn>
-<ImageHyperlink>Гиперссылка на изображение</ImageHyperlink>
     <AcceptsTab>Принимать Tabs</AcceptsTab>
     <Actual>Актуальный</Actual>
     <AddClearZone>Добавлять поля</AddClearZone>
@@ -3404,6 +3407,7 @@
     <ImageAlignment>Выравнивание изображения</ImageAlignment>
     <ImageData>Выражение изображения</ImageData>
     <ImageHorAlignment>Горизонтальное выравнивание изображения</ImageHorAlignment>
+    <ImageHyperlink>Гиперссылка на изображение</ImageHyperlink>
     <ImageMultipleFactor>Множитель изображения</ImageMultipleFactor>
     <ImageRotation>Поворот изображения</ImageRotation>
     <ImageStretch>Растягивание изображения</ImageStretch>

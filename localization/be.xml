@@ -88,6 +88,10 @@
     <AdapterVirtualSource>Дадзеныя на аснове іншых дадзеных</AdapterVirtualSource>
     <AdapterVistaDBConnection>Дадзеныя з VistaDB злучэнні</AdapterVistaDBConnection>
   </Adapters>
+  <BarCode>
+    <Post>Паштовы</Post>
+    <TwoDimensional>Двухмерны</TwoDimensional>
+  </BarCode>
   <Buttons>
     <Add>Дадаць</Add>
     <AddAllColumns>Дадаць усе калонкі</AddAllColumns>
@@ -104,6 +108,7 @@
     <Help>Дапамога</Help>
     <LessOptions>Менш параметраў</LessOptions>
     <LoadDataSet>Загрузіць DataSet (*.data)</LoadDataSet>
+    <More>Больш</More>
     <MoreOptions>Больш параметраў</MoreOptions>
     <MoveLeft>Перамясціць налева</MoveLeft>
     <MoveRight>Перамясціць направа</MoveRight>
@@ -580,6 +585,7 @@
     <Dimension>Вымярэнне</Dimension>
     <Dimensions>Вымярэнні</Dimensions>
     <DragDropDataFromDictionary>Перацягнеце дадзеныя са Слоўніка дадзеных</DragDropDataFromDictionary>
+    <DuplicateField>Стварыць копію поля</DuplicateField>
     <EditExpression>Змяніць выраз</EditExpression>
     <EmptyDashboardFooter>Перацягнеце кампанент з Інструментара ці крыніцу дадзеных са Слоўніка дадзеных</EmptyDashboardFooter>
     <EmptyDashboardHeader>Пустая панэль індыкатараў</EmptyDashboardHeader>
@@ -1346,6 +1352,7 @@
   </FormRichTextEditor>
   <FormStyleDesigner>
     <Add>Дадаць новы стыль</Add>
+    <AddCollectionName>Дадаць назву калекцыі</AddCollectionName>
     <ApplyStyleCollectionToReportComponents>Ужыць калекцыю стыляў да кампанентаў справаздачы</ApplyStyleCollectionToReportComponents>
     <ApplyStyles>Ужыць стылі</ApplyStyles>
     <ColorCollectionEditor>Рэдактар ​​калекцыі колераў</ColorCollectionEditor>
@@ -2307,11 +2314,13 @@
     <ExportCategory>Экспарт</ExportCategory>
     <ExportEventsCategory>Падзеі экспарту</ExportEventsCategory>
     <FooterTableCategory>Загаловак табліцы</FooterTableCategory>
+    <GaugeCategory>Вымерны прыбор</GaugeCategory>
     <GridLinesCategory>Лініі сеткі</GridLinesCategory>
     <HeaderTableCategory>Вынік табліцы</HeaderTableCategory>
     <HierarchicalCategory>Дрэва</HierarchicalCategory>
     <ImageAdditionalCategory>Малюнак, дадатковыя</ImageAdditionalCategory>
     <ImageCategory>Малюнак</ImageCategory>
+    <IndicatorCategory>Індыкатар</IndicatorCategory>
     <InterlacingCategory>Чаргаванне</InterlacingCategory>
     <LegendCategory>Легенда</LegendCategory>
     <MainCategory>Асноўныя</MainCategory>
@@ -2329,6 +2338,7 @@
     <PositionCategory>Размяшчэнне</PositionCategory>
     <PrimitiveCategory>Прымітыў</PrimitiveCategory>
     <PrintEventsCategory>Друк</PrintEventsCategory>
+    <ProgressCategory>Прагрэс</ProgressCategory>
     <RenderEventsCategory>Пабудова</RenderEventsCategory>
     <SeriesCategory>Серыі</SeriesCategory>
     <SeriesLabelsCategory>Загалоўкі шэрагаў</SeriesLabelsCategory>
@@ -2700,6 +2710,8 @@
     <StiFormStartModeOnEnd>У канцы</StiFormStartModeOnEnd>
     <StiFormStartModeOnPreview>У папярэднім праглядзе</StiFormStartModeOnPreview>
     <StiFormStartModeOnStart>У пачатку</StiFormStartModeOnStart>
+    <StiGaugeCalculationModeAuto>Прагрэс</StiGaugeCalculationModeAuto>
+    <StiGaugeCalculationModeCustom>Па выбары</StiGaugeCalculationModeCustom>
     <StiGaugeTypeFullCircular>Поўны цыферблат</StiGaugeTypeFullCircular>
     <StiGaugeTypeHalfCircular>Палова цыферблата</StiGaugeTypeHalfCircular>
     <StiGroupSortDirectionAscending>Па ўзрастанні</StiGroupSortDirectionAscending>
@@ -2824,6 +2836,9 @@
     <StiProcessingDuplicatesTypeMerge>Злучыць</StiProcessingDuplicatesTypeMerge>
     <StiProcessingDuplicatesTypeNone>Не</StiProcessingDuplicatesTypeNone>
     <StiProcessingDuplicatesTypeRemoveText>Выдалiць тэкст</StiProcessingDuplicatesTypeRemoveText>
+    <StiProgressElementModeCircle>Кальцо</StiProgressElementModeCircle>
+    <StiProgressElementModeDataBars>Гістаграма</StiProgressElementModeDataBars>
+    <StiProgressElementModePie>Кола</StiProgressElementModePie>
     <StiRadarStyleXFCircle>Акружнасць</StiRadarStyleXFCircle>
     <StiRadarStyleXFPolygon>Шматкутнік</StiRadarStyleXFPolygon>
     <StiReportCacheModeAuto>Аўта</StiReportCacheModeAuto>
@@ -3402,6 +3417,7 @@
     <ImageAlignment>Выраўнаванне малюнка</ImageAlignment>
     <ImageData>Выраз малюнка</ImageData>
     <ImageHorAlignment>Гарызантальнае выраўноўванне малюнка</ImageHorAlignment>
+    <ImageHyperlink>Гіперспасылка на выяву</ImageHyperlink>
     <ImageMultipleFactor>Множнік малюнка</ImageMultipleFactor>
     <ImageRotation>Паварот малюнка</ImageRotation>
     <ImageStretch>Расцяг малюнка</ImageStretch>
