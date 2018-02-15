@@ -912,7 +912,7 @@
     <SylkFiles>SYLK ფაილი (*.slk)|*.slk</SylkFiles>
     <TiffFiles>TIFF სურათი (*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>ჩვეულებრივი ტექსტური ფაილი (*.txt)|*.txt</TxtFiles>
-    <Word2007Files>Word 2007/2013 ფაილი (*.docx)|*.docx</Word2007Files>
+    <Word2007Files>Word 2007-2016 ფაილი (*.docx)|*.docx</Word2007Files>
     <WriterFiles>OpenDocument Writer ფაილი (*.odt)|*.odt</WriterFiles>
     <XmlFiles>XML ფაილი(*.xml)|*.xml</XmlFiles>
     <XpsFiles>Microsoft XPS ფაილი (*.xps)|*.xps</XpsFiles>

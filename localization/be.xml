@@ -928,7 +928,7 @@
     <SylkFiles>SYLK файлы (*.slk)|*.slk</SylkFiles>
     <TiffFiles>TIFF малюнак (*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>Звычайны тэкст (*.txt)|*.txt</TxtFiles>
-    <Word2007Files>Microsoft Word 2007/2013 файлы (*.docx)|*.docx</Word2007Files>
+    <Word2007Files>Microsoft Word 2007-2016 файлы (*.docx)|*.docx</Word2007Files>
     <WriterFiles>OpenDocument Writer файлы (*.odt)|*.odt</WriterFiles>
     <XmlFiles>XML файлы(*.xml)|*.xml</XmlFiles>
     <XpsFiles>Microsoft XPS файлы (*.xps)|*.xps</XpsFiles>

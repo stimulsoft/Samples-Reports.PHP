@@ -926,7 +926,8 @@
     <SylkFiles>SYLK Files (*.slk)|*.slk</SylkFiles>
     <TiffFiles>TIFF Images (*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>Plain Text Files (*.txt)|*.txt</TxtFiles>
-    <Word2007Files>Microsoft Word 2007/2013 Files (*.docx)|*.docx</Word2007Files>
+    <WordFiles>Microsoft Word 97-2003 Files (*.doc)|*.doc</WordFiles>
+    <Word2007Files>Microsoft Word 2007-2016 Files (*.docx)|*.docx</Word2007Files>
     <WriterFiles>OpenDocument Writer Files (*.odt)|*.odt</WriterFiles>
     <XmlFiles>XML Files (*.xml)|*.xml</XmlFiles>
     <XpsFiles>Microsoft XPS Files (*.xps)|*.xps</XpsFiles>
@@ -1128,6 +1129,8 @@
     <DataParameterNew>New Parameter</DataParameterNew>
     <DataSetToBusinessObjects>DataSet To Business Objects</DataSetToBusinessObjects>
     <DataSourceEdit>Edit Data Source</DataSourceEdit>
+    <DataTransformationNew>New Data Transformation</DataTransformationNew>
+    <DataTransformationEdit>Edit Data Transformation</DataTransformationEdit>
     <DataSourceNew>New Data Source</DataSourceNew>
     <DataSourcesNew>New Data Sources</DataSourcesNew>
     <Delete>Delete</Delete>
@@ -1913,6 +1916,7 @@
     <menuEditCut>Cu&amp;t</menuEditCut>
     <menuEditDataParameterNew>New Parameter...</menuEditDataParameterNew>
     <menuEditDataSourceNew>New Data Source...</menuEditDataSourceNew>
+    <menuEditDataTransformationNew>New Data Transformation...</menuEditDataTransformationNew>
     <menuEditDataSourcesNew>New Data Sources...</menuEditDataSourcesNew>
     <menuEditDelete>&amp;Delete</menuEditDelete>
     <menuEditEdit>Edit</menuEditEdit>
@@ -2450,6 +2454,8 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
+    <StiMapModeChoropleth>Choropleth</StiMapModeChoropleth>
+    <StiMapModeOnline>Online</StiMapModeOnline>
     <StiProgressElementModePie>Pie</StiProgressElementModePie>
     <StiProgressElementModeCircle>Circle</StiProgressElementModeCircle>
     <StiProgressElementModeDataBars>DataBars</StiProgressElementModeDataBars>    
@@ -3021,7 +3027,12 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
+    <NameDataColumn>Name Data Column</NameDataColumn>
+    <Regular>Regular</Regular>
+    <Latitude>Latitude</Latitude>
+    <Longitude>Longitude</Longitude>
     <Actual>Actual</Actual>
+    <SeriesTitle>Series Title</SeriesTitle>
     <Label>Label</Label>
     <RoundValues>Round Values</RoundValues>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
@@ -3084,6 +3095,7 @@
     <AutoSeriesTitleDataColumn>Auto Series Title Data Column</AutoSeriesTitleDataColumn>
     <AutoWidth>Auto Width</AutoWidth>
     <AutoWidthType>Auto Width Type</AutoWidthType>
+    <AvailableInTheViewer>Available in the Viewer</AvailableInTheViewer>
     <AxisLabelsColor>Labels Color</AxisLabelsColor>
     <AxisLineColor>Line Color</AxisLineColor>
     <AxisTitleColor>Title Color</AxisTitleColor>
@@ -3186,6 +3198,9 @@
     <CreateFieldOnDoubleClick>Create Field on Double Click</CreateFieldOnDoubleClick>
     <CreateLabel>Create Label</CreateLabel>
     <Culture>Culture</Culture>
+    <SystemFonts>System Fonts</SystemFonts>
+    <CustomFonts>Custom Fonts</CustomFonts>
+    <RecentFonts>Recent Fonts</RecentFonts>
     <CustomFormat>Custom Format</CustomFormat>
     <CutPieList>Cut Pie List</CutPieList>
     <Data>Data</Data>
@@ -3198,6 +3213,7 @@
     <DataField>Data Field</DataField>
     <DataRelation>Data Relation</DataRelation>
     <DataRows>Data Rows</DataRows>
+    <DataTransformation>Data Transformation</DataTransformation>
     <DataSource>Data Source</DataSource>
     <DataSources>Data Sources</DataSources>
     <DataTextField>Data Text Field</DataTextField>
@@ -3758,10 +3774,12 @@
     <TrendLineColor>Color</TrendLineColor>
     <TrendLineShowShadow>Show Shadow</TrendLineShowShadow>
     <Trimming>Trimming</Trimming>
-	<TrimExcessData>Trim Excess Data</TrimExcessData>
+    <TrimExcessData>Trim Excess Data</TrimExcessData>
     <Type>Type</Type>
     <TypeName>Type Name</TypeName>
     <Types>Types</Types>
+    <Effects>Effects</Effects>
+    <Strikeout>Strikeout</Strikeout>
     <Underline>Underline</Underline>
     <UndoLimit>Undo Limit</UndoLimit>
     <Unit>Unit</Unit>
@@ -3777,6 +3795,8 @@
     <UseStyleOfSummaryInColumnTotal>Use Style of Summary in Column Total</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>Use Style of Summary in Row Total</UseStyleOfSummaryInRowTotal>
     <UseValuesFromTheSpecifiedRange>Use Values From The Specified Range</UseValuesFromTheSpecifiedRange>
+    <GroupDataColumn>Group Data Column</GroupDataColumn>
+    <ColorDataColumn>Color Data Column</ColorDataColumn>
     <Value>Value</Value>
     <ValueClose>Value Close</ValueClose>
     <ValueDataColumn>Value Data Column</ValueDataColumn>

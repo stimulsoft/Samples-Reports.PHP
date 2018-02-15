@@ -913,7 +913,7 @@
     <SylkFiles>SYLK fájlok(*.slk)|*.slk</SylkFiles>
     <TiffFiles>TIFF képek(*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>Szöveges fájlok(*.txt)|*.txt</TxtFiles>
-    <Word2007Files>Microsoft Word 2007/2013 fájlok(*.docx)|*.docx</Word2007Files>
+    <Word2007Files>Microsoft Word 2007-2016 fájlok(*.docx)|*.docx</Word2007Files>
     <WriterFiles>OpenDocument Writer fájlok(*.odt)|*.odt</WriterFiles>
     <XmlFiles>XML fájlok(*.xml)|*.xml</XmlFiles>
     <XpsFiles>Microsoft XPS fájlok(*.xps)|*.xps</XpsFiles>

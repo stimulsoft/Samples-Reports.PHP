@@ -107,6 +107,7 @@
     <MoreOptions>Mehr Optionen</MoreOptions>
     <MoveLeft>Nach links verschieben</MoveLeft>
     <MoveRight>Nach rechts verschieben</MoveRight>
+    <MoveToResource>auf die Ressource verschieben</MoveToResource>
     <No>&amp;Nein</No>
     <Ok>OK</Ok>
     <Open>Öffnen</Open>
@@ -898,7 +899,7 @@
     <SylkFiles>SYLK-Datei (*.slk)|*.slk</SylkFiles>
     <TiffFiles>TIFF-Bild (*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>Text-Dateien (*.txt)|*.txt</TxtFiles>
-    <Word2007Files>Microsoft Word 2007/2013 Dateien (*.docx)|*.docx</Word2007Files>
+    <Word2007Files>Microsoft Word 2007-2016 Dateien (*.docx)|*.docx</Word2007Files>
     <WriterFiles>OpenDocument Writer-Dateien (*.odt)|*.odt</WriterFiles>
     <XmlFiles>XML-Dateien (*.xml)|*.xml</XmlFiles>
     <XpsFiles>Microsoft XPS-Dateien (*.xps)|*.xps</XpsFiles>
@@ -998,7 +999,7 @@
     <EditConnection>{0} Verbindung bearbeiten</EditConnection>
     <FirebirdEdit>Firebird-Verbindung ändern</FirebirdEdit>
     <FirebirdNew>Neue Firebird-Verbindung</FirebirdNew>
-    <FirstRowIsHeader>Dieerste Reihe ist Kopf</FirstRowIsHeader>
+    <FirstRowIsHeader>In der ersten Reihe sind die Kopfdaten</FirstRowIsHeader>
     <ImportData>Import der Daten</ImportData>
     <InformixEdit>Informix-Verbindung ändern</InformixEdit>
     <InformixNew>Neue Informix-Verbindung</InformixNew>

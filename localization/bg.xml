@@ -912,7 +912,7 @@
     <SylkFiles>SYLK файлове (*.slk)|*.slk</SylkFiles>
     <TiffFiles>TIFF картинка (*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>Text (*.txt)|*.txt</TxtFiles>
-    <Word2007Files>Microsoft Word 2007/2013 файлове (*.docx)|*.docx</Word2007Files>
+    <Word2007Files>Microsoft Word 2007-2016 файлове (*.docx)|*.docx</Word2007Files>
     <WriterFiles>OpenDocument Writer файлове (*.odt)|*.odt</WriterFiles>
     <XmlFiles>XML файлове (*.xml)|*.xml</XmlFiles>
     <XpsFiles>Microsoft XPS файлове (*.xps)|*.xps</XpsFiles>

@@ -913,7 +913,7 @@ sucedida</ConnectionSuccessfull>
     <SylkFiles>Arquivos SYLK (*.slk)|*.slk</SylkFiles>
     <TiffFiles>Arquivos de Imagem (*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>Arquivos Texto (*.txt)|*.txt</TxtFiles>
-    <Word2007Files>Arquivos Microsoft Word 2007/2013 (*.docx)|*.docx</Word2007Files>
+    <Word2007Files>Arquivos Microsoft Word 2007-2016 (*.docx)|*.docx</Word2007Files>
     <WriterFiles>Abrir Documento Escrito (*.odt)|*.odt</WriterFiles>
     <XmlFiles>Arquivos XML (*.xml)|*.xml</XmlFiles>
     <XpsFiles>Arquivos Microsoft XPS (*.xps)|*.xps</XpsFiles>

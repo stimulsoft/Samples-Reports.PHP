@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.6
-Build date: 2018.01.20
+Version: 2018.1.7
+Build date: 2018.02.15
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -794,6 +794,8 @@ declare module Stimulsoft.System {
         static fromTicks(value: number): TimeSpan;
         static fromSeconds(value: number): TimeSpan;
         static fromMilliseconds(value: number): TimeSpan;
+        add(value: number): TimeSpan;
+        add2(value: TimeSpan): TimeSpan;
         toString(format?: string): string;
         negate(): TimeSpan;
         private static timeToTicks(hour, minute, second, milliseconds);
@@ -1641,6 +1643,7 @@ declare module Stimulsoft.System.Drawing {
         alignToGrid(gridSize: number, aligningToGrid: boolean): Rectangle;
         fitToRectangle(rectangle: Rectangle): Rectangle;
         readonly isEmpty: Boolean;
+        readonly isEmptyF: Boolean;
         contains(x: number, y: number): boolean;
         static convertFromXml(text: string): Rectangle;
         x: number;
@@ -3073,6 +3076,7 @@ declare module Stimulsoft.Base.Context.Animation {
         constructor(duration: TimeSpan, beginTime: TimeSpan);
         duration: TimeSpan;
         beginTime: TimeSpan;
+        readonly type: StiAnimationType;
     }
 }
 declare module Stimulsoft.Base.Context.Animation {
@@ -3229,59 +3233,63 @@ declare module Stimulsoft.Base.Context {
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiAnimationGeom extends StiGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
-        duration: TimeSpan;
-        beginTime: TimeSpan;
-        constructor(duration: TimeSpan, beginTime: TimeSpan);
+        private _animation;
+        readonly animation: StiAnimation;
+        interaction: StiInteractionDataGeom;
+        constructor(animation: StiAnimation, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiBorderAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         background: Object;
         borderPen: StiPenGeom;
         rect: Object;
-        animationType: StiAnimationType;
+        tag: Object;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, rect: Object, duration: TimeSpan, beginTime: TimeSpan, animationType: StiAnimationType);
+        constructor(background: Object, borderPen: StiPenGeom, rect: Object, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiClusteredBarSeriesAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         background: Object;
         borderPen: StiPenGeom;
-        rect: Object;
+        columnRect: Object;
         upMove: boolean;
         tag: Object;
+        value: Number;
+        toolTip: String;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, rect: Object, duration: TimeSpan, beginTime: TimeSpan, upMove: boolean, tag: Object);
+        constructor(background: Object, borderPen: StiPenGeom, columnRect: Object, value: Number, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiClusteredColumnSeriesAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         background: Object;
         borderPen: StiPenGeom;
-        rect: Object;
-        upMove: boolean;
+        columnRect: Object;
+        toolTip: String;
         tag: Object;
+        value: Number;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, rect: Object, duration: TimeSpan, beginTime: TimeSpan, upMove: boolean, tag: Object);
+        constructor(background: Object, borderPen: StiPenGeom, columnRect: Object, value: Number, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
     import Point = Stimulsoft.System.Drawing.Point;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiCurveAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -3289,27 +3297,27 @@ declare module Stimulsoft.Base.Context {
         points: Point[];
         tension: number;
         readonly type: StiGeomType;
-        constructor(pen: StiPenGeom, points: Point[], tension: number, duration: TimeSpan, beginTime: TimeSpan);
+        constructor(pen: StiPenGeom, points: Point[], tension: number, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiEllipseAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         background: Object;
         borderPen: StiPenGeom;
         rect: Object;
-        animationType: StiAnimationType;
         tag: Object;
+        toolTip: String;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, rect: Object, duration?: TimeSpan, beginTime?: TimeSpan, animationType?: StiAnimationType, tag?: Object);
+        constructor(background: Object, borderPen: StiPenGeom, rect: Object, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
     import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiLabelAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -3324,24 +3332,23 @@ declare module Stimulsoft.Base.Context {
         rotationMode: StiRotationMode;
         drawBorder: boolean;
         readonly type: StiGeomType;
-        constructor(text: string, font: StiFontGeom, textBrush: Object, LabelBrush: Object, penBorder: StiPenGeom, rect: Rectangle, sf: StiStringFormatGeom, rotationMode: StiRotationMode, angle: number, drawBorder: boolean, duration: TimeSpan, beginTime: TimeSpan);
+        constructor(text: string, font: StiFontGeom, textBrush: Object, LabelBrush: Object, penBorder: StiPenGeom, rect: Rectangle, sf: StiStringFormatGeom, rotationMode: StiRotationMode, angle: number, drawBorder: boolean, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
     import Point = Stimulsoft.System.Drawing.Point;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiLinesAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         pen: StiPenGeom;
         points: Point[];
-        animationType: StiAnimationType;
         readonly type: StiGeomType;
-        constructor(pen: StiPenGeom, points: Point[], duration: TimeSpan, beginTime: TimeSpan, animationType: StiAnimationType);
+        constructor(pen: StiPenGeom, points: Point[], animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiPathAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -3352,11 +3359,11 @@ declare module Stimulsoft.Base.Context {
         geoms: StiSegmentGeom[];
         tag: Object;
         readonly type: StiGeomType;
-        constructor(background: Object, pen: StiPenGeom, geoms: StiSegmentGeom[], rect: Object, duration: TimeSpan, beginTime: TimeSpan, tag: Object);
+        constructor(background: Object, pen: StiPenGeom, geoms: StiSegmentGeom[], rect: Object, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiPathElementAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -3365,13 +3372,14 @@ declare module Stimulsoft.Base.Context {
         rect: Object;
         pathGeoms: StiSegmentGeom[];
         tag: Object;
+        toolTip: String;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, pathGeoms: StiSegmentGeom[], rect: Object, duration: TimeSpan, beginTime: TimeSpan, tag: Object);
+        constructor(background: Object, borderPen: StiPenGeom, pathGeoms: StiSegmentGeom[], rect: Object, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
-    import TimeSpan = Stimulsoft.System.TimeSpan;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiShadowAnimationGeom extends StiAnimationGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -3380,7 +3388,7 @@ declare module Stimulsoft.Base.Context {
         radiusY: number;
         shadowWidth: number;
         readonly type: StiGeomType;
-        constructor(rect: Rectangle, radiusX: number, radiusY: number, shadowWidth: number, duration: TimeSpan, beginTime: TimeSpan);
+        constructor(rect: Rectangle, radiusX: number, radiusY: number, shadowWidth: number, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3500,12 +3508,14 @@ declare module Stimulsoft.Base.Context {
 }
 declare module Stimulsoft.Base.Context {
     import Point = Stimulsoft.System.Drawing.Point;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiCurveSegmentGeom extends StiSegmentGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         tension: number;
         points: Point[];
-        constructor(points: Point[], tension: number);
+        animation: StiAnimation;
+        constructor(points: Point[], tension: number, animation?: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3550,6 +3560,7 @@ declare module Stimulsoft.Base.Context {
 }
 declare module Stimulsoft.Base.Context {
     import Point = Stimulsoft.System.Drawing.Point;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiLineSegmentGeom extends StiSegmentGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -3557,7 +3568,8 @@ declare module Stimulsoft.Base.Context {
         y1: number;
         x2: number;
         y2: number;
-        constructor(x1: number | Point, y1: number | Point, x2?: number, y2?: number);
+        animation: StiAnimation;
+        constructor(x1: number | Point, y1: number | Point, x2?: number, y2?: number, animation?: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3573,11 +3585,13 @@ declare module Stimulsoft.Base.Context {
 }
 declare module Stimulsoft.Base.Context {
     import Point = Stimulsoft.System.Drawing.Point;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiLinesSegmentGeom extends StiSegmentGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         points: Point[];
-        constructor(points: Point[]);
+        animation: StiAnimation;
+        constructor(points: Point[], animation?: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3609,13 +3623,15 @@ declare module Stimulsoft.Base.Context {
 }
 declare module Stimulsoft.Base.Context {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiPieSegmentGeom extends StiSegmentGeom {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         rect: Rectangle;
         startAngle: number;
         sweepAngle: number;
-        constructor(rect: Rectangle, startAngle: number, sweepAngle: number);
+        animation: StiAnimation;
+        constructor(rect: Rectangle, startAngle: number, sweepAngle: number, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3741,11 +3757,11 @@ declare module Stimulsoft.Base.Context {
 }
 declare module Stimulsoft.Base.Context {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import TimeSpan = Stimulsoft.System.TimeSpan;
     import Size = Stimulsoft.System.Drawing.Size;
     import Point = Stimulsoft.System.Drawing.Point;
     import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
     import StiShadowSides = Stimulsoft.Base.Drawing.StiShadowSides;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiContext {
         render(rect: Rectangle): void;
         getDefaultStringFormat(): StiStringFormatGeom;
@@ -3774,15 +3790,15 @@ declare module Stimulsoft.Base.Context {
         popTransform(): void;
         pushClip(clipRect: Rectangle): void;
         popClip(): void;
-        drawAnimationColumn(brush: Object, borderPen: StiPenGeom, rect: Object, duration: TimeSpan, beginTime: TimeSpan, upMove: boolean, tag: Object): void;
-        drawAnimationBar(brush: Object, borderPen: StiPenGeom, rect: Object, duration: TimeSpan, beginTime: TimeSpan, upMove: boolean, tag: Object): void;
-        drawAnimationRectangle(brush: Object, pen: StiPenGeom, rect: Rectangle, duration: TimeSpan, beginTime: TimeSpan): void;
-        drawAnimationPathElement(brush: Object, borderPen: StiPenGeom, path: StiSegmentGeom[], rect: Object, duration: TimeSpan, beginTime: TimeSpan, tag: Object): void;
-        drawAnimationLabel(text: string, font: StiFontGeom, textBrush: Object, labelBrush: Object, penBorder: StiPenGeom, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, drawBorder: boolean, duration: TimeSpan, beginTime: TimeSpan): void;
-        drawAnimationLines(pen: StiPenGeom, points: Point[], duration: TimeSpan, beginTime: TimeSpan, animationType: StiAnimationType): void;
-        drawAnimationCurve(pen: StiPenGeom, points: Point[], tension: number, duration: TimeSpan, beginTime: TimeSpan): void;
-        fillDrawAnimationPath(brush: Object, pen: StiPenGeom, path: StiSegmentGeom[], rect: Object, durationOpacity: TimeSpan, beginTimeOpacity: TimeSpan, tag: Object): void;
-        fillDrawAnimationEllipse(brush: Object, pen: StiPenGeom, x: number, y: number, width: number, height: number, durationOpacity: TimeSpan, beginTimeOpacity: TimeSpan, animationType: StiAnimationType, tag: Object): void;
+        drawAnimationColumn(brush: Object, borderPen: StiPenGeom, rect: Object, value: Number, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
+        drawAnimationBar(brush: Object, borderPen: StiPenGeom, columnRect: Object, value: Number, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
+        drawAnimationRectangle(brush: Object, pen: StiPenGeom, rect: Rectangle, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
+        drawAnimationPathElement(brush: Object, borderPen: StiPenGeom, path: StiSegmentGeom[], rect: Object, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
+        drawAnimationLabel(text: string, font: StiFontGeom, textBrush: Object, labelBrush: Object, penBorder: StiPenGeom, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, drawBorder: boolean, animation: StiAnimation): void;
+        drawAnimationLines(pen: StiPenGeom, points: Point[], animation: StiAnimation): void;
+        drawAnimationCurve(pen: StiPenGeom, points: Point[], tension: number, animation: StiAnimation): void;
+        fillDrawAnimationPath(brush: Object, pen: StiPenGeom, path: StiSegmentGeom[], rect: Object, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
+        fillDrawAnimationEllipse(brush: Object, pen: StiPenGeom, x: number, y: number, width: number, height: number, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
         drawLine(pen: StiPenGeom, x1: number, y1: number, x2: number, y2: number): void;
         drawLines(pen: StiPenGeom, points: Point[]): void;
         drawRectangle(pen: StiPenGeom, rect: Rectangle): void;
@@ -3806,8 +3822,8 @@ declare module Stimulsoft.Base.Context {
         readonly contextPainter: StiContextPainter;
         private _options;
         readonly options: StiContextOptions;
-        drawShadowRect(rect: Rectangle, shadowWidth: number, duration: TimeSpan, beginTime: TimeSpan): void;
-        drawShadowRect2(rect: Rectangle, radiusX: number, radiusY: number, shadowWidth: number, duration: TimeSpan, beginTime: TimeSpan): void;
+        drawShadowRect(rect: Rectangle, shadowWidth: number, animation: StiAnimation): void;
+        drawShadowRect2(rect: Rectangle, radiusX: number, radiusY: number, shadowWidth: number, animation: StiAnimation): void;
         constructor(contextPainter: StiContextPainter, isGdi: boolean, isWpf: boolean, isPrinting: boolean, zoom: number);
     }
 }
@@ -4200,6 +4216,16 @@ declare module Stimulsoft.Base.Maps.Geoms {
         x: number;
         y: number;
         getLastPoint(): Point;
+    }
+}
+declare module Stimulsoft.Base.Context {
+    class StiInteractionDataGeom {
+        constructor();
+        componentName: String;
+        pageGuid: String;
+        componentIndex: String;
+        pageIndex: String;
+        elementIndex: String;
     }
 }
 declare module Stimulsoft.Base {
@@ -5178,9 +5204,8 @@ declare module Stimulsoft.Base.Localization {
         static cultureName: string;
         static addLocalizationFile(filePath: string, load?: boolean, language?: string): string;
         static setLocalizationFile(filePath: string, onlyThis?: boolean): void;
-        static setLocalization(localizationXml: string, onlyThis?: boolean): void;
         static getJsonStringLocalization(): string;
-        static loadLocalization(localizationXml: any): string;
+        static loadLocalization(localizationXml: any, extension?: boolean): string;
         static loadLocalizationFile(filePath: string): string;
         private static loadLocalizationXmlInternal(xml);
         static get(category: string, key: string): string;
@@ -9188,9 +9213,10 @@ declare module Stimulsoft.Report.Chart {
     import PointD = Stimulsoft.System.Drawing.Point;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import StiPenGeom = Stimulsoft.Base.Context.StiPenGeom;
+    import StiInteractionDataGeom = Stimulsoft.Base.Context.StiInteractionDataGeom;
     var IStiMarkerCoreXF: string;
     interface IStiMarkerCoreXF {
-        draw(context: StiContext, marker: IStiMarker, position: PointD, zoom: number, showShadow: boolean, isMouseOver: boolean, isAnimation: boolean, tag: Object): any;
+        draw(context: StiContext, marker: IStiMarker, position: PointD, zoom: number, showShadow: boolean, isMouseOver: boolean, isTooltipMode: boolean, isAnimation: boolean, toolTip: String, tag: Object, interaction: StiInteractionDataGeom): any;
         drawLine(context: StiContext, x1: number, y1: number, x2: number, y2: number, scale: number, brushMarker: StiBrush, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): any;
         drawLines(context: StiContext, points: PointD[], scale: number, brushMarker: Object, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): any;
     }
@@ -10233,6 +10259,12 @@ declare module Stimulsoft.Report.Chart {
         invokeMouseDown(options: any): any;
         invokeMouseUp(options: any): any;
         invokeDrag(options: any): any;
+    }
+}
+declare module Stimulsoft.Report.Chart {
+    var IStiSeriesElement: string;
+    interface IStiSeriesElement {
+        elementIndex: String;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13541,6 +13573,32 @@ declare module Stimulsoft.Report.Events {
         constructor(subReportName: string);
     }
 }
+declare module Stimulsoft.Report.Helpers {
+    import Image = Stimulsoft.System.Drawing.Image;
+    class StiHyperlinkProcessor {
+        static getBytes(report: StiReport, hyperlink: string): number[];
+        static getImage(report: StiReport, hyperlink: string): Image;
+        static getString(report: StiReport, hyperlink: string): string;
+        private static getResource(report, resourceName);
+        private static getVariable(report, variableName);
+        static getServerNameFromHyperlink(hyperlink: string): string;
+        static getResourceNameFromHyperlink(hyperlink: string): string;
+        static getVariableNameFromHyperlink(hyperlink: string): string;
+        static getFileNameFromHyperlink(hyperlink: string): string;
+        static isServerHyperlink(hyperlink: string): boolean;
+        static isResourceHyperlink(hyperlink: string): boolean;
+        static isVariableHyperlink(hyperlink: string): boolean;
+        static isFileHyperlink(hyperlink: string): boolean;
+        static createResourceName(name: string): string;
+        static createVariableName(name: string): string;
+        static createFileName(path: string): string;
+        static hyperlinkToString(hyperlink: string): string;
+        static serverIdent: string;
+        static resourceIdent: string;
+        static variableIdent: string;
+        static fileIdent: string;
+    }
+}
 declare module Stimulsoft.Report.Components {
     import StiFillParametersEventArgs = Stimulsoft.Report.Events.StiFillParametersEventArgs;
     import StiFillParametersEvent = Stimulsoft.Report.Events.StiFillParametersEvent;
@@ -15068,32 +15126,6 @@ declare module Stimulsoft.Report.Components {
         getImageFromSource(): Image;
     }
 }
-declare module Stimulsoft.Report.Helpers {
-    import Image = Stimulsoft.System.Drawing.Image;
-    class StiHyperlinkProcessor {
-        static getBytes(report: StiReport, hyperlink: string): number[];
-        static getImage(report: StiReport, hyperlink: string): Image;
-        static getString(report: StiReport, hyperlink: string): string;
-        private static getResource(report, resourceName);
-        private static getVariable(report, variableName);
-        static getServerNameFromHyperlink(hyperlink: string): string;
-        static getResourceNameFromHyperlink(hyperlink: string): string;
-        static getVariableNameFromHyperlink(hyperlink: string): string;
-        static getFileNameFromHyperlink(hyperlink: string): string;
-        static isServerHyperlink(hyperlink: string): boolean;
-        static isResourceHyperlink(hyperlink: string): boolean;
-        static isVariableHyperlink(hyperlink: string): boolean;
-        static isFileHyperlink(hyperlink: string): boolean;
-        static createResourceName(name: string): string;
-        static createVariableName(name: string): string;
-        static createFileName(path: string): string;
-        static hyperlinkToString(hyperlink: string): string;
-        static serverIdent: string;
-        static resourceIdent: string;
-        static variableIdent: string;
-        static fileIdent: string;
-    }
-}
 declare module Stimulsoft.Report.Components {
     import StiGetImageDataEventArgs = Stimulsoft.Report.Events.StiGetImageDataEventArgs;
     import StiValueEventArgs = Stimulsoft.Report.Events.StiValueEventArgs;
@@ -16563,9 +16595,11 @@ declare module Stimulsoft.Report.Components {
 declare module Stimulsoft.Report.Components {
     import StiJson = Stimulsoft.Base.StiJson;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     class StiParameter {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
         readonly isDefault: boolean;
         private _name;
         name: string;
@@ -16578,9 +16612,11 @@ declare module Stimulsoft.Report.Components {
     import StiJson = Stimulsoft.Base.StiJson;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     class StiParametersCollection extends CollectionBase<StiParameter> {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
         clone(): StiParametersCollection;
         private addCore(parameter);
         add(parameter: StiParameter): void;
@@ -18463,11 +18499,14 @@ declare module Stimulsoft.Report.Dictionary {
         Rtf = 7,
         Txt = 8,
         Report = 9,
-        FontTtc = 10,
-        FontTtf = 11,
-        FontOtf = 12,
-        FontEot = 13,
-        FontWoff = 14,
+        ReportSnapshot = 10,
+        FontTtc = 11,
+        FontTtf = 12,
+        FontOtf = 13,
+        FontEot = 14,
+        FontWoff = 15,
+        Pdf = 16,
+        Word = 17,
     }
     enum StiPropertiesProcessingType {
         All = 0,
@@ -21125,6 +21164,7 @@ declare module Stimulsoft.Report {
 declare module Stimulsoft.Report.Export {
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
     import Image = Stimulsoft.System.Drawing.Image;
     import TimeSpan = Stimulsoft.System.TimeSpan;
     class StiChartSvgHelper {
@@ -21134,12 +21174,13 @@ declare module Stimulsoft.Report.Export {
         private static listTransformGeom;
         static getImage(svgData: StiSvgData): Image;
         static addAnimation(writer: XmlTextWriter, actions: string, begin: TimeSpan, duration: TimeSpan, numberr?: string): void;
-        static writeStimulsoftIconFont(): void;
-        static writeChart(writer: XmlTextWriter, svgData: StiSvgData): void;
-        private static getPathData(geoms);
-        private static addArcPath(arcSegment, path);
+        static writeChart(writer: XmlTextWriter, svgData: StiSvgData, zoom: number, needAnimation: boolean): void;
+        private static writeInteracrion(writer, geom);
+        private static getPathData(geoms, dx, dy, refAnimatedPath, refDuration);
+        private static addArcPath(arcSegment, path, dx, dy);
         private static round(value);
-        private static addPiePath(pieSegment, path);
+        private static addPiePath(pieSegment, path, dx, dy, animatedPath, refDuration);
+        static correctRectLabel(rotationMode: StiRotationMode, textRect: RectangleD): RectangleD;
         private static convertArcToCubicBezier(rect, startAngle1, sweepAngle1);
         static writeFillBrush(writer: XmlTextWriter, brush: any, rect: RectangleD): string;
         private static writeBorderStroke(writer, brush, rect);
@@ -21148,6 +21189,8 @@ declare module Stimulsoft.Report.Export {
         private static calculateCurveBezierEndPoints(end, adj, tension);
         private static writeBrush(writer, brush, rect);
         private static checkPenGeom(penGeom);
+        private static p(f);
+        static writeStimulsoftIconFont(): void;
     }
 }
 declare module Stimulsoft.Report.Painters {
@@ -21187,7 +21230,7 @@ declare module Stimulsoft.Report.Export {
     class StiGaugeSvgHelper {
         private static readonly PiDiv180;
         private static readonly FourDivThree;
-        private static addAnimation(writer, actions, begin, duration);
+        private static addAnimation(writer, actions, begin, duration, number?);
         static writeGauge(writer: XmlTextWriter, svgData: StiSvgData, zoom?: number, needAnimation?: boolean): void;
         private static getPathData(geoms, startPoint);
         static getArcPath(rect: Rectangle, path_: string, startAngle: number, sweepAngle: number, isSetStartPoint: boolean): string;
@@ -21229,6 +21272,7 @@ declare module Stimulsoft.Report.Styles {
     }
 }
 declare module Stimulsoft.Report.Maps {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiMapStyle = Stimulsoft.Report.Styles.StiMapStyle;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import Color = Stimulsoft.System.Drawing.Color;
@@ -21248,6 +21292,7 @@ declare module Stimulsoft.Report.Maps {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
         clone(cloneProperties?: boolean): StiMap;
         isExportAsImage(format: StiExportFormat): boolean;
         readonly isDataSourceEmpty: boolean;
@@ -21467,7 +21512,6 @@ declare module Stimulsoft.Report.Export {
     }
 }
 declare module Stimulsoft.Report.Export {
-    import IStiChart = Stimulsoft.Report.Chart.IStiChart;
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
@@ -21479,6 +21523,8 @@ declare module Stimulsoft.Report.Export {
     import StiText = Stimulsoft.Report.Components.StiText;
     import StiTextOptions = Stimulsoft.Base.Drawing.StiTextOptions;
     import StiBorderSide = Stimulsoft.Base.Drawing.StiBorderSide;
+    import IStiChart = Stimulsoft.Report.Chart.IStiChart;
+    import IStiComponent = Stimulsoft.Report.Components.IStiComponent;
     class StiHtmlExportService extends StiExportService {
         renderedPagesCount: number;
         currentPassNumber: number;
@@ -21514,7 +21560,7 @@ declare module Stimulsoft.Report.Export {
         private coordY;
         private strSpanDiv;
         private hyperlinksToTag;
-        chartData: string[];
+        chartData: Hashtable;
         hashBookmarkGuid: Hashtable;
         renderStyles: boolean;
         styles: StiCellStyle[];
@@ -21559,6 +21605,7 @@ declare module Stimulsoft.Report.Export {
         private renderChartScripts(writeScriptTag?);
         private renderMapsScripts(writeScriptTag?);
         private renderGaugeScripts(writeScriptTag?);
+        getGuid(comp: IStiComponent): string;
         private renderEndDoc();
         private renderBookmarkTree(root, bookmarkWidth, bookmarksPageIndex);
         private addBookmarkNode(bkm, parentNode, bookmarksTree);
@@ -21571,7 +21618,7 @@ declare module Stimulsoft.Report.Export {
         static getFile(assemblyName: string, fileName: string): Uint8Array;
         private assembleGuidUsedInBookmark(node, hash);
         private prepareSvg(sWriter, width, height);
-        prepareChartData(chart: IStiChart, width: number, height: number): void;
+        prepareChartData(writer: StiHtmlTextWriter, chart: IStiChart, width: number, height: number): string;
         prepareGaugeData(writer: StiHtmlTextWriter, gauge: any, width: number, height: number): string;
         prepareMapData(writer: StiHtmlTextWriter, map: any, width: number, height: number): string;
         getChartScript(): string;
@@ -23523,10 +23570,12 @@ declare module Stimulsoft.Report.Components.Gauge {
 }
 declare module Stimulsoft.Report.Components.Gauge {
     import StiGaugeContextPainter = Stimulsoft.Report.Painters.StiGaugeContextPainter;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     var IStiGauge: string;
     interface IStiGauge extends IStiComponent {
         scales: any;
         drawGauge(context: StiGaugeContextPainter): any;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean): any;
     }
 }
 declare module Stimulsoft.Report.Components.Gauge {
@@ -24423,6 +24472,7 @@ declare module StiOptions {
         allowUseTag: boolean;
         allowUseToolTip: boolean;
         allowUseHyperlink: boolean;
+        allowUseVariableAlias: boolean;
     }
     class Engine {
         static Image: Image;
@@ -24681,6 +24731,7 @@ declare module Stimulsoft.Report {
         private saveToJsonInternal(mode);
         private loadFromJsonInternal(text);
         private loadFromXmlInternal(xml);
+        private isPackedFile(content);
         load(str: string): any;
         load(data: number[]): any;
         load(xml: XmlNode): any;
@@ -24799,8 +24850,8 @@ declare module Stimulsoft.Report {
         protected onPrinted(e: EventArgs): void;
         printedEvent: StiPrintedEvent;
         invokePrinted(): void;
-        protected onGetSubReport(e: StiGetSubReportEventArgs): void;
-        invokeGetSubReport(e: StiGetSubReportEventArgs): void;
+        onGetSubReport: Function;
+        invokeGetSubReport(args: StiGetSubReportEventArgs): void;
         invokeReportCacheProcessing(): void;
         reportCacheProcessingEvent: StiReportCacheProcessingEvent;
         unit: StiUnit;
@@ -26249,16 +26300,17 @@ declare module Stimulsoft.Report.Chart {
     import PointD = Stimulsoft.System.Drawing.Point;
     import ICloneable = Stimulsoft.System.ICloneable;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import StiInteractionDataGeom = Stimulsoft.Base.Context.StiInteractionDataGeom;
     class StiMarkerCoreXF implements ICloneable, IStiMarkerCoreXF {
         private static implementsStiMarkerCoreXF;
         implements(): string[];
         clone(): StiMarkerCoreXF;
         drawMarkers(context: StiContext, points: PointD[], showShadow: boolean): void;
         static getMarkerRect(position: PointD, markerSize: number, zoom: number): RectangleD;
-        draw(context: StiContext, marker: IStiMarker, position: PointD, zoom: number, showShadow: boolean, isMouseOver: boolean, isAnimation: boolean, tag: Object): void;
+        draw(context: StiContext, marker: IStiMarker, position: PointD, zoom: number, showShadow: boolean, isMouseOver: boolean, isTooltipMode: boolean, isAnimation: boolean, toolTip: String, tag: Object, interaction: StiInteractionDataGeom): void;
         drawLine(context: StiContext, x1: number, y1: number, x2: number, y2: number, scale: number, brushMarker: StiBrush, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): void;
         drawLines(context: StiContext, points: PointD[], scale: number, brushMarker: Object, penMarker: StiPenGeom, markerType: StiMarkerType, markerStep: number, markerSize: number, angle: number): void;
-        drawPoint(context: StiContext, x: number, y: number, scale: number, brush: Object, pen: StiPenGeom, markerType: StiMarkerType, markerSize: number, angle: number, isMouseOver: boolean, isAnimation: boolean, tag: Object): void;
+        drawPoint(context: StiContext, x: number, y: number, scale: number, brush: Object, pen: StiPenGeom, markerType: StiMarkerType, markerSize: number, angle: number, isMouseOver: boolean, isAnimation: boolean, toolTip: String, tag: Object, interaction: StiInteractionDataGeom): void;
         private drawPolygon(context, fillBrush, borderPen, centerX, centerY, radius, count, startAngle, isStar, isMouseOver);
         private _marker;
         marker: IStiMarker;
@@ -26366,9 +26418,10 @@ declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import PointD = Stimulsoft.System.Drawing.Point;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiAxisSeriesLabelsCoreXF extends StiSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
-        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
+        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, animation?: StiAnimation): StiSeriesLabelsGeom;
+        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD, animation?: StiAnimation): StiSeriesLabelsGeom;
         recalcValue(value: number, signs: number): number;
         readonly seriesLabelsType: StiSeriesLabelsType;
         currentIndex: number;
@@ -26381,9 +26434,10 @@ declare module Stimulsoft.Report.Chart {
     import StiFontGeom = Stimulsoft.Base.Context.StiFontGeom;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import PointD = Stimulsoft.System.Drawing.Point;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiCenterAxisLabelsCoreXF extends StiAxisSeriesLabelsCoreXF {
-        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
-        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD): StiSeriesLabelsGeom;
+        renderLabel(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, colorIndex: number, colorCount: number, rect: RectangleD, animation?: StiAnimation): StiSeriesLabelsGeom;
+        renderLabel2(series: IStiSeries, context: StiContext, endPoint: PointD, startPoint: PointD, pointIndex: number, value: number, labelValue: number, argumentText: string, tag: string, weight: number, colorIndex: number, colorCount: number, rect: RectangleD, animation?: StiAnimation): StiSeriesLabelsGeom;
         getLabelRect(context: StiContext, endPoint: PointD, startPoint: PointD, value: number, labelText: string, checkHeight: boolean, font: StiFontGeom, sf: StiStringFormatGeom): RectangleD;
         readonly position: number;
         readonly localizedName: string;
@@ -27292,6 +27346,7 @@ declare module Stimulsoft.Report.Chart {
         readonly chartAreaBorderColor: Color;
         readonly seriesShowShadow: boolean;
         readonly seriesLabelsBrush: StiBrush;
+        readonly seriesLighting: boolean;
         readonly seriesLabelsColor: Color;
         readonly seriesLabelsBorderColor: Color;
         readonly legendBrush: StiBrush;
@@ -27667,7 +27722,7 @@ declare module Stimulsoft.Report.Chart {
     import Font = Stimulsoft.System.Drawing.Font;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    class StiStyleCoreXF28 extends StiStyleCoreXF22 {
+    class StiStyleCoreXF28 extends StiStyleCoreXF26 {
         readonly localizedName: string;
         protected _styleColor: Color[];
         readonly chartBrush: StiBrush;
@@ -27796,6 +27851,7 @@ declare module Stimulsoft.Report.Chart {
         contains(x: number, y: number): boolean;
         getGeomAt(parent: StiCellGeom, x: number, y: number): StiCellGeom;
         getSeriesGeoms(): StiCellGeom[];
+        getSeriesElementGeoms(): StiCellGeom[];
         getRect(geom: StiGeom): RectangleD;
         createChildGeoms(): void;
         draw(context: StiContext): void;
@@ -28345,7 +28401,10 @@ declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import PointD = Stimulsoft.System.Drawing.Point;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
-    class StiMarkerGeom extends StiCellGeom {
+    import IStiSeriesElement = Stimulsoft.Report.Chart.IStiSeriesElement;
+    class StiMarkerGeom extends StiCellGeom implements IStiSeriesElement {
+        private static implementsStiMarkerGeom;
+        implements(): string[];
         invokeMouseEnter(options: StiInteractionOptions): void;
         invokeMouseLeave(options: StiInteractionOptions): void;
         invokeClick(options: StiInteractionOptions): void;
@@ -28370,10 +28429,14 @@ declare module Stimulsoft.Report.Chart {
         readonly showShadow: boolean;
         private _series;
         readonly series: IStiSeries;
+        private _elementIndex;
+        elementIndex: String;
+        private _isTooltipMode;
+        readonly isTooltipMode: boolean;
         contains(x: number, y: number): boolean;
         getMouseOverRect(): RectangleD;
         draw(context: StiContext): void;
-        constructor(series: IStiSeries, index: number, value: number, point: PointD, marker: IStiMarker, showShadow: boolean, zoom: number);
+        constructor(series: IStiSeries, index: number, value: number, point: PointD, marker: IStiMarker, showShadow: boolean, zoom: number, isTooltipMode: boolean);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -28474,6 +28537,7 @@ declare module Stimulsoft.Report.Chart {
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import Color = Stimulsoft.System.Drawing.Color;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiCenterAxisLabelsGeom extends StiSeriesLabelsGeom {
         private _labelColor;
         readonly labelColor: Color;
@@ -28489,8 +28553,10 @@ declare module Stimulsoft.Report.Chart {
         readonly font: StiFontGeom;
         private _text;
         readonly text: string;
+        private _animation;
+        readonly animation: StiAnimation;
         draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesLabelsBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom);
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, labelColor: Color, labelBorderColor: Color, seriesBrush: StiBrush, seriesLabelsBrush: StiBrush, seriesBorderColor: Color, font: StiFontGeom, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -28564,6 +28630,7 @@ declare module Stimulsoft.Report.Chart {
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import Color = Stimulsoft.System.Drawing.Color;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiCenterPieLabelsGeom extends StiSeriesLabelsGeom {
         private _seriesBrush;
         readonly seriesBrush: StiBrush;
@@ -28583,8 +28650,10 @@ declare module Stimulsoft.Report.Chart {
         readonly labelRect: RectangleD;
         private _angleToUse;
         readonly angleToUse: number;
+        private _animation;
+        animation: StiAnimation;
         draw(context: StiContext): void;
-        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, rotationMode: StiRotationMode, labelRect: RectangleD, angleToUse: number);
+        constructor(seriesLabels: IStiSeriesLabels, series: IStiSeries, index: number, value: number, clientRectangle: RectangleD, text: string, seriesBrush: StiBrush, labelBrush: StiBrush, seriesLabelsBrush: StiBrush, borderColor: Color, seriesBorderColor: Color, rotationMode: StiRotationMode, labelRect: RectangleD, angleToUse: number, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -28673,7 +28742,11 @@ declare module Stimulsoft.Report.Chart {
 declare module Stimulsoft.Report.Chart {
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
-    class StiSeriesElementGeom extends StiCellGeom {
+    import StiInteractionDataGeom = Stimulsoft.Base.Context.StiInteractionDataGeom;
+    import IStiSeriesElement = Stimulsoft.Report.Chart.IStiSeriesElement;
+    class StiSeriesElementGeom extends StiCellGeom implements IStiSeriesElement {
+        private static implementsStiSeriesElementGeom;
+        implements(): string[];
         invokeMouseEnter(options: StiInteractionOptions): void;
         invokeMouseLeave(options: StiInteractionOptions): void;
         invokeClick(options: StiInteractionOptions): void;
@@ -28694,7 +28767,10 @@ declare module Stimulsoft.Report.Chart {
         interaction: StiSeriesInteractionData;
         private _areaGeom;
         areaGeom: StiAreaGeom;
+        private _elementIndex;
+        elementIndex: String;
         draw(context: StiContext): void;
+        getInteractionData(): StiInteractionDataGeom;
         constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiSeries, clientRectangle: RectangleD);
     }
 }
@@ -28729,8 +28805,12 @@ declare module Stimulsoft.Report.Chart {
         readonly seriesBorderColor: Color;
         private _beginTime;
         readonly beginTime: TimeSpan;
+        private _valueStart;
+        readonly valueStart: number;
+        private _columnRectStart;
+        readonly columnRectStart: RectangleD;
         draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+        constructor(areaGeom: StiAreaGeom, valueStart: number, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, columnRectStart: RectangleD, columnRect: RectangleD, beginTime: TimeSpan);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -28758,7 +28838,7 @@ declare module Stimulsoft.Report.Chart {
         isMouseOver: boolean;
         private _points;
         readonly points: PointD[];
-        static getClientRectangle(points: PointD[]): RectangleD;
+        static getClientRectangle(points: PointD[], lineWidth: number): RectangleD;
         draw(context: StiContext): void;
         constructor(areaGeom: StiAreaGeom, points: PointD[], series: IStiSeries);
     }
@@ -28789,6 +28869,7 @@ declare module Stimulsoft.Report.Chart {
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import Color = Stimulsoft.System.Drawing.Color;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiClusteredColumnSeriesElementGeom extends StiSeriesElementGeom {
         private _seriesBrush;
         readonly seriesBrush: StiBrush;
@@ -28796,8 +28877,10 @@ declare module Stimulsoft.Report.Chart {
         readonly seriesBorderColor: Color;
         private _beginTime;
         readonly beginTime: TimeSpan;
+        private _animation;
+        readonly animation: StiAnimation;
         draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, clientRectangle: RectangleD, beginTime: TimeSpan);
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, seriesBrush: StiBrush, seriesBorderColor: Color, series: IStiSeries, columnRect: RectangleD, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -29000,6 +29083,7 @@ declare module Stimulsoft.Report.Chart {
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import Color = Stimulsoft.System.Drawing.Color;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import StiAnimation = Stimulsoft.Base.Context.Animation.StiAnimation;
     class StiPieSeriesElementGeom extends StiSeriesElementGeom {
         private _path;
         readonly path: StiSegmentGeom[];
@@ -29017,9 +29101,11 @@ declare module Stimulsoft.Report.Chart {
         radius: number;
         private _beginTime;
         readonly beginTime: TimeSpan;
+        private _animation;
+        animation: StiAnimation;
         contains(x: number, y: number): boolean;
         draw(context: StiContext): void;
-        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiPieSeries, clientRectangle: RectangleD, path: StiSegmentGeom[], pathLight: StiSegmentGeom[], borderColor: Color, brush: StiBrush, startAngle: number, endAngle: number, radius: number, beginTime: TimeSpan);
+        constructor(areaGeom: StiAreaGeom, value: number, index: number, series: IStiPieSeries, clientRectangle: RectangleD, path: StiSegmentGeom[], pathLight: StiSegmentGeom[], borderColor: Color, brush: StiBrush, startAngle: number, endAngle: number, radius: number, animation: StiAnimation);
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -34393,9 +34479,11 @@ declare module Stimulsoft.Report.Components.Gauge {
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiIndicatorRangeInfo = Stimulsoft.Report.Components.Gauge.IStiIndicatorRangeInfo;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     class StiIndicatorRangeInfo implements ICloneable, IStiIndicatorRangeInfo {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, report: StiReport): void;
         readonly componentId: StiComponentId;
         readonly propName: string;
         clone(): any;
@@ -34488,9 +34576,11 @@ declare module Stimulsoft.Report.Components.Gauge {
     import Point = Stimulsoft.System.Drawing.Point;
     import StiJson = Stimulsoft.Base.StiJson;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     class StiLinearBar extends StiBarBase {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, report: StiReport): void;
         readonly componentId: StiComponentId;
         applyStyle(style: IStiGaugeStyle): void;
         private colorModeHelper;
@@ -34519,9 +34609,11 @@ declare module Stimulsoft.Report.Components.Gauge {
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     class StiLinearIndicatorRangeInfo extends StiIndicatorRangeInfo {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode, report: StiReport): void;
         readonly componentId: StiComponentId;
         private _color;
         color: Color;
@@ -36022,6 +36114,7 @@ declare module Stimulsoft.Viewer {
         onShowReport: Function;
         onLoadDocument: Function;
         onGetReport: Function;
+        onGetSubReport: Function;
         private reportCache;
         private _viewerId;
         readonly viewerId: string;
@@ -36047,6 +36140,7 @@ declare module Stimulsoft.Viewer {
         private invokeShowReport();
         private invokeLoadDocument(callback);
         private invokeGetReport();
+        private invokeOnGetSubReport(args, callback);
         private callRemoteApi(commad, timeout?);
         private getReportPage(report, service, pageIndex, zoom, openLinksTarget);
         private getPagesArray(report, options, requestParams);
@@ -37137,6 +37231,11 @@ declare module Stimulsoft.Report.Check {
         static English: any;
         private static _cultureName;
         static cultureName: string;
+        static addLocalizationFile(filePath: string, load?: boolean, language?: string): string;
+        static setLocalizationFile(filePath: string, onlyThis?: boolean): void;
+        static loadLocalization(localizationXml: any, extension?: boolean): string;
+        static loadLocalizationFile(filePath: string): string;
+        private static loadLocalizationXmlInternal(xml);
         static get(category: string, key: string): string;
     }
 }
@@ -37411,7 +37510,7 @@ declare module Stimulsoft.Designer {
         static saveComponentClone(designer: StiDesigner, component: StiComponent): void;
         static canceledEditComponent(designer: StiDesigner, currentReport: StiReport, param: any): void;
         static createTextComponentFromDictionary(report: StiReport, param: any, callbackResult: any): void;
-        static createImageComponentFromDictionary(report: StiReport, param: any, callbackResult: any): void;
+        static createComponentFromResource(report: StiReport, param: any, callbackResult: any): void;
         private static alignToMaxGrid(page, value, converted);
         private static alignToGrid(page, value, converted);
         static createDataComponentFromDictionary(report: StiReport, param: any, callbackResult: any): void;
@@ -37458,7 +37557,7 @@ declare module Stimulsoft.Designer {
         static getLabelsProperties(labels: IStiSeriesLabels): any;
         private static setConditionsValue(conditions, conditionValues);
         private static setFiltersValue(filters, filterValues);
-        static getChartSampleSvg(svgData: StiSvgData): string;
+        static getChartSampleSvg(svgData: StiSvgData, zoom: number): string;
         private static addDefaultSeries(chart);
         private static cloneChart(chart);
         private static addUserChartStyles(report, chartStyles);
@@ -37549,10 +37648,10 @@ declare module Stimulsoft.Designer {
     class StiDesignReportHelper {
         private report;
         getReportToObject(): any;
-        getPages(): any;
+        getPages(): any[];
         getPage(pageIndex: number): any;
-        private getComponents1(page);
-        private getComponent2(component);
+        private getComponents(page);
+        private getComponent(component);
         private getReportInfo();
         constructor(report: StiReport);
     }
@@ -37804,6 +37903,7 @@ declare module Stimulsoft.Designer {
     class StiResourcesHelper {
         static getReportThumbnailParameters(report: StiReport, zoom: number): string;
         static getHtmlColor(color: Color): string;
+        static isPackedFile(content: number[]): boolean;
         static getStringContentForJSFromResourceContent(resourceType: StiResourceType, content: number[]): string;
         static getResourceContent(report: StiReport, param: any, callbackResult: any): void;
         static getResourceText(report: StiReport, param: any, callbackResult: any): void;
@@ -37835,13 +37935,9 @@ declare module Stimulsoft.Designer {
         static setColorsCollectionProperty(style: StiBaseStyle, colorsString: any[]): void;
         static updateStyles(report: StiReport, param: any, callbackResult: any): void;
         static addStyle(report: StiReport, param: any, callbackResult: any): void;
-        static removeStyle(report: StiReport, param: any, callbackResult: any): void;
         static createStyleCollection(report: StiReport, param: any, callbackResult: any): void;
         static createStyleFromComponent(report: StiReport, param: any, callbackResult: any): void;
         static openStyle(report: StiReport, param: any, callbackResult: any): void;
-        static copyStyle(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): void;
-        static pasteStyle(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): void;
-        static duplicateStyle(report: StiReport, param: any, callbackResult: any): void;
     }
 }
 declare module Stimulsoft.Designer {
@@ -38141,6 +38237,7 @@ declare module Stimulsoft.Designer {
         onSaveAsReport: Function;
         onPreviewReport: Function;
         onExit: Function;
+        onGetSubReport: Function;
         private _designerId;
         readonly designerId: string;
         private _options;
@@ -38176,6 +38273,7 @@ declare module Stimulsoft.Designer {
         renderHtml(element?: string | HTMLElement): void;
         private invokeBeginProcessData(args, callback);
         private invokeEndProcessData(args);
+        private invokeOnGetSubReport(args);
         private invokeCreateReport(report, isWizardUsed, callback);
         private invokeOpenReport();
         private invokeSaveReport(report);
