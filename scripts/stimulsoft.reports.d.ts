@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.7
-Build date: 2018.02.15
+Version: 2018.1.8
+Build date: 2018.02.19
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -9,7 +9,9 @@ declare module Stimulsoft.System.Collections {
         protected _list: Array<T>;
         readonly list: Array<T>;
         implements(): string[];
+        /** Gets the number of elements contained in the CollectionBase instance. */
         readonly count: number;
+        /** Removes all objects from the CollectionBase instance. */
         clear(): void;
         removeAt(index: number): void;
         protected onClear(): void;
@@ -32,13 +34,21 @@ declare module Stimulsoft.System.Collections {
         private indexObject;
         get(key: any): any;
         set(key: any, value: any): void;
+        /** Adds an element with the specified key and value into the Hashtable. */
         add(key: any, value: any): void;
+        /** Determines whether the Hashtable contains a specific key. */
         contains(key: any): boolean;
+        /** Determines whether the Hashtable contains a specific key. */
         containsKey(key: any): boolean;
+        /** Determines whether the Hashtable contains a specific value. */
         containsValue(value: any): boolean;
+        /** Removes the element with the specified key from the Hashtable. */
         remove(key: any): void;
+        /** Removes all elements from the Hashtable. */
         clear(): void;
+        /** Copies the Hashtable elements to a one-dimensional Array instance at the specified index. */
         copyTo(array: Array<any>, arrayIndex: number): void;
+        /** Gets the number of key/value pairs contained in the Hashtable. */
         readonly count: number;
         clone(): Hashtable;
     }
@@ -425,9 +435,13 @@ declare module Stimulsoft.System.Data {
         private getColumnIndex(column);
         gett(column: any): any;
         sett(column: any, value: any): void;
+        /** Get DataRow value by column identificator **/
         getValue(column: any): any;
+        /** Set DataRow value by column identificator **/
         setValue(column: any, value: any): void;
+        /** Get DataRow value by column index **/
         getValueByIndex(columnIndex: number): any;
+        /** Set DataRow value by column index **/
         setValueByIndex(columnIndex: number, value: any): void;
         getDataColumn(columnName: string): DataColumn;
         getChildRows(relationName: string): any[];
@@ -544,17 +558,27 @@ declare module Stimulsoft.System.Data {
         private processTable(ht, tableName);
         private processArray(array, tableName);
         private fillDataSet();
+        /** Заполняем структуру всех таблиц из xml-файла */
         private fillDataTables();
         private fillDataTable(tableNode);
+        /** Создаём структуру колонок таблицы из xml-файла */
         private getDataColumnsFromTable(dataColumnsNode, table);
+        /** Создаём и заполняем таблицу и все вложенные таблицы данными */
         private fillTable(tableNode);
+        /** Создаём и заполняем текущую строку данных таблицы */
         private fillRow(dataColumnsNode, table);
         private parseSchema();
+        /** Читаем все таблицы и связи из xsd-схемы */
         private getDataTables(dataTablesNode);
+        /** Вычисление типа данных для хранилища DataColumn */
         private getStorageType(typeName);
+        /** Читаем все колонки для текущей таблицы из xsd-схемы */
         private getDataColumns(dataColumnsNode, table);
+        /** Читаем все связи таблиц */
         private getRelations(relationNode);
+        /** Ищем нужную таблицу по её имени */
         private findTable(name);
+        /** Ищем колонки в таблице по заданным именам */
         private findColumn(names, table);
         constructor(dataSetName?: string);
     }
@@ -571,6 +595,7 @@ declare module Stimulsoft.System.Data {
     class DataTable {
         private _needCleanCache;
         private _index;
+        /** Cache for DataKey.GetRows method */
         readonly index: any[];
         private _columns;
         readonly columns: DataColumnCollection;
@@ -703,35 +728,170 @@ declare module Stimulsoft.System.Data {
 }
 declare module Stimulsoft.System.Globalization {
     enum UnicodeCategory {
+        /**
+         * Uppercase letter. Signified by the Unicode designation "Lu" (letter, uppercase).
+         * The value is 0.
+         */
         UppercaseLetter = 0,
+        /**
+         * Lowercase letter. Signified by the Unicode designation "Ll" (letter, lowercase).
+         * The value is 1.
+         */
         LowercaseLetter = 1,
+        /**
+         * Titlecase letter. Signified by the Unicode designation "Lt" (letter, titlecase).
+         * The value is 2.
+         */
         TitlecaseLetter = 2,
+        /**
+         * Modifier letter character, which is free-standing spacing character that
+         * indicates modifications of a preceding letter. Signified by the Unicode designation
+         * "Lm" (letter, modifier). The value is 3.
+         */
         ModifierLetter = 3,
+        /**
+         * Letter that is not an uppercase letter, a lowercase letter, a titlecase letter,
+         * or a modifier letter. Signified by the Unicode designation "Lo" (letter,
+         * other). The value is 4.
+         */
         OtherLetter = 4,
+        /**
+         * Nonspacing character that indicates modifications of a base character. Signified
+         * by the Unicode designation "Mn" (mark, nonspacing). The value is 5.
+         */
         NonSpacingMark = 5,
+        /**
+         * Spacing character that indicates modifications of a base character and affects
+         * the width of the glyph for that base character. Signified by the Unicode
+         * designation "Mc" (mark, spacing combining). The value is 6.
+         */
         SpacingCombiningMark = 6,
+        /**
+         * Enclosing mark character, which is a nonspacing combining character that
+         * surrounds all previous characters up to and including a base character. Signified
+         * by the Unicode designation "Me" (mark, enclosing). The value is 7.
+         */
         EnclosingMark = 7,
+        /**
+         * Decimal digit character, that is, a character in the range 0 through 9. Signified
+         * by the Unicode designation "Nd" (number, decimal digit). The value is 8.
+         */
         DecimalDigitNumber = 8,
+        /**
+         * Number represented by a letter, instead of a decimal digit, for example,
+         * the Roman numeral for five, which is "V". The indicator is signified by the
+         * Unicode designation "Nl" (number, letter). The value is 9.
+         */
         LetterNumber = 9,
+        /**
+         * Number that is neither a decimal digit nor a letter number, for example,
+         * the fraction 1/2. The indicator is signified by the Unicode designation "No"
+         * (number, other). The value is 10.
+         */
         OtherNumber = 10,
+        /**
+         * Space character, which has no glyph but is not a control or format character.
+         * Signified by the Unicode designation "Zs" (separator, space). The value is 11.
+         */
         SpaceSeparator = 11,
+        /**
+         * Character that is used to separate lines of text. Signified by the Unicode
+         * designation "Zl" (separator, line). The value is 12.
+         */
         LineSeparator = 12,
+        /**
+         * Character used to separate paragraphs. Signified by the Unicode designation
+         * "Zp" (separator, paragraph). The value is 13.
+         */
         ParagraphSeparator = 13,
+        /**
+         * Control code character, with a Unicode value of U+007F or in the range U+0000
+         * through U+001F or U+0080 through U+009F. Signified by the Unicode designation
+         * "Cc" (other, control). The value is 14.
+         */
         Control = 14,
+        /**
+         * Format character that affects the layout of text or the operation of text
+         * processes, but is not normally rendered. Signified by the Unicode designation
+         * "Cf" (other, format). The value is 15.
+         */
         Format = 15,
+        /**
+         * High surrogate or a low surrogate character. Surrogate code values are in
+         * the range U+D800 through U+DFFF. Signified by the Unicode designation "Cs"
+         * (other, surrogate). The value is 16.
+         */
         Surrogate = 16,
+        /**
+         * Private-use character, with a Unicode value in the range U+E000 through U+F8FF.
+         * Signified by the Unicode designation "Co" (other, private use). The value is 17.
+         */
         PrivateUse = 17,
+        /**
+         * Connector punctuation character that connects two characters. Signified by
+         * the Unicode designation "Pc" (punctuation, connector). The value is 18.
+         */
         ConnectorPunctuation = 18,
+        /**
+         * Dash or hyphen character. Signified by the Unicode designation "Pd" (punctuation,
+         * dash). The value is 19.
+         */
         DashPunctuation = 19,
+        /**
+         * Opening character of one of the paired punctuation marks, such as parentheses,
+         * square brackets, and braces. Signified by the Unicode designation "Ps" (punctuation,
+         * open). The value is 20.
+         */
         OpenPunctuation = 20,
+        /**
+         * Closing character of one of the paired punctuation marks, such as parentheses,
+         * square brackets, and braces. Signified by the Unicode designation "Pe" (punctuation,
+         * close). The value is 21.
+         */
         ClosePunctuation = 21,
+        /**
+         * Opening or initial quotation mark character. Signified by the Unicode designation
+         * "Pi" (punctuation, initial quote). The value is 22.
+         */
         InitialQuotePunctuation = 22,
+        /**
+         * Closing or final quotation mark character. Signified by the Unicode designation
+         * "Pf" (punctuation, final quote). The value is 23.
+         */
         FinalQuotePunctuation = 23,
+        /**
+         * Punctuation character that is not a connector, a dash, open punctuation,
+         * close punctuation, an initial quote, or a final quote. Signified by the Unicode
+         * designation "Po" (punctuation, other). The value is 24.
+         */
         OtherPunctuation = 24,
+        /**
+         * Mathematical symbol character, such as "+" or "= ". Signified by the Unicode
+         * designation "Sm" (symbol, math). The value is 25.
+         */
         MathSymbol = 25,
+        /**
+         * Currency symbol character. Signified by the Unicode designation "Sc" (symbol,
+         * currency). The value is 26.
+         */
         CurrencySymbol = 26,
+        /**
+         * Modifier symbol character, which indicates modifications of surrounding characters.
+         * For example, the fraction slash indicates that the number to the left is
+         * the numerator and the number to the right is the denominator. The indicator
+         * is signified by the Unicode designation "Sk" (symbol, modifier). The value is 27.
+         */
         ModifierSymbol = 27,
+        /**
+         * Symbol character that is not a mathematical symbol, a currency symbol or
+         * a modifier symbol. Signified by the Unicode designation "So" (symbol, other).
+         * The value is 28.
+         */
         OtherSymbol = 28,
+        /**
+         * Character that is not assigned to any Unicode category. Signified by the
+         * Unicode designation "Cn" (other, not assigned). The value is 29.
+         */
         OtherNotAssigned = 29,
     }
 }
@@ -823,61 +983,163 @@ declare module Stimulsoft.System.Drawing.Drawing2D {
 }
 declare module Stimulsoft.System.Drawing.Drawing2D {
     enum HatchStyle {
+        /** Specifies hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Horizontal. */
         Min = 0,
+        /** A pattern of horizontal lines. */
         Horizontal = 0,
+        /** A pattern of vertical lines. */
         Vertical = 1,
+        /** A pattern of lines on a diagonal from upper left to lower right. */
         ForwardDiagonal = 2,
+        /** A pattern of lines on a diagonal from upper right to lower left. */
         BackwardDiagonal = 3,
+        /** Specifies hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.SolidDiamond. */
         Max = 4,
+        /** Specifies horizontal and vertical lines that cross. */
         Cross = 4,
+        /** Specifies the hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Cross. */
         LargeGrid = 4,
+        /** A pattern of crisscross diagonal lines. */
         DiagonalCross = 5,
+        /** Specifies a 5-percent hatch. The ratio of foreground color to background color is 5:95. */
         Percent05 = 6,
+        /** Specifies a 10-percent hatch. The ratio of foreground color to background color is 10:90. */
         Percent10 = 7,
+        /** Specifies a 20-percent hatch. The ratio of foreground color to background color is 20:80. */
         Percent20 = 8,
+        /** Specifies a 25-percent hatch. The ratio of foreground color to background color is 25:75. */
         Percent25 = 9,
+        /** Specifies a 30-percent hatch. The ratio of foreground color to background color is 30:70. */
         Percent30 = 10,
+        /** Specifies a 40-percent hatch. The ratio of foreground color to background color is 40:60. */
         Percent40 = 11,
+        /** Specifies a 50-percent hatch. The ratio of foreground color to background color is 50:50. */
         Percent50 = 12,
+        /** Specifies a 60-percent hatch. The ratio of foreground color to background color is 60:40. */
         Percent60 = 13,
+        /** Specifies a 70-percent hatch. The ratio of foreground color to background color is 70:30. */
         Percent70 = 14,
+        /** Specifies a 75-percent hatch. The ratio of foreground color to background color is 75:25. */
         Percent75 = 15,
+        /** Specifies a 80-percent hatch. The ratio of foreground color to background color is 80:100. */
         Percent80 = 16,
+        /** Specifies a 90-percent hatch. The ratio of foreground color to background color is 90:10. */
         Percent90 = 17,
+        /**
+         * Specifies diagonal lines that slant to the right from top points to bottom
+         * points and are spaced 50 percent closer together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.ForwardDiagonal,
+         * but are not antialiased.
+         */
         LightDownwardDiagonal = 18,
+        /**
+         * Specifies diagonal lines that slant to the left from top points to bottom
+         * points and are spaced 50 percent closer together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal,
+         * but they are not antialiased.
+         */
         LightUpwardDiagonal = 19,
+        /**
+         * Specifies diagonal lines that slant to the right from top points to bottom
+         * points, are spaced 50 percent closer together than, and are twice the width
+         * of Stimulsoft.System.Drawing.Drawing2D.HatchStyle.ForwardDiagonal. This hatch pattern
+         * is not antialiased.
+         */
         DarkDownwardDiagonal = 20,
+        /**
+         * Specifies diagonal lines that slant to the left from top points to bottom
+         * points, are spaced 50 percent closer together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal,
+         * and are twice its width, but the lines are not antialiased.
+         */
         DarkUpwardDiagonal = 21,
+        /**
+         * Specifies diagonal lines that slant to the right from top points to bottom
+         * points, have the same spacing as hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.ForwardDiagonal,
+         * and are triple its width, but are not antialiased.
+         */
         WideDownwardDiagonal = 22,
+        /**
+         * Specifies diagonal lines that slant to the left from top points to bottom
+         * points, have the same spacing as hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal,
+         * and are triple its width, but are not antialiased.
+         */
         WideUpwardDiagonal = 23,
+        /** Specifies vertical lines that are spaced 50 percent closer together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Vertical. */
         LightVertical = 24,
+        /** Specifies horizontal lines that are spaced 50 percent closer together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Horizontal. */
         LightHorizontal = 25,
+        /**
+         * Specifies vertical lines that are spaced 75 percent closer together than
+         * hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Vertical (or 25 percent closer
+         * together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.LightVertical).
+         */
         NarrowVertical = 26,
+        /**
+         * Specifies horizontal lines that are spaced 75 percent closer together than
+         * hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Horizontal (or 25 percent
+         * closer together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.LightHorizontal).
+         */
         NarrowHorizontal = 27,
+        /** Specifies vertical lines that are spaced 50 percent closer together than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Vertical and are twice its width. */
         DarkVertical = 28,
+        /**
+         * Specifies horizontal lines that are spaced 50 percent closer together than
+         * Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Horizontal and are twice the width of
+         * Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Horizontal.
+         */
         DarkHorizontal = 29,
+        /** Specifies dashed diagonal lines, that slant to the right from top points to bottom points. */
         DashedDownwardDiagonal = 30,
+        /** Specifies dashed diagonal lines, that slant to the left from top points to bottom points. */
         DashedUpwardDiagonal = 31,
+        /** Specifies dashed horizontal lines. */
         DashedHorizontal = 32,
+        /** Specifies dashed vertical lines. */
         DashedVertical = 33,
+        /** Specifies a hatch that has the appearance of confetti. */
         SmallConfetti = 34,
+        /**
+         * Specifies a hatch that has the appearance of confetti, and is composed of
+         * larger pieces than Stimulsoft.System.Drawing.Drawing2D.HatchStyle.SmallConfetti.
+         */
         LargeConfetti = 35,
+        /** Specifies horizontal lines that are composed of zigzags. */
         ZigZag = 36,
+        /** Specifies horizontal lines that are composed of tildes. */
         Wave = 37,
+        /** Specifies a hatch that has the appearance of layered bricks that slant to the left from top points to bottom points. */
         DiagonalBrick = 38,
+        /** Specifies a hatch that has the appearance of horizontally layered bricks. */
         HorizontalBrick = 39,
+        /** Specifies a hatch that has the appearance of a woven material. */
         Weave = 40,
+        /** Specifies a hatch that has the appearance of a plaid material. */
         Plaid = 41,
+        /** Specifies a hatch that has the appearance of divots. */
         Divot = 42,
+        /** Specifies horizontal and vertical lines, each of which is composed of dots, that cross. */
         DottedGrid = 43,
+        /** Specifies forward diagonal and backward diagonal lines, each of which is composed of dots, that cross. */
         DottedDiamond = 44,
+        /** Specifies a hatch that has the appearance of diagonally layered shingles that slant to the right from top points to bottom points. */
         Shingle = 45,
+        /** Specifies a hatch that has the appearance of a trellis. */
         Trellis = 46,
+        /** Specifies a hatch that has the appearance of spheres laid adjacent to one another. */
         Sphere = 47,
+        /**
+         * Specifies horizontal and vertical lines that cross and are spaced 50 percent
+         * closer together than hatch style Stimulsoft.System.Drawing.Drawing2D.HatchStyle.Cross.
+         */
         SmallGrid = 48,
+        /** Specifies a hatch that has the appearance of a checkerboard. */
         SmallCheckerBoard = 49,
+        /**
+         * Specifies a hatch that has the appearance of a checkerboard with squares
+         * that are twice the size of Stimulsoft.System.Drawing.Drawing2D.HatchStyle.SmallCheckerBoard.
+         */
         LargeCheckerBoard = 50,
+        /** Specifies forward diagonal and backward diagonal lines that cross but are not antialiased. */
         OutlinedDiamond = 51,
+        /** Specifies a hatch that has the appearance of a checkerboard placed diagonally. */
         SolidDiamond = 52,
     }
 }
@@ -1487,6 +1749,7 @@ declare module Stimulsoft.System.Drawing {
 }
 declare module Stimulsoft.System.Drawing {
     class Font implements ICloneable {
+        /** Creates a new object that is a copy of the current instance. */
         clone(cloneProperties?: boolean, cloneComponents?: boolean): any;
         private _fontFamily;
         readonly fontFamily: FontFamily;
@@ -1730,8 +1993,17 @@ declare module Stimulsoft.System.Globalization {
 }
 declare module Stimulsoft.System.Globalization {
     enum CalendarWeekRule {
+        /**
+         *  Indicates that the first week of the year starts on the first day of the year and ends before the following designated first day of the week. The value is 0.
+         */
         FirstDay = 0,
+        /**
+         * Indicates that the first week of the year begins on the first occurrence of the designated first day of the week on or after the first day of the year. The value is 1.
+         */
         FirstFullWeek = 1,
+        /**
+         * Indicates that the first week of the year is the first week with four or more days before the designated first day of the week. The value is 2.
+         */
         FirstFourDayWeek = 2,
     }
 }
@@ -1801,9 +2073,13 @@ declare module Stimulsoft.System.Globalization {
     }
 }
 declare module Stimulsoft.System.IO {
+    /** Provides the fields that represent reference points in streams for seeking. */
     enum SeekOrigin {
+        /** Specifies the beginning of a stream. */
         Begin = 0,
+        /** Specifies the current position within a stream. */
         Current = 1,
+        /** Specifies the end of a stream. */
         End = 2,
     }
 }
@@ -1849,6 +2125,7 @@ declare module Stimulsoft.System.IO {
     class Path {
         static Combine(path1: string, path2: string): string;
         static getFileNameWithoutExtension(path: string): string;
+        static getExtension(path: string): string;
     }
 }
 declare module Stimulsoft.System.IO {
@@ -1998,6 +2275,7 @@ declare module Stimulsoft.System.Text {
     }
 }
 declare module Stimulsoft.System.Windows.Forms {
+    /** Specifies identifiers to indicate the return value of a dialog box. */
     enum DialogResult {
         None = 0,
         OK = 1,
@@ -2267,6 +2545,7 @@ declare module Stimulsoft.System {
     }
 }
 interface Boolean {
+    /** Convert object to the specified interface or class, returns null if not inherited. */
     as(type: any): any;
 }
 interface BooleanConstructor {
@@ -2345,6 +2624,7 @@ declare module Stimulsoft.System {
         readonly monthGenitiveName: string;
         readonly monthShortName: string;
         readonly day: number;
+        /** 0 – Sunday, 1 – Monday etc */
         readonly dayOfWeek: DayOfWeek;
         readonly dayName: string;
         readonly dayShortName: string;
@@ -2357,6 +2637,7 @@ declare module Stimulsoft.System {
         static readonly now: DateTime;
         static readonly today: DateTime;
         static isLeapYear(year: number): boolean;
+        /** The month number ranging from 1 to 12. JS calculate month from 0. This will even work for December. */
         static daysInMonth(year: number, month: number): number;
         static compare(t1: DateTime, t2: DateTime): number;
         private static doubleDateToTicks(value);
@@ -2374,6 +2655,7 @@ declare module Stimulsoft.System {
         compareTo(value: DateTime): number;
         subtract(value: DateTime): TimeSpan;
         readonly date: Date;
+        /** By default date and time is converted into American format. */
         toString(format?: string, useGenitive?: boolean): string;
         toOADate(): number;
         toNetJsonString(): string;
@@ -2474,6 +2756,9 @@ declare module Stimulsoft.System {
     }
 }
 declare module Stimulsoft.System {
+    /**
+     * @hidden
+     */
     class NodeJs {
         private static isInitialize;
         static initialize(onResult?: Function): void;
@@ -2504,8 +2789,10 @@ declare module Stimulsoft.System {
     }
 }
 interface Number {
+    /** Convert object to the specified interface or class, returns null if not inherited. */
     as(type: any): any;
     compareTo(value: number): number;
+    /** Serves as a hash function for a particular type. */
     getHashCode(): number;
     toStringFormat(formatString: string): string;
 }
@@ -2515,24 +2802,37 @@ interface NumberConstructor {
     fullName: string;
 }
 interface Object {
+    /** Returns the type (constructor) of this object. */
     getStiType(): Stimulsoft.System.Type;
+    /** Checks inherit from the specified class or interface. */
     is(type: any): boolean;
+    /** Convert object to the specified interface or class, returns null if not inherited. */
     as(type: any): any;
+    /** Creates a shallow copy of the current Object. */
     memberwiseClone(): any;
+    /** Determines whether the specified Object is equal to the current Object. */
     stiEquals(obj: Object): boolean;
+    /** Serves as a hash function for a particular type. */
     getHashCode(): number;
+    /** Compares the current instance with another object of the same type and returns an integer that indicates whether
+     * the current instance precedes, follows, or occurs in the same position in the sort order as the other object. */
     compareTo(object: Object): number;
     toBoolean(): boolean;
     toNumber(): number;
+    /** Returns the type name of this object class. */
     getStiTypeName(): string;
+    /** Returns the full type name (with .NET namespace) of this object class. */
     getStiNetTypeName(): string;
 }
 interface ObjectConstructor {
+    /** Determines whether the specified Object instances are the same instance. */
     referenceEquals(objA: any, objB: any): boolean;
     addEvent(element: any, eventName: string, fn: Function): any;
     stiEquals(objA: any, objB: any): boolean;
     saveAs(data: any, fileName: string, type?: string): any;
+    /** Returns the type name of this object class. */
     getStiTypeName(): string;
+    /** Returns the full type name (with .NET namespace) of this object class. */
     getStiNetTypeName(): string;
     isNullOrUndefined(obj: any): boolean;
 }
@@ -2733,28 +3033,51 @@ declare module Stimulsoft.System {
         static showError(e: any, showForm?: boolean): void;
     }
 }
+/**
+ * @hidden
+ */
 declare function unescape(s: string): string;
+/**
+ * @hidden
+ */
 declare function escape(s: string): string;
 interface String {
+    /** Convert object to the specified interface or class, returns null if not inherited. */
     as(type: any): any;
+    /** Returns a copy of this string converted to lowercase. */
     toLower(): string;
+    /** Returns a copy of this string converted to uppercase. */
     toUpper(): string;
+    /** Returns a result of checking string is Base64. */
     isBase64String(): boolean;
+    /** Returns a new string in which all the characters in the current instance, beginning at a specified position and continuing through the last position, have been deleted. */
     remove(startIndex: number): string;
+    /** Returns a new string in which a specified number of characters in this instance beginning at a specified position have been deleted. */
     remove(startIndex: number, count: number): string;
+    /** Returns a new string in which a specified string is inserted at a specified index position in this instance. */
     insert(startIndex: number, value: string, removeLength: number): string;
+    /** Returns a new string that right-aligns the characters in this instance by padding them with spaces on the left, for a specified total length. */
     padLeft(totalWidth: number): string;
+    /** Returns a new string that right-aligns the characters in this instance by padding them on the left with a specified Unicode character, for a specified total length. */
     padLeft(totalWidth: number, paddingChar: string): string;
+    /** Determines whether the beginning of this string instance matches the specified string. */
     startsWith(value: string): boolean;
+    /** Determines whether the beginning of this string instance matches the specified string when the case is ignored. */
     startsWith(value: string, ignoreCase: boolean): boolean;
+    /** Determines whether the end of this string instance matches the specified string. */
     endsWith(value: string): boolean;
+    /** Determines whether the end of this string instance matches the specified string when the case is ignored. */
     endsWith(value: string, ignoreCase: boolean): boolean;
+    /** Removes all space characters from the start of the specified string. */
     trimStart(char?: string): string;
+    /** Removes all space characters from the end of the specified string. */
     trimEnd(char?: string): string;
+    /** Returns the hash code for this string. */
     getHashCode(): number;
     toBytesArray(): number[];
     toUnicodeString(): string;
     fromUnicodeString(): string;
+    /** NOT IMPLEMENTS! */
     compareTo(strB: string): number;
     contains(str: string): boolean;
     indexOfAny(values: string[]): number;
@@ -2763,10 +3086,15 @@ interface String {
     replaceAll(searchValue: string, replaceValue: string): string;
 }
 interface StringConstructor {
+    /** Represents the empty string. */
     empty: string;
+    /** Indicates whether the specified string is null or an empty string. */
     isNullOrEmpty(value: string): boolean;
+    /** Indicates whether a specified string is null, empty, or consists only of white-space characters. */
     isNullOrWhiteSpace(value: string): boolean;
+    /** Returns a string consisting of a specified string concatenated with itself a specified number of times. */
     repeat(value: string, n: number): string;
+    /** Returns a string, which consists of the specified string, linked with itself the indicated number of times. */
     fill(value: string, count: number): string;
     stiFormat(str: string, ...values: any[]): string;
     stiFormat2(provider: Stimulsoft.System.IFormatProvider, format: string, ...values: any[]): string;
@@ -3779,7 +4107,7 @@ declare module Stimulsoft.Base.Context {
         measureString(text: string, font: StiFontGeom): Size;
         measureString2(text: string, font: StiFontGeom, width: number, sf: StiStringFormatGeom): Size;
         measureRotatedString(text: string, font: StiFontGeom, rect: Rectangle, sf: StiStringFormatGeom, angle: number): Rectangle;
-        measureRotatedString2(text: string, font: StiFontGeom, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number): Rectangle;
+        measureRotatedString2(text: string, font: StiFontGeom, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, maximalWidth?: number): Rectangle;
         measureRotatedString3(text: string, font: StiFontGeom, point: Point, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, maximalWidth: number): Rectangle;
         measureRotatedString4(text: string, font: StiFontGeom, point: Point, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number): Rectangle;
         drawShadow(sg: StiContext, rect: Rectangle, radius: number): void;
@@ -3928,7 +4256,7 @@ declare module Stimulsoft.Base.Context {
         getPathBounds(geoms: StiSegmentGeom[]): Rectangle;
         measureString(text: string, font: StiFontGeom, width?: number, sf?: StiStringFormatGeom): Size;
         measureRotatedString1(text: string, font: StiFontGeom, rect: Rectangle, sf: StiStringFormatGeom, angle: number): Rectangle;
-        measureRotatedString2(text: string, font: StiFontGeom, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number): Rectangle;
+        measureRotatedString2(text: string, font: StiFontGeom, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, maximalWidth?: number): Rectangle;
         measureRotatedString3(text: string, font: StiFontGeom, point: Point, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, maximalWidth: number): Rectangle;
         measureRotatedString4(text: string, font: StiFontGeom, point: Point, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number): Rectangle;
         private getStartPoint(rotationMode, textRect);
@@ -4464,6 +4792,9 @@ declare module Stimulsoft.Base {
         constructor(adapter: any);
     }
 }
+/**
+ * @hidden
+ */
 interface IProperties {
     LastAuthor?: string;
     Author?: string;
@@ -4481,6 +4812,9 @@ interface IProperties {
     Worksheets?: number;
     SheetNames?: string[];
 }
+/**
+ * @hidden
+ */
 interface IParsingOptions {
     cellFormula?: boolean;
     cellHTML?: boolean;
@@ -4495,40 +4829,104 @@ interface IParsingOptions {
     bookSheets?: boolean;
     bookVBA?: boolean;
     password?: string;
+    /**
+     * Possible options: 'binary', 'base64', 'buffer', 'file'
+     */
     type?: string;
 }
+/**
+ * @hidden
+ */
 interface IWorkBook {
+    /**
+     * A dictionary of the worksheets in the workbook.
+     * Use SheetNames to reference these.
+     */
     Sheets: {
         [sheet: string]: IWorkSheet;
     };
+    /**
+     * ordered list of the sheet names in the workbook
+     */
     SheetNames: string[];
+    /**
+     * an object storing the standard properties. wb.Custprops stores custom properties.
+     * Since the XLS standard properties deviate from the XLSX standard, XLS parsing stores core properties in both places.
+     */
     Props: IProperties;
 }
+/**
+ * object representing the worksheet
+ * @hidden
+ */
 interface IWorkSheet {
     [cell: string]: IWorkSheetCell;
 }
+/**
+ * @hidden
+ */
 interface IWorkSheetCell {
+    /**
+     * The Excel Data Type of the cell.
+     * b Boolean, n Number, e error, s String, d Date
+     */
     t: string;
+    /**
+     * The raw value of the cell.
+     */
     v: string;
+    /**
+     * rich text encoding (if applicable)
+     */
     r?: string;
+    /**
+     * HTML rendering of the rich text (if applicable)
+     */
     h?: string;
+    /**
+     * formatted text (if applicable)
+     */
     w?: string;
+    /**
+     * cell formula (if applicable)
+     */
     f?: string;
+    /**
+     * comments associated with the cell **
+     */
     c?: string;
+    /**
+     * number format string associated with the cell (if requested)
+     */
     z?: string;
+    /**
+     * cell hyperlink object (.Target holds link, .tooltip is tooltip)
+     */
     l?: string;
+    /**
+     * the style/theme of the cell (if applicable)
+     */
     s?: string;
 }
+/**
+ * @hidden
+ */
 interface IUtils {
     sheet_to_json<T>(worksheet: IWorkSheet): T[];
     sheet_to_csv(worksheet: IWorkSheet): any;
     sheet_to_formulae(worksheet: IWorkSheet): any;
 }
+/**
+ * @hidden
+ */
 declare let XLSX: {
     utils: IUtils;
     readFile(filename: string, opts?: IParsingOptions): IWorkBook;
     read(data: any, opts?: IParsingOptions): IWorkBook;
 };
+/**
+ * @hidden
+ */
 declare module "xlsx" {
     export = XLSX;
 }
@@ -4565,6 +4963,7 @@ declare module Stimulsoft.Base.Drawing {
     class StiBorder implements ICloneable {
         implements(): string[];
         private bits;
+        /** Creates a new object that is a copy of the current instance. */
         clone(): StiBorder;
         stiEquals(other: StiBorder): boolean;
         stiEquals(obj: Object): boolean;
@@ -4573,21 +4972,35 @@ declare module Stimulsoft.Base.Drawing {
         private defaultHashCode;
         draw(g: Graphics, rect: Rectangle, zoom: number, emptyColor?: Color, drawBorderFormatting?: boolean, drawBorderSides?: boolean): void;
         drawBorderShadow(g: Graphics, rect: Rectangle, zoom: number): void;
+        /** Gets value which indicates that top side of border is present. */
         readonly isTopBorderSidePresent: boolean;
+        /** Gets value which indicates that bottom side of border is present. */
         readonly isBottomBorderSidePresent: boolean;
+        /** Gets value which indicates that left side of border is present. */
         readonly isLeftBorderSidePresent: boolean;
+        /** Gets value which indicates that right side of border is present. */
         readonly isRightBorderSidePresent: boolean;
+        /** Gets value which indicates that all sides of border is present. */
         readonly isAllBorderSidesPresent: boolean;
         private readonly isDefaultShadowBrush;
+        /** Gets or sets frame borders. */
         side: StiBorderSides;
+        /** Gets or sets a border color. */
         color: Color;
+        /** Gets or sets a border size. */
         size: number;
+        /** Gets or sets a border style. */
         style: StiPenStyle;
         private _shadowBrush;
+        /** Gets or sets the border shadow brush. */
         shadowBrush: StiBrush;
+        /** Gets or sets Shadow Size. */
         shadowSize: StiPenStyle;
+        /** Gets or sets value which indicates drop shadow or not. */
         dropShadow: boolean;
+        /** Gets or sets value which indicates that border sides will be drawn on top of all components. */
         topmost: boolean;
+        /** Gets value indicates, that this object-frame is by default. */
         readonly isDefault: boolean;
         static loadFromXml(text: string): StiBorder;
         constructor(side?: StiBorderSides, color?: Color, size?: number, style?: StiPenStyle, dropShadow?: boolean, shadowSize?: number, shadowBrush?: StiBrush, topmost?: boolean);
@@ -4596,27 +5009,42 @@ declare module Stimulsoft.Base.Drawing {
 declare module Stimulsoft.Base.Drawing {
     import Color = Stimulsoft.System.Drawing.Color;
     class StiAdvancedBorder extends StiBorder {
+        /** Creates a new object that is a copy of the current instance. */
         clone(): StiAdvancedBorder;
         stiEquals(other: StiAdvancedBorder): boolean;
         stiEquals(obj: Object): boolean;
         getHashCode(): number;
         private _leftSide;
+        /** Gets or sets frame of left side. */
         readonly leftSide: StiBorderSide;
         private _rightSide;
+        /** Gets or sets frame of right side. */
         readonly rightSide: StiBorderSide;
         private _topSide;
+        /** Gets or sets frame of top side. */
         readonly topSide: StiBorderSide;
         private _bottomSide;
+        /** Gets or sets frame of bottom side. */
         readonly bottomSide: StiBorderSide;
+        /** Gets value which indicates that top side of border is present. */
         readonly isTopBorderSidePresent: boolean;
+        /** Gets value which indicates that bottom side of border is present. */
         readonly isBottomBorderSidePresent: boolean;
+        /** Gets value which indicates that left side of border is present. */
         readonly isLeftBorderSidePresent: boolean;
+        /** Gets value which indicates that right side of border is present. */
         readonly isRightBorderSidePresent: boolean;
+        /** Gets value which indicates that all sides of border is present. */
         readonly isAllBorderSidesPresent: boolean;
+        /** Gets or sets frame borders. Not used in StiAdvancedBorder. */
         side: StiBorderSides;
+        /** Gets or sets a border color. Not used in StiAdvancedBorder. */
         color: Color;
+        /** Gets or sets a border size. Not used in StiAdvancedBorder. */
         size: number;
+        /** Gets or sets a border style. Not used in StiAdvancedBorder. */
         style: StiPenStyle;
+        /** Gets value indicates, that this object-frame is by default. */
         readonly isDefault: boolean;
         constructor(topSide?: StiBorderSide, bottomSide?: StiBorderSide, leftSide?: StiBorderSide, rightSide?: StiBorderSide, dropShadow?: boolean, shadowSize?: number, shadowBrush?: StiBrush, topmost?: boolean);
     }
@@ -4626,6 +5054,7 @@ declare module Stimulsoft.Base.Drawing {
     import Color = Stimulsoft.System.Drawing.Color;
     class StiBorderSide implements ICloneable {
         implements(): string[];
+        /** Creates a new object that is a copy of the current instance. */
         clone(): StiBorderSide;
         stiEquals(other: StiBorderSide): boolean;
         stiEquals(obj: Object): boolean;
@@ -4633,12 +5062,17 @@ declare module Stimulsoft.Base.Drawing {
         getSizeOffset(): number;
         side: StiBorderSides;
         private _color;
+        /** Gets or sets a border color. */
         color: Color;
         private _size;
+        /** Gets or sets a border size. */
         size: number;
         private _style;
+        /** Gets or sets a border style. */
         style: StiPenStyle;
+        /** Gets value indicates, that this object-frame is by default. */
         readonly isDefault: boolean;
+        /** Creates a new instance of the StiBorderSide class. */
         constructor(color?: Color, size?: number, style?: StiPenStyle);
     }
 }
@@ -4712,14 +5146,19 @@ declare module Stimulsoft.Base.Drawing {
     import Color = Stimulsoft.System.Drawing.Color;
     class StiGlareBrush extends StiBrush {
         private _startColor;
+        /** Gets or sets the starting color for the gradient. */
         startColor: Color;
         private _endColor;
+        /** Gets or sets the ending color for the gradient. */
         endColor: Color;
         private _angle;
+        /** Gets or sets the angle, measured in degrees clockwise from the x-axis, of the gradient's orientation line. */
         angle: number;
         private _focus;
+        /** Gets or sets value from 0 through 1 that specifies the center of the gradient (the point where the gradient is composed of only the ending color). */
         focus: number;
         private _scale;
+        /** Gets or sets value from 0 through 1 that specifies how fast the colors falloff from the focus. */
         scale: number;
         stiEquals(obj: Object): boolean;
         private defaultHashCode;
@@ -4732,10 +5171,13 @@ declare module Stimulsoft.Base.Drawing {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     class StiGlassBrush extends StiBrush {
         private _color;
+        /** Gets or sets the color of this StiGlassBrush object. */
         color: Color;
         private _drawHatch;
+        /** Gets or sets value which indicates draw hatch at background or not. */
         drawHatch: boolean;
         private _blend;
+        /** Gets or sets blend factor. */
         blend: number;
         stiEquals(obj: Object): boolean;
         private defaultHashCode;
@@ -4753,10 +5195,13 @@ declare module Stimulsoft.Base.Drawing {
     import Color = Stimulsoft.System.Drawing.Color;
     class StiGradientBrush extends StiBrush {
         private _startColor;
+        /** Gets or sets the starting color for the gradient. */
         startColor: Color;
         private _endColor;
+        /** Gets or sets the ending color for the gradient. */
         endColor: Color;
         private _angle;
+        /** Gets or sets the angle, measured in degrees clockwise from the x-axis, of the gradient's orientation line. */
         angle: number;
         stiEquals(obj: Object): boolean;
         private defaultHashCode;
@@ -4769,10 +5214,13 @@ declare module Stimulsoft.Base.Drawing {
     import HatchStyle = Stimulsoft.System.Drawing.Drawing2D.HatchStyle;
     class StiHatchBrush extends StiBrush {
         private _backColor;
+        /** Gets the color of spaces between the hatch lines drawn by this StiHatchBrush object. */
         backColor: Color;
         private _foreColor;
+        /** Gets the color of hatch lines drawn by this StiHatchBrush object. */
         foreColor: Color;
         private _style;
+        /** Gets the hatch style of this StiHatchBrush object. */
         style: HatchStyle;
         stiEquals(obj: Object): boolean;
         private defaultHashCode;
@@ -4868,6 +5316,7 @@ declare module Stimulsoft.Base.Drawing {
         hotkeyPrefix: HotkeyPrefix;
         trimming: StringTrimming;
         readonly isDefault: boolean;
+        /** Serves as a hash function for a particular type. */
         getHashCode(): number;
         constructor(rightToLeft?: boolean, lineLimit?: boolean, wordWrap?: boolean, angle?: number, hotkeyPrefix?: HotkeyPrefix, trimming?: StringTrimming, firstTabOffset?: number, distanceBetweenTabs?: number);
     }
@@ -5103,6 +5552,9 @@ declare module Stimulsoft.Base.Licenses {
         Developer = 2,
     }
 }
+/**
+ * @hidden
+ */
 declare module Stimulsoft.Base.Licenses {
     class StiCryptHelper {
         static decrypt(str: string, password: string): string;
@@ -5157,6 +5609,9 @@ declare module Stimulsoft.Base {
         private static _key;
         static key: string;
         static Key: string;
+        /**
+         * @hidden
+         */
         static setNewLicenseKey(value: string, throwException?: boolean): void;
         private static isValidLicenseKey(licenseKey);
         static loadFromFile(file: string): void;
@@ -5342,31 +5797,102 @@ declare module Stimulsoft.Base {
 declare module Stimulsoft.Base.Services {
     import StiRepositoryItems = Stimulsoft.Base.StiRepositoryItems;
     import ICloneable = Stimulsoft.System.ICloneable;
+    /** Describes an asbtract class that serves for services realization. */
     class StiService implements ICloneable {
+        /** Creates a new object that is a copy of the current instance. */
         clone(cloneProperties?: boolean, cloneComponents?: boolean): any;
         implements(): string[];
         isPropertyPresent(key: Object): boolean;
         private _properties;
         properties: StiRepositoryItems;
+        /** Internal use only, for LoadDocument optimization. */
         protected isPropertiesInitializedProtected(): boolean;
+        /** Gets a service category. */
         readonly serviceCategory: string;
+        /** Gets a service name. */
         readonly serviceName: string;
+        /** Gets a service description. */
         readonly serviceInfo: string;
+        /** Gets a service type. */
         readonly serviceType: Stimulsoft.System.Type;
+        /** Gets or sets the value whether a service is enabled or not. */
         serviceEnabled: boolean;
     }
 }
+/**
+ * @hidden
+ */
 interface JSZip {
+    /**
+     * Get a file from the archive
+     *
+     * @param Path relative path to file
+     * @return File matching path, null if no file found
+     */
     file(path: string): JSZipObject;
+    /**
+     * Get files matching a RegExp from archive
+     *
+     * @param path RegExp to match
+     * @return Return all matching files or an empty array
+     */
     file(path: RegExp): JSZipObject[];
+    /**
+     * Add a file to the archive
+     *
+     * @param path Relative path to file
+     * @param content Content of the file
+     * @param options Optional information about the file
+     * @return JSZip object
+     */
     file(path: string, data: any, options?: JSZipFileOptions): JSZip;
+    /**
+     * Return an new JSZip instance with the given folder as root
+     *
+     * @param name Name of the folder
+     * @return New JSZip object with the given folder as root or null
+     */
     folder(name: string): JSZip;
+    /**
+     * Returns new JSZip instances with the matching folders as root
+     *
+     * @param name RegExp to match
+     * @return New array of JSZipFile objects which match the RegExp
+     */
     folder(name: RegExp): JSZipObject[];
+    /**
+     * Get all files wchich match the given filter function
+     *
+     * @param predicate Filter function
+     * @return Array of matched elements
+     */
     filter(predicate: (relativePath: string, file: JSZipObject) => boolean): JSZipObject[];
+    /**
+     * Removes the file or folder from the archive
+     *
+     * @param path Relative path of file or folder
+     * @return Returns the JSZip instance
+     */
     remove(path: string): JSZip;
+    /**
+     * Generates a new archive
+     *
+     * @param options Optional options for the generator
+     * @return The serialized archive
+     */
     generate(options?: JSZipGeneratorOptions): any;
+    /**
+     * Deserialize zip file
+     *
+     * @param data Serialized zip file
+     * @param options Options for deserializing
+     * @return Returns the JSZip instance
+     */
     load(data: any, options: JSZipLoadOptions): JSZip;
 }
+/**
+ * @hidden
+ */
 interface JSZipObject {
     name: string;
     dir: boolean;
@@ -5378,6 +5904,9 @@ interface JSZipObject {
     asArrayBuffer(): ArrayBuffer;
     asUint8Array(): Uint8Array;
 }
+/**
+ * @hidden
+ */
 interface JSZipFileOptions {
     base64?: boolean;
     binary?: boolean;
@@ -5387,32 +5916,55 @@ interface JSZipFileOptions {
     optimizedBinaryString?: boolean;
     createFolders?: boolean;
 }
+/**
+ * @hidden
+ */
 interface JSZipObjectOptions {
+    /** deprecated */
     base64: boolean;
+    /** deprecated */
     binary: boolean;
+    /** deprecated */
     dir: boolean;
+    /** deprecated */
     date: Date;
     compression: string;
 }
+/**
+ * @hidden
+ */
 interface JSZipGeneratorOptions {
+    /** deprecated */
     base64?: boolean;
+    /** DEFLATE or STORE */
     compression?: string;
+    /** base64 (default), string, uint8array, blob */
     type?: string;
     comment?: string;
 }
+/**
+ * @hidden
+ */
 interface JSZipLoadOptions {
     base64?: boolean;
     checkCRC32?: boolean;
     optimizedBinaryString?: boolean;
     createFolders?: boolean;
 }
+/**
+ * @hidden
+ */
 interface JSZipSupport {
     arraybuffer: boolean;
     uint8array: boolean;
     blob: boolean;
     nodebuffer: boolean;
 }
+/**
+ * @hidden
+ */
 interface DEFLATE {
+    /** pako.deflateRaw, level:0-9 */
     compress(input: string, compressionOptions: {
         level: number;
     }): Uint8Array;
@@ -5422,14 +5974,38 @@ interface DEFLATE {
     compress(input: Uint8Array, compressionOptions: {
         level: number;
     }): Uint8Array;
+    /** pako.inflateRaw */
     uncompress(input: string): Uint8Array;
     uncompress(input: number[]): Uint8Array;
     uncompress(input: Uint8Array): Uint8Array;
 }
+/**
+ * @hidden
+ */
 declare let JSZip: {
+    /**
+     * Create JSZip instance
+     */
     (): JSZip;
+    /**
+     * Create JSZip instance
+     * If no parameters given an empty zip archive will be created
+     *
+     * @param data Serialized zip archive
+     * @param options Description of the serialized zip archive
+     */
     (data: any, options?: JSZipLoadOptions): JSZip;
+    /**
+     * Create JSZip instance
+     */
     new (): JSZip;
+    /**
+     * Create JSZip instance
+     * If no parameters given an empty zip archive will be created
+     *
+     * @param data Serialized zip archive
+     * @param options Description of the serialized zip archive
+     */
     new (data: any, options?: JSZipLoadOptions): JSZip;
     prototype: JSZip;
     support: JSZipSupport;
@@ -5437,6 +6013,9 @@ declare let JSZip: {
         DEFLATE: DEFLATE;
     };
 };
+/**
+ * @hidden
+ */
 declare module "jszip" {
     export = JSZip;
 }
@@ -5598,6 +6177,9 @@ declare module Stimulsoft.Base {
     }
 }
 declare module Stimulsoft {
+    /**
+     * @hidden
+     */
     class StiVersion {
         static version: string;
         static creationDate: string;
@@ -6542,9 +7124,13 @@ declare module Stimulsoft.Report.Components {
         CrossDataBand = 300,
     }
     enum StiComponentType {
+        /** Simple components - only one copy in one print cycle is output.*/
         Simple = 0,
+        /** Master components – more than one copy in one print cycle are output.*/
         Master = 1,
+        /** Detailed components – these components are output with Master components.*/
         Detail = 2,
+        /** Static components – these components are the same as simple components but are output on pages only.*/
         Static = 3,
     }
     enum StiRestrictions {
@@ -6863,6 +7449,7 @@ declare module Stimulsoft.Report {
     class StiBase extends StiService implements IStiName {
         memberwiseClone(): StiBase;
         private _name;
+        /** Gets or sets a component name. */
         name: string;
         getName(): string;
         setName(value: string): void;
@@ -11641,6 +12228,7 @@ declare module Stimulsoft.Report.Dictionary {
     }
 }
 declare module Stimulsoft.Report {
+    /** Enum provide variants of nested factor. */
     enum StiNestedFactor {
         High = 0,
         Normal = 1,
@@ -11816,7 +12404,9 @@ declare module Stimulsoft.Report {
         Wmf = 10,
     }
     enum StiArabicDigitsType {
+        /** A value for the standard arabic digits. */
         Standard = 0,
+        /** A value for the Eastern arabic digits. */
         Eastern = 1,
     }
     enum StiBrushType {
@@ -15097,31 +15687,41 @@ declare module Stimulsoft.Report.Components {
         loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
         clone(cloneProperties: boolean): StiView;
         private _horAlignment;
+        /** Gets or sets the horizontal alignment of an object. */
         horAlignment: StiHorAlignment;
         private _vertAlignment;
+        /** Gets or sets the vertical alignment of an object. */
         vertAlignment: StiVertAlignment;
         getImage(REFzoom: any, format?: StiExportFormat): Image;
         isExportAsImage(format: StiExportFormat): boolean;
         private _border;
+        /** Gets or sets border of the component. */
         border: StiBorder;
         private _brush;
+        /** Gets or sets a brush to fill a component. */
         brush: StiBrush;
         getActualSize(): SizeD;
         getRealSize(): SizeD;
         setPage(value: StiPage): void;
         private _smoothing;
+        /** Gets or sets smoothing mode for drawing image. */
         smoothing: boolean;
         private _isCachedImage;
         isCachedImage: boolean;
         private _objectToDraw;
+        /** Gets or sets the WPF visual object that appeared as a result of the component rendering. This property accepts objects of two types: DrawingVisual and ImageSource. */
         objectToDraw: Object;
         private _imageToDraw;
+        /** Gets or sets the image that appeared as a result of the component rendering. */
         imageToDraw: Image;
         private _stretch;
+        /** Gets or sets value, indicates that this component will stretch the image till the image will get size equal in its size on the page. */
         stretch: boolean;
         private _multipleFactor;
+        /** Gets or sets value to multiply by it an image size. */
         multipleFactor: number;
         private _aspectRatio;
+        /** Gets or sets value, indicates that the image will save its aspect ratio. */
         aspectRatio: boolean;
         getImageFromSource(): Image;
     }
@@ -15146,10 +15746,14 @@ declare module Stimulsoft.Report.Components {
         getImage(REFzoom: any, format?: StiExportFormat): Image;
         protected getImageFromFile(): Image;
         protected getImageFromUrl(): Image;
+        /** Returns the image from specified data column. */
         protected getImageFromDataColumn(): Image;
+        /** Returns the image being get as a result of rendering. */
         getImageFromSource(): Image;
         private static propertyCanBreak;
+        /** Gets or sets value which indicates whether the component can or cannot break its contents on several pages. */
         canBreak: boolean;
+        /** Divides content of components in two parts.Returns result of dividing.If true, then component is successful divided. */
         break(dividedComponent: StiComponent, devideFactor: number, REFdivideLine: any): boolean;
         private _imageURLValue;
         imageURLValue: Object;
@@ -15164,16 +15768,22 @@ declare module Stimulsoft.Report.Components {
         readonly defaultClientRectangle: RectangleD;
         getImageDataEvent: StiGetImageDataEvent;
         private static propertyProcessingDuplicates;
+        /** Gets or sets value which indicates how report engine processes duplicated images. */
         processingDuplicates: StiImageProcessingDuplicatesType;
         private _imageRotation;
+        /** Gets or sets value which indicates how to rotate an image before output. */
         imageRotation: StiImageRotation;
         private _image;
+        /** Gets or sets the image. */
         image: Image;
         private static propertyMargins;
+        /** Gets or sets image margins. */
         margins: StiMargins;
         private _file;
+        /** Gets or sets the path to the file that contains the image. */
         file: string;
         private _dataColumn;
+        /** Gets or sets a name of the column that contains the image. */
         dataColumn: string;
         private _imageURL;
         imageURL: string;
@@ -17213,6 +17823,7 @@ declare module Stimulsoft.Report.Styles.Conditions {
         loadFromXml(xmlNode: XmlNode): void;
         clone(): StiStyleConditionsCollection;
         add(condition: StiStyleCondition): any;
+        /** Creates a new object of the type StiStyleCondition. */
         add(elements: StiStyleConditionElement[]): any;
         addRange(conditions: StiStyleCondition[]): any;
         addRange(conditions: StiStyleConditionsCollection): any;
@@ -17241,17 +17852,25 @@ declare module Stimulsoft.Report.Styles {
         stiEquals(obj: Object, allowEqualName?: boolean, allowEqualDescription?: boolean): boolean;
         clone(): Object;
         static getStyle(component: StiComponent, styleElements?: StiStyleElements | StiBaseStyle, componentStyle?: StiBaseStyle): StiBaseStyle;
+        /** Gets a style from the components. */
         getStyleFromComponents(comps: StiComponentsCollection, styleElements: StiStyleElements): void;
+        /** Returns string representation of the style. */
         toString(): string;
+        /** Gets the style from the component. */
         getStyleFromComponent(component: StiComponent, styleElements: StiStyleElements): void;
+        /** Sets style to the component. */
         setStyleToComponent(component: StiComponent): void;
         private _collectionName;
+        /** Gets or sets a name of the styles collection. */
         collectionName: string;
         private _conditions;
+        /** Gets or sets a collection of the style conditions. */
         conditions: StiStyleConditionsCollection;
         private _description;
+        /** Gets or sets a style description. */
         description: string;
         private _name;
+        /** Gets or sets a style name. */
         name: string;
         report: StiReport;
         constructor(name?: string, description?: string, report?: StiReport);
@@ -17265,6 +17884,7 @@ declare module Stimulsoft.Report.Styles {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         private _color;
+        /** Gets or sets a color of style. */
         color: Color;
     }
 }
@@ -17786,6 +18406,7 @@ declare module Stimulsoft.Report.Engine {
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
     import StiContainer = Stimulsoft.Report.Components.StiContainer;
     class StiContainerBuilder extends StiComponentBuilder {
+        /** Returns a panel for the component rendering.*/
         static getRenderContainer(comp: StiComponent, type?: Stimulsoft.System.Type): StiContainer;
         internalRender(masterComp: StiComponent): StiComponent;
     }
@@ -17847,9 +18468,12 @@ declare module Stimulsoft.Report.Dictionary {
         readonly realCount: number;
         readonly count: number;
         protected isBofValue: boolean;
+        /** Gets value indicates that this position specifies to the beginning of data. */
         isBof: boolean;
         protected isEofValue: boolean;
+        /** Gets value indicates that this position specifies to the data end. */
         isEof: boolean;
+        /** Gets value indicates that no data. */
         readonly isEmpty: boolean;
         first(): void;
         prior(): void;
@@ -17878,10 +18502,15 @@ declare module Stimulsoft.Report.Dictionary {
         resetDetailsRows(): void;
         resetData(): void;
         getDataRow(index: number): DataRow;
+        /** Returns the parent row with data for the indicated relation. */
         getParentData(relation: string): StiDataRow;
+        /** Returns the colection of Parent relations. */
         getParentRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
+        /** Returns a collection of Child relations. */
         getChildRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
+        /** Returns the parent Data Source by the relation name. */
         getParentDataSource(relationName: string): StiDataSource;
+        /** Returns the child Data Source by the relation name. */
         getChildDataSource(relationName: string): StiDataSource;
         protected invokeConnecting(): void;
         protected invokeDisconnecting(): void;
@@ -20166,21 +20795,27 @@ declare module Stimulsoft.Report.Engine {
         removeKeepDetails(masterDataBand: StiDataBand): void;
         removeKeepDetailsRow(masterDataBand: StiDataBand): void;
         startBands(masterDataBand: StiDataBand, bands: StiComponentsCollection): void;
+        /** Starts monitoring of specified band OnAllPages.*/
         startBand(masterDataBand: StiDataBand, band: StiBand): void;
+        /** Ends monitoring of band OnAllPages.*/
         endBands(masterDataBand: StiDataBand): void;
         getGroupHeaderResult(masterDataBand: StiDataBand, groupHeaderBand: StiGroupHeaderBand): boolean;
         getGroupFooterResult(masterDataBand: StiDataBand, groupHeaderBand: StiGroupHeaderBand): boolean;
         linkGroupHeadersAndGroupFooters(masterDataBand: StiDataBand): void;
         resetLinkGroupHeadersAndGroupFooters(masterDataBand: StiDataBand): void;
         static prepareGroupResults(masterDataBand: StiDataBand): void;
+        /** Renders all group headers of this databand.*/
         renderGroupHeaders(masterDataBand: StiDataBand): void;
         renderGroupFooters(masterDataBand: StiDataBand): void;
         static setDetails(masterDataBand: StiDataBand): void;
         renderDetailDataBands(masterDataBand: StiDataBand): void;
+        /** Returns databand on which specified container in splaced.*/
         private getParentDataBand(cont);
+        /** Returns true if specified detail DataBand can be printed.*/
         private isAllow(master, detail);
         allowDetailDataBands(masterDataBand: StiDataBand): boolean;
         isDenyDetailsOnFirstPage(masterDataBand: StiDataBand): boolean;
+        /** Gets value indicates that all detail components are empty.*/
         static isDetailDataSourcesEmpty(masterDataBand: StiDataBand): boolean;
         static isPrintIfDetailEmpty(masterDataBand: StiDataBand): boolean;
         renderHeaders(masterDataBand: StiDataBand, keepHeaders: boolean[]): void;
@@ -20201,8 +20836,10 @@ declare module Stimulsoft.Report.Engine {
         renderColumns(masterDataBand: StiDataBand): void;
         registerEmptyBands(masterDataBand: StiDataBand): void;
         static isCollapsed(masterDataBand: StiContainer, isRendering: boolean): boolean;
+        /** Sets system variables which are specific for the specified component.*/
         setReportVariables(masterComp: StiComponent): void;
         prepare(masterComp: StiComponent): void;
+        /** Clears a component after rendering.*/
         unPrepare(masterComp: StiComponent): void;
         private static invokeCollapsedEvent(masterDataBand);
         render(masterComp: StiComponent): StiComponent;
@@ -20383,10 +21020,15 @@ declare module Stimulsoft.Report.Engine {
         private bands;
         engine: StiEngine;
         private _denyRendering;
+        /** If the property is true then bands rendering on all pages is blocked. The property is used to
+         * output headers, with the height higher than one page, on all pages.*/
         denyRendering: boolean;
+        /** Starts monitoring of this band for rendering OnAllPages.*/
         add(dataBand: StiDataBand, band: StiBand): void;
+        /** Ends monitoring of this band for rendering OnAllPages. All bands which are dependent on the specified DataBand are removed.*/
         remove(dataBand: StiDataBand): void;
         private allowRenderBand(band);
+        /** Outputs bands, which were previously added to the collection of bands, which are output on all pages, on a new page.*/
         render(): void;
         private renderBand(band, ignorePageBreaks, ignoreRenderingEvents);
         isBandInBandsList(band: StiBand): boolean;
@@ -20425,10 +21067,15 @@ declare module Stimulsoft.Report.Engine {
         rightToLeft: boolean;
         minRowsInColumn: number;
         private engine;
+        /** Adds a specified container into the container of columns. The CountOfItems field is increased on 1.*/
         addContainer(container: StiContainer): void;
+        /** Returns the height of space to place a container into the current container of colimns.*/
         howMuchAdditionalSpaceNeeded(currentHeight: number, container: StiContainer): number;
+        /** Finishes column formation in the container of columns. All containers are placed on their proper places.*/
         finishColumns(onlyCalc?: boolean): number;
+        /** Returns the number of a column on the current moment. The number starts with 1.*/
         getCurrentColumn(): number;
+        /** Returns the number of output databands in the last row. The method can be used only for the  AcrossThenDown mode.*/
         getLengthOfLastRow(): number;
         constructor(engine?: StiEngine);
     }
@@ -20438,9 +21085,15 @@ declare module Stimulsoft.Report.Engine {
     class StiColumnsOnDataBand {
         engine: StiEngine;
         private _enabled;
+        /** Gets or sets value which indicates about current state of column on DataBand mode.*/
         enabled: boolean;
+        /** Adds a container of columns to the current page.
+         * A container of columns is used to output columns on a databand.*/
         renderColumns(dataBand: StiDataBand): StiColumnsContainer;
+        /** Returns a container of columns that is the last on a page.
+         * If after a container of columns other bands were output then return null.*/
         getColumns(): StiColumnsContainer;
+        /** Creates and returns a container to output columns on a Databand.*/
         createColumns(dataBand: StiDataBand): StiColumnsContainer;
         constructor(engine: StiEngine);
     }
@@ -20481,38 +21134,80 @@ declare module Stimulsoft.Report.Engine {
     import StiComponentsCollection = Stimulsoft.Report.Components.StiComponentsCollection;
     import StiPage = Stimulsoft.Report.Components.StiPage;
     class StiEngine {
+        /** If true then it is allowed to add any Bookmarks. If false then
+         * add Bookmarks of components which the IsRendered property = false
+         * (in other words it is rendered first time). This property allows adding Bookmarks
+         * for static components only once (to avoid duplication).*/
         isDynamicBookmarksMode: boolean;
+        /** This property is set to true for printing CrossBands.*/
         isCrossBandsMode: boolean;
+        /** Returns true if the first DataBand is printed on the current page. */
         isFirstDataBandOnPage: boolean;
+        /** Returns true if the last DataBand is printed on the current page.*/
         isLastDataBandOnPage: boolean;
+        /** Contains the list of bands which should be passed when rendering.*/
         printOnAllPagesIgnoreList: Hashtable;
         private printOnAllPagesIgnoreList2;
+        /** A class helps to output the progress bar when report rendering.*/
+        /** Contains a collection of bands which should be output on all pages.*/
         bandsOnAllPages: StiBandsOnAllPages;
+        /** If true then the Render method of a container will not render components of the
+         * Master type. This property is used with the RenderSimpleComponents method of a page.
+         * It is used to deny master components and render simple ones.*/
         denyRenderMasterComponentsInContainer: boolean;
+        /** Contains a collection of bands which should be output on the bottom of a page.
+         * The list is filled when stream rendering and the list is cleared when rendering
+         * of the current stream is finished.*/
         printAtBottom: StiPrintAtBottom;
+        /** Cotnains a collection of Footers which should be output on the bottom of a page.
+         * The list is filled when stream rendering and the list is cleared when rendering
+         * of the current stream is finished.*/
         footersOnAllPages: StiFootersOnAllPages;
+        /** An object helps to output static bands on a page.*/
         staticBands: StiStaticBandsHelper;
+        /** This object helps to print groups of bands from containers which are placed directly on a page.*/
         threads: StiThreads;
+        /** An object helps to work with IStiBreakable interface.*/
         breakable: StiBreakableHelper;
+        /** If true then it is impossible to change stream of printing.*/
         denyChangeThread: boolean;
+        /** Contains a list of Slave Engines.*/
         slaveEngines: Hashtable;
+        /** If an engine is slave then this reference indicates the parent report engine. */
         masterEngine: StiEngine;
+        /** Used to output EmptyBands in the current container.*/
         emptyBands: StiEmptyBandsHelper;
         pageNumbers: StiPageNumberHelper;
+        /** Used to output columns on the DataBand.*/
         columnsOnDataBand: StiColumnsOnDataBand;
+        /** Used to output columns on the Panel.*/
         columnsOnPanel: StiColumnsOnPanel;
+        /** Contains a freespace in a container in what the printing is done.*/
         freeSpace: number;
+        /** Contains a freespace in a container in what the printing is done. Used to output Cross bands only.*/
         crossFreeSpace: number;
+        /** Indicates the current position bands output on the X axis.*/
         positionX: number;
+        /** Indicates the current position bands output on the Y axis.*/
         positionY: number;
+        /** Indicates the current position bands output on the Y axis on the bottom of a page.*/
         positionBottomY: number;
+        /** Gets or sets a container in what rendering of bands is done.*/
         containerForRender: StiContainer;
+        /** Gets or sets a page in what rendering of bands is done.*/
         page: StiPage;
+        /** Gets or sets a page from a template. This page is being rendered in the current moment.*/
         templatePage: StiPage;
+        /** Gets or sets a container from a template. This page is being rendered in the current moment. If a page is output then
+         * the TemplateContainer property is equal in TemplatePage.*/
         templateContainer: StiContainer;
+        /** Gets or sets a report that is being rendered in the current moment.*/
         report: StiReport;
+        /** Gets or sets a master report that is being rendered in the current moment.*/
         masterReport: StiReport;
+        /** If true then UnlimitedHeight property is ignored when NewPage method is called.*/
         ignoreUnlimitedHeightForNewPage: boolean;
+        /** Contains a list of stored bands for keepFirstDetailTogether property*/
         keepFirstDetailTogetherList: Hashtable;
         keepFirstDetailTogetherTablesList: Hashtable;
         specialContainerHeight: number;
@@ -20527,10 +21222,14 @@ declare module Stimulsoft.Report.Engine {
         generateNewPageBeforeBand: boolean;
         ignoreSkipFirst: boolean;
         generateNewColumnBeforeBand: boolean;
+        /** Коллекция служит для определения случая пропуска генерации новой страницы или новой колонки при помощи свойства SkipFirst.
+         * Если бэнд уже пропускал один раз генерацию новой страницы или колонки, то он заносится в эту коллекцию.*/
         pageBreakSkipFirstCollection: Hashtable;
         indexOfStartList: number;
         skipFirstPageBeforePrintEvent: boolean;
         firstCallNewPage: boolean;
+        /** Флаг устанавливается во время рендеринга StiBandsOnAllPages для того,
+         * чтобы датабэнды, которые выводятся на каждой странице, не обнуляли этот список*/
         denyClearPrintOnAllPagesIgnoreList: boolean;
         duplilcatesLastValues: Hashtable;
         anchorsArguments: Hashtable;
@@ -20556,9 +21255,15 @@ declare module Stimulsoft.Report.Engine {
         newPage(ignoreKeepContainers?: boolean): void;
         private newContainer(ignoreKeepContainers);
         newDestination(ignoreKeepContainers?: boolean): void;
+        /** Adds a FooterMarker (special container) into the current container of output.
+         * A container-marker is used for the engine to know on what place in a container
+         * of output FooterBands for PrintOnAllPages should be replaced after their rendering is complete.*/
         addFooterMarker(footerMaster: StiFooterBand): void;
+        /** Adds a container-marker of the beginning of grouping before the last rendered DataBand.*/
         addKeepLevelAtLatestDataBand(): void;
+        /** Adds a container-marker of the beginning of grouping into the current position of output in the stream.*/
         addLevel(): void;
+        /** Adds a container-marker of the end of grouping into the current position of output in the stream.*/
         removeLevel(): void;
         private getChildBands(band);
         clearPageBreakSkipFirst(): void;
@@ -20587,6 +21292,7 @@ declare module Stimulsoft.Report.Engine {
         finishContainer(containerForRender: StiContainer): void;
         finishResetPageNumberContainer(containerForRender: StiContainer, isFinal: boolean): void;
         finishColumns(containerForRender: StiContainer): void;
+        /** Adds a specified container into the container for output.*/
         addContainerToDestination(container: StiContainer): void;
         invokePageAfterPrint(): void;
         addPageToRenderedPages(page: StiPage): void;
@@ -20720,7 +21426,9 @@ declare module Stimulsoft.Report.Engine {
         getPageNumberThrough(page: StiPage): any;
         getPageNumberThrough(pageIndex: number): any;
         getTotalPageCountThrough(pageIndex: number): number;
+        /** Calculates the PageNumber and TotalPageCount values for each page in the specified range.*/
         private setSystemVariables(startIndex, endIndex);
+        /** Counts the PageNumber, TotalPageCount, PageNumberThrough, and TotalPageCountThrough values for every page.*/
         processPageNumbers(): void;
         clear(): void;
         clearNotFixed(): void;
@@ -20896,8 +21604,11 @@ declare module Stimulsoft.Report.Engine {
         currentPage: number;
         currentColumn: number;
         destinationName: string;
+        /** Prepares a new page to output a container. A new page is not always a page*/
         newPage(): void;
+        /** Sets the stream to output the specified component. If the stream does not exist then it is created.*/
         selectThreadFromContainer(container: StiContainer): void;
+        /** Creates a new engine sample to output in the specified container.*/
         createContainerEngine(destinationName: string, report: StiReport, masterEngine: StiEngine, indexOfStartRenderedPages: number): StiEngine;
         getTemplateContainer(template?: StiContainer, name?: string): StiContainer;
         getDestinationContainer(): StiContainer;
@@ -21004,7 +21715,13 @@ declare module Stimulsoft.Report.Events {
 declare module Stimulsoft.Report {
     import EventHandler = Stimulsoft.System.EventHandler;
     import EventArgs = Stimulsoft.System.EventArgs;
+    /**
+     * @hidden
+     */
     let StiGotoCompEventHandler: EventHandler;
+    /**
+     * @hidden
+     */
     class StiGotoCompEventArgs extends EventArgs {
         component: Stimulsoft.Report.Components.StiComponent;
         constructor(component: Stimulsoft.Report.Components.StiComponent);
@@ -21390,16 +22107,22 @@ declare module Stimulsoft.Report.Export {
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
     class StiSvgData {
         private _x;
+        /** X coordinate of the border. */
         x: number;
         private _y;
+        /** Y coordinate of the border. */
         y: number;
         private _width;
+        /** Width of the border. */
         width: number;
         private _height;
+        /** Height of the border. */
         height: number;
         private _right;
+        /** Right (X + Width) coordinate of the border. */
         readonly right: number;
         private _bottom;
+        /** Bottom (Y + Height) coordinate of the border. */
         readonly bottom: number;
         component: StiComponent;
     }
@@ -23544,6 +24267,16 @@ declare module Stimulsoft.Report {
         sort(): void;
     }
 }
+declare module Stimulsoft.Report.Helpers {
+    class StiFileDialogHelper {
+        static dataExts: string[];
+        static imageExts: string[];
+        static reportExts: string[];
+        static textExts: string[];
+        static documentExts: string[];
+        static fontExts: string[];
+    }
+}
 declare module Stimulsoft.Report {
     class StiFontIconsHelper {
         static getContent(fontIcons: StiFontIcons): string;
@@ -23561,6 +24294,15 @@ declare module Stimulsoft.Report.Helpers {
     import StiResourceType = Stimulsoft.Report.Dictionary.StiResourceType;
     class StiResourceArrayToDataSet {
         static get(resourceType: StiResourceType, array: number[]): DataSet;
+    }
+}
+declare module Stimulsoft.Report.Helpers {
+    import StiResourceType = Stimulsoft.Report.Dictionary.StiResourceType;
+    class StiResourceTypeHelper {
+        static getTypeFromExtension(extension: string): StiResourceType;
+        static isImageType(ext: string): boolean;
+        static isTextType(ext: string): boolean;
+        private static isExtensionType(exts, ext);
     }
 }
 declare module Stimulsoft.Report.Components.Gauge {
@@ -23849,8 +24591,10 @@ declare module Stimulsoft.Report.Styles.Conditions.Elements {
 declare module Stimulsoft.Report.Styles.Conditions.Elements {
     class StiStyleConditionComponentNameElement extends StiStyleConditionElement {
         private _operationComponentName;
+        /** Gets or sets type of operation which will be used for comparison of component names. */
         operationComponentName: StiStyleConditionOperation;
         private _componentName;
+        /** Gets or sets component name or part of component name. */
         componentName: string;
         constructor(componentName: string, operationComponentName?: StiStyleConditionOperation);
     }
@@ -23858,8 +24602,10 @@ declare module Stimulsoft.Report.Styles.Conditions.Elements {
 declare module Stimulsoft.Report.Styles.Conditions.Elements {
     class StiStyleConditionComponentTypeElement extends StiStyleConditionElement {
         private _componentType;
+        /** Gets or sets component type which can be detected by style condition. */
         componentType: StiStyleComponentType;
         private _operationComponentType;
+        /** Gets or sets type of operation which will be used for comparison of component types. */
         operationComponentType: StiStyleConditionOperation;
         constructor(componentType: StiStyleComponentType, operationComponentType?: StiStyleConditionOperation);
     }
@@ -23867,8 +24613,10 @@ declare module Stimulsoft.Report.Styles.Conditions.Elements {
 declare module Stimulsoft.Report.Styles.Conditions.Elements {
     class StiStyleConditionLocationElement extends StiStyleConditionElement {
         private _operationLocation;
+        /** Gets or sets type of operation which will be used for comparison of component locations. */
         operationLocation: StiStyleConditionOperation;
         private _location;
+        /** Gets or sets variant of component location on parent component area. */
         location: StiStyleLocation;
         constructor(location: StiStyleLocation, operationLocation?: StiStyleConditionOperation);
     }
@@ -23876,8 +24624,10 @@ declare module Stimulsoft.Report.Styles.Conditions.Elements {
 declare module Stimulsoft.Report.Styles.Conditions.Elements {
     class StiStyleConditionPlacementElement extends StiStyleConditionElement {
         private _placement;
+        /** Gets or sets type of bands on which component can be placed. */
         placement: StiStyleComponentPlacement;
         private _operationPlacement;
+        /** Gets or sets type of operation which will be used for comparison of component placements. */
         operationPlacement: StiStyleConditionOperation;
         constructor(placement: StiStyleComponentPlacement, operationPlacement?: StiStyleConditionOperation);
     }
@@ -23885,8 +24635,10 @@ declare module Stimulsoft.Report.Styles.Conditions.Elements {
 declare module Stimulsoft.Report.Styles.Conditions.Elements {
     class StiStyleConditionPlacementNestedLevelElement extends StiStyleConditionElement {
         private _placementNestedLevel;
+        /** Gets or sets value which indicates nested level of specified component. */
         placementNestedLevel: number;
         private _operationPlacementNestedLevel;
+        /** Gets or sets type of operation which will be used for comparison of component nested level. */
         operationPlacementNestedLevel: StiStyleConditionOperation;
         constructor(placementNestedLevel: number, operationPlacementNestedLevel?: StiStyleConditionOperation);
     }
@@ -23905,26 +24657,37 @@ declare module Stimulsoft.Report.Styles.Conditions {
         loadFromXml(xmlNode: XmlNode): void;
         clone(): StiStyleCondition;
         private _type;
+        /** Gets or sets type of this style condition. */
         type: StiStyleConditionType;
         private _operationPlacement;
+        /** Gets or sets type of operation which will be used for comparison of component placements. */
         operationPlacement: StiStyleConditionOperation;
         private _operationPlacementNestedLevel;
+        /** Gets or sets type of operation which will be used for comparison of component nested level. */
         operationPlacementNestedLevel: StiStyleConditionOperation;
         private _operationComponentType;
+        /** Gets or sets type of operation which will be used for comparison of component types. */
         operationComponentType: StiStyleConditionOperation;
         private _operationLocation;
+        /** Gets or sets type of operation which will be used for comparison of component locations. */
         operationLocation: StiStyleConditionOperation;
         private _operationComponentName;
+        /** Gets or sets type of operation which will be used for comparison of component names. */
         operationComponentName: StiStyleConditionOperation;
         private _placement;
+        /** Gets or sets type of bands on which component can be placed. */
         placement: StiStyleComponentPlacement;
         private _placementNestedLevel;
+        /** Gets or sets value which indicates nested level of specified component. */
         placementNestedLevel: number;
         private _componentType;
+        /** Gets or sets component type which can be detected by style condition. */
         componentType: StiStyleComponentType;
         private _location;
+        /** Gets or sets variant of component location on parent component area. */
         location: StiStyleLocation;
         private _componentName;
+        /** Gets or sets component name or part of component name. */
         componentName: string;
         fromElements(elements: StiStyleConditionElement[]): void;
         constructor();
@@ -23933,6 +24696,7 @@ declare module Stimulsoft.Report.Styles.Conditions {
     }
 }
 declare module Stimulsoft.Report.Styles {
+    /** Enum provide types of style condition. */
     enum StiStyleConditionType {
         ComponentType = 1,
         Placement = 2,
@@ -23940,6 +24704,7 @@ declare module Stimulsoft.Report.Styles {
         ComponentName = 8,
         Location = 16,
     }
+    /** Enum provide type of bands on which component can be placed. */
     enum StiStyleComponentPlacement {
         None = 0,
         ReportTitle = 1,
@@ -23964,6 +24729,7 @@ declare module Stimulsoft.Report.Styles {
         Page = 524288,
         AllExeptStyles = 1042431,
     }
+    /** Enum provide component type which can be detected by style condition. */
     enum StiStyleComponentType {
         Text = 1,
         Primitive = 2,
@@ -23972,6 +24738,7 @@ declare module Stimulsoft.Report.Styles {
         Chart = 16,
         CheckBox = 32,
     }
+    /** Enum provide all variants of location component on parent component area. */
     enum StiStyleLocation {
         None = 0,
         TopLeft = 1,
@@ -24062,16 +24829,22 @@ declare module Stimulsoft.Report.Styles {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         private _foreColor;
+        /** Gets or sets a foreground color for drawing this style. */
         foreColor: Color;
         private _backColor;
+        /** Gets or sets a background color for drawing this style. */
         backColor: Color;
         private _font;
+        /** Gets or sets a font for drawing this style. */
         font: Font;
         private _allowUseFont;
+        /** Gets or sets a value which indicates whether a report engine can use Font for dialog controls. */
         allowUseFont: boolean;
         private _allowUseBackColor;
+        /** Gets or sets a value which indicates whether a report engine can use BackColor for dialog controls. */
         allowUseBackColor: boolean;
         private _allowUseForeColor;
+        /** Gets or sets a value which indicates whether a report engine can use ForeColor for dialog controls. */
         allowUseForeColor: boolean;
     }
 }
@@ -24160,41 +24933,61 @@ declare module Stimulsoft.Report.Styles {
         loadFromXml(xmlNode: XmlNode): void;
         clone(): Object;
         private _horAlignment;
+        /** Gets or sets a horizontal alignment of the style. */
         horAlignment: StiTextHorAlignment;
         private _vertAlignment;
+        /** Gets or sets a vertical alignment of the style. */
         vertAlignment: StiVertAlignment;
         private _font;
+        /** Gets or sets a font for drawing this style. */
         font: Font;
         private _border;
+        /** Gets or sets a border of the component. */
         border: StiBorder;
         private _brush;
+        /** Gets or sets a brush to fill the style. */
         brush: StiBrush;
         private _textBrush;
+        /** Gets or sets a brush to draw the text. */
         textBrush: StiBrush;
         private _allowUseHorAlignment;
+        /** Gets or sets a value which indicates whether a report engine can use HorAlignment formatting or not. */
         allowUseHorAlignment: boolean;
         private _allowUseVertAlignment;
+        /** Gets or sets a value which indicates whether a report engine can use VertAlignment formatting or not. */
         allowUseVertAlignment: boolean;
         private _allowUseImage;
+        /** Gets or sets a value which indicates whether a report engine can use Image formatting or not. */
         allowUseImage: boolean;
         private _allowUseFont;
+        /** Gets or sets a value which indicates whether a report engine can use Font formatting or not. */
         allowUseFont: boolean;
+        /** Gets or sets a value which indicates whether a report engine can use Border formatting or not. */
         allowUseBorder: boolean;
         private _allowUseBorderFormatting;
+        /** Gets or sets a value which indicates whether a report engine can use Border formatting or not. */
         allowUseBorderFormatting: boolean;
         private _allowUseBorderSides;
+        /** Gets or sets a value which indicates whether a report engine can use Border Sides or not. */
         allowUseBorderSides: boolean;
         private _allowUseBorderSidesFromLocation;
+        /** Gets or sets a value which indicates whether a report engine can set border sides of a component depending on the component location. */
         allowUseBorderSidesFromLocation: boolean;
         private _allowUseBrush;
+        /** Gets or sets a value which indicates whether a report engine can use Brush formatting or not. */
         allowUseBrush: boolean;
         private _allowUseTextBrush;
+        /** Gets or sets a value which indicates whether a report engine can use TextBrush formatting or not. */
         allowUseTextBrush: boolean;
         private _allowUseTextOptions;
+        /** Gets or sets a value which indicates whether a report engine can use TextOptions formatting or not. */
         allowUseTextOptions: boolean;
+        /** Gets a style from the component. */
         getStyleFromComponent(component: StiComponent, styleElements: StiStyleElements, componentStyle?: StiBaseStyle): void;
+        /** Sets style to a component. */
         setStyleToComponent(component: StiComponent): void;
         private _image;
+        /** Gets or sets an image to fill the Image property of the Image component. */
         image: Image;
     }
 }
@@ -24210,6 +25003,7 @@ declare module Stimulsoft.Report.Styles {
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
         add(style: StiBaseStyle): void;
+        /** Removes all objects from the CollectionBase instance. */
         clear(): void;
         addRange(styles: StiBaseStyle[]): any;
         addRange(styles: StiStylesCollection): any;
@@ -24273,6 +25067,7 @@ declare module Stimulsoft.Report {
 declare module Stimulsoft.Report.Styles {
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
     import StiBorderSides = Stimulsoft.Base.Drawing.StiBorderSides;
+    /** This class contains method which helps convert component location to its border sides. */
     class StiStylesHelper {
         static getBorderSidesFromLocation(component: StiComponent): StiBorderSides;
     }
@@ -24457,7 +25252,9 @@ declare module StiOptions {
         static CrossTab: CrossTab2;
     }
     class Image {
+        /** Gets or sets absolute path which will be used in combination with path from File property of image component. */
         absolutePathOfImages: string;
+        /** Gets or sets a value forcing render RichText components in other application domain. */
         useImageCloning: boolean;
     }
     class Watemark {
@@ -24475,23 +25272,38 @@ declare module StiOptions {
         allowUseVariableAlias: boolean;
     }
     class Engine {
+        /** A class which controls of settings of the report engine. */
         static Image: Image;
         static Watermark: Watemark;
         static printIfDetailEmptyDefaultValue: boolean;
         static fullTrust: boolean;
         static allowUseResetMethodInBusinessObject: boolean;
         static allowResetValuesAtComponent: boolean;
+        /**
+         * If the property is set to true, the report generator will use the PrintOn property when rendering a report.
+         * Using this mode is not recommended because of problems with page numbers.
+         * If the property is set to false, then the property will be processed after rendering a report.
+         */
         static useAdvancedPrint: boolean;
+        /** The default value for the TextQuality property. */
         static defaultTextQualityMode: StiTextQuality;
+        /** If the value is set to true, the names of the new components are generated as localized regardless the settings of the report designer. */
         static forceGenerationLocalizedName: boolean;
+        /** If the property is set to true, the report generator will use the PrintOn property when rendering a report.
+            Using this mode is not recommended because of problems with page numbers.
+            If the property is set to false, then the property will be processed after rendering a report. */
         static useAdvancedPrintOnEngine: boolean;
+        /** If the value is set to true, the names of the new components are generated as not localized regardless the settings of the report designer. */
         static forceGenerationNonLocalizedName: boolean;
         static forceNewPageForExtraColumns: boolean;
         static useRoundForToCurrencyWordsFunctions: boolean;
         static forceNewPageInSubReports: boolean;
         static useTemplateForPagePrintEvents: boolean;
+        /** Gets or sets a value which controls of naming of new components in the report. */
         static namingRule: StiNamingRule;
+        /** Gets or sets a value which indicates whether use the CheckSize method for Continued containers*/
         static useCheckSizeForContinuedContainers: boolean;
+        /** Gets or sets a value, which indicates that if data are absent then controls of the data emulation. This value is used for report rendering in the designer without data. */
         static emulateData: boolean;
         static allowCacheForGetActualSize: boolean;
         static allowBreakContainerOptimization: boolean;
@@ -24516,6 +25328,7 @@ declare module StiOptions {
         static printIfDetailEmptyNesting: boolean;
         static allowForceCanBreakForCrossTabPrintOnAllPages: boolean;
         static Globalization: Globalization;
+        static reportResources: any;
     }
     class Print {
         static customPaperSizes: PaperSizeCollection;
@@ -24531,9 +25344,13 @@ declare module StiOptions {
     }
     class Dictionary {
         static BusinessObjects: BusinessObjects;
+        /** Gets or sets a value indicating that instead of a database name an alias will be shown. */
         static showOnlyAliasForDatabase: boolean;
+        /** Gets or sets a value indicating that instead of a data name an alias will be shown. */
         static showOnlyAliasForData: boolean;
+        /** Gets or sets a value indicating that instead of a DataColumn name an alias will be shown. */
         static showOnlyAliasForDataColumn: boolean;
+        /** Gets or sets a value indicating that instead of a DataRelation name an alias will be shown. */
         static showOnlyAliasForDataRelation: boolean;
         static hideRelationExceptions: boolean;
         static autoSynchronize: StiAutoSynchronizeMode;
@@ -24872,14 +25689,18 @@ declare module Stimulsoft.Report {
         getAnchorPageNumber(value: any): number;
         getAnchorPageNumberThrough(value: any): number;
         private getAnchor(value);
+        /** Returns a list of all components, including pages in the report. */
         getComponents(): StiComponentsCollection;
         getComponentsCount(): number;
+        /** Renames a style with the specified name to a new name. */
         renameStyle(oldStylename: string, newStyleName: string): void;
         localizeReport(cultureName: string): void;
         private anchors;
+        /** The master report for subreports. Do not use this field.**/
         subReportsMasterReport: StiReport;
         subReportsResetPageNumber: boolean;
         subReportsPrintOnPreviousPage: boolean;
+        /** Internal use only. */
         indexName: number;
         containsTables: boolean;
         cachedTotals: Hashtable;
@@ -24898,6 +25719,7 @@ declare module Stimulsoft.Report {
         private _reportGuid;
         reportGuid: string;
         private _imageCachePath;
+        /** Gets path to the report image cache path. Path can't be changed. */
         imageCachePath: string;
         private _parentReport;
         parentReport: StiReport;
@@ -24961,6 +25783,7 @@ declare module Stimulsoft.Report {
         private _styles;
         readonly styles: StiStylesCollection;
         private _numberOfPass;
+        /** Gets or sets the number of passes which the report generator makes while report rendering.*/
         numberOfPass: StiNumberOfPass;
         private _calculationMode;
         calculationMode: StiCalculationMode;
@@ -35842,11 +36665,17 @@ declare module Stimulsoft.Report.Components {
     }
 }
 
+/**
+ * @hidden
+ */
 declare module Stimulsoft.Reflection {
     class StiTypesHelper {
         static run(type?: Stimulsoft.System.Type, namespace?: string): void;
     }
 }
+/**
+ * @hidden
+ */
 declare let _module: any;
 
 declare module Stimulsoft.Viewer {
@@ -35906,113 +36735,204 @@ declare module Stimulsoft.Viewer {
     import Color = Stimulsoft.System.Drawing.Color;
     import StiHtmlExportMode = Stimulsoft.Report.Export.StiHtmlExportMode;
     class StiAppearanceOptions {
+        /** Gets or sets the background color of the viewer. */
         backgroundColor: Color;
+        /** Gets or sets a color of the report page border. */
         pageBorderColor: Color;
+        /** Gets or sets a value which controls of output objects in the right to left mode. */
         rightToLeft: boolean;
+        /** Gets or sets a value which indicates which indicates that the viewer is displayed in full screen mode. */
         fullScreenMode: boolean;
+        /** Gets or sets a value which indicates that the viewer will show the report area with scrollbars. */
         scrollbarsMode: boolean;
+        /** Gets or sets a browser window to open links from the report. */
         openLinksWindow: string;
+        /** Gets or sets a browser window to open the exported report. */
         openExportedReportWindow: string;
+        /** Gets or sets a value which indicates that show or hide tooltips. */
         showTooltips: boolean;
+        /** Gets or sets a value which indicates that show or hide the help link in tooltips. */
         showTooltipsHelp: boolean;
+        /** Gets or sets the alignment of the viewer page. */
         pageAlignment: StiContentAlignment;
+        /** Gets or sets a value which indicates that the shadow of the page will be displayed in the viewer. */
         showPageShadow: boolean;
+        /** Gets or sets a value which allows printing report bookmarks. */
         bookmarksPrint: boolean;
+        /** Gets or sets a width of the bookmarks tree in the viewer. */
         bookmarksTreeWidth: number;
         parametersPanelPosition: StiParametersPanelPosition;
+        /** Gets or sets a max height of parameters panel in the viewer. */
         parametersPanelMaxHeight: number;
+        /** Gets or sets a count columns in parameters panel. */
         parametersPanelColumnsCount: number;
+        /** Gets or sets a date format for datetime parameters in parameters panel. The default is the client browser date format. */
         parametersPanelDateFormat: string;
+        /** Gets or sets the type of the viewer interface. */
         interfaceType: StiInterfaceType;
+        /** Gets or sets the type of the chart in the viewer. */
         chartRenderType: StiChartRenderType;
+        /** Gets or sets a method how the viewer will show a report. */
         reportDisplayMode: StiHtmlExportMode;
+        /** Gets or sets the first day of week in the date picker */
         datePickerFirstDayOfWeek: StiFirstDayOfWeek;
+        /** Gets or sets a value which allows touch zoom in the viewer. */
         allowTouchZoom: boolean;
+        /** Obsolete. Please use the reportDisplayMode property instead. Should be removed in 2018.3 version. */
         htmlRenderMode: StiHtmlExportMode;
     }
 }
 declare module Stimulsoft.Viewer {
     class StiEmailOptions {
+        /** Gets or sets a value which allows to display the Email dialog, or send Email with the default settings. */
         showEmailDialog: boolean;
+        /** Gets or sets a value which allows to display the export dialog for Email, or export report for Email with the default settings. */
         showExportDialog: boolean;
+        /** Gets or sets the default email address of the message created in the viewer. */
         defaultEmailAddress: string;
+        /** Gets or sets the default subject of the message created in the viewer. */
         defaultEmailSubject: string;
+        /** Gets or sets the default text of the message created in the viewer. */
         defaultEmailMessage: string;
     }
 }
 declare module Stimulsoft.Viewer {
     class StiExportsOptions {
+        /** Gets or sets a value which allows store the export settings in the cookies. */
         storeExportSettings: boolean;
+        /** Gets or sets a value which allows to display the export dialog, or to export with the default settings. */
         showExportDialog: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the report document file. */
         showExportToDocument: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the PDF format. */
         showExportToPdf: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the XPS format. */
         showExportToXps: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Power Point 2007-2010 format. */
         showExportToPowerPoint: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the HTML format. */
         showExportToHtml: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the HTML5 format. */
         showExportToHtml5: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the MHT (Web Archive) format. */
         showExportToMht: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the TEXT format. */
         showExportToText: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Rich Text format. */
         showExportToRtf: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Word 2007-2010 format. */
         showExportToWord2007: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Open Document Text format. */
         showExportToOpenDocumentWriter: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Excel BIFF format. */
         showExportToExcel: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Excel XML format. */
         showExportToExcelXml: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Excel 2007-2010 format. */
         showExportToExcel2007: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Open Document Calc format. */
         showExportToOpenDocumentCalc: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the CSV format. */
         showExportToCsv: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the DBF format. */
         showExportToDbf: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the XML format. */
         showExportToXml: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the DIF format. */
         showExportToDif: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Sylk format. */
         showExportToSylk: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the BMP image format. */
         showExportToImageBmp: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the GIF image format. */
         showExportToImageGif: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the JPEG image format. */
         showExportToImageJpeg: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the PCX image format. */
         showExportToImagePcx: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the PNG image format. */
         showExportToImagePng: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the TIFF image format. */
         showExportToImageTiff: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the Metafile image format. */
         showExportToImageMetafile: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the SVG image format. */
         showExportToImageSvg: boolean;
+        /** Gets or sets a value which indicates that the user can save the report from the viewer to the SVGZ image format. */
         showExportToImageSvgz: boolean;
     }
 }
 declare module Stimulsoft.Viewer {
     import Color = Stimulsoft.System.Drawing.Color;
     class StiToolbarOptions {
+        /** Gets or sets a value which indicates that toolbar will be shown in the viewer. */
         visible: boolean;
+        /** Gets or sets the display mode of the toolbar - simple or separated into upper and lower parts. */
         displayMode: StiToolbarDisplayMode;
+        /** Gets or sets a color of the toolbar background. The default value is the theme color. */
         backgroundColor: Color;
+        /** Gets or sets a color of the toolbar border. The default value is the theme color. */
         borderColor: Color;
+        /** Gets or sets a color of the toolbar texts. */
         fontColor: Color;
+        /** Gets or sets a value which indicates which font family will be used for drawing texts in the viewer. */
         fontFamily: string;
+        /** Gets or sets the alignment of the viewer toolbar. */
         alignment: StiContentAlignment;
+        /** Gets or sets a value which allows displaying or hiding toolbar buttons captions. */
         showButtonCaptions: boolean;
+        /** Gets or sets a visibility of the Print button in the toolbar of the viewer. */
         showPrintButton: boolean;
+        /** Gets or sets a visibility of the Open button in the toolbar of the viewer. */
         showOpenButton: boolean;
+        /** Gets or sets a visibility of the Save button in the toolbar of the viewer. */
         showSaveButton: boolean;
+        /** Gets or sets a visibility of the Send Email button in the toolbar of the viewer. */
         showSendEmailButton: boolean;
+        /** Gets or sets a visibility of the Find button in the toolbar of the viewer. */
         showFindButton: boolean;
+        /** Gets or sets a visibility of the Bookmarks button in the toolbar of the viewer. */
         showBookmarksButton: boolean;
+        /** Gets or sets a visibility of the Parameters button in the toolbar of the viewer. */
         showParametersButton: boolean;
+        /** Gets or sets a visibility of the Editor button in the toolbar of the viewer. */
         showEditorButton: boolean;
+        /** Gets or sets a visibility of the Full Screen button in the toolbar of the viewer. */
         showFullScreenButton: boolean;
+        /** Gets or sets a visibility of the First Page button in the toolbar of the viewer. */
         showFirstPageButton: boolean;
+        /** Gets or sets a visibility of the Prev Page button in the toolbar of the viewer. */
         showPreviousPageButton: boolean;
+        /** Gets or sets a visibility of the current page control in the toolbar of the viewer. */
         showCurrentPageControl: boolean;
+        /** Gets or sets a visibility of the Next Page button in the toolbar of the viewer. */
         showNextPageButton: boolean;
+        /** Gets or sets a visibility of the Last Page button in the toolbar of the viewer. */
         showLastPageButton: boolean;
+        /** Gets or sets a visibility of the Zoom control in the toolbar of the viewer. */
         showZoomButton: boolean;
+        /** Gets or sets a visibility of the View Mode button in the toolbar of the viewer. */
         showViewModeButton: boolean;
+        /** Gets or sets a visibility of the Design button in the toolbar of the viewer. */
         showDesignButton: boolean;
+        /** Gets or sets a visibility of the About button in the toolbar of the viewer. */
         showAboutButton: boolean;
+        /** Gets or sets a visibility of the Pin button in the toolbar of the viewer in mobile mode. */
         showPinToolbarButton: boolean;
+        /** Gets or sets the default mode of the report print destination. */
         printDestination: StiPrintDestination;
+        /** Gets or sets the mode of showing a report in the viewer - one page or the whole report. */
         viewMode: StiWebViewMode;
         multiPageWidthCount: number;
         multiPageHeightCount: number;
         private _zoom;
+        /** Gets or sets the report showing zoom. The default value is 100. */
         zoom: number;
+        /** Gets or sets a value which indicates that menu animation is enabled. */
         menuAnimation: boolean;
+        /** Gets or sets the mode that shows menu of the viewer. */
         showMenuMode: StiShowMenuMode;
+        /** Gets or sets a value which allows automatically hide the viewer toolbar in mobile mode. */
         autoHide: boolean;
     }
 }
@@ -36152,11 +37072,17 @@ declare module Stimulsoft.Viewer {
 }
 declare module Stimulsoft.Viewer {
     class StiViewerOptions {
+        /** A class which controls settings of the viewer appearance. */
         appearance: StiAppearanceOptions;
+        /** A class which controls settings of the viewer toolbar. */
         toolbar: StiToolbarOptions;
+        /** A class which controls the export options. */
         exports: StiExportsOptions;
+        /** A class which controls the export options. */
         email: StiEmailOptions;
+        /** Gets or sets the width of the viewer. */
         width: string;
+        /** Gets or sets the height of the viewer. */
         height: string;
         viewerId: string;
         reportDesignerMode: boolean;
@@ -37243,95 +38169,164 @@ declare module Stimulsoft.Report.Check {
 declare module Stimulsoft.Designer {
     import StiReportUnitType = Stimulsoft.Report.StiReportUnitType;
     class StiAppearanceOptions {
+        /** Gets or sets a default value of unit in the designer. */
         defaultUnit: StiReportUnitType;
+        /** Gets or sets the type of the designer interface. */
         interfaceType: StiInterfaceType;
+        /** Gets or sets a value which indicates that animation is enabled. */
         showAnimation: boolean;
+        /** Gets or sets a visibility of the save dialog of the designer. */
         showSaveDialog: boolean;
+        /** Gets or sets a value which indicates that show or hide tooltips. */
         showTooltips: boolean;
+        /** Gets or sets a value which indicates that show or hide tooltips help icon. */
         showTooltipsHelp: boolean;
+        /** Gets or sets a value which indicates which indicates that the designer is displayed in full screen mode. */
         fullScreenMode: boolean;
+        /** Gets or sets a visibility of the localization control of the designer. */
         private _showLocalization;
         showLocalization: boolean;
+        /** Allow the designer to change the window title. */
         allowChangeWindowTitle: boolean;
+        /** Gets or sets a visibility of the properties grid in the designer. */
         showPropertiesGrid: boolean;
+        /** Gets or sets a visibility of the report tree in the designer. */
         showReportTree: boolean;
     }
 }
 declare module Stimulsoft.Designer {
     class StiBandsOptions {
+        /** Gets or sets a visibility of the ReportTitleBand item in the bands menu of the designer. */
         showReportTitleBand: boolean;
+        /** Gets or sets a visibility of the ReportSummaryBand item in the bands menu of the designer. */
         showReportSummaryBand: boolean;
+        /** Gets or sets a visibility of the PageHeaderBand item in the bands menu of the designer. */
         showPageHeaderBand: boolean;
+        /** Gets or sets a visibility of the PageFooterBand item in the bands menu of the designer. */
         showPageFooterBand: boolean;
+        /** Gets or sets a visibility of the GroupHeaderBand item in the bands menu of the designer. */
         showGroupHeaderBand: boolean;
+        /** Gets or sets a visibility of the GroupFooterBand item in the bands menu of the designer. */
         showGroupFooterBand: boolean;
+        /** Gets or sets a visibility of the HeaderBand item in the bands menu of the designer. */
         showHeaderBand: boolean;
+        /** Gets or sets a visibility of the FooterBand item in the bands menu of the designer. */
         showFooterBand: boolean;
+        /** Gets or sets a visibility of the ColumnHeaderBand item in the bands menu of the designer. */
         showColumnHeaderBand: boolean;
+        /** Gets or sets a visibility of the ColumnFooterBand item in the bands menu of the designer. */
         showColumnFooterBand: boolean;
+        /** Gets or sets a visibility of the DataBand item in the bands menu of the designer. */
         showDataBand: boolean;
+        /** Gets or sets a visibility of the HierarchicalBand item in the bands menu of the designer. */
         showHierarchicalBand: boolean;
+        /** Gets or sets a visibility of the ChildBand item in the bands menu of the designer. */
         showChildBand: boolean;
+        /** Gets or sets a visibility of the EmptyBand item in the bands menu of the designer. */
         showEmptyBand: boolean;
+        /** Gets or sets a visibility of the OverlayBand item in the bands menu of the designer. */
         showOverlayBand: boolean;
+        /** Gets or sets a visibility of the Table item in the bands menu of the designer. */
         showTable: boolean;
     }
 }
 declare module Stimulsoft.Designer {
     class StiComponentsOptions {
+        /** Gets or sets a visibility of the Text item in the components menu of the designer. */
         showText: boolean;
+        /** Gets or sets a visibility of the TextInCells item in the components menu of the designer. */
         showTextInCells: boolean;
+        /** Gets or sets a visibility of the RichText item in the components menu of the designer. */
         showRichText: boolean;
+        /** Gets or sets a visibility of the Image item in the components menu of the designer. */
         showImage: boolean;
+        /** Gets or sets a visibility of the BarCode item in the components menu of the designer. */
         showBarCode: boolean;
+        /** Gets or sets a visibility of the Shape item in the components menu of the designer. */
         showShape: boolean;
+        /** Gets or sets a visibility of the Panel item in the components menu of the designer. */
         showPanel: boolean;
+        /** Gets or sets a visibility of the Clone item in the components menu of the designer. */
         showClone: boolean;
+        /** Gets or sets a visibility of the CheckBox item in the components menu of the designer. */
         showCheckBox: boolean;
+        /** Gets or sets a visibility of the SubReport item in the components menu of the designer. */
         showSubReport: boolean;
+        /** Gets or sets a visibility of the ZipCode item in the components menu of the designer. */
         showZipCode: boolean;
+        /** Gets or sets a visibility of the Chart item in the components menu of the designer. */
         showChart: boolean;
     }
 }
 declare module Stimulsoft.Designer {
     class StiCrossBandsOptions {
+        /** Gets or sets a visibility of the CrossTab item in the crossbands menu of the designer. */
         showCrossTab: boolean;
+        /** Gets or sets a visibility of the CrossGroupHeaderBand item in the crossbands menu of the designer. */
         showCrossGroupHeaderBand: boolean;
+        /** Gets or sets a visibility of the CrossGroupFooterBand item in the crossbands menu of the designer. */
         showCrossGroupFooterBand: boolean;
+        /** Gets or sets a visibility of the CrossHeaderBand item in the crossbands menu of the designer. */
         showCrossHeaderBand: boolean;
+        /** Gets or sets a visibility of the CrossFooterBand item in the crossbands menu of the designer. */
         showCrossFooterBand: boolean;
+        /** Gets or sets a visibility of the CrossDataBand item in the crossbands menu of the designer. */
         showCrossDataBand: boolean;
     }
 }
 declare module Stimulsoft.Designer {
     class StiDictionaryOptions {
+        /** Gets or sets a visibility of the other category in the new connection form. */
         showAdaptersInNewConnectionForm: boolean;
+        /** Gets or sets a visibility of the dictionary in the designer. */
         showDictionary: boolean;
+        /** Gets or sets a value of permissions for datasources in the designer. */
         dataSourcesPermissions: StiDesignerPermissions;
+        /** Gets or sets a value of connections for datasources in the designer. */
         dataConnectionsPermissions: StiDesignerPermissions;
+        /** Gets or sets a value of connections for columns in the designer. */
         dataColumnsPermissions: StiDesignerPermissions;
+        /** Gets or sets a value of connections for relations in the designer. */
         dataRelationsPermissions: StiDesignerPermissions;
+        /** Gets or sets a value of connections for business objects in the designer. */
         businessObjectsPermissions: StiDesignerPermissions;
+        /** Gets or sets a value of connections for variables in the designer. */
         variablesPermissions: StiDesignerPermissions;
+        /** Gets or sets a value of connections for resources in the designer. */
         resourcesPermissions: StiDesignerPermissions;
     }
 }
 declare module Stimulsoft.Designer {
     class StiToolbarOptions {
+        /** Gets or sets a visibility of the preview button in the toolbar of the designer. */
         showPreviewButton: boolean;
+        /** Gets or sets a visibility of the save button in the toolbar of the designer. */
         showSaveButton: boolean;
+        /** Gets or sets a visibility of the about button in the toolbar of the designer. */
         showAboutButton: boolean;
+        /** Gets or sets a visibility of the publish button in the toolbar of the designer. */
         showPublishButton: boolean;
+        /** Gets or sets a visibility of the file menu of the designer. */
         showFileMenu: boolean;
+        /** Gets or sets a visibility of the item New in the file menu. */
         showFileMenuNew: boolean;
+        /** Gets or sets a visibility of the item Open in the file menu. */
         showFileMenuOpen: boolean;
+        /** Gets or sets a visibility of the item Save in the file menu. */
         showFileMenuSave: boolean;
+        /** Gets or sets a visibility of the item Save As in the file menu. */
         showFileMenuSaveAs: boolean;
+        /** Gets or sets a visibility of the item Close in the file menu. */
         showFileMenuClose: boolean;
+        /** Gets or sets a visibility of the item Exit in the file menu. */
         showFileMenuExit: boolean;
+        /** Gets or sets a visibility of the item Report Setup in the file menu. */
         showFileMenuReportSetup: boolean;
+        /** Gets or sets a visibility of the item Options in the file menu. */
         showFileMenuOptions: boolean;
+        /** Gets or sets a visibility of the item Info in the file menu. */
         showFileMenuInfo: boolean;
+        /** Gets or sets a visibility of the item About in the file menu. */
         showFileMenuAbout: boolean;
         showSetupToolboxButton: boolean;
     }
@@ -37368,6 +38363,7 @@ declare module Stimulsoft.Designer {
     import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import StiSubReport = Stimulsoft.Report.Components.StiSubReport;
+    import StiShape = Stimulsoft.Report.Components.StiShape;
     import StiRichText = Stimulsoft.Report.Components.StiRichText;
     import Font = Stimulsoft.System.Drawing.Font;
     import StiImage = Stimulsoft.Report.Components.StiImage;
@@ -37450,10 +38446,11 @@ declare module Stimulsoft.Designer {
         static getCrossTabFieldsProperties(crossTab: StiCrossTab): any[];
         static getEventsProperty(object_: any): any;
         static getSubReportParametersProperty(subReport: StiSubReport): any[];
+        static getShapeTypeProperty(component: StiShape): string;
         static setAllProperties(component: StiComponent, props: any[]): void;
         static setSubReportPageProperty(component: Object, propertyValue: any): void;
         static setContainerProperty(component: StiComponent, propertyValue: string): void;
-        static setShapeTypeProperty(component: StiComponent, propertyValue: string): void;
+        static setShapeTypeProperty(component: StiComponent, shapeType: string): void;
         static setBarCodeTypeProperty(component: StiComponent, propValue: string): void;
         static setMarginsProperty(component: StiComponent, propertyValue: string): void;
         static setTextProperty(component: StiComponent, propertyValue: string): void;
@@ -37789,6 +38786,7 @@ declare module Stimulsoft.Designer {
         static deleteAllDataSources(report: StiReport, param: any, callbackResult: any): void;
         static getVariableItemsFromDataColumn(report: StiReport, param: any, callbackResult: any): Promise<void>;
         static moveDictionaryItem(report: StiReport, param: any, callbackResult: any): void;
+        static moveConnectionDataToResource(report: StiReport, param: any, callbackResult: any): void;
     }
 }
 declare module Stimulsoft.Designer {
@@ -37909,6 +38907,12 @@ declare module Stimulsoft.Designer {
         static getResourceText(report: StiReport, param: any, callbackResult: any): void;
         static setResourceText(report: StiReport, param: any, callbackResult: any): void;
         static getResourceViewData(report: StiReport, param: any, callbackResult: any): void;
+    }
+}
+declare module Stimulsoft.Designer {
+    import StiReport = Stimulsoft.Report.StiReport;
+    class StiShapeHelper {
+        static getShapeSampleImage(report: StiReport, param: any, callbackResult: any): void;
     }
 }
 declare module Stimulsoft.Designer {
@@ -38177,12 +39181,19 @@ declare module Stimulsoft.Designer {
         VariableRangeString = 154,
     }
     enum StiDesignerPermissions {
+        /** Deny all. */
         None = 0,
+        /** Allows to create an item. */
         Create = 1,
+        /** Allows to delete an item. */
         Delete = 2,
+        /** Allows to modify an item. */
         Modify = 4,
+        /** Allows to view an item. */
         View = 8,
+        /** Allows modify and view an item. */
         ModifyView = 12,
+        /** Allow any action with an item. */
         All = 15,
     }
     enum StiInterfaceType {
@@ -38291,13 +39302,21 @@ declare module Stimulsoft.Designer {
 declare module Stimulsoft.Designer {
     import StiViewerOptions = Stimulsoft.Viewer.StiViewerOptions;
     class StiDesignerOptions {
+        /** A class which controls settings of the designer appearance. */
         appearance: StiAppearanceOptions;
+        /** A class which controls settings of the designer toolbar. */
         toolbar: StiToolbarOptions;
+        /** A class which controls settings of the bands. */
         bands: StiBandsOptions;
+        /** A class which controls settings of the cross-bands. */
         crossBands: StiCrossBandsOptions;
+        /** A class which controls settings of the components. */
         components: StiComponentsOptions;
+        /** A class which controls settings of the dictionary. */
         dictionary: StiDictionaryOptions;
+        /** Gets or sets the width of the designer. */
         width: string;
+        /** Gets or sets the height of the designer. */
         height: string;
         viewerOptions: StiViewerOptions;
         mobileDesignerId: string;

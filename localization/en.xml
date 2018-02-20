@@ -2010,6 +2010,7 @@
   </MainMenu>
   <Map>
     <GroupAsia>Asia</GroupAsia>
+    <GroupAfrica>Africa</GroupAfrica>
     <GroupEurope>Europe</GroupEurope>
     <GroupNorthAmerica>North America</GroupNorthAmerica>
     <GroupOceania>Oceania</GroupOceania>
@@ -2703,6 +2704,21 @@
     <StiLegendVertAlignmentTop>Top</StiLegendVertAlignmentTop>
     <StiLegendVertAlignmentTopOutside>Top Outside</StiLegendVertAlignmentTopOutside>
     <StiMapIDAustralia>Australia</StiMapIDAustralia>
+    <StiMapIDIndonesia>Indonesia</StiMapIDIndonesia>
+    <StiMapIDNewZealand>New Zealand</StiMapIDNewZealand>
+    <StiMapIDArmenia>Armenia</StiMapIDArmenia>
+    <StiMapIDAzerbaijan>Azerbaijan</StiMapIDAzerbaijan>
+    <StiMapIDCyprus>Cyprus</StiMapIDCyprus>
+    <StiMapIDIndia>India</StiMapIDIndia>
+    <StiMapIDIsrael>Israel</StiMapIDIsrael>
+    <StiMapIDJapan>Japan</StiMapIDJapan>
+    <StiMapIDKazakhstan>Kazakhstan</StiMapIDKazakhstan>
+    <StiMapIDMalaysia>Malaysia</StiMapIDMalaysia>
+    <StiMapIDPhilippines>Philippines</StiMapIDPhilippines>
+    <StiMapIDSaudiArabia>Saudi Arabia</StiMapIDSaudiArabia>
+    <StiMapIDSouthKorea>South Korea</StiMapIDSouthKorea>
+    <StiMapIDThailand>Thailand</StiMapIDThailand>
+    <StiMapIDVietnam>Vietnam</StiMapIDVietnam>
     <StiMapIDAustria>Austria</StiMapIDAustria>
     <StiMapIDBrazil>Brazil</StiMapIDBrazil>
     <StiMapIDCanada>Canada</StiMapIDCanada>
@@ -2717,6 +2733,59 @@
     <StiMapIDUK>UK</StiMapIDUK>
     <StiMapIDUSA>USA</StiMapIDUSA>
     <StiMapIDWorld>World</StiMapIDWorld>
+    <StiMapIDSouthAfrica>South Africa</StiMapIDSouthAfrica>
+    <StiMapIDMexico>Mexico</StiMapIDMexico>
+    <StiMapIDArgentina>Argentina</StiMapIDArgentina>
+    <StiMapIDBolivia>Bolivia</StiMapIDBolivia>
+    <StiMapIDChile>Chile</StiMapIDChile>
+    <StiMapIDColombia>Colombia</StiMapIDColombia>
+    <StiMapIDEcuador>Ecuador</StiMapIDEcuador>
+    <StiMapIDFalklandIslands>Falkland Islands</StiMapIDFalklandIslands>
+    <StiMapIDGuyana>Guyana</StiMapIDGuyana>
+    <StiMapIDParaguay>Paraguay</StiMapIDParaguay>
+    <StiMapIDPeru>Peru</StiMapIDPeru>
+    <StiMapIDSuriname>Suriname</StiMapIDSuriname>
+    <StiMapIDUruguay>Uruguay</StiMapIDUruguay>
+    <StiMapIDVenezuela>Venezuela</StiMapIDVenezuela>
+    <StiMapIDAlbania>Albania</StiMapIDAlbania>
+    <StiMapIDAndorra>Andorra</StiMapIDAndorra>
+    <StiMapIDBelarus>Belarus</StiMapIDBelarus>
+    <StiMapIDBelgium>Belgium</StiMapIDBelgium>
+    <StiMapIDEstonia>Estonia</StiMapIDEstonia>
+    <StiMapIDFinland>Finland</StiMapIDFinland>
+    <StiMapIDGeorgia>Georgia</StiMapIDGeorgia>
+    <StiMapIDBosniaAndHerzegovina>Bosnia and Herzegovina</StiMapIDBosniaAndHerzegovina>
+    <StiMapIDBulgaria>Bulgaria</StiMapIDBulgaria>
+    <StiMapIDCroatia>Croatia</StiMapIDCroatia>
+    <StiMapIDCzechRepublic>Czech Republic</StiMapIDCzechRepublic>
+    <StiMapIDDenmark>Denmark</StiMapIDDenmark>
+    <StiMapIDGreece>Greece</StiMapIDGreece>
+    <StiMapIDHungary>Hungary</StiMapIDHungary>
+    <StiMapIDIceland>Iceland</StiMapIDIceland>
+    <StiMapIDIreland>Ireland</StiMapIDIreland>
+    <StiMapIDLatvia>Latvia</StiMapIDLatvia>
+    <StiMapIDLiechtenstein>Liechtenstein</StiMapIDLiechtenstein>
+    <StiMapIDLithuania>Lithuania</StiMapIDLithuania>
+    <StiMapIDLuxembourg>Luxembourg</StiMapIDLuxembourg>
+    <StiMapIDMacedonia>Macedonia</StiMapIDMacedonia>
+    <StiMapIDMalta>Malta</StiMapIDMalta>
+    <StiMapIDMoldova>Moldova</StiMapIDMoldova>
+    <StiMapIDMonaco>Monaco</StiMapIDMonaco>
+    <StiMapIDMontenegro>Montenegro</StiMapIDMontenegro>
+    <StiMapIDNorway>Norway</StiMapIDNorway>
+    <StiMapIDPoland>Poland</StiMapIDPoland>
+    <StiMapIDPortugal>Portugal</StiMapIDPortugal>
+    <StiMapIDRomania>Romania</StiMapIDRomania>
+    <StiMapIDSanMarino>San Marino</StiMapIDSanMarino>
+    <StiMapIDSerbia>Serbia</StiMapIDSerbia>
+    <StiMapIDSlovakia>Slovakia</StiMapIDSlovakia>
+    <StiMapIDSlovenia>Slovenia</StiMapIDSlovenia>
+    <StiMapIDSpain>Spain</StiMapIDSpain>
+    <StiMapIDSweden>Sweden</StiMapIDSweden>
+    <StiMapIDSwitzerland>Switzerland</StiMapIDSwitzerland>
+    <StiMapIDTurkey>Turkey</StiMapIDTurkey>
+    <StiMapIDUkraine>Ukraine</StiMapIDUkraine>
+    <StiMapIDVatican>Vatican</StiMapIDVatican>
     <StiMapTypeGroup>Group</StiMapTypeGroup>
     <StiMapTypeHeatmap>Heatmap</StiMapTypeHeatmap>
     <StiMapTypeHeatmapWithGroup>Heatmap With Group</StiMapTypeHeatmapWithGroup>

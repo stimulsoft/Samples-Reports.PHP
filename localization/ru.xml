@@ -2024,6 +2024,7 @@
   </MainMenu>
   <Map>
     <GroupAsia>Азия</GroupAsia>
+    <GroupAfrica>Африка</GroupAfrica>
     <GroupEurope>Европа</GroupEurope>
     <GroupNorthAmerica>Северная Америка</GroupNorthAmerica>
     <GroupOceania>Океания</GroupOceania>
@@ -2749,6 +2750,21 @@
     <StiLegendVertAlignmentTop>Сверху</StiLegendVertAlignmentTop>
     <StiLegendVertAlignmentTopOutside>Сверху за пределами</StiLegendVertAlignmentTopOutside>
     <StiMapIDAustralia>Австралия</StiMapIDAustralia>
+    <StiMapIDIndonesia>Индонезия</StiMapIDIndonesia>
+    <StiMapIDNewZealand>Новая Зеландия</StiMapIDNewZealand>
+    <StiMapIDArmenia>Армения</StiMapIDArmenia>
+    <StiMapIDAzerbaijan>Азербайджан</StiMapIDAzerbaijan>
+    <StiMapIDCyprus>Кипр</StiMapIDCyprus>
+    <StiMapIDIndia>Индия</StiMapIDIndia>
+    <StiMapIDIsrael>Израиль</StiMapIDIsrael>
+    <StiMapIDJapan>Япония</StiMapIDJapan>
+    <StiMapIDKazakhstan>Казахстан</StiMapIDKazakhstan>
+    <StiMapIDMalaysia>Малайзия</StiMapIDMalaysia>
+    <StiMapIDPhilippines>Филиппины</StiMapIDPhilippines>
+    <StiMapIDSaudiArabia>Саудовская Аравия</StiMapIDSaudiArabia>
+    <StiMapIDSouthKorea>Южная Корея</StiMapIDSouthKorea>
+    <StiMapIDThailand>Таиланд</StiMapIDThailand>
+    <StiMapIDVietnam>Вьетнам</StiMapIDVietnam>
     <StiMapIDAustria>Австрия</StiMapIDAustria>
     <StiMapIDBrazil>Бразилия</StiMapIDBrazil>
     <StiMapIDCanada>Канада</StiMapIDCanada>
@@ -2763,6 +2779,59 @@
     <StiMapIDUK>Великобритания</StiMapIDUK>
     <StiMapIDUSA>США</StiMapIDUSA>
     <StiMapIDWorld>Мир</StiMapIDWorld>
+    <StiMapIDSouthAfrica>Южная Африка</StiMapIDSouthAfrica>
+    <StiMapIDMexico>Мексика</StiMapIDMexico>
+    <StiMapIDArgentina>Аргентина</StiMapIDArgentina>
+    <StiMapIDBolivia>Боливия</StiMapIDBolivia>
+    <StiMapIDChile>Чили</StiMapIDChile>
+    <StiMapIDColombia>Колумбия</StiMapIDColombia>
+    <StiMapIDEcuador>Эквадор</StiMapIDEcuador>
+    <StiMapIDFalklandIslands>Фолклендские острова</StiMapIDFalklandIslands>
+    <StiMapIDGuyana>Гайана</StiMapIDGuyana>
+    <StiMapIDParaguay>Парагвай</StiMapIDParaguay>
+    <StiMapIDPeru>Перу</StiMapIDPeru>
+    <StiMapIDSuriname>Суринам</StiMapIDSuriname>
+    <StiMapIDUruguay>Уругвай</StiMapIDUruguay>
+    <StiMapIDVenezuela>Венесуэла</StiMapIDVenezuela>
+    <StiMapIDAlbania>Албания</StiMapIDAlbania>
+    <StiMapIDAndorra>Андорра</StiMapIDAndorra>
+    <StiMapIDBelarus>Беларусь</StiMapIDBelarus>
+    <StiMapIDBelgium>Бельгия</StiMapIDBelgium>
+    <StiMapIDEstonia>Эстония</StiMapIDEstonia>
+    <StiMapIDFinland>Финляндия</StiMapIDFinland>
+    <StiMapIDGeorgia>Грузия</StiMapIDGeorgia>
+    <StiMapIDBosniaAndHerzegovina>Босния и Герцеговина</StiMapIDBosniaAndHerzegovina>
+    <StiMapIDBulgaria>Болгария</StiMapIDBulgaria>
+    <StiMapIDCroatia>Хорватия</StiMapIDCroatia>
+    <StiMapIDCzechRepublic>Чешская Республика</StiMapIDCzechRepublic>
+    <StiMapIDDenmark>Дания</StiMapIDDenmark>
+    <StiMapIDGreece>Греция</StiMapIDGreece>
+    <StiMapIDHungary>Венгрия</StiMapIDHungary>
+    <StiMapIDIceland>Исландия</StiMapIDIceland>
+    <StiMapIDIreland>Ирландия</StiMapIDIreland>
+    <StiMapIDLatvia>Латвия</StiMapIDLatvia>
+    <StiMapIDLiechtenstein>Лихтенштейн</StiMapIDLiechtenstein>
+    <StiMapIDLithuania>Литва</StiMapIDLithuania>
+    <StiMapIDLuxembourg>Люксембург</StiMapIDLuxembourg>
+    <StiMapIDMacedonia>Македония</StiMapIDMacedonia>
+    <StiMapIDMalta>Мальта</StiMapIDMalta>
+    <StiMapIDMoldova>Молдова</StiMapIDMoldova>
+    <StiMapIDMonaco>Монако</StiMapIDMonaco>
+    <StiMapIDMontenegro>Черногория</StiMapIDMontenegro>
+    <StiMapIDNorway>Норвегия</StiMapIDNorway>
+    <StiMapIDPoland>Польша</StiMapIDPoland>
+    <StiMapIDPortugal>Португалия</StiMapIDPortugal>
+    <StiMapIDRomania>Румыния</StiMapIDRomania>
+    <StiMapIDSanMarino>Сан-Марино</StiMapIDSanMarino>
+    <StiMapIDSerbia>Сербия</StiMapIDSerbia>
+    <StiMapIDSlovakia>Словакия</StiMapIDSlovakia>
+    <StiMapIDSlovenia>Словения</StiMapIDSlovenia>
+    <StiMapIDSpain>Испания</StiMapIDSpain>
+    <StiMapIDSweden>Швеция</StiMapIDSweden>
+    <StiMapIDSwitzerland>Швейцария</StiMapIDSwitzerland>
+    <StiMapIDTurkey>Турция</StiMapIDTurkey>
+    <StiMapIDUkraine>Украина</StiMapIDUkraine>
+    <StiMapIDVatican>Ватикан</StiMapIDVatican>
     <StiMapModeChoropleth>Картограмма</StiMapModeChoropleth>
     <StiMapModeOnline>Онлайн</StiMapModeOnline>
     <StiMapTypeGroup>Группа</StiMapTypeGroup>
