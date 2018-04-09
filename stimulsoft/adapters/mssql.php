@@ -105,8 +105,7 @@ class StiMsSqlAdapter {
 			case -5:
 			case 4:
 			case 5:
-				//return 'int';
-				return 'number';
+				return 'int';
 			
 			// number (decimal)
 			case 2:

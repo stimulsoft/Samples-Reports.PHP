@@ -96,6 +96,7 @@
     <Cancel>&amp;Cancel</Cancel>
     <Check>Check</Check>
     <Close>Close</Close>
+    <ForceDelete>Force Delete</ForceDelete>
     <Delete>Delete</Delete>
     <Design>Design</Design>
     <Down>Down</Down>
@@ -348,7 +349,7 @@
     <ButtonSignUp>Sign Up</ButtonSignUp>
     <ButtonSkip>Skip</ButtonSkip>
     <ButtonView>View</ButtonView>
-    <ButtonWhereUsed>Where it is used?</ButtonWhereUsed>
+    <ButtonWhereUsed>Where is it used?</ButtonWhereUsed>
     <Cancel>Cancel</Cancel>
     <CheckBoxMoveToRecycleBin>Move to Recycle Bin</CheckBoxMoveToRecycleBin>
     <CheckBoxRememberMe>Remember Me</CheckBoxRememberMe>
@@ -391,6 +392,8 @@
     <LabelNextTime>Next Time:</LabelNextTime>
     <labelPassword>Password:</labelPassword>
     <LabelPermission>Permission:</LabelPermission>
+    <LabelEndDate>End Date:</LabelEndDate>
+    <LabelResultType>Result Type:</LabelResultType>
     <LabelPicture>Picture:</LabelPicture>
     <LabelRenderedReport>Rendered report</LabelRenderedReport>
     <LabelResponseAsFile>Response as File</LabelResponseAsFile>
@@ -430,6 +433,7 @@
     <Save>Save</Save>
     <SaveAccountSettings>Save Account Settings</SaveAccountSettings>
     <SaveFile>Save File</SaveFile>
+	<SaveAsType>Save as type</SaveAsType>
     <ShareWindowTitleNew>Share</ShareWindowTitleNew>
     <ShowAllFiles>Show All Files</ShowAllFiles>
     <Subscriptions>Subscriptions</Subscriptions>
@@ -1853,6 +1857,7 @@
     <PagePrevious>Go to the previous report page.</PagePrevious>
     <PageSize>Change the page parameters in a report.</PageSize>
     <Parameters>Showing parameters panel which is used when report rendering.</Parameters>
+    <Resources>Showing resources panel</Resources>
     <PdfACompliance>Support for the standard of the long-term archiving and storing of electronic documents.</PdfACompliance>
     <Print>Print a report.</Print>
     <PutFeedPageCode>Feed pages in the final document with a special character.</PutFeedPageCode>
@@ -2009,13 +2014,6 @@
     <menuViewToolbars>Toolbars</menuViewToolbars>
   </MainMenu>
   <Map>
-    <GroupAsia>Asia</GroupAsia>
-    <GroupAfrica>Africa</GroupAfrica>
-    <GroupEurope>Europe</GroupEurope>
-    <GroupNorthAmerica>North America</GroupNorthAmerica>
-    <GroupOceania>Oceania</GroupOceania>
-    <GroupSouthAmerica>South America</GroupSouthAmerica>
-    <GroupWorld>World</GroupWorld>
     <LinkDataForm>Link Data</LinkDataForm>
     <MapEditorForm>Map Editor</MapEditorForm>
   </Map>
@@ -2029,6 +2027,11 @@
     </TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>This Field is Not Specified!</ThisFieldIsNotSpecified>
     <DoNotShowAgain>Do not show again</DoNotShowAgain>
+    <ShareURLOfTheItemHasBeenUpdated>The share URL of the item has been updated!</ShareURLOfTheItemHasBeenUpdated>
+    <ShareYourReportYouShouldSave>To share your report you should save the report to Stimulsoft Cloud!</ShareYourReportYouShouldSave>
+    <RenderingWillOccurInTheInterpretationMode>When viewing the shared report, the rendering will occur in the interpretation mode!</RenderingWillOccurInTheInterpretationMode>
+    <ResourceCannotBeDeleted>The resource "{0}" cannot be deleted, because it is used in the report!</ResourceCannotBeDeleted>
+	<ChangeRequestTimeout>The request timeout for SQL queries exceeds the request timeout of the report designer. Set the request timeout for the designer component in no less than {0} seconds.</ChangeRequestTimeout>
   </Messages>
   <Notices>
     <NewVersionsAvailable>New version available!</NewVersionsAvailable>
@@ -2703,93 +2706,11 @@
     <StiLegendVertAlignmentCenter>Center</StiLegendVertAlignmentCenter>
     <StiLegendVertAlignmentTop>Top</StiLegendVertAlignmentTop>
     <StiLegendVertAlignmentTopOutside>Top Outside</StiLegendVertAlignmentTopOutside>
-    <StiMapIDAustralia>Australia</StiMapIDAustralia>
-    <StiMapIDIndonesia>Indonesia</StiMapIDIndonesia>
-    <StiMapIDNewZealand>New Zealand</StiMapIDNewZealand>
-    <StiMapIDArmenia>Armenia</StiMapIDArmenia>
-    <StiMapIDAzerbaijan>Azerbaijan</StiMapIDAzerbaijan>
-    <StiMapIDCyprus>Cyprus</StiMapIDCyprus>
-    <StiMapIDIndia>India</StiMapIDIndia>
-    <StiMapIDIsrael>Israel</StiMapIDIsrael>
-    <StiMapIDJapan>Japan</StiMapIDJapan>
-    <StiMapIDKazakhstan>Kazakhstan</StiMapIDKazakhstan>
-    <StiMapIDMalaysia>Malaysia</StiMapIDMalaysia>
-    <StiMapIDPhilippines>Philippines</StiMapIDPhilippines>
-    <StiMapIDSaudiArabia>Saudi Arabia</StiMapIDSaudiArabia>
-    <StiMapIDSouthKorea>South Korea</StiMapIDSouthKorea>
-    <StiMapIDThailand>Thailand</StiMapIDThailand>
-    <StiMapIDVietnam>Vietnam</StiMapIDVietnam>
-    <StiMapIDAustria>Austria</StiMapIDAustria>
-    <StiMapIDBrazil>Brazil</StiMapIDBrazil>
-    <StiMapIDCanada>Canada</StiMapIDCanada>
-    <StiMapIDChina>China</StiMapIDChina>
-    <StiMapIDEU>EU</StiMapIDEU>
-    <StiMapIDEurope>Europe</StiMapIDEurope>
-    <StiMapIDFrance>France</StiMapIDFrance>
-    <StiMapIDGermany>Germany</StiMapIDGermany>
-    <StiMapIDItaly>Italy</StiMapIDItaly>
-    <StiMapIDNetherlands>Netherlands</StiMapIDNetherlands>
-    <StiMapIDRussia>Russia</StiMapIDRussia>
-    <StiMapIDUK>UK</StiMapIDUK>
-    <StiMapIDUSA>USA</StiMapIDUSA>
-    <StiMapIDWorld>World</StiMapIDWorld>
-    <StiMapIDSouthAfrica>South Africa</StiMapIDSouthAfrica>
-    <StiMapIDMexico>Mexico</StiMapIDMexico>
-    <StiMapIDArgentina>Argentina</StiMapIDArgentina>
-    <StiMapIDBolivia>Bolivia</StiMapIDBolivia>
-    <StiMapIDChile>Chile</StiMapIDChile>
-    <StiMapIDColombia>Colombia</StiMapIDColombia>
-    <StiMapIDEcuador>Ecuador</StiMapIDEcuador>
-    <StiMapIDFalklandIslands>Falkland Islands</StiMapIDFalklandIslands>
-    <StiMapIDGuyana>Guyana</StiMapIDGuyana>
-    <StiMapIDParaguay>Paraguay</StiMapIDParaguay>
-    <StiMapIDPeru>Peru</StiMapIDPeru>
-    <StiMapIDSuriname>Suriname</StiMapIDSuriname>
-    <StiMapIDUruguay>Uruguay</StiMapIDUruguay>
-    <StiMapIDVenezuela>Venezuela</StiMapIDVenezuela>
-    <StiMapIDAlbania>Albania</StiMapIDAlbania>
-    <StiMapIDAndorra>Andorra</StiMapIDAndorra>
-    <StiMapIDBelarus>Belarus</StiMapIDBelarus>
-    <StiMapIDBelgium>Belgium</StiMapIDBelgium>
-    <StiMapIDEstonia>Estonia</StiMapIDEstonia>
-    <StiMapIDFinland>Finland</StiMapIDFinland>
-    <StiMapIDGeorgia>Georgia</StiMapIDGeorgia>
-    <StiMapIDBosniaAndHerzegovina>Bosnia and Herzegovina</StiMapIDBosniaAndHerzegovina>
-    <StiMapIDBulgaria>Bulgaria</StiMapIDBulgaria>
-    <StiMapIDCroatia>Croatia</StiMapIDCroatia>
-    <StiMapIDCzechRepublic>Czech Republic</StiMapIDCzechRepublic>
-    <StiMapIDDenmark>Denmark</StiMapIDDenmark>
-    <StiMapIDGreece>Greece</StiMapIDGreece>
-    <StiMapIDHungary>Hungary</StiMapIDHungary>
-    <StiMapIDIceland>Iceland</StiMapIDIceland>
-    <StiMapIDIreland>Ireland</StiMapIDIreland>
-    <StiMapIDLatvia>Latvia</StiMapIDLatvia>
-    <StiMapIDLiechtenstein>Liechtenstein</StiMapIDLiechtenstein>
-    <StiMapIDLithuania>Lithuania</StiMapIDLithuania>
-    <StiMapIDLuxembourg>Luxembourg</StiMapIDLuxembourg>
-    <StiMapIDMacedonia>Macedonia</StiMapIDMacedonia>
-    <StiMapIDMalta>Malta</StiMapIDMalta>
-    <StiMapIDMoldova>Moldova</StiMapIDMoldova>
-    <StiMapIDMonaco>Monaco</StiMapIDMonaco>
-    <StiMapIDMontenegro>Montenegro</StiMapIDMontenegro>
-    <StiMapIDNorway>Norway</StiMapIDNorway>
-    <StiMapIDPoland>Poland</StiMapIDPoland>
-    <StiMapIDPortugal>Portugal</StiMapIDPortugal>
-    <StiMapIDRomania>Romania</StiMapIDRomania>
-    <StiMapIDSanMarino>San Marino</StiMapIDSanMarino>
-    <StiMapIDSerbia>Serbia</StiMapIDSerbia>
-    <StiMapIDSlovakia>Slovakia</StiMapIDSlovakia>
-    <StiMapIDSlovenia>Slovenia</StiMapIDSlovenia>
-    <StiMapIDSpain>Spain</StiMapIDSpain>
-    <StiMapIDSweden>Sweden</StiMapIDSweden>
-    <StiMapIDSwitzerland>Switzerland</StiMapIDSwitzerland>
-    <StiMapIDTurkey>Turkey</StiMapIDTurkey>
-    <StiMapIDUkraine>Ukraine</StiMapIDUkraine>
-    <StiMapIDVatican>Vatican</StiMapIDVatican>
     <StiMapTypeGroup>Group</StiMapTypeGroup>
     <StiMapTypeHeatmap>Heatmap</StiMapTypeHeatmap>
     <StiMapTypeHeatmapWithGroup>Heatmap With Group</StiMapTypeHeatmapWithGroup>
     <StiMapTypeNone>None</StiMapTypeNone>
+    <StiMapTypeIndividual>Individual</StiMapTypeIndividual>
     <StiMapTypePoints>Points</StiMapTypePoints>
     <StiMarkerAlignmentLeft>Left</StiMarkerAlignmentLeft>
     <StiMarkerAlignmentRight>Right</StiMarkerAlignmentRight>

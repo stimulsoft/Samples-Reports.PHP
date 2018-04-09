@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.1.8
-Build date: 2018.02.19
+Version: 2018.2.1
+Build date: 2018.04.06
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -3580,8 +3580,9 @@ declare module Stimulsoft.Base.Context {
         borderPen: StiPenGeom;
         rect: Object;
         tag: Object;
+        toolTip: String;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, rect: Object, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom);
+        constructor(background: Object, borderPen: StiPenGeom, rect: Object, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom, toolTip: String);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3801,8 +3802,9 @@ declare module Stimulsoft.Base.Context {
         background: Object;
         borderPen: StiPenGeom;
         rect: Object;
+        interaction: StiInteractionDataGeom;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, rect: Object);
+        constructor(background: Object, borderPen: StiPenGeom, rect: Object, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3853,8 +3855,9 @@ declare module Stimulsoft.Base.Context {
         background: Object;
         borderPen: StiPenGeom;
         rect: Object;
+        interaction: StiInteractionDataGeom;
         readonly type: StiGeomType;
-        constructor(background: Object, borderPen: StiPenGeom, rect: Object);
+        constructor(background: Object, borderPen: StiPenGeom, rect: Object, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -3931,8 +3934,9 @@ declare module Stimulsoft.Base.Context {
         pen: StiPenGeom;
         rect: Object;
         geoms: StiSegmentGeom[];
+        interaction: StiInteractionDataGeom;
         readonly type: StiGeomType;
-        constructor(background: Object, pen: StiPenGeom, geoms: StiSegmentGeom[], rect: Object);
+        constructor(background: Object, pen: StiPenGeom, geoms: StiSegmentGeom[], rect: Object, interaction: StiInteractionDataGeom);
     }
 }
 declare module Stimulsoft.Base.Context {
@@ -4100,7 +4104,7 @@ declare module Stimulsoft.Base.Context {
         drawRotatedString3(text: string, font: StiFontGeom, brush: Object, rect: Rectangle, sf: StiStringFormatGeom, angle: number, antialiasing: boolean): StiTextGeom;
         drawRotatedString4(text: string, font: StiFontGeom, brush: Object, pos: Point, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, antialiasing: boolean): StiTextGeom;
         drawRotatedString5(text: string, font: StiFontGeom, brush: Object, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, antialiasing: boolean): StiTextGeom;
-        drawRotatedString6(text: string, font: StiFontGeom, brush: Object, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, antialiasing: boolean, maximalWidth: number): StiTextGeom;
+        drawRotatedString6(text: string, font: StiFontGeom, brush: Object, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, antialiasing: boolean, maximalWidth: number, isRotated?: boolean): StiTextGeom;
         drawRotatedString7(text: string, font: StiFontGeom, brush: Object, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, antialiasing: boolean, maximalWidth: number): StiTextGeom;
         drawRotatedString8(text: string, font: StiFontGeom, brush: Object, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, antialiasing: boolean): StiTextGeom;
         drawRotatedString9(text: string, font: StiFontGeom, brush: Object, pos: Point, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, antialiasing: boolean, maximalWidth: number): StiTextGeom;
@@ -4120,7 +4124,7 @@ declare module Stimulsoft.Base.Context {
         popClip(): void;
         drawAnimationColumn(brush: Object, borderPen: StiPenGeom, rect: Object, value: Number, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
         drawAnimationBar(brush: Object, borderPen: StiPenGeom, columnRect: Object, value: Number, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
-        drawAnimationRectangle(brush: Object, pen: StiPenGeom, rect: Rectangle, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
+        drawAnimationRectangle(brush: Object, pen: StiPenGeom, rect: Rectangle, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom, tooltip: String): void;
         drawAnimationPathElement(brush: Object, borderPen: StiPenGeom, path: StiSegmentGeom[], rect: Object, toolTip: String, tag: Object, animation: StiAnimation, interaction: StiInteractionDataGeom): void;
         drawAnimationLabel(text: string, font: StiFontGeom, textBrush: Object, labelBrush: Object, penBorder: StiPenGeom, rect: Rectangle, sf: StiStringFormatGeom, mode: StiRotationMode, angle: number, drawBorder: boolean, animation: StiAnimation): void;
         drawAnimationLines(pen: StiPenGeom, points: Point[], animation: StiAnimation): void;
@@ -4133,13 +4137,13 @@ declare module Stimulsoft.Base.Context {
         drawRectangle2(pen: StiPenGeom, x: number, y: number, width: number, height: number): void;
         drawEllipse(pen: StiPenGeom, x: number, y: number, width: number, height: number): void;
         drawEllipse2(pen: StiPenGeom, rect: Rectangle): void;
-        fillEllipse(brush: Object, x: number, y: number, width: number, height: number): void;
-        fillEllipse2(brush: Object, rect: Rectangle): void;
+        fillEllipse(brush: Object, x: number, y: number, width: number, height: number, interaction: StiInteractionDataGeom): void;
+        fillEllipse2(brush: Object, rect: Rectangle, interaction: StiInteractionDataGeom): void;
         drawPath(pen: StiPenGeom, path: StiSegmentGeom[], rect: Object): void;
-        fillPath(brush: Object, path: StiSegmentGeom[], rect: Object): void;
+        fillPath(brush: Object, path: StiSegmentGeom[], rect: Object, interaction: StiInteractionDataGeom): void;
         drawCurve(pen: StiPenGeom, points: Point[], tension: number): void;
-        fillRectangle(brush: Object, rect: Rectangle): void;
-        fillRectangle2(brush: Object, x: number, y: number, width: number, height: number): void;
+        fillRectangle(brush: Object, rect: Rectangle, interaction: StiInteractionDataGeom): void;
+        fillRectangle2(brush: Object, x: number, y: number, width: number, height: number, interaction: StiInteractionDataGeom): void;
         pushSmoothingModeToAntiAlias(): void;
         popSmoothingMode(): void;
         pushTextRenderingHintToAntiAlias(): void;
@@ -4250,6 +4254,9 @@ declare module Stimulsoft.Base.Context {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
     class StiContextPainter {
+        private _svgRect;
+        private svgObj;
+        readonly svgRect: any;
         getDefaultStringFormat(): StiStringFormatGeom;
         getGenericStringFormat(): StiStringFormatGeom;
         createShadowGraphics(isPrinting: boolean, zoom: number): StiContext;
@@ -5346,7 +5353,7 @@ declare module Stimulsoft.Base.Drawing {
         private static stringToStack(inputString, baseState);
         private static parseFontSize(fontSizeAttribute, delimiter);
         private static parseColor(colorAttribute);
-        static measureString(maxWidth: number, font: Font, text: string): Size;
+        static measureString(maxWidth: number, font: Font, text: string, angle?: number): Size;
         static getTextLinesAndWidths(g: Graphics, REFtext: any, font: Font, bounds: Rectangle, lineSpacing: number, wordWrap: boolean, rightToLeft: boolean, scale: number, angle: number, trimming: StringTrimming, allowHtmlTags: boolean, REFtextLines: any, REFlinesInfo: any): string[];
         private static drawTextBase(g, REFtext, font, bounds, foreColor, backColor, lineSpacing, horAlign, vertAlign, wordWrap, rightToLeft, scale, angle, trimming, lineLimit, REFmeasureSize, needDraw, textLinesArray, textLinesInfo, allowHtmlTags, outRunsList, outFontsList);
         static StiForceWidthAlignTag: string;
@@ -10595,6 +10602,7 @@ declare module Stimulsoft.Report.Chart {
     import Color = Stimulsoft.System.Drawing.Color;
     import StiContext = Stimulsoft.Base.Context.StiContext;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import StiInteractionDataGeom = Stimulsoft.Base.Context.StiInteractionDataGeom;
     var IStiStyleCoreXF: string;
     interface IStiStyleCoreXF {
         chart: IStiChart;
@@ -10628,7 +10636,7 @@ declare module Stimulsoft.Report.Chart {
         getColorBySeries(series: IStiSeries): Color;
         basicStyleColor: Color;
         markerVisible: boolean;
-        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): any;
+        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush, interaction: StiInteractionDataGeom): any;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -10778,6 +10786,7 @@ declare module Stimulsoft.Report.Chart {
     import IStiCanGrow = Stimulsoft.Report.Components.IStiCanGrow;
     import IStiCanShrink = Stimulsoft.Report.Components.IStiCanShrink;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiImageRotation = Stimulsoft.Report.Components.StiImageRotation;
     var IStiChart: string;
     interface IStiChart extends IStiComponent, IStiName, IStiCanGrow, IStiCanShrink {
         seriesLabelsConditions: IStiChartConditionsCollection;
@@ -10817,6 +10826,7 @@ declare module Stimulsoft.Report.Chart {
         businessObject: StiBusinessObject;
         canGrow: boolean;
         canShrink: boolean;
+        rotation: StiImageRotation;
         loadFromXml(xmlNode: XmlNode, isDocument: boolean): any;
     }
 }
@@ -10858,6 +10868,7 @@ declare module Stimulsoft.Report.Chart {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import ICloneable = Stimulsoft.System.ICloneable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiPage = Stimulsoft.Report.Components.StiPage;
     var IStiSeriesInteraction: string;
     interface IStiSeriesInteraction extends ICloneable, IStiJsonReportObject {
         drillDownEnabled: boolean;
@@ -10865,6 +10876,7 @@ declare module Stimulsoft.Report.Chart {
         allowSeriesElements: boolean;
         loadFromXml(xmlNode: XmlNode): any;
         drillDownPageGuid: string;
+        drillDownPage: StiPage;
     }
 }
 declare module Stimulsoft.Report.Chart {
@@ -13850,6 +13862,7 @@ declare module Stimulsoft.Report.Engine.StiParser {
         private static checkForStoreToPrint(objAsmList);
         static checkExpression(inputExpression: string, component: StiComponent): StiParserException;
         static checkForDataBandsUsedInPageTotals(stiText: StiText): void;
+        static prepareReportVariables(report: StiReport): void;
         static prepareVariableValue(varr: StiVariable, report: StiReport, textBox?: StiText, fillItems?: boolean): Object;
         private static getExpressionValue(expr, comp, hash, report);
     }
@@ -14315,6 +14328,7 @@ declare module Stimulsoft.Report.Components {
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
         clone(): StiCondition;
+        memberwiseClone(): StiCondition;
         private _enabled;
         enabled: boolean;
         private _textColor;
@@ -15667,6 +15681,7 @@ declare module Stimulsoft.Report {
         static saveImage(image: Image, path: string): void;
         static loadImage(path: string): Image;
         static exist(cacheGuid: string): boolean;
+        static clear(): void;
     }
 }
 declare module Stimulsoft.Report.Components {
@@ -17880,9 +17895,14 @@ declare module Stimulsoft.Report.Styles {
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiJson = Stimulsoft.Base.StiJson;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
     class StiCrossTabStyle extends StiBaseStyle {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        /** Gets a style from the component. */
+        getStyleFromComponent(component: StiComponent, styleElements: StiStyleElements): void;
         private _color;
         /** Gets or sets a color of style. */
         color: Color;
@@ -18218,6 +18238,7 @@ declare module Stimulsoft.Report.Dictionary {
     class StiDataAdapterService extends StiService {
         readonly serviceCategory: string;
         readonly serviceType: Type;
+        readonly isObjectAdapter: boolean;
         getDataCategoryName(data: StiData): string;
         static getDataAdapter(dataSource: StiDataSource): StiDataAdapterService;
         static getDataAdapter2(data: StiData): StiDataAdapterService;
@@ -18592,6 +18613,7 @@ declare module Stimulsoft.Report.Dictionary {
     import Promise = Stimulsoft.System.Promise;
     class StiDataTableAdapterService extends StiDataStoreAdapterService {
         readonly serviceName: string;
+        readonly isObjectAdapter: boolean;
         getDataCategoryName(data: StiData): string;
         getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource): Promise<StiDataColumnsCollection>;
         getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
@@ -20453,6 +20475,7 @@ declare module Stimulsoft.Report.Dictionary {
         private _name;
         name: string;
         alias: string;
+        availableInTheViewer: boolean;
         private _content;
         content: number[];
         private _packAndEncryptContent;
@@ -20461,7 +20484,7 @@ declare module Stimulsoft.Report.Dictionary {
         type: StiResourceType;
         getResourceAsImage(): Image;
         toString(): string;
-        constructor(name?: string, alias?: string, inherited?: boolean, type?: StiResourceType, content?: number[]);
+        constructor(name?: string, alias?: string, inherited?: boolean, type?: StiResourceType, content?: number[], availableInTheViewer?: boolean);
     }
 }
 declare module Stimulsoft.Report.Dictionary {
@@ -21892,7 +21915,7 @@ declare module Stimulsoft.Report.Export {
         static getImage(svgData: StiSvgData): Image;
         static addAnimation(writer: XmlTextWriter, actions: string, begin: TimeSpan, duration: TimeSpan, numberr?: string): void;
         static writeChart(writer: XmlTextWriter, svgData: StiSvgData, zoom: number, needAnimation: boolean): void;
-        private static writeInteracrion(writer, geom);
+        private static writeInteracrion(writer, interaction);
         private static getPathData(geoms, dx, dy, refAnimatedPath, refDuration);
         private static addArcPath(arcSegment, path, dx, dy);
         private static round(value);
@@ -22188,7 +22211,7 @@ declare module Stimulsoft.Report.Export {
         private static writeFillInfo(writer, color);
         private static checkShape(component);
         private static writeDocument(report, page, standalone, REFbaseClipCounter, imageFormat, imageQuality, imageResolution);
-        static writeWatermark(writer: XmlTextWriter, xmlIndentation: number, page: StiPage, behind: boolean, pageWidth: number, pageHeight: number, imageResolution: number): void;
+        static writeWatermark(writer: XmlTextWriter, xmlIndentation: number, page: StiPage, behind: boolean, pageWidth: number, pageHeight: number, imageResolution: number, zoom?: number): void;
         private static writeBorder1(writer, svgData, REFgradientCounter);
         private static writeBorder2(writer, svgData);
         private static writeText(writer, svgData, REFclipCounter, xmlIndentation, useClip);
@@ -22242,6 +22265,7 @@ declare module Stimulsoft.Report.Export {
     import Font = Stimulsoft.System.Drawing.Font;
     import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
     import Image = Stimulsoft.System.Drawing.Image;
+    import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
     import StiVertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment;
     import StiText = Stimulsoft.Report.Components.StiText;
     import StiTextOptions = Stimulsoft.Base.Drawing.StiTextOptions;
@@ -22303,8 +22327,8 @@ declare module Stimulsoft.Report.Export {
         setCurrentCulture(): void;
         restoreCulture(): void;
         renderFont(cell: StiHtmlTableCell, font: Font): void;
-        renderTextHorAlignment(cell: StiHtmlTableCell, style: StiCellStyle): void;
-        renderVertAlignment(cell: StiHtmlTableCell, textVertAlignment: StiVertAlignment): void;
+        renderTextHorAlignment(cell: StiHtmlTableCell, textOptions: any, textHorAlignment: StiTextHorAlignment): void;
+        renderVertAlignment(cell: StiHtmlTableCell, textVertAlignment: StiVertAlignment, textOptions?: any): void;
         renderTextAngle(textOptions: StiTextOptions): void;
         renderTextDirection(cell: StiHtmlTableCell, textOptions: StiTextOptions): void;
         renderBackColor(cell: StiHtmlTableCell, color: Color): void;
@@ -25232,6 +25256,7 @@ declare module StiOptions {
     import IStiGaugeElement = Stimulsoft.Report.Components.Gauge.IStiGaugeElement;
     import IStiRangeBase = Stimulsoft.Report.Components.Gauge.IStiRangeBase;
     import IStiScaleBase = Stimulsoft.Report.Components.Gauge.IStiScaleBase;
+    import Hashtable = Stimulsoft.System.Collections.Hashtable;
     class CrossTab2 {
         styleColors: Color[];
     }
@@ -25329,6 +25354,7 @@ declare module StiOptions {
         static allowForceCanBreakForCrossTabPrintOnAllPages: boolean;
         static Globalization: Globalization;
         static reportResources: any;
+        static filterDataInDataSourceBeforeSorting: boolean;
     }
     class Print {
         static customPaperSizes: PaperSizeCollection;
@@ -25471,6 +25497,9 @@ declare module StiOptions {
         keywordsString: string;
         defaultCoordinatesPrecision: Number;
         defaultAutoPrintMode: StiPdfAutoPrintMode;
+        useAlternativeFontNames: boolean;
+        private static _alternativeFontNames;
+        alternativeFontNames: Hashtable;
     }
     class CheckBoxReplacementForExcelValue_ {
         Font: Font;
@@ -25622,7 +25651,7 @@ declare module Stimulsoft.Report {
         private _businessObjectsStore;
         readonly businessObjectsStore: Array<StiBusinessObjectData>;
         private _variables;
-        readonly variables: Hashtable;
+        variables: Hashtable;
         getVariable(name: string, onlyVariable?: boolean): any;
         setVariable(name: string, value: Object, onlyVariable?: boolean): void;
         private _aggregateFunctions;
@@ -25801,6 +25830,8 @@ declare module Stimulsoft.Report {
         cacheTotals: boolean;
         private _culture;
         culture: string;
+        private _refreshTime;
+        refreshTime: number;
         private _compiledReport;
         compiledReport: StiReport;
         resetAggregateFunctions(): void;
@@ -28103,6 +28134,7 @@ declare module Stimulsoft.Report.Chart {
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import StiInteractionDataGeom = Stimulsoft.Base.Context.StiInteractionDataGeom;
     class StiStyleCoreXF implements IStiStyleCoreXF {
         private static implementsStiStyleCoreXF;
         implements(): string[];
@@ -28137,7 +28169,7 @@ declare module Stimulsoft.Report.Chart {
         readonly lastStyleColor: Color;
         readonly styleColors: Color[];
         readonly basicStyleColor: Color;
-        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): void;
+        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush, interaction: StiInteractionDataGeom): void;
         getAreaBrush(color: Color): StiBrush;
         getColumnBrush(color: Color): StiBrush;
         getColumnBorder(color: Color): Color;
@@ -28369,9 +28401,10 @@ declare module Stimulsoft.Report.Chart {
     import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import Color = Stimulsoft.System.Drawing.Color;
+    import StiInteractionDataGeom = Stimulsoft.Base.Context.StiInteractionDataGeom;
     class StiStyleCoreXF18 extends StiStyleCoreXF {
         readonly localizedName: string;
-        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush): void;
+        fillColumn(context: StiContext, rect: RectangleD, brush: StiBrush, interaction: StiInteractionDataGeom): void;
         getColumnBrush(color: Color): StiBrush;
         protected _styleColor: Color[];
         readonly styleColors: Color[];
@@ -36717,6 +36750,15 @@ declare module Stimulsoft.Viewer {
 }
 declare module Stimulsoft.Viewer {
     import StiReport = Stimulsoft.Report.StiReport;
+    import StiResource = Stimulsoft.Report.Dictionary.StiResource;
+    class StiReportResourceHelper {
+        static getResourcesItems(report: StiReport): any[];
+        static getResourceContentType(resource: StiResource): string;
+        static getResourceFileExt(resource: StiResource): string;
+    }
+}
+declare module Stimulsoft.Viewer {
+    import StiReport = Stimulsoft.Report.StiReport;
     class StiVariablesHelper {
         private en_us_culture;
         static fillDialogInfoItems(report: StiReport): void;
@@ -36895,6 +36937,8 @@ declare module Stimulsoft.Viewer {
         showBookmarksButton: boolean;
         /** Gets or sets a visibility of the Parameters button in the toolbar of the viewer. */
         showParametersButton: boolean;
+        /** Gets or sets a visibility of the Resources button in the toolbar of the viewer. */
+        showResourcesButton: boolean;
         /** Gets or sets a visibility of the Editor button in the toolbar of the viewer. */
         showEditorButton: boolean;
         /** Gets or sets a visibility of the Full Screen button in the toolbar of the viewer. */
@@ -37011,6 +37055,7 @@ declare module Stimulsoft.Viewer {
         postAction(action: string, bookmarkPage?: any, bookmarkAnchor?: any): any;
         postEmail(format: string, settingsObject: any): any;
         postExport(format: string, settingsObject: any, action: StiExportAction): any;
+        postReportResource(resourceName: string, viewType: string): any;
         postPrint(action: string): any;
         postOpen(fileName: string, content: string): any;
         postInteraction(params: any): any;
@@ -37856,6 +37901,18 @@ declare module Stimulsoft.Report.Check {
         readonly longMessage: string;
         readonly status: StiCheckStatus;
         processCheck(report: StiReport, obj: any): any;
+    }
+}
+declare module Stimulsoft.Report.Check {
+    import StiDatabase = Stimulsoft.Report.Dictionary.StiDatabase;
+    import StiResource = Stimulsoft.Report.Dictionary.StiResource;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    class StiUsedResourceHelper {
+        static getDatabasesUsedResource(report: StiReport, resource: StiResource): StiDatabase[];
+        static getComponentsUsedResource(report: StiReport, resource: StiResource): StiComponent[];
+        private static getImageComponentsUsedResource(report, resource);
+        private static getRichTextComponentsUsedResource(report, resource);
+        private static getReportsUsedResource(report, resource);
     }
 }
 declare module Stimulsoft.Report.Check {
@@ -38714,7 +38771,7 @@ declare module Stimulsoft.Designer {
         private static isCategoryVariable(variable);
         private static getVariableCategory(report, categoryName);
         private static applyParametersToSqlSourse(sqlSource, parameters);
-        private static applyDataSourceProps(dataSource, dataSourceProps);
+        private static applyDataSourceProps(dataSource, dataSourceProps, report);
         private static applyConnectionProps(database, connectionProps, dictionary);
         private static applyColumnProps(column, columnProps);
         private static applyParameterProps(parameter, parameterProps);
@@ -38803,6 +38860,15 @@ declare module Stimulsoft.Designer {
     class StiFontNames {
         private static item(value, key);
         static getItems(): any[];
+    }
+}
+import StiReport = Stimulsoft.Report.StiReport;
+import StiResource = Stimulsoft.Report.Dictionary.StiResource;
+import StiResourceType = Stimulsoft.Report.Dictionary.StiResourceType;
+declare module Stimulsoft.Designer {
+    class StiFontResourceHelper {
+        static addFontToReport(report: StiReport, resource: StiResource, resourceItem: any): void;
+        static getBase64DataForCssFromResourceContent(resourceType: StiResourceType, content: number[]): string;
     }
 }
 declare module Stimulsoft.Designer {
@@ -38907,6 +38973,7 @@ declare module Stimulsoft.Designer {
         static getResourceText(report: StiReport, param: any, callbackResult: any): void;
         static setResourceText(report: StiReport, param: any, callbackResult: any): void;
         static getResourceViewData(report: StiReport, param: any, callbackResult: any): void;
+        static isFontResourceType(resourceType: StiResourceType): boolean;
     }
 }
 declare module Stimulsoft.Designer {
@@ -38934,13 +39001,12 @@ declare module Stimulsoft.Designer {
         private static generateNewName(report, newStyle);
         static applyStyleProperties(style: StiBaseStyle, properties: any): void;
         static writeStylesToReport(report: StiReport, stylesCollection: any[]): void;
-        private static getStyleFromComponent(comp);
         static getColorsCollectionProperty(colors: Color[]): any[];
         static setColorsCollectionProperty(style: StiBaseStyle, colorsString: any[]): void;
         static updateStyles(report: StiReport, param: any, callbackResult: any): void;
         static addStyle(report: StiReport, param: any, callbackResult: any): void;
         static createStyleCollection(report: StiReport, param: any, callbackResult: any): void;
-        static createStyleFromComponent(report: StiReport, param: any, callbackResult: any): void;
+        static createStylesFromComponents(report: StiReport, param: any, callbackResult: any): void;
         static openStyle(report: StiReport, param: any, callbackResult: any): void;
     }
 }

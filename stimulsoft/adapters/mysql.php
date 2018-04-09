@@ -87,8 +87,7 @@ class StiMySqlAdapter {
 			case 3:
 			case 8:
 			case 9:
-				//return 'int';
-				return 'number';
+				return 'int';
 			
 			// number (decimal)
 			case 4:

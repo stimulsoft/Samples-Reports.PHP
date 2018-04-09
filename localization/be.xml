@@ -105,6 +105,7 @@
     <Down>Уніз</Down>
     <Duplicate>Копiя</Duplicate>
     <Export>Экспарт</Export>
+    <ForceDelete>Прымусова выдаліць</ForceDelete>
     <Help>Дапамога</Help>
     <LessOptions>Менш параметраў</LessOptions>
     <LoadDataSet>Загрузіць DataSet (*.data)</LoadDataSet>
@@ -378,6 +379,7 @@
     <LabelCurrentPassword>Бягучы пароль:</LabelCurrentPassword>
     <LabelDataFile>Файл дадзеных:</LabelDataFile>
     <LabelDataUrl>URL дадзеных:</LabelDataUrl>
+    <LabelEndDate>Канец:</LabelEndDate>
     <labelFileName>Iмя файла:</labelFileName>
     <LabelForeground>Пярэдні план:</LabelForeground>
     <LabelFromReport>Са справаздачы</LabelFromReport>
@@ -392,6 +394,7 @@
     <LabelPicture>Малюнак:</LabelPicture>
     <LabelRenderedReport>Пабудаваная справаздача</LabelRenderedReport>
     <LabelResponseAsFile>Адказ у выглядзе файла</LabelResponseAsFile>
+    <LabelResultType>Тып выніку:</LabelResultType>
     <LabelSeparateReport>Асобны файл справаздачы (і скрыптоў)</LabelSeparateReport>
     <LabelShowReport>Адлюстраваць справаздачу:</LabelShowReport>
     <labelUserName>Iмя карыстальнiка:</labelUserName>
@@ -427,6 +430,7 @@
     <RootFolder>Асноўная тэчка</RootFolder>
     <Save>Захаваць</Save>
     <SaveAccountSettings>Захаваць налады акаўнта</SaveAccountSettings>
+    <SaveAsType>Захаваць як тып</SaveAsType>
     <SaveFile>Захаваць файл</SaveFile>
     <SavingToStimulsoftCloudPleaseWait>Справаздача захоўваецца ў воблака. Чакайце, калі ласка!</SavingToStimulsoftCloudPleaseWait>
     <ShareWindowTitleNew>Доступ</ShareWindowTitleNew>
@@ -929,6 +933,7 @@
     <TiffFiles>TIFF малюнак (*.tiff)|*.tiff</TiffFiles>
     <TxtFiles>Звычайны тэкст (*.txt)|*.txt</TxtFiles>
     <Word2007Files>Microsoft Word 2007-2016 файлы (*.docx)|*.docx</Word2007Files>
+    <WordFiles>Microsoft Word 97-2003 файлы (*.doc)|*.doc</WordFiles>
     <WriterFiles>OpenDocument Writer файлы (*.odt)|*.odt</WriterFiles>
     <XmlFiles>XML файлы(*.xml)|*.xml</XmlFiles>
     <XpsFiles>Microsoft XPS файлы (*.xps)|*.xps</XpsFiles>
@@ -1132,6 +1137,8 @@
     <DataSourceEdit>Змена крыніцы дадзеных</DataSourceEdit>
     <DataSourceNew>Новая крыніца дадзеных</DataSourceNew>
     <DataSourcesNew>Новыя крыніцы дадзеных</DataSourcesNew>
+    <DataTransformationEdit>Змена пераўтварэння дадзеных</DataTransformationEdit>
+    <DataTransformationNew>Новае пераўтварэнне дадзеных</DataTransformationNew>
     <Delete>Выдаліць</Delete>
     <DesignTimeQueryText>Тэкст запросу для дызайнера</DesignTimeQueryText>
     <DictionaryMerge>Дадаць слоўнік...</DictionaryMerge>
@@ -1862,6 +1869,7 @@
     <PutFeedPageCode>Размяжоўваць старонкі ў канчатковым дакуменце пры дапамозе адмысловага знака.</PutFeedPageCode>
     <RangePages>Нумары старонак, якія неабходна апрацаваць. Пазначыць можна адну старонку, спіс старонак (выкарыстоўваючы коскі, як падзельнік), а так жа ўсталяваць дыяпазон, задаўшы пачатковую старонку дыяпазону, падзельнік "-", і канчатковую старонку дыяпазону. Для прыкладу: 1,3,5-12.</RangePages>
     <RemoveEmptySpaceAtBottom>Мінімізаваць пустое месца ўнізе старонкі.</RemoveEmptySpaceAtBottom>
+    <Resources>Паказаць панэль рэсурсаў</Resources>
     <RestrictEditing>Абмежаванні на змены ў дакуменце Word.</RestrictEditing>
     <Save>Захаваць справаздачу для наступнага выкарыстання.</Save>
     <ScaleHtml>Памер (маштаб) старонак справаздачы і элементаў справаздачы пасля экспарту.</ScaleHtml>
@@ -1931,6 +1939,7 @@
     <menuEditDataParameterNew>Новы параметр...</menuEditDataParameterNew>
     <menuEditDataSourceNew>Новая крыніца дадзеных...</menuEditDataSourceNew>
     <menuEditDataSourcesNew>Новыя крыніцы дадзеных...</menuEditDataSourcesNew>
+    <menuEditDataTransformationNew>Новае пераўтварэнне дадзеных...</menuEditDataTransformationNew>
     <menuEditDelete>&amp;Выдаліць</menuEditDelete>
     <menuEditEdit>Змяніць</menuEditEdit>
     <menuEditImportRelations>Імпартаваць сувязі...</menuEditImportRelations>
@@ -2034,6 +2043,10 @@
   <Messages>
     <DoNotShowAgain>Не паказваць ізноў</DoNotShowAgain>
     <MessageTimeOutExpired>Мінула час чакання выканання каманды!</MessageTimeOutExpired>
+    <RenderingWillOccurInTheInterpretationMode>Прагляд справаздачы, у якой усталяваны агульны доступ, ужыццяўляецца ў рэжыме інтэрпрэтацыі.</RenderingWillOccurInTheInterpretationMode>
+    <ResourceCannotBeDeleted>Рэсурс "{0}" не можа быць выдалены, т.к. ён выкарыстоўваецца ў справаздачы!</ResourceCannotBeDeleted>
+    <ShareURLOfTheItemHasBeenUpdated>Спасылка доступу да элемента абноўлена!</ShareURLOfTheItemHasBeenUpdated>
+    <ShareYourReportYouShouldSave>Каб падзяліцца сваёй справаздачай, вы павінны захаваць справаздачу ў Stimulsoft Воблака!</ShareYourReportYouShouldSave>
     <TextRegistrationSuccessfully>Рэгістрацыя прайшла паспяхова!</TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>Гэтае поле не запоўнена!</ThisFieldIsNotSpecified>
   </Messages>
@@ -2769,6 +2782,8 @@
     <StiMapIDUK>Велікабрытанія</StiMapIDUK>
     <StiMapIDUSA>ЗША</StiMapIDUSA>
     <StiMapIDWorld>Свет</StiMapIDWorld>
+    <StiMapModeChoropleth>Картаграма</StiMapModeChoropleth>
+    <StiMapModeOnline>Анлайн</StiMapModeOnline>
     <StiMapTypeGroup>Група</StiMapTypeGroup>
     <StiMapTypeHeatmap>Цеплавая карта</StiMapTypeHeatmap>
     <StiMapTypeHeatmapWithGroup>Цеплавая карта з групоўкай</StiMapTypeHeatmapWithGroup>
@@ -3146,6 +3161,7 @@
     <AutoSeriesTitleDataColumn>Аўта-шэраг Калонка Найменне</AutoSeriesTitleDataColumn>
     <AutoWidth>Аўта-шырыня</AutoWidth>
     <AutoWidthType>Тып аўта-шырыні</AutoWidthType>
+    <AvailableInTheViewer>Паказваць ва вьюверы</AvailableInTheViewer>
     <AxisLabelsColor>Колер подпісаў</AxisLabelsColor>
     <AxisLineColor>Колер лініі</AxisLineColor>
     <AxisTitleColor>Колер загалоўка</AxisTitleColor>
@@ -3218,6 +3234,7 @@
     <Collate>Сартаванне старонак</Collate>
     <CollectionName>Назва калекцыі</CollectionName>
     <Color>Колер</Color>
+    <ColorDataColumn>Калонка дадзеных колераў</ColorDataColumn>
     <ColorEach>Колер для кожнага</ColorEach>
     <ColorScaleCondition>Каляровая шкала</ColorScaleCondition>
     <ColorScaleType>Тып каляровай шкалы</ColorScaleType>
@@ -3249,6 +3266,7 @@
     <CreateFieldOnDoubleClick>Ствараць поле пры Падвойнай Пстрычцы</CreateFieldOnDoubleClick>
     <CreateLabel>Стварыць подпіс</CreateLabel>
     <Culture>Культура</Culture>
+    <CustomFonts>Карыстацкія шрыфты</CustomFonts>
     <CustomFormat>Фармат па выбары</CustomFormat>
     <CutPieList>Спiс выстаўленых сегментаў</CutPieList>
     <CuttedPieList>Спіс вылучаных сегментаў</CuttedPieList>
@@ -3265,6 +3283,7 @@
     <DataSource>Крыніца дадзеных</DataSource>
     <DataSources>Крыніцы дадзеных</DataSources>
     <DataTextField>Поле дадзеных</DataTextField>
+    <DataTransformation>Пераўтварэнне дадзеных</DataTransformation>
     <DataType>Тып дадзеных</DataType>
     <DataUrl>URL дадзеных</DataUrl>
     <DateInfo>Інфармацыя аб датах</DateInfo>
@@ -3306,6 +3325,7 @@
     <DropShadow>Паказваць цень</DropShadow>
     <Duplex>Duplex</Duplex>
     <Editable>Рэдагуемы</Editable>
+    <Effects>Эфекты</Effects>
     <EmptyBorderBrush>Пэндзаль мяжы незапоўненай вобласці</EmptyBorderBrush>
     <EmptyBorderWidth>Таўшчыня мяжы незапоўненай вобласці</EmptyBorderWidth>
     <EmptyBrush>Пэндзаль незапоўненай вобласці</EmptyBrush>
@@ -3382,6 +3402,7 @@
     <GridLinesVert>Вертыкальныя лініі сеткі</GridLinesVert>
     <GridLinesVertColor>Колер вертыкальных ліній сеткі</GridLinesVertColor>
     <GridOutline>Контур табліцы</GridOutline>
+    <GroupDataColumn>Калонка дадзеных груп</GroupDataColumn>
     <GrowToHeight>Расці ў вышыню</GrowToHeight>
     <HeaderBackColor>Колер загалоўка</HeaderBackColor>
     <HeaderCanBreak>Загаловак можа разрываться</HeaderCanBreak>
@@ -3466,6 +3487,7 @@
     <Language>Мова</Language>
     <LargeHeight>Вялікая вышыня</LargeHeight>
     <LargeHeightFactor>Каэфіцыент вялікай вышыні</LargeHeightFactor>
+    <Latitude>Шырыня</Latitude>
     <Left>Лева</Left>
     <LeftSide>Левы бок</LeftSide>
     <Legend>Легенда</Legend>
@@ -3502,6 +3524,7 @@
     <Locked>Замак</Locked>
     <Logarithmic>Лагарыфмічная</Logarithmic>
     <LogarithmicScale>Лагарыфмічная шкала</LogarithmicScale>
+    <Longitude>Даўгата</Longitude>
     <Low>Нізкае</Low>
     <MajorInterval>Асноўны інтэрвал</MajorInterval>
     <MapID>Карта</MapID>
@@ -3553,6 +3576,7 @@
     <Multiline>Шматрадковы</Multiline>
     <MultipleFactor>Кратны множнік</MultipleFactor>
     <Name>Найменне</Name>
+    <NameDataColumn>Калонка дадзеных назваў</NameDataColumn>
     <NameInSource>Найменне ў крыніцы</NameInSource>
     <NameParent>Найменне галоўнага</NameParent>
     <Namespaces>Прасторы імёнаў</Namespaces>
@@ -3636,10 +3660,12 @@
     <Ratio>Каэфіцыент</Ratio>
     <RatioY>Каэфіцыент Y</RatioY>
     <ReadOnly>Толькі чытанне</ReadOnly>
+    <RecentFonts>Апошнія шрыфты</RecentFonts>
     <ReconnectOnEachRow>Абнаўляць на кожным запісе</ReconnectOnEachRow>
     <ReferencedAssemblies>Спасылкі на зборкі</ReferencedAssemblies>
     <Refresh>Абнавіць</Refresh>
     <RefreshTime>Час абнаўлення</RefreshTime>
+    <Regular>Звычайны</Regular>
     <Relation>Сувязь</Relation>
     <RelationName>Найменне сувязі</RelationName>
     <Relations>Сувязі</Relations>
@@ -3698,6 +3724,7 @@
     <SeriesLabelsColor>Колер подпісаў</SeriesLabelsColor>
     <SeriesLighting>Асвятленне шэрагаў</SeriesLighting>
     <SeriesShowShadow>Адлюстраванне цені шэрагаў</SeriesShowShadow>
+    <SeriesTitle>Загаловак серыі</SeriesTitle>
     <Shadow>Цень</Shadow>
     <ShadowBrush>Пэндзаль ценю</ShadowBrush>
     <ShadowColor>Колер ценю</ShadowColor>
@@ -3772,6 +3799,7 @@
     <StoreImagesInResources>Захоўваць малюнкi ў рэсурсах</StoreImagesInResources>
     <Stretch>Расцягваць</Stretch>
     <StretchToPrintArea>Расцягнуць на вобласць друку</StretchToPrintArea>
+    <Strikeout>Закрэслены</Strikeout>
     <StripBrush>Пэндзаль паласы</StripBrush>
     <Strips>Палосы</Strips>
     <StructuredAppendPosition>Structured Append Position</StructuredAppendPosition>
@@ -3788,6 +3816,7 @@
     <SupplementCode>Код дапаўнення</SupplementCode>
     <SupplementType>Тып дапаўнення</SupplementType>
     <SweepAngle>Кут павароту</SweepAngle>
+    <SystemFonts>Сістэмныя шрыфты</SystemFonts>
     <SystemVariable>Сістэмная пераменная</SystemVariable>
     <SystemVariables>Сістэмныя пераменныя</SystemVariables>
     <Table>Табліца</Table>
