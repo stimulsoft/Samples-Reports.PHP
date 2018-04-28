@@ -56,6 +56,8 @@
     <StiVerySmallSizesOfComponentsShort>Увеличить размер</StiVerySmallSizesOfComponentsShort>
     <StiWordWrapCanGrowTextDoesNotFitActionLong>Задать у компонента значение свойства CanGrow равное true.</StiWordWrapCanGrowTextDoesNotFitActionLong>
     <Zero>Обнулить</Zero>
+    <StiApplyGeneralTextFormatShort>Применить Общий</StiApplyGeneralTextFormatShort>
+    <StiApplyGeneralTextFormatLong>Установить 'Общий' формат для  компонента '{0}'.</StiApplyGeneralTextFormatLong>
   </CheckActions>
   <CheckComponent>
     <StiAllowHtmlTagsInTextCheckLong>В тексте используются Html тэги, но значение свойства AllowHtmlTags равно false. Содержимое компонента {0} напечатается неправильно.</StiAllowHtmlTagsInTextCheckLong>
@@ -159,6 +161,8 @@
     <StiWidthHeightZeroComponentCheckShortWidthHeight>Ширина и высота компонента '{0}' равны нулю</StiWidthHeightZeroComponentCheckShortWidthHeight>
     <StiWordWrapCanGrowTextDoesNotFitLong>Если значение свойства WordWrap равно true, а значение свойства CanGrow равно false, то текст компонента {0} может быть отображен не полностью. Рекомендуем установить значение свойства CanGrow равное true.</StiWordWrapCanGrowTextDoesNotFitLong>
     <StiWordWrapCanGrowTextDoesNotFitShort>Текст может не вместиться</StiWordWrapCanGrowTextDoesNotFitShort>
+    <StiTextTextFormatCheckShort>Формат не установлен.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatCheckLong>Выбранный формат для компонента '{0}' не установлен.</StiTextTextFormatCheckLong>
   </CheckComponent>
   <CheckConnection>
     <StiUndefinedConnectionCheckLong>В отчете найдено соединение '{0}' неизвестного типа. Генератор отчетов не сможет корректно обработать такой тип соединения с базой данных! Возможно в отчете используются пользовательские типы соединения. Такой отчет не может быть построен!</StiUndefinedConnectionCheckLong>
@@ -1595,7 +1599,7 @@
   </Universal>
   <Publish>
     <Publish>Опубликовать</Publish>
-	<DeployReportPlatform>Платформа для развертывания отчета:</DeployReportPlatform>
+    <DeployReportPlatform>Платформа для развертывания отчета:</DeployReportPlatform>
     <PublishType>Тип развертывания:</PublishType>
     <PublishTypeProject>Проект</PublishTypeProject>
     <PublishTypeStandalone>Автономное приложение</PublishTypeStandalone>
@@ -1630,8 +1634,9 @@
     <RegDataSynchronize>Синхронизировать словарь данных отчета</RegDataSynchronize>
     <RegDataOnlyForPreview>Использовать только для предварительного просмотра отчета</RegDataOnlyForPreview>
     <ParametersFromReport>Использовать заданное в отчете значение</ParametersFromReport>
-    <ParametersReplace>Заменить значение из кода</ParametersReplace>
+    <ParametersReplace>Заменить значение из {0}кода</ParametersReplace>
     <ParametersRequestFromUser>Запрашивать у пользователя</ParametersRequestFromUser>
+    <ParametersReplacePhpInfo>Параметр будет удален из словаря отчета и может быть использован только в SQL запросе.</ParametersReplacePhpInfo>
     <IncludeLicenseKey>Добавить лицензионный ключ</IncludeLicenseKey>
     <LicenseKeyTypeString>Строка</LicenseKeyTypeString>
     <LicenseKeyTypeFile>Файл</LicenseKeyTypeFile>

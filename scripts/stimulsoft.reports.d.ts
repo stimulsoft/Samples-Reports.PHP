@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.2.1
-Build date: 2018.04.06
+Version: 2018.2.2
+Build date: 2018.04.27
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -2088,6 +2088,7 @@ declare module Stimulsoft.System.IO {
         static getFile(filePath: string, binary?: boolean, contentType?: string): any;
         static getFileAsync(callback: Function, filePath: string, binary?: boolean, contentType?: string): void;
         static saveFile(filePath: string, fileData: string): void;
+        static getFilesNames(filePath: string): string[];
     }
 }
 declare module Stimulsoft.System.IO {
@@ -2126,6 +2127,7 @@ declare module Stimulsoft.System.IO {
         static Combine(path1: string, path2: string): string;
         static getFileNameWithoutExtension(path: string): string;
         static getExtension(path: string): string;
+        static getSep(): string;
     }
 }
 declare module Stimulsoft.System.IO {
@@ -2773,6 +2775,8 @@ declare module Stimulsoft.System {
         static getFile(filePath: string, binary?: boolean, contentType?: string): any;
         static getFileHttp(filePath: string, binary?: boolean, contentType?: string): any;
         static saveFile(filePath: string, fileData: string): void;
+        static getFilesNames(filesPath: string): string[];
+        static getSep(): string;
         private static fromBase64String(s);
         private static fromBase64StringText(s);
         private static toBase64String(data);
@@ -4635,7 +4639,7 @@ declare module Stimulsoft.Base {
         constructor(name: string, array: any);
     }
     class StiDataLoaderHelper {
-        static loadMultiple(path: string, filter: string, binary: boolean): StiDataLoaderHelperData[];
+        static loadMultiple(path: string, fileExt: string, binary: boolean): StiDataLoaderHelperData[];
         static loadSingle(path: string, binary: boolean): StiDataLoaderHelperData;
     }
 }
@@ -19237,35 +19241,8 @@ declare module Stimulsoft.Report.Dictionary {
 declare module Stimulsoft.Report.Helpers {
     import StiDataLoaderHelperData = Stimulsoft.Base.StiDataLoaderHelperData;
     class StiUniversalDataLoader {
+        static loadMutiple(report: StiReport, path: string, filter: string, binary: boolean): StiDataLoaderHelperData[];
         static loadSingle(report: StiReport, path: string, binary: boolean): StiDataLoaderHelperData;
-    }
-}
-declare module Stimulsoft.Report {
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiDataRelation = Stimulsoft.Report.Dictionary.StiDataRelation;
-    import StiDataSource = Stimulsoft.Report.Dictionary.StiDataSource;
-    enum StiNamingRule {
-        Simple = 0,
-        Advanced = 1,
-    }
-    class StiNameCreation {
-        static namingRule: StiNamingRule;
-        private static removeSpacesFromName(baseName, removeIncorrectSymbols);
-        static createSimpleName(report: StiReport, baseName: string): string;
-        static createName(report: StiReport, baseName: string, addOne?: boolean, removeIncorrectSymbols?: boolean, forceAdvancedNamingRule?: boolean): string;
-        static createResourceName(report: StiReport, baseName: string): string;
-        static createConnectionName(report: StiReport, baseName: string): string;
-        static isResourceNameExists(report: StiReport, name: string): boolean;
-        static isConnectionNameExists(report: StiReport, name: string): boolean;
-        static isValidName(report: StiReport, name: string): boolean;
-        static exists(checkedObject: Object, report: StiReport, name: string): boolean;
-        static checkName(checkedObject: Object, report: StiReport, name: string, messageBoxCaption: string, isValid?: boolean): boolean;
-        private static getObjectWithName(checkedObject, report, comps, name);
-        static generateName1(report: StiReport, localizedName: string, name: string): string;
-        static generateName2(report: StiReport, localizedName: string, type: Stimulsoft.System.Type): string;
-        static generateName(component: StiComponent): string;
-        static generateName4(relation: StiDataRelation): string;
-        static generateName5(dataSource: StiDataSource): string;
     }
 }
 declare module Stimulsoft.Report.Events {
@@ -19352,6 +19329,288 @@ declare module Stimulsoft.Report.Dictionary {
     }
 }
 declare module Stimulsoft.Report.Dictionary {
+    import Image = Stimulsoft.System.Drawing.Image;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    class StiResource implements IStiName, IStiInherited, IStiJsonReportObject {
+        implements(): string[];
+        clone(): StiResource;
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        inherited: boolean;
+        private _name;
+        name: string;
+        alias: string;
+        availableInTheViewer: boolean;
+        private _content;
+        content: number[];
+        private _packAndEncryptContent;
+        packAndEncryptContent: string;
+        key: string;
+        type: StiResourceType;
+        getResourceAsImage(): Image;
+        toString(): string;
+        constructor(name?: string, alias?: string, inherited?: boolean, type?: StiResourceType, content?: number[], availableInTheViewer?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import StiJson = Stimulsoft.Base.StiJson;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    class StiDialogInfo {
+        jsonLoadedBindingVariableName: string;
+        xmlLoadedBindingVariable: XmlNode;
+        saveToJsonObject(): StiJson;
+        loadFromJsonObject(jObject: StiJson, report: StiReport): void;
+        private _dateTimeType;
+        dateTimeType: StiDateTimeType;
+        private _itemsInitializationType;
+        itemsInitializationType: StiItemsInitializationType;
+        private _keysColumn;
+        keysColumn: string;
+        private _valuesColumn;
+        valuesColumn: string;
+        private _bindingVariable;
+        bindingVariable: StiVariable;
+        private _bindingValuesColumn;
+        bindingValuesColumn: string;
+        private _mask;
+        mask: string;
+        private _allowUserValues;
+        allowUserValues: boolean;
+        private _bindingValue;
+        bindingValue: boolean;
+        private _keys;
+        keys: string[];
+        private _values;
+        values: string[];
+        private _valuesBinding;
+        valuesBinding: Object[];
+        readonly isDefault: boolean;
+        static convert(value: Object): string;
+        getDialogInfoItems(type: Stimulsoft.System.Type): StiDialogInfoItem[];
+        setDialogInfoItems(items: StiDialogInfoItem[], type: Stimulsoft.System.Type): void;
+        constructor();
+    }
+    class StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        readonly propName: string;
+        private _keyObject;
+        keyObject: Object;
+        private _keyObjectTo;
+        keyObjectTo: Object;
+        private _valueBinding;
+        valueBinding: Object;
+        private _value;
+        value: string;
+        toString(dateTimeType: StiDateTimeType): string;
+    }
+    class StiRangeDialogInfoItem extends StiDialogInfoItem {
+    }
+    class StiStringDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: string;
+    }
+    class StiGuidDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.Guid;
+        constructor();
+    }
+    class StiCharDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.Char;
+        constructor();
+    }
+    class StiBoolDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: boolean;
+        constructor();
+    }
+    class StiImageDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.Drawing.Image;
+        constructor();
+    }
+    class StiDateTimeDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.DateTime;
+        constructor();
+    }
+    class StiTimeSpanDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.TimeSpan;
+        constructor();
+    }
+    class StiDoubleDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.Double;
+        constructor();
+    }
+    class StiDecimalDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.Decimal;
+        constructor();
+    }
+    class StiLongDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: Stimulsoft.System.Long;
+        constructor();
+    }
+    class StiExpressionDialogInfoItem extends StiDialogInfoItem {
+        readonly componentId: StiComponentId;
+        key: string;
+        constructor();
+    }
+    class StiStringRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: string;
+        to: string;
+        constructor();
+    }
+    class StiGuidRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: Stimulsoft.System.Guid;
+        to: Stimulsoft.System.Guid;
+        constructor();
+    }
+    class StiCharRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: Stimulsoft.System.Char;
+        to: Stimulsoft.System.Char;
+        constructor();
+    }
+    class StiDateTimeRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: Stimulsoft.System.DateTime;
+        to: Stimulsoft.System.DateTime;
+        constructor();
+    }
+    class StiTimeSpanRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: Stimulsoft.System.TimeSpan;
+        to: Stimulsoft.System.TimeSpan;
+        constructor();
+    }
+    class StiDoubleRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: Stimulsoft.System.Double;
+        to: Stimulsoft.System.Double;
+        constructor();
+    }
+    class StiDecimalRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: Stimulsoft.System.Decimal;
+        to: Stimulsoft.System.Decimal;
+        constructor();
+    }
+    class StiLongRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: Stimulsoft.System.Long;
+        to: Stimulsoft.System.Long;
+        constructor();
+    }
+    class StiExpressionRangeDialogInfoItem extends StiRangeDialogInfoItem {
+        readonly componentId: StiComponentId;
+        from: string;
+        to: string;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import DateTime = Stimulsoft.System.DateTime;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import IStiName = Stimulsoft.Report.IStiName;
+    import StiExpression = Stimulsoft.Report.Expressions.StiExpression;
+    import Type = Stimulsoft.System.Type;
+    import IClonable = Stimulsoft.System.ICloneable;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiDialogInfo = Stimulsoft.Report.Dictionary.StiDialogInfo;
+    class StiVariable extends StiExpression implements IStiName, IStiInherited, IClonable {
+        private convertTypeToJsonString(type);
+        private convertJsonStringToType(text);
+        saveToJsonObjectEx(): StiJson;
+        loadFromJsonObjectEx(jObject: StiJson, report: StiReport): void;
+        static loadFromXml(xmlNode: XmlNode, report: StiReport): StiVariable;
+        static convertFromStringToDialogInfo(str: string, report: StiReport): StiDialogInfo;
+        private static parseStringArray(xmlNode);
+        private _inherited;
+        inherited: boolean;
+        private _name;
+        name: string;
+        readonly applyFormat: boolean;
+        private _dialogInfo;
+        dialogInfo: StiDialogInfo;
+        private _alias;
+        alias: string;
+        private _type;
+        type: Type;
+        private _readOnly;
+        readOnly: boolean;
+        private _requestFromUser;
+        requestFromUser: boolean;
+        private _allowUseAsSqlParameter;
+        allowUseAsSqlParameter: boolean;
+        private _category;
+        category: string;
+        private _description;
+        description: string;
+        readonly isCategory: boolean;
+        valueObject: Object;
+        initByExpressionFrom: string;
+        initByExpressionTo: string;
+        getValueProp(): string;
+        setValueProp(value: string): void;
+        function: boolean;
+        private _initBy;
+        initBy: StiVariableInitBy;
+        private _selection;
+        selection: StiSelectionMode;
+        private _key;
+        key: string;
+        private getRangeValues();
+        static getValue(str: string, type: Type): Object;
+        private setValue(value);
+        getNativeValue(): string;
+        static getDateTimeFromValue(value: string): DateTime;
+        static getValueFromDateTime(value: Stimulsoft.System.DateTime): string;
+        eval(report: StiReport): Object;
+        toString(): string;
+        constructor(category?: string, name?: string, alias?: string, description?: string, typeT?: Type, value?: string, readOnly?: boolean, initBy?: StiVariableInitBy, requestFromUser?: boolean, dialogInfo?: StiDialogInfo, key?: string, allowUseAsSqlParameter?: boolean, selection?: StiSelectionMode);
+    }
+}
+declare module Stimulsoft.Report {
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiDataRelation = Stimulsoft.Report.Dictionary.StiDataRelation;
+    import StiDataSource = Stimulsoft.Report.Dictionary.StiDataSource;
+    enum StiNamingRule {
+        Simple = 0,
+        Advanced = 1,
+    }
+    class StiNameCreation {
+        static namingRule: StiNamingRule;
+        private static removeSpacesFromName(baseName, removeIncorrectSymbols);
+        static createSimpleName(report: StiReport, baseName: string): string;
+        static createName(report: StiReport, baseName: string, addOne?: boolean, removeIncorrectSymbols?: boolean, forceAdvancedNamingRule?: boolean): string;
+        static createResourceName(report: StiReport, baseName: string): string;
+        static createConnectionName(report: StiReport, baseName: string): string;
+        static isResourceNameExists(report: StiReport, name: string): boolean;
+        static isConnectionNameExists(report: StiReport, name: string): boolean;
+        static isValidName(report: StiReport, name: string): boolean;
+        static exists(checkedObject: Object, report: StiReport, name: string): boolean;
+        static checkName(checkedObject: Object, report: StiReport, name: string, messageBoxCaption: string, isValid?: boolean): boolean;
+        private static getObjectWithName(checkedObject, report, comps, name);
+        static generateName1(report: StiReport, localizedName: string, name: string): string;
+        static generateName2(report: StiReport, localizedName: string, type: Stimulsoft.System.Type): string;
+        static generateName(component: StiComponent): string;
+        static generateName4(relation: StiDataRelation): string;
+        static generateName5(dataSource: StiDataSource): string;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import StiJson = Stimulsoft.Base.StiJson;
@@ -19379,7 +19638,7 @@ declare module Stimulsoft.Report.Dictionary {
         separator: string;
         codePage: number;
         getDatabaseInformation(dictionary: StiDictionary): StiDatabaseInformation;
-        regData(dictionary: StiDictionary, loadData: boolean): void;
+        regData(dictionary: StiDictionary, loadData: boolean): any;
         constructor(name?: string, pathData?: string, codePage?: number, separator?: string, key?: string);
     }
 }
@@ -20165,168 +20424,6 @@ declare module Stimulsoft.Report.Dictionary {
     }
 }
 declare module Stimulsoft.Report.Dictionary {
-    import StiJson = Stimulsoft.Base.StiJson;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    class StiDialogInfo {
-        jsonLoadedBindingVariableName: string;
-        xmlLoadedBindingVariable: XmlNode;
-        saveToJsonObject(): StiJson;
-        loadFromJsonObject(jObject: StiJson, report: StiReport): void;
-        private _dateTimeType;
-        dateTimeType: StiDateTimeType;
-        private _itemsInitializationType;
-        itemsInitializationType: StiItemsInitializationType;
-        private _keysColumn;
-        keysColumn: string;
-        private _valuesColumn;
-        valuesColumn: string;
-        private _bindingVariable;
-        bindingVariable: StiVariable;
-        private _bindingValuesColumn;
-        bindingValuesColumn: string;
-        private _mask;
-        mask: string;
-        private _allowUserValues;
-        allowUserValues: boolean;
-        private _bindingValue;
-        bindingValue: boolean;
-        private _keys;
-        keys: string[];
-        private _values;
-        values: string[];
-        private _valuesBinding;
-        valuesBinding: Object[];
-        readonly isDefault: boolean;
-        static convert(value: Object): string;
-        getDialogInfoItems(type: Stimulsoft.System.Type): StiDialogInfoItem[];
-        setDialogInfoItems(items: StiDialogInfoItem[], type: Stimulsoft.System.Type): void;
-        constructor();
-    }
-    class StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        private _keyObject;
-        keyObject: Object;
-        private _keyObjectTo;
-        keyObjectTo: Object;
-        private _valueBinding;
-        valueBinding: Object;
-        private _value;
-        value: string;
-        toString(dateTimeType: StiDateTimeType): string;
-    }
-    class StiRangeDialogInfoItem extends StiDialogInfoItem {
-    }
-    class StiStringDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: string;
-    }
-    class StiGuidDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.Guid;
-        constructor();
-    }
-    class StiCharDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.Char;
-        constructor();
-    }
-    class StiBoolDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: boolean;
-        constructor();
-    }
-    class StiImageDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.Drawing.Image;
-        constructor();
-    }
-    class StiDateTimeDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.DateTime;
-        constructor();
-    }
-    class StiTimeSpanDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.TimeSpan;
-        constructor();
-    }
-    class StiDoubleDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.Double;
-        constructor();
-    }
-    class StiDecimalDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.Decimal;
-        constructor();
-    }
-    class StiLongDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: Stimulsoft.System.Long;
-        constructor();
-    }
-    class StiExpressionDialogInfoItem extends StiDialogInfoItem {
-        readonly componentId: StiComponentId;
-        key: string;
-        constructor();
-    }
-    class StiStringRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: string;
-        to: string;
-        constructor();
-    }
-    class StiGuidRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: Stimulsoft.System.Guid;
-        to: Stimulsoft.System.Guid;
-        constructor();
-    }
-    class StiCharRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: Stimulsoft.System.Char;
-        to: Stimulsoft.System.Char;
-        constructor();
-    }
-    class StiDateTimeRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: Stimulsoft.System.DateTime;
-        to: Stimulsoft.System.DateTime;
-        constructor();
-    }
-    class StiTimeSpanRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: Stimulsoft.System.TimeSpan;
-        to: Stimulsoft.System.TimeSpan;
-        constructor();
-    }
-    class StiDoubleRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: Stimulsoft.System.Double;
-        to: Stimulsoft.System.Double;
-        constructor();
-    }
-    class StiDecimalRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: Stimulsoft.System.Decimal;
-        to: Stimulsoft.System.Decimal;
-        constructor();
-    }
-    class StiLongRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: Stimulsoft.System.Long;
-        to: Stimulsoft.System.Long;
-        constructor();
-    }
-    class StiExpressionRangeDialogInfoItem extends StiRangeDialogInfoItem {
-        readonly componentId: StiComponentId;
-        from: string;
-        to: string;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import StiDatabaseCollection = Stimulsoft.Report.Dictionary.StiDatabaseCollection;
@@ -20458,36 +20555,6 @@ declare module Stimulsoft.Report.Dictionary {
     }
 }
 declare module Stimulsoft.Report.Dictionary {
-    import Image = Stimulsoft.System.Drawing.Image;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    class StiResource implements IStiName, IStiInherited, IStiJsonReportObject {
-        implements(): string[];
-        clone(): StiResource;
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        readonly propName: string;
-        inherited: boolean;
-        private _name;
-        name: string;
-        alias: string;
-        availableInTheViewer: boolean;
-        private _content;
-        content: number[];
-        private _packAndEncryptContent;
-        packAndEncryptContent: string;
-        key: string;
-        type: StiResourceType;
-        getResourceAsImage(): Image;
-        toString(): string;
-        constructor(name?: string, alias?: string, inherited?: boolean, type?: StiResourceType, content?: number[], availableInTheViewer?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import CollectionBase = Stimulsoft.System.Collections.CollectionBase;
@@ -20608,68 +20675,6 @@ declare module Stimulsoft.Report.Dictionary {
         private _password;
         readonly password: string;
         constructor(userName: string, password: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import DateTime = Stimulsoft.System.DateTime;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import IStiName = Stimulsoft.Report.IStiName;
-    import StiExpression = Stimulsoft.Report.Expressions.StiExpression;
-    import Type = Stimulsoft.System.Type;
-    import IClonable = Stimulsoft.System.ICloneable;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiDialogInfo = Stimulsoft.Report.Dictionary.StiDialogInfo;
-    class StiVariable extends StiExpression implements IStiName, IStiInherited, IClonable {
-        private convertTypeToJsonString(type);
-        private convertJsonStringToType(text);
-        saveToJsonObjectEx(): StiJson;
-        loadFromJsonObjectEx(jObject: StiJson, report: StiReport): void;
-        static loadFromXml(xmlNode: XmlNode, report: StiReport): StiVariable;
-        static convertFromStringToDialogInfo(str: string, report: StiReport): StiDialogInfo;
-        private static parseStringArray(xmlNode);
-        private _inherited;
-        inherited: boolean;
-        private _name;
-        name: string;
-        readonly applyFormat: boolean;
-        private _dialogInfo;
-        dialogInfo: StiDialogInfo;
-        private _alias;
-        alias: string;
-        private _type;
-        type: Type;
-        private _readOnly;
-        readOnly: boolean;
-        private _requestFromUser;
-        requestFromUser: boolean;
-        private _allowUseAsSqlParameter;
-        allowUseAsSqlParameter: boolean;
-        private _category;
-        category: string;
-        private _description;
-        description: string;
-        readonly isCategory: boolean;
-        valueObject: Object;
-        initByExpressionFrom: string;
-        initByExpressionTo: string;
-        getValueProp(): string;
-        setValueProp(value: string): void;
-        function: boolean;
-        private _initBy;
-        initBy: StiVariableInitBy;
-        private _selection;
-        selection: StiSelectionMode;
-        private _key;
-        key: string;
-        private getRangeValues();
-        static getValue(str: string, type: Type): Object;
-        private setValue(value);
-        getNativeValue(): string;
-        static getDateTimeFromValue(value: string): DateTime;
-        static getValueFromDateTime(value: Stimulsoft.System.DateTime): string;
-        eval(report: StiReport): Object;
-        toString(): string;
-        constructor(category?: string, name?: string, alias?: string, description?: string, typeT?: Type, value?: string, readOnly?: boolean, initBy?: StiVariableInitBy, requestFromUser?: boolean, dialogInfo?: StiDialogInfo, key?: string, allowUseAsSqlParameter?: boolean, selection?: StiSelectionMode);
     }
 }
 declare module Stimulsoft.Report.Dictionary {
@@ -22082,21 +22087,29 @@ declare module Stimulsoft.Report.Maps {
         mapID: StiMapID;
         private _showLegend;
         showLegend: boolean;
+        private _showName;
+        showName: boolean;
         private _mapType;
         mapType: StiMapType;
         private isMapDataChanged;
         private _mapData;
         mapData: string;
-        private _dataColumnKey;
-        dataColumnKey: string;
-        private _dataColumnName;
-        dataColumnName: string;
-        private _dataColumnValue;
-        dataColumnValue: string;
-        private _dataColumnGroup;
-        dataColumnGroup: string;
-        private _dataColumnColor;
-        dataColumnColor: string;
+        private _keyDataColumn;
+        keyDataColumn: string;
+        private _nameDataColumn;
+        nameDataColumn: string;
+        private _valueDataColumn;
+        valueDataColumn: string;
+        private _groupDataColumn;
+        groupDataColumn: string;
+        private _colorDataColumn;
+        colorDataColumn: string;
+        private _latitude;
+        latitude: string;
+        private _longitude;
+        longitude: string;
+        private _mapMode;
+        mapMode: StiMapMode;
         private _isHashDataEmpty;
         readonly isHashDataEmpty: boolean;
         createNew(): StiComponent;
@@ -22112,9 +22125,11 @@ declare module Stimulsoft.Report.Maps {
 }
 declare module Stimulsoft.Report.Export {
     import SolidBrush = Stimulsoft.System.Drawing.SolidBrush;
+    import Brush = Stimulsoft.System.Drawing.Brush;
     import StiMap = Stimulsoft.Report.Maps.StiMap;
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     class StiMapSvgHelper {
+        static defaultBrush: Brush;
         static drawMap(xmlsWriter: XmlTextWriter, map: StiMap, width: number, height: number, animated: boolean): void;
         static render(map: StiMap, xmlsWriter: XmlTextWriter, animated: boolean, sScale: number): void;
         private static writeBorderStroke(writer, color);
@@ -22200,6 +22215,7 @@ declare module Stimulsoft.Report.Export {
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
     import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import StiPage = Stimulsoft.Report.Components.StiPage;
     class StiSvgHelper {
         private static correctFontSize;
@@ -22218,6 +22234,8 @@ declare module Stimulsoft.Report.Export {
         private static writeImage(writer, svgData, imageResolution, imageFormat, imageQuality, imageCodec, REFclipCounter);
         private static writeBarCode(writer, svgData);
         static writeShape(writer: XmlTextWriter, svgData: StiSvgData): void;
+        static writeFillBrush(writer: XmlTextWriter, brush: any, rect: RectangleD): string;
+        private static writeBrush(writer, brush, rect);
         private static writeRoundedRectanglePrimitive(writer, svgData);
         private static writeIndicator(writer, svgData);
         private static writeIconSetIndicatorTypePainter(writer, textComp, rect);
@@ -23190,6 +23208,7 @@ declare module Stimulsoft.Report.Export {
         colorSpace: StiPdfObjInfo;
         pages: StiPdfObjInfo;
         structTreeRoot: StiPdfObjInfo;
+        optionalContentGroup: StiPdfObjInfo;
         pageList: StiPdfContentObjInfo[];
         xObjectList: StiPdfXObjectObjInfo[];
         fontList: StiPdfFontObjInfo[];
@@ -24376,7 +24395,7 @@ declare module Stimulsoft.Report.Maps {
         constructor(key: string);
         key: string;
         private _value;
-        value: number;
+        value: string;
         private _group;
         group: string;
         name: string;
@@ -24483,6 +24502,10 @@ declare module Stimulsoft.Report.Maps {
     }
 }
 declare module Stimulsoft.Report.Maps {
+    enum StiMapMode {
+        Choropleth = 0,
+        Online = 1,
+    }
     enum StiMapID {
         World = 1,
         Australia = 2,
@@ -24499,6 +24522,74 @@ declare module Stimulsoft.Report.Maps {
         Russia = 13,
         UK = 14,
         USA = 15,
+        Albania = 16,
+        Andorra = 17,
+        Argentina = 18,
+        Armenia = 19,
+        Azerbaijan = 20,
+        Belarus = 21,
+        Belgium = 22,
+        Bolivia = 23,
+        BosniaAndHerzegovina = 24,
+        Bulgaria = 25,
+        Chile = 26,
+        Colombia = 27,
+        Croatia = 28,
+        Cyprus = 29,
+        CzechRepublic = 30,
+        Denmark = 31,
+        Ecuador = 32,
+        Estonia = 33,
+        FalklandIslands = 34,
+        Finland = 35,
+        Georgia = 36,
+        Greece = 37,
+        Guyana = 38,
+        Hungary = 39,
+        Iceland = 40,
+        India = 41,
+        Indonesia = 42,
+        Ireland = 43,
+        Israel = 44,
+        Japan = 45,
+        Kazakhstan = 46,
+        Latvia = 47,
+        Liechtenstein = 48,
+        Lithuania = 49,
+        Luxembourg = 50,
+        Macedonia = 51,
+        Malaysia = 52,
+        Malta = 53,
+        Mexico = 54,
+        Moldova = 55,
+        Monaco = 56,
+        Montenegro = 57,
+        NewZealand = 58,
+        Norway = 59,
+        Paraguay = 60,
+        Peru = 61,
+        Philippines = 62,
+        Poland = 63,
+        Portugal = 64,
+        Romania = 65,
+        SanMarino = 66,
+        SaudiArabia = 67,
+        Serbia = 68,
+        Slovakia = 69,
+        Slovenia = 70,
+        SouthAfrica = 71,
+        SouthKorea = 72,
+        Spain = 73,
+        Suriname = 74,
+        Sweden = 75,
+        Switzerland = 76,
+        Thailand = 77,
+        Turkey = 78,
+        Ukraine = 79,
+        Uruguay = 80,
+        Vatican = 81,
+        Venezuela = 82,
+        Vietnam = 83,
     }
     enum StiMapStyleIdent {
         Style21 = 0,
@@ -24512,13 +24603,16 @@ declare module Stimulsoft.Report.Maps {
         Group = 1,
         Heatmap = 2,
         HeatmapWithGroup = 3,
+        Individual = 4,
     }
 }
 declare module Stimulsoft.Report.Maps {
+    import Color = Stimulsoft.System.Drawing.Color;
     class StiMapHelper {
         private static globalReport;
         private static globalMap;
         static getMapSample(): StiMap;
+        static getColors(): Color[];
     }
 }
 declare module Stimulsoft.Report.Painters {
@@ -25429,6 +25523,8 @@ declare module StiOptions {
         static readonly gaugeScales: IStiScaleBase[];
         private static _gaugeStyles;
         static readonly gaugeStyles: IStiGaugeStyleXF[];
+        private static _mapStyles;
+        static readonly mapStyles: Stimulsoft.Report.Maps.StiMapStyleFX[];
     }
     class ExportWord {
         divideSegmentPages: boolean;
@@ -25793,6 +25889,8 @@ declare module Stimulsoft.Report {
         private isPrintingValue;
         isPrinting: boolean;
         readonly isDesigning: boolean;
+        private _isPreviewDialogs;
+        isPreviewDialogs: boolean;
         private _isDocument;
         isDocument: boolean;
         private _isInteractionRendering;
@@ -25826,6 +25924,8 @@ declare module Stimulsoft.Report {
         readonly globalizationStrings: StiGlobalizationContainerCollection;
         private _autoLocalizeReportOnRun;
         autoLocalizeReportOnRun: boolean;
+        private _requestParameters;
+        requestParameters: boolean;
         private _cacheTotals;
         cacheTotals: boolean;
         private _culture;
@@ -31380,8 +31480,7 @@ declare module Stimulsoft.Report.Chart {
         private _allowApplyStyle;
         allowApplyStyle: boolean;
         private _font;
-        readonly font: Font;
-        get: Font;
+        font: Font;
         private _text;
         text: string;
         private _color;
@@ -36746,6 +36845,7 @@ declare module Stimulsoft.Viewer {
         title: string;
         url: string;
         used: boolean;
+        componentGuid: string;
     }
 }
 declare module Stimulsoft.Viewer {
@@ -37156,6 +37256,13 @@ declare module Stimulsoft.Report.Check {
 }
 declare module Stimulsoft.Report.Check {
     class StiAllowHtmlTagsInTextAction extends StiAction {
+        readonly name: string;
+        readonly description: string;
+        invoke(report: StiReport, element: any, elementName: string): void;
+    }
+}
+declare module Stimulsoft.Report.Check {
+    class StiApplyGeneralTextFormat extends StiAction {
         readonly name: string;
         readonly description: string;
         invoke(report: StiReport, element: any, elementName: string): void;
@@ -37719,6 +37826,16 @@ declare module Stimulsoft.Report.Check {
         readonly longMessage: string;
         readonly status: StiCheckStatus;
         private check();
+        processCheck(report: StiReport, obj: any): any;
+    }
+}
+declare module Stimulsoft.Report.Check {
+    class StiTextTextFormatCheck extends StiComponentCheck {
+        readonly previewVisible: boolean;
+        readonly shortMessage: string;
+        readonly longMessage: string;
+        readonly status: StiCheckStatus;
+        check(): boolean;
         processCheck(report: StiReport, obj: any): any;
     }
 }
@@ -38927,6 +39044,22 @@ declare module Stimulsoft.Designer {
         static insertGroups(currentPage: StiPage, group: StiGroup): void;
         static insertComponents(currentPage: StiPage, comps: StiComponentsCollection, alignToGrid?: boolean): void;
         static insert(currentPage: StiPage, alignToGrid?: boolean): void;
+    }
+}
+declare module Stimulsoft.Designer {
+    import StiMap = Stimulsoft.Report.Maps.StiMap;
+    class StiMapHelper {
+        static getMapProperties(map: StiMap): any;
+        static setMapProperties(report: StiReport, param: any, callbackResult: any): void;
+        static updateMapData(report: StiReport, param: any, callbackResult: any): void;
+        static getMapDataForJS(map: StiMap): any[];
+        private static allowGroup(map);
+        private static allowColor(map);
+        static getStyle(map: StiMap): any;
+        private static getMapStyles(report);
+        static getMapSampleImage(map: StiMap, width: number, height: number, zoom: number): string;
+        static setMapStyle(report: StiReport, param: any, callbackResult: any): void;
+        static getStylesContent(report: StiReport, param: any, callbackResult: any): void;
     }
 }
 declare module Stimulsoft.Designer {

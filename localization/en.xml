@@ -590,6 +590,10 @@
     <HighLowPoints>High / Low Points</HighLowPoints>
     <FirstLastPoints>First / Last Points</FirstLastPoints>
     <ColorScale>Color Scale</ColorScale>
+    <SortAZ>Sort A to Z</SortAZ>
+    <SortZA>Sort Z to A</SortZA>
+    <SortSmallestToLargest>Sort Smallest to Largest</SortSmallestToLargest>
+    <SortLargestToSmallest>Sort Largest to Smallest</SortLargestToSmallest>
     <Sparklines>Sparklines</Sparklines>
     <NewDimension>New Dimension</NewDimension>
     <NewMeasure>New Measure</NewMeasure>
@@ -3017,6 +3021,7 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
+    <Stroke>Stroke</Stroke>
     <NameDataColumn>Name Data Column</NameDataColumn>
     <Regular>Regular</Regular>
     <Latitude>Latitude</Latitude>
@@ -3212,7 +3217,8 @@
     <DateInfo>Date Info</DateInfo>
     <DateTimeStep>Date Time Step</DateTimeStep>
     <Default>Default</Default>
-    <DefaultHeightCell>Default Height of Cell</DefaultHeightCell>
+    <DefaultColor>Default Color</DefaultColor>
+	<DefaultHeightCell>Default Height of Cell</DefaultHeightCell>
     <DefaultNamespace>Default Namespace</DefaultNamespace>
     <DependentColumn>Dependent Column</DependentColumn>
     <DependentValue>Dependent Value</DependentValue>
@@ -3662,6 +3668,7 @@
     <ShowTotal>Show Total</ShowTotal>
     <ShowUpDown>Show Up Down</ShowUpDown>
     <ShowValue>Show Value</ShowValue>
+	<ShowName>Show Name</ShowName>
     <ShowXAxis>Show X Axis</ShowXAxis>
     <ShowYAxis>Show Y Axis</ShowYAxis>
     <ShowZeros>Show Zeros</ShowZeros>
