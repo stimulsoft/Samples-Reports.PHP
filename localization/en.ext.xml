@@ -1908,5 +1908,6 @@
     <AddNewConnection>Add New Connection</AddNewConnection>
     <ReplaceConnectionString>Replace Connection String</ReplaceConnectionString>
     <ReplacePathToData>Replace Path to the Data</ReplacePathToData>
+    <Use>Use</Use>
   </Publish>
 </Localization>
