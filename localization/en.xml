@@ -530,6 +530,7 @@
     <StiClone>Clone</StiClone>
     <StiColumnFooterBand>Column Footer</StiColumnFooterBand>
     <StiColumnHeaderBand>Column Header</StiColumnHeaderBand>
+    <StiComboBox>Combo Box</StiComboBox>
     <StiComponent>Component</StiComponent>
     <StiContainer>Container</StiContainer>
     <StiContourText>Contour Text</StiContourText>
@@ -548,6 +549,7 @@
     <StiCrossTitle>Cross-Title</StiCrossTitle>
     <StiDashboard>Dashboard</StiDashboard>
     <StiDataBand>Data</StiDataBand>
+    <StiDatePicker>Date Picker</StiDatePicker>
     <StiEmptyBand>Empty Data</StiEmptyBand>
     <StiFooterBand>Footer</StiFooterBand>
     <StiGauge>Gauge</StiGauge>
@@ -558,15 +560,21 @@
     <StiHorizontalLinePrimitive>Horizontal Line</StiHorizontalLinePrimitive>
     <StiImage>Image</StiImage>
     <StiIndicator>Indicator</StiIndicator>
+    <StiListBox>List Box</StiListBox>
     <StiMap>Map</StiMap>
+    <StiOnlineMap>Online Map</StiOnlineMap>
     <StiOverlayBand>Overlay</StiOverlayBand>
     <StiPage>Page</StiPage>
     <StiPageFooterBand>Page Footer</StiPageFooterBand>
     <StiPageHeaderBand>Page Header</StiPageHeaderBand>
     <StiPanel>Panel</StiPanel>
-    <StiPivot>Pivot</StiPivot>
+    <StiPivotColumn>Pivot Column</StiPivotColumn>
+    <StiPivotRow>Pivot Row</StiPivotRow>
+    <StiPivotSummary>Pivot Summary</StiPivotSummary>
+    <StiPivotTable>Pivot Table</StiPivotTable>
     <StiProgress>Progress</StiProgress>
     <StiRectanglePrimitive>Rectangle</StiRectanglePrimitive>
+    <StiRegionMap>Region Map</StiRegionMap>
     <StiReport>Report</StiReport>
     <StiReportSummaryBand>Report Summary</StiReportSummaryBand>
     <StiReportTitleBand>Report Title</StiReportTitleBand>
@@ -578,13 +586,21 @@
     <StiTable>Table</StiTable>
     <StiText>Text</StiText>
     <StiTextInCells>Text in Cells</StiTextInCells>
+    <StiTreeView>Tree View</StiTreeView>
+    <StiTreeViewBox>Tree View Box</StiTreeViewBox>
     <StiVerticalLinePrimitive>Vertical Line</StiVerticalLinePrimitive>
     <StiWinControl>Win Control</StiWinControl>
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
+    <AddRange>Add Range</AddRange>
+    <RangeMode>Range Mode</RangeMode>
+    <RangeType>Range Type</RangeType>
+    <ShowAllValue>Show (All) Value</ShowAllValue>
+    <AfterGroupingData>Apply after grouping data</AfterGroupingData>
     <Blanks>(Blanks)</Blanks>
     <BooleanFilters>Boolean Filters</BooleanFilters>
+    <CannotLoadDashboard>You cannot load a report with dashboards.</CannotLoadDashboard>
     <ChangeChartType>Change Chart Type</ChangeChartType>
     <ChangeMapType>Change Map Type</ChangeMapType>
     <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
@@ -595,36 +611,43 @@
     <DateFilters>Date Filters</DateFilters>
     <Dimension>Dimension</Dimension>
     <Dimensions>Dimensions</Dimensions>
-    <DragDropDataFromDictionary>Drag&amp;drop data from Dictionary</DragDropDataFromDictionary>
+    <DragDropDataFromDictionary>Drag &amp; drop data from Dictionary</DragDropDataFromDictionary>
     <DuplicateField>Duplicate Field</DuplicateField>
     <EditExpression>Edit Expression</EditExpression>
     <EmptyDashboardFooter>Drag &amp; drop component from ToolBox or data from Dictionary</EmptyDashboardFooter>
     <EmptyDashboardHeader>Dashboard is empty</EmptyDashboardHeader>
+    <FieldTypeRestrictionHint>Only '{0}' type field can be used!</FieldTypeRestrictionHint>
     <FirstLastPoints>First / Last Points</FirstLastPoints>
     <FirstRowIndex>First Row Index</FirstRowIndex>
     <HighLowPoints>High / Low Points</HighLowPoints>
     <ImageNotSpecified>Image not specified</ImageNotSpecified>
     <Indicator>Indicator</Indicator>
     <InitialValue>Initial Value</InitialValue>
-    <LimitRows>Limit Rows</LimitRows>
+    <LimitRows>Skip and Limit Rows</LimitRows>
     <Measure>Measure</Measure>
     <Measures>Measures</Measures>
     <NewDimension>New Dimension</NewDimension>
     <NewMeasure>New Measure</NewMeasure>
+    <NoResult>No Result</NoResult>
+    <NSelected>{0} selected</NSelected>
     <Nulls>(Nulls)</Nulls>
     <NumberFilters>Number Filters</NumberFilters>
+    <ParentElement>Parent Element</ParentElement>
     <RemoveActions>R&amp;emove Actions</RemoveActions>
+    <RemoveAllFields>Remove All Fields</RemoveAllFields>
     <RemoveField>Remove Field</RemoveField>
     <ReplaceValues>Replace Values</ReplaceValues>
     <RowsCount>Rows Count</RowsCount>
     <SelectAll>(Select &amp;All)</SelectAll>
     <ShowAsPercentages>Show as Percentages</ShowAsPercentages>
+    <SkipFirstRows>Skip First Rows</SkipFirstRows>
     <SortAZ>Sort A to Z</SortAZ>
     <SortLargestToSmallest>Sort Largest to Smallest</SortLargestToSmallest>
     <SortSmallestToLargest>Sort Smallest to Largest</SortSmallestToLargest>
     <SortZA>Sort Z to A</SortZA>
     <Sparklines>Sparklines</Sparklines>
     <StringFilters>String Filters</StringFilters>
+    <TransformationHint>Click on the table header to apply sorting, filtering or change data. This transformation will be applied only to the data of this item.</TransformationHint>
     <Trend>Trend</Trend>
   </Dashboard>
   <Database>
@@ -777,6 +800,7 @@
     <NoServices>Services are not found in '{0}'</NoServices>
     <NotAssign>Data Source is not specified.</NotAssign>
     <NotCorrectFormat>Input string was not in a correct format.</NotCorrectFormat>
+    <PrimaryColumnAction>Unable to apply this action to the primary column of the '{0}'.</PrimaryColumnAction>
     <RelationsNotFound>Relations not found.</RelationsNotFound>
     <ReportCannotBeSaveDueToErrors>Report cannot be saved due to errors!</ReportCannotBeSaveDueToErrors>
     <ServiceNotFound>'{0}' Service not found.</ServiceNotFound>
@@ -795,6 +819,7 @@
     <Compressed>Compressed</Compressed>
     <CompressToArchive>Compress to Archive</CompressToArchive>
     <ContinuousPages>Continuous Pages</ContinuousPages>
+    <DataAndHeaders>Data and Headers</DataAndHeaders>
     <DataAndHeadersFooters>Data and Headers/Footers</DataAndHeadersFooters>
     <DataOnly>Data only</DataOnly>
     <DigitalSignature>Digital Signature</DigitalSignature>
@@ -1079,6 +1104,7 @@
     <PostgreSQLNew>New PostgreSQL Connection</PostgreSQLNew>
     <PromptUserNameAndPassword>Prompt User Name and Password</PromptUserNameAndPassword>
     <RecentConnections>Recent</RecentConnections>
+    <RelationDirection>Relation Direction:</RelationDirection>
     <ReportConnections>Report Connections</ReportConnections>
     <SelectData>Select Data</SelectData>
     <SqlCeEdit>Edit SQLServerCE Connection</SqlCeEdit>
@@ -1098,7 +1124,6 @@
     <XmlEdit>Edit XML Data</XmlEdit>
     <XmlNew>New XML Data</XmlNew>
     <XmlType>XML Type:</XmlType>
-	<RelationDirection>Relation Direction:</RelationDirection>
   </FormDatabaseEdit>
   <FormDesigner>
     <Code>Code</Code>
@@ -1135,6 +1160,7 @@
     <CalcColumnNew>New Calculated Column</CalcColumnNew>
     <CategoryEdit>Edit Category</CategoryEdit>
     <CategoryNew>New Category</CategoryNew>
+    <Child>Child</Child>
     <ChildOfBusinessObject>Child of Business Object</ChildOfBusinessObject>
     <ChildSource>Child Data Source:</ChildSource>
     <ClickHere>Click here</ClickHere>
@@ -1176,6 +1202,7 @@
     <NewBusinessObject>New Business Object</NewBusinessObject>
     <NewItem>New Item</NewItem>
     <OpenAssembly>Open Assembly</OpenAssembly>
+    <Parent>Parent</Parent>
     <ParentSource>Parent Data Source:</ParentSource>
     <Queries>Queries</Queries>
     <QueryNew>New Query</QueryNew>
@@ -1618,12 +1645,13 @@
   <HelpComponents>
     <StiBarCode>This component allows showing bar codes in a report. Bar code data are sent to an object as a string. The string may contain any symbols but only allowed symbols for the selected chart can be displayed.</StiBarCode>
     <StiChart>This component allows showing charts in a report. Different types of charts are available. Among them are bar, line, pie, doughnut, lines, areas, Gantt, scatter charts etc. </StiChart>
-    <StiChartElement>This component allows showing charts in a dashboard. Different types of charts are available.</StiChartElement>
+    <StiChartElement>This element allows showing charts in a dashboard. Different types of charts are available.</StiChartElement>
     <StiCheckBox>This component allows showing a checkbox in a report. It can display two modes: "enable" or "disable".</StiCheckBox>
     <StiChildBand>The Child band can be used to output two bands on one data row.</StiChildBand>
     <StiClone>This component is used to clone parts of a report into a required part of a report. Cloning can be applied only to the panel contents.</StiClone>
     <StiColumnFooterBand>This band is used to output footers of columns on the Data band. The Column Footer band is output once under each column. All components which are placed on this band will also be output under each column.</StiColumnFooterBand>
     <StiColumnHeaderBand>This band is used to output column headers. The Column Header band is used to output only once. All components which are placed on the band can be output above each column.</StiColumnHeaderBand>
+    <StiComboBoxElement>Represents the ComboBox that is used to either type a value directly into the control or choose from the list of existing options.</StiComboBoxElement>
     <StiContainer>This is the rectangular region where other components, including bands, can be placed. When moving the container the components in it will be moved too. The container can be placed both on a band and on a page.</StiContainer>
     <StiCrossDataBand>This band is connected to the data source. It is output as many times as there are rows in the data source. A Cross band is output from left to right.</StiCrossDataBand>
     <StiCrossFooterBand>This band is used to output footers of the Cross-Data band. The band is output once after all rows of the Data band. A Cross band is output from left to right.</StiCrossFooterBand>
@@ -1632,45 +1660,54 @@
     <StiCrossHeaderBand>This band is used to output headers. It is used in association with the Cross band. A Cross band is output from left to right.</StiCrossHeaderBand>
     <StiCrossTab>The cross-tab component is used for the structured data representation as a table.</StiCrossTab>
     <StiDataBand>The Data band is connected to the data source and is output as many times as there are rows in the data source.</StiDataBand>
+    <StiDatePickerElement>The element is used to select the date and time.</StiDatePickerElement>
     <StiEmptyBand>This band is used to fill free space on the bottom of a page. This band fills free space on each page of a report.</StiEmptyBand>
+    <StiFilterCategory>A group of elements used for selecting and filtering values.</StiFilterCategory>
     <StiFooterBand>This band is used to output summary by the Data band. It is placed under the Data band and is output once after all data rows which Data band outputs.</StiFooterBand>
     <StiGauge>The component allows you to display a value within a predefined range. It can have different graphical representation.</StiGauge>
-    <StiGaugeElement>The component allows you to display a value within a predefined range. It can have different graphical representation.</StiGaugeElement>
+    <StiGaugeElement>The element allows you to display a value within a predefined range. It can have different graphical representation.</StiGaugeElement>
     <StiGroupFooterBand>The Group Footer band is used to output the group footer. This band is placed after the Data band. And this is the Data band with what the Group Header band is bound. Each Group Footer band belongs to the specified Group Header band. The Group Footer band will not be output without the Group Header band.</StiGroupFooterBand>
     <StiGroupHeaderBand>This band is the basic band for rendering reports with grouping. The components for showing information by this group are placed on the group header. It can be group name, date, condition of grouping etc. This band is output once in the beginning of each group.</StiGroupHeaderBand>
     <StiHeaderBand>This band is used to output headers. It is used together with the data band.</StiHeaderBand>
     <StiHierarchicalBand>This band is connected to the data source and output as many times as there are rows in the data source. Data are output as a tree.</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>This component is used to output a line.</StiHorizontalLinePrimitive>
-    <StiImage>This component is used to output images. It supports the following graphic formats, such as BMP, JPG, JPEG, GIF, TIFF, PNG, ICO, WMF, EMF.</StiImage>
-    <StiImageElement>This component is used to output images. It supports the following graphic formats, such as BMP, JPG, JPEG, GIF, TIFF, PNG, ICO, WMF, EMF.</StiImageElement>
-    <StiIndicatorElement>The component displays the difference in values between the input data.</StiIndicatorElement>
+    <StiImage>This component is used to output images.</StiImage>
+    <StiImageElement>This element is used to output images. It supports the following graphic formats, such as BMP, JPG, JPEG, GIF, TIFF, PNG, ICO, WMF, EMF.</StiImageElement>
+    <StiIndicatorElement>The element displays the difference in values between the input data.</StiIndicatorElement>
+    <StiListBoxElement>The element allows selecting items from a list.</StiListBoxElement>
     <StiMap>This component is used to display data that is geographically targeted.</StiMap>
-    <StiMapElement>This component is used to display data that is geographically targeted.</StiMapElement>
+    <StiMapCategory>Group of elements for working with maps and data.</StiMapCategory>
+    <StiMapElement>This element is used to display data that is geographically targeted.</StiMapElement>
+    <StiOnlineMapElement>This element is used to display geographic markers on the online map.</StiOnlineMapElement>
     <StiOverlayBand>This band is used to output watermarks on a page.</StiOverlayBand>
     <StiPageFooterBand>This band is used to output the information on the bottom of each page such as page numbers, dates, and other additional information.</StiPageFooterBand>
     <StiPageHeaderBand>This band is used to output the page header such as page numbers, dates, and other additional information. It is output on the top of each page.</StiPageHeaderBand>
     <StiPanel>A rectangular region that can contain other components, including bands. When the panel is moved the components in it are moved too. A panel can be placed either on a band or on a page.</StiPanel>
-    <StiPanelElement>A rectangular region that can contain other components. When the panel is moved the components in it are moved too.</StiPanelElement>
-    <StiPivotElement>The pivot component is used for the structured data representation as a table.</StiPivotElement>
-    <StiProgressElement>The component displays the ratio of the input data. It can be presented in different modes - a pie, circle, bars.</StiProgressElement>
+    <StiPanelElement>A rectangular region that can contain other elements. When the panel is moved the elements in it are moved too.</StiPanelElement>
+    <StiPivotTableElement>The pivot table element is used for the structured data representation as a table.</StiPivotTableElement>
+    <StiProgressElement>The element displays the ratio of the input data. It can be presented in different modes - a pie, donut, bars.</StiProgressElement>
     <StiRectanglePrimitive>This component is used to output rectangles.</StiRectanglePrimitive>
+    <StiRegionMapElement>This element is used to display data that is geographically targeted.</StiRegionMapElement>
     <StiReportSummaryBand>This band is used to output summaries through the entire report. It is output once in the end of a report.</StiReportSummaryBand>
     <StiReportTitleBand>This band is used to output the report title. It is output in the beginning of a report.</StiReportTitleBand>
     <StiRichText>This component is used to output and edit the RTF text. It also supports loading and saving files in the RTF format.</StiRichText>
     <StiRoundedRectanglePrimitive>This component is used to output rounded rectangles.</StiRoundedRectanglePrimitive>
     <StiShape>This component is used to insert ready-made shapes, such as arrows, diagonal line down, diagonal line up, horizontal line, left and right lines, oval, rectangle, rounded rectangle, top and bottom lines, triangle, vertical line.</StiShape>
-    <StiShapeElement>This component is used to insert ready-made shapes, such as arrows, diagonal line down, diagonal line up, horizontal line, left and right lines, oval, rectangle, rounded rectangle, top and bottom lines, triangle, vertical line.</StiShapeElement>
+    <StiShapeElement>This element is used to insert ready-made shapes, such as arrows, diagonal line down, diagonal line up, horizontal line, left and right lines, oval, rectangle, rounded rectangle, top and bottom lines, triangle, vertical line.</StiShapeElement>
     <StiSubReport>This component is used to output additional data in different places of a report.</StiSubReport>
     <StiTable>This component is a set of data elements that is organized using a model of vertical columns and horizontal rows.</StiTable>
-    <StiTableElement>This component is a set of data elements that is organized using a model of vertical columns and horizontal rows.</StiTableElement>
+    <StiTableElement>This element is a set of data elements that is organized using a model of vertical columns and horizontal rows.</StiTableElement>
     <StiText>This component is a basic object to output data as a text.</StiText>
-    <StiTextElement>This component is a basic object to output data as a text.</StiTextElement>
+    <StiTextElement>This element is a basic object to output data as a text.</StiTextElement>
     <StiTextInCells>The component is used to output a text in cells. It is frequently used for creating forms.</StiTextInCells>
+    <StiTreeViewBoxElement>The element is used to select values with a drop-down list as a tree.</StiTreeViewBoxElement>
+    <StiTreeViewElement>Represents the element that is used to show the hierarchical data as a tree.</StiTreeViewElement>
     <StiVerticalLinePrimitive>This component is used to output vertical lines.</StiVerticalLinePrimitive>
     <StiWinControl>The component allows showing visual controls from .NET Framework.</StiWinControl>
     <StiZipCode>This component is used to output the ZIP code.</StiZipCode>
   </HelpComponents>
   <HelpDesigner>
+    <ActiveRelation>Sets the priority Relation to bind two tables. It is used in Data Transformation and Dashboards. Only one Relation in each Data Source can be active.</ActiveRelation>
     <Align>Change the location of selected components.</Align>
     <AlignBottom>Align the contents of a component to bottom.</AlignBottom>
     <AlignCenter>Align the contents of a component to center.</AlignCenter>
@@ -2016,6 +2053,7 @@
     <menuInsertRowAbove>Insert Row Above</menuInsertRowAbove>
     <menuInsertRowBelow>Insert Row Below</menuInsertRowBelow>
     <menuJoinCells>Join Cells</menuJoinCells>
+    <menuMakeThisRelationActive>Make This Relation Active</menuMakeThisRelationActive>
     <menuSelectColumn>Select Column</menuSelectColumn>
     <menuSelectRow>Select Row</menuSelectRow>
     <menuTable>Table</menuTable>
@@ -2293,10 +2331,12 @@
     <CheckCategory>Check</CheckCategory>
     <ColorsCategory>Colors</ColorsCategory>
     <ColumnsCategory>Columns</ColumnsCategory>
+    <ComboBoxCategory>Combo Box</ComboBoxCategory>
     <ControlCategory>Control</ControlCategory>
     <ControlsEventsCategory>Controls Events</ControlsEventsCategory>
     <CrossTabCategory>Cross-Tab</CrossTabCategory>
     <DataCategory>Data</DataCategory>
+    <DatePickerCategory>Date Picker</DatePickerCategory>
     <DescriptionCategory>Description</DescriptionCategory>
     <DesignCategory>Design</DesignCategory>
     <DisplayCategory>Display</DisplayCategory>
@@ -2312,6 +2352,7 @@
     <IndicatorCategory>Indicator</IndicatorCategory>
     <InterlacingCategory>Interlacing</InterlacingCategory>
     <LegendCategory>Legend</LegendCategory>
+    <ListBoxCategory>List Box</ListBoxCategory>
     <MainCategory>Main</MainCategory>
     <MarkerCategory>Marker</MarkerCategory>
     <MiscCategory>Misc</MiscCategory>
@@ -2319,15 +2360,18 @@
     <NavigationCategory>Navigation</NavigationCategory>
     <NavigationEventsCategory>Navigation Events</NavigationEventsCategory>
     <Needle>Needle</Needle>
+    <OnlineMapCategory>Online Map</OnlineMapCategory>
     <OptionsCategory>Options</OptionsCategory>
     <PageAdditionalCategory>Page Additional</PageAdditionalCategory>
     <PageCategory>Page</PageCategory>
     <PageColumnBreakCategory>Page and Column Break</PageColumnBreakCategory>
     <ParametersCategory>Parameters</ParametersCategory>
+    <PivotTableCategory>Pivot Table</PivotTableCategory>
     <PositionCategory>Position</PositionCategory>
     <PrimitiveCategory>Primitive</PrimitiveCategory>
     <PrintEventsCategory>Print Events</PrintEventsCategory>
     <ProgressCategory>Progress</ProgressCategory>
+    <RegionMapCategory>Region Map</RegionMapCategory>
     <RenderEventsCategory>Render Events</RenderEventsCategory>
     <SeriesCategory>Series</SeriesCategory>
     <SeriesLabelsCategory>Series Labels</SeriesLabelsCategory>
@@ -2338,6 +2382,8 @@
     <TextAdditionalCategory>Text Additional</TextAdditionalCategory>
     <TextCategory>Text</TextCategory>
     <TitleCategory>Title</TitleCategory>
+    <TreeViewBoxCategory>Tree View Box</TreeViewBoxCategory>
+    <TreeViewCategory>Tree View</TreeViewCategory>
     <TrendLineCategory>Trend Line</TrendLineCategory>
     <ValueCategory>Value</ValueCategory>
     <ValueCloseCategory>Value Close</ValueCloseCategory>
@@ -2494,6 +2540,10 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
+    <StiGaugeRangeModePercentage>Percentage</StiGaugeRangeModePercentage>
+    <StiGaugeRangeModeValue>Value</StiGaugeRangeModeValue>
+    <StiGaugeRangeTypeNone>None</StiGaugeRangeTypeNone>
+    <StiGaugeRangeTypeColor>Color</StiGaugeRangeTypeColor>
     <boolFalse>False</boolFalse>
     <boolTrue>True</boolTrue>
     <BorderStyleFixed3D>Fixed 3D</BorderStyleFixed3D>
@@ -2555,6 +2605,8 @@
     <PictureBoxSizeModeCenterImage>Center Image</PictureBoxSizeModeCenterImage>
     <PictureBoxSizeModeNormal>Normal</PictureBoxSizeModeNormal>
     <PictureBoxSizeModeStretchImage>Stretch Image</PictureBoxSizeModeStretchImage>
+    <RelationDirectionChildToParent>Child-To-Parent</RelationDirectionChildToParent>
+    <RelationDirectionParentToChild>Parent-To-Child</RelationDirectionParentToChild>
     <RightToLeftInherit>Inherit</RightToLeftInherit>
     <RightToLeftNo>No</RightToLeftNo>
     <RightToLeftYes>Yes</RightToLeftYes>
@@ -2637,6 +2689,9 @@
     <StiCrossHorAlignmentLeft>Left</StiCrossHorAlignmentLeft>
     <StiCrossHorAlignmentNone>None</StiCrossHorAlignmentNone>
     <StiCrossHorAlignmentRight>Right</StiCrossHorAlignmentRight>
+    <StiDateSelectionModeAutoRange>Auto Range</StiDateSelectionModeAutoRange>
+    <StiDateSelectionModeRange>Range</StiDateSelectionModeRange>
+    <StiDateSelectionModeSingle>Single</StiDateSelectionModeSingle>
     <StiDateTimeTypeDate>Date</StiDateTimeTypeDate>
     <StiDateTimeTypeDateAndTime>Date and Time</StiDateTimeTypeDateAndTime>
     <StiDateTimeTypeTime>Time</StiDateTimeTypeTime>
@@ -2669,8 +2724,8 @@
     <StiFilterConditionEqualTo>equal to</StiFilterConditionEqualTo>
     <StiFilterConditionGreaterThan>greater than</StiFilterConditionGreaterThan>
     <StiFilterConditionGreaterThanOrEqualTo>greater than or equal to</StiFilterConditionGreaterThanOrEqualTo>
-    <StiFilterConditionIsBlanks>is blanks</StiFilterConditionIsBlanks>
-    <StiFilterConditionIsNotBlanks>is not blanks</StiFilterConditionIsNotBlanks>
+    <StiFilterConditionIsBlank>is blank</StiFilterConditionIsBlank>
+    <StiFilterConditionIsNotBlank>is not blank</StiFilterConditionIsNotBlank>
     <StiFilterConditionIsNotNull>is not null</StiFilterConditionIsNotNull>
     <StiFilterConditionIsNull>is null</StiFilterConditionIsNull>
     <StiFilterConditionLessThan>less than</StiFilterConditionLessThan>
@@ -2722,6 +2777,8 @@
     <StiImageRotationRotate180>Rotate 180°</StiImageRotationRotate180>
     <StiImageRotationRotate90CCW>Rotate 90° CCW</StiImageRotationRotate90CCW>
     <StiImageRotationRotate90CW>Rotate 90° CW</StiImageRotationRotate90CW>
+    <StiItemSelectionModeMulti>Multi</StiItemSelectionModeMulti>
+    <StiItemSelectionModeOne>One</StiItemSelectionModeOne>
     <StiKeepDetailsKeepDetailsTogether>Keep Details Together</StiKeepDetailsKeepDetailsTogether>
     <StiKeepDetailsKeepFirstDetailTogether>Keep First Detail Together</StiKeepDetailsKeepFirstDetailTogether>
     <StiKeepDetailsKeepFirstRowTogether>Keep First Row Together</StiKeepDetailsKeepFirstRowTogether>
@@ -3184,6 +3241,7 @@
     <ChildSource>Child Data Source</ChildSource>
     <ClearFormat>Clear Format</ClearFormat>
     <CloneContainer>Clone Container</CloneContainer>
+    <CloseValues>Close Values</CloseValues>
     <Code>Code</Code>
     <CodePage>Code Page</CodePage>
     <Collapsed>Collapsed</Collapsed>
@@ -3194,6 +3252,7 @@
     <Color>Color</Color>
     <ColorDataColumn>Color Data Column</ColorDataColumn>
     <ColorEach>Color Each</ColorEach>
+    <ColorMeter>Color</ColorMeter>
     <ColorScaleCondition>Color Scale Condition</ColorScaleCondition>
     <ColorScaleType>Color Scale Type</ColorScaleType>
     <Column>Column</Column>
@@ -3296,6 +3355,7 @@
     <EndCap>End Cap</EndCap>
     <EndColor>End Color</EndColor>
     <EndValue>End Value</EndValue>
+    <EndValues>End Values</EndValues>
     <EndWidth>End Width</EndWidth>
     <EngineVersion>Engine Version</EngineVersion>
     <EnumeratorSeparator>Enumerator Separator</EnumeratorSeparator>
@@ -3316,6 +3376,7 @@
     <Fill>Fill</Fill>
     <FillColor>Fill Color</FillColor>
     <Filter>Filter</Filter>
+    <FilterElements>Filter Elements</FilterElements>
     <FilterEngine>Filter Engine</FilterEngine>
     <FilterMode>Filter Mode</FilterMode>
     <FilterOn>Filter On</FilterOn>
@@ -3361,7 +3422,9 @@
     <GridLinesVert>Grid Lines Vertical</GridLinesVert>
     <GridLinesVertColor>Grid Lines Vertical Color</GridLinesVertColor>
     <GridOutline>Grid Outline</GridOutline>
+    <Group>Group</Group>
     <GroupDataColumn>Group Data Column</GroupDataColumn>
+    <GroupMeter>Group</GroupMeter>
     <GrowToHeight>Grow to Height</GrowToHeight>
     <HeaderBackColor>Header Back Color</HeaderBackColor>
     <HeaderCanBreak>Header Can Break</HeaderCanBreak>
@@ -3382,6 +3445,7 @@
     <HideZeros>Hide Zeros</HideZeros>
     <High>High</High>
     <HighlightCondition>Highlight Condition</HighlightCondition>
+    <HighValues>High Values</HighValues>
     <HorAlignment>Horizontal Alignment</HorAlignment>
     <HorSpacing>Horizontal Spacing</HorSpacing>
     <HotkeyPrefix>Hotkey Prefix</HotkeyPrefix>
@@ -3430,10 +3494,13 @@
     <KeepGroupHeaderTogether>Keep Group Header Together</KeepGroupHeaderTogether>
     <KeepGroupTogether>Keep Group Together</KeepGroupTogether>
     <KeepHeaderTogether>Keep Header Together</KeepHeaderTogether>
+    <KeepMergedCellsTogether>Keep Merged Cells Together</KeepMergedCellsTogether>
     <KeepReportSummaryTogether>Keep Report Summary Together</KeepReportSummaryTogether>
     <KeepSubReportTogether>Keep Sub-Report Together</KeepSubReportTogether>
     <Key>Key</Key>
     <KeyDataColumn>Key Data Column</KeyDataColumn>
+    <KeyMeter>Key</KeyMeter>
+    <KeyMeters>Keys</KeyMeters>
     <Keys>Keys</Keys>
     <Label>Label</Label>
     <LabelColor>Label Color</LabelColor>
@@ -3484,10 +3551,13 @@
     <LogarithmicScale>Logarithmic Scale</LogarithmicScale>
     <Longitude>Longitude</Longitude>
     <Low>Low</Low>
+    <LowValues>Low Values</LowValues>
     <MajorInterval>Major Interval</MajorInterval>
     <MapID>Map ID</MapID>
+    <Maps>Maps</Maps>
     <MapStyle>Style</MapStyle>
     <MapType>Map Type</MapType>
+    <Margin>Margin</Margin>
     <Margins>Margins</Margins>
     <Marker>Marker</Marker>
     <MarkerAlignment>Marker Alignment</MarkerAlignment>
@@ -3536,6 +3606,7 @@
     <Name>Name</Name>
     <NameDataColumn>Name Data Column</NameDataColumn>
     <NameInSource>Name in Source</NameInSource>
+    <NameMeter>Name</NameMeter>
     <NameParent>Parent Name</NameParent>
     <Namespaces>Namespaces</Namespaces>
     <Negative>Negative</Negative>
@@ -3555,10 +3626,12 @@
     <Offset>Offset</Offset>
     <OffsetAngle>Offset Angle</OffsetAngle>
     <OnlyText>Only Text</OnlyText>
+    <OpenValues>Open Values</OpenValues>
     <Operation>Operation</Operation>
     <Options>Options</Options>
     <Orientation>Orientation</Orientation>
     <OthersText>Others Text</OthersText>
+    <Padding>Padding</Padding>
     <PageHeight>Page Height</PageHeight>
     <PageNumbers>Page Numbers</PageNumbers>
     <PageWidth>Page Width</PageWidth>
@@ -3658,6 +3731,7 @@
     <RowCount>Row Count</RowCount>
     <RowHeadersVisible>Row Headers Visible</RowHeadersVisible>
     <RowHeaderWidth>Row Header Width</RowHeaderWidth>
+    <Rows>Rows</Rows>
     <Scale>Scale</Scale>
     <ScaleHor>Scale Hor</ScaleHor>
     <ScriptLanguage>Script Language</ScriptLanguage>
@@ -3689,6 +3763,7 @@
     <Shift>Shift</Shift>
     <ShiftMode>Shift Mode</ShiftMode>
     <ShortName>Short Name</ShortName>
+    <ShortValue>Short Value</ShortValue>
     <ShowBehind>Show Behind</ShowBehind>
     <ShowDialog>Show Dialog</ShowDialog>
     <ShowEdgeValues>Show Edge Values</ShowEdgeValues>
@@ -3705,6 +3780,8 @@
     <ShowQuietZoneIndicator>Show Quiet Zone Indicator</ShowQuietZoneIndicator>
     <ShowQuietZones>Show Quiet Zones</ShowQuietZones>
     <ShowScrollBar>Show Scroll Bar</ShowScrollBar>
+    <ShowSelectAll>Show Select All</ShowSelectAll>
+    <ShowAllValue>Show All Value</ShowAllValue>
     <ShowSeriesLabels>Show Series Labels</ShowSeriesLabels>
     <ShowShadow>Show Shadow</ShowShadow>
     <ShowTotal>Show Total</ShowTotal>
@@ -3765,6 +3842,7 @@
     <StyleColors>Style Colors</StyleColors>
     <Styles>Styles</Styles>
     <SubReportPage>Sub Report</SubReportPage>
+    <Summaries>Summaries</Summaries>
     <Summary>Summary</Summary>
     <SummaryExpression>Summary Expression</SummaryExpression>
     <SummarySortDirection>Summary Sort Direction</SummarySortDirection>
@@ -3846,6 +3924,7 @@
     <ValueEnd>Value End</ValueEnd>
     <ValueHigh>Value High</ValueHigh>
     <ValueLow>Value Low</ValueLow>
+    <ValueMeter>Value</ValueMeter>
     <ValueOpen>Value Open</ValueOpen>
     <Values>Values</Values>
     <ValueType>Value Type</ValueType>
@@ -3985,6 +4064,7 @@
     <qnSynchronizeServices>Synchronized services?</qnSynchronizeServices>
   </Questions>
   <Report>
+    <Checking>Checking...</Checking>
     <ActiveRelation>Active Relation</ActiveRelation>
     <Address>Address</Address>
     <Alphabetical>Alphabetical</Alphabetical>

@@ -824,6 +824,7 @@
     <GetDisplayCrossValueEvent>A script of the event GetDisplayCrossValueEvent.</GetDisplayCrossValueEvent>
     <HideZeros>A value indicates that no need show zeroes.</HideZeros>
     <MergeHeaders>A value indicates that all equal values of header will be merged into one.</MergeHeaders>
+    <KeepMergedCellsTogether>A value indicates that merged cells will not separate to next page.</KeepMergedCellsTogether>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>
     <ShowPercents>A value indicates that value in cell must be shown as percents.</ShowPercents>
     <ShowTotal>A value that indicates whether it is necessary to output totals or not.</ShowTotal>

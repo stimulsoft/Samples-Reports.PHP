@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.2.3
-Build date: 2018.07.05
+Version: 2018.3.1
+Build date: 2018.10.10
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -900,7 +900,7 @@ declare module Stimulsoft.System {
         static isUpper(char: string, index?: number): boolean;
         static isLower(char: string, index?: number): boolean;
         static isLetter(char: string, index?: number): boolean;
-        static isDigit(char: string, index?: number): boolean;
+        static isDigit(char: string | number, index?: number): boolean;
         static isLetterOrDigit(char: string, index?: number): boolean;
         static toLower(char: string): string;
         static toUpper(char: string): string;
@@ -5281,6 +5281,7 @@ declare module Stimulsoft.Base.Drawing {
 declare module Stimulsoft.Base {
     import DateTime = Stimulsoft.System.DateTime;
     class StiJson {
+        static prettyPrint: boolean;
         static dateToJsonDate(date: DateTime): string;
         static jsonDateFormatToDate(jsonDate: string): DateTime;
         name: string;
@@ -5300,7 +5301,7 @@ declare module Stimulsoft.Base {
         addPropertyString(propertyName: string, value: string, defaultValue?: string): void;
         addPropertyStringNullOfEmpty(propertyName: string, value: string): void;
         readonly count: number;
-        serialize(): string;
+        serialize(indent?: number): string;
         deserialize(text: any): void;
         private deserializeFromObject(child);
         toString(): string;
@@ -5561,6 +5562,10 @@ declare module Stimulsoft.Base.Licenses {
         NetCore = 8,
         Uwp = 9,
         Flex = 10,
+        Desktop = 11,
+        DbsJs = 12,
+        DbsWin = 13,
+        DbsWeb = 14,
     }
     enum StiActivationType {
         Server = 1,
@@ -7263,6 +7268,12 @@ declare module Stimulsoft.Report.BarCodes {
     interface DrawBaseLinesDelegate {
         (cobtext: any, brush: StiBrush, barCode: StiBarCodeTypeService): any;
     }
+    enum BarcodeCommandCode {
+        Fnc1 = 256,
+        Fnc2 = 512,
+        Fnc3 = 768,
+        Fnc4 = 1024,
+    }
     class StiBarCodeTypeService extends StiService {
         static loadFromJsonObjectInternal(jObject: StiJson): StiBarCodeTypeService;
         static loadFromXmlInternal(xmlNode: XmlNode): StiBarCodeTypeService;
@@ -7292,6 +7303,7 @@ declare module Stimulsoft.Report.BarCodes {
         protected checkCodeSymbols(inputCode: string, tolerantSymbols: string): string;
         getCode(barCode: IStiBarCode): string;
         getCombinedCode(): string;
+        static unpackTilde(input: number[], processTilde: boolean): number[];
         protected getSymbolWidth(symbol: string): number;
         protected isSymbolLong(symbol: string): boolean;
         protected isSymbolSpace(symbol: string): boolean;
@@ -8215,6 +8227,7 @@ declare module Stimulsoft.Report.BarCodes {
         private grid;
         private _errorMessage;
         private ecc200List;
+        private _processTilde;
         private dataMatrixPlacementbit(array, numRows, numColumns, row, column, pos, b);
         private dataMatrixPlacementBlock(array, numRows, numColumns, row, column, pos);
         private dataMatrixPlacementCornerA(array, numRows, numColumns, pos);
@@ -8231,7 +8244,7 @@ declare module Stimulsoft.Report.BarCodes {
         private static isDigit(b);
         private static convertStringToBytes(st);
         private makeGrid(barcode, REFwidthOriginal, REFheightOriginal, globalEncoding);
-        constructor(message: string, globalEncoding: StiDataMatrixEncodingType, useRectangularSymbols: boolean, matrixSize: StiDataMatrixSize);
+        constructor(message: string, globalEncoding: StiDataMatrixEncodingType, useRectangularSymbols: boolean, matrixSize: StiDataMatrixSize, processTilde: boolean);
     }
     class StiDataMatrixBarCodeType extends StiBarCodeTypeService {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
@@ -8250,11 +8263,13 @@ declare module Stimulsoft.Report.BarCodes {
         matrixSize: StiDataMatrixSize;
         private _useRectangularSymbols;
         useRectangularSymbols: boolean;
+        private _processTilde;
+        processTilde: boolean;
         readonly labelFontHeight: number;
         readonly visibleProperties: boolean[];
         draw(context: Object, barCode: StiBarCode, rect: RectangleD, zoom: number): void;
         createNew(): StiBarCodeTypeService;
-        constructor(module?: number, encodingType?: StiDataMatrixEncodingType, useRectangularSymbols?: boolean, matrixSize?: StiDataMatrixSize);
+        constructor(module?: number, encodingType?: StiDataMatrixEncodingType, useRectangularSymbols?: boolean, matrixSize?: StiDataMatrixSize, processTilde?: boolean);
     }
 }
 declare module Stimulsoft.Report.BarCodes {
@@ -13017,29 +13032,30 @@ declare module Stimulsoft.Report.Engine {
         Hour = 3,
         Minute = 4,
         Second = 5,
-        Length = 6,
-        From = 7,
-        To = 8,
-        FromDate = 9,
-        ToDate = 10,
-        FromTime = 11,
-        ToTime = 12,
-        SelectedLine = 13,
-        Name = 14,
-        TagValue = 15,
-        Days = 16,
-        Hours = 17,
-        Milliseconds = 18,
-        Minutes = 19,
-        Seconds = 20,
-        Ticks = 21,
-        TotalDays = 22,
-        TotalHours = 23,
-        TotalMinutes = 24,
-        TotalSeconds = 25,
-        TotalMilliseconds = 26,
-        Count = 27,
-        BusinessObjectValue = 28,
+        Date = 6,
+        Length = 7,
+        From = 8,
+        To = 9,
+        FromDate = 10,
+        ToDate = 11,
+        FromTime = 12,
+        ToTime = 13,
+        SelectedLine = 14,
+        Name = 15,
+        TagValue = 16,
+        Days = 17,
+        Hours = 18,
+        Milliseconds = 19,
+        Minutes = 20,
+        Seconds = 21,
+        Ticks = 22,
+        TotalDays = 23,
+        TotalHours = 24,
+        TotalMinutes = 25,
+        TotalSeconds = 26,
+        TotalMilliseconds = 27,
+        Count = 28,
+        BusinessObjectValue = 29,
     }
     enum StiFunctionType {
         NameSpace = 0,
@@ -22091,16 +22107,20 @@ declare module Stimulsoft.Report.Maps {
         readonly defaultClientRectangle: RectangleD;
         private _mapStyle;
         mapStyle: StiMapStyleIdent;
+        private _dataFrom;
+        dataFrom: StiMapSource;
+        private _colorEach;
+        colorEach: boolean;
         private _stretch;
         stretch: boolean;
         private _showValue;
         showValue: boolean;
+        private _shortValue;
+        shortValue: boolean;
+        private _displayNameType;
+        displayNameType: StiDisplayNameType;
         private _mapID;
         mapID: StiMapID;
-        private _showLegend;
-        showLegend: boolean;
-        private _showName;
-        showName: boolean;
         private _mapType;
         mapType: StiMapType;
         private isMapDataChanged;
@@ -22458,6 +22478,7 @@ declare module Stimulsoft.Report.Export {
         private xmlIndentation;
         private wrongUrlSymbols;
         private getLineStyle(border);
+        private refChars;
         private getRefString(column, row);
         private getRefAbsoluteString(column, row);
         private floatToString(number_);
@@ -22973,7 +22994,7 @@ declare module Stimulsoft.Report.Export {
         ChildFontsMap: Array<number>;
     }
     class PdfFonts extends PdfFontInfo {
-        getFontMetrics(font: Font, currentFontInfo: PdfFontInfo, glyphMap: number[]): void;
+        getFontMetrics(font: Font, currentFontInfo: PdfFontInfo, glyphMap: number[], report: StiReport): void;
         private standardFontQuantity;
         private standardFontNumWidths;
         private standardFontNumChars;
@@ -22996,7 +23017,7 @@ declare module Stimulsoft.Report.Export {
         PdfFontName: string[];
         private _currentFont;
         currentFont: number;
-        InitFontsData(): void;
+        InitFontsData(report: StiReport): void;
         constructor();
         getFontNumber(incomingFont: Font): number;
         storeUnicodeSymbolsInMap(sb: StringBuilder): void;
@@ -24626,6 +24647,15 @@ declare module Stimulsoft.Report.Maps {
         HeatmapWithGroup = 3,
         Individual = 4,
     }
+    enum StiMapSource {
+        Manual = 0,
+        DataColumns = 1,
+    }
+    enum StiDisplayNameType {
+        None = 1,
+        Full = 2,
+        Short = 3,
+    }
 }
 declare module Stimulsoft.Report.Maps {
     import Color = Stimulsoft.System.Drawing.Color;
@@ -25687,6 +25717,7 @@ declare module Stimulsoft.Report {
     class StiJsonLoaderHelper {
         masterComponents: IStiMasterComponent[];
         dialogInfo: StiDialogInfo[];
+        barcodeTypes: Stimulsoft.Report.BarCodes.StiBarCodeTypeService[];
         refNames: string[];
         clean(): void;
     }
@@ -25791,17 +25822,22 @@ declare module Stimulsoft.Report {
         invokeBeginProcessData(args: any, callback: Function): any;
         onEndProcessData: Function;
         invokeEndProcessData(args: any): any;
+        events: Hashtable;
         invokeRefreshPreview(): void;
         invokeRefreshViewer(): void;
         invokeClick(sender: Object, e: EventArgs): void;
         invokeDoubleClick(sender: Object, e: EventArgs): void;
         invokeGotoComp(e: StiGotoCompEventArgs): void;
         invokePaint(sender: Object, e: EventArgs): void;
+        private static eventBeginRender;
         invokeBeginRender(): void;
+        private beginRenderEventScript;
         beginRenderEvent: StiBeginRenderEvent;
         invokeRendering(): void;
         renderingEvent: StiRenderingEvent;
+        private static eventEndRender;
         invokeEndRender(): void;
+        private endRenderEventScript;
         endRenderEvent: StiEndRenderEvent;
         invokeStatusChanged(): void;
         protected onExporting(e: StiExportEventArgs): void;
@@ -31744,7 +31780,8 @@ declare module Stimulsoft.Report.Chart {
         key: Object;
         color: Object;
         toolTip: any;
-        constructor(argument: Object, value: Object, valueEnd: Object, weight: Object, valueOpen: Object, valueClose: Object, valueLow: Object, valueHight: Object, title: Object, key: Object, color: Object, toolTip: Object);
+        tag: Object;
+        constructor(argument: Object, value: Object, valueEnd: Object, weight: Object, valueOpen: Object, valueClose: Object, valueLow: Object, valueHight: Object, title: Object, key: Object, color: Object, toolTip: Object, tag: Object);
     }
     class StiDataItemComparer implements IComparer<StiDataItem> {
         compare(x: StiDataItem, y: StiDataItem): number;
@@ -36891,12 +36928,16 @@ declare module Stimulsoft.Viewer {
     }
 }
 declare module Stimulsoft.Viewer {
+    import StiResourceType = Stimulsoft.Report.Dictionary.StiResourceType;
     import StiReport = Stimulsoft.Report.StiReport;
     import StiResource = Stimulsoft.Report.Dictionary.StiResource;
     class StiReportResourceHelper {
         static getResourcesItems(report: StiReport): any[];
         static getResourceContentType(resource: StiResource): string;
         static getResourceFileExt(resource: StiResource): string;
+        static isFontResourceType(resourceType: StiResourceType): boolean;
+        static getFontResourcesArray(report: StiReport): any[];
+        static getBase64DataFromFontResourceContent(resourceType: StiResourceType, content: number[]): string;
     }
 }
 declare module Stimulsoft.Viewer {
@@ -37249,7 +37290,7 @@ declare module Stimulsoft.Viewer {
         private invokeGetReport();
         private invokeOnGetSubReport(args, callback);
         private callRemoteApi(commad, timeout?);
-        private getReportPage(report, service, pageIndex, zoom, openLinksTarget);
+        private getReportPage(report, service, pageIndex, zoom, openLinksWindow);
         private getPagesArray(report, options, requestParams);
         private getReportFileName();
         showProcessIndicator(): void;
@@ -38545,6 +38586,7 @@ declare module Stimulsoft.Designer {
         /** Gets or sets a visibility of the item About in the file menu. */
         showFileMenuAbout: boolean;
         showSetupToolboxButton: boolean;
+        showNewPageButton: boolean;
     }
 }
 declare module Stimulsoft.Designer {
