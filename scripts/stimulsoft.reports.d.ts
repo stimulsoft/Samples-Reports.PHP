@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.3.1
-Build date: 2018.10.10
+Version: 2018.3.2
+Build date: 2018.10.15
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -10140,6 +10140,7 @@ declare module Stimulsoft.Report.Chart {
         lineWidth: number;
         labelsOffset: number;
         showNulls: boolean;
+        showZeros: boolean;
         lineColorNegative: Color;
     }
 }
@@ -26513,6 +26514,8 @@ declare module Stimulsoft.Report.Chart {
         clone(): StiBaseLineSeries;
         private _showNulls;
         showNulls: boolean;
+        private _showZeros;
+        showZeros: boolean;
         showMarker: boolean;
         markerColor: Color;
         markerSize: number;
