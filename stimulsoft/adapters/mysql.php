@@ -136,14 +136,16 @@ class StiMySqlAdapter {
 			$result->rows = array();
 			
 			while ($meta = $query->fetch_field()) {
+				$result->columns[] = $meta->name;
 				$result->types[] = $this->parseType($meta);
 			}
 			
 			if ($query->num_rows > 0) {
+				$isColumnsEmpty = count($result->columns) == 0;
 				while ($rowItem = $query->fetch_assoc()) {
 					$row = array();
 					foreach ($rowItem as $key => $value) {
-						if (count($result->columns) < count($rowItem)) $result->columns[] = $key;
+						if ($isColumnsEmpty && count($result->columns) < count($rowItem)) $result->columns[] = $key;
 						$type = $result->types[count($row)];
 						$row[] = ($type == 'array') ? base64_encode($value) : $value;
 					}

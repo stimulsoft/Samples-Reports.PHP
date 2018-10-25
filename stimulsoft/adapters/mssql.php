@@ -155,14 +155,16 @@ class StiMsSqlAdapter {
 			
 			if ($this->isMicrosoftDriver) {
 				foreach (sqlsrv_field_metadata($query) as $meta) {
+					$result->columns[] = $meta["Name"];
 					$result->types[] = $this->parseType($meta);
 				}
 			}
 			
+			$isColumnsEmpty = count($result->columns) == 0;
 			while ($rowItem = $this->isMicrosoftDriver ? sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC) : mssql_fetch_assoc($query)) {
 				$row = array();
 				foreach ($rowItem as $key => $value) {
-					if (count($result->columns) < count($rowItem)) $result->columns[] = $key;
+					if ($isColumnsEmpty && count($result->columns) < count($rowItem)) $result->columns[] = $key;
 					$row[] = $value;
 				}
 				$result->rows[] = $row;
