@@ -360,6 +360,7 @@
     <CreatingReport>Стварэнне справаздачы ...</CreatingReport>
     <DashboardWindowTitleNew>Новая панэль прыладаў</DashboardWindowTitleNew>
     <DeleteFile>Выдаліць файл</DeleteFile>
+    <DoNotAskMe>Больш не пытацца</DoNotAskMe>
     <ExecutionError>Памылка запуску</ExecutionError>
     <ExpiredDate>Дата заканчэння тэрміну</ExpiredDate>
     <FileStorageWindowTitleEdit>Рэдагаванне сховішча файлаў</FileStorageWindowTitleEdit>
@@ -416,6 +417,7 @@
     <Platforms>Платформы</Platforms>
     <PrivacyPolicy>палітыкай прыватнасці</PrivacyPolicy>
     <Products>Прадукты</Products>
+    <PublishMessage>Каб апублікаваць гэту справаздачу, трэба перадаць яго на publish.stimulsoft.com</PublishMessage>
     <questionOpenThisFile>Вы сапраўды жадаеце адкрыць '{0}' файл?</questionOpenThisFile>
     <questionOverrideItem>Вы сапраўды жадаеце перазапісаць '{0}' файл?</questionOverrideItem>
     <questionRemoveItem>Вы сапраўды жадаеце выдаліць '{0}' файл?</questionRemoveItem>
@@ -594,6 +596,7 @@
     <StiZipCode>Паштовы індэкс</StiZipCode>
   </Components>
   <Dashboard>
+    <AddRange>Дадаць дыяпазон</AddRange>
     <AfterGroupingData>Ужыць пасля групоўкі</AfterGroupingData>
     <Blanks>(Прабелы)</Blanks>
     <BooleanFilters>Булеўскія фільтры</BooleanFilters>
@@ -624,19 +627,25 @@
     <Measure>Паказнік</Measure>
     <Measures>Паказнікі</Measures>
     <NewDimension>Новае вымярэнне</NewDimension>
+    <NewField>Новае поле</NewField>
     <NewMeasure>Новы паказнік</NewMeasure>
+    <NoRanges>Няма дыяпазонаў
+Няма дыяпазонаў</NoRanges>
     <NoResult>Няма вынікаў</NoResult>
     <NotDefined>Не паказаны</NotDefined>
     <NSelected>{0} абрана</NSelected>
     <Nulls>(Nulls)</Nulls>
     <NumberFilters>Лікавыя фільтры</NumberFilters>
     <ParentElement>Галоўны элемент</ParentElement>
+    <RangeMode>Рэжым дыяпазону</RangeMode>
+    <RangeType>Тып дыяпазону</RangeType>
     <RemoveActions>Выдаліць дзеянні</RemoveActions>
     <RemoveAllFields>Выдаліць усе палі</RemoveAllFields>
     <RemoveField>Выдаліць поле</RemoveField>
     <ReplaceValues>Замяніць значэнні</ReplaceValues>
     <RowsCount>Колькасць радкоў</RowsCount>
     <SelectAll>(Выбраць усё)</SelectAll>
+    <ShowAllValue>Паказваць (Усё) элемент</ShowAllValue>
     <ShowAsPercentages>Паказаць у адсотках</ShowAsPercentages>
     <SkipFirstRows>Прапусціць першыя радкі</SkipFirstRows>
     <SortAZ>Сартаванне ад А до Я</SortAZ>
@@ -1288,6 +1297,8 @@
   <FormOptions>
     <AutoSave>Аўта-захаванне</AutoSave>
     <AutoSaveReportToReportClass>Аўтаматычна захоўваць файл C# або VB.NET</AutoSaveReportToReportClass>
+    <BlankDashboard>Пустая панэль індыкатараў</BlankDashboard>
+    <BlankReport>Пустая справаздача</BlankReport>
     <Default>Па змаўчанні</Default>
     <Drawing>Адлюстраванне</Drawing>
     <DrawMarkersWhenMoving>Маляваць маркеры кампанентаў пры перамяшчэнні</DrawMarkersWhenMoving>
@@ -1333,9 +1344,11 @@
     <ShowDialogForms>Паказваць дыялогавыя формы</ShowDialogForms>
     <ShowDimensionLines>Паказваць памерныя лініі</ShowDimensionLines>
     <ShowOldGaugeEditor>Паказваць стары рэдактар індыкатараў</ShowOldGaugeEditor>
+    <StartScreen>Пачатковы экран</StartScreen>
     <title>Параметры</title>
     <UseComponentColor>Выкарыстаць колеры кампанента для запаўнення</UseComponentColor>
     <UseLastFormat>Выкарыстаць апошняе фарматаванне</UseLastFormat>
+    <Welcome>Вітанне</Welcome>
   </FormOptions>
   <FormPageSetup>
     <ApplyTo>Ужываць да</ApplyTo>
@@ -2815,6 +2828,10 @@
     <StiFormStartModeOnStart>У пачатку</StiFormStartModeOnStart>
     <StiGaugeCalculationModeAuto>Аўта</StiGaugeCalculationModeAuto>
     <StiGaugeCalculationModeCustom>Па выбары</StiGaugeCalculationModeCustom>
+    <StiGaugeRangeModePercentage>Адсотак</StiGaugeRangeModePercentage>
+    <StiGaugeRangeModeValue>Значэнне</StiGaugeRangeModeValue>
+    <StiGaugeRangeTypeColor>Колер</StiGaugeRangeTypeColor>
+    <StiGaugeRangeTypeNone>Не</StiGaugeRangeTypeNone>
     <StiGaugeTypeFullCircular>Поўны цыферблат</StiGaugeTypeFullCircular>
     <StiGaugeTypeHalfCircular>Палова цыферблата</StiGaugeTypeHalfCircular>
     <StiGaugeTypeLinear>Лінейны</StiGaugeTypeLinear>
@@ -3851,6 +3868,7 @@
     <ShortName>Кароткая назва</ShortName>
     <ShortValue>Кароткае значэнне
 Кароткае значэнне</ShortValue>
+    <ShowAllValue>Паказваць усе значэнні</ShowAllValue>
     <ShowBehind>Паказваць ззаду</ShowBehind>
     <ShowDialog>Паказваць дыялог</ShowDialog>
     <ShowEdgeValues>Паказваць крайнія значэнні</ShowEdgeValues>
@@ -4161,6 +4179,7 @@
     <BusinessObjects>Бізнес-аб'екты</BusinessObjects>
     <Categorized>Па катэгорыях</Categorized>
     <Charts>Дыяграмы</Charts>
+    <Checking>Праверка...</Checking>
     <ClickForMoreDetails>Націсніце каб праглядзець</ClickForMoreDetails>
     <CollapseAll>Згарнуць усё</CollapseAll>
     <Collection>Калекцыя</Collection>
@@ -4517,6 +4536,7 @@
     <title>Новая справаздача</title>
     <Totals>Падрахункі</Totals>
     <UsingReportWizard>Майстар справаздачы</UsingReportWizard>
+    <YouHaveNotOpenedAnyReportRecently>У апошні час вы не адкрывалі справаздач. Каб знайсці справаздачу, пстрыкніце "Адкрыць файл".</YouHaveNotOpenedAnyReportRecently>
   </Wizards>
   <Zoom>
     <EmptyValue>Пустое значэнне</EmptyValue>

@@ -360,6 +360,7 @@
     <CreatingReport>Creating report...</CreatingReport>
     <DashboardWindowTitleNew>New Dashboard</DashboardWindowTitleNew>
     <DeleteFile>Delete File</DeleteFile>
+    <DoNotAskMe>Do not ask me again</DoNotAskMe>
     <ExecutionError>Execution error</ExecutionError>
     <ExpiredDate>Expired Date</ExpiredDate>
     <FileStorageWindowTitleEdit>Edit File Storage</FileStorageWindowTitleEdit>
@@ -416,6 +417,7 @@
     <Platforms>Platforms</Platforms>
     <PrivacyPolicy>Privacy</PrivacyPolicy>
     <Products>Products</Products>
+    <PublishMessage>In order to publish this report you should submit it to our service publish.stimulsoft.com</PublishMessage>
     <questionOpenThisFile>Are you sure want to open '{0}' item?</questionOpenThisFile>
     <questionOverrideItem>Do you really want to override '{0}' item?</questionOverrideItem>
     <questionRemoveItem>Do you really want to remove '{0}' item?</questionRemoveItem>
@@ -593,10 +595,8 @@
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
+    <ClearAllFormatting>Clear All Formatting</ClearAllFormatting>
     <AddRange>Add Range</AddRange>
-    <RangeMode>Range Mode</RangeMode>
-    <RangeType>Range Type</RangeType>
-    <ShowAllValue>Show (All) Value</ShowAllValue>
     <AfterGroupingData>Apply after grouping data</AfterGroupingData>
     <Blanks>(Blanks)</Blanks>
     <BooleanFilters>Boolean Filters</BooleanFilters>
@@ -627,18 +627,23 @@
     <Measure>Measure</Measure>
     <Measures>Measures</Measures>
     <NewDimension>New Dimension</NewDimension>
+    <NewField>New Field</NewField>
     <NewMeasure>New Measure</NewMeasure>
+    <NoRanges>No Ranges</NoRanges>
     <NoResult>No Result</NoResult>
     <NSelected>{0} selected</NSelected>
     <Nulls>(Nulls)</Nulls>
     <NumberFilters>Number Filters</NumberFilters>
     <ParentElement>Parent Element</ParentElement>
+    <RangeMode>Range Mode</RangeMode>
+    <RangeType>Range Type</RangeType>
     <RemoveActions>R&amp;emove Actions</RemoveActions>
     <RemoveAllFields>Remove All Fields</RemoveAllFields>
     <RemoveField>Remove Field</RemoveField>
     <ReplaceValues>Replace Values</ReplaceValues>
     <RowsCount>Rows Count</RowsCount>
     <SelectAll>(Select &amp;All)</SelectAll>
+    <ShowAllValue>Show (All) Value</ShowAllValue>
     <ShowAsPercentages>Show as Percentages</ShowAsPercentages>
     <SkipFirstRows>Skip First Rows</SkipFirstRows>
     <SortAZ>Sort A to Z</SortAZ>
@@ -1287,6 +1292,8 @@
   <FormOptions>
     <AutoSave>Auto Save</AutoSave>
     <AutoSaveReportToReportClass>Auto Save Report to C# or VB.NET File</AutoSaveReportToReportClass>
+    <BlankDashboard>Blank Dashboard</BlankDashboard>
+    <BlankReport>Blank Report</BlankReport>
     <Default>Default</Default>
     <Drawing>Drawing</Drawing>
     <DrawMarkersWhenMoving>Draw Markers When Moving</DrawMarkersWhenMoving>
@@ -1332,9 +1339,11 @@
     <ShowDialogForms>Show Dialog Forms</ShowDialogForms>
     <ShowDimensionLines>Show Dimension Lines</ShowDimensionLines>
     <ShowOldGaugeEditor>Show Old Gauge Editor</ShowOldGaugeEditor>
+    <StartScreen>Start Screen</StartScreen>
     <title>Options</title>
     <UseComponentColor>Use Component Color for Filling</UseComponentColor>
     <UseLastFormat>Use Last Format</UseLastFormat>
+    <Welcome>Welcome</Welcome>
   </FormOptions>
   <FormPageSetup>
     <ApplyTo>Apply to</ApplyTo>
@@ -2540,10 +2549,6 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
-    <StiGaugeRangeModePercentage>Percentage</StiGaugeRangeModePercentage>
-    <StiGaugeRangeModeValue>Value</StiGaugeRangeModeValue>
-    <StiGaugeRangeTypeNone>None</StiGaugeRangeTypeNone>
-    <StiGaugeRangeTypeColor>Color</StiGaugeRangeTypeColor>
     <boolFalse>False</boolFalse>
     <boolTrue>True</boolTrue>
     <BorderStyleFixed3D>Fixed 3D</BorderStyleFixed3D>
@@ -2755,6 +2760,10 @@
     <StiFormStartModeOnStart>On Start</StiFormStartModeOnStart>
     <StiGaugeCalculationModeAuto>Auto</StiGaugeCalculationModeAuto>
     <StiGaugeCalculationModeCustom>Custom</StiGaugeCalculationModeCustom>
+    <StiGaugeRangeModePercentage>Percentage</StiGaugeRangeModePercentage>
+    <StiGaugeRangeModeValue>Value</StiGaugeRangeModeValue>
+    <StiGaugeRangeTypeColor>Color</StiGaugeRangeTypeColor>
+    <StiGaugeRangeTypeNone>None</StiGaugeRangeTypeNone>
     <StiGaugeTypeFullCircular>Full Circular</StiGaugeTypeFullCircular>
     <StiGaugeTypeHalfCircular>Half-Circular</StiGaugeTypeHalfCircular>
     <StiGaugeTypeLinear>Linear</StiGaugeTypeLinear>
@@ -3158,6 +3167,7 @@
     <Area>Area</Area>
     <Argument>Argument</Argument>
     <ArgumentDataColumn>Argument Data Column</ArgumentDataColumn>
+	<ArgumentFormat>Argument Format</ArgumentFormat>
     <Arguments>Arguments</Arguments>
     <ArrowHeight>Arrow Height</ArrowHeight>
     <ArrowStyle>Arrow Style</ArrowStyle>
@@ -3764,6 +3774,7 @@
     <ShiftMode>Shift Mode</ShiftMode>
     <ShortName>Short Name</ShortName>
     <ShortValue>Short Value</ShortValue>
+    <ShowAllValue>Show All Value</ShowAllValue>
     <ShowBehind>Show Behind</ShowBehind>
     <ShowDialog>Show Dialog</ShowDialog>
     <ShowEdgeValues>Show Edge Values</ShowEdgeValues>
@@ -3781,7 +3792,6 @@
     <ShowQuietZones>Show Quiet Zones</ShowQuietZones>
     <ShowScrollBar>Show Scroll Bar</ShowScrollBar>
     <ShowSelectAll>Show Select All</ShowSelectAll>
-    <ShowAllValue>Show All Value</ShowAllValue>
     <ShowSeriesLabels>Show Series Labels</ShowSeriesLabels>
     <ShowShadow>Show Shadow</ShowShadow>
     <ShowTotal>Show Total</ShowTotal>
@@ -3922,7 +3932,8 @@
     <ValueDataColumnLow>Value Data Column Low</ValueDataColumnLow>
     <ValueDataColumnOpen>Value Data Column Open</ValueDataColumnOpen>
     <ValueEnd>Value End</ValueEnd>
-    <ValueHigh>Value High</ValueHigh>
+    <ValueFormat>Value Format</ValueFormat>
+	<ValueHigh>Value High</ValueHigh>
     <ValueLow>Value Low</ValueLow>
     <ValueMeter>Value</ValueMeter>
     <ValueOpen>Value Open</ValueOpen>
@@ -4064,7 +4075,6 @@
     <qnSynchronizeServices>Synchronized services?</qnSynchronizeServices>
   </Questions>
   <Report>
-    <Checking>Checking...</Checking>
     <ActiveRelation>Active Relation</ActiveRelation>
     <Address>Address</Address>
     <Alphabetical>Alphabetical</Alphabetical>
@@ -4074,6 +4084,7 @@
     <BusinessObjects>Business Objects</BusinessObjects>
     <Categorized>Categorized</Categorized>
     <Charts>Charts</Charts>
+    <Checking>Checking...</Checking>
     <ClickForMoreDetails>Click for More Details</ClickForMoreDetails>
     <CollapseAll>Collapse All</CollapseAll>
     <Collection>Collection</Collection>
@@ -4429,6 +4440,7 @@
     <title>New Report</title>
     <Totals>Totals</Totals>
     <UsingReportWizard>Using Report Wizard</UsingReportWizard>
+    <YouHaveNotOpenedAnyReportRecently>You haven't opened any report recently. To browse for a report, start by clicking on Open Existing File.</YouHaveNotOpenedAnyReportRecently>
   </Wizards>
   <Zoom>
     <EmptyValue>Empty Value</EmptyValue>

@@ -360,6 +360,7 @@
     <CreatingReport>Создание отчета...</CreatingReport>
     <DashboardWindowTitleNew>Новая панель индикаторов</DashboardWindowTitleNew>
     <DeleteFile>Удалить файл</DeleteFile>
+    <DoNotAskMe>Больше не спрашивать</DoNotAskMe>
     <ExecutionError>Ошибка запуска</ExecutionError>
     <ExpiredDate>Дата истечения срока</ExpiredDate>
     <FileStorageWindowTitleEdit>Редактирование хранилища файлов</FileStorageWindowTitleEdit>
@@ -416,6 +417,7 @@
     <Platforms>Платформы</Platforms>
     <PrivacyPolicy>политикой конфиденциальности</PrivacyPolicy>
     <Products>Продукты</Products>
+    <PublishMessage>Чтобы опубликовать этот отчет, необходимо передать его на publish.stimulsoft.com</PublishMessage>
     <questionOpenThisFile>Вы действительно хотите открыть '{0}' файл?</questionOpenThisFile>
     <questionOverrideItem>Вы действительно хотите  перезаписать '{0}' файл?</questionOverrideItem>
     <questionRemoveItem>Вы действительно хотите удалить '{0}' файл?</questionRemoveItem>
@@ -593,6 +595,7 @@
     <StiZipCode>Почтовый индекс</StiZipCode>
   </Components>
   <Dashboard>
+    <AddRange>Добавить диапазон</AddRange>
     <AfterGroupingData>Применить после группировки</AfterGroupingData>
     <Blanks>(Пробелы)</Blanks>
     <BooleanFilters>Булевские фильтры</BooleanFilters>
@@ -623,18 +626,23 @@
     <Measure>Показатель</Measure>
     <Measures>Показатели</Measures>
     <NewDimension>Новое измерение</NewDimension>
+    <NewField>Новое поле</NewField>
     <NewMeasure>Новый показатель</NewMeasure>
+    <NoRanges>Нет диапазонов</NoRanges>
     <NoResult>Нет результатов</NoResult>
     <NSelected>{0} выбрано</NSelected>
     <Nulls>(Nulls)</Nulls>
     <NumberFilters>Числовые фильтры</NumberFilters>
     <ParentElement>Главный элемент</ParentElement>
+    <RangeMode>Режим диапазона</RangeMode>
+    <RangeType>Тип диапазона</RangeType>
     <RemoveActions>Удалить действия</RemoveActions>
     <RemoveAllFields>Удалить все поля</RemoveAllFields>
     <RemoveField>Удалить поле</RemoveField>
     <ReplaceValues>Заменить значения</ReplaceValues>
     <RowsCount>Количество строк</RowsCount>
     <SelectAll>(В&amp;ыбрать все)</SelectAll>
+    <ShowAllValue>Показывать (Все) элемент</ShowAllValue>
     <ShowAsPercentages>Показать в процентах</ShowAsPercentages>
     <SkipFirstRows>Пропустить первые строки</SkipFirstRows>
     <SortAZ>Сортировка от А до Я</SortAZ>
@@ -1286,6 +1294,8 @@
   <FormOptions>
     <AutoSave>Автосохранение</AutoSave>
     <AutoSaveReportToReportClass>Автоматически сохранять файл C# или VB.NET</AutoSaveReportToReportClass>
+    <BlankDashboard>Пустая панель индикаторов</BlankDashboard>
+    <BlankReport>Пустой отчет</BlankReport>
     <Default>По умолчанию</Default>
     <Drawing>Отображение</Drawing>
     <DrawMarkersWhenMoving>Рисовать маркеры компонентов при передвижении</DrawMarkersWhenMoving>
@@ -1331,9 +1341,11 @@
     <ShowDialogForms>Показывать диалоговые формы</ShowDialogForms>
     <ShowDimensionLines>Показывать размерные линии</ShowDimensionLines>
     <ShowOldGaugeEditor>Показывать старый редактор индикаторов</ShowOldGaugeEditor>
+    <StartScreen>Начальный экран</StartScreen>
     <title>Параметры</title>
     <UseComponentColor>Использовать цвета компонента для заполнения</UseComponentColor>
     <UseLastFormat>Использовать последнее форматирование</UseLastFormat>
+    <Welcome>Приветствие</Welcome>
   </FormOptions>
   <FormPageSetup>
     <ApplyTo>Применять к</ApplyTo>
@@ -2798,6 +2810,10 @@
     <StiFormStartModeOnStart>В начале</StiFormStartModeOnStart>
     <StiGaugeCalculationModeAuto>Авто</StiGaugeCalculationModeAuto>
     <StiGaugeCalculationModeCustom>По выбору</StiGaugeCalculationModeCustom>
+    <StiGaugeRangeModePercentage>Процент</StiGaugeRangeModePercentage>
+    <StiGaugeRangeModeValue>Значение</StiGaugeRangeModeValue>
+    <StiGaugeRangeTypeColor>Цвет</StiGaugeRangeTypeColor>
+    <StiGaugeRangeTypeNone>Нет</StiGaugeRangeTypeNone>
     <StiGaugeTypeFullCircular>Полный циферблат</StiGaugeTypeFullCircular>
     <StiGaugeTypeHalfCircular>Половина циферблата</StiGaugeTypeHalfCircular>
     <StiGaugeTypeLinear>Линейный</StiGaugeTypeLinear>
@@ -3815,6 +3831,7 @@
     <ShiftMode>Режим смещения</ShiftMode>
     <ShortName>Короткое имя</ShortName>
     <ShortValue>Короткое значение</ShortValue>
+    <ShowAllValue>Показывать все значения</ShowAllValue>
     <ShowBehind>Показывать сзади</ShowBehind>
     <ShowDialog>Показывать диалог</ShowDialog>
     <ShowEdgeValues>Показывать крайние значения</ShowEdgeValues>
@@ -4125,6 +4142,7 @@
     <BusinessObjects>Бизнес-объекты</BusinessObjects>
     <Categorized>По категориям</Categorized>
     <Charts>Диаграммы</Charts>
+    <Checking>Проверка...</Checking>
     <ClickForMoreDetails>Нажмите для просмотра</ClickForMoreDetails>
     <CollapseAll>Свернуть все</CollapseAll>
     <Collection>Коллекция</Collection>
@@ -4481,6 +4499,7 @@
     <title>Новый отчет</title>
     <Totals>Итоги</Totals>
     <UsingReportWizard>Мастер отчета</UsingReportWizard>
+    <YouHaveNotOpenedAnyReportRecently>В последнее время вы не открывали отчетов. Чтобы найти отчет, щелкните "Открыть файл".</YouHaveNotOpenedAnyReportRecently>
   </Wizards>
   <Zoom>
     <EmptyValue>Пустое значение</EmptyValue>

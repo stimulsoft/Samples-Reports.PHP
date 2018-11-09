@@ -385,6 +385,9 @@ class StiHelper {
 			try {
 				var request = new XMLHttpRequest();
 				request.open("post", this.url, true);
+				request.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+				request.setRequestHeader('Cache-Control', 'max-age=0');
+				request.setRequestHeader('Pragma', 'no-cache');
 				request.timeout = this.timeout * 1000;
 				request.onload = function () {
 					if (request.status == 200) {
