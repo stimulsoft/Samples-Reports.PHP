@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2018.3.4
-Build date: 2018.11.08
+Version: 2018.3.5
+Build date: 2018.11.16
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -6356,6 +6356,7 @@ declare module Stimulsoft.Base.Localization {
     class StiLocalization {
         static languages: any;
         static English: any;
+        static setLocalization(localizationXml: string, onlyThis?: boolean): void;
         private static _cultureName;
         static cultureName: string;
         static addLocalizationFile(filePath: string, load?: boolean, language?: string): string;
@@ -18157,6 +18158,621 @@ declare module Stimulsoft.Report.Engine {
     }
 }
 declare module Stimulsoft.Report.Dictionary {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import DataRow = Stimulsoft.System.Data.DataRow;
+    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import DataTable = Stimulsoft.System.Data.DataTable;
+    import Type = Stimulsoft.System.Type;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import IEnumerator = Stimulsoft.System.Collections.IEnumerator;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import Hashtable = Stimulsoft.System.Collections.Hashtable;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiDataCollection = Stimulsoft.Report.Dictionary.StiDataCollection;
+    import StiComponentsCollection = Stimulsoft.Report.Components.StiComponentsCollection;
+    import Promise = Stimulsoft.System.Promise;
+    class StiDataSource implements ICloneable, IStiStateSaveRestore, IStiEnumerator, IStiName, IStiInherited, IStiJsonReportObject {
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _inherited;
+        inherited: boolean;
+        readonly current: Object;
+        moveNext(): boolean;
+        reset(): void;
+        getEnumerator(): IEnumerator;
+        private _name;
+        name: string;
+        protected positionValue: number;
+        position: number;
+        readonly realCount: number;
+        readonly count: number;
+        protected isBofValue: boolean;
+        /** Gets value indicates that this position specifies to the beginning of data. */
+        isBof: boolean;
+        protected isEofValue: boolean;
+        /** Gets value indicates that this position specifies to the data end. */
+        isEof: boolean;
+        /** Gets value indicates that no data. */
+        readonly isEmpty: boolean;
+        first(): void;
+        prior(): void;
+        next(): void;
+        last(): void;
+        clone(): StiDataSource;
+        memberwiseClone(): StiDataSource;
+        private _states;
+        protected readonly states: StiStatesManager;
+        saveState(stateName: string): void;
+        restoreState(stateName: string): void;
+        clearAllStates(): void;
+        private nameOfDataBandWhichInitDataSource;
+        isInited: boolean;
+        initForSubreport: boolean;
+        xmlRefAttrValue: string;
+        private relationNameStored;
+        private resFilterMethod;
+        private resSortColumns;
+        private isEqualSort;
+        setData(dataBand: StiDataBand, relationName: string, filterMethod: Object, sortColumns: string[], reinit: boolean, component: StiComponent): void;
+        getConditions(dataBand: StiDataBand): Object[][][];
+        setDetails(relationName: string): void;
+        setFilter(filterMethod: Object): void;
+        setSort(conditions: Object[][][], sortColumns: string[], component: StiComponent, databand: StiDataBand, groupHeaders: StiComponentsCollection): void;
+        resetDetailsRows(): void;
+        resetData(): void;
+        getDataRow(index: number): DataRow;
+        /** Returns the parent row with data for the indicated relation. */
+        getParentData(relation: string): StiDataRow;
+        /** Returns the colection of Parent relations. */
+        getParentRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
+        /** Returns a collection of Child relations. */
+        getChildRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
+        /** Returns the parent Data Source by the relation name. */
+        getParentDataSource(relationName: string): StiDataSource;
+        /** Returns the child Data Source by the relation name. */
+        getChildDataSource(relationName: string): StiDataSource;
+        protected invokeConnecting(): void;
+        protected invokeDisconnecting(): void;
+        connectAsync(datas: StiDataCollection, loadData: boolean): Promise<void>;
+        connect(datas: StiDataCollection, loadData: boolean): void;
+        protected getDataAdapterType(): Type;
+        protected readonly dataAdapterType: string;
+        fillColumns(): void;
+        getDataAdapter(): StiDataAdapterService;
+        private _parameters;
+        parameters: StiDataParametersCollection;
+        getDataTable(table?: DataTable): DataTable;
+        getByName(columnName: string): Object;
+        getData(columnName: string, index?: number): Object;
+        getColumnIndex(columnName: string): number;
+        private _rows;
+        rows: StiRowsCollection;
+        columnsIndexs: Hashtable;
+        calcColumns: Hashtable;
+        detailRows: DataRow[];
+        rowToLevel: Hashtable;
+        synchronizeColumns(): void;
+        checkColumnsIndexs(): void;
+        toString(): string;
+        getLevel(): number;
+        getCategoryName(): string;
+        createNew(): StiDataSource;
+        private _isCloud;
+        readonly isCloud: boolean;
+        private _dictionary;
+        dictionary: StiDictionary;
+        private _dataTable;
+        dataTable: Stimulsoft.System.Data.DataTable;
+        readonly isConnected: boolean;
+        private _columns;
+        columns: StiDataColumnsCollection;
+        connectionOrder: number;
+        disconnect(): void;
+        connectOnStart: boolean;
+        getByColumnName(columnName: string): Object;
+        private _alias;
+        alias: string;
+        private _key;
+        key: string;
+        constructor(name: string, alias: string, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiDataStoreSource extends StiDataSource {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        getCategoryName(): string;
+        dataName: string;
+        private _nameInSource;
+        nameInSource: string;
+        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import Type = Stimulsoft.System.Type;
+    class StiDataTableSource extends StiDataStoreSource {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        getCategoryName(): string;
+        getDataAdapterType(): Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import Type = Stimulsoft.System.Type;
+    import Promise = Stimulsoft.System.Promise;
+    class StiDataTableAdapterService extends StiDataStoreAdapterService {
+        readonly serviceName: string;
+        readonly isObjectAdapter: boolean;
+        getDataCategoryName(data: StiData): string;
+        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource): Promise<StiDataColumnsCollection>;
+        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
+        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
+        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
+        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
+        getDataSourceType(): Type;
+        getDataTypes(): Type[];
+        getDataFromDataSource(dictionary: StiDictionary, dataSource: StiDataSource): StiData;
+        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiAggregateFunctionService {
+        readonly serviceName: string;
+        init(): void;
+        reset(): void;
+        calcItem(value: Object): any;
+        getValue(): Object;
+        setValue(value: Object): any;
+        isFirstInit: boolean;
+        readonly recureParam: boolean;
+        private _runningTotal;
+        runningTotal: boolean;
+        constructor(runningTotal?: boolean);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiAvgDateFunctionService extends StiAggregateFunctionService {
+        private avgValue;
+        private count;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiAvgFunctionService extends StiAggregateFunctionService {
+        private summary;
+        private count;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiAvgTimeFunctionService extends StiAggregateFunctionService {
+        private avgValue;
+        private count;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiCountDistinctFunctionService extends StiAggregateFunctionService {
+        private counter;
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiCountFunctionService extends StiAggregateFunctionService {
+        private counter;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiFirstFunctionService extends StiAggregateFunctionService {
+        private value;
+        private first;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiLastFunctionService extends StiAggregateFunctionService {
+        private value;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMaxDateFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private maximum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMaxFunctionService extends StiAggregateFunctionService {
+        private maximum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMaxStrFunctionService extends StiAggregateFunctionService {
+        private values;
+        static ascComparison(str1: string, str2: string): number;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMaxTimeFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private maximum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMedianFunctionService extends StiAggregateFunctionService {
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMinDateFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private minimum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMinFunctionService extends StiAggregateFunctionService {
+        private minimum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMinStrFunctionService extends StiAggregateFunctionService {
+        private values;
+        static ascComparison(str1: string, str2: string): number;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMinTimeFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private minimum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiModeFunctionService extends StiAggregateFunctionService {
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import StiRankOrder = Stimulsoft.Report.StiRankOrder;
+    class StiRankFunctionService extends StiAggregateFunctionService {
+        private hash;
+        private sortOrder;
+        private dense;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+        constructor(runningTotal: boolean, dense?: boolean, sortOrder?: StiRankOrder);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiSumDistinctFunctionService extends StiAggregateFunctionService {
+        private summary;
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object, valueToSum?: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiSumFunctionService extends StiAggregateFunctionService {
+        private summary;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiSumNullableFunctionService extends StiAggregateFunctionService {
+        private summary;
+        private hasValues;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiSumTimeFunctionService extends StiAggregateFunctionService {
+        private sumValue;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: Object): void;
+        getValue(): Object;
+        setValue(value: Object): void;
+        readonly recureParam: boolean;
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiBusinessObjectCategory {
+        private _category;
+        category: string;
+        constructor(category: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiBusinessObjectData {
+        private _category;
+        category: string;
+        private _name;
+        name: string;
+        private _alias;
+        alias: string;
+        private _businessObjectValue;
+        businessObjectValue: Object;
+        constructor(category: string, name: string, alias: string, value: Object);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiFileDataSource extends StiDataStoreSource {
+        readonly componentId: StiComponentId;
+        path: string;
+        codePage: number;
+        constructor(path?: string, name?: string, alias?: string, codePage?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiCsvSource extends StiFileDataSource {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        getDataAdapterType(): Stimulsoft.System.Type;
+        separator: string;
+        convertEmptyStringToNull: boolean;
+        createNew(): StiDataSource;
+        constructor(path?: string, name?: string, alias?: string, codePage?: number, separator?: string, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import Promise = Stimulsoft.System.Promise;
+    class StiSqlSource extends StiDataTableSource {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _allowExpressions;
+        allowExpressions: boolean;
+        private _type;
+        type: StiSqlSourceType;
+        private _commandTimeout;
+        commandTimeout: number;
+        private _reconnectOnEachRow;
+        reconnectOnEachRow: boolean;
+        private _sqlCommand;
+        sqlCommand: string;
+        getDataAdapterType(): Stimulsoft.System.Type;
+        updateParameters(): void;
+        retrieveDataAsync(schemaOnly?: boolean): Promise<void>;
+        getFinalSqlCommand(): string;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiNoSqlSource extends StiSqlSource {
+        query: string;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMongoDbSource extends StiNoSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiFilter = Stimulsoft.Report.Components.IStiFilter;
+    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
+    import Type = Stimulsoft.System.Type;
+    class StiVirtualSource extends StiDataStoreSource implements IStiFilter {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _filterMethodHandler;
+        filterMethodHandler: Function;
+        private _filterOn;
+        filterOn: boolean;
+        private _filterMode;
+        filterMode: StiFilterMode;
+        private _filters;
+        filters: Stimulsoft.Report.Components.StiFiltersCollection;
+        protected getDataAdapterType(): Type;
+        private _groupColumns;
+        groupColumns: string[];
+        private _results;
+        results: string[];
+        private _sort;
+        sort: string[];
+        connectToData(): void;
+        private compare;
+        private initTotals;
+        private addRow;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiODataSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiFirebirdSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiMySqlSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiOracleSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiPostgreSQLSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
+    class StiCustomSource extends StiSqlSource {
+        static registerCustomSource(): void;
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare module Stimulsoft.Report.Dictionary {
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import Type = Stimulsoft.System.Type;
     class StiFunctions {
@@ -19162,621 +19778,6 @@ declare module Stimulsoft.Report.Engine.StiParser {
         static prepareReportVariables(report: StiReport): void;
         static prepareVariableValue(varr: StiVariable, report: StiReport, textBox?: StiText, fillItems?: boolean): Object;
         private static getExpressionValue;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import DataRow = Stimulsoft.System.Data.DataRow;
-    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import DataTable = Stimulsoft.System.Data.DataTable;
-    import Type = Stimulsoft.System.Type;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import IEnumerator = Stimulsoft.System.Collections.IEnumerator;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import Hashtable = Stimulsoft.System.Collections.Hashtable;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiDataCollection = Stimulsoft.Report.Dictionary.StiDataCollection;
-    import StiComponentsCollection = Stimulsoft.Report.Components.StiComponentsCollection;
-    import Promise = Stimulsoft.System.Promise;
-    class StiDataSource implements ICloneable, IStiStateSaveRestore, IStiEnumerator, IStiName, IStiInherited, IStiJsonReportObject {
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _inherited;
-        inherited: boolean;
-        readonly current: Object;
-        moveNext(): boolean;
-        reset(): void;
-        getEnumerator(): IEnumerator;
-        private _name;
-        name: string;
-        protected positionValue: number;
-        position: number;
-        readonly realCount: number;
-        readonly count: number;
-        protected isBofValue: boolean;
-        /** Gets value indicates that this position specifies to the beginning of data. */
-        isBof: boolean;
-        protected isEofValue: boolean;
-        /** Gets value indicates that this position specifies to the data end. */
-        isEof: boolean;
-        /** Gets value indicates that no data. */
-        readonly isEmpty: boolean;
-        first(): void;
-        prior(): void;
-        next(): void;
-        last(): void;
-        clone(): StiDataSource;
-        memberwiseClone(): StiDataSource;
-        private _states;
-        protected readonly states: StiStatesManager;
-        saveState(stateName: string): void;
-        restoreState(stateName: string): void;
-        clearAllStates(): void;
-        private nameOfDataBandWhichInitDataSource;
-        isInited: boolean;
-        initForSubreport: boolean;
-        xmlRefAttrValue: string;
-        private relationNameStored;
-        private resFilterMethod;
-        private resSortColumns;
-        private isEqualSort;
-        setData(dataBand: StiDataBand, relationName: string, filterMethod: Object, sortColumns: string[], reinit: boolean, component: StiComponent): void;
-        getConditions(dataBand: StiDataBand): Object[][][];
-        setDetails(relationName: string): void;
-        setFilter(filterMethod: Object): void;
-        setSort(conditions: Object[][][], sortColumns: string[], component: StiComponent, databand: StiDataBand, groupHeaders: StiComponentsCollection): void;
-        resetDetailsRows(): void;
-        resetData(): void;
-        getDataRow(index: number): DataRow;
-        /** Returns the parent row with data for the indicated relation. */
-        getParentData(relation: string): StiDataRow;
-        /** Returns the colection of Parent relations. */
-        getParentRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
-        /** Returns a collection of Child relations. */
-        getChildRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
-        /** Returns the parent Data Source by the relation name. */
-        getParentDataSource(relationName: string): StiDataSource;
-        /** Returns the child Data Source by the relation name. */
-        getChildDataSource(relationName: string): StiDataSource;
-        protected invokeConnecting(): void;
-        protected invokeDisconnecting(): void;
-        connectAsync(datas: StiDataCollection, loadData: boolean): Promise<void>;
-        connect(datas: StiDataCollection, loadData: boolean): void;
-        protected getDataAdapterType(): Type;
-        protected readonly dataAdapterType: string;
-        fillColumns(): void;
-        getDataAdapter(): StiDataAdapterService;
-        private _parameters;
-        parameters: StiDataParametersCollection;
-        getDataTable(table?: DataTable): DataTable;
-        getByName(columnName: string): Object;
-        getData(columnName: string, index?: number): Object;
-        getColumnIndex(columnName: string): number;
-        private _rows;
-        rows: StiRowsCollection;
-        columnsIndexs: Hashtable;
-        calcColumns: Hashtable;
-        detailRows: DataRow[];
-        rowToLevel: Hashtable;
-        synchronizeColumns(): void;
-        checkColumnsIndexs(): void;
-        toString(): string;
-        getLevel(): number;
-        getCategoryName(): string;
-        createNew(): StiDataSource;
-        private _isCloud;
-        readonly isCloud: boolean;
-        private _dictionary;
-        dictionary: StiDictionary;
-        private _dataTable;
-        dataTable: Stimulsoft.System.Data.DataTable;
-        readonly isConnected: boolean;
-        private _columns;
-        columns: StiDataColumnsCollection;
-        connectionOrder: number;
-        disconnect(): void;
-        connectOnStart: boolean;
-        getByColumnName(columnName: string): Object;
-        private _alias;
-        alias: string;
-        private _key;
-        key: string;
-        constructor(name: string, alias: string, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiDataStoreSource extends StiDataSource {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        getCategoryName(): string;
-        dataName: string;
-        private _nameInSource;
-        nameInSource: string;
-        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import Type = Stimulsoft.System.Type;
-    class StiDataTableSource extends StiDataStoreSource {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        getCategoryName(): string;
-        getDataAdapterType(): Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import Type = Stimulsoft.System.Type;
-    import Promise = Stimulsoft.System.Promise;
-    class StiDataTableAdapterService extends StiDataStoreAdapterService {
-        readonly serviceName: string;
-        readonly isObjectAdapter: boolean;
-        getDataCategoryName(data: StiData): string;
-        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource): Promise<StiDataColumnsCollection>;
-        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
-        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
-        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
-        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
-        getDataSourceType(): Type;
-        getDataTypes(): Type[];
-        getDataFromDataSource(dictionary: StiDictionary, dataSource: StiDataSource): StiData;
-        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiAggregateFunctionService {
-        readonly serviceName: string;
-        init(): void;
-        reset(): void;
-        calcItem(value: Object): any;
-        getValue(): Object;
-        setValue(value: Object): any;
-        isFirstInit: boolean;
-        readonly recureParam: boolean;
-        private _runningTotal;
-        runningTotal: boolean;
-        constructor(runningTotal?: boolean);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiAvgDateFunctionService extends StiAggregateFunctionService {
-        private avgValue;
-        private count;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiAvgFunctionService extends StiAggregateFunctionService {
-        private summary;
-        private count;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiAvgTimeFunctionService extends StiAggregateFunctionService {
-        private avgValue;
-        private count;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiCountDistinctFunctionService extends StiAggregateFunctionService {
-        private counter;
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiCountFunctionService extends StiAggregateFunctionService {
-        private counter;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiFirstFunctionService extends StiAggregateFunctionService {
-        private value;
-        private first;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiLastFunctionService extends StiAggregateFunctionService {
-        private value;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMaxDateFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private maximum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMaxFunctionService extends StiAggregateFunctionService {
-        private maximum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMaxStrFunctionService extends StiAggregateFunctionService {
-        private values;
-        static ascComparison(str1: string, str2: string): number;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMaxTimeFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private maximum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMedianFunctionService extends StiAggregateFunctionService {
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMinDateFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private minimum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMinFunctionService extends StiAggregateFunctionService {
-        private minimum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMinStrFunctionService extends StiAggregateFunctionService {
-        private values;
-        static ascComparison(str1: string, str2: string): number;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMinTimeFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private minimum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiModeFunctionService extends StiAggregateFunctionService {
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import StiRankOrder = Stimulsoft.Report.StiRankOrder;
-    class StiRankFunctionService extends StiAggregateFunctionService {
-        private hash;
-        private sortOrder;
-        private dense;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-        constructor(runningTotal: boolean, dense?: boolean, sortOrder?: StiRankOrder);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiSumDistinctFunctionService extends StiAggregateFunctionService {
-        private summary;
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object, valueToSum?: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiSumFunctionService extends StiAggregateFunctionService {
-        private summary;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiSumNullableFunctionService extends StiAggregateFunctionService {
-        private summary;
-        private hasValues;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiSumTimeFunctionService extends StiAggregateFunctionService {
-        private sumValue;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: Object): void;
-        getValue(): Object;
-        setValue(value: Object): void;
-        readonly recureParam: boolean;
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiBusinessObjectCategory {
-        private _category;
-        category: string;
-        constructor(category: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiBusinessObjectData {
-        private _category;
-        category: string;
-        private _name;
-        name: string;
-        private _alias;
-        alias: string;
-        private _businessObjectValue;
-        businessObjectValue: Object;
-        constructor(category: string, name: string, alias: string, value: Object);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiFileDataSource extends StiDataStoreSource {
-        readonly componentId: StiComponentId;
-        path: string;
-        codePage: number;
-        constructor(path?: string, name?: string, alias?: string, codePage?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiCsvSource extends StiFileDataSource {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        getDataAdapterType(): Stimulsoft.System.Type;
-        separator: string;
-        convertEmptyStringToNull: boolean;
-        createNew(): StiDataSource;
-        constructor(path?: string, name?: string, alias?: string, codePage?: number, separator?: string, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import Promise = Stimulsoft.System.Promise;
-    class StiSqlSource extends StiDataTableSource {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _allowExpressions;
-        allowExpressions: boolean;
-        private _type;
-        type: StiSqlSourceType;
-        private _commandTimeout;
-        commandTimeout: number;
-        private _reconnectOnEachRow;
-        reconnectOnEachRow: boolean;
-        private _sqlCommand;
-        sqlCommand: string;
-        getDataAdapterType(): Stimulsoft.System.Type;
-        updateParameters(): void;
-        retrieveDataAsync(schemaOnly?: boolean): Promise<void>;
-        getFinalSqlCommand(): string;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiNoSqlSource extends StiSqlSource {
-        query: string;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMongoDbSource extends StiNoSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiFilter = Stimulsoft.Report.Components.IStiFilter;
-    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
-    import Type = Stimulsoft.System.Type;
-    class StiVirtualSource extends StiDataStoreSource implements IStiFilter {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _filterMethodHandler;
-        filterMethodHandler: Function;
-        private _filterOn;
-        filterOn: boolean;
-        private _filterMode;
-        filterMode: StiFilterMode;
-        private _filters;
-        filters: Stimulsoft.Report.Components.StiFiltersCollection;
-        protected getDataAdapterType(): Type;
-        private _groupColumns;
-        groupColumns: string[];
-        private _results;
-        results: string[];
-        private _sort;
-        sort: string[];
-        connectToData(): void;
-        private compare;
-        private initTotals;
-        private addRow;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiODataSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiFirebirdSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiMySqlSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiOracleSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiPostgreSQLSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare module Stimulsoft.Report.Dictionary {
-    class StiCustomSource extends StiSqlSource {
-        static registerCustomSource(): void;
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
     }
 }
 declare module Stimulsoft.Report.Dictionary {
@@ -39181,6 +39182,9 @@ declare module Stimulsoft.Designer {
         showReportTree: boolean;
         /** Gets or sets a position of the properties grid in the designer. */
         propertiesGridPosition: StiPropertiesGridPosition;
+        private _zoom;
+        /** Gets or sets the report showing zoom. The default value is 100. */
+        zoom: number;
     }
 }
 declare module Stimulsoft.Designer {

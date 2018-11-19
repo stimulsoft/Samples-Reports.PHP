@@ -603,6 +603,7 @@
     <CannotLoadDashboard>Не магчыма загрузіць справаздачу якая змяшчае панэль індыкатараў.</CannotLoadDashboard>
     <ChangeChartType>Змяніць тып дыяграмы</ChangeChartType>
     <ChangeMapType>Змяніць тып карты</ChangeMapType>
+    <ClearAllFormatting>Ачысціць усё фарматаванне</ClearAllFormatting>
     <ClearFilterFrom>Ачысціць фільтр ад '{0}'</ClearFilterFrom>
     <ColorScale>Колеравая шкала</ColorScale>
     <CustomFilter>Карыстацкі фільтр ...</CustomFilter>
@@ -685,6 +686,9 @@
     <CurrentYear>Бягучы год</CurrentYear>
     <FirstQuarter>Першы квартал</FirstQuarter>
     <FourthQuarter>Чацвёрты квартал</FourthQuarter>
+    <Last14Days>Апошнія 14 дзён</Last14Days>
+    <Last30Days>Апошнія 30 дзён</Last30Days>
+    <Last7Days>Апошнія 7 дзён</Last7Days>
     <MonthToDate>З пачатку месяца</MonthToDate>
     <NextMonth>Наступны месяц</NextMonth>
     <NextQuarter>Наступны квартал</NextQuarter>
@@ -1422,6 +1426,7 @@
     <ApplyStyleCollectionToReportComponents>Ужыць калекцыю стыляў да кампанентаў справаздачы</ApplyStyleCollectionToReportComponents>
     <ApplyStyles>Ужыць стылі</ApplyStyles>
     <ColorCollectionEditor>Рэдактар ​​калекцыі колераў</ColorCollectionEditor>
+    <CreateNewComponentStyle>для стварэння новага стылю кампанента</CreateNewComponentStyle>
     <CreateStyleCollection>Стварыць калекцыю стыляў</CreateStyleCollection>
     <CreateStylesCollection>Стварыць калекцыю стыляў</CreateStylesCollection>
     <CreateStylesFromColor>Стварыць стыль з абранага колеру</CreateStylesFromColor>
@@ -2406,6 +2411,7 @@
     <ControlCategory>Кіраванне</ControlCategory>
     <ControlsEventsCategory>Падзеі элементаў кіравання</ControlsEventsCategory>
     <CrossTabCategory>Крос-табліца</CrossTabCategory>
+    <DashboardCategory>Панэль індыкатараў</DashboardCategory>
     <DataCategory>Дадзеныя</DataCategory>
     <DatePickerCategory>Выбар даты</DatePickerCategory>
     <DescriptionCategory>Апiсанне</DescriptionCategory>
@@ -3254,6 +3260,7 @@
     <Area>Вобласць</Area>
     <Argument>Аргумент</Argument>
     <ArgumentDataColumn>Калонка дадзеных аргументаў</ArgumentDataColumn>
+    <ArgumentFormat>Фармат аргумента</ArgumentFormat>
     <Arguments>Аргументы</Arguments>
     <ArrowHeight>Вышыня пяра</ArrowHeight>
     <ArrowStyle>Стыль стрэлкі</ArrowStyle>
@@ -3572,6 +3579,7 @@
     <Indent>Водступ</Indent>
     <InfographicsTitle>Title</InfographicsTitle>
     <InitBy>Ініцыялізаваць</InitBy>
+    <InitialSelection>Першапачатковы выбар</InitialSelection>
     <Insert>Уставіць</Insert>
     <Interaction>Узаемадзеянне</Interaction>
     <InterlacedBrush>Пэндзаль чаргавання</InterlacedBrush>
@@ -4028,6 +4036,7 @@
     <ValueDataColumnLow>Калонка дадзеных мінімумаў</ValueDataColumnLow>
     <ValueDataColumnOpen>Калонка дадзеных значэнняў адкрыцця</ValueDataColumnOpen>
     <ValueEnd>Канчатковае значэнне</ValueEnd>
+    <ValueFormat>Фармат значэння</ValueFormat>
     <ValueHigh>Значэнне максімуму</ValueHigh>
     <ValueLow>Значэнне мінімуму</ValueLow>
     <ValueMeter>Значэнне</ValueMeter>

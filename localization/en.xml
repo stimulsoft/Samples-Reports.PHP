@@ -681,6 +681,9 @@
     <CurrentQuarter>Current Quarter</CurrentQuarter>
     <CurrentWeek>Current Week</CurrentWeek>
     <CurrentYear>Current Year</CurrentYear>
+    <Last7Days>Last 7 Days</Last7Days>
+    <Last14Days>Last 14 Days</Last14Days>
+    <Last30Days>Last 30 Days</Last30Days>
     <FirstQuarter>First Quarter</FirstQuarter>
     <FourthQuarter>Fourth Quarter</FourthQuarter>
     <MonthToDate>Month To Date</MonthToDate>
@@ -1208,7 +1211,7 @@
     <NewItem>New Item</NewItem>
     <OpenAssembly>Open Assembly</OpenAssembly>
     <Parent>Parent</Parent>
-    <ParentSource>Parent Data Source:</ParentSource>
+    <ParentSource>Parent Source:</ParentSource>
     <Queries>Queries</Queries>
     <QueryNew>New Query</QueryNew>
     <QueryText>Query Text</QueryText>
@@ -1418,6 +1421,7 @@
     <ApplyStyles>Apply Styles</ApplyStyles>
     <ColorCollectionEditor>Color Collection Editor</ColorCollectionEditor>
     <CreateStyleCollection>Create Style Collection</CreateStyleCollection>
+    <CreateNewComponentStyle>to create the new component style</CreateNewComponentStyle>
     <Duplicate>Duplicate Style</Duplicate>
     <GetStyle>Get Style from Selected Components</GetStyle>
     <MoreStyles>More Styles</MoreStyles>
@@ -2325,6 +2329,7 @@
     <MoveRightFreeSpace>Moves a component to the right side of a free space, increasing the height of the component to the height of free space.</MoveRightFreeSpace>
   </PlacementComponent>
   <PropertyCategory>
+    <DashboardCategory>Dashboard</DashboardCategory>
     <AppearanceCategory>Appearance</AppearanceCategory>
     <AreaCategory>Area</AreaCategory>
     <ArgumentCategory>Argument</ArgumentCategory>
@@ -3126,6 +3131,7 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
+    <InitialSelection>Initial Selection</InitialSelection>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
     <AcceptsTab>Accepts Tab</AcceptsTab>
     <Actual>Actual</Actual>
@@ -3188,9 +3194,9 @@
     <AutoWidth>Auto Width</AutoWidth>
     <AutoWidthType>Auto Width Type</AutoWidthType>
     <AvailableInTheViewer>Available in the Viewer</AvailableInTheViewer>
-    <AxisLabelsColor>Labels Color</AxisLabelsColor>
-    <AxisLineColor>Line Color</AxisLineColor>
-    <AxisTitleColor>Title Color</AxisTitleColor>
+    <AxisLabelsColor>Axis Labels Color</AxisLabelsColor>
+    <AxisLineColor>Axis Line Color</AxisLineColor>
+    <AxisTitleColor>Axis Title Color</AxisTitleColor>
     <AxisValue>Axis Value</AxisValue>
     <BackColor>Back Color</BackColor>
     <Background>Background</Background>
@@ -3233,9 +3239,9 @@
     <CellWidth>Cell Width</CellWidth>
     <Center>Center</Center>
     <CenterPoint>Center Point</CenterPoint>
-    <ChartAreaBorderColor>Border Color</ChartAreaBorderColor>
-    <ChartAreaBrush>Area Brush</ChartAreaBrush>
-    <ChartAreaShowShadow>Show Shadow</ChartAreaShowShadow>
+    <ChartAreaBorderColor>Chart Area Border Color</ChartAreaBorderColor>
+    <ChartAreaBrush>Chart Area Brush</ChartAreaBrush>
+    <ChartAreaShowShadow>Chart Area Show Shadow</ChartAreaShowShadow>
     <ChartType>Chart Type</ChartType>
     <Checked>Checked</Checked>
     <CheckOnClick>Check on Click</CheckOnClick>
@@ -3248,7 +3254,7 @@
     <CheckSum2>CheckSum2</CheckSum2>
     <Child>Child</Child>
     <ChildColumns>Child Columns</ChildColumns>
-    <ChildSource>Child Data Source</ChildSource>
+    <ChildSource>Child Source</ChildSource>
     <ClearFormat>Clear Format</ClearFormat>
     <CloneContainer>Clone Container</CloneContainer>
     <CloseValues>Close Values</CloseValues>
@@ -3525,10 +3531,10 @@
     <Left>Left</Left>
     <LeftSide>Left Side</LeftSide>
     <Legend>Legend</Legend>
-    <LegendBorderColor>Border Color</LegendBorderColor>
+    <LegendBorderColor>Legend Border Color</LegendBorderColor>
     <LegendBrush>Legend Brush</LegendBrush>
-    <LegendLabelsColor>Labels Color</LegendLabelsColor>
-    <LegendTitleColor>Title Color</LegendTitleColor>
+    <LegendLabelsColor>Legend Labels Color</LegendLabelsColor>
+    <LegendTitleColor>Legend Title Color</LegendTitleColor>
     <LegendValueType>Legend Value Type</LegendValueType>
     <Length>Length</Length>
     <LengthUnderLabels>Length under Labels</LengthUnderLabels>
@@ -3565,7 +3571,7 @@
     <MajorInterval>Major Interval</MajorInterval>
     <MapID>Map ID</MapID>
     <Maps>Maps</Maps>
-    <MapStyle>Style</MapStyle>
+    <MapStyle>Map Style</MapStyle>
     <MapType>Map Type</MapType>
     <Margin>Margin</Margin>
     <Margins>Margins</Margins>
@@ -3759,9 +3765,9 @@
     <SerialNumber>Serial Number</SerialNumber>
     <Series>Series</Series>
     <SeriesLabels>Series Labels</SeriesLabels>
-    <SeriesLabelsBorderColor>Border Color</SeriesLabelsBorderColor>
-    <SeriesLabelsBrush>Labels Brush</SeriesLabelsBrush>
-    <SeriesLabelsColor>Labels Color</SeriesLabelsColor>
+    <SeriesLabelsBorderColor>Series Labels Border Color</SeriesLabelsBorderColor>
+    <SeriesLabelsBrush>Series Labels Brush</SeriesLabelsBrush>
+    <SeriesLabelsColor>Series Labels Color</SeriesLabelsColor>
     <SeriesLighting>Series Lighting</SeriesLighting>
     <SeriesShowShadow>Series Show Shadow</SeriesShowShadow>
     <SeriesTitle>Series Title</SeriesTitle>
@@ -3901,8 +3907,8 @@
     <Totals>Totals</Totals>
     <TransparentColor>Transparent Color</TransparentColor>
     <TrendLine>Trend Line</TrendLine>
-    <TrendLineColor>Color</TrendLineColor>
-    <TrendLineShowShadow>Show Shadow</TrendLineShowShadow>
+    <TrendLineColor>Trend Line Color</TrendLineColor>
+    <TrendLineShowShadow>Trend Line Show Shadow</TrendLineShowShadow>
     <TrimExcessData>Trim Excess Data</TrimExcessData>
     <Trimming>Trimming</Trimming>
     <Type>Type</Type>

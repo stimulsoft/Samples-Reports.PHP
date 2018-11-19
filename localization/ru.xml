@@ -602,6 +602,7 @@
     <CannotLoadDashboard>Не возможно загрузить отчет содержащий панель индикаторов.</CannotLoadDashboard>
     <ChangeChartType>Изменить тип диаграммы</ChangeChartType>
     <ChangeMapType>Изменить тип карты</ChangeMapType>
+    <ClearAllFormatting>Очистить все форматирование</ClearAllFormatting>
     <ClearFilterFrom>Очистить фильтр от '{0}'</ClearFilterFrom>
     <ColorScale>Цветовая шкала</ColorScale>
     <CustomFilter>Пользовательский фильтр ...</CustomFilter>
@@ -682,6 +683,9 @@
     <CurrentYear>Текущий год</CurrentYear>
     <FirstQuarter>Первый квартал</FirstQuarter>
     <FourthQuarter>Четвертый квартал</FourthQuarter>
+    <Last14Days>Последние 14 дней</Last14Days>
+    <Last30Days>Последние 30 дней</Last30Days>
+    <Last7Days>Последние 7 дней</Last7Days>
     <MonthToDate>С начала месяца</MonthToDate>
     <NextMonth>Следующий месяц</NextMonth>
     <NextQuarter>Следующий квартал</NextQuarter>
@@ -1419,9 +1423,11 @@
     <ApplyStyleCollectionToReportComponents>Применить коллекцию стилей к компонентам отчета</ApplyStyleCollectionToReportComponents>
     <ApplyStyles>Применить стили</ApplyStyles>
     <ColorCollectionEditor>Редактор коллекции цветов</ColorCollectionEditor>
+    <CreateNewComponentStyle>для создания нового стиля компонента</CreateNewComponentStyle>
     <CreateStyleCollection>Создать коллекцию стилей</CreateStyleCollection>
     <CreateStylesCollection>Создать коллекцию стилей</CreateStylesCollection>
     <CreateStylesFromColor>Создать стиль из выбранного цвета</CreateStylesFromColor>
+    <CreateNewComponentStyle>чтобы создать новый стиль компонента</CreateNewComponentStyle>
     <Duplicate>Копировать стиль</Duplicate>
     <GetStyle>Создать стиль на основе выделенных компонентов</GetStyle>
     <MoreStyles>Больше стилей</MoreStyles>
@@ -2394,6 +2400,7 @@
     <ControlCategory>Управление</ControlCategory>
     <ControlsEventsCategory>События элементов управления</ControlsEventsCategory>
     <CrossTabCategory>Кросс-таблица</CrossTabCategory>
+    <DashboardCategory>Панель индикаторов</DashboardCategory>
     <DataCategory>Данные</DataCategory>
     <DatePickerCategory>Выбор даты</DatePickerCategory>
     <DescriptionCategory>Описание</DescriptionCategory>
@@ -3221,6 +3228,7 @@
     <Area>Область</Area>
     <Argument>Аргумент</Argument>
     <ArgumentDataColumn>Колонка данных аргументов</ArgumentDataColumn>
+    <ArgumentFormat>Формат аргумента</ArgumentFormat>
     <Arguments>Аргументы</Arguments>
     <ArrowHeight>Высота пера</ArrowHeight>
     <ArrowStyle>Стиль стрелки</ArrowStyle>
@@ -3539,6 +3547,7 @@
     <Indent>Отступ</Indent>
     <InfographicsTitle>Заголовок</InfographicsTitle>
     <InitBy>Инициализировать</InitBy>
+    <InitialSelection>Первоначальный выбор</InitialSelection>
     <Insert>Вставить</Insert>
     <Interaction>Взаимодействие</Interaction>
     <InterlacedBrush>Кисть чередования</InterlacedBrush>
@@ -3991,6 +4000,7 @@
     <ValueDataColumnLow>Колонка данных минимумов</ValueDataColumnLow>
     <ValueDataColumnOpen>Колонка данных значений открытия</ValueDataColumnOpen>
     <ValueEnd>Конечное значение</ValueEnd>
+    <ValueFormat>Формат значения</ValueFormat>
     <ValueHigh>Значение максимума</ValueHigh>
     <ValueLow>Значение минимума</ValueLow>
     <ValueMeter>Значение</ValueMeter>
