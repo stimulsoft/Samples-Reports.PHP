@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
 Version: 2018.3.5
-Build date: 2018.11.16
+Build date: 2018.11.19
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
