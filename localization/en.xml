@@ -97,6 +97,7 @@
     <AddAllColumns>Add All Columns</AddAllColumns>
     <Attach>Attach</Attach>
     <Build>Build...</Build>
+    <Buttons>Buttons</Buttons>
     <Cancel>&amp;Cancel</Cancel>
     <Check>Check</Check>
     <Close>Close</Close>
@@ -130,6 +131,7 @@
     <SetAll>Set All</SetAll>
     <ShowLess>Show Less</ShowLess>
     <ShowMore>Show More</ShowMore>
+    <ShowSpecific>Show '{0}'</ShowSpecific>
     <Submit>Submit</Submit>
     <Test>Test</Test>
     <Up>Up</Up>
@@ -332,6 +334,7 @@
     <AcceptTermsAndPrivacyPolicy>I read and accept the {0} and {1}</AcceptTermsAndPrivacyPolicy>
     <AccountSettings>Account Settings</AccountSettings>
     <AddAPlace>Add a Place</AddAPlace>
+    <AreYouSureYouWantDeleteReport>Are you sure you want to delete "{0}" report from disk?</AreYouSureYouWantDeleteReport>
     <ButtonChangePassword>Change Password</ButtonChangePassword>
     <ButtonDeleteAll>Delete All</ButtonDeleteAll>
     <ButtonDesign>Design Report</ButtonDesign>
@@ -595,7 +598,6 @@
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
-    <ClearAllFormatting>Clear All Formatting</ClearAllFormatting>
     <AddRange>Add Range</AddRange>
     <AfterGroupingData>Apply after grouping data</AfterGroupingData>
     <Blanks>(Blanks)</Blanks>
@@ -603,6 +605,7 @@
     <CannotLoadDashboard>You cannot load a report with dashboards.</CannotLoadDashboard>
     <ChangeChartType>Change Chart Type</ChangeChartType>
     <ChangeMapType>Change Map Type</ChangeMapType>
+    <ClearAllFormatting>Clear All Formatting</ClearAllFormatting>
     <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
     <ColorScale>Color Scale</ColorScale>
     <CustomFilter>Custom &amp;Filter...</CustomFilter>
@@ -681,11 +684,11 @@
     <CurrentQuarter>Current Quarter</CurrentQuarter>
     <CurrentWeek>Current Week</CurrentWeek>
     <CurrentYear>Current Year</CurrentYear>
-    <Last7Days>Last 7 Days</Last7Days>
-    <Last14Days>Last 14 Days</Last14Days>
-    <Last30Days>Last 30 Days</Last30Days>
     <FirstQuarter>First Quarter</FirstQuarter>
     <FourthQuarter>Fourth Quarter</FourthQuarter>
+    <Last14Days>Last 14 Days</Last14Days>
+    <Last30Days>Last 30 Days</Last30Days>
+    <Last7Days>Last 7 Days</Last7Days>
     <MonthToDate>Month To Date</MonthToDate>
     <NextMonth>Next Month</NextMonth>
     <NextQuarter>Next Quarter</NextQuarter>
@@ -904,6 +907,7 @@
     <NoMoreThan>No More Than</NoMoreThan>
     <OpenAfterExport>Open After Export</OpenAfterExport>
     <PdfACompliance>PDF/A Compliance</PdfACompliance>
+    <PrintingReport>Printing Report</PrintingReport>
     <RemoveEmptySpaceAtBottom>Remove Empty Space at Bottom of Page</RemoveEmptySpaceAtBottom>
     <RestrictEditing>Restrict Editing:</RestrictEditing>
     <Scale>Scale:</Scale>
@@ -1280,6 +1284,7 @@
   <FormGlobalizationEditor>
     <AddCulture>&amp;Add Culture</AddCulture>
     <AutoLocalizeReportOnRun>Auto Localize Report on Run</AutoLocalizeReportOnRun>
+    <CreateNewCulture>to create the new culture</CreateNewCulture>
     <GetCulture>Get Culture Settings from Report</GetCulture>
     <qnGetCulture>Do you really want to get culture settings from report and override current culture settings?</qnGetCulture>
     <qnSetCulture>Do you really want to set culture settings to report components?</qnSetCulture>
@@ -1420,12 +1425,16 @@
     <ApplyStyleCollectionToReportComponents>Apply Style Collection to Report Components</ApplyStyleCollectionToReportComponents>
     <ApplyStyles>Apply Styles</ApplyStyles>
     <ColorCollectionEditor>Color Collection Editor</ColorCollectionEditor>
-    <CreateStyleCollection>Create Style Collection</CreateStyleCollection>
     <CreateNewComponentStyle>to create the new component style</CreateNewComponentStyle>
+    <CreateStyleCollection>Create Style Collection</CreateStyleCollection>
     <Duplicate>Duplicate Style</Duplicate>
+    <EditColors>[Edit Colors]</EditColors>
+    <FromStyle>From Style</FromStyle>
     <GetStyle>Get Style from Selected Components</GetStyle>
     <MoreStyles>More Styles</MoreStyles>
+    <NotSpecified>Not Specified</NotSpecified>
     <Open>Open Style</Open>
+    <Predefined>Predefined</Predefined>
     <qnApplyStyleCollection>Do you want to apply style collection to report components?</qnApplyStyleCollection>
     <Remove>Remove Style</Remove>
     <RemoveExistingStyles>Remove Existing Styles</RemoveExistingStyles>
@@ -1757,6 +1766,7 @@
     <CopyStyle>Copy Style</CopyStyle>
     <CopyToClipboard>Copy to Clipboard</CopyToClipboard>
     <CurrencySymbol>Select the currency symbol.</CurrencySymbol>
+    <DashboardNew>Create a new dashboard.</DashboardNew>
     <DataStore>Show data, registered in a report.</DataStore>
     <DateTimeFormat>Select the date and time format for the selected components.</DateTimeFormat>
     <DockingPanels>Panel settings.</DockingPanels>
@@ -2230,6 +2240,7 @@
     <SnapshotAlreadyProcessed>The report snapshot is already processed!</SnapshotAlreadyProcessed>
     <SpecifiedItemIsNot>The specified item is not "{0}"!</SpecifiedItemIsNot>
     <SubscriptionExpired>Your subscription has expired!</SubscriptionExpired>
+    <SubscriptionExpiredDate>Your subscription will expire on {0}</SubscriptionExpiredDate>
     <SubscriptionsOut10>10 days left when the subscription expires!</SubscriptionsOut10>
     <SubscriptionsOut20>The subscription period will expire in 20 days!</SubscriptionsOut20>
     <SuccessfullyRenewed>Your subscription has been successfully updated!</SuccessfullyRenewed>
@@ -2329,7 +2340,6 @@
     <MoveRightFreeSpace>Moves a component to the right side of a free space, increasing the height of the component to the height of free space.</MoveRightFreeSpace>
   </PlacementComponent>
   <PropertyCategory>
-    <DashboardCategory>Dashboard</DashboardCategory>
     <AppearanceCategory>Appearance</AppearanceCategory>
     <AreaCategory>Area</AreaCategory>
     <ArgumentCategory>Argument</ArgumentCategory>
@@ -2349,6 +2359,7 @@
     <ControlCategory>Control</ControlCategory>
     <ControlsEventsCategory>Controls Events</ControlsEventsCategory>
     <CrossTabCategory>Cross-Tab</CrossTabCategory>
+    <DashboardCategory>Dashboard</DashboardCategory>
     <DataCategory>Data</DataCategory>
     <DatePickerCategory>Date Picker</DatePickerCategory>
     <DescriptionCategory>Description</DescriptionCategory>
@@ -2941,6 +2952,8 @@
     <StiShowYAxisBoth>Both</StiShowYAxisBoth>
     <StiShowYAxisCenter>Center</StiShowYAxisCenter>
     <StiShowYAxisLeft>Left</StiShowYAxisLeft>
+    <StiSizeModeAutoSize>Auto Size</StiSizeModeAutoSize>
+    <StiSizeModeFit>Fit</StiSizeModeFit>
     <StiSortDirectionAsc>Ascending</StiSortDirectionAsc>
     <StiSortDirectionDesc>Descending</StiSortDirectionDesc>
     <StiSortDirectionNone>None</StiSortDirectionNone>
@@ -3069,6 +3082,7 @@
     <ProcessCellEvent>Process Cell</ProcessCellEvent>
     <ProcessChartEvent>Process Chart</ProcessChartEvent>
     <RenderingEvent>Rendering</RenderingEvent>
+    <ReportCacheProcessingEvent>Report Cache Processing</ReportCacheProcessingEvent>
     <SelectedIndexChangedEvent>Selected Index Changed</SelectedIndexChangedEvent>
     <StateRestoreEvent>State Restore</StateRestoreEvent>
     <StateSaveEvent>State Save</StateSaveEvent>
@@ -3131,7 +3145,6 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
-    <InitialSelection>Initial Selection</InitialSelection>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
     <AcceptsTab>Accepts Tab</AcceptsTab>
     <Actual>Actual</Actual>
@@ -3173,7 +3186,7 @@
     <Area>Area</Area>
     <Argument>Argument</Argument>
     <ArgumentDataColumn>Argument Data Column</ArgumentDataColumn>
-	<ArgumentFormat>Argument Format</ArgumentFormat>
+    <ArgumentFormat>Argument Format</ArgumentFormat>
     <Arguments>Arguments</Arguments>
     <ArrowHeight>Arrow Height</ArrowHeight>
     <ArrowStyle>Arrow Style</ArrowStyle>
@@ -3269,6 +3282,7 @@
     <ColorDataColumn>Color Data Column</ColorDataColumn>
     <ColorEach>Color Each</ColorEach>
     <ColorMeter>Color</ColorMeter>
+    <Colors>Colors</Colors>
     <ColorScaleCondition>Color Scale Condition</ColorScaleCondition>
     <ColorScaleType>Color Scale Type</ColorScaleType>
     <Column>Column</Column>
@@ -3307,9 +3321,11 @@
     <DataAdapters>Data Adapters</DataAdapters>
     <DataBarCondition>Data Bar Condition</DataBarCondition>
     <DataBindings>Data Bindings</DataBindings>
+    <DataColor>Data Color</DataColor>
     <DataColumn>Data Column</DataColumn>
     <DataColumns>Data Columns</DataColumns>
     <DataField>Data Field</DataField>
+    <DataForeground>Data Foreground</DataForeground>
     <DataRelation>Data Relation</DataRelation>
     <DataRows>Data Rows</DataRows>
     <DataSource>Data Source</DataSource>
@@ -3415,6 +3431,8 @@
     <FooterCanBreak>Footer Can Break</FooterCanBreak>
     <FooterCanGrow>Footer Can Grow</FooterCanGrow>
     <FooterCanShrink>Footer Can Shrink</FooterCanShrink>
+    <FooterColor>Footer Color</FooterColor>
+    <FooterForeground>Footer Foreground</FooterForeground>
     <FooterPrintAtBottom>Footer Print At Bottom</FooterPrintAtBottom>
     <FooterPrintIfEmpty>Footer Print If Empty</FooterPrintIfEmpty>
     <FooterPrintOn>Footer Print On</FooterPrintOn>
@@ -3430,6 +3448,7 @@
     <Functions>Functions</Functions>
     <GlobalizationStrings>Globalization Strings</GlobalizationStrings>
     <GlobalizedName>Globalized Name</GlobalizedName>
+    <GridColor>Grid Color</GridColor>
     <GridLineColor>Grid Line Color</GridLineColor>
     <GridLinesHor>Grid Lines Horizontal</GridLinesHor>
     <GridLinesHorColor>Grid Lines Horizontal Color</GridLinesHorColor>
@@ -3446,8 +3465,10 @@
     <HeaderCanBreak>Header Can Break</HeaderCanBreak>
     <HeaderCanGrow>Header Can Grow</HeaderCanGrow>
     <HeaderCanShrink>Header Can Shrink</HeaderCanShrink>
+    <HeaderColor>Header Color</HeaderColor>
     <HeaderFont>Header Font</HeaderFont>
     <HeaderForeColor>Header Fore Color</HeaderForeColor>
+    <HeaderForeground>Header Foreground</HeaderForeground>
     <HeaderPrintAtBottom>Header Print At Bottom</HeaderPrintAtBottom>
     <HeaderPrintIfEmpty>Header Print If Empty</HeaderPrintIfEmpty>
     <HeaderPrintOn>Header Print On</HeaderPrintOn>
@@ -3456,6 +3477,7 @@
     <HeaderRowsCount>Header Rows Count</HeaderRowsCount>
     <Headers>Headers</Headers>
     <HeaderText>Header Text</HeaderText>
+    <HeatmapColors>Heatmap Colors</HeatmapColors>
     <Height>Height</Height>
     <HideSeriesWithEmptyTitle>Hide Series with Empty Title</HideSeriesWithEmptyTitle>
     <HideZeros>Hide Zeros</HideZeros>
@@ -3487,7 +3509,9 @@
     <ImportRelations>Import Relations</ImportRelations>
     <Increment>Increment</Increment>
     <Indent>Indent</Indent>
+    <IndividualColor>Individual Color</IndividualColor>
     <InitBy>Init by</InitBy>
+    <InitialSelection>Initial Selection</InitialSelection>
     <Insert>Insert</Insert>
     <Interaction>Interaction</Interaction>
     <InterlacedBrush>Interlaced Brush</InterlacedBrush>
@@ -3520,14 +3544,17 @@
     <Keys>Keys</Keys>
     <Label>Label</Label>
     <LabelColor>Label Color</LabelColor>
+    <LabelForeground>Label Foreground</LabelForeground>
     <LabelRotationMode>Label Rotation Mode</LabelRotationMode>
     <Labels>Labels</Labels>
     <LabelsColor>Labels Color</LabelsColor>
+    <LabelShadowForeground>Label Shadow Foreground</LabelShadowForeground>
     <LabelsOffset>Labels Offset</LabelsOffset>
     <Language>Language</Language>
     <LargeHeight>Large Height</LargeHeight>
     <LargeHeightFactor>Large Height Factor</LargeHeightFactor>
     <Latitude>Latitude</Latitude>
+    <Layout>Layout</Layout>
     <Left>Left</Left>
     <LeftSide>Left Side</LeftSide>
     <Legend>Legend</Legend>
@@ -3768,6 +3795,7 @@
     <SeriesLabelsBorderColor>Series Labels Border Color</SeriesLabelsBorderColor>
     <SeriesLabelsBrush>Series Labels Brush</SeriesLabelsBrush>
     <SeriesLabelsColor>Series Labels Color</SeriesLabelsColor>
+    <SeriesLabelsLineColor>Labels Line Color</SeriesLabelsLineColor>
     <SeriesLighting>Series Lighting</SeriesLighting>
     <SeriesShowShadow>Series Show Shadow</SeriesShowShadow>
     <SeriesTitle>Series Title</SeriesTitle>
@@ -3939,7 +3967,7 @@
     <ValueDataColumnOpen>Value Data Column Open</ValueDataColumnOpen>
     <ValueEnd>Value End</ValueEnd>
     <ValueFormat>Value Format</ValueFormat>
-	<ValueHigh>Value High</ValueHigh>
+    <ValueHigh>Value High</ValueHigh>
     <ValueLow>Value Low</ValueLow>
     <ValueMeter>Value</ValueMeter>
     <ValueOpen>Value Open</ValueOpen>
@@ -4435,6 +4463,7 @@
     <MasterDetailReport>Master-Detail Report</MasterDetailReport>
     <NoFunction>[None]</NoFunction>
     <OpenExistingReport>Open Existing File</OpenExistingReport>
+    <OpenFrom>Open from {0}</OpenFrom>
     <Preview>Preview</Preview>
     <Reset>&amp;Reset</Reset>
     <Results>Results</Results>

@@ -227,6 +227,10 @@
   <CheckVariable>
     <StiVariableRecursionCheckLong>The '{0}' variable has a expression with recursion. It's impossible to refer to the Variable in its own expression.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Recursive Expression</StiVariableRecursionCheckShort>
+    <StiVariableTypeCheckShort>Variable types do not match.</StiVariableTypeCheckShort>
+    <StiVariableTypeCheckLong>For the dependent variables to work correctly, their types and the types of their columns must match.</StiVariableTypeCheckLong>
+    <StiVariableInitializationCheckLong>The '{0}' variable has the wrong default value. It is impossible to initialize the variable with a specified value.</StiVariableInitializationCheckLong>
+    <StiVariableInitializationCheckShort>Initialization value</StiVariableInitializationCheckShort>
   </CheckVariable>
   <Font>
     <Bold>A value that indicates whether this Font is bold.</Bold>

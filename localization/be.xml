@@ -97,6 +97,7 @@
     <AddAllColumns>Дадаць усе калонкі</AddAllColumns>
     <Attach>Ўкласці</Attach>
     <Build>Пабудаваць...</Build>
+    <Buttons>Кнопкі</Buttons>
     <Cancel>&amp;Адмена</Cancel>
     <Check>Праверыць</Check>
     <Close>Зачыніць</Close>
@@ -130,6 +131,7 @@
     <SetAll>Устанавiць усё</SetAll>
     <ShowLess>Паказаць менш</ShowLess>
     <ShowMore>Падрабязна</ShowMore>
+    <ShowSpecific>Паказваць '{0}'</ShowSpecific>
     <Submit>Ужыць</Submit>
     <Test>Праверка</Test>
     <Up>Уверх</Up>
@@ -907,6 +909,7 @@
     <NoMoreThan>Не больш чым</NoMoreThan>
     <OpenAfterExport>Адкрыць пасля экспарту</OpenAfterExport>
     <PdfACompliance>PDF/A дамова</PdfACompliance>
+    <PrintingReport>Друк справаздачы</PrintingReport>
     <RemoveEmptySpaceAtBottom>Выдаліць пустое месца унізе старонкі</RemoveEmptySpaceAtBottom>
     <RestrictEditing>Абмежаванне Рэдагавання:</RestrictEditing>
     <Scale>Маштаб:</Scale>
@@ -1766,6 +1769,7 @@
     <CopyStyle>Капiраваць стыль</CopyStyle>
     <CopyToClipboard>Капіраваць у буфер абмену</CopyToClipboard>
     <CurrencySymbol>Выбраць сімвал валюты.</CurrencySymbol>
+    <DashboardNew>Стварыць новую панэль індыкатараў.</DashboardNew>
     <DataStore>Паказаць дадзеныя, зарэгістраваныя для справаздачы.</DataStore>
     <DateTimeFormat>Выбраць фармат даты і часу для выдзеленых кампанентаў.</DateTimeFormat>
     <DockingPanels>Наладкі панэлі.</DockingPanels>
@@ -3025,6 +3029,8 @@
     <StiShowYAxisBoth>Абедзве</StiShowYAxisBoth>
     <StiShowYAxisCenter>Па цэнтру</StiShowYAxisCenter>
     <StiShowYAxisLeft>Левая</StiShowYAxisLeft>
+    <StiSizeModeAutoSize>Аўтапамер</StiSizeModeAutoSize>
+    <StiSizeModeFit>Змясціць</StiSizeModeFit>
     <StiSortDirectionAsc>Па ўзрастанні</StiSortDirectionAsc>
     <StiSortDirectionDesc>Па змяншэнні</StiSortDirectionDesc>
     <StiSortDirectionNone>Не сартаваць</StiSortDirectionNone>
@@ -3157,6 +3163,7 @@
     <ProcessCellEvent>Апрацоўка ячэйкі</ProcessCellEvent>
     <ProcessChartEvent>Апрацоўка дыяграмы</ProcessChartEvent>
     <RenderingEvent>Пабудова</RenderingEvent>
+    <ReportCacheProcessingEvent>Апрацоўка кэша справаздачы</ReportCacheProcessingEvent>
     <SelectedIndexChangedEvent>Змена індэксу</SelectedIndexChangedEvent>
     <StateRestoreEvent>Аднаўленне стану</StateRestoreEvent>
     <StateSaveEvent>Захаванне стану</StateSaveEvent>
@@ -3357,6 +3364,7 @@
     <ColorDataColumn>Калонка дадзеных колераў</ColorDataColumn>
     <ColorEach>Колер для кожнага</ColorEach>
     <ColorMeter>Колер</ColorMeter>
+    <Colors>Колеры</Colors>
     <ColorScaleCondition>Каляровая шкала</ColorScaleCondition>
     <ColorScaleType>Тып каляровай шкалы</ColorScaleType>
     <Column>Калонка</Column>
@@ -3396,9 +3404,11 @@
     <DataAdapters>Адаптэры дадзеных</DataAdapters>
     <DataBarCondition>Гістаграмы</DataBarCondition>
     <DataBindings>Злучэнне дадзеных</DataBindings>
+    <DataColor>Колер дадзеных</DataColor>
     <DataColumn>Калонка дадзеных</DataColumn>
     <DataColumns>Калонкі дадзеных</DataColumns>
     <DataField>Поле дадзеных</DataField>
+    <DataForeground>Колер тэксту дадзеных</DataForeground>
     <DataRelation>Сувязь</DataRelation>
     <DataRows>Радкі дадзеных</DataRows>
     <DataSource>Крыніца дадзеных</DataSource>
@@ -3504,6 +3514,8 @@
     <FooterCanBreak>Вынік можа разрываться</FooterCanBreak>
     <FooterCanGrow>Вынік можа расці</FooterCanGrow>
     <FooterCanShrink>Вынік можа сціскацца</FooterCanShrink>
+    <FooterColor>Колер выніку</FooterColor>
+    <FooterForeground>Колер тэксту выніку</FooterForeground>
     <FooterPrintAtBottom>Вынік друкаваць ўнізе</FooterPrintAtBottom>
     <FooterPrintIfEmpty>Вынік друкаваць калі няма дадзеных</FooterPrintIfEmpty>
     <FooterPrintOn>Вынік друкаваць на</FooterPrintOn>
@@ -3519,6 +3531,7 @@
     <Functions>Функцыі</Functions>
     <GlobalizationStrings>Радкі перакладу</GlobalizationStrings>
     <GlobalizedName>Глабалізацыя</GlobalizedName>
+    <GridColor>Колер сеткі</GridColor>
     <GridLineColor>Колер лініі сеткі</GridLineColor>
     <GridLinesHor>Гарызантальныя лініі сеткі</GridLinesHor>
     <GridLinesHorColor>Колер гарызантальных ліній сеткі</GridLinesHorColor>
@@ -3535,8 +3548,10 @@
     <HeaderCanBreak>Загаловак можа разрываться</HeaderCanBreak>
     <HeaderCanGrow>Загаловак можа расці</HeaderCanGrow>
     <HeaderCanShrink>Загаловак можа сціскацца</HeaderCanShrink>
+    <HeaderColor>Колер загалоўка</HeaderColor>
     <HeaderFont>Шрыфт загалоўка</HeaderFont>
     <HeaderForeColor>Колер тэксту загалоўка</HeaderForeColor>
+    <HeaderForeground>Колер тэксту загалоўка</HeaderForeground>
     <HeaderPrintAtBottom>Загаловак друкаваць ўнізе</HeaderPrintAtBottom>
     <HeaderPrintIfEmpty>Загаловак друкаваць калі няма дадзеных</HeaderPrintIfEmpty>
     <HeaderPrintOn>Загаловак друкаваць на</HeaderPrintOn>
@@ -3545,6 +3560,7 @@
     <HeaderRowsCount>Колькасць радкоў загалоўку</HeaderRowsCount>
     <Headers>Загалоўкi</Headers>
     <HeaderText>Тэкст загалоўка</HeaderText>
+    <HeatmapColors>Колеры тэмпературнай карты</HeatmapColors>
     <Height>Вышыня</Height>
     <HideSeriesWithEmptyTitle>Схаваць шэрагі з пустымі загалоўкамі</HideSeriesWithEmptyTitle>
     <HideZeros>Хаваць нулявыя значэнні</HideZeros>
@@ -3577,6 +3593,7 @@
     <ImportRelations>Імпарт сувязяў</ImportRelations>
     <Increment>Прырашчэнне</Increment>
     <Indent>Водступ</Indent>
+    <IndividualColor>Індывідуальны колер</IndividualColor>
     <InfographicsTitle>Title</InfographicsTitle>
     <InitBy>Ініцыялізаваць</InitBy>
     <InitialSelection>Першапачатковы выбар</InitialSelection>
@@ -3613,14 +3630,17 @@
     <Keys>Ключы</Keys>
     <Label>Пазнака</Label>
     <LabelColor>Колер загалоўка</LabelColor>
+    <LabelForeground>Колер тэксту надпісу</LabelForeground>
     <LabelRotationMode>Рэжым павароту подпісаў</LabelRotationMode>
     <Labels>Загалоўкі</Labels>
     <LabelsColor>Колер загалоўкаў</LabelsColor>
+    <LabelShadowForeground>Колер ценю тэксту надпісу</LabelShadowForeground>
     <LabelsOffset>Зрушэнне загалоўка</LabelsOffset>
     <Language>Мова</Language>
     <LargeHeight>Вялікая вышыня</LargeHeight>
     <LargeHeightFactor>Каэфіцыент вялікай вышыні</LargeHeightFactor>
     <Latitude>Шырыня</Latitude>
+    <Layout>Месцаванне</Layout>
     <Left>Лева</Left>
     <LeftSide>Левы бок</LeftSide>
     <Legend>Легенда</Legend>
@@ -4534,6 +4554,7 @@
     <MasterDetailReport>Master-Detail Справаздача</MasterDetailReport>
     <NoFunction>[Не]</NoFunction>
     <OpenExistingReport>Адкрыць справаздачу</OpenExistingReport>
+    <OpenFrom>Адкрыць з {0}</OpenFrom>
     <Preview>Папярэдні прагляд</Preview>
     <Reset>&amp;Скінуць</Reset>
     <Results>Вынікі</Results>
