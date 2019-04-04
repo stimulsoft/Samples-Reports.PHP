@@ -105,6 +105,7 @@
     <Down>ქვევით</Down>
     <Duplicate>დუბლირება</Duplicate>
     <Export>ექსპორტი</Export>
+    <ForceDelete>იძულებითი წაშლა</ForceDelete>
     <Help>დახმარება</Help>
     <LessOptions>ნაკლები პარამეტრი</LessOptions>
     <LoadDataSet>DataSet ატვირთვა (*.data)</LoadDataSet>
@@ -328,6 +329,7 @@
     <VerticalNone>&lt;b&gt;None&lt;/b&gt;&lt;br&gt;არ გამოჩნდეს ვერტიკალური ხაზები&lt;/br&gt;</VerticalNone>
   </ChartRibbon>
   <Cloud>
+    <AcceptTermsAndPrivacyPolicy>წავიკითხე და ვეთანხმები {0} და {1}</AcceptTermsAndPrivacyPolicy>
     <AccountSettings>ექაუნთის პარამეტრები</AccountSettings>
     <AddAPlace>ადგილის დამატება</AddAPlace>
     <ButtonChangePassword>პაროლის შეცვლა</ButtonChangePassword>
@@ -378,6 +380,7 @@
     <LabelCurrentPassword>მიმდინარე პაროლი:</LabelCurrentPassword>
     <LabelDataFile>მონაცემთა ფაილი:</LabelDataFile>
     <LabelDataUrl>მონაცემთა URL:</LabelDataUrl>
+    <LabelEndDate>ბოლო თარიღი:</LabelEndDate>
     <labelFileName>ფაილის სახელი:</labelFileName>
     <LabelForeground>წინა პლანზე:</LabelForeground>
     <LabelFromReport>რეპორტიდან</LabelFromReport>
@@ -392,6 +395,7 @@
     <LabelPicture>სურათი:</LabelPicture>
     <LabelRenderedReport>რეპორტის აგება</LabelRenderedReport>
     <LabelResponseAsFile>პასუხი ფაილის სახით</LabelResponseAsFile>
+    <LabelResultType>პასუხის ტიპი:</LabelResultType>
     <LabelSeparateReport>რეპორტისა და სკრიპტების განცალკევება</LabelSeparateReport>
     <LabelShowReport>რეპორტის ნახვა:</LabelShowReport>
     <labelUserName>მომხმარებელი:</labelUserName>
@@ -410,6 +414,7 @@
     <OperationUpload>'{0}'-ის ატვირთვა სერვერზე</OperationUpload>
     <page>გვერდი</page>
     <Platforms>პლატფორმები</Platforms>
+    <PrivacyPolicy>კონფიდენციალურობა</PrivacyPolicy>
     <Products>პროდუქტები</Products>
     <questionOpenThisFile>დარწმუნებული ხართ, რომ გინდათ გახსნათ  ფაილი '{0}'?</questionOpenThisFile>
     <questionOverrideItem>დარწმუნებული ხართ, რომ გინდათ გადაწეროთ '{0}' ფაილზე ?</questionOverrideItem>
@@ -427,6 +432,7 @@
     <RootFolder>ძირეული საქაღალდე</RootFolder>
     <Save>შენახვა</Save>
     <SaveAccountSettings>ექაუნთის პარამეტრების შენახვა</SaveAccountSettings>
+    <SaveAsType>შევინახოთ როგორც</SaveAsType>
     <SaveFile>ფაილის შენახვა</SaveFile>
     <SavingToStimulsoftCloudPleaseWait>რეპორტი ინახება ღრუბელში. გთხოვთ, დაიცადოთ!</SavingToStimulsoftCloudPleaseWait>
     <ShareWindowTitleNew>გაზიარება</ShareWindowTitleNew>
@@ -436,6 +442,7 @@
     <TabItemEmbedCode>ჩაშენებული კოდი</TabItemEmbedCode>
     <TabItemQRCode>QR კოდი</TabItemQRCode>
     <TabItemShare>ბმული გასაზიარებლად</TabItemShare>
+    <TermsOfUse>ტერმინები</TermsOfUse>
     <TextActivated>გააქტიურებული</TextActivated>
     <TextActivationDate>აქტივაციის თარიღი</TextActivationDate>
     <TextDelete>წაშლა</TextDelete>
@@ -523,6 +530,7 @@
     <StiClone>კლონი</StiClone>
     <StiColumnFooterBand>სვეტის კოლონტიტული</StiColumnFooterBand>
     <StiColumnHeaderBand>სვეტის დასახელება</StiColumnHeaderBand>
+    <StiComboBox>ჩამოსაშლელი სია</StiComboBox>
     <StiComponent>კომპონენტი</StiComponent>
     <StiContainer>კონტეინერი</StiContainer>
     <StiContourText>კონტურის ტექსტი</StiContourText>
@@ -541,6 +549,7 @@
     <StiCrossTitle>კროს-წარწრა</StiCrossTitle>
     <StiDashboard>Dashboard</StiDashboard>
     <StiDataBand>მონაცემები</StiDataBand>
+    <StiDatePicker>თარიღის ასარჩევი</StiDatePicker>
     <StiEmptyBand>ცარიელი მონაცემები</StiEmptyBand>
     <StiFooterBand>ქვედა კოლონტიტული</StiFooterBand>
     <StiGauge>ინდიკატორი</StiGauge>
@@ -551,15 +560,22 @@
     <StiHorizontalLinePrimitive>ჰორიზონტალური ზოლი</StiHorizontalLinePrimitive>
     <StiImage>სურათი</StiImage>
     <StiIndicator>ინდიკატორი</StiIndicator>
+    <StiListBox>მოსანიშნი სია</StiListBox>
     <StiMap>რუკა</StiMap>
+    <StiOnlineMap>Online რუკა</StiOnlineMap>
     <StiOverlayBand>გადაფარვის სექცია</StiOverlayBand>
     <StiPage>გვერდი</StiPage>
     <StiPageFooterBand>გვერდის ქვედა კოლონტიტული</StiPageFooterBand>
     <StiPageHeaderBand>გვერდის სათაური</StiPageHeaderBand>
     <StiPanel>პანელი</StiPanel>
     <StiPivot>პივოტ</StiPivot>
+    <StiPivotColumn>Pivot სვეტი</StiPivotColumn>
+    <StiPivotRow>Pivot სტრიქონი</StiPivotRow>
+    <StiPivotSummary>Pivot ჯამი</StiPivotSummary>
+    <StiPivotTable>Pivot ცხრილი</StiPivotTable>
     <StiProgress>პროგრესი</StiProgress>
     <StiRectanglePrimitive>მართკუთხედი</StiRectanglePrimitive>
+    <StiRegionMap>რეგიონის რუკა</StiRegionMap>
     <StiReport>რეპორტი</StiReport>
     <StiReportSummaryBand>რეპორტის ჯამი</StiReportSummaryBand>
     <StiReportTitleBand>რეპორტის დასახელება</StiReportTitleBand>
@@ -571,17 +587,25 @@
     <StiTable>ცხრილი</StiTable>
     <StiText>ტექსტი</StiText>
     <StiTextInCells>ტექსტი უჯრედებში</StiTextInCells>
+    <StiTreeView>ხე</StiTreeView>
+    <StiTreeViewBox>ხე მოსანიშნი ელემენტებით</StiTreeViewBox>
     <StiVerticalLinePrimitive>ვერტიკალური ზოლი</StiVerticalLinePrimitive>
     <StiWinControl>Win კონტროლი</StiWinControl>
     <StiZipCode>საფოსტო ინდექსი</StiZipCode>
   </Components>
   <Dashboard>
+    <AfterGroupingData>მინიჭება მონაცემთა დაჯგუფების შემდგომ</AfterGroupingData>
+    <Blanks>(Blanks)</Blanks>
+    <BooleanFilters>ლოგიკური ფილტრები</BooleanFilters>
+    <CannotLoadDashboard>შეუძლებელია რეპორტის ატვირთვა Dashboard-ით.</CannotLoadDashboard>
     <ChangeChartType>გრაფიკის ტიპის ცვლილება</ChangeChartType>
     <ChangeMapType>რუკის ტიპის ცვლილება</ChangeMapType>
     <ClearFilterFrom>ფილტრის გაწმენდა '{0}'-ისგან</ClearFilterFrom>
     <ColorScale>ფერთა პალიტრა</ColorScale>
+    <CustomFilter>მომხმარებლის ფილტრები...</CustomFilter>
     <DataBars>მონაცემთა სვეტები</DataBars>
     <DataNotDefined>მონაცემი არ არის განსაზღვრული</DataNotDefined>
+    <DateFilters>თარიღის ფილტრები</DateFilters>
     <Dimension>განზომილება</Dimension>
     <Dimensions>განზომილებები</Dimensions>
     <DragDropDataFromDictionary>ლექსიკონიდან მონაცემის გადმოტანა</DragDropDataFromDictionary>
@@ -589,18 +613,38 @@
     <EditExpression>გამოთქმის რედაქტირება</EditExpression>
     <EmptyDashboardFooter>კომპონენტის ხელსაწყოების პანელიდან ან მონაცემის ლექსიკონიდან გადმოტანა</EmptyDashboardFooter>
     <EmptyDashboardHeader>Dashboard ცარიელია</EmptyDashboardHeader>
+    <FieldTypeRestrictionHint>დაშვებულია მხოლოდ '{0}' ტიპის ველის გამოყენება!</FieldTypeRestrictionHint>
     <FirstLastPoints>პირველი / ბოლო წერტილები</FirstLastPoints>
+    <FirstRowIndex>პირველი სტრიქონის ინდექსი</FirstRowIndex>
     <HighLowPoints>მაქსიმალური / მინიმალური წერტილები</HighLowPoints>
     <ImageNotSpecified>გამოსახულება არ არის მითითებული</ImageNotSpecified>
     <Indicator>ინდიკატორი</Indicator>
+    <InitialValue>საწყისი მნიშვნელობა</InitialValue>
+    <LimitRows>სტრიქონების გამოტოვება და ლიმიტები</LimitRows>
     <Measure>ზომა</Measure>
     <Measures>ზომები</Measures>
     <NewDimension>ახალი განზომილება</NewDimension>
     <NewMeasure>ახალი მაჩვენებელი</NewMeasure>
+    <NoResult>პასუხის გარეშე</NoResult>
+    <NSelected>მონიშნულია {0}</NSelected>
+    <Nulls>(Null)-ები</Nulls>
     <NumberFilters>რიცხვების ფილტრები</NumberFilters>
+    <ParentElement>მშობელი ელემენტი</ParentElement>
+    <RemoveActions>წაშლის მოქმედებები</RemoveActions>
+    <RemoveAllFields>ყველა ველის წაშლა</RemoveAllFields>
     <RemoveField>ველის წაშლა</RemoveField>
+    <ReplaceValues>მნიშვნელობების ცვლილება</ReplaceValues>
+    <RowsCount>სტრიქონების დათვლა</RowsCount>
+    <SelectAll>(ყველას მონიშვნა)</SelectAll>
+    <ShowAsPercentages>ჩვენება პროცენტებში</ShowAsPercentages>
+    <SkipFirstRows>პირველი სტრიქონის გამოტოვება</SkipFirstRows>
+    <SortAZ>სორტირება ზრდადობით</SortAZ>
+    <SortLargestToSmallest>სორტირება კლებადობით</SortLargestToSmallest>
+    <SortSmallestToLargest>სორტირება ზრდადობით</SortSmallestToLargest>
+    <SortZA>სორტირება კლებადობით</SortZA>
     <Sparklines>Sparklines</Sparklines>
     <StringFilters>სიმბოლოების ფილტრები</StringFilters>
+    <TransformationHint>სორტირების, ფილტრაციისა და მონაცემთა ცვლილებისთვის დააჭირეთ სვეტის ზედა კოლონტიტულზე. ცვლილება გამოიყენება მხოლოდ მონიშნული ობიექტის მონაცემებზე.</TransformationHint>
     <Trend>ტენდენცია</Trend>
   </Dashboard>
   <Database>
@@ -753,6 +797,7 @@
     <NoServices>'{0}'-ში სერვისები არ არის ნაპოვნი.</NoServices>
     <NotAssign>არ არის მითითებული მონაცემთა წყარო.</NotAssign>
     <NotCorrectFormat>შეყვანილი სტრიქონი არ არის მისაღებ ფორმატში.</NotCorrectFormat>
+    <PrimaryColumnAction>შეუძლებელია მოქმედების გამოყენება '{0}'-ის პირველად სვეტზე.</PrimaryColumnAction>
     <RelationsNotFound>კავშირები არ არის ნაპოვნი.</RelationsNotFound>
     <ReportCannotBeSaveDueToErrors>შეუძლებელია რეპორტის შენახვა შეცდომების გამო!</ReportCannotBeSaveDueToErrors>
     <ServiceNotFound>'{0}' სერვისი არ არის ნაპოვნი.</ServiceNotFound>
@@ -771,6 +816,7 @@
     <Compressed>კომპრესირებული</Compressed>
     <CompressToArchive>არქივში შეკუმშვა</CompressToArchive>
     <ContinuousPages>უწყვეტი გვერდები</ContinuousPages>
+    <DataAndHeaders>მონაცემები და კოლონტიტულები</DataAndHeaders>
     <DataAndHeadersFooters>მონაცემები და ზედა/ქვედა კოლონტიტულები</DataAndHeadersFooters>
     <DataOnly>მხოლოდ მონაცემები</DataOnly>
     <DigitalSignature>ციფრული ხელმოწერა</DigitalSignature>
@@ -1066,6 +1112,7 @@
     <PostgreSQLNew>ახალი PostgreSQL დაკავშირება</PostgreSQLNew>
     <PromptUserNameAndPassword>მომხმარებლის სახელის და პაროლის შემოწმება</PromptUserNameAndPassword>
     <RecentConnections>ბოლო გამოყენებული</RecentConnections>
+    <RelationDirection>კავშირის მიმართულება:</RelationDirection>
     <ReportConnections>პატაკის კავშირები</ReportConnections>
     <SelectData>აირჩიეთ მონაცემები</SelectData>
     <SqlCeEdit>SQLServerCE დაკავშირების შეცვლა</SqlCeEdit>
@@ -1121,6 +1168,7 @@
     <CalcColumnNew>ახალი გამოსათვლელი სვეტი</CalcColumnNew>
     <CategoryEdit>კატეგორიის შეცვლა</CategoryEdit>
     <CategoryNew>ახალი კატეგორია</CategoryNew>
+    <Child>შვილობილი</Child>
     <ChildOfBusinessObject>ბიზნეს ობიექტის შვილობილი</ChildOfBusinessObject>
     <ChildSource>შვილობილი მონაცემთა წყარო:</ChildSource>
     <ClickHere>დააწკაპუნეთ აქ </ClickHere>
@@ -1162,6 +1210,7 @@
     <NewBusinessObject>ახალი ბიზნეს ობიექტი</NewBusinessObject>
     <NewItem>ახალი ელემენტი</NewItem>
     <OpenAssembly>მონაცემთა კრების გახსნა</OpenAssembly>
+    <Parent>მშობელი</Parent>
     <ParentSource>მთავარი მონაცემთა წყარო:</ParentSource>
     <Queries>მოთხოვნები</Queries>
     <QueryNew>ახალი მოთხოვნა</QueryNew>
@@ -1292,6 +1341,7 @@
     <SelectUILanguage>აირჩიეთ ინტერფეისის ენა</SelectUILanguage>
     <ShowDialogForms>დიალოგის ფორმების ჩვენება</ShowDialogForms>
     <ShowDimensionLines>სახაზავის ზომების ჩვენება</ShowDimensionLines>
+    <ShowOldGaugeEditor>ძველებური ინდიკატორის რედაქტორის ჩვენება</ShowOldGaugeEditor>
     <title>პარამეტრები</title>
     <UseComponentColor>კომპონენტის ფერების გამოყენება შევსებისთვის</UseComponentColor>
     <UseLastFormat>ბოლო ფორმატირების გამოყენება</UseLastFormat>
@@ -1607,11 +1657,13 @@
   <HelpComponents>
     <StiBarCode>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ შტრიხკოდი. მონაცემები გადაეცემა სტრიქონის ფორმატში. მხოლოდ დაშვებული სიმბოლების გამოჩენაა შესაძლებელი.</StiBarCode>
     <StiChart>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ გრაფიკი. ხელმისაწვდომია გრაფიკების დიდი არჩევანი.</StiChart>
+    <StiChartElement>ეს ელემენტი საშუალებას იძლევა ჩარტებში აჩვენოთ ინსტრუმენტთა დაფა. ხელმისაწვდომია გრაფიკების სხვადასხვა ტიპები.</StiChartElement>
     <StiCheckBox>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მოსანიშნი კომპონენტი. აქვს ორი რეჟიმი: "ჩართულია" და "გამორთულია".</StiCheckBox>
     <StiChildBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ ორი კომპონენტი ერთ მონაცემთა სტრიქონში.</StiChildBand>
     <StiClone>ამ კომპონენტის მეშვეობით შეგიძლიათ გააკეთოთ რეპორტის ნაწილის კლონი რეპორტის სხვა ნაწილში გადასატანად.</StiClone>
     <StiColumnFooterBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მონაცემთა სვეტების ქვედა კოლონტიტულები. იბეჭდება თითოეული სვეტის ქვეშ. ამ კომპონენტში განთავსებული ყველა ობიექტი განმეორდება ყველა სვეტის ქვეშ.</StiColumnFooterBand>
     <StiColumnHeaderBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მონაცემთა სვეტების ზედა კოლონტიტულები. იბეჭდება მხოლოდ ერთხელ. მასში განთავსებული ყველა ობიექტი დაიბეჭდება სვეტების დასახელებაში.</StiColumnHeaderBand>
+    <StiComboBoxElement>წარმოადგენს ასარჩევ სიას, რომელიც გამოიყენება მნიშვნელობის პირდაპირ ჩასაწერად ან არსებული სიიდან ასარჩევად.</StiComboBoxElement>
     <StiContainer>ამ კომპონენტის მეშვეობით შეგიძლიათ დაამატოთ ფორმაზე მართკუთხა კონტეინერი. აგრეთვე გაქვთ საშუალება მასში განათავსოთ სხვა ობიექტები და კომპონენტები. მის გადაადგილების შემთხვევაში მასში განთავსებული ყველა ობიექტი მოძრაობს მასთან ერთად.</StiContainer>
     <StiCrossDataBand>ეს კომპონენტი უკავშირდება მონაცემთა წყაროს. იბეჭდება იმდენჯერ, რამდენი სტრიქონიც არსებობს მონაცემთა წყაროში.</StiCrossDataBand>
     <StiCrossFooterBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ კროს-მონაცემების ქვედა კოლონტიტული. იგი თავსდება მონაცემთა კომპონენტის შემდეგ. მიმაგრებულია ჯგუფის ზედა კოლონტიტულზე და უიმისოდ არ იბეჭდება.</StiCrossFooterBand>
@@ -1620,35 +1672,54 @@
     <StiCrossHeaderBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ ზედა კოლონტიტული. გამოიყენება კროს-კომპონეტებთან. იბეჭდება მარცნიდან - მარჯნივ.</StiCrossHeaderBand>
     <StiCrossTab>ეს კომპონენტი გამოიყენება სტრუქტურირებული მონაცემების ცხრილის ფორმატში გამოსატანად.</StiCrossTab>
     <StiDataBand>ეს კომპონენტი დაკავშირებულია მონაცემთა წყაროსთან და იბეჭდება იმდენჯერ, რამდენი სტრიქონიც არსებობს მონაცემთა წყაროში.</StiDataBand>
+    <StiDatePickerElement>ელემენტი გამოიყენება თარიღისა და დროის ასარჩევად.</StiDatePickerElement>
     <StiEmptyBand>ამ კომპონენტის მეშვეობით შეგიძლიათ დაარეზერვოთ ცარიელი ადგილი ფურცლის თავში. იბეჭდება რეპორტის ყველა გვერდზე.</StiEmptyBand>
+    <StiFilterCategory>ელემენტების ჯგუფი გამოიყენება მნიშვნელობათა ასარჩევად და გასაფილტრად.</StiFilterCategory>
     <StiFooterBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მონაცემთა კომპონენტის დასაჯამებელი ინფორმაცია. განთავსდება მონაცემთა კომპონენტის ქვეშ და იბეჭდება ერთხელ.</StiFooterBand>
     <StiGauge>კომპონენტი საშუალებას გაძლევთ გაჩვენოთ მნიშვნელობა წინასწარ განსაზღვრულ დიაპაზონში. მას შესაძლოა ჰქონდეს სხვადასხვა გრაფიკული წარმოდგენა.</StiGauge>
+    <StiGaugeElement>ელემენტი გამოიყენება წანასწარ განსაზღვრულ ზღვრებში მნიშვნელობის შესაყვანად. დაშვებულია სხვადასხვა გრაფიკული ინტერფეისის გამოყენება.</StiGaugeElement>
     <StiGroupFooterBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ ობიექტთა ჯგუფის ქვედა კოლონტიტული. განთავსდება მონაცემთა კომპონენტის შემდეგ. მიმაგრებულია ჯგუფის ზედა კოლონტიტულზე და უიმისოდ არ იბეჭდება.</StiGroupFooterBand>
     <StiGroupHeaderBand>ამ კომპონენტის მეშვეობით შეგიძლიათ დააჯგუფოთ სხვადასხვა ობიექტები რეპორტში. იბეჭდება ერთხელ, ობიექტთა დაჯგუფების თავში.</StiGroupHeaderBand>
     <StiHeaderBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ წარწერები ზედა კოლონტიტულში.</StiHeaderBand>
     <StiHierarchicalBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მონაცემები ხის სტრუქტურით.</StiHierarchicalBand>
     <StiHorizontalLinePrimitive>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ ხაზი.</StiHorizontalLinePrimitive>
     <StiImage>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ სურათი. სურათი მისაღებია შემდეგ ფორმატებში: BMP, JPG, JPEG, GIF, TIFF, PNG, ICO, WMF, EMF.</StiImage>
+    <StiImageElement>ელემენტი გამოიყენება სურათის გამოსატანად. მხარდაჭერილია შემდეგი ფორმატები: BMP, JPG, JPEG, GIF, TIFF, PNG, ICO, WMF, EMF.</StiImageElement>
+    <StiIndicatorElement>ელემენტი აჩვენებს სხვაობას შეყვანილ მონაცემებს შორის.</StiIndicatorElement>
+    <StiListBoxElement>ელემენტი გამოიყენება სიაში ობიექტების მოსანიშნად.</StiListBoxElement>
     <StiMap>ეს კომპონენტი გამოიყენება გაოგრაფიული მონაცემის საჩვენებლად.</StiMap>
+    <StiMapCategory>ელემენტთა ჯგუფი გამოიყენება რუკებთან და მონაცემებთან სამუშაოდ.</StiMapCategory>
+    <StiMapElement>ელემენტი გამოიყენება გეოგრაფიული მონაცემების გამოსატანად.</StiMapElement>
+    <StiOnlineMapElement>ელემენტი გამოიყენება გეოგრაფიული მარკერების გამოსატანად online რუკაზე.</StiOnlineMapElement>
     <StiOverlayBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ წყლის ნიშნის გამოსახულება.</StiOverlayBand>
     <StiPageFooterBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ რეპორტის ქვედა კოლონტიტული. იბეჭდება გვერდის ბოლოში. ძირითადად გამოიყენება ფურცლის ნომრების, თარიღებისა და სხვა დამატებითი ინფორმაციის გამოსატანად.</StiPageFooterBand>
     <StiPageHeaderBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ რეპორტის ზედა კოლონტიტული. იბეჭდება გვერდის დასაწყისში. ძირითადად გამოიყენება ფურცლის ნომრების, თარიღებისა და სხვა დამატებითი ინფორმაციის გამოსატანად.</StiPageHeaderBand>
     <StiPanel>ამ კომპონენტში შეგიძლიათ განათავსოთ სხვა კომპონენტები. იგი გადაადგილდება მასში მოთავსებულ კომპონენტებთან ერთად.</StiPanel>
+    <StiPanelElement>მართკუთხა ობიექტი, რომელიც შეიცავს სხვა ელემენტებს. მისი გადაადგილების დროს გადაადგილდება მასში განთავსებული ელემენტებიც.</StiPanelElement>
+    <StiPivotTableElement>Pivot ცხრილის ელემენტი გამოიყენება სტრუქტურირებული მონაცემების ცხრილში გამოსატანად.</StiPivotTableElement>
+    <StiProgressElement>ელემენტი გამოიყენება შეყვანილი მონაცემების თანაფარდობის საჩვენებლად. ხელმისაწვდომია შემდეგი დიზაინები: წრიული, მრგლოვანი, სვეტური.</StiProgressElement>
     <StiRectanglePrimitive>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მართკუთხა.</StiRectanglePrimitive>
+    <StiRegionMapElement>ელემენტი გამოიყენება გეოგრაფიული მონაცემების გამოსატანად.</StiRegionMapElement>
     <StiReportSummaryBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ რეპორტის ჯამური ქვედა კოლონტიტული. იბეჭდება რეპორტის ბოლოში.</StiReportSummaryBand>
     <StiReportTitleBand>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ რეპორტის პირველი გვერდის წარწერა. იბეჭდება რეპორტის დასაწყისში.</StiReportTitleBand>
     <StiRichText>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ და დააფორმატოთ ტექსტი. აგრეთვე შეგიძლიათ გახსნათ და შეინახოთ ფაილები RTF ფორმატში.</StiRichText>
     <StiRoundedRectanglePrimitive>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მომრგვალებული მართკუთხედი.</StiRoundedRectanglePrimitive>
     <StiShape>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ ისეთი ფიგურები როგორიცაა ისარი, დიაგონალური ხაზი, ჰორიზონტალური ხაზი, ელიპსი, სამკუთხედი, მართკუთხედი და ა.შ.</StiShape>
+    <StiShapeElement>ელემენტი გამოიყენება მზა ფიგურების ჩასასმელად, ისეთების როგორიცაა ისრები, დიაგონალური, ვერტიკალური და ჰორიზონტალური ხაზები, ოვალი, მართკუთხედი, მომრგვალებულკუთხებიანი მართკუთხედი.</StiShapeElement>
     <StiSubReport>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ დამატებითი მონაცემები რეპორტის სხვადასხვა ადგილებში.</StiSubReport>
     <StiTable>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ Microsoft Excel მაგვარი ცხრილი.</StiTable>
+    <StiTableElement>ელემენტი გამოიყენება მონაცემთა გამოსატანად სვეტებში და სტრიქონებში.</StiTableElement>
     <StiText>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ მონაცემები ტექსტის სახით.</StiText>
+    <StiTextElement>ელემენტი გამოიეყენბა ტექსტური ინფორმაციის გამოსატანად.</StiTextElement>
     <StiTextInCells>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ ტექსტი ცხრილის უჯრედებში.</StiTextInCells>
+    <StiTreeViewBoxElement>ელემენტი გამოიყენება ჩამოსაშლელი იერარქიული სიის სტრუქტურის მონაცემთა გამოსატანად.</StiTreeViewBoxElement>
+    <StiTreeViewElement>გამოიყენება იერარქიული მონაცემების გამოსატანად.</StiTreeViewElement>
     <StiVerticalLinePrimitive>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ ვერტიკალური ხაზი.</StiVerticalLinePrimitive>
     <StiWinControl>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ .NET Framework.-ის კომპონენტები.</StiWinControl>
     <StiZipCode>ამ კომპონენტის მეშვეობით შეგიძლიათ გამოიტანოთ საფოსტო კოდი.</StiZipCode>
   </HelpComponents>
   <HelpDesigner>
+    <ActiveRelation>ადგენს პრიორიტეტულ კავშირს ორი ცხრილის დასაკავშირებლად. გამოიყენება მონაცემთა ტრანსფორმაციისა და Dashboards-ში. მხოლოდ ერთი კავშირი შეიძლება იყოს აქტიური თითოეული მონაცემთა წყაროში.</ActiveRelation>
     <Align>მონიშნული კომპონენტების სწორების შეცვლა.</Align>
     <AlignBottom>კომპონენტის შიგთავსის განთავსება ქვედა მხარეს.</AlignBottom>
     <AlignCenter>კომპონენტის შიგთავსის განთავსება ცენტრში.</AlignCenter>
@@ -1718,6 +1789,7 @@
     <GridMode>დამხმარე ბადის გამოტანა წერტილებით ან პუნქტირებით.</GridMode>
     <ImageAlignment>წყლის ნიშნის გამოსახულების დამატება.</ImageAlignment>
     <ImageTransparency>წყლის ნიშნის გამოსახულების გამჭვირვალობის დონის შეცვლა.</ImageTransparency>
+    <LineSpacing>აირჩიეთ რამდენი სივრცე გამოჩნდეს ტექსტის ხაზებს შორის ან პარაგრაფებს შორის.</LineSpacing>
     <Link>კომპონენტის მიბმა მოცემულ კონტეინერზე.</Link>
     <LoadImage>წყლის ნიშნების გამოსახულების ატვირთვა ფაილიდან.</LoadImage>
     <Lock>კომპონენტის დალუქვა. ამ კომპონენტის შეცვლა ან გადაადგილება დაბლოკილია.</Lock>
@@ -1873,6 +1945,7 @@
     <PutFeedPageCode>მიღებულ დოკუმენტში გვერდების წყვეტა სპეც. სიმბოლოს გამოყენებით.</PutFeedPageCode>
     <RangePages>დასამუშავებელი გვერდების ნომრები. შეგიძლიათ მიუთითოთ როგორც ცალკეული გვერდი, გვერდების სია (მძიმის გამოყენებით), ასევე გვერდების დიაპაზონი, საწყისი და ბოლო გვერდის ნომრებს შორის "-" სიმბოლოს ჩასმით. მაგ.: 1,3,5-12.</RangePages>
     <RemoveEmptySpaceAtBottom>ცარიელი ადგილის მინიმიზაცია გვერდის ქვედა ნაწილში.</RemoveEmptySpaceAtBottom>
+    <Resources>რესურსების პანელის ჩვენება</Resources>
     <RestrictEditing>Word-ის დოკუმენტში რედაქტირების აკრძალვა.</RestrictEditing>
     <Save>რეპორტის შენახვა შემდგომი დამუშავებისათვის.</Save>
     <ScaleHtml>ექსპორტირებული გვერდების და ელემენტების ზომა (მასშტაბი).</ScaleHtml>
@@ -1959,6 +2032,7 @@
     <menuEditViewData>მონაცემთა დათვალიერება...</menuEditViewData>
     <menuFile>ფაილი</menuFile>
     <menuFileClose>დახურვა</menuFileClose>
+    <menuFileDashboardDelete>Dashboard-ის წაშლა</menuFileDashboardDelete>
     <menuFileDashboardNew>ახალი Dashboard</menuFileDashboardNew>
     <menuFileDashboardOpen>Dashboardის გახსნა...</menuFileDashboardOpen>
     <menuFileDashboardSaveAs>Dashboard-ის შენახვა, როგორც...</menuFileDashboardSaveAs>
@@ -2000,6 +2074,7 @@
     <menuInsertRowAbove>სტრიქონის ჩასმა ზემოდან</menuInsertRowAbove>
     <menuInsertRowBelow>სტრიქონის ჩამატება ქვემოდან</menuInsertRowBelow>
     <menuJoinCells>უჯრების გაერთიანება</menuJoinCells>
+    <menuMakeThisRelationActive>კავშირის გააქტიურება</menuMakeThisRelationActive>
     <menuSelectColumn>სვეტის მონიშვნა</menuSelectColumn>
     <menuSelectRow>სტრიქონის მონიშვნა</menuSelectRow>
     <menuTable>ცხრილი</menuTable>
@@ -2043,8 +2118,13 @@
     <MapEditorForm>რუკის რედაქტორი</MapEditorForm>
   </Map>
   <Messages>
+    <ChangeRequestTimeout>SQL მოთხვნათა შესრულების დრო აჭარბებს რეპორტების დიზაინერში მითითებულ მაქსიმალურ დროს. გთხოვთ დიზაინერში მიუთითოთ არანაკლებ {0} წამისა.</ChangeRequestTimeout>
     <DoNotShowAgain>აღარ მაჩვენოთ ხელმეორედ</DoNotShowAgain>
     <MessageTimeOutExpired>ბღძანების შესრულების დრო ამოწურულია!</MessageTimeOutExpired>
+    <RenderingWillOccurInTheInterpretationMode>გაზიარებული რეპორტის დათვალიერებისას, რენდერინგი იმუშავებს ინტერპრეტაციის რეჟიმში!</RenderingWillOccurInTheInterpretationMode>
+    <ResourceCannotBeDeleted>"{0}" რესურსის წაშლა შეუძლებელია, ის გამოყენებულია რეპორტში!</ResourceCannotBeDeleted>
+    <ShareURLOfTheItemHasBeenUpdated>ობიექტის გაზიარების URL განახლდა!</ShareURLOfTheItemHasBeenUpdated>
+    <ShareYourReportYouShouldSave>რეპორტის გასაზიარებლად საჭიროა რეპორტის შენახვა "Stimulsoft Cloud"-ში!</ShareYourReportYouShouldSave>
     <TextRegistrationSuccessfully>თქვენწარმატებით გაიარეთ რეგისტრაცია!
 
 წერილი გამოგზავნილია "{0}"-ზე.
@@ -2118,6 +2198,7 @@
     <ItemCantBeMovedToSpecifiedPlace>აღნიშულ ადგილზე შეუძლებელია ელემენტის გადატანა!</ItemCantBeMovedToSpecifiedPlace>
     <ItemDoesNotSupport>ელემეტს არ გააჩნია "{0}"-ს მხარდაჭერა!</ItemDoesNotSupport>
     <KeyAndToKeyAreEqual>Key და ToKey ტოლია!</KeyAndToKeyAreEqual>
+    <MessageMaximumFileSizeExceeded>ყურადღება! ფაილის ზომა, რომელიც თქვენ ცდილობთ დაამატოთ აღემატება დასაშვებ მაქსნილალურ ზომას. ნამდვილად გსურთ ამ ფაილის დამატება (რეპორტის დამუშავება მნიშვნელოვნად შენელდება)?</MessageMaximumFileSizeExceeded>
     <NewProduct>ახალი პროდუქტი დამატებულია თქვენს გამოწერაში!</NewProduct>
     <NewVersionsAvailable>ხელმისაწვდომია ახალი ვერსია!</NewVersionsAvailable>
     <NotificationFailed>არასწორი შედეგი!</NotificationFailed>
@@ -2317,10 +2398,12 @@
     <CheckCategory>მოსანიშნი</CheckCategory>
     <ColorsCategory>ფერი</ColorsCategory>
     <ColumnsCategory>სვეტები</ColumnsCategory>
+    <ComboBoxCategory>ჩამოსაშლელი სია</ComboBoxCategory>
     <ControlCategory>მართვა</ControlCategory>
     <ControlsEventsCategory>მართვის ელემენტების მოვლენები</ControlsEventsCategory>
     <CrossTabCategory>კროს-ცხრილი</CrossTabCategory>
     <DataCategory>მონაცემები</DataCategory>
+    <DatePickerCategory>თარიღის ასარჩევი</DatePickerCategory>
     <DescriptionCategory>აღწერა</DescriptionCategory>
     <DesignCategory>რედაქტირება</DesignCategory>
     <DisplayCategory>გამოსახულება</DisplayCategory>
@@ -2336,6 +2419,7 @@
     <IndicatorCategory>ინდიკატორი</IndicatorCategory>
     <InterlacingCategory>გადაბმა</InterlacingCategory>
     <LegendCategory>ლეგენდა</LegendCategory>
+    <ListBoxCategory>მოსანიშნი სია</ListBoxCategory>
     <MainCategory>ძირითადი</MainCategory>
     <MarkerCategory>მარკერი</MarkerCategory>
     <MiscCategory>სხვა</MiscCategory>
@@ -2343,15 +2427,18 @@
     <NavigationCategory>ნავიგაცია</NavigationCategory>
     <NavigationEventsCategory>ნავიგაცია</NavigationEventsCategory>
     <Needle>ისარი</Needle>
+    <OnlineMapCategory>Online რუკა</OnlineMapCategory>
     <OptionsCategory>პარამეტრები</OptionsCategory>
     <PageAdditionalCategory>გვერდი, დამატებითი</PageAdditionalCategory>
     <PageCategory>გვერდი</PageCategory>
     <PageColumnBreakCategory>გვერდის ან სვეტის წყვეტა</PageColumnBreakCategory>
     <ParametersCategory>პარამეტრები</ParametersCategory>
+    <PivotTableCategory>Pivot ცხრილი</PivotTableCategory>
     <PositionCategory>განლაგება</PositionCategory>
     <PrimitiveCategory>პრიმიტივი</PrimitiveCategory>
     <PrintEventsCategory>ბეჭდვა</PrintEventsCategory>
     <ProgressCategory>პროგრესი</ProgressCategory>
+    <RegionMapCategory>რეგიონის რუკა</RegionMapCategory>
     <RenderEventsCategory>აგება</RenderEventsCategory>
     <SeriesCategory>სერიები</SeriesCategory>
     <SeriesLabelsCategory>სერიის წარწერები</SeriesLabelsCategory>
@@ -2362,6 +2449,8 @@
     <TextAdditionalCategory>ტექსტი, დამატებითი</TextAdditionalCategory>
     <TextCategory>ტექსტი</TextCategory>
     <TitleCategory>წარწერა</TitleCategory>
+    <TreeViewBoxCategory>ხე მოსანიშნი ელემენტებით</TreeViewBoxCategory>
+    <TreeViewCategory>ხე</TreeViewCategory>
     <TrendLineCategory>ტრენდის ზოლი</TrendLineCategory>
     <ValueCategory>მონაცემი</ValueCategory>
     <ValueCloseCategory>საბოლოო მნიშვნელობა</ValueCloseCategory>
@@ -2579,6 +2668,8 @@
     <PictureBoxSizeModeCenterImage>სურათის ცენტრირება</PictureBoxSizeModeCenterImage>
     <PictureBoxSizeModeNormal>ნორმალური</PictureBoxSizeModeNormal>
     <PictureBoxSizeModeStretchImage>გაწელილი</PictureBoxSizeModeStretchImage>
+    <RelationDirectionChildToParent>შვილობილი - მშობელი</RelationDirectionChildToParent>
+    <RelationDirectionParentToChild>მშობელი - შვილობილი</RelationDirectionParentToChild>
     <RightToLeftInherit>მემკვიდრეობით მიღება</RightToLeftInherit>
     <RightToLeftNo>არა</RightToLeftNo>
     <RightToLeftYes>კი</RightToLeftYes>
@@ -2661,9 +2752,15 @@
     <StiCrossHorAlignmentLeft>მარცხნივ</StiCrossHorAlignmentLeft>
     <StiCrossHorAlignmentNone>None</StiCrossHorAlignmentNone>
     <StiCrossHorAlignmentRight>მარჯვნივ</StiCrossHorAlignmentRight>
+    <StiDateSelectionModeAutoRange>Auto ინტერვალი</StiDateSelectionModeAutoRange>
+    <StiDateSelectionModeRange>ინტერვალი</StiDateSelectionModeRange>
+    <StiDateSelectionModeSingle>ერთი</StiDateSelectionModeSingle>
     <StiDateTimeTypeDate>თარიღი</StiDateTimeTypeDate>
     <StiDateTimeTypeDateAndTime>თარიღი და დრო</StiDateTimeTypeDateAndTime>
     <StiDateTimeTypeTime>დრო</StiDateTimeTypeTime>
+    <StiDisplayNameTypeFull>სავსე</StiDisplayNameTypeFull>
+    <StiDisplayNameTypeNone>None</StiDisplayNameTypeNone>
+    <StiDisplayNameTypeShort>მოკლე</StiDisplayNameTypeShort>
     <StiDockStyleBottom>ზემოთ</StiDockStyleBottom>
     <StiDockStyleFill>შევსებული</StiDockStyleFill>
     <StiDockStyleLeft>მარცხნივ</StiDockStyleLeft>
@@ -2690,6 +2787,8 @@
     <StiFilterConditionEqualTo>ტოლია</StiFilterConditionEqualTo>
     <StiFilterConditionGreaterThan>მეტია</StiFilterConditionGreaterThan>
     <StiFilterConditionGreaterThanOrEqualTo>მეტია ან ტოლი</StiFilterConditionGreaterThanOrEqualTo>
+    <StiFilterConditionIsBlank>ცარიელი</StiFilterConditionIsBlank>
+    <StiFilterConditionIsNotBlank>არ არის ცარიელი</StiFilterConditionIsNotBlank>
     <StiFilterConditionIsNotNull>არ არის null</StiFilterConditionIsNotNull>
     <StiFilterConditionIsNull>null</StiFilterConditionIsNull>
     <StiFilterConditionLessThan>ნაკლებია</StiFilterConditionLessThan>
@@ -2721,6 +2820,7 @@
     <StiGaugeCalculationModeCustom>არჩევით</StiGaugeCalculationModeCustom>
     <StiGaugeTypeFullCircular>სრული ციფერბლატი</StiGaugeTypeFullCircular>
     <StiGaugeTypeHalfCircular>ნახევარი ციფერბლატი</StiGaugeTypeHalfCircular>
+    <StiGaugeTypeLinear>ხაზოვანი</StiGaugeTypeLinear>
     <StiGroupSortDirectionAscending>ზრდადობით</StiGroupSortDirectionAscending>
     <StiGroupSortDirectionDescending>კლებადობით</StiGroupSortDirectionDescending>
     <StiGroupSortDirectionNone>None</StiGroupSortDirectionNone>
@@ -2740,10 +2840,13 @@
     <StiImageRotationRotate180>დატრიალება 180°</StiImageRotationRotate180>
     <StiImageRotationRotate90CCW>დატრიალება 90° საათის ისრის საპირისპირო მიმართულებით</StiImageRotationRotate90CCW>
     <StiImageRotationRotate90CW>დატრიალება 90° საათის ისრის მიმართულებით</StiImageRotationRotate90CW>
+    <StiItemSelectionModeMulti>მულტი</StiItemSelectionModeMulti>
+    <StiItemSelectionModeOne>ერთი</StiItemSelectionModeOne>
     <StiKeepDetailsKeepDetailsTogether>დეტალები ერთად</StiKeepDetailsKeepDetailsTogether>
     <StiKeepDetailsKeepFirstDetailTogether>პირველადი დეტალები ერთად</StiKeepDetailsKeepFirstDetailTogether>
     <StiKeepDetailsKeepFirstRowTogether>პირველი სტრიქონი მთლიანად</StiKeepDetailsKeepFirstRowTogether>
     <StiKeepDetailsNone>None</StiKeepDetailsNone>
+    <StiLabelsPlacementAutoRotation>ავტომატური მოტრიალება</StiLabelsPlacementAutoRotation>
     <StiLabelsPlacementNone>None</StiLabelsPlacementNone>
     <StiLabelsPlacementOneLine>ერთ სტრიქონად</StiLabelsPlacementOneLine>
     <StiLabelsPlacementTwoLines>ორ სტრიქონად</StiLabelsPlacementTwoLines>
@@ -2781,6 +2884,7 @@
     <StiMapTypeGroup>ჯგუფი</StiMapTypeGroup>
     <StiMapTypeHeatmap>სითბური რუკა</StiMapTypeHeatmap>
     <StiMapTypeHeatmapWithGroup>სითბური რუკა დაჯგუფებით</StiMapTypeHeatmapWithGroup>
+    <StiMapTypeIndividual>ინდივიდუალური</StiMapTypeIndividual>
     <StiMapTypeNone>არა</StiMapTypeNone>
     <StiMapTypePoints>წერტილები</StiMapTypePoints>
     <StiMarkerAlignmentLeft>მარცნივ</StiMarkerAlignmentLeft>
@@ -3222,6 +3326,7 @@
     <ChildSource>შვილობილი მონაცემთა წყარო</ChildSource>
     <ClearFormat>ფორმატის გასუფთავება</ClearFormat>
     <CloneContainer>კონტეინერის კლონირება</CloneContainer>
+    <CloseValues>ახლო მნიშვნელობები</CloseValues>
     <Code>კოდი</Code>
     <CodePage>კოდირება</CodePage>
     <Collapsed>აკეცილი</Collapsed>
@@ -3232,6 +3337,7 @@
     <Color>ფერი</Color>
     <ColorDataColumn>ფერთა მონაცემთა სვეტი</ColorDataColumn>
     <ColorEach>ფერი თითოეულისათვის</ColorEach>
+    <ColorMeter>ფერი</ColorMeter>
     <ColorScaleCondition>ფერთა გამა</ColorScaleCondition>
     <ColorScaleType>ფერთა გამის სტილი</ColorScaleType>
     <Column>სვეტი</Column>
@@ -3285,6 +3391,7 @@
     <DateInfo>ინფორმაცია თარიღების შესახებ</DateInfo>
     <DateTimeStep>დროის ბიჯი</DateTimeStep>
     <Default>ნაგულისხმევი</Default>
+    <DefaultColor>ნაგულისხმები ფერი</DefaultColor>
     <DefaultHeightCell>უჯრის ნაგულისხმევი სიმაღლე</DefaultHeightCell>
     <DefaultNamespace>სახელთა სივრცე</DefaultNamespace>
     <DependentColumn>დამოკიდებული სვეტი</DependentColumn>
@@ -3295,6 +3402,7 @@
     <Diameter>დიამეტრი</Diameter>
     <Direction>მიმართულება</Direction>
     <Disabled>გათიშული</Disabled>
+    <DisplayNameType>ეკრანის სახელის ტიპი</DisplayNameType>
     <DisplayValue>ხილული მნიშვნელობა</DisplayValue>
     <Distance>დისტანცია</Distance>
     <DistanceBetweenTabs>დისტანცია Tab-ებს შორის</DistanceBetweenTabs>
@@ -3333,6 +3441,7 @@
     <EndCap>დაბოლოების სტილი</EndCap>
     <EndColor>საბოლოო ფერი</EndColor>
     <EndValue>საბოლოო მნიშვნელობა</EndValue>
+    <EndValues>ბოლო მნიშვნელობები</EndValues>
     <EndWidth>საბოლოოო სოგანე</EndWidth>
     <EngineVersion>გამშვები პროგრამის ვერსია</EngineVersion>
     <EnumeratorSeparator>მრიცხველის გამყოფი</EnumeratorSeparator>
@@ -3353,6 +3462,7 @@
     <Fill>შევსება</Fill>
     <FillColor>შევსების ფერი</FillColor>
     <Filter>ფილტრი</Filter>
+    <FilterElements>ელემენტების ფილტრი</FilterElements>
     <FilterEngine>ფილტრაციის რეჟიმი</FilterEngine>
     <FilterMode>ფილტრაციის რეჟიმი</FilterMode>
     <FilterOn>ფილტრი ჩართულია</FilterOn>
@@ -3398,7 +3508,9 @@
     <GridLinesVert>ბადის ვერტიკალური ზოლები</GridLinesVert>
     <GridLinesVertColor>ბადის ვერტიკალური ფერი</GridLinesVertColor>
     <GridOutline>დამხმარე ბადის ჩარჩო</GridOutline>
+    <Group>დაჯგუფება</Group>
     <GroupDataColumn>მონაცემთაჯგუფის სვეტი</GroupDataColumn>
+    <GroupMeter>ჯგუფი</GroupMeter>
     <GrowToHeight>სიმაღლეში გაზრდა</GrowToHeight>
     <HeaderBackColor>წარწერის ფერი</HeaderBackColor>
     <HeaderCanBreak>სათაურს შეუძლია წყვეტა</HeaderCanBreak>
@@ -3419,6 +3531,7 @@
     <HideZeros>ნულოვანი მნიშვნელობების დამალვა</HideZeros>
     <High>მაღალი</High>
     <HighlightCondition>პირობითი</HighlightCondition>
+    <HighValues>მაღალი მნიშვნელობები</HighValues>
     <HorAlignment>სწორება ჰორიზონტალზე</HorAlignment>
     <HorSpacing>მანძილი ჰორიზონტალზე</HorSpacing>
     <HotkeyPrefix>Hotkey კლავიშის პრეფიქსი</HotkeyPrefix>
@@ -3469,10 +3582,13 @@
     <KeepGroupHeaderTogether>დაჯგუფების ზედა კოლონტიტულების ერთად დატოვება</KeepGroupHeaderTogether>
     <KeepGroupTogether>დაჯგუფების ერთად დატოვება</KeepGroupTogether>
     <KeepHeaderTogether>ზედა კოლონტიტულის  ერთად დატოვება</KeepHeaderTogether>
+    <KeepMergedCellsTogether>შერწყმული უჯრედების ერთად განთავსება</KeepMergedCellsTogether>
     <KeepReportSummaryTogether>რეპორტის ჯამების ერთად დატოვება</KeepReportSummaryTogether>
     <KeepSubReportTogether>ქვე-რეპორტების ერთად განლაგება</KeepSubReportTogether>
     <Key>გასაღები</Key>
     <KeyDataColumn>გასაღების მონაცემთა სვეტი</KeyDataColumn>
+    <KeyMeter>Key</KeyMeter>
+    <KeyMeters>Keys</KeyMeters>
     <Keys>გასაღები</Keys>
     <Label>წარწერა</Label>
     <LabelColor>წარწერის დასახელება</LabelColor>
@@ -3501,6 +3617,7 @@
     <LineLimit>სტრიქონის ლიმიტი</LineLimit>
     <LineMarker>ხაზის მარკერი</LineMarker>
     <LinesOfUnderline>ქვედა ხაზები</LinesOfUnderline>
+    <LineSpacing>ხაზებშორისი ინტერვალი</LineSpacing>
     <LineStyle>ხაზის სტილი</LineStyle>
     <LineWidth>ხაზის სიგანე</LineWidth>
     <Linked>კავშირი</Linked>
@@ -3522,10 +3639,13 @@
     <LogarithmicScale>ლოგარითმული მასშტაბი</LogarithmicScale>
     <Longitude>გრძედი</Longitude>
     <Low>დაბალი</Low>
+    <LowValues>დაბალი მნიშვნელობები</LowValues>
     <MajorInterval>ძირითადი ინტერვალი</MajorInterval>
     <MapID>რუკა</MapID>
+    <Maps>რუკები</Maps>
     <MapStyle>სტილი</MapStyle>
     <MapType>რუკის ტიპი</MapType>
+    <Margin>ზღვარი</Margin>
     <Margins>ველები</Margins>
     <Marker>მარკერი</Marker>
     <MarkerAlignment>მარკერის სწორება</MarkerAlignment>
@@ -3574,6 +3694,7 @@
     <Name>დასახელება</Name>
     <NameDataColumn>დასახელებების მონაცეთა სვეტი</NameDataColumn>
     <NameInSource>წყაროში არსებული დასახელება</NameInSource>
+    <NameMeter>დასახელება</NameMeter>
     <NameParent>მშობლის დასახელება</NameParent>
     <Namespaces>სახელთა სივრცე </Namespaces>
     <Negative>უარყოფითი</Negative>
@@ -3593,10 +3714,12 @@
     <Offset>Offset</Offset>
     <OffsetAngle>Offset-ის კუთხე</OffsetAngle>
     <OnlyText>მხოლოდ ტექსტი</OnlyText>
+    <OpenValues>ღია მნიშვნელობები</OpenValues>
     <Operation>ოპერაცია</Operation>
     <Options>პარამეტრები</Options>
     <Orientation>ორიენტაცია</Orientation>
     <OthersText>დანარჩენ მნიშვნელობათა ტექსტი</OthersText>
+    <Padding>ინტერვალი</Padding>
     <PageHeight>სიმაღლე</PageHeight>
     <PageNumbers>გვერდების ნომრები</PageNumbers>
     <PageWidth>სიგანე</PageWidth>
@@ -3696,6 +3819,7 @@
     <RowCount>სტრიქონების დათვლა</RowCount>
     <RowHeadersVisible>წარწერების ხილვადობა</RowHeadersVisible>
     <RowHeaderWidth>სტრიქონის წარწერის სიგანე</RowHeaderWidth>
+    <Rows>სტრიქონები</Rows>
     <Scale>მასშტაბი</Scale>
     <ScaleHor>ჰორიზონტალური მასშტაბირება</ScaleHor>
     <ScriptLanguage>სკრიპტის ენა</ScriptLanguage>
@@ -3726,6 +3850,8 @@
     <ShapeType>მოხაზულობის ტიპი</ShapeType>
     <Shift>გადაწევა</Shift>
     <ShiftMode>გადაწევის რეჟიმი</ShiftMode>
+    <ShortName>მოკლე დასახელება</ShortName>
+    <ShortValue>მოკლე მნიშვნელობა</ShortValue>
     <ShowBehind>უკან ჩვენება</ShowBehind>
     <ShowDialog>დიალოგის ჩვენება</ShowDialog>
     <ShowEdgeValues>საბოლოო მნიშვნელობების ჩვენება</ShowEdgeValues>
@@ -3743,6 +3869,7 @@
     <ShowQuietZoneIndicator>Quiet Zone ინდიკატორის ჩვენება</ShowQuietZoneIndicator>
     <ShowQuietZones>Quiet Zones ჩვენება</ShowQuietZones>
     <ShowScrollBar>გადაადგილების ზოლების ჩვენება</ShowScrollBar>
+    <ShowSelectAll>გამოჩნდეს "მონიშნე ყველა"</ShowSelectAll>
     <ShowSeriesLabels>სერიების წარწერების ჩვენება</ShowSeriesLabels>
     <ShowShadow>ჩრდილის ჩვენება</ShowShadow>
     <ShowTotal>ჯამების ჩვენება</ShowTotal>
@@ -3796,12 +3923,14 @@
     <Strikeout>გადახაზული</Strikeout>
     <StripBrush>ვიწრო ზოლის ფუნჯი</StripBrush>
     <Strips>ვიწრო ზოლები</Strips>
+    <Stroke>ხაზგასმა</Stroke>
     <StructuredAppendPosition>Structured Append Position</StructuredAppendPosition>
     <StructuredAppendTotal>Structured Append Total</StructuredAppendTotal>
     <Style>სტილი</Style>
     <StyleColors>სტილის ფერები</StyleColors>
     <Styles>სტილები</Styles>
     <SubReportPage>ქვერეპორტის გვერდი</SubReportPage>
+    <Summaries>ჯამები</Summaries>
     <Summary>ჯამი</Summary>
     <SummaryExpression>გამოთქმების დაჯამება</SummaryExpression>
     <SummarySortDirection>დაჯამების სორტირების მიმართულება</SummarySortDirection>
@@ -3883,6 +4012,7 @@
     <ValueEnd>საბოლოო მნიშვნელობა</ValueEnd>
     <ValueHigh>მაქსიმუმი</ValueHigh>
     <ValueLow>მინიმუმი</ValueLow>
+    <ValueMeter>მნიშვნელობა</ValueMeter>
     <ValueOpen>საწყისი მნიშვნელობა</ValueOpen>
     <Values>მნიშვნელობები</Values>
     <ValueType>მნიშვნელობის ტიპი</ValueType>
@@ -4022,6 +4152,7 @@
     <qnSynchronizeServices>გნებავთ სერვისების სინქრონიზაცია?</qnSynchronizeServices>
   </Questions>
   <Report>
+    <ActiveRelation>აქტიური კავშირი</ActiveRelation>
     <Address>მისამართი</Address>
     <Alphabetical>ანბანის მიხედვით</Alphabetical>
     <Bands>სექციები</Bands>

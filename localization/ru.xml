@@ -356,6 +356,7 @@
     <Cancel>Отмена</Cancel>
     <CheckBoxMoveToRecycleBin>Переместить в Корзину</CheckBoxMoveToRecycleBin>
     <CheckBoxRememberMe>Запомнить меня</CheckBoxRememberMe>
+    <CheckForUpdate>Проверить обновления</CheckForUpdate>
     <Cloud>Облако</Cloud>
     <Collection>Коллекция</Collection>
     <Create>Создать</Create>
@@ -601,6 +602,8 @@
   <Dashboard>
     <AddRange>Добавить диапазон</AddRange>
     <AfterGroupingData>Применить после группировки</AfterGroupingData>
+    <AllowUserFiltering>Разрешить пользовательскую фильтрацию</AllowUserFiltering>
+    <AllowUserSorting>Разрешить пользовательскую сортировку</AllowUserSorting>
     <Blanks>(Пробелы)</Blanks>
     <BooleanFilters>Булевские фильтры</BooleanFilters>
     <CannotLoadDashboard>Не возможно загрузить отчет содержащий панель индикаторов.</CannotLoadDashboard>
@@ -2911,8 +2914,8 @@
     <StiMapTypeIndividual>Индивидуальная</StiMapTypeIndividual>
     <StiMapTypeNone>Нет</StiMapTypeNone>
     <StiMapTypePoints>Точки</StiMapTypePoints>
-    <StiMarkerAlignmentLeft>Слева</StiMarkerAlignmentLeft>
     <StiMarkerAlignmentCenter>По центру</StiMarkerAlignmentCenter>
+    <StiMarkerAlignmentLeft>Слева</StiMarkerAlignmentLeft>
     <StiMarkerAlignmentRight>Справа</StiMarkerAlignmentRight>
     <StiMarkerTypeCircle>Круг</StiMarkerTypeCircle>
     <StiMarkerTypeHexagon>Шестиугольник</StiMarkerTypeHexagon>
@@ -3264,6 +3267,10 @@
     <AllowUseVertAlignment>Разрешить верт. выравнивание</AllowUseVertAlignment>
     <AllowUsingAsSqlParameter>Разрешить использовать как SQL параметр</AllowUsingAsSqlParameter>
     <AlternatingBackColor>Альтернативный цвет фона</AlternatingBackColor>
+    <AlternatingCellBackColor>Цвет фона чередующейся ячейки</AlternatingCellBackColor>
+    <AlternatingCellForeColor>Цвет текста чередующейся ячейки</AlternatingCellForeColor>
+    <AlternatingDataColor>Цвет чередующихся данных</AlternatingDataColor>
+    <AlternatingDataForeground>Цвет текста чередующихся данных</AlternatingDataForeground>
     <Anchor>Привязка</Anchor>
     <Angle>Угол</Angle>
     <Antialiasing>Сглаживание</Antialiasing>
@@ -3298,6 +3305,7 @@
     <BackColor>Цвет фона</BackColor>
     <Background>Фон</Background>
     <BackgroundColor>Цвет заднего фона</BackgroundColor>
+    <BandColor>Цвет полоски</BandColor>
     <BarCodeType>Тип штрих-кода</BarCodeType>
     <BasicStyleColor>Основной цвет стиля</BasicStyleColor>
     <BindingColumn>Колонка привязки</BindingColumn>
@@ -3331,7 +3339,9 @@
     <Categories>Категории</Categories>
     <Category>Категория</Category>
     <CategoryConnections>Соединения</CategoryConnections>
+    <CellBackColor>Цвет фона ячейки</CellBackColor>
     <CellDockStyle>Стиль стыковки</CellDockStyle>
+    <CellForeColor>Цвет текста ячейки</CellForeColor>
     <CellHeight>Высота ячейки</CellHeight>
     <CellType>Тип ячейки</CellType>
     <CellWidth>Ширина ячейки</CellWidth>
@@ -3374,6 +3384,8 @@
     <ColumnCount>Количество колонок</ColumnCount>
     <ColumnDirection>Направление колонок</ColumnDirection>
     <ColumnGaps>Расстояние между колонками</ColumnGaps>
+    <ColumnHeaderBackColor>Цвет фона заголовка колонки</ColumnHeaderBackColor>
+    <ColumnHeaderForeColor>Цвет текста заголовка колонки</ColumnHeaderForeColor>
     <ColumnHeadersVisible>Видимость заголовков</ColumnHeadersVisible>
     <Columns>Колонки</Columns>
     <ColumnWidth>Ширина колонки</ColumnWidth>
@@ -3535,6 +3547,7 @@
     <Functions>Функции</Functions>
     <GlobalizationStrings>Строки перевода</GlobalizationStrings>
     <GlobalizedName>Глобализация</GlobalizedName>
+    <GlyphColor>Цвет символа</GlyphColor>
     <GridColor>Цвет сетки</GridColor>
     <GridLineColor>Цвет линии сетки</GridLineColor>
     <GridLinesHor>Горизонтальные линии сетки</GridLinesHor>
@@ -3573,7 +3586,16 @@
     <HighValues>Максимальные значения</HighValues>
     <HorAlignment>Горизонтальное выравнивание</HorAlignment>
     <HorSpacing>Расстояние по горизонтали</HorSpacing>
+    <HotBackColor>Цвет фона при наведении</HotBackColor>
+    <HotColumnHeaderBackColor>Цвет фона заголовка колонки при наведении</HotColumnHeaderBackColor>
+    <HotForeColor>Цвет текста при наведении</HotForeColor>
+    <HotGlyphColor>Цвет символа при наведении</HotGlyphColor>
+    <HotHeaderColor>Цвет заголовка при наведении</HotHeaderColor>
     <HotkeyPrefix>Префикс горячей клавиши</HotkeyPrefix>
+    <HotRowHeaderBackColor>Цвет фона заголовка строки при наведении</HotRowHeaderBackColor>
+    <HotSelectedBackColor>Цвет фона выбора при наведении</HotSelectedBackColor>
+    <HotSelectedForeColor>Цвет текста выбора при наведении</HotSelectedForeColor>
+    <HotSelectedGlyphColor>Цвет сивола выбора при наведении</HotSelectedGlyphColor>
     <HtmlTags>HTML-теги</HtmlTags>
     <Hyperlink>Гиперссылка</Hyperlink>
     <HyperlinkDataColumn>Колонка данных гиперссылок</HyperlinkDataColumn>
@@ -3656,6 +3678,10 @@
     <LengthUnderLabels>Длина под подписью</LengthUnderLabels>
     <Lighting>Освещение</Lighting>
     <Linear>Линейная</Linear>
+    <LinearBarBorderBrush>Кисть границы линейной панели</LinearBarBorderBrush>
+    <LinearBarBrush>Кисть линейной панели</LinearBarBrush>
+    <LinearBarEmptyBorderBrush>Кисть границы пустой линейной панели</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>Кисть пустой линейной панели</LinearBarEmptyBrush>
     <LineColor>Цвет линии</LineColor>
     <LineColorNegative>Цвет линии негативных значений</LineColorNegative>
     <LineLimit>Ограничение строки</LineLimit>
@@ -3694,6 +3720,7 @@
     <Marker>Маркер</Marker>
     <MarkerAlignment>Выравнивание маркера</MarkerAlignment>
     <MarkerBorder>Граница маркера</MarkerBorder>
+    <MarkerBrush>Кисть маркера</MarkerBrush>
     <MarkerColor>Цвет маркера</MarkerColor>
     <MarkerSize>Размер маркера</MarkerSize>
     <MarkerType>Тип маркера</MarkerType>
@@ -3741,7 +3768,13 @@
     <NameMeter>Наименование-измерение</NameMeter>
     <NameParent>Наименование главного</NameParent>
     <Namespaces>Пространства имен</Namespaces>
+    <NeedleBorderBrush>Кисть краницы стрелки</NeedleBorderBrush>
+    <NeedleBorderWidth>Толщина границы стрелки</NeedleBorderWidth>
+    <NeedleBrush>Кисть стрелки</NeedleBrush>
+    <NeedleCapBorderBrush>Цвет границы завершения стрелки</NeedleCapBorderBrush>
+    <NeedleCapBrush>Цвет завершения стрелки</NeedleCapBrush>
     <Negative>Негативный</Negative>
+    <NegativeColor>Негативный цвет</NegativeColor>
     <NegativeSeriesColors>Цвета серий для отрицательных</NegativeSeriesColors>
     <NegativeTextBrush>Цвет текста для отрицательных</NegativeTextBrush>
     <NestedLevel>Уровень вложенности</NestedLevel>
@@ -3760,6 +3793,7 @@
     <Offset>Смещение</Offset>
     <OffsetAngle>Угол смещения</OffsetAngle>
     <OnClick>При нажатии</OnClick>
+    <OnDataManipulation>При управлении данными</OnDataManipulation>
     <OnHover>При наведении</OnHover>
     <OnlyText>Только текст</OnlyText>
     <OpenValues>Значения открытия</OpenValues>
@@ -3791,6 +3825,7 @@
     <PointAtCenter>Точка в Центре</PointAtCenter>
     <Position>Позиция</Position>
     <Positive>Позитивный</Positive>
+    <PositiveColor>Позитивный цвет</PositiveColor>
     <PreferredColumnWidth>Предпочтительная ширина колонки</PreferredColumnWidth>
     <PreferredRowHeight>Предпочтительная высота колонки</PreferredRowHeight>
     <PreventIntersection>Избегать пересечения</PreventIntersection>
@@ -3816,6 +3851,10 @@
     <ProcessTilde>Обрабатывать Tilde</ProcessTilde>
     <ProductHomePage>Домашняя страница</ProductHomePage>
     <RadarStyle>Стиль лепестков</RadarStyle>
+    <RadialBarBorderBrush>Кисть границы радиальной панели</RadialBarBorderBrush>
+    <RadialBarBrush>Кисть радиальной панели</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>Кисть границы пустой радиальной панели</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>Кисть пустой радиальной панели</RadialBarEmptyBrush>
     <Radius>Радиус</Radius>
     <RadiusMode>Режим радиуса</RadiusMode>
     <Range>Диапазон</Range>
@@ -3866,6 +3905,8 @@
     <Round>Округлость</Round>
     <RoundValues>Округлять значения</RoundValues>
     <RowCount>Количество строк</RowCount>
+    <RowHeaderBackColor>Цвет фона заголовка строки</RowHeaderBackColor>
+    <RowHeaderForeColor>Цвет текста заголовка строки</RowHeaderForeColor>
     <RowHeadersVisible>Видимость заголовков</RowHeadersVisible>
     <RowHeaderWidth>Ширина заголовка строки</RowHeaderWidth>
     <Rows>Строки</Rows>
@@ -3874,6 +3915,13 @@
     <ScriptLanguage>Скриптовый язык</ScriptLanguage>
     <SegmentPerHeight>Сегментов по высоте</SegmentPerHeight>
     <SegmentPerWidth>Сегментов по ширине</SegmentPerWidth>
+    <SelectedBackColor>Цвет фона выбора</SelectedBackColor>
+    <SelectedCellBackColor>Цвет фона выделенной ячейки</SelectedCellBackColor>
+    <SelectedCellForeColor>Цвет текста выделенной ячейки</SelectedCellForeColor>
+    <SelectedDataColor>Цвет выделенных данных</SelectedDataColor>
+    <SelectedDataForeground>Цвет текста выделенных данных</SelectedDataForeground>
+    <SelectedForeColor>Цвет текста выбора</SelectedForeColor>
+    <SelectedGlyphColor>Цвет символа выбора</SelectedGlyphColor>
     <SelectedIndex>Выбранный индекс</SelectedIndex>
     <SelectedItem>Выбранный элемент</SelectedItem>
     <SelectedKey>Выбранный ключ</SelectedKey>
@@ -3883,6 +3931,7 @@
     <SelectionEnabled>Выбор включен</SelectionEnabled>
     <SelectionForeColor>Цвет текста выбора</SelectionForeColor>
     <SelectionMode>Способ выбора</SelectionMode>
+    <SeparatorColor>Цвет разделителя</SeparatorColor>
     <SerialNumber>Серийный Номер</SerialNumber>
     <Series>Ряды</Series>
     <SeriesColors>Цвета серий</SeriesColors>
@@ -4012,6 +4061,16 @@
     <TextOnly>Только текст</TextOnly>
     <TextOptions>Параметры текста</TextOptions>
     <TextQuality>Качество текста</TextQuality>
+    <TickLabelMajorFont>Шрифт подписи основной метки</TickLabelMajorFont>
+    <TickLabelMajorTextBrush>Кисть подписи основной метки</TickLabelMajorTextBrush>
+    <TickLabelMinorFont>Шрифт подписи вспомогательной метки</TickLabelMinorFont>
+    <TickLabelMinorTextBrush>Кисть подписи вспомогательной метки</TickLabelMinorTextBrush>
+    <TickMarkMajorBorder>Кисть границы подписи основной метки </TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>Толщина границы маркера главной метки</TickMarkMajorBorderWidth>
+    <TickMarkMajorBrush>Кисть маркера главной метки</TickMarkMajorBrush>
+    <TickMarkMinorBorder>Граница маркера вспомогательной метки</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>Толщина границы маркера вспомогательной метки</TickMarkMinorBorderWidth>
+    <TickMarkMinorBrush>Кисть маркера вспомогательной метки</TickMarkMinorBrush>
     <Ticks>Метки</Ticks>
     <Title>Заголовок</Title>
     <TitleBeforeHeader>Титул до заголовка</TitleBeforeHeader>
@@ -4030,6 +4089,7 @@
     <TopSide>Верхняя сторона</TopSide>
     <Total>Итог</Total>
     <Totals>Итоги</Totals>
+    <TrackColor>Цвет трэка</TrackColor>
     <TransparentColor>Цвет прозрачности</TransparentColor>
     <TrendLine>Линия тренда</TrendLine>
     <TrendLineColor>Цвет линии тренда</TrendLineColor>
@@ -4503,6 +4563,13 @@
     <TextEditor>Редактор текста</TextEditor>
     <title>Инструментарий</title>
   </Toolbox>
+  <WelcomeScreen>
+    <Description>Мы отобрали для вас отчеты, которые по нашему мнению, лучше всего подоходят для быстрого старта.</Description>
+    <GetStartedWithDashboards>Начните с панели индикаторов</GetStartedWithDashboards>
+    <GetStartedWithReports>Начните с отчетов</GetStartedWithReports>
+    <MoreReports>Больше отчетов</MoreReports>
+    <Title>Добро пожаловать в Stimulsoft Демо</Title>
+  </WelcomeScreen>
   <Wizards>
     <BlankDashboard>Пустая панель индикаторов</BlankDashboard>
     <BlankReport>Пустой отчет</BlankReport>

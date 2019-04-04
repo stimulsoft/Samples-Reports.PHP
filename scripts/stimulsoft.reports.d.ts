@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2019.2.2
-Build date: 2019.03.13
+Version: 2019.2.3
+Build date: 2019.03.28
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -2016,8 +2016,6 @@ declare module Stimulsoft.System.Drawing {
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     class Graphics {
         private context;
-        private static _opentypeClass;
-        static opentypeClass: any;
         drawImage(image: Image, point: Point): void;
         drawRectangle(pen: Pen, rect: Rectangle): void;
         fillRectangle(brush: Brush, x: number, y: number, width: number, height: number): void;
@@ -3067,649 +3065,23 @@ declare module Stimulsoft.System {
         AwayFromZero = 1
     }
 }
-interface Number {
-    /** Convert object to the specified interface or class, returns null if not inherited. */
-    sti_as(type: any): any;
-    compareTo(value: number): number;
-    /** Serves as a hash function for a particular type. */
-    getHashCode(): number;
-    toStringFormat(formatString: string): string;
-    toShort(): number;
-}
-interface NumberConstructor {
-    name: string;
-    namespace: string;
-    fullName: string;
-    getStiTypeName(): string;
-    getStiNetTypeName(): string;
-    tryParse(value: string): {
-        result: number;
-        successfully: boolean;
-    };
-}
-interface Object {
-    /** Returns the type (constructor) of this object. */
-    getStiType(): Stimulsoft.System.Type;
-    /** Checks inherit from the specified class or interface. */
-    sti_is(type: any): boolean;
-    /** Convert object to the specified interface or class, returns null if not inherited. */
-    sti_as(type: any): any;
-    /** Creates a shallow copy of the current Object. */
-    memberwiseClone(): any;
-    /** Determines whether the specified Object is equal to the current Object. */
-    stiEquals(obj: Object): boolean;
-    /** Serves as a hash function for a particular type. */
-    getHashCode(): number;
-    /** Compares the current instance with another object of the same type and returns an integer that indicates whether
-     * the current instance precedes, follows, or occurs in the same position in the sort order as the other object. */
-    compareTo(object: Object): number;
-    sti_toBoolean(): boolean;
-    sti_toNumber(): number;
-    /** Returns the type name of this object class. */
-    getStiTypeName(): string;
-    /** Returns the full type name (with .NET namespace) of this object class. */
-    getStiNetTypeName(): string;
-    stiHashLink: number;
-}
-interface ObjectConstructor {
-    /** Determines whether the specified Object instances are the same instance. */
-    referenceEquals(objA: any, objB: any): boolean;
-    addEvent(element: any, eventName: string, fn: Function): any;
-    stiEquals(objA: any, objB: any): boolean;
-    saveAs(data: any, fileName: string, type?: string): any;
-    /** Returns the type name of this object class. */
-    getStiTypeName(): string;
-    /** Returns the full type name (with .NET namespace) of this object class. */
-    getStiNetTypeName(): string;
-    isNullOrUndefined(obj: any): boolean;
-}
-declare module Stimulsoft.System {
-    class ParamsArray {
-        arg0: Object;
-        arg1: Object;
-        arg2: Object;
-        private _length;
-        constructor(arg0: Object, arg1?: Object, arg2?: Object);
-        readonly length: number;
-        get(index: Number): Object;
-    }
-}
-declare module Stimulsoft.System {
-    class Promise<T> {
-        private _this;
-        returnValue: T;
-        private _tryFunctions;
-        private _finallyFunction;
-        private _timeout;
-        private _startTime;
-        private _callTry;
-        private _callCatch;
-        private _callFinaly;
-        private _callTimeout;
-        private _catchArgument;
-        private _finalyArgument;
-        private promise;
-        private timeoutHanderId;
-        private assignFunction;
-        private _catchFunctions;
-        try(tryFunction: Function): Promise<T>;
-        catch(catchFunction: Function): Promise<T>;
-        finally(finallyFunction: Function): Promise<T>;
-        this(_this: any): Promise<T>;
-        timeout(timeout: number): Promise<T>;
-        callTry(returnValue?: T): Promise<T>;
-        callCatch(catchArgument?: any): void;
-        private callFinally;
-        callTimeout(): void;
-        private nextPromises;
-        abort(previusPromise?: Promise<any>): Promise<T>;
-        private abortFunction;
-        onAbort(abortFunction: Function): void;
-        constructor();
-    }
-}
-declare module Stimulsoft.Report {
-    class Range {
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: Object;
-        toObject: Object;
-        parse(from: string, to: string): void;
-        stiEquals(obj: any): boolean;
-        readonly fromStrLoc: string;
-        readonly toStrLoc: string;
-        getHashCode(): number;
-        constructor();
-    }
-    class CharRange extends Range {
-        from: string;
-        to: string;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: string): boolean;
-        constructor(from?: string, to?: string);
-    }
-    class DateTimeRange extends Range {
-        from: Stimulsoft.System.NullableDateTime;
-        to: Stimulsoft.System.NullableDateTime;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        readonly fromDate: Stimulsoft.System.DateTime;
-        readonly toDate: Stimulsoft.System.DateTime;
-        contains(value: Stimulsoft.System.DateTime): boolean;
-        toString(): string;
-        constructor(from?: Stimulsoft.System.DateTime, to?: Stimulsoft.System.DateTime);
-    }
-    class TimeSpanRange extends Range {
-        from: Stimulsoft.System.NullableTimeSpan;
-        to: Stimulsoft.System.NullableTimeSpan;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        readonly fromTime: Stimulsoft.System.TimeSpan;
-        readonly toTime: Stimulsoft.System.TimeSpan;
-        contains(value: Stimulsoft.System.TimeSpan): boolean;
-        constructor(from?: Stimulsoft.System.TimeSpan, to?: Stimulsoft.System.TimeSpan);
-    }
-    class DecimalRange extends Range {
-        from: number;
-        to: number;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: number): boolean;
-        constructor(from?: number, to?: number);
-    }
-    class FloatRange extends Range {
-        from: number;
-        to: number;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: number): boolean;
-        constructor(from?: number, to?: number);
-    }
-    class DoubleRange extends Range {
-        from: number;
-        to: number;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: number): boolean;
-        constructor(from?: number, to?: number);
-    }
-    class ByteRange extends Range {
-        from: number;
-        to: number;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: number): boolean;
-        constructor(from?: number, to?: number);
-    }
-    class ShortRange extends Range {
-        from: number;
-        to: number;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: number): boolean;
-        constructor(from?: number, to?: number);
-    }
-    class IntRange extends Range {
-        from: number;
-        to: number;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: number): boolean;
-        constructor(from?: number, to?: number);
-    }
-    class LongRange extends Range {
-        from: number;
-        to: number;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: number): boolean;
-        constructor(from?: number, to?: number);
-    }
-    class GuidRange extends Range {
-        from: Stimulsoft.System.Guid;
-        to: Stimulsoft.System.Guid;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: Stimulsoft.System.Guid): boolean;
-        constructor(from?: Stimulsoft.System.Guid, to?: Stimulsoft.System.Guid);
-    }
-    class StringRange extends Range {
-        from: String;
-        to: String;
-        readonly rangeName: string;
-        readonly rangeType: Stimulsoft.System.Type;
-        fromObject: any;
-        toObject: any;
-        contains(value: String): boolean;
-        constructor(from?: String, to?: String);
-    }
-}
-declare module Stimulsoft.System {
-    import CultureInfo = Stimulsoft.System.Globalization.CultureInfo;
-    class ResourceManager {
-        private resource;
-        getString(name: string, culture: CultureInfo): string;
-    }
-}
-declare module Stimulsoft.System {
-    class StiError {
-        static errorMessageForm: any;
-        static showError(e: any, showForm?: boolean): void;
-    }
+/**
+ * @hidden
+ */
+declare namespace Stimulsoft.ExternalLibrary {
+    /**
+      * @hidden
+     */
+    function Moment(inp?: Stimulsoft.ExternalLibrary.Moment.MomentInput, format?: Stimulsoft.ExternalLibrary.Moment.MomentFormatSpecification, strict?: boolean): Stimulsoft.ExternalLibrary.Moment.Moment;
+    /**
+     * @hidden
+     */
+    function Moment(inp?: Stimulsoft.ExternalLibrary.Moment.MomentInput, format?: Stimulsoft.ExternalLibrary.Moment.MomentFormatSpecification, language?: string, strict?: boolean): Stimulsoft.ExternalLibrary.Moment.Moment;
 }
 /**
  * @hidden
  */
-declare function unescape(s: string): string;
-/**
- * @hidden
- */
-declare function escape(s: string): string;
-interface String {
-    /** Convert object to the specified interface or class, returns null if not inherited. */
-    sti_as(type: any): any;
-    /** Returns a copy of this string converted to lowercase. */
-    toLower(): string;
-    /** Returns a copy of this string converted to uppercase. */
-    toUpper(): string;
-    /** Returns a result of checking string is Base64. */
-    isBase64String(): boolean;
-    /** Returns a new string in which all the characters in the current instance, beginning at a specified position and continuing through the last position, have been deleted. */
-    remove(startIndex: number): string;
-    /** Returns a new string in which a specified number of characters in this instance beginning at a specified position have been deleted. */
-    remove(startIndex: number, count: number): string;
-    /** Returns a new string in which a specified string is inserted at a specified index position in this instance. */
-    insert(startIndex: number, value: string, removeLength: number): string;
-    /** Returns a new string that right-aligns the characters in this instance by padding them with spaces on the left, for a specified total length. */
-    padLeft(totalWidth: number): string;
-    /** Returns a new string that right-aligns the characters in this instance by padding them on the left with a specified Unicode character, for a specified total length. */
-    padLeft(totalWidth: number, paddingChar: string): string;
-    /** Determines whether the beginning of this string instance matches the specified string. */
-    startsWith(value: string): boolean;
-    /** Determines whether the beginning of this string instance matches the specified string when the case is ignored. */
-    startsWith(value: string, ignoreCase: boolean): boolean;
-    /** Determines whether the end of this string instance matches the specified string. */
-    endsWith(value: string): boolean;
-    /** Determines whether the end of this string instance matches the specified string when the case is ignored. */
-    endsWith(value: string, ignoreCase: boolean): boolean;
-    /** Removes all space characters from the start of the specified string. */
-    trimStart(char?: string): string;
-    /** Removes all space characters from the end of the specified string. */
-    trimEnd(char?: string): string;
-    /** Returns the hash code for this string. */
-    getHashCode(): number;
-    toBytesArray(): number[];
-    toUnicodeString(): string;
-    fromUnicodeString(): string;
-    /** NOT IMPLEMENTS! */
-    compareTo(strB: string): number;
-    contains(str: string): boolean;
-    indexOfAny(values: string[]): number;
-    regexIndexOf(regex: RegExp, startpos: number): any;
-    regexLastIndexOf(regex: RegExp, startpos: number): any;
-    replaceAll(searchValue: string, replaceValue: string, startIndex?: number, count?: number): string;
-}
-interface StringConstructor {
-    /** Represents the empty string. */
-    empty: string;
-    /** Indicates whether the specified string is null or an empty string. */
-    isNullOrEmpty(value: string): boolean;
-    /** Indicates whether a specified string is null, empty, or consists only of white-space characters. */
-    isNullOrWhiteSpace(value: string): boolean;
-    /** Returns a string consisting of a specified string concatenated with itself a specified number of times. */
-    repeat(value: string, n: number): string;
-    /** Returns a string, which consists of the specified string, linked with itself the indicated number of times. */
-    fill(value: string, count: number): string;
-    stiFormat(str: string, ...values: any[]): string;
-    stiFormat2(provider: Stimulsoft.System.IFormatProvider, format: string, ...values: any[]): string;
-    parseFormatString(formatString: String, values: Array<any>): string;
-    formatNumber(arg: any, decimalDigits: number, useGroupSeparator: boolean, useSign: boolean): string;
-    customFormat(arg: any, format: string): string;
-    customFormatNumber(arg: number, format: string): string;
-    indexOfAny(str: string, searchChars: string[]): number;
-    removeBOM(str: string): string;
-    join(separator: string, value: string[]): string;
-    fromBytesArray(bytes: number[]): string;
-    getStiTypeName(): string;
-    getStiNetTypeName(): string;
-}
-/**
- * @hidden
- */
-declare var XXH: any;
-declare module Stimulsoft.System {
-    enum StringComparison {
-        CurrentCulture = 0,
-        CurrentCultureIgnoreCase = 1,
-        InvariantCulture = 2,
-        InvariantCultureIgnoreCase = 3,
-        Ordinal = 4,
-        OrdinalIgnoreCase = 5
-    }
-}
-declare module Stimulsoft.System {
-    class SwitchSymbolFormatter {
-        private numberSymbol;
-        private isValid;
-        formatValue(format: string, source: any): string;
-        constructor(numberSymbol?: string);
-    }
-}
-declare module Stimulsoft.System {
-    enum TypeCode {
-        Empty = 0,
-        Object = 1,
-        DBNull = 2,
-        Boolean = 3,
-        Char = 4,
-        SByte = 5,
-        Byte = 6,
-        Int16 = 7,
-        UInt16 = 8,
-        Int32 = 9,
-        UInt32 = 10,
-        Int64 = 11,
-        UInt64 = 12,
-        Single = 13,
-        Double = 14,
-        Decimal = 15,
-        DateTime = 16,
-        String = 18
-    }
-}
-declare module Stimulsoft.System {
-    import TypeCode = Stimulsoft.System.TypeCode;
-    class TypeHelper {
-        private static types;
-        static getTypes(): Stimulsoft.System.Type[];
-        static isValueType(type: Type): boolean;
-    }
-    class Type {
-        apply(thisArg: any, argArray?: any): any;
-        call(thisArg: any, ...argArray: any[]): any;
-        bind(thisArg: any, ...argArray: any[]): any;
-        prototype: any;
-        length: number;
-        arguments: any;
-        caller: Function;
-        static getType(value: any): Type;
-        static getTypeName(value: any): string;
-        static getTypeCode(value: any): TypeCode;
-        static isNumericType(type: Type): boolean;
-        static isIntegerType(type: Type): boolean;
-        static isDateType(type: Type): boolean;
-        static getHashCode(type: any): number;
-    }
-    class Byte {
-    }
-    class ByteArray {
-    }
-    class Decimal {
-    }
-    class Double {
-    }
-    class Float {
-    }
-    class Int {
-    }
-    class Int16 {
-    }
-    class Int32 {
-    }
-    class Int64 {
-    }
-    class Short {
-    }
-    class Long {
-    }
-    class SByte {
-    }
-    class Single extends Number {
-    }
-    class UInt {
-    }
-    class UInt16 {
-    }
-    class UInt32 {
-    }
-    class UInt64 {
-    }
-    class UShort {
-    }
-    class ULong {
-    }
-    class Nullable {
-    }
-    class NullableBoolean extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableByte extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableChar extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableDateTime extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableTimeSpan extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableDecimal extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableDouble extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableFloat extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableGuid extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableInt extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableInt16 extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableInt32 extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableInt64 extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableShort extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableLong extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableSByte extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableSingle extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableUInt extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableUInt16 extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableUInt32 extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableUInt64 extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableUShort extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class NullableULong extends Nullable {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftByteRange extends Stimulsoft.Report.ByteRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftCharRange extends Stimulsoft.Report.CharRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftDateTimeRange extends Stimulsoft.Report.DateTimeRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftDecimalRange extends Stimulsoft.Report.DecimalRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftDoubleRange extends Stimulsoft.Report.DoubleRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftFloatRange extends Stimulsoft.Report.FloatRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftGuidRange extends Stimulsoft.Report.GuidRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftIntRange extends Stimulsoft.Report.IntRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftLongRange extends Stimulsoft.Report.LongRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftShortRange extends Stimulsoft.Report.ShortRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftStringRange extends Stimulsoft.Report.StringRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftTimeSpanRange extends Stimulsoft.Report.TimeSpanRange {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftList {
-    }
-    class StimulsoftBoolList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftByteList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftCharList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftDateTimeList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftDecimalList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftDoubleList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftFloatList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftGuidList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftIntList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftLongList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftShortList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftStringList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-    class StimulsoftTimeSpanList extends StimulsoftList {
-        static getStiTypeName(): string;
-        static getStiNetTypeName(): string;
-    }
-}
-/**
- * @hidden
- */
-declare function moment_mod(inp?: moment_mod.MomentInput, format?: moment_mod.MomentFormatSpecification, strict?: boolean): moment_mod.Moment;
-/**
- * @hidden
- */
-declare function moment_mod(inp?: moment_mod.MomentInput, format?: moment_mod.MomentFormatSpecification, language?: string, strict?: boolean): moment_mod.Moment;
-/**
- * @hidden
- */
-declare namespace moment_mod {
+declare namespace Stimulsoft.ExternalLibrary.Moment {
     type RelativeTimeKey = 's' | 'ss' | 'm' | 'mm' | 'h' | 'hh' | 'd' | 'dd' | 'M' | 'MM' | 'y' | 'yy';
     type CalendarKey = 'sameDay' | 'nextDay' | 'lastDay' | 'nextWeek' | 'lastWeek' | 'sameElse' | string;
     type LongDateFormatKey = 'LTS' | 'LT' | 'L' | 'LL' | 'LLL' | 'LLLL' | 'lts' | 'lt' | 'l' | 'll' | 'lll' | 'llll';
@@ -4171,19 +3543,19 @@ declare namespace moment_mod {
          */
         isDSTShifted(): boolean;
         /**
-         * @deprecated as of 2.7.0, use moment_mod.min/max
+         * @deprecated as of 2.7.0, use moment.min/max
          */
         max(inp?: MomentInput, format?: MomentFormatSpecification, strict?: boolean): Moment;
         /**
-         * @deprecated as of 2.7.0, use moment_mod.min/max
+         * @deprecated as of 2.7.0, use moment.min/max
          */
         max(inp?: MomentInput, format?: MomentFormatSpecification, language?: string, strict?: boolean): Moment;
         /**
-         * @deprecated as of 2.7.0, use moment_mod.min/max
+         * @deprecated as of 2.7.0, use moment.min/max
          */
         min(inp?: MomentInput, format?: MomentFormatSpecification, strict?: boolean): Moment;
         /**
-         * @deprecated as of 2.7.0, use moment_mod.min/max
+         * @deprecated as of 2.7.0, use moment.min/max
          */
         min(inp?: MomentInput, format?: MomentFormatSpecification, language?: string, strict?: boolean): Moment;
         get(unit: unitOfTime.All): number;
@@ -4284,11 +3656,650 @@ declare namespace moment_mod {
         MONTH: string;
     };
 }
+interface Number {
+    /** Convert object to the specified interface or class, returns null if not inherited. */
+    sti_as(type: any): any;
+    compareTo(value: number): number;
+    /** Serves as a hash function for a particular type. */
+    getHashCode(): number;
+    toStringFormat(formatString: string): string;
+    toShort(): number;
+}
+interface NumberConstructor {
+    name: string;
+    namespace: string;
+    fullName: string;
+    getStiTypeName(): string;
+    getStiNetTypeName(): string;
+    tryParse(value: string): {
+        result: number;
+        successfully: boolean;
+    };
+}
+interface Object {
+    /** Returns the type (constructor) of this object. */
+    getStiType(): Stimulsoft.System.Type;
+    /** Checks inherit from the specified class or interface. */
+    sti_is(type: any): boolean;
+    /** Convert object to the specified interface or class, returns null if not inherited. */
+    sti_as(type: any): any;
+    /** Creates a shallow copy of the current Object. */
+    memberwiseClone(): any;
+    /** Determines whether the specified Object is equal to the current Object. */
+    stiEquals(obj: Object): boolean;
+    /** Serves as a hash function for a particular type. */
+    getHashCode(): number;
+    /** Compares the current instance with another object of the same type and returns an integer that indicates whether
+     * the current instance precedes, follows, or occurs in the same position in the sort order as the other object. */
+    compareTo(object: Object): number;
+    sti_toBoolean(): boolean;
+    sti_toNumber(): number;
+    /** Returns the type name of this object class. */
+    getStiTypeName(): string;
+    /** Returns the full type name (with .NET namespace) of this object class. */
+    getStiNetTypeName(): string;
+    stiHashLink: number;
+}
+interface ObjectConstructor {
+    /** Determines whether the specified Object instances are the same instance. */
+    referenceEquals(objA: any, objB: any): boolean;
+    addEvent(element: any, eventName: string, fn: Function): any;
+    stiEquals(objA: any, objB: any): boolean;
+    saveAs(data: any, fileName: string, type?: string): any;
+    /** Returns the type name of this object class. */
+    getStiTypeName(): string;
+    /** Returns the full type name (with .NET namespace) of this object class. */
+    getStiNetTypeName(): string;
+    isNullOrUndefined(obj: any): boolean;
+}
 /**
  * @hidden
  */
-declare module "moment_mod" {
-    export = moment_mod;
+declare namespace Stimulsoft.ExternalLibrary.Opentype {
+    /**
+      * @hidden
+     */
+    function parse(data: any): any;
+}
+declare module Stimulsoft.System {
+    class ParamsArray {
+        arg0: Object;
+        arg1: Object;
+        arg2: Object;
+        private _length;
+        constructor(arg0: Object, arg1?: Object, arg2?: Object);
+        readonly length: number;
+        get(index: Number): Object;
+    }
+}
+declare module Stimulsoft.System {
+    class Promise<T> {
+        private _this;
+        returnValue: T;
+        private _tryFunctions;
+        private _finallyFunction;
+        private _timeout;
+        private _startTime;
+        private _callTry;
+        private _callCatch;
+        private _callFinaly;
+        private _callTimeout;
+        private _catchArgument;
+        private _finalyArgument;
+        private promise;
+        private timeoutHanderId;
+        private assignFunction;
+        private _catchFunctions;
+        try(tryFunction: Function, _this?: any): Promise<T>;
+        catch(catchFunction: Function): Promise<T>;
+        finally(finallyFunction: Function): Promise<T>;
+        this(_this: any): Promise<T>;
+        timeout(timeout: number): Promise<T>;
+        callTry(returnValue?: T): Promise<T>;
+        callCatch(catchArgument?: any): void;
+        private callFinally;
+        callTimeout(): void;
+        private nextPromises;
+        abort(previusPromise?: Promise<any>): Promise<T>;
+        private abortFunction;
+        onAbort(abortFunction: Function): void;
+        constructor();
+    }
+}
+declare module Stimulsoft.Report {
+    class Range {
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: Object;
+        toObject: Object;
+        parse(from: string, to: string): void;
+        stiEquals(obj: any): boolean;
+        readonly fromStrLoc: string;
+        readonly toStrLoc: string;
+        getHashCode(): number;
+        constructor();
+    }
+    class CharRange extends Range {
+        from: string;
+        to: string;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: string): boolean;
+        constructor(from?: string, to?: string);
+    }
+    class DateTimeRange extends Range {
+        from: Stimulsoft.System.NullableDateTime;
+        to: Stimulsoft.System.NullableDateTime;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        readonly fromDate: Stimulsoft.System.DateTime;
+        readonly toDate: Stimulsoft.System.DateTime;
+        contains(value: Stimulsoft.System.DateTime): boolean;
+        toString(): string;
+        constructor(from?: Stimulsoft.System.DateTime, to?: Stimulsoft.System.DateTime);
+    }
+    class TimeSpanRange extends Range {
+        from: Stimulsoft.System.NullableTimeSpan;
+        to: Stimulsoft.System.NullableTimeSpan;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        readonly fromTime: Stimulsoft.System.TimeSpan;
+        readonly toTime: Stimulsoft.System.TimeSpan;
+        contains(value: Stimulsoft.System.TimeSpan): boolean;
+        constructor(from?: Stimulsoft.System.TimeSpan, to?: Stimulsoft.System.TimeSpan);
+    }
+    class DecimalRange extends Range {
+        from: number;
+        to: number;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
+    }
+    class FloatRange extends Range {
+        from: number;
+        to: number;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
+    }
+    class DoubleRange extends Range {
+        from: number;
+        to: number;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
+    }
+    class ByteRange extends Range {
+        from: number;
+        to: number;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
+    }
+    class ShortRange extends Range {
+        from: number;
+        to: number;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
+    }
+    class IntRange extends Range {
+        from: number;
+        to: number;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
+    }
+    class LongRange extends Range {
+        from: number;
+        to: number;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: number): boolean;
+        constructor(from?: number, to?: number);
+    }
+    class GuidRange extends Range {
+        from: Stimulsoft.System.Guid;
+        to: Stimulsoft.System.Guid;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: Stimulsoft.System.Guid): boolean;
+        constructor(from?: Stimulsoft.System.Guid, to?: Stimulsoft.System.Guid);
+    }
+    class StringRange extends Range {
+        from: String;
+        to: String;
+        readonly rangeName: string;
+        readonly rangeType: Stimulsoft.System.Type;
+        fromObject: any;
+        toObject: any;
+        contains(value: String): boolean;
+        constructor(from?: String, to?: String);
+    }
+}
+declare module Stimulsoft.System {
+    import CultureInfo = Stimulsoft.System.Globalization.CultureInfo;
+    class ResourceManager {
+        private resource;
+        getString(name: string, culture: CultureInfo): string;
+    }
+}
+declare module Stimulsoft.System {
+    class StiError {
+        static errorMessageForm: any;
+        static showError(e: any, showForm?: boolean): void;
+    }
+}
+/**
+ * @hidden
+ */
+declare function unescape(s: string): string;
+/**
+ * @hidden
+ */
+declare function escape(s: string): string;
+interface String {
+    /** Convert object to the specified interface or class, returns null if not inherited. */
+    sti_as(type: any): any;
+    /** Returns a copy of this string converted to lowercase. */
+    toLower(): string;
+    /** Returns a copy of this string converted to uppercase. */
+    toUpper(): string;
+    /** Returns a result of checking string is Base64. */
+    isBase64String(): boolean;
+    /** Returns a new string in which all the characters in the current instance, beginning at a specified position and continuing through the last position, have been deleted. */
+    remove(startIndex: number): string;
+    /** Returns a new string in which a specified number of characters in this instance beginning at a specified position have been deleted. */
+    remove(startIndex: number, count: number): string;
+    /** Returns a new string in which a specified string is inserted at a specified index position in this instance. */
+    insert(startIndex: number, value: string, removeLength: number): string;
+    /** Returns a new string that right-aligns the characters in this instance by padding them with spaces on the left, for a specified total length. */
+    padLeft(totalWidth: number): string;
+    /** Returns a new string that right-aligns the characters in this instance by padding them on the left with a specified Unicode character, for a specified total length. */
+    padLeft(totalWidth: number, paddingChar: string): string;
+    /** Determines whether the beginning of this string instance matches the specified string. */
+    startsWith(value: string): boolean;
+    /** Determines whether the beginning of this string instance matches the specified string when the case is ignored. */
+    startsWith(value: string, ignoreCase: boolean): boolean;
+    /** Determines whether the end of this string instance matches the specified string. */
+    endsWith(value: string): boolean;
+    /** Determines whether the end of this string instance matches the specified string when the case is ignored. */
+    endsWith(value: string, ignoreCase: boolean): boolean;
+    /** Removes all space characters from the start of the specified string. */
+    trimStart(char?: string): string;
+    /** Removes all space characters from the end of the specified string. */
+    trimEnd(char?: string): string;
+    /** Returns the hash code for this string. */
+    getHashCode(): number;
+    toBytesArray(): number[];
+    toUnicodeString(): string;
+    fromUnicodeString(): string;
+    /** NOT IMPLEMENTS! */
+    compareTo(strB: string): number;
+    contains(str: string): boolean;
+    indexOfAny(values: string[]): number;
+    regexIndexOf(regex: RegExp, startpos: number): any;
+    regexLastIndexOf(regex: RegExp, startpos: number): any;
+    replaceAll(searchValue: string, replaceValue: string, startIndex?: number, count?: number): string;
+}
+interface StringConstructor {
+    /** Represents the empty string. */
+    empty: string;
+    /** Indicates whether the specified string is null or an empty string. */
+    isNullOrEmpty(value: string): boolean;
+    /** Indicates whether a specified string is null, empty, or consists only of white-space characters. */
+    isNullOrWhiteSpace(value: string): boolean;
+    /** Returns a string consisting of a specified string concatenated with itself a specified number of times. */
+    repeat(value: string, n: number): string;
+    /** Returns a string, which consists of the specified string, linked with itself the indicated number of times. */
+    fill(value: string, count: number): string;
+    stiFormat(str: string, ...values: any[]): string;
+    stiFormat2(provider: Stimulsoft.System.IFormatProvider, format: string, ...values: any[]): string;
+    parseFormatString(formatString: String, values: Array<any>): string;
+    formatNumber(arg: any, decimalDigits: number, useGroupSeparator: boolean, useSign: boolean): string;
+    customFormat(arg: any, format: string): string;
+    customFormatNumber(arg: number, format: string): string;
+    indexOfAny(str: string, searchChars: string[]): number;
+    removeBOM(str: string): string;
+    join(separator: string, value: string[]): string;
+    fromBytesArray(bytes: number[]): string;
+    getStiTypeName(): string;
+    getStiNetTypeName(): string;
+}
+declare module Stimulsoft.System {
+    enum StringComparison {
+        CurrentCulture = 0,
+        CurrentCultureIgnoreCase = 1,
+        InvariantCulture = 2,
+        InvariantCultureIgnoreCase = 3,
+        Ordinal = 4,
+        OrdinalIgnoreCase = 5
+    }
+}
+declare module Stimulsoft.System {
+    class SwitchSymbolFormatter {
+        private numberSymbol;
+        private isValid;
+        formatValue(format: string, source: any): string;
+        constructor(numberSymbol?: string);
+    }
+}
+declare module Stimulsoft.System {
+    enum TypeCode {
+        Empty = 0,
+        Object = 1,
+        DBNull = 2,
+        Boolean = 3,
+        Char = 4,
+        SByte = 5,
+        Byte = 6,
+        Int16 = 7,
+        UInt16 = 8,
+        Int32 = 9,
+        UInt32 = 10,
+        Int64 = 11,
+        UInt64 = 12,
+        Single = 13,
+        Double = 14,
+        Decimal = 15,
+        DateTime = 16,
+        String = 18
+    }
+}
+declare module Stimulsoft.System {
+    import TypeCode = Stimulsoft.System.TypeCode;
+    class TypeHelper {
+        private static types;
+        static getTypes(): Stimulsoft.System.Type[];
+        static isValueType(type: Type): boolean;
+    }
+    class Type {
+        apply(thisArg: any, argArray?: any): any;
+        call(thisArg: any, ...argArray: any[]): any;
+        bind(thisArg: any, ...argArray: any[]): any;
+        prototype: any;
+        length: number;
+        arguments: any;
+        caller: Function;
+        static getType(value: any): Type;
+        static getTypeName(value: any): string;
+        static getTypeCode(value: any): TypeCode;
+        static isNumericType(type: Type): boolean;
+        static isIntegerType(type: Type): boolean;
+        static isDateType(type: Type): boolean;
+        static getHashCode(type: any): number;
+    }
+    class Byte {
+    }
+    class ByteArray {
+    }
+    class Decimal {
+    }
+    class Double {
+    }
+    class Float {
+    }
+    class Int {
+    }
+    class Int16 {
+    }
+    class Int32 {
+    }
+    class Int64 {
+    }
+    class Short {
+    }
+    class Long {
+    }
+    class SByte {
+    }
+    class Single extends Number {
+    }
+    class UInt {
+    }
+    class UInt16 {
+    }
+    class UInt32 {
+    }
+    class UInt64 {
+    }
+    class UShort {
+    }
+    class ULong {
+    }
+    class Nullable {
+    }
+    class NullableBoolean extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableByte extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableChar extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableDateTime extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableTimeSpan extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableDecimal extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableDouble extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableFloat extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableGuid extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableInt extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableInt16 extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableInt32 extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableInt64 extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableShort extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableLong extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableSByte extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableSingle extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableUInt extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableUInt16 extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableUInt32 extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableUInt64 extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableUShort extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class NullableULong extends Nullable {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftByteRange extends Stimulsoft.Report.ByteRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftCharRange extends Stimulsoft.Report.CharRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftDateTimeRange extends Stimulsoft.Report.DateTimeRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftDecimalRange extends Stimulsoft.Report.DecimalRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftDoubleRange extends Stimulsoft.Report.DoubleRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftFloatRange extends Stimulsoft.Report.FloatRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftGuidRange extends Stimulsoft.Report.GuidRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftIntRange extends Stimulsoft.Report.IntRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftLongRange extends Stimulsoft.Report.LongRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftShortRange extends Stimulsoft.Report.ShortRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftStringRange extends Stimulsoft.Report.StringRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftTimeSpanRange extends Stimulsoft.Report.TimeSpanRange {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftList {
+    }
+    class StimulsoftBoolList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftByteList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftCharList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftDateTimeList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftDecimalList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftDoubleList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftFloatList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftGuidList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftIntList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftLongList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftShortList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftStringList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+    class StimulsoftTimeSpanList extends StimulsoftList {
+        static getStiTypeName(): string;
+        static getStiNetTypeName(): string;
+    }
+}
+/**
+ * @hidden
+ */
+declare namespace Stimulsoft.ExternalLibrary.XXH {
+    /**
+      * @hidden
+     */
+    function h32(value: string, seed: number): number;
 }
 
 declare namespace Stimulsoft.Base.Dashboard {
@@ -4568,140 +4579,143 @@ declare module Stimulsoft.Base {
 /**
  * @hidden
  */
-interface IProperties {
-    LastAuthor?: string;
-    Author?: string;
-    CreatedDate?: Date;
-    ModifiedDate?: Date;
-    Application?: string;
-    AppVersion?: string;
-    Company?: string;
-    DocSecurity?: string;
-    Manager?: string;
-    HyperlinksChanged?: boolean;
-    SharedDoc?: boolean;
-    LinksUpToDate?: boolean;
-    ScaleCrop?: boolean;
-    Worksheets?: number;
-    SheetNames?: string[];
-}
-/**
- * @hidden
- */
-interface IParsingOptions {
-    cellFormula?: boolean;
-    cellHTML?: boolean;
-    cellNF?: boolean;
-    cellStyles?: boolean;
-    cellDates?: boolean;
-    sheetStubs?: boolean;
-    sheetRows?: number;
-    bookDeps?: boolean;
-    bookFiles?: boolean;
-    bookProps?: boolean;
-    bookSheets?: boolean;
-    bookVBA?: boolean;
-    password?: string;
+declare namespace Stimulsoft.ExternalLibrary.XLSX {
     /**
-     * Possible options: 'binary', 'base64', 'buffer', 'file'
+     * @hidden
      */
-    type?: string;
-}
-/**
- * @hidden
- */
-interface IWorkBook {
+    interface IProperties {
+        LastAuthor?: string;
+        Author?: string;
+        CreatedDate?: Date;
+        ModifiedDate?: Date;
+        Application?: string;
+        AppVersion?: string;
+        Company?: string;
+        DocSecurity?: string;
+        Manager?: string;
+        HyperlinksChanged?: boolean;
+        SharedDoc?: boolean;
+        LinksUpToDate?: boolean;
+        ScaleCrop?: boolean;
+        Worksheets?: number;
+        SheetNames?: string[];
+    }
     /**
-     * A dictionary of the worksheets in the workbook.
-     * Use SheetNames to reference these.
+     * @hidden
      */
-    Sheets: {
-        [sheet: string]: IWorkSheet;
-    };
+    interface IParsingOptions {
+        cellFormula?: boolean;
+        cellHTML?: boolean;
+        cellNF?: boolean;
+        cellStyles?: boolean;
+        cellDates?: boolean;
+        sheetStubs?: boolean;
+        sheetRows?: number;
+        bookDeps?: boolean;
+        bookFiles?: boolean;
+        bookProps?: boolean;
+        bookSheets?: boolean;
+        bookVBA?: boolean;
+        password?: string;
+        /**
+         * Possible options: 'binary', 'base64', 'buffer', 'file'
+         */
+        type?: string;
+    }
     /**
-     * ordered list of the sheet names in the workbook
+     * @hidden
      */
-    SheetNames: string[];
+    interface IWorkBook {
+        /**
+         * A dictionary of the worksheets in the workbook.
+         * Use SheetNames to reference these.
+         */
+        Sheets: {
+            [sheet: string]: IWorkSheet;
+        };
+        /**
+         * ordered list of the sheet names in the workbook
+         */
+        SheetNames: string[];
+        /**
+         * an object storing the standard properties. wb.Custprops stores custom properties.
+         * Since the XLS standard properties deviate from the XLSX standard, XLS parsing stores core properties in both places.
+         */
+        Props: IProperties;
+    }
     /**
-     * an object storing the standard properties. wb.Custprops stores custom properties.
-     * Since the XLS standard properties deviate from the XLSX standard, XLS parsing stores core properties in both places.
+     * object representing the worksheet
+     * @hidden
      */
-    Props: IProperties;
-}
-/**
- * object representing the worksheet
- * @hidden
- */
-interface IWorkSheet {
-    [cell: string]: IWorkSheetCell;
-}
-/**
- * @hidden
- */
-interface IWorkSheetCell {
+    interface IWorkSheet {
+        [cell: string]: IWorkSheetCell;
+    }
     /**
-     * The Excel Data Type of the cell.
-     * b Boolean, n Number, e error, s String, d Date
+     * @hidden
      */
-    t: string;
+    interface IWorkSheetCell {
+        /**
+         * The Excel Data Type of the cell.
+         * b Boolean, n Number, e error, s String, d Date
+         */
+        t: string;
+        /**
+         * The raw value of the cell.
+         */
+        v: string;
+        /**
+         * rich text encoding (if applicable)
+         */
+        r?: string;
+        /**
+         * HTML rendering of the rich text (if applicable)
+         */
+        h?: string;
+        /**
+         * formatted text (if applicable)
+         */
+        w?: string;
+        /**
+         * cell formula (if applicable)
+         */
+        f?: string;
+        /**
+         * comments associated with the cell **
+         */
+        c?: string;
+        /**
+         * number format string associated with the cell (if requested)
+         */
+        z?: string;
+        /**
+         * cell hyperlink object (.Target holds link, .tooltip is tooltip)
+         */
+        l?: string;
+        /**
+         * the style/theme of the cell (if applicable)
+         */
+        s?: string;
+    }
     /**
-     * The raw value of the cell.
+     * @hidden
      */
-    v: string;
+    interface IUtils {
+        sheet_to_json<T>(worksheet: IWorkSheet): T[];
+        sheet_to_csv(worksheet: IWorkSheet): any;
+        sheet_to_formulae(worksheet: IWorkSheet): any;
+    }
     /**
-     * rich text encoding (if applicable)
+     * @hidden
      */
-    r?: string;
+    var utils: IUtils;
     /**
-     * HTML rendering of the rich text (if applicable)
+     * @hidden
      */
-    h?: string;
+    function readFile(filename: string, opts?: IParsingOptions): IWorkBook;
     /**
-     * formatted text (if applicable)
+     * @hidden
      */
-    w?: string;
-    /**
-     * cell formula (if applicable)
-     */
-    f?: string;
-    /**
-     * comments associated with the cell **
-     */
-    c?: string;
-    /**
-     * number format string associated with the cell (if requested)
-     */
-    z?: string;
-    /**
-     * cell hyperlink object (.Target holds link, .tooltip is tooltip)
-     */
-    l?: string;
-    /**
-     * the style/theme of the cell (if applicable)
-     */
-    s?: string;
-}
-/**
- * @hidden
- */
-interface IUtils {
-    sheet_to_json<T>(worksheet: IWorkSheet): T[];
-    sheet_to_csv(worksheet: IWorkSheet): any;
-    sheet_to_formulae(worksheet: IWorkSheet): any;
-}
-/**
- * @hidden
- */
-declare let XLSX: {
-    utils: IUtils;
-    readFile(filename: string, opts?: IParsingOptions): IWorkBook;
-    read(data: any, opts?: IParsingOptions): IWorkBook;
-};
-/**
- * @hidden
- */
-declare module "xlsx" {
-    export = XLSX;
+    function read(data: any, opts?: IParsingOptions): IWorkBook;
 }
 declare namespace Stimulsoft.Base.Design {
     var IStiDefault: string;
@@ -6080,202 +6094,200 @@ declare module Stimulsoft.Base.Services {
 /**
  * @hidden
  */
-interface JSZip {
+declare namespace Stimulsoft.ExternalLibrary.JSZip {
     /**
-     * Get a file from the archive
-     *
-     * @param Path relative path to file
-     * @return File matching path, null if no file found
+     * @hidden
      */
-    file(path: string): JSZipObject;
+    interface JSZip {
+        /**
+         * Get a file from the archive
+         *
+         * @param Path relative path to file
+         * @return File matching path, null if no file found
+         */
+        file(path: string): JSZipObject;
+        /**
+         * Get files matching a RegExp from archive
+         *
+         * @param path RegExp to match
+         * @return Return all matching files or an empty array
+         */
+        file(path: RegExp): JSZipObject[];
+        /**
+         * Add a file to the archive
+         *
+         * @param path Relative path to file
+         * @param content Content of the file
+         * @param options Optional information about the file
+         * @return JSZip object
+         */
+        file(path: string, data: any, options?: JSZipFileOptions): JSZip;
+        /**
+         * Return an new JSZip instance with the given folder as root
+         *
+         * @param name Name of the folder
+         * @return New  JSZip object with the given folder as root or null
+         */
+        folder(name: string): JSZip;
+        /**
+         * Returns new JSZip instances with the matching folders as root
+         *
+         * @param name RegExp to match
+         * @return New array of JSZipFile objects which match the RegExp
+         */
+        folder(name: RegExp): JSZipObject[];
+        /**
+         * Get all files wchich match the given filter function
+         *
+         * @param predicate Filter function
+         * @return Array of matched elements
+         */
+        filter(predicate: (relativePath: string, file: JSZipObject) => boolean): JSZipObject[];
+        /**
+         * Removes the file or folder from the archive
+         *
+         * @param path Relative path of file or folder
+         * @return Returns the JSZip instance
+         */
+        remove(path: string): JSZip;
+        /**
+         * Generates a new archive
+         *
+         * @param options Optional options for the generator
+         * @return The serialized archive
+         */
+        generate(options?: JSZipGeneratorOptions): any;
+        /**
+         * Deserialize zip file
+         *
+         * @param data Serialized zip file
+         * @param options Options for deserializing
+         * @return Returns the JSZip instance
+         */
+        load(data: any, options: JSZipLoadOptions): JSZip;
+    }
     /**
-     * Get files matching a RegExp from archive
-     *
-     * @param path RegExp to match
-     * @return Return all matching files or an empty array
+     * @hidden
      */
-    file(path: RegExp): JSZipObject[];
+    interface JSZipObject {
+        name: string;
+        dir: boolean;
+        date: Date;
+        comment: string;
+        options: JSZipObjectOptions;
+        asText(): string;
+        asBinary(): string;
+        asArrayBuffer(): ArrayBuffer;
+        asUint8Array(): Uint8Array;
+    }
     /**
-     * Add a file to the archive
-     *
-     * @param path Relative path to file
-     * @param content Content of the file
-     * @param options Optional information about the file
-     * @return JSZip object
+     * @hidden
      */
-    file(path: string, data: any, options?: JSZipFileOptions): JSZip;
+    interface JSZipFileOptions {
+        base64?: boolean;
+        binary?: boolean;
+        date?: Date;
+        compression?: string;
+        comment?: string;
+        optimizedBinaryString?: boolean;
+        createFolders?: boolean;
+    }
     /**
-     * Return an new JSZip instance with the given folder as root
-     *
-     * @param name Name of the folder
-     * @return New JSZip object with the given folder as root or null
+     * @hidden
      */
-    folder(name: string): JSZip;
+    interface JSZipObjectOptions {
+        /** deprecated */
+        base64: boolean;
+        /** deprecated */
+        binary: boolean;
+        /** deprecated */
+        dir: boolean;
+        /** deprecated */
+        date: Date;
+        compression: string;
+    }
     /**
-     * Returns new JSZip instances with the matching folders as root
-     *
-     * @param name RegExp to match
-     * @return New array of JSZipFile objects which match the RegExp
+     * @hidden
      */
-    folder(name: RegExp): JSZipObject[];
+    interface JSZipGeneratorOptions {
+        /** deprecated */
+        base64?: boolean;
+        /** DEFLATE or STORE */
+        compression?: string;
+        /** base64 (default), string, uint8array, blob */
+        type?: string;
+        comment?: string;
+    }
     /**
-     * Get all files wchich match the given filter function
-     *
-     * @param predicate Filter function
-     * @return Array of matched elements
+     * @hidden
      */
-    filter(predicate: (relativePath: string, file: JSZipObject) => boolean): JSZipObject[];
+    interface JSZipLoadOptions {
+        base64?: boolean;
+        checkCRC32?: boolean;
+        optimizedBinaryString?: boolean;
+        createFolders?: boolean;
+    }
     /**
-     * Removes the file or folder from the archive
-     *
-     * @param path Relative path of file or folder
-     * @return Returns the JSZip instance
+     * @hidden
      */
-    remove(path: string): JSZip;
+    interface JSZipSupport {
+        arraybuffer: boolean;
+        uint8array: boolean;
+        blob: boolean;
+        nodebuffer: boolean;
+    }
     /**
-     * Generates a new archive
-     *
-     * @param options Optional options for the generator
-     * @return The serialized archive
+     * @hidden
      */
-    generate(options?: JSZipGeneratorOptions): any;
+    interface DEFLATE {
+        /** pako.deflateRaw, level:0-9 */
+        compress(input: string, compressionOptions: {
+            level: number;
+        }): Uint8Array;
+        compress(input: number[], compressionOptions: {
+            level: number;
+        }): Uint8Array;
+        compress(input: Uint8Array, compressionOptions: {
+            level: number;
+        }): Uint8Array;
+        /** pako.inflateRaw */
+        uncompress(input: string): Uint8Array;
+        uncompress(input: number[]): Uint8Array;
+        uncompress(input: Uint8Array): Uint8Array;
+    }
     /**
-     * Deserialize zip file
-     *
-     * @param data Serialized zip file
-     * @param options Options for deserializing
-     * @return Returns the JSZip instance
+     * @hidden
      */
-    load(data: any, options: JSZipLoadOptions): JSZip;
-}
-/**
- * @hidden
- */
-interface JSZipObject {
-    name: string;
-    dir: boolean;
-    date: Date;
-    comment: string;
-    options: JSZipObjectOptions;
-    asText(): string;
-    asBinary(): string;
-    asArrayBuffer(): ArrayBuffer;
-    asUint8Array(): Uint8Array;
-}
-/**
- * @hidden
- */
-interface JSZipFileOptions {
-    base64?: boolean;
-    binary?: boolean;
-    date?: Date;
-    compression?: string;
-    comment?: string;
-    optimizedBinaryString?: boolean;
-    createFolders?: boolean;
-}
-/**
- * @hidden
- */
-interface JSZipObjectOptions {
-    /** deprecated */
-    base64: boolean;
-    /** deprecated */
-    binary: boolean;
-    /** deprecated */
-    dir: boolean;
-    /** deprecated */
-    date: Date;
-    compression: string;
-}
-/**
- * @hidden
- */
-interface JSZipGeneratorOptions {
-    /** deprecated */
-    base64?: boolean;
-    /** DEFLATE or STORE */
-    compression?: string;
-    /** base64 (default), string, uint8array, blob */
-    type?: string;
-    comment?: string;
-}
-/**
- * @hidden
- */
-interface JSZipLoadOptions {
-    base64?: boolean;
-    checkCRC32?: boolean;
-    optimizedBinaryString?: boolean;
-    createFolders?: boolean;
-}
-/**
- * @hidden
- */
-interface JSZipSupport {
-    arraybuffer: boolean;
-    uint8array: boolean;
-    blob: boolean;
-    nodebuffer: boolean;
-}
-/**
- * @hidden
- */
-interface DEFLATE {
-    /** pako.deflateRaw, level:0-9 */
-    compress(input: string, compressionOptions: {
-        level: number;
-    }): Uint8Array;
-    compress(input: number[], compressionOptions: {
-        level: number;
-    }): Uint8Array;
-    compress(input: Uint8Array, compressionOptions: {
-        level: number;
-    }): Uint8Array;
-    /** pako.inflateRaw */
-    uncompress(input: string): Uint8Array;
-    uncompress(input: number[]): Uint8Array;
-    uncompress(input: Uint8Array): Uint8Array;
-}
-/**
- * @hidden
- */
-declare let JSZip: {
+    var prototype: JSZip;
     /**
-     * Create JSZip instance
+     * @hidden
      */
-    (): JSZip;
+    var support: JSZipSupport;
     /**
-     * Create JSZip instance
-     * If no parameters given an empty zip archive will be created
-     *
-     * @param data Serialized zip archive
-     * @param options Description of the serialized zip archive
+     * @hidden
      */
-    (data: any, options?: JSZipLoadOptions): JSZip;
-    /**
-     * Create JSZip instance
-     */
-    new (): JSZip;
-    /**
-     * Create JSZip instance
-     * If no parameters given an empty zip archive will be created
-     *
-     * @param data Serialized zip archive
-     * @param options Description of the serialized zip archive
-     */
-    new (data: any, options?: JSZipLoadOptions): JSZip;
-    prototype: JSZip;
-    support: JSZipSupport;
-    compressions: {
+    var compressions: {
         DEFLATE: DEFLATE;
     };
-};
+}
 /**
  * @hidden
  */
-declare module "jszip" {
-    export = JSZip;
+declare namespace Stimulsoft.ExternalLibrary {
+    /**
+     * Create JSZip instance
+     * @hidden
+     */
+    function JSZip(): Stimulsoft.ExternalLibrary.JSZip.JSZip;
+    /**
+     * Create JSZip instance
+     * If no parameters given an empty zip archive will be created
+     *
+     * @param data Serialized zip archive
+     * @param options Description of the serialized zip archive
+     * @hidden
+     */
+    function JSZip(data: any, options?: Stimulsoft.ExternalLibrary.JSZip.JSZipLoadOptions): Stimulsoft.ExternalLibrary.JSZip.JSZip;
 }
 declare module Stimulsoft.Base {
     class StiGZipHelper {
@@ -6648,6 +6660,11 @@ declare namespace Stimulsoft.Base {
      */
     interface IStiAppDataSource extends IStiAppCell {
         /**
+         *  Returns a name of the component in the data source.
+         * @return The name of component
+         */
+        getNameInSource(): string;
+        /**
          * Returns a name of the component.
          * @returns The name of component.
          */
@@ -6746,7 +6763,7 @@ declare namespace Stimulsoft.Base {
         getSystemVariableValue(name: string): any;
         /**
          * Returns reference to the app which contains this dictionary.
-         * @returns Reference to the app.
+         * @returns A reference to the app.
          */
         getApp(): IStiApp;
         /**
@@ -7369,6 +7386,7 @@ declare namespace Stimulsoft.Data.Engine {
         getDictionary(): IStiAppDictionary;
         getDataSources(dataNames: List<string>): List<IStiAppDataSource>;
         getKey(): string;
+        isDataSource: boolean;
     }
 }
 declare namespace Stimulsoft.Data.Engine {
@@ -21399,7 +21417,7 @@ declare module Stimulsoft.Report.Components.TextFormats {
         loadFromJsonObject(jObject: StiJson): void;
         static createFromJsonObject(jObject: StiJson): StiFormatService;
         loadFromXml(xmlNode: XmlNode): void;
-        static loadFormatFromXml(xmlNode: XmlNode): StiFormatService;
+        static loadFormatFromXml(xmlNode: XmlNode, report?: StiReport): StiFormatService;
         static loadFromJsonObjectInternal(jObject: StiJson): StiFormatService;
         readonly position: Number;
         readonly sample: Object;
@@ -24230,6 +24248,7 @@ declare module Stimulsoft.Report.Styles {
         color: Color;
         cellBackColor: Color;
         alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
         selectedCellBackColor: Color;
         selectedCellForeColor: Color;
         columnHeaderBackColor: Color;
@@ -24998,6 +25017,7 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         ident: StiElementStyleIdent;
         cellBackColor: Color;
         alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
         selectedCellBackColor: Color;
         selectedCellForeColor: Color;
         columnHeaderBackColor: Color;
@@ -25923,7 +25943,103 @@ declare module Stimulsoft.Report.Styles {
         setStyleToComponent(component: StiComponent): void;
     }
 }
+declare namespace Stimulsoft.Report {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiBaseStyle = Stimulsoft.Report.Styles.StiBaseStyle;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import Color = Stimulsoft.System.Drawing.Color;
+    /**
+     *  Describes the class that contains a style for Map components.
+     */
+    class StiTableStyle extends StiBaseStyle {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        backColor: Color;
+        dataColor: Color;
+        dataForeground: Color;
+        selectedDataColor: Color;
+        selectedDataForeground: Color;
+        alternatingDataColor: Color;
+        alternatingDataForeground: Color;
+        headerColor: Color;
+        headerForeground: Color;
+        hotHeaderColor: Color;
+        footerColor: Color;
+        footerForeground: Color;
+        gridColor: Color;
+        private getColor;
+        /**
+         *  Gets a style from the component.
+         *  @param component Component.
+         */
+        getStyleFromComponent(component: StiComponent, styleElements: StiStyleElements): void;
+        /**
+         *  Sets style to a component.
+         *  @param component Component.
+         */
+        setStyleToComponent(component: StiComponent): void;
+        /**
+         *  Creates a new object of the type StiTableStyle.
+         *  @param name Style name.
+         *  @param description Style description.
+         */
+        constructor(name?: string, description?: string, report?: StiReport);
+    }
+}
+declare module Stimulsoft.Report.Styles {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
+    import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiBrushType = Stimulsoft.Report.StiBrushType;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    class StiChartStyle extends StiBaseStyle implements IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        border: StiBorder;
+        brush: StiBrush;
+        chartAreaBrush: StiBrush;
+        chartAreaBorderColor: Color;
+        chartAreaShowShadow: boolean;
+        seriesLighting: boolean;
+        seriesShowShadow: boolean;
+        seriesLabelsLineColor: Color;
+        trendLineColor: Color;
+        trendLineShowShadow: boolean;
+        seriesLabelsBrush: StiBrush;
+        seriesLabelsColor: Color;
+        seriesLabelsBorderColor: Color;
+        legendBrush: StiBrush;
+        legendLabelsColor: Color;
+        legendBorderColor: Color;
+        legendTitleColor: Color;
+        axisTitleColor: Color;
+        axisLineColor: Color;
+        axisLabelsColor: Color;
+        markerVisible: boolean;
+        interlacingHorBrush: StiBrush;
+        interlacingVertBrush: StiBrush;
+        gridLinesHorColor: Color;
+        gridLinesVertColor: Color;
+        brushType: StiBrushType;
+        styleColors: Color[];
+        basicStyleColor: Color;
+        allowUseBorderFormatting: boolean;
+        allowUseBorderSides: boolean;
+        allowUseBrush: boolean;
+        /** Gets a style from the component. */
+        getStyleFromComponent(component: StiComponent, styleElements: StiStyleElements, componentStyle?: StiBaseStyle): void;
+    }
+}
 declare namespace Stimulsoft.Report.Dashboard.Styles {
+    import StiTableStyle = Stimulsoft.Report.StiTableStyle;
     import IStiGaugeStyle = Stimulsoft.Report.Gauge.IStiGaugeStyle;
     import StiMapStyleFX = Stimulsoft.Report.Maps.StiMapStyleFX;
     import StiDialogStyle = Stimulsoft.Report.Styles.StiDialogStyle;
@@ -25933,9 +26049,12 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
     import Color = Stimulsoft.System.Drawing.Color;
     import IStiChartStyle = Stimulsoft.Report.Chart.IStiChartStyle;
     import FontFamily = Stimulsoft.System.Drawing.FontFamily;
+    import StiChartStyle = Stimulsoft.Report.Styles.StiChartStyle;
     class StiDashboardStyleHelper {
         private static iconFontFamily;
         private static cloneColors;
+        static getCopyChartStyle(chartStyle: IStiChartStyle, element: IStiChartElement): StiChartStyle;
+        static getCopyTableStyle(tableStyle: StiTableElementStyle): StiTableStyle;
         static convertToReportGaugeStyle(element: IStiGaugeElement): StiGaugeStyle;
         static convertToReportPivotTableStyle(element: IStiPivotTableElement): StiCrossTabStyle;
         static convertToReportIndicatorStyle(element: IStiIndicatorElement): StiIndicatorStyle;
@@ -27725,6 +27844,7 @@ declare module Stimulsoft.Report.Dictionary {
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
         loadFromXml(xmlNode: XmlNode): void;
+        getNameInSource(): string;
         getName(): string;
         /**
          *  Returns a DataTable with data from this datasource.
@@ -28373,7 +28493,6 @@ declare module Stimulsoft.Report.Dictionary {
         private static functionsToCompileLower;
         private static functions;
         private static functionsLower;
-        static jsFunctions: Hashtable;
         static removeFunction(functionName: string): void;
         static getFunctionsList(functionName: string): Array<StiFunction>;
         static getFunctionsGrouppedInCategories(): Hashtable;
@@ -28382,7 +28501,6 @@ declare module Stimulsoft.Report.Dictionary {
         static getCategories(): Array<string>;
         static getAssebliesOfFunctions(): string[];
         static addFunction(category: string, groupFunctionName: string, functionName: string, description: string, typeOfFunction: string, returnType: Type, returnDescription?: string, argumentTypes?: Type[], argumentNames?: string[], argumentDescriptions?: string[], jsFunction?: Function): StiFunction;
-        static addJsFunction(functionName: string, jsFunction: Function): void;
         static StiFunctions(): void;
     }
 }
@@ -29579,6 +29697,7 @@ declare namespace Stimulsoft.Report.Dictionary {
         retrieveUsedDataNames(group: string): List<string>;
         getDataSources(dataNames: List<string>): List<IStiAppDataSource>;
         getKey(): string;
+        isDataSource: true;
         /**
          *  Returns a DataTable with data from this datasource.
          *  @returns The DataTable with data.
@@ -30165,7 +30284,7 @@ declare module Stimulsoft.Report.Dictionary {
         getDatabaseInformation(dictionary: StiDictionary): StiDatabaseInformation;
         regData(dictionary: StiDictionary, loadData: boolean): void;
         private getDataSet;
-        getDataSetPrivate(workbook: IWorkBook): DataSet;
+        getDataSetPrivate(workbook: Stimulsoft.ExternalLibrary.XLSX.IWorkBook): DataSet;
         private getType;
         constructor(name?: string, pathData?: string, key?: string, firstRowIsHeader?: boolean);
     }
@@ -30438,6 +30557,7 @@ declare module Stimulsoft.Report.Dictionary {
         argumentNames: string[];
         private _argumentDescriptions;
         argumentDescriptions: string[];
+        jsFunction: Function;
         toString(): string;
         getLongFunctionString(language: StiReportLanguageType): string;
         getFunctionString(language: StiReportLanguageType, addFunctionName?: boolean): string;
@@ -33873,8 +33993,6 @@ declare module Stimulsoft.Report.Export {
         prepareTextForHtml(text: string): string;
         static convertTextWithHtmlTagsToHtmlText(stiText: StiText, text: string): string;
         private static getParagraphString;
-        private getBackgroundImagePath;
-        private getWatermarkImage;
         renderWatermarkText(sWriter: StiHtmlTextWriter, page: StiPage, topPos?: number): void;
         renderWatermarkImage(sWriter: StiHtmlTextWriter, page: StiPage, topPos?: number): void;
         static getImage(assemblyName: string, imageName: string, makeTransparent: boolean): Image;
@@ -34741,6 +34859,7 @@ declare module Stimulsoft.Report.Export {
         static getPenStyleDashString(style: StiPenStyle, step: number, pp: StiPdfData): string;
         static checkShape(shape: StiShape): boolean;
         static renderShape(pp: StiPdfData, imageResolution: number): void;
+        static renderRoundedRectanglePrimitive(pp: StiPdfData): void;
         static renderCheckbox(pp: StiPdfData, checkBoxValue: boolean, storeShading?: boolean): void;
         static getCheckBoxValue(checkbox: StiCheckBox): boolean;
     }
@@ -36145,6 +36264,7 @@ declare module Stimulsoft.Report.Gauge {
         brush: StiBrush;
         borderColor: Color;
         borderWidth: number;
+        foreColor: Color;
         tickMarkMajorBrush: StiBrush;
         tickMarkMajorBorder: StiBrush;
         tickMarkMajorBorderWidth: number;
@@ -36846,55 +36966,6 @@ declare module Stimulsoft.Report.Styles {
         name: string;
     }
 }
-declare module Stimulsoft.Report.Styles {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
-    import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiBrushType = Stimulsoft.Report.StiBrushType;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    class StiChartStyle extends StiBaseStyle implements IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        border: StiBorder;
-        brush: StiBrush;
-        chartAreaBrush: StiBrush;
-        chartAreaBorderColor: Color;
-        chartAreaShowShadow: boolean;
-        seriesLighting: boolean;
-        seriesShowShadow: boolean;
-        seriesLabelsLineColor: Color;
-        trendLineColor: Color;
-        trendLineShowShadow: boolean;
-        seriesLabelsBrush: StiBrush;
-        seriesLabelsColor: Color;
-        seriesLabelsBorderColor: Color;
-        legendBrush: StiBrush;
-        legendLabelsColor: Color;
-        legendBorderColor: Color;
-        legendTitleColor: Color;
-        axisTitleColor: Color;
-        axisLineColor: Color;
-        axisLabelsColor: Color;
-        markerVisible: boolean;
-        interlacingHorBrush: StiBrush;
-        interlacingVertBrush: StiBrush;
-        gridLinesHorColor: Color;
-        gridLinesVertColor: Color;
-        brushType: StiBrushType;
-        styleColors: Color[];
-        basicStyleColor: Color;
-        allowUseBorderFormatting: boolean;
-        allowUseBorderSides: boolean;
-        allowUseBrush: boolean;
-        /** Gets a style from the component. */
-        getStyleFromComponent(component: StiComponent, styleElements: StiStyleElements, componentStyle?: StiBaseStyle): void;
-    }
-}
 declare module Stimulsoft.Report {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
@@ -36912,6 +36983,7 @@ declare module Stimulsoft.Report {
         brush: StiBrush;
         borderColor: Color;
         borderWidth: number;
+        foreColor: Color;
         tickMarkMajorBrush: StiBrush;
         tickMarkMajorBorder: StiBrush;
         tickMarkMinorBrush: StiBrush;
@@ -36970,6 +37042,8 @@ declare namespace Stimulsoft.Report {
         foreColor: Color;
         hotBackColor: Color;
         hotForeColor: Color;
+        positiveColor: Color;
+        negativeColor: Color;
         /**
          *  Gets a style from the component.
          *  @param component Component.
@@ -37205,52 +37279,6 @@ declare module Stimulsoft.Report.Styles {
         private static changeGaugeStyleName;
     }
 }
-declare namespace Stimulsoft.Report {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiBaseStyle = Stimulsoft.Report.Styles.StiBaseStyle;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import Color = Stimulsoft.System.Drawing.Color;
-    /**
-     *  Describes the class that contains a style for Map components.
-     */
-    class StiTableStyle extends StiBaseStyle {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        backColor: Color;
-        dataColor: Color;
-        dataForeground: Color;
-        selectedDataColor: Color;
-        selectedDataForeground: Color;
-        alternatingDataColor: Color;
-        alternatingDataForeground: Color;
-        headerColor: Color;
-        headerForeground: Color;
-        hotHeaderColor: Color;
-        footerColor: Color;
-        footerForeground: Color;
-        gridColor: Color;
-        private getColor;
-        /**
-         *  Gets a style from the component.
-         *  @param component Component.
-         */
-        getStyleFromComponent(component: StiComponent, styleElements: StiStyleElements): void;
-        /**
-         *  Sets style to a component.
-         *  @param component Component.
-         */
-        setStyleToComponent(component: StiComponent): void;
-        /**
-         *  Creates a new object of the type StiTableStyle.
-         *  @param name Style name.
-         *  @param description Style description.
-         */
-        constructor(name?: string, description?: string, report?: StiReport);
-    }
-}
 declare module Stimulsoft.Report.Units {
     import RectangleD = Stimulsoft.System.Drawing.Rectangle;
     import SizeD = Stimulsoft.System.Drawing.Size;
@@ -37466,6 +37494,7 @@ declare module Stimulsoft.Report {
         clones: StiClone[];
         dialogInfo: StiDialogInfo[];
         barcodeTypes: Stimulsoft.Report.BarCodes.StiBarCodeTypeService[];
+        textFormatTypes: string[];
         refNames: string[];
         clean(): void;
     }
@@ -48678,6 +48707,7 @@ declare module Stimulsoft.Report.Gauge {
     class StiGaugeStyleCoreXF implements IStiGaugeStyleCoreXF {
         localizedName: string;
         brush: StiBrush;
+        foreColor: Color;
         borderColor: Color;
         borderWidth: number;
         tickMarkMajorBrush: StiBrush;
@@ -48728,6 +48758,7 @@ declare module Stimulsoft.Report.Gauge {
     class StiGaugeStyleCoreXF25 extends StiGaugeStyleCoreXF {
         readonly localizedName: string;
         readonly brush: StiBrush;
+        readonly foreColor: Color;
         readonly borderColor: Color;
         readonly borderWidth: number;
         readonly tickMarkMajorBrush: StiBrush;
@@ -48777,6 +48808,7 @@ declare module Stimulsoft.Report.Gauge {
         readonly reportStyleName: string;
         readonly brush: StiBrush;
         readonly borderColor: Color;
+        readonly foreColor: Color;
         readonly borderWidth: number;
         readonly tickMarkMajorBrush: StiBrush;
         readonly tickMarkMajorBorder: StiBrush;
@@ -48820,6 +48852,7 @@ declare module Stimulsoft.Report.Gauge {
     class StiGaugeStyleCoreXF24 extends StiGaugeStyleCoreXF {
         localizedName: string;
         brush: StiSolidBrush;
+        foreColor: Color;
         borderColor: Color;
         borderWidth: number;
         tickMarkMajorBrush: StiSolidBrush;
@@ -48864,6 +48897,7 @@ declare module Stimulsoft.Report.Gauge {
     class StiGaugeStyleCoreXF26 extends StiGaugeStyleCoreXF {
         localizedName: string;
         brush: StiSolidBrush;
+        foreColor: Color;
         borderColor: Color;
         borderWidth: number;
         tickMarkMajorBrush: StiSolidBrush;
@@ -48908,6 +48942,7 @@ declare module Stimulsoft.Report.Gauge {
     class StiGaugeStyleCoreXF27 extends StiGaugeStyleCoreXF {
         localizedName: string;
         brush: StiSolidBrush;
+        foreColor: Color;
         borderColor: Color;
         borderWidth: number;
         tickMarkMajorBrush: StiEmptyBrush;
@@ -48952,6 +48987,7 @@ declare module Stimulsoft.Report.Gauge {
     class StiGaugeStyleCoreXF28 extends StiGaugeStyleCoreXF {
         localizedName: string;
         brush: StiSolidBrush;
+        foreColor: Color;
         borderColor: Color;
         borderWidth: number;
         tickMarkMajorBrush: StiEmptyBrush;
@@ -48999,6 +49035,7 @@ declare namespace Stimulsoft.Report.Gauge {
          */
         localizedName: string;
         brush: StiSolidBrush;
+        foreColor: Color;
         borderColor: Color;
         borderWidth: number;
         tickMarkMajorBrush: StiSolidBrush;
@@ -49047,6 +49084,7 @@ declare namespace Stimulsoft.Report.Gauge {
          */
         localizedName: string;
         brush: StiBrush;
+        foreColor: Color;
         borderColor: Color;
         borderWidth: number;
         tickMarkMajorBrush: StiBrush;
@@ -49093,6 +49131,7 @@ declare namespace Stimulsoft.Report.Gauge {
          */
         localizedName: string;
         brush: StiBrush;
+        foreColor: System.Drawing.Color;
         markerBrush: StiBrush;
         linearMarkerBorder: StiBrush;
         linearScaleBrush: StiBrush;
@@ -49947,6 +49986,7 @@ declare namespace Stimulsoft.Dashboard.Components.Chart {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components {
+    import StiReport = Stimulsoft.Report.StiReport;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import IStiLocalizedMeter = Stimulsoft.Base.Meters.IStiLocalizedMeter;
     import IStiMeter = Stimulsoft.Base.Meters.IStiMeter;
@@ -49961,7 +50001,7 @@ declare namespace Stimulsoft.Dashboard.Components {
         loadFromString(str: string): void;
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean, report?: StiReport): void;
         getUniqueCode(): number;
         expression: string;
         label: string;
@@ -50271,6 +50311,7 @@ declare namespace Stimulsoft.Dashboard.Interactions {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.Table {
+    import StiReport = Stimulsoft.Report.StiReport;
     import IStiElementInteraction = Stimulsoft.Report.Dashboard.IStiElementInteraction;
     import StiTableColumnDashboardInteraction = Stimulsoft.Dashboard.Interactions.StiTableColumnDashboardInteraction;
     import IStiDashboardInteraction = Stimulsoft.Report.Dashboard.IStiDashboardInteraction;
@@ -50290,7 +50331,7 @@ declare namespace Stimulsoft.Dashboard.Components.Table {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean, report?: StiReport): void;
         /**
          *  Creates a new  object that is a copy of the current instance.
          *  @returns A new object that is a copy of this instance.
@@ -50380,6 +50421,7 @@ declare namespace Stimulsoft.Dashboard.Components.Table {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.Table {
+    import StiReport = Stimulsoft.Report.StiReport;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import Color = Stimulsoft.System.Drawing.Color;
@@ -50393,7 +50435,7 @@ declare namespace Stimulsoft.Dashboard.Components.Table {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean, report?: StiReport): void;
         getUniqueCode(): number;
         /**
          *  ID code of this meter. Used in JSON saving.
@@ -50407,6 +50449,7 @@ declare namespace Stimulsoft.Dashboard.Components.Table {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.Table {
+    import StiReport = Stimulsoft.Report.StiReport;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJson = Stimulsoft.Base.StiJson;
@@ -50420,7 +50463,7 @@ declare namespace Stimulsoft.Dashboard.Components.Table {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean, report?: StiReport): void;
         /**
          *  Gets or sets the type of the sparklines.
          */
@@ -50469,6 +50512,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.Table {
+    import StiReport = Stimulsoft.Report.StiReport;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import StiJson = Stimulsoft.Base.StiJson;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
@@ -50482,7 +50526,7 @@ declare namespace Stimulsoft.Dashboard.Components.Table {
         implements(): string[];
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
+        loadFromXml(xmlNode: XmlNode, isDocument: boolean, report?: StiReport): void;
         /**
          *  ID code of this meter. Used in JSON saving.
          */
@@ -51248,11 +51292,12 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.Helpers {
+    import StiReport = Stimulsoft.Report.StiReport;
     import StiJson = Stimulsoft.Base.StiJson;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     class StiMeterLoader {
         static loadFromJson(json: StiJson): StiMeter;
-        static loadFromXml(xmlNode: XmlNode, isDocument: boolean): StiMeter;
+        static loadFromXml(xmlNode: XmlNode, isDocument: boolean, report?: StiReport): StiMeter;
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.Chart {
@@ -54423,6 +54468,7 @@ declare namespace Stimulsoft.Dashboard.Components {
         getDictionary(): IStiAppDictionary;
         getDataSources(dataNames: List<string>): List<IStiAppDataSource>;
         getKey(): string;
+        isDataSource: boolean;
         /**
          *  Gets a service category.
          */
@@ -54508,6 +54554,7 @@ declare namespace Stimulsoft.Dashboard.Design.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Design.Helpers {
+    import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
     import IStiHtmlTextHelper = Stimulsoft.Report.Dashboard.IStiHtmlTextHelper;
     import Font = Stimulsoft.System.Drawing.Font;
     import StiRichBoxControl = Stimulsoft.Dashboard.Design.Helpers.StiRichBoxControl;
@@ -54538,6 +54585,7 @@ declare namespace Stimulsoft.Dashboard.Design {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiTextOptions = Stimulsoft.Base.Drawing.StiTextOptions;
     import Size = Stimulsoft.System.Drawing.Size;
     import Graphics = Stimulsoft.System.Drawing.Graphics;
@@ -54550,6 +54598,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
     import Size = Stimulsoft.System.Drawing.Size;
     import Font = Stimulsoft.System.Drawing.Font;
@@ -54561,6 +54610,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import List = Stimulsoft.System.Collections.List;
     class StiElementLocationHelper {
@@ -54576,6 +54626,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     class StiElementLocationKey {
         rectKey: Rectangle;
         countKey: number;
@@ -54618,12 +54669,14 @@ declare namespace Stimulsoft.Dashboard.Render {
     }
 }
 declare namespace Stimulsoft.Dashboard.Visuals {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiContext = Stimulsoft.Base.Context.StiContext;
     class StiVisual {
         draw(context: StiContext, rect: Rectangle): void;
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Point = Stimulsoft.System.Drawing.Point;
     import StiRotationMode = Stimulsoft.Base.Drawing.StiRotationMode;
     import Font = Stimulsoft.System.Drawing.Font;
@@ -54760,6 +54813,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import IStiTitle = Stimulsoft.Report.Dashboard.IStiTitle;
     import Font = Stimulsoft.System.Drawing.Font;
     import Graphics = Stimulsoft.System.Drawing.Graphics;
@@ -55101,6 +55155,7 @@ declare namespace Stimulsoft.Dashboard.Export.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Drawing.Helpers {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiBorder = Stimulsoft.Base.Drawing.StiBorder;
     class StiElementControlPainter {
         static getBorderContentRect(rect: Rectangle, border: StiBorder): Rectangle;
@@ -55247,6 +55302,7 @@ declare namespace Stimulsoft.Dashboard.Drawing.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Helpers {
+    import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
     import StiHorAlignment = Stimulsoft.Base.Drawing.StiHorAlignment;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
@@ -55289,6 +55345,7 @@ declare namespace Stimulsoft.Dashboard.Export.Painters.Table {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Painters.Table {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiTableColumn = Stimulsoft.Dashboard.Components.Table.StiTableColumn;
     import StiIndicatorColumn = Stimulsoft.Dashboard.Components.Table.StiIndicatorColumn;
@@ -55379,6 +55436,7 @@ declare namespace Stimulsoft.Dashboard.Export.Settings {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Promise = Stimulsoft.System.Promise;
     import Type = Stimulsoft.System.Type;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
@@ -55434,6 +55492,7 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Promise = Stimulsoft.System.Promise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
@@ -55469,6 +55528,7 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Promise = Stimulsoft.System.Promise;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
@@ -55492,6 +55552,7 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Promise = Stimulsoft.System.Promise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
@@ -55501,6 +55562,7 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Promise = Stimulsoft.System.Promise;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
@@ -55510,6 +55572,7 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Promise = Stimulsoft.System.Promise;
     import IStiTableElement = Stimulsoft.Report.Dashboard.IStiTableElement;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
@@ -55541,6 +55604,7 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import Promise = Stimulsoft.System.Promise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
@@ -55718,7 +55782,7 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
         static getFilterItemsAsync(report: StiReport, requestParams: any): Promise<any>;
         static filterRuleItem(filterRule: StiDataFilterRule): any;
         private static sortFilterMenuItem;
-        static getFilteredItemsHelperAsync(report: StiReport, query: IStiQueryObject, meters: List<IStiMeter>, columnIndex: number, sorts: List<StiDataSortRule>, filters: List<StiDataFilterRule>, element?: IStiElement): Promise<any>;
+        static getFilterItemsHelperAsync(query: IStiQueryObject, meters: List<IStiMeter>, columnIndex: number, sorts: List<StiDataSortRule>, filters: List<StiDataFilterRule>, element?: IStiElement): Promise<any>;
         static typeToString(type: Type): string;
         static toFilterString(value: any, type?: Type): string;
         static toDisplayString(value: any, type?: Type): string;
@@ -56216,7 +56280,7 @@ declare module Stimulsoft.Viewer {
         private invokeGetReport;
         private invokeOnGetSubReport;
         private callRemoteApi;
-        private getReportPage;
+        private getReportPageAsync;
         private getPagesArray;
         private getReportFileName;
         showProcessIndicator(): void;
@@ -57935,6 +57999,7 @@ declare module Stimulsoft.Designer {
         static changeSizeComponents(report: StiReport, param: any, callbackResult: any): void;
         static createMovingCopyComponent(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): void;
         static updateReportAliases(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): void;
+        private static getPageTypeFromContent;
         static openPage(report: StiReport, param: any, callbackResult: any): void;
         static checkSvgContent(checkObject: any): Promise<void>;
     }
@@ -58395,7 +58460,8 @@ declare namespace Stimulsoft.Designer {
         static getActionRules(dataTransformation: StiDataTransformation): any[];
         static applyProperties(dataTransformation: StiDataTransformation, dataSourceProps: any, report: StiReport): void;
         static getDataGridContentAsync(dataTransformation?: StiDataTransformation): Promise<any>;
-        static getFilteredItemsHelperAsync(report: StiReport, parameters: any): Promise<any>;
+        static getFilterItemsHelperAsync2(dataTransformation: StiDataTransformation, parameters: any): Promise<any>;
+        static getFilterItemsHelperAsync(report: StiReport, parameters: any): Promise<any>;
         static executeJSCommandAsync(report: StiReport, param: any, callbackResult: any): Promise<void>;
     }
 }
