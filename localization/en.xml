@@ -191,6 +191,11 @@
     <Labels>Labels</Labels>
     <LabelsCenter>Center</LabelsCenter>
     <LabelSeriesName>Series Name:</LabelSeriesName>
+	<LabelsStyleValue>Value</LabelsStyleValue>
+	<LabelsStylePercentOfTotal>Percent Of Total</LabelsStylePercentOfTotal>
+	<LabelsStyleCategory>Category</LabelsStyleCategory>
+	<LabelsStyleCategoryValue>Category - Value</LabelsStyleCategoryValue>
+	<LabelsStyleCategoryPercentOfTotal>Category - Percent Of Total</LabelsStyleCategoryPercentOfTotal>
     <LabelsInside>Inside</LabelsInside>
     <LabelsInsideBase>Inside Base</LabelsInsideBase>
     <LabelsInsideEnd>Inside End</LabelsInsideEnd>
@@ -461,6 +466,9 @@
     <TextLastName>Last Name</TextLastName>
     <TextModify>Modify</TextModify>
     <TextNoNotifications>No Notifications</TextNoNotifications>
+    <TextNoFiles>No files</TextNoFiles>
+    <TextNoRecentFiles>No recent files</TextNoRecentFiles>
+    <TextNoFavoriteFiles>No favorite files</TextNoFavoriteFiles>
     <TextOwner>Owner</TextOwner>
     <TextProfile>Profile</TextProfile>
     <TextReports>Reports</TextReports>
@@ -600,10 +608,15 @@
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
+    <ReportSnapshot>Report Snapshot</ReportSnapshot>
+    <DrillUp>Drill Up</DrillUp>
+    <DrillDown>Drill Down</DrillDown>
+    <DrillDownSelected>Drill Down Selected</DrillDownSelected>
     <AddRange>Add Range</AddRange>
     <AfterGroupingData>Apply after grouping data</AfterGroupingData>
     <AllowUserFiltering>Allow User Filtering</AllowUserFiltering>
     <AllowUserSorting>Allow User Sorting</AllowUserSorting>
+    <AllowUserDrillDown>Allow User Drill Down</AllowUserDrillDown>
     <Blanks>(Blanks)</Blanks>
     <BooleanFilters>Boolean Filters</BooleanFilters>
     <CannotLoadDashboard>You cannot load a report with dashboards.</CannotLoadDashboard>
@@ -612,6 +625,8 @@
     <ClearAllFormatting>Clear All Formatting</ClearAllFormatting>
     <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
     <ColorScale>Color Scale</ColorScale>
+    <FieldInteractions>Field Interactions</FieldInteractions>
+	<ColumnInteractions>Column Interactions</ColumnInteractions>
     <CustomFilter>Custom &amp;Filter...</CustomFilter>
     <DataBars>Data Bars</DataBars>
     <DataNotDefined>Data is not defined</DataNotDefined>
@@ -649,6 +664,8 @@
     <RemoveField>Remove Field</RemoveField>
     <ReplaceValues>Replace Values</ReplaceValues>
     <RowsCount>Rows Count</RowsCount>
+    <RunFieldsEditor>Run Fields Editor</RunFieldsEditor>
+    <RunFieldsEditorInfo>Run the Fields Editor to change interaction of each table column.</RunFieldsEditorInfo>
     <SelectAll>(Select &amp;All)</SelectAll>
     <ShowAllValue>Show (All) Value</ShowAllValue>
     <ShowAsPercentages>Show as Percentages</ShowAsPercentages>
@@ -833,6 +850,7 @@
     <AllowPrintDocument>Allow Print Document</AllowPrintDocument>
     <Auto>Auto</Auto>
     <BandsFilter>Bands Filter:</BandsFilter>
+    <CancelExport>Cancel Export</CancelExport>
     <Color>Color</Color>
     <Compressed>Compressed</Compressed>
     <CompressToArchive>Compress to Archive</CompressToArchive>
@@ -987,6 +1005,7 @@
     <PngFiles>PNG Images (*.png)|*.png</PngFiles>
     <Ppt2007Files>Microsoft PowerPoint 2007/2013 Files (*.pptx)|*.pptx</Ppt2007Files>
     <ReportFiles>Report Templates (*.mrt)|*.mrt</ReportFiles>
+    <ReportEmbededDataFiles>Report Templates with Embedded Data (*.mrt)|*.mrt</ReportEmbededDataFiles>
     <RtfFiles>Rich Text (*.rtf)|*.rtf</RtfFiles>
     <StandaloneReportFiles>Standalone Reports (*.exe)|*.exe</StandaloneReportFiles>
     <StylesFiles>Report Styles (*.sts)|*.sts</StylesFiles>
@@ -1099,6 +1118,9 @@
     <title>Cross-Tab Designer</title>
   </FormCrossTabDesigner>
   <FormDatabaseEdit>
+    <ClientId>Client Id</ClientId>
+    <ClientSecret>Client Secret</ClientSecret>
+    <SpreadsheetId>Spreadsheet Id</SpreadsheetId>
     <ConnectionString>Connection String:</ConnectionString>
     <DashboardConnections>Dashboard Connections</DashboardConnections>
     <DB2Edit>Edit IBM DB2 Connection</DB2Edit>
@@ -2011,6 +2033,7 @@
     <TouchDescription>Optimized for used with touch</TouchDescription>
   </Interface>
   <MainMenu>
+    <menuEmbedAllDataToResources>Embed all data to resources</menuEmbedAllDataToResources>
     <menuCheckIssues>Check for Issues</menuCheckIssues>
     <menuContextClone>Clone...</menuContextClone>
     <menuContextDesign>Design...</menuContextDesign>
@@ -2148,6 +2171,8 @@
       It contains a link to confirm your registration. To complete the registration please follow the link from the email you received.
     </TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>This Field is Not Specified!</ThisFieldIsNotSpecified>
+    <ThisFunctionEmbedsAllReportDataToTheReport>This function embeds all report data to the report resources and makes your report standalone. Be careful! All your data settings will be changed and can't be restored.Please, make a backup copy of your report firstly.{0}Are you sure?</ThisFunctionEmbedsAllReportDataToTheReport>
+    <YouNeedToLoginFirstToStartUsingTheSoftware>You need to login first to start using the software. The application will close if you quit the login form.</YouNeedToLoginFirstToStartUsingTheSoftware>
   </Messages>
   <Notices>
     <AccessDenied>Access Denied!</AccessDenied>
@@ -2360,6 +2385,7 @@
     <MoveRightFreeSpace>Moves a component to the right side of a free space, increasing the height of the component to the height of free space.</MoveRightFreeSpace>
   </PlacementComponent>
   <PropertyCategory>
+    <LabelsCategory>Labels</LabelsCategory>
     <AppearanceCategory>Appearance</AppearanceCategory>
     <AreaCategory>Area</AreaCategory>
     <ArgumentCategory>Argument</ArgumentCategory>
@@ -2455,6 +2481,7 @@
     <BlueViolet>Blue Violet</BlueViolet>
     <Brown>Brown</Brown>
     <BurlyWood>Burly Wood</BurlyWood>
+    <Carmine>Carmine</Carmine>
     <CadetBlue>Cadet Blue</CadetBlue>
     <Chartreuse>Chartreuse</Chartreuse>
     <Chocolate>Chocolate</Chocolate>
@@ -2467,6 +2494,7 @@
     <DarkCyan>Dark Cyan</DarkCyan>
     <DarkGoldenrod>Dark Goldenrod</DarkGoldenrod>
     <DarkGray>Dark Gray</DarkGray>
+    <VeryDarkGray>Very Dark Gray</VeryDarkGray>
     <DarkGreen>Dark Green</DarkGreen>
     <DarkKhaki>Dark Khaki</DarkKhaki>
     <DarkMagenta>Dark Magenta</DarkMagenta>
@@ -2585,6 +2613,11 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
+    <StiChartLabelsStyleValue>Value</StiChartLabelsStyleValue>
+    <StiChartLabelsStylePercentOfTotal>Percent Of Total</StiChartLabelsStylePercentOfTotal>
+    <StiChartLabelsStyleCategory>Category</StiChartLabelsStyleCategory>
+    <StiChartLabelsStyleCategoryValue>Category - Value</StiChartLabelsStyleCategoryValue>
+    <StiChartLabelsStyleCategoryPercentOfTotal>Category - Percent Of Total</StiChartLabelsStyleCategoryPercentOfTotal>
     <boolFalse>False</boolFalse>
     <boolTrue>True</boolTrue>
     <BorderStyleFixed3D>Fixed 3D</BorderStyleFixed3D>
@@ -2824,6 +2857,7 @@
     <StiImageRotationRotate90CW>Rotate 90° CW</StiImageRotationRotate90CW>
     <StiInteractionOnClick>None</StiInteractionOnClick>
     <StiInteractionOnClickApplyFilter>Apply Filter</StiInteractionOnClickApplyFilter>
+    <StiInteractionOnClickDrillDown>Drill Down</StiInteractionOnClickDrillDown>
     <StiInteractionOnClickOpenHyperlink>Open Hyperlink</StiInteractionOnClickOpenHyperlink>
     <StiInteractionOnClickShowDashboard>Show Dashboard</StiInteractionOnClickShowDashboard>
     <StiInteractionOnHoverNone>None</StiInteractionOnHoverNone>
@@ -2879,6 +2913,16 @@
     <StiNestedFactorNormal>Normal</StiNestedFactorNormal>
     <StiNumberOfPassDoublePass>Double Pass</StiNumberOfPassDoublePass>
     <StiNumberOfPassSinglePass>Single Pass</StiNumberOfPassSinglePass>
+    <StiOnlineMapLocationTypeAdminDivision1>AdminDivision1</StiOnlineMapLocationTypeAdminDivision1>
+    <StiOnlineMapLocationTypeAdminDivision2>AdminDivision2</StiOnlineMapLocationTypeAdminDivision2>
+    <StiOnlineMapLocationTypeAuto>Auto</StiOnlineMapLocationTypeAuto>
+    <StiOnlineMapLocationTypeCountryRegion>CountryRegion</StiOnlineMapLocationTypeCountryRegion>
+    <StiOnlineMapLocationTypeNeighborhood>Neighborhood</StiOnlineMapLocationTypeNeighborhood>
+    <StiOnlineMapLocationTypePopulatedPlace>PopulatedPlace</StiOnlineMapLocationTypePopulatedPlace>
+    <StiOnlineMapLocationTypePostcode1>Postcode1</StiOnlineMapLocationTypePostcode1>
+    <StiOnlineMapLocationTypePostcode2>Postcode2</StiOnlineMapLocationTypePostcode2>
+    <StiOnlineMapLocationTypePostcode3>Postcode3</StiOnlineMapLocationTypePostcode3>
+    <StiOnlineMapLocationTypePostcode4>Postcode4</StiOnlineMapLocationTypePostcode4>
     <StiOrientationHorizontal>Horizontal</StiOrientationHorizontal>
     <StiOrientationHorizontalRight>Horizontal Right</StiOrientationHorizontalRight>
     <StiOrientationVertical>Vertical</StiOrientationVertical>
@@ -3824,6 +3868,7 @@
     <ReportCacheMode>Report Cache Mode</ReportCacheMode>
     <ReportDescription>Report Description</ReportDescription>
     <ReportImage>Report Image</ReportImage>
+    <ReportIcon>Report Icon</ReportIcon>
     <ReportName>Report Name</ReportName>
     <ReportUnit>Report Unit</ReportUnit>
     <RequestFromUser>Request from User</RequestFromUser>

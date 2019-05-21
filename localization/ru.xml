@@ -198,6 +198,11 @@
     <LabelsOutside>Снаружи</LabelsOutside>
     <LabelsOutsideBase>Снаружи в начале</LabelsOutsideBase>
     <LabelsOutsideEnd>Снаружи в конце</LabelsOutsideEnd>
+    <LabelsStyleCategory>Категория</LabelsStyleCategory>
+    <LabelsStyleCategoryPercentOfTotal>Категория - Процент от общего</LabelsStyleCategoryPercentOfTotal>
+    <LabelsStyleCategoryValue>Категория - Значение</LabelsStyleCategoryValue>
+    <LabelsStylePercentOfTotal>Процент от общего</LabelsStylePercentOfTotal>
+    <LabelsStyleValue>Значение</LabelsStyleValue>
     <LabelsTwoColumns>Две колонки</LabelsTwoColumns>
     <LabelTextAfter>Текст после:</LabelTextAfter>
     <LabelTextBefore>Текст до:</LabelTextBefore>
@@ -460,7 +465,10 @@
     <TextItemsWorkspace>Рабочее пространство</TextItemsWorkspace>
     <TextLastName>Фамилия</TextLastName>
     <TextModify>Изменение</TextModify>
+    <TextNoFavoriteFiles>Нету избранных файлов</TextNoFavoriteFiles>
     <TextNoNotifications>Нет уведомлений</TextNoNotifications>
+    <TextNoFiles>Нету файлов</TextNoFiles>
+    <TextNoRecentFiles>Нету последних файлов</TextNoRecentFiles>
     <TextOwner>Владелец</TextOwner>
     <TextProfile>Профиль</TextProfile>
     <TextReports>Отчеты</TextReports>
@@ -602,6 +610,7 @@
   <Dashboard>
     <AddRange>Добавить диапазон</AddRange>
     <AfterGroupingData>Применить после группировки</AfterGroupingData>
+    <AllowUserDrillDown>Разрешить пользовательскую детализацию</AllowUserDrillDown>
     <AllowUserFiltering>Разрешить пользовательскую фильтрацию</AllowUserFiltering>
     <AllowUserSorting>Разрешить пользовательскую сортировку</AllowUserSorting>
     <Blanks>(Пробелы)</Blanks>
@@ -612,6 +621,7 @@
     <ClearAllFormatting>Очистить все форматирование</ClearAllFormatting>
     <ClearFilterFrom>Очистить фильтр от '{0}'</ClearFilterFrom>
     <ColorScale>Цветовая шкала</ColorScale>
+    <ColumnInteractions>Взаимодействие колонок</ColumnInteractions>
     <CustomFilter>Пользовательский фильтр ...</CustomFilter>
     <DataBars>Гистограмма</DataBars>
     <DataNotDefined>Данные не указаны</DataNotDefined>
@@ -619,10 +629,14 @@
     <Dimension>Измерение</Dimension>
     <Dimensions>Измерения</Dimensions>
     <DragDropDataFromDictionary>Перетащите данные из Словаря данных</DragDropDataFromDictionary>
+    <DrillDown>Детализация</DrillDown>
+    <DrillDownSelected>Детализация выделенных</DrillDownSelected>
+    <DrillUp>Детализация на предыдущем уровне</DrillUp>
     <DuplicateField>Создать копию поля</DuplicateField>
     <EditExpression>Изменить выражение</EditExpression>
     <EmptyDashboardFooter>Перетащите компонент из Инструментария или данные из Словаря данных</EmptyDashboardFooter>
     <EmptyDashboardHeader>Пустая панель индикаторов</EmptyDashboardHeader>
+    <FieldInteractions>Взаимодействие полей</FieldInteractions>
     <FieldTypeRestrictionHint>Только поля указанного '{0}' типа могут быть использованы!</FieldTypeRestrictionHint>
     <FirstLastPoints>Первая / Последняя точки</FirstLastPoints>
     <FirstRowIndex>Индекс первой строки</FirstRowIndex>
@@ -648,7 +662,10 @@
     <RemoveAllFields>Удалить все поля</RemoveAllFields>
     <RemoveField>Удалить поле</RemoveField>
     <ReplaceValues>Заменить значения</ReplaceValues>
+    <ReportSnapshot>Report Snapshot</ReportSnapshot>
     <RowsCount>Количество строк</RowsCount>
+    <RunFieldsEditor>Запустить Редактор Полей</RunFieldsEditor>
+    <RunFieldsEditorInfo>Запустить Редактор Полей для изменения взяимодействия каждой колонки таблицы.</RunFieldsEditorInfo>
     <SelectAll>(В&amp;ыбрать все)</SelectAll>
     <ShowAllValue>Показывать (Все) элемент</ShowAllValue>
     <ShowAsPercentages>Показать в процентах</ShowAsPercentages>
@@ -833,6 +850,7 @@
     <AllowPrintDocument>Разрешить печать документа</AllowPrintDocument>
     <Auto>Авто</Auto>
     <BandsFilter>Фильтр бэндов:</BandsFilter>
+    <CancelExport>Отмена экспорта</CancelExport>
     <Color>Цвет</Color>
     <Compressed>Сжатый</Compressed>
     <CompressToArchive>Сжать в архив</CompressToArchive>
@@ -987,6 +1005,7 @@
     <PdfFiles>Adobe PDF файлы (*.pdf)|*.pdf</PdfFiles>
     <PngFiles>PNG изображения (*.png)|*.png</PngFiles>
     <Ppt2007Files>Microsoft PowerPoint 2007/2013 файлы (*.pptx)|*.pptx</Ppt2007Files>
+    <ReportEmbededDataFiles>Шаблоны отчетов со встроенными данными (*.mrt)|*.mrt</ReportEmbededDataFiles>
     <ReportFiles>Шаблоны отчетов (*.mrt)|*.mrt</ReportFiles>
     <RtfFiles>Текст в формате Rich Text (*.rtf)|*.rtf</RtfFiles>
     <StandaloneReportFiles>Автономные отчеты (*.exe)|*.exe</StandaloneReportFiles>
@@ -1100,6 +1119,8 @@
     <title>Редактор Кросс-Отчета</title>
   </FormCrossTabDesigner>
   <FormDatabaseEdit>
+    <ClientId>Идентификатор клиента</ClientId>
+    <ClientSecret>Секрет клиента</ClientSecret>
     <ConnectionString>Строка соединения:</ConnectionString>
     <DashboardConnections>Соединения панели индикаторов</DashboardConnections>
     <DB2Edit>Новое IBM DB2 соединение</DB2Edit>
@@ -1138,6 +1159,7 @@
     <RelationDirection>Направление связи:</RelationDirection>
     <ReportConnections>Соединения отчета</ReportConnections>
     <SelectData>Выберите данные</SelectData>
+    <SpreadsheetId>Идентификатор таблицы</SpreadsheetId>
     <SqlCeEdit>Редактировать SQLServerCE соединение</SqlCeEdit>
     <SqlCeNew>Новое SQLServerCE соединение</SqlCeNew>
     <SqlEdit>Изменение SQL соединения</SqlEdit>
@@ -2066,6 +2088,7 @@
     <menuEditUndoText>&amp;Отменить {0}</menuEditUndoText>
     <menuEditVariableNew>Новая переменная...</menuEditVariableNew>
     <menuEditViewData>Просмотр данных...</menuEditViewData>
+    <menuEmbedAllDataToResources>Встроить все данные в ресурсы</menuEmbedAllDataToResources>
     <menuFile>&amp;Файл</menuFile>
     <menuFileClose>&amp;Закрыть</menuFileClose>
     <menuFileDashboardDelete>Удалить панель индикаторов</menuFileDashboardDelete>
@@ -2157,6 +2180,7 @@
     <ShareYourReportYouShouldSave>Для того, чтобы предоставить общий доступ к отчету, его необходимо сохранить в Stimulsoft Cloud!</ShareYourReportYouShouldSave>
     <TextRegistrationSuccessfully>Регистрация прошла успешно!</TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>Это поле не заполнено!</ThisFieldIsNotSpecified>
+    <ThisFunctionEmbedsAllReportDataToTheReport>Эта функция встраивает все данные отчета в ресурсы отчета и делает отчет автономным. Будьте осторожны! Все настройки данных будут изменены и не могут быть восстановлены после данного действия. Сначала необходимо сделать резервную копию отчета. {0} Вы уверены?</ThisFunctionEmbedsAllReportDataToTheReport>
   </Messages>
   <Notices>
     <AccessDenied>Доступ запрещен!</AccessDenied>
@@ -2447,6 +2471,7 @@
     <ImageCategory>Изображение</ImageCategory>
     <IndicatorCategory>Индикатор</IndicatorCategory>
     <InterlacingCategory>Чередование</InterlacingCategory>
+    <LabelsCategory>Метки</LabelsCategory>
     <LegendCategory>Легенда</LegendCategory>
     <ListBoxCategory>Список</ListBoxCategory>
     <MainCategory>Основные</MainCategory>
@@ -2506,6 +2531,7 @@
     <BlueViolet>Сине-фиолетовый</BlueViolet>
     <Brown>Коричневый</Brown>
     <BurlyWood>Древесный</BurlyWood>
+    <Carmine>Кармин</Carmine>
     <CadetBlue>Серо-синий</CadetBlue>
     <Chartreuse>Зеленовато-желтый</Chartreuse>
     <Chocolate>Шоколадный</Chocolate>
@@ -2518,6 +2544,7 @@
     <DarkCyan>Циан темный</DarkCyan>
     <DarkGoldenrod>Темно-золотистый</DarkGoldenrod>
     <DarkGray>Темно-серый</DarkGray>
+    <VeryDarkGray>Очень темно-серый</VeryDarkGray>
     <DarkGreen>Темно-зеленый</DarkGreen>
     <DarkKhaki>Хаки темный</DarkKhaki>
     <DarkMagenta>Фуксин темный</DarkMagenta>
@@ -2753,6 +2780,11 @@
     <StiCapStyleOval>Овальная стрелка</StiCapStyleOval>
     <StiCapStyleSquare>Квадратная стрелка</StiCapStyleSquare>
     <StiCapStyleStealth>Вогнутая стрелка</StiCapStyleStealth>
+    <StiChartLabelsStyleCategory>Категория</StiChartLabelsStyleCategory>
+    <StiChartLabelsStyleCategoryPercentOfTotal>Категория - Процент от общего</StiChartLabelsStyleCategoryPercentOfTotal>
+    <StiChartLabelsStyleCategoryValue>Категория - Значение</StiChartLabelsStyleCategoryValue>
+    <StiChartLabelsStylePercentOfTotal>Процент от общего</StiChartLabelsStylePercentOfTotal>
+    <StiChartLabelsStyleValue>Значение</StiChartLabelsStyleValue>
     <StiChartTitleDockBottom>Внизу</StiChartTitleDockBottom>
     <StiChartTitleDockLeft>Слева</StiChartTitleDockLeft>
     <StiChartTitleDockRight>Справа</StiChartTitleDockRight>
@@ -2875,6 +2907,7 @@
     <StiImageRotationRotate90CW>Повернуть на  90° по часовой стрелке</StiImageRotationRotate90CW>
     <StiInteractionOnClick>Нет</StiInteractionOnClick>
     <StiInteractionOnClickApplyFilter>Применять фильтр</StiInteractionOnClickApplyFilter>
+    <StiInteractionOnClickDrillDown>Детализация</StiInteractionOnClickDrillDown>
     <StiInteractionOnClickOpenHyperlink>Открыть гиперссылку</StiInteractionOnClickOpenHyperlink>
     <StiInteractionOnClickShowDashboard>Показать приборную панель</StiInteractionOnClickShowDashboard>
     <StiInteractionOnHoverNone>Нет</StiInteractionOnHoverNone>
@@ -2930,6 +2963,16 @@
     <StiNestedFactorNormal>Нормальный</StiNestedFactorNormal>
     <StiNumberOfPassDoublePass>Два прохода</StiNumberOfPassDoublePass>
     <StiNumberOfPassSinglePass>Один проход</StiNumberOfPassSinglePass>
+    <StiOnlineMapLocationTypeAdminDivision1>Административное деление первого уровня</StiOnlineMapLocationTypeAdminDivision1>
+    <StiOnlineMapLocationTypeAdminDivision2>Административное деление второго уровня</StiOnlineMapLocationTypeAdminDivision2>
+    <StiOnlineMapLocationTypeAuto>Авто</StiOnlineMapLocationTypeAuto>
+    <StiOnlineMapLocationTypeCountryRegion>Страна или область</StiOnlineMapLocationTypeCountryRegion>
+    <StiOnlineMapLocationTypeNeighborhood>Окрестности</StiOnlineMapLocationTypeNeighborhood>
+    <StiOnlineMapLocationTypePopulatedPlace>Населеннй пункт</StiOnlineMapLocationTypePopulatedPlace>
+    <StiOnlineMapLocationTypePostcode1>Почтовый индекс 1</StiOnlineMapLocationTypePostcode1>
+    <StiOnlineMapLocationTypePostcode2>Почтовый индекс 2</StiOnlineMapLocationTypePostcode2>
+    <StiOnlineMapLocationTypePostcode3>Почтовый индекс 3</StiOnlineMapLocationTypePostcode3>
+    <StiOnlineMapLocationTypePostcode4>Почтовый индекс 4</StiOnlineMapLocationTypePostcode4>
     <StiOrientationHorizontal>Горизонтальный</StiOrientationHorizontal>
     <StiOrientationHorizontalRight>Горизонтальный (справа)</StiOrientationHorizontalRight>
     <StiOrientationVertical>Вертикальный</StiOrientationVertical>
@@ -3768,7 +3811,7 @@
     <NameMeter>Наименование-измерение</NameMeter>
     <NameParent>Наименование главного</NameParent>
     <Namespaces>Пространства имен</Namespaces>
-    <NeedleBorderBrush>Кисть краницы стрелки</NeedleBorderBrush>
+    <NeedleBorderBrush>Кисть границы стрелки</NeedleBorderBrush>
     <NeedleBorderWidth>Толщина границы стрелки</NeedleBorderWidth>
     <NeedleBrush>Кисть стрелки</NeedleBrush>
     <NeedleCapBorderBrush>Цвет границы завершения стрелки</NeedleCapBorderBrush>
@@ -3883,6 +3926,7 @@
     <ReportCacheMode>Кэш отчета</ReportCacheMode>
     <ReportDescription>Описание отчета</ReportDescription>
     <ReportImage>Изображение отчета</ReportImage>
+    <ReportIcon>Иконка отчета</ReportIcon>
     <ReportName>Наименование отчета</ReportName>
     <ReportUnit>Единица измерения</ReportUnit>
     <RequestFromUser>Запросить у пользователя</RequestFromUser>
