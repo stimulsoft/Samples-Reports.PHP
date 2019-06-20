@@ -421,30 +421,9 @@ class StiHelper {
 			return vars;
 		}
 		
-		StiHelper.prototype.getLicense = function () {
-			var request = new XMLHttpRequest();
-			request.open("get", "stimulsoft/license.php", true);
-			request.timeout = this.timeout * 1000;
-			request.onload = function () {
-				if (request.status == 200) {
-					var license = request.responseText;
-					if (typeof license == "string" && license != "") Stimulsoft.Base.StiLicense.key = license;
-				}
-				else {
-					Stimulsoft.System.StiError.showError("[" + request.status + "] " + request.statusText, false);
-				}
-			};
-			request.onerror = function (e) {
-				var errorMessage = "Connect to remote error: [" + request.status + "] " + request.statusText;
-				Stimulsoft.System.StiError.showError(errorMessage, false);
-			};
-			request.send();
-		}
-		
 		function StiHelper(url, timeout) {
 			this.url = url;
 			this.timeout = timeout;
-			this.getLicense();
 		}
 		
 		jsHelper = new StiHelper("<?php echo $options->handler; ?>", <?php echo $options->timeout; ?>);

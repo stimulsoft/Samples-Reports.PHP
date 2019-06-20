@@ -108,9 +108,11 @@
     <Export>Экспарт</Export>
     <ForceDelete>Прымусова выдаліць</ForceDelete>
     <Help>Дапамога</Help>
+    <Install>Усталяваць</Install>
     <LessOptions>Менш параметраў</LessOptions>
     <LoadDataSet>Загрузіць DataSet (*.data)</LoadDataSet>
     <More>Больш</More>
+    <MoreApps>Больш праграм</MoreApps>
     <MoreOptions>Больш параметраў</MoreOptions>
     <MoveLeft>Перамясціць налева</MoveLeft>
     <MoveRight>Перамясціць направа</MoveRight>
@@ -136,6 +138,7 @@
     <Test>Праверка</Test>
     <Up>Уверх</Up>
     <Upload>Загрузіць</Upload>
+    <Waiting>Чаканне</Waiting>
     <Yes>&amp;Так</Yes>
   </Buttons>
   <Chart>
@@ -341,6 +344,8 @@
     <AccountSettings>Налады акаўнта</AccountSettings>
     <AddAPlace>Даданне месца</AddAPlace>
     <AreYouSureYouWantDeleteReport>Вы сапраўды хочаце выдаліць справаздачу "{0}" з дыска?</AreYouSureYouWantDeleteReport>
+    <Authorize>Аўтарызаваць</Authorize>
+    <AuthorizeWithLicenseKey>Аўтарызацыя ліцэнзійным ключом</AuthorizeWithLicenseKey>
     <ButtonChangePassword>Змяніць пароль</ButtonChangePassword>
     <ButtonDeleteAll>Выдаліць усе</ButtonDeleteAll>
     <ButtonDesign>Рэдагаваць справаздачу</ButtonDesign>
@@ -384,9 +389,13 @@
     <HyperlinkForgotPassword>Забыўся пароль</HyperlinkForgotPassword>
     <HyperlinkHavePassword>У мяне ёсць пароль</HyperlinkHavePassword>
     <HyperlinkRegisterAccount>Стварыць рахунак</HyperlinkRegisterAccount>
+    <InstallSamples>Усталяваць прыклады</InstallSamples>
+    <LabelAddCloudFolder>Тэчка ў Stimulsoft Cloud для месцавання ў ёй справаздач і панэляў індыкатараў.</LabelAddCloudFolder>
+    <LabelAddFolder>Лакальная тэчка для месцавання ў ёй справаздач і панэляў індыкатараў.</LabelAddFolder>
     <labelCollectionName>Iмя калекцыi:</labelCollectionName>
     <LabelCreated>Створаны:</LabelCreated>
     <LabelCreateFolder>Тэчка для размяшчэння ў ёй іншых элементаў.</LabelCreateFolder>
+    <LabelCreateNewDashboard>Панэль індыкатараў для аналізу дадзеных.</LabelCreateNewDashboard>
     <LabelCreateReportTemplate>Справаздача для вываду дадзеных.</LabelCreateReportTemplate>
     <LabelCurrentPassword>Бягучы пароль:</LabelCurrentPassword>
     <LabelDataFile>Файл дадзеных:</LabelDataFile>
@@ -412,6 +421,7 @@
     <labelUserName>Iмя карыстальнiка:</labelUserName>
     <License>Ліцэнзія</License>
     <LicenseInformation>Інфармацыя пра ліцэнзію</LicenseInformation>
+    <LicenseKey>Ліцэнзійны ключ</LicenseKey>
     <Login>Увайсці</Login>
     <NofM>{0}: {1} з {2}</NofM>
     <Open>Адкрыць</Open>
@@ -425,8 +435,10 @@
     <OperationUpload>Адправіць '{0}' на сервер</OperationUpload>
     <page>старонка</page>
     <Platforms>Платформы</Platforms>
+    <Port>Порт</Port>
     <PrivacyPolicy>палітыкай прыватнасці</PrivacyPolicy>
     <Products>Прадукты</Products>
+    <Proxy>Проксі</Proxy>
     <PublishMessage>Каб апублікаваць гэту справаздачу, трэба перадаць яго на publish.stimulsoft.com</PublishMessage>
     <questionOpenThisFile>Вы сапраўды жадаеце адкрыць '{0}' файл?</questionOpenThisFile>
     <questionOverrideItem>Вы сапраўды жадаеце перазапісаць '{0}' файл?</questionOverrideItem>
@@ -466,6 +478,7 @@
     <TextLastName>Прозвішча</TextLastName>
     <TextModify>Змена</TextModify>
     <TextNoFavoriteFiles>Нету избранных файлов</TextNoFavoriteFiles>
+    <TextNoFiles>Няма файлаў</TextNoFiles>
     <TextNoNotifications>Няма апавяшчэнняў</TextNoNotifications>
     <TextNoRecentFiles>Нету последних файлов</TextNoRecentFiles>
     <TextOwner>Уладальнік</TextOwner>
@@ -766,6 +779,14 @@
     <TestConnection>Праверка злучэння</TestConnection>
     <TextNotFound>Указаны тэкст не знойдзены. Тэкст : {0}</TextNotFound>
   </DesignerFx>
+  <Desktop>
+    <ButtonAddCloud>Дадаць тэчку з воблака</ButtonAddCloud>
+    <ButtonAddFolder>Дадаць тэчку</ButtonAddFolder>
+    <ButtonCreateDashboard>Стварыць панэль індыкатараў</ButtonCreateDashboard>
+    <ButtonCreateReport>Стварыць справаздачу</ButtonCreateReport>
+    <DoYouWantToInstallReports>Вы хочаце ўсталяваць шаблоны справаздач і панэляў індыкатараў?</DoYouWantToInstallReports>
+    <InstallSamplesDesc>Давайце ўсталюем нашы прыклады! Яны дапамогуць вам асвоіць працу з нашым прадуктам.</InstallSamplesDesc>
+  </Desktop>
   <Dialogs>
     <StiButtonControl>Кнопка</StiButtonControl>
     <StiCheckBoxControl>Сцяжок</StiCheckBoxControl>
@@ -874,6 +895,7 @@
     <ExceptEditableFields>Выключыць рэдагуемыя</ExceptEditableFields>
     <ExportDataOnly>Толькі дадзеныя</ExportDataOnly>
     <ExportEachPageToSheet>Кожная старонка асобна</ExportEachPageToSheet>
+    <Exporting>Экспарт</Exporting>
     <ExportingCalculatingCoordinates>Разлік каардынат</ExportingCalculatingCoordinates>
     <ExportingCreatingDocument>Стварэнне дакумента</ExportingCreatingDocument>
     <ExportingFormatingObjects>Фарматаванне аб'екта</ExportingFormatingObjects>
@@ -1850,6 +1872,7 @@
     <GridMode>Паказваць сетку ў выглядзе ліній або кропак.</GridMode>
     <ImageAlignment>Размясціць малюнак у якасці вадзянога знака.</ImageAlignment>
     <ImageTransparency>Змяніць празрыстасць малюнка.</ImageTransparency>
+    <Interaction>Змяніць інтэрактыўнасць вылучаных элементаў.</Interaction>
     <LineSpacing>Выберыце, які прамежак будзе паміж радкамі ці паміж абзацамі тэксту.</LineSpacing>
     <Link>Звязаць вылучаныя кампаненты з кантэйнерамі, у якіх яны знаходзяцца.</Link>
     <LoadImage>Укласці малюнак для вадзянога знака з файла.</LoadImage>
@@ -2128,10 +2151,16 @@
     <menuHelp>Дапамога</menuHelp>
     <menuHelpAboutProgramm>Аб праграме...</menuHelpAboutProgramm>
     <menuHelpContents>Утрыманне...</menuHelpContents>
+    <menuHelpDemos>Дэма</menuHelpDemos>
+    <menuHelpDocumentation>Дакументацыя</menuHelpDocumentation>
     <menuHelpFAQPage>Часта зададзеныя пытанні</menuHelpFAQPage>
+    <menuHelpForum>Форум</menuHelpForum>
     <menuHelpHowToRegister>Рэгістрацыя</menuHelpHowToRegister>
     <menuHelpProductHomePage>Хатняя старонка</menuHelpProductHomePage>
+    <menuHelpSamples>Прыклады</menuHelpSamples>
     <menuHelpSupport>Падтрымка</menuHelpSupport>
+    <menuHelpTrainingCourses>Навучальныя курсы</menuHelpTrainingCourses>
+    <menuHelpVideos>Відэа</menuHelpVideos>
     <menuInsertColumnToLeft>Уставіць калонку злева</menuInsertColumnToLeft>
     <menuInsertColumnToRight>Уставіць калонку справа</menuInsertColumnToRight>
     <menuInsertRowAbove>Уставіць радок вышэй</menuInsertRowAbove>
@@ -2191,19 +2220,20 @@
     <TextRegistrationSuccessfully>Рэгістрацыя прайшла паспяхова!</TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>Гэтае поле не запоўнена!</ThisFieldIsNotSpecified>
     <ThisFunctionEmbedsAllReportDataToTheReport>Гэтая функцыя убудоўвае ўсе дадзеныя справаздачы ў рэсурсы справаздачы і робіць справаздачу аўтаномнай. Будзьце асцярожныя! Усе налады дадзеных будуць зменены і не могуць быць адноўлены пасля дадзенага дзеяння. Спачатку неабходна зрабіць рэзервовую копію справаздачы. {0} Вы ўпэўнены?</ThisFunctionEmbedsAllReportDataToTheReport>
+    <YouNeedToLoginFirstToStartUsingTheSoftware>Вы павінны ўвайсці ў сістэму, каб пачаць скарыстаць праграму.</YouNeedToLoginFirstToStartUsingTheSoftware>
   </Messages>
   <Notices>
     <AccessDenied>Доступ забаронены!</AccessDenied>
     <AccountLocked>Ваш акаўнт заблакаваны! Калі ласка, адпраўце запыт на sales@stimulsoft.com!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>Ваша Праграма Падпіскі для Stimulsoft Reports.Ultimate мінула раней даты першага рэлізу Stimulsoft Reports.Server!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>Ваша Праграма Падпіскі для Stimulsoft Reports.Ultimate мінула раней даты першага рэлізу Stimulsoft Server!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>Файл ліцэнзіі не карэктны! Калі ласка звяжыцеся з нашым аддзелам продажаў на sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Ваш рахунак заблякаваны. Калі ласка, звяжыцеся з нашым аддзелам продажаў па sales@stimulsoft.com!</ActivationLockedAccount>
     <ActivationMaxActivationsReached>Вы дасягнулі максімальнай колькасці актывацый ліцэнзіі. Калі ласка, звяжыцеся з нашым аддзелам продажаў па sales@stimulsoft.com!</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>Сервер актывацыі зараз недаступны! Калі ласка, паспрабуйце актываваць ліцэнзію пазней.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>Вы не можаце актываваць гэтую версію Stimulsoft Reports.Server, бо Ваша Праграма Падпіскі мінула! Калі ласка, ўвайдзіце ў Ваш рахунак на нашым сайце і праверце, якую версію Stimulsoft Reports.Server Вы можаце ўсталяваць і актываваць.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>Вы не можаце актываваць гэтую версію Stimulsoft Server, бо Ваша Праграма Падпіскі мінула! Калі ласка, ўвайдзіце ў Ваш рахунак на нашым сайце і праверце, якую версію Stimulsoft Server Вы можаце ўсталяваць і актываваць.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>Падчас актывацыі ліцэнзіі адбылася памылка. Калі ласка, паспрабуйце актываваць ліцэнзію пазней.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>Імя карыстальніка (Email) або пароль паказаныя няслушна!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>Ваш тып рахунка не дазваляе актываваць ліцэнзію Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>Ваш тып рахунка не дазваляе актываваць ліцэнзію Stimulsoft Server!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>Рахунак не можа быць выкарыстаны зараз!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>Гэты рахунак не актываваны! Калі ласка, прытрымлівайцеся інструкцыям, якія былі адпраўленыя на Ваш Email падчас рэгістрацыі.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>Роля дадзенага карыстальніка не можа быць зменена, бо гэта апошні адміністратар у гэтым працоўным прасторы.</AuthCantChangeRoleBecauseLastAdministratorUser>
@@ -2543,6 +2573,7 @@
     <Brown>Карычневы</Brown>
     <BurlyWood>Дрэўны</BurlyWood>
     <CadetBlue>Сера-сіні</CadetBlue>
+    <Carmine>Кармін</Carmine>
     <Chartreuse>Зеленкавата-жоўты</Chartreuse>
     <Chocolate>Шакаладны</Chocolate>
     <Coral>Каралавы</Coral>
@@ -2664,6 +2695,7 @@
     <Tomato>Таматавы</Tomato>
     <Transparent>Празрысты</Transparent>
     <Turquoise>Бірузовы</Turquoise>
+    <VeryDarkGray>Вельмі цёмна-шэры</VeryDarkGray>
     <Violet>Фіялетавы</Violet>
     <Wheat>Пшанічны</Wheat>
     <White>Белы</White>
@@ -3958,6 +3990,7 @@
     <ReportAuthor>Аўтар справаздачы</ReportAuthor>
     <ReportCacheMode>Кэш справаздачы</ReportCacheMode>
     <ReportDescription>Апісанне справаздачы</ReportDescription>
+    <ReportIcon>Абразок справаздачы</ReportIcon>
     <ReportImage>Малюнак справаздачы</ReportImage>
     <ReportName>Найменне справаздачы</ReportName>
     <ReportUnit>Адзінка вымярэння</ReportUnit>
@@ -4641,10 +4674,13 @@
     <title>Інструментар</title>
   </Toolbox>
   <WelcomeScreen>
+    <AllDownloadsWillCanceled>Вы ўпэўнены, што хочаце зачыніць гэта акно? Усе загрузкі будуць скасаваны.</AllDownloadsWillCanceled>
     <Description>Мы адабралі для вас справаздачы, якія на нашу думку, лепш за ўсё падыходзяць для хуткага старту.</Description>
+    <GetStarted>З чаго пачаць</GetStarted>
     <GetStartedWithDashboards>Пачніце з панэлі індыкатараў</GetStartedWithDashboards>
     <GetStartedWithReports>Пачніце са справаздач</GetStartedWithReports>
     <MoreReports>Больш справаздач</MoreReports>
+    <ShowNextTime>Паказваць '{0}' у наступны раз</ShowNextTime>
     <Title>Сардэчна запрашаем у Stimulsoft Дэма</Title>
   </WelcomeScreen>
   <Wizards>

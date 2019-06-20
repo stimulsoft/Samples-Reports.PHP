@@ -6,13 +6,17 @@ require_once 'stimulsoft/helper.php';
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Stimulsoft Reports.PHP - JS Report Viewer</title>
+	<title>Stimulsoft Reports.PHP - JS Viewer</title>
 
-	<!-- Report Office2013 style -->
+	<!-- Office2013 style -->
 	<link href="css/stimulsoft.viewer.office2013.whiteteal.css" rel="stylesheet">
 
 	<!-- Stimusloft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
+	<script src="scripts/stimulsoft.reports.maps.js" type="text/javascript"></script>
+	
+	<!-- Stimusloft Dashboards.JS -->
+	<script src="scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 	
 	<?php 
@@ -22,6 +26,8 @@ require_once 'stimulsoft/helper.php';
 		StiHelper::initialize($options);
 	?>
 	<script type="text/javascript">
+		Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
+		
 		var options = new Stimulsoft.Viewer.StiViewerOptions();
 		options.appearance.fullScreenMode = true;
 		options.toolbar.showSendEmailButton = true;

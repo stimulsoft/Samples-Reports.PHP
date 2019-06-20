@@ -108,9 +108,11 @@
     <Export>Export</Export>
     <ForceDelete>Force Delete</ForceDelete>
     <Help>Help</Help>
+    <Install>Install</Install>
     <LessOptions>Less Options</LessOptions>
     <LoadDataSet>Load DataSet (*.data)</LoadDataSet>
     <More>More</More>
+    <MoreApps>More Apps</MoreApps>
     <MoreOptions>More Options</MoreOptions>
     <MoveLeft>Move Left</MoveLeft>
     <MoveRight>Move Right</MoveRight>
@@ -136,6 +138,7 @@
     <Test>Test</Test>
     <Up>Up</Up>
     <Upload>Upload</Upload>
+    <Waiting>Waiting</Waiting>
     <Yes>&amp;Yes</Yes>
   </Buttons>
   <Chart>
@@ -191,11 +194,6 @@
     <Labels>Labels</Labels>
     <LabelsCenter>Center</LabelsCenter>
     <LabelSeriesName>Series Name:</LabelSeriesName>
-	<LabelsStyleValue>Value</LabelsStyleValue>
-	<LabelsStylePercentOfTotal>Percent Of Total</LabelsStylePercentOfTotal>
-	<LabelsStyleCategory>Category</LabelsStyleCategory>
-	<LabelsStyleCategoryValue>Category - Value</LabelsStyleCategoryValue>
-	<LabelsStyleCategoryPercentOfTotal>Category - Percent Of Total</LabelsStyleCategoryPercentOfTotal>
     <LabelsInside>Inside</LabelsInside>
     <LabelsInsideBase>Inside Base</LabelsInsideBase>
     <LabelsInsideEnd>Inside End</LabelsInsideEnd>
@@ -203,6 +201,11 @@
     <LabelsOutside>Outside</LabelsOutside>
     <LabelsOutsideBase>Outside Base</LabelsOutsideBase>
     <LabelsOutsideEnd>Outside End</LabelsOutsideEnd>
+    <LabelsStyleCategory>Category</LabelsStyleCategory>
+    <LabelsStyleCategoryPercentOfTotal>Category - Percent Of Total</LabelsStyleCategoryPercentOfTotal>
+    <LabelsStyleCategoryValue>Category - Value</LabelsStyleCategoryValue>
+    <LabelsStylePercentOfTotal>Percent Of Total</LabelsStylePercentOfTotal>
+    <LabelsStyleValue>Value</LabelsStyleValue>
     <LabelsTwoColumns>Two Columns</LabelsTwoColumns>
     <LabelTextAfter>Text After:</LabelTextAfter>
     <LabelTextBefore>Text Before:</LabelTextBefore>
@@ -341,6 +344,8 @@
     <AccountSettings>Account Settings</AccountSettings>
     <AddAPlace>Add a Place</AddAPlace>
     <AreYouSureYouWantDeleteReport>Are you sure you want to delete "{0}" report from disk?</AreYouSureYouWantDeleteReport>
+    <Authorize>Authorize</Authorize>
+    <AuthorizeWithLicenseKey>Authorize with License Key</AuthorizeWithLicenseKey>
     <ButtonChangePassword>Change Password</ButtonChangePassword>
     <ButtonDeleteAll>Delete All</ButtonDeleteAll>
     <ButtonDesign>Design Report</ButtonDesign>
@@ -384,10 +389,14 @@
     <HyperlinkForgotPassword>Forgot password</HyperlinkForgotPassword>
     <HyperlinkHavePassword>Have password</HyperlinkHavePassword>
     <HyperlinkRegisterAccount>Register FREE account</HyperlinkRegisterAccount>
+    <InstallSamples>Install Samples</InstallSamples>
     <labelCollectionName>Collection Name:</labelCollectionName>
     <LabelCreated>Created:</LabelCreated>
     <LabelCreateFolder>Create a new category in which you can place other items.</LabelCreateFolder>
+    <LabelAddFolder>Add your local folder with reports and dashboards.</LabelAddFolder>
+    <LabelAddCloudFolder>Connect your Stimulsoft Cloud folder with reports and dashboards.</LabelAddCloudFolder>
     <LabelCreateReportTemplate>Create report template.</LabelCreateReportTemplate>
+    <LabelCreateNewDashboard>Create new dashboard.</LabelCreateNewDashboard>
     <LabelCurrentPassword>Current Password:</LabelCurrentPassword>
     <LabelDataFile>Data File:</LabelDataFile>
     <LabelDataUrl>Data URL:</LabelDataUrl>
@@ -412,6 +421,7 @@
     <labelUserName>User Name:</labelUserName>
     <License>License</License>
     <LicenseInformation>License Information</LicenseInformation>
+    <LicenseKey>License Key</LicenseKey>
     <Login>Log In</Login>
     <NofM>{0}: {1} of {2}</NofM>
     <Open>Open</Open>
@@ -425,8 +435,10 @@
     <OperationUpload>Upload '{0}' to Server</OperationUpload>
     <page>page</page>
     <Platforms>Platforms</Platforms>
+    <Port>Port</Port>
     <PrivacyPolicy>Privacy</PrivacyPolicy>
     <Products>Products</Products>
+    <Proxy>Proxy</Proxy>
     <PublishMessage>In order to publish this report you should submit it to our service publish.stimulsoft.com</PublishMessage>
     <questionOpenThisFile>Are you sure want to open '{0}' item?</questionOpenThisFile>
     <questionOverrideItem>Do you really want to override '{0}' item?</questionOverrideItem>
@@ -465,10 +477,10 @@
     <TextItemsWorkspace>Workspace</TextItemsWorkspace>
     <TextLastName>Last Name</TextLastName>
     <TextModify>Modify</TextModify>
-    <TextNoNotifications>No Notifications</TextNoNotifications>
-    <TextNoFiles>No files</TextNoFiles>
-    <TextNoRecentFiles>No recent files</TextNoRecentFiles>
     <TextNoFavoriteFiles>No favorite files</TextNoFavoriteFiles>
+    <TextNoFiles>No files</TextNoFiles>
+    <TextNoNotifications>No Notifications</TextNoNotifications>
+    <TextNoRecentFiles>No recent files</TextNoRecentFiles>
     <TextOwner>Owner</TextOwner>
     <TextProfile>Profile</TextProfile>
     <TextReports>Reports</TextReports>
@@ -537,6 +549,14 @@
     <WizardRegisteredShareDescription>External access only for registered users from any workspace.</WizardRegisteredShareDescription>
     <WizardXmlDescription>Create a report with XML data.</WizardXmlDescription>
   </Cloud>
+  <Desktop>
+    <ButtonCreateReport>Create Report</ButtonCreateReport>
+    <ButtonCreateDashboard>Create Dashboard</ButtonCreateDashboard>
+    <ButtonAddFolder>Add Folder</ButtonAddFolder>
+    <ButtonAddCloud>Add Cloud</ButtonAddCloud>
+    <InstallSamplesDesc>Let's install our sample projects. They will help you learn the basics of working with our software.</InstallSamplesDesc>
+    <DoYouWantToInstallReports>Do you want to install templates of reports and dashboards?</DoYouWantToInstallReports>
+  </Desktop>
   <Components>
     <StiBarCode>Bar Code</StiBarCode>
     <StiChart>Chart</StiChart>
@@ -608,15 +628,11 @@
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
-    <ReportSnapshot>Report Snapshot</ReportSnapshot>
-    <DrillUp>Drill Up</DrillUp>
-    <DrillDown>Drill Down</DrillDown>
-    <DrillDownSelected>Drill Down Selected</DrillDownSelected>
     <AddRange>Add Range</AddRange>
     <AfterGroupingData>Apply after grouping data</AfterGroupingData>
+    <AllowUserDrillDown>Allow User Drill Down</AllowUserDrillDown>
     <AllowUserFiltering>Allow User Filtering</AllowUserFiltering>
     <AllowUserSorting>Allow User Sorting</AllowUserSorting>
-    <AllowUserDrillDown>Allow User Drill Down</AllowUserDrillDown>
     <Blanks>(Blanks)</Blanks>
     <BooleanFilters>Boolean Filters</BooleanFilters>
     <CannotLoadDashboard>You cannot load a report with dashboards.</CannotLoadDashboard>
@@ -625,8 +641,7 @@
     <ClearAllFormatting>Clear All Formatting</ClearAllFormatting>
     <ClearFilterFrom>Clear Filter from '{0}'</ClearFilterFrom>
     <ColorScale>Color Scale</ColorScale>
-    <FieldInteractions>Field Interactions</FieldInteractions>
-	<ColumnInteractions>Column Interactions</ColumnInteractions>
+    <ColumnInteractions>Column Interactions</ColumnInteractions>
     <CustomFilter>Custom &amp;Filter...</CustomFilter>
     <DataBars>Data Bars</DataBars>
     <DataNotDefined>Data is not defined</DataNotDefined>
@@ -634,10 +649,14 @@
     <Dimension>Dimension</Dimension>
     <Dimensions>Dimensions</Dimensions>
     <DragDropDataFromDictionary>Drag &amp; drop data from Dictionary</DragDropDataFromDictionary>
+    <DrillDown>Drill Down</DrillDown>
+    <DrillDownSelected>Drill Down Selected</DrillDownSelected>
+    <DrillUp>Drill Up</DrillUp>
     <DuplicateField>Duplicate Field</DuplicateField>
     <EditExpression>Edit Expression</EditExpression>
     <EmptyDashboardFooter>Drag &amp; drop component from ToolBox or data from Dictionary</EmptyDashboardFooter>
     <EmptyDashboardHeader>Dashboard is empty</EmptyDashboardHeader>
+    <FieldInteractions>Field Interactions</FieldInteractions>
     <FieldTypeRestrictionHint>Only '{0}' type field can be used!</FieldTypeRestrictionHint>
     <FirstLastPoints>First / Last Points</FirstLastPoints>
     <FirstRowIndex>First Row Index</FirstRowIndex>
@@ -663,6 +682,7 @@
     <RemoveAllFields>Remove All Fields</RemoveAllFields>
     <RemoveField>Remove Field</RemoveField>
     <ReplaceValues>Replace Values</ReplaceValues>
+    <ReportSnapshot>Report Snapshot</ReportSnapshot>
     <RowsCount>Rows Count</RowsCount>
     <RunFieldsEditor>Run Fields Editor</RunFieldsEditor>
     <RunFieldsEditorInfo>Run the Fields Editor to change interaction of each table column.</RunFieldsEditorInfo>
@@ -872,6 +892,7 @@
     <ExceptEditableFields>Except Editable Fields</ExceptEditableFields>
     <ExportDataOnly>Export Data Only</ExportDataOnly>
     <ExportEachPageToSheet>Export Each Page to Sheet</ExportEachPageToSheet>
+    <Exporting>Exporting</Exporting>
     <ExportingCalculatingCoordinates>Calculating Coordinates</ExportingCalculatingCoordinates>
     <ExportingCreatingDocument>Creating Document</ExportingCreatingDocument>
     <ExportingFormatingObjects>Formatting Objects</ExportingFormatingObjects>
@@ -1004,8 +1025,8 @@
     <PdfFiles>Adobe PDF Files (*.pdf)|*.pdf</PdfFiles>
     <PngFiles>PNG Images (*.png)|*.png</PngFiles>
     <Ppt2007Files>Microsoft PowerPoint 2007/2013 Files (*.pptx)|*.pptx</Ppt2007Files>
-    <ReportFiles>Report Templates (*.mrt)|*.mrt</ReportFiles>
     <ReportEmbededDataFiles>Report Templates with Embedded Data (*.mrt)|*.mrt</ReportEmbededDataFiles>
+    <ReportFiles>Report Templates (*.mrt)|*.mrt</ReportFiles>
     <RtfFiles>Rich Text (*.rtf)|*.rtf</RtfFiles>
     <StandaloneReportFiles>Standalone Reports (*.exe)|*.exe</StandaloneReportFiles>
     <StylesFiles>Report Styles (*.sts)|*.sts</StylesFiles>
@@ -1120,7 +1141,6 @@
   <FormDatabaseEdit>
     <ClientId>Client Id</ClientId>
     <ClientSecret>Client Secret</ClientSecret>
-    <SpreadsheetId>Spreadsheet Id</SpreadsheetId>
     <ConnectionString>Connection String:</ConnectionString>
     <DashboardConnections>Dashboard Connections</DashboardConnections>
     <DB2Edit>Edit IBM DB2 Connection</DB2Edit>
@@ -1159,6 +1179,7 @@
     <RelationDirection>Relation Direction:</RelationDirection>
     <ReportConnections>Report Connections</ReportConnections>
     <SelectData>Select Data</SelectData>
+    <SpreadsheetId>Spreadsheet Id</SpreadsheetId>
     <SqlCeEdit>Edit SQLServerCE Connection</SqlCeEdit>
     <SqlCeNew>New SQLServerCE Connection</SqlCeNew>
     <SqlEdit>Edit SQL Connection</SqlEdit>
@@ -1791,6 +1812,7 @@
     <AngleWatermark>The watermark text rotation angle.</AngleWatermark>
     <Background>Change the background of the selected components.</Background>
     <biConditions>Control list of conditions of the selected components.</biConditions>
+    <Interaction>Control an interaction of the selected components.</Interaction>
     <BorderColor>Select the border color of the selected component.</BorderColor>
     <BorderSidesAll>Switch on all borders sides of the selected components.</BorderSidesAll>
     <BorderSidesBottom>Switch on bottom border side of the selected components.</BorderSidesBottom>
@@ -2033,7 +2055,12 @@
     <TouchDescription>Optimized for used with touch</TouchDescription>
   </Interface>
   <MainMenu>
-    <menuEmbedAllDataToResources>Embed all data to resources</menuEmbedAllDataToResources>
+    <menuHelpDocumentation>Documentation</menuHelpDocumentation>
+    <menuHelpVideos>Videos</menuHelpVideos>
+    <menuHelpSamples>Samples</menuHelpSamples>
+    <menuHelpForum>Forum</menuHelpForum>
+    <menuHelpDemos>Demos</menuHelpDemos>
+    <menuHelpTrainingCourses>Training Courses</menuHelpTrainingCourses>
     <menuCheckIssues>Check for Issues</menuCheckIssues>
     <menuContextClone>Clone...</menuContextClone>
     <menuContextDesign>Design...</menuContextDesign>
@@ -2075,6 +2102,7 @@
     <menuEditUndoText>&amp;Undo {0}</menuEditUndoText>
     <menuEditVariableNew>New Variable...</menuEditVariableNew>
     <menuEditViewData>View Data...</menuEditViewData>
+    <menuEmbedAllDataToResources>Embed all data to resources</menuEmbedAllDataToResources>
     <menuFile>&amp;File</menuFile>
     <menuFileClose>&amp;Close</menuFileClose>
     <menuFileDashboardDelete>Delete Dashboard</menuFileDashboardDelete>
@@ -2177,15 +2205,15 @@
   <Notices>
     <AccessDenied>Access Denied!</AccessDenied>
     <AccountLocked>Your account is locked! In order to resolve it, please send your request to sales@stimulsoft.com!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>Your Subscription of Stimulsoft Reports.Ultimate expired earlier than the first version of our Stimulsoft Reports.Server was released!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>Your Subscription of Stimulsoft Reports.Ultimate expired earlier than the first version of our Stimulsoft Server was released!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>License file is not correct! Please contact our sales department at sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Your account is locked. Please contact our sales department at sales@stimulsoft.com!</ActivationLockedAccount>
     <ActivationMaxActivationsReached>You reached the maximum number of activations. Please contact our sales department at sales@stimulsoft.com!</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server is not available now! Please try again later.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>You cannot activate this version of Stimulsoft Reports.Server because your Subscription Program expired! Please log in to your account and check which version of the Stimulsoft Reports.Server you can install and activate.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>You cannot activate this version of Stimulsoft Server because your Subscription Program expired! Please log in to your account and check which version of the Stimulsoft Server you can install and activate.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>An error occurred during activation. Please try again later.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>Your user name (Email) or password is wrong!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>Your account type does not allow to activate Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>Your account type does not allow to activate Stimulsoft Server!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>The account cannot be used now!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>The account is not activated yet! Please follow the instructions sent to the Email during registration.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>The user role cannot be changed because this is the last administrator user in this workspace!</AuthCantChangeRoleBecauseLastAdministratorUser>
@@ -2385,7 +2413,6 @@
     <MoveRightFreeSpace>Moves a component to the right side of a free space, increasing the height of the component to the height of free space.</MoveRightFreeSpace>
   </PlacementComponent>
   <PropertyCategory>
-    <LabelsCategory>Labels</LabelsCategory>
     <AppearanceCategory>Appearance</AppearanceCategory>
     <AreaCategory>Area</AreaCategory>
     <ArgumentCategory>Argument</ArgumentCategory>
@@ -2422,6 +2449,7 @@
     <ImageCategory>Image</ImageCategory>
     <IndicatorCategory>Indicator</IndicatorCategory>
     <InterlacingCategory>Interlacing</InterlacingCategory>
+    <LabelsCategory>Labels</LabelsCategory>
     <LegendCategory>Legend</LegendCategory>
     <ListBoxCategory>List Box</ListBoxCategory>
     <MainCategory>Main</MainCategory>
@@ -2481,8 +2509,8 @@
     <BlueViolet>Blue Violet</BlueViolet>
     <Brown>Brown</Brown>
     <BurlyWood>Burly Wood</BurlyWood>
-    <Carmine>Carmine</Carmine>
     <CadetBlue>Cadet Blue</CadetBlue>
+    <Carmine>Carmine</Carmine>
     <Chartreuse>Chartreuse</Chartreuse>
     <Chocolate>Chocolate</Chocolate>
     <Coral>Coral</Coral>
@@ -2494,7 +2522,6 @@
     <DarkCyan>Dark Cyan</DarkCyan>
     <DarkGoldenrod>Dark Goldenrod</DarkGoldenrod>
     <DarkGray>Dark Gray</DarkGray>
-    <VeryDarkGray>Very Dark Gray</VeryDarkGray>
     <DarkGreen>Dark Green</DarkGreen>
     <DarkKhaki>Dark Khaki</DarkKhaki>
     <DarkMagenta>Dark Magenta</DarkMagenta>
@@ -2605,6 +2632,7 @@
     <Tomato>Tomato</Tomato>
     <Transparent>Transparent</Transparent>
     <Turquoise>Turquoise</Turquoise>
+    <VeryDarkGray>Very Dark Gray</VeryDarkGray>
     <Violet>Violet</Violet>
     <Wheat>Wheat</Wheat>
     <White>White</White>
@@ -2613,11 +2641,6 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
-    <StiChartLabelsStyleValue>Value</StiChartLabelsStyleValue>
-    <StiChartLabelsStylePercentOfTotal>Percent Of Total</StiChartLabelsStylePercentOfTotal>
-    <StiChartLabelsStyleCategory>Category</StiChartLabelsStyleCategory>
-    <StiChartLabelsStyleCategoryValue>Category - Value</StiChartLabelsStyleCategoryValue>
-    <StiChartLabelsStyleCategoryPercentOfTotal>Category - Percent Of Total</StiChartLabelsStyleCategoryPercentOfTotal>
     <boolFalse>False</boolFalse>
     <boolTrue>True</boolTrue>
     <BorderStyleFixed3D>Fixed 3D</BorderStyleFixed3D>
@@ -2735,6 +2758,11 @@
     <StiCapStyleOval>Oval</StiCapStyleOval>
     <StiCapStyleSquare>Square</StiCapStyleSquare>
     <StiCapStyleStealth>Stealth</StiCapStyleStealth>
+    <StiChartLabelsStyleCategory>Category</StiChartLabelsStyleCategory>
+    <StiChartLabelsStyleCategoryPercentOfTotal>Category - Percent Of Total</StiChartLabelsStyleCategoryPercentOfTotal>
+    <StiChartLabelsStyleCategoryValue>Category - Value</StiChartLabelsStyleCategoryValue>
+    <StiChartLabelsStylePercentOfTotal>Percent Of Total</StiChartLabelsStylePercentOfTotal>
+    <StiChartLabelsStyleValue>Value</StiChartLabelsStyleValue>
     <StiChartTitleDockBottom>Bottom</StiChartTitleDockBottom>
     <StiChartTitleDockLeft>Left</StiChartTitleDockLeft>
     <StiChartTitleDockRight>Right</StiChartTitleDockRight>
@@ -3756,7 +3784,7 @@
     <NeedleBorderBrush>Needle Border Brush</NeedleBorderBrush>
     <NeedleBorderWidth>Needle Border Width</NeedleBorderWidth>
     <NeedleBrush>Needle Brush</NeedleBrush>
-    <NeedleCapBorderBrush>Needle Cap Brush</NeedleCapBorderBrush>
+    <NeedleCapBorderBrush>Needle Cap Border Brush</NeedleCapBorderBrush>
     <NeedleCapBrush>Needle Cap Brush</NeedleCapBrush>
     <Negative>Negative</Negative>
     <NegativeColor>Negative Color</NegativeColor>
@@ -3867,8 +3895,8 @@
     <ReportAuthor>Report Author</ReportAuthor>
     <ReportCacheMode>Report Cache Mode</ReportCacheMode>
     <ReportDescription>Report Description</ReportDescription>
-    <ReportImage>Report Image</ReportImage>
     <ReportIcon>Report Icon</ReportIcon>
+    <ReportImage>Report Image</ReportImage>
     <ReportName>Report Name</ReportName>
     <ReportUnit>Report Unit</ReportUnit>
     <RequestFromUser>Request from User</RequestFromUser>
@@ -4547,10 +4575,13 @@
     <title>Toolbox</title>
   </Toolbox>
   <WelcomeScreen>
+    <AllDownloadsWillCanceled>Are you sure you want to close this window? All downloads will be canceled.</AllDownloadsWillCanceled>
     <Description>We have selected for you reports that we think are the best for a quick start.</Description>
+    <GetStarted>Get Started</GetStarted>
     <GetStartedWithDashboards>Get Started with Dashboards</GetStartedWithDashboards>
     <GetStartedWithReports>Get Started with Reports</GetStartedWithReports>
     <MoreReports>More Reports</MoreReports>
+    <ShowNextTime>Show '{0}' next time</ShowNextTime>
     <Title>Welcome to Stimulsoft Demo</Title>
   </WelcomeScreen>
   <Wizards>

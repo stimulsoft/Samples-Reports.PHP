@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2019.3.1
-Build date: 2019.05.20
+Version: 2019.3.2
+Build date: 2019.06.17
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare module Stimulsoft.System.Collections {
@@ -4585,6 +4585,48 @@ declare module Stimulsoft.Base {
         Json = 21
     }
 }
+declare namespace Stimulsoft.Base {
+    import IStiAppDataSource = Stimulsoft.Base.IStiAppDataSource;
+    import DataTable = Stimulsoft.System.Data.DataTable;
+    var IStiBIDataCache: string;
+    interface IStiBIDataCache {
+        exists(dataSource: IStiAppDataSource): boolean;
+        exists2(tableKey: string): boolean;
+        remove(tableKey: string): any;
+        clean(appKey: string): any;
+        cleanAll(): any;
+        getTableCount(): number;
+        getRowCount(tableKey: string): number;
+        getSchema(tableKey: string): DataTable;
+        getData(tableKey: string): DataTable;
+        runQuery(query: string): DataTable;
+        add(appKey: string, tableKey: string, dataTable: DataTable): any;
+        getTableName(appKey: string, tableKey: string): string;
+    }
+}
+declare namespace Stimulsoft.Base {
+    import DataTable = Stimulsoft.System.Data.DataTable;
+    class StiBIDataCacheHelper {
+        private static checkInitialization;
+        static exists(tableKey: string): boolean;
+        static remove(tableKey: string): void;
+        static clean(appKey: string): void;
+        static cleanAll(): void;
+        static getTableCount(): number;
+        static getRowCount(tableKey: string): number;
+        static runQuery(query: string): DataTable;
+        static get(tableKey: string, loadData?: boolean): DataTable;
+        static add(app: IStiApp, tableKey: string, dataTable: DataTable): void;
+        static add2(appKey: string, tableKey: string, dataTable: DataTable): void;
+        static getTableName(appKey: string, tableKey: string): string;
+    }
+}
+declare namespace Stimulsoft.Base {
+    class StiBIDataCacheOptions {
+        static enabled: boolean;
+        static cache: IStiBIDataCache;
+    }
+}
 declare module Stimulsoft.Base {
     class StiTableQuery {
         private correctName;
@@ -5735,6 +5777,17 @@ declare namespace Stimulsoft.Base.Helpers {
     }
 }
 declare namespace Stimulsoft.Base.Helpers {
+    import Hashtable = Stimulsoft.System.Collections.Hashtable;
+    import Size = Stimulsoft.System.Drawing.Size;
+    class StiBingMapHelper {
+        static BingKey: string;
+        private static Script;
+        static getImage(size: Size, pushPins?: []): Object;
+        static getScript(mapData: Hashtable): string;
+        private static getCacheKey;
+    }
+}
+declare namespace Stimulsoft.Base.Helpers {
     class StiComponentProgressHelper {
         progressDelta: number;
         timerInterval: number;
@@ -5862,21 +5915,22 @@ declare module Stimulsoft.Base {
 }
 declare module Stimulsoft.Base.Licenses {
     enum StiProductIdent {
-        Ultimate = 0,
-        Net = 1,
-        Wpf = 2,
-        Web = 3,
-        Silverlight = 4,
-        Js = 5,
-        Java = 6,
-        Php = 7,
-        NetCore = 8,
-        Uwp = 9,
-        Flex = 10,
-        Desktop = 11,
-        DbsJs = 12,
-        DbsWin = 13,
-        DbsWeb = 14
+        Ultimate = 1,
+        Net = 2,
+        Wpf = 3,
+        Web = 4,
+        Silverlight = 5,
+        Js = 6,
+        Java = 7,
+        Php = 8,
+        NetCore = 9,
+        Uwp = 10,
+        Flex = 11,
+        BI = 12,
+        Desktop = 12,
+        DbsJs = 13,
+        DbsWin = 14,
+        DbsWeb = 15
     }
     enum StiActivationType {
         Server = 1,
@@ -5979,8 +6033,10 @@ declare module Stimulsoft.Base.Licenses {
         static isValidOnDbsJS(): boolean;
         static isValidOnJS(): boolean;
         static isValidOnAnyPlatform(): boolean;
+        static isValidOnBI(): boolean;
         private static isJSPlatform;
         private static isDbsJSPlatform;
+        private static isBIPlatform;
         private static getLicenseKey;
     }
 }
@@ -6911,7 +6967,6 @@ declare namespace Stimulsoft.Base {
     }
 }
 declare namespace Stimulsoft.Base {
-    import Promise = Stimulsoft.System.Promise;
     import List = Stimulsoft.System.Collections.List;
     var IStiAppDictionary: string;
     /**
@@ -6969,13 +7024,13 @@ declare namespace Stimulsoft.Base {
          */
         getApp(): IStiApp;
         /**
-         * Connects specified databases to the data.
+         * Opens specified connections to the data. Opens all connections if none of them is specified.
          */
-        openConnectionsAsync(connections: List<IStiAppConnection>): Promise<void>;
+        openConnections(connections: List<IStiAppConnection>): List<IStiAppConnection>;
         /**
-         * Closes all opened connections.
+         * Closes all specified connections. Closes all connections if none of them is specified.
          */
-        closeConnections(): any;
+        closeConnections(connections: List<IStiAppConnection>): any;
     }
 }
 declare namespace Stimulsoft.Base {
@@ -7776,6 +7831,7 @@ declare namespace Stimulsoft.Data.Engine {
     import IStiMeter = Stimulsoft.Base.Meters.IStiMeter;
     class StiDataAnalyzer {
         static analyseAsync(query: IStiQueryObject, group: string, meters: List<IStiMeter>, option?: StiDataRequestOption, userSorts?: List<StiDataSortRule>, userFilters?: List<StiDataFilterRule>, dataFilters?: List<StiDataFilterRule>, dataActions?: List<StiDataActionRule>, transformSorts?: List<StiDataSortRule>, transformFilters?: List<StiDataFilterRule>, transformActions?: List<StiDataActionRule>, drillDownFilters?: List<StiDataFilterRule>): Promise<StiDataTable>;
+        private static unionNames;
         private static getUniqueCode;
         private static getUniqueCode2;
     }
@@ -7785,6 +7841,17 @@ declare namespace Stimulsoft.Data.Engine {
         static isGoodColumnName(columnName: string): boolean;
         static getGoodColumnName(columnName: string): string;
         private static keywords;
+    }
+}
+declare namespace Stimulsoft.Data.Engine {
+    import IStiAppConnection = Stimulsoft.Base.IStiAppConnection;
+    import List = Stimulsoft.System.Collections.List;
+    class StiDataConnections {
+        private static connections;
+        static isConnectionActive(connection: IStiAppConnection): boolean;
+        static registerConnection(connection: IStiAppConnection, items: List<object>): void;
+        static unRegisterConnections(connections: List<IStiAppConnection>): List<object>;
+        static unRegisterConnection(connection: IStiAppConnection): List<object>;
     }
 }
 declare namespace Stimulsoft.Data.Extensions {
@@ -8331,6 +8398,7 @@ declare namespace Stimulsoft.Data.Engine {
     }
 }
 declare namespace Stimulsoft.Data.Engine {
+    import IStiApp = Stimulsoft.Base.IStiApp;
     import Promise = Stimulsoft.System.Promise;
     import IStiAppDataSource = Stimulsoft.Base.IStiAppDataSource;
     import DataTable = Stimulsoft.System.Data.DataTable;
@@ -8341,7 +8409,10 @@ declare namespace Stimulsoft.Data.Engine {
         /**
          * Returns all data tables which is used in all elements of the dashboard
          */
-        static fetchAsync(query: IStiQueryObject, group: string, option?: StiDataRequestOption): Promise<List<DataTable>>;
+        static fetchAsync(query: IStiQueryObject, group: string, option?: StiDataRequestOption, filterNames?: List<string>): Promise<List<DataTable>>;
+        static isAllBICached(query: IStiQueryObject, group: string, option?: StiDataRequestOption): boolean;
+        static getDataTableAsync(app: IStiApp, dataSource: IStiAppDataSource, option?: StiDataRequestOption): Promise<DataTable>;
+        private static getDataTable2Async;
         static processCalculatedColumns(dataTable: DataTable, dataSource: IStiAppDataSource): DataTable;
         private static addTableNameToColumnNames;
         static getFromCache(dataSource: IStiAppDataSource): DataTable;
@@ -19306,7 +19377,7 @@ declare module Stimulsoft.Report.Components {
         parseContainerFromXml(xmlNode: XmlNode): void;
         loadFromXml(xmlNode: XmlNode, isDocument: boolean): void;
         readonly componentId: StiComponentId;
-        private static propertyCanBreak;
+        protected static propertyCanBreak: string;
         canBreak: boolean;
         break(dividedComponent: StiComponent, devideFactor: number, REFdivideLine: any): boolean;
         clone(cloneProperties?: boolean, cloneComponents?: boolean): any;
@@ -24410,6 +24481,37 @@ declare module Stimulsoft.Report.CrossTab {
         createNew(): StiComponent;
     }
 }
+declare module Stimulsoft.Report.Events {
+    import EventHandler = Stimulsoft.System.EventHandler;
+    import EventArgs = Stimulsoft.System.EventArgs;
+    var StiFillParametersEventHandler: EventHandler;
+    class StiFillParametersEventArgs extends EventArgs {
+        private val;
+        value: {
+            key: string;
+            value: any;
+        }[];
+        constructor(value?: {
+            key: string;
+            value: any;
+        }[]);
+    }
+}
+declare module Stimulsoft.Report.Engine {
+    import StiBand = Stimulsoft.Report.Components.StiBand;
+    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
+    import StiSubReport = Stimulsoft.Report.Components.StiSubReport;
+    import StiContainer = Stimulsoft.Report.Components.StiContainer;
+    class StiSubReportsHelper {
+        static getMasterDataBand(parent: StiContainer): StiDataBand;
+        static getParentBand(parent: StiContainer): StiBand;
+        static renderSubReport(containerOfSubReport: StiContainer, subReport: StiSubReport): void;
+        static specialSubReportHeight: number;
+        private static renderInternalSubReport;
+        private static renderExternalSubReport;
+        static renderDataBandsInContainer(containerOfDataBands: StiContainer, container: StiContainer, skipStaticBands?: boolean): void;
+    }
+}
 declare module Stimulsoft.Report.Styles.Conditions {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
@@ -24566,6 +24668,7 @@ declare module Stimulsoft.Report.CrossTab {
         businessObjectGuid: string;
         private _sort;
         sort: string[];
+        readonly canBreak: boolean;
         first(): void;
         prior(): void;
         next(): void;
@@ -26186,6 +26289,108 @@ declare namespace Stimulsoft.Report.Dashboard {
         Delete = 2,
         ClearAll = 3
     }
+    enum StiOnlineMapLocationType {
+        Auto = 0,
+        AdminDivision1 = 1,
+        AdminDivision2 = 2,
+        CountryRegion = 3,
+        Neighborhood = 4,
+        PopulatedPlace = 5,
+        Postcode1 = 6,
+        Postcode2 = 7,
+        Postcode3 = 8,
+        Postcode4 = 9
+    }
+    enum StiOnlineMapLocationColorType {
+        Single = 0,
+        ColorEach = 1,
+        Group = 2,
+        Value = 3
+    }
+    enum StiOnlineMapValueViewMode {
+        Bubble = 0,
+        Value = 1
+    }
+    enum StiOnlineMapCulture {
+        ar_SA = 0,
+        eu = 1,
+        bg = 2,
+        bg_BG = 3,
+        ca = 4,
+        ku_Arab = 5,
+        zh_CN = 6,
+        zh_HK = 7,
+        zh_Hans = 8,
+        zh_TW = 9,
+        zh_Hant = 10,
+        cs = 11,
+        cs_CZ = 12,
+        da = 13,
+        da_DK = 14,
+        nl_BE = 15,
+        nl = 16,
+        nl_NL = 17,
+        en_AU = 18,
+        en_CA = 19,
+        en_IN = 20,
+        en_GB = 21,
+        en_US = 22,
+        fi = 23,
+        fi_FI = 24,
+        fr_BE = 25,
+        fr_CA = 26,
+        fr = 27,
+        fr_FR = 28,
+        fr_CH = 29,
+        gl = 30,
+        de = 31,
+        de_DE = 32,
+        el = 33,
+        he = 34,
+        he_IL = 35,
+        hi = 36,
+        hi_IN = 37,
+        hu = 38,
+        hu_HU = 39,
+        is_IS = 40,
+        it = 41,
+        it_IT = 42,
+        ja = 43,
+        ja_JP = 44,
+        ko = 45,
+        Ko_KR = 46,
+        ky_Cyrl = 47,
+        lv = 48,
+        lv_LV = 49,
+        lt = 50,
+        lt_LT = 51,
+        nb = 52,
+        nb_NO = 53,
+        nn = 54,
+        pl = 55,
+        pl_PL = 56,
+        pt_BR = 57,
+        pt_P = 58,
+        ru = 59,
+        ru_RU = 60,
+        es_MX = 61,
+        es = 62,
+        es_ES = 63,
+        es_US = 64,
+        sv = 65,
+        sv_SE = 66,
+        tt_Cyrl = 67,
+        th = 68,
+        th_TH = 69,
+        tr = 70,
+        tr_TR = 71,
+        uk = 72,
+        uk_UA = 73,
+        ug_Arab = 74,
+        ca_ES_valencia = 75,
+        vi = 76,
+        vi_VN = 77
+    }
 }
 declare module Stimulsoft.Report.Maps {
     import StiElementStyleIdent = Stimulsoft.Report.Dashboard.StiElementStyleIdent;
@@ -27083,6 +27288,7 @@ declare namespace Stimulsoft.Report.Dashboard {
     import IStiTransformFilters = Stimulsoft.Data.Engine.IStiTransformFilters;
     import IStiTransformSorts = Stimulsoft.Data.Engine.IStiTransformSorts;
     import IStiDataFilters = Stimulsoft.Data.Engine.IStiDataFilters;
+    import Color = Stimulsoft.System.Drawing.Color;
     var IStiOnlineMapElement: string;
     var ImplementsIStiOnlineMapElement: any[];
     interface IStiOnlineMapElement extends IStiElement, IStiTransformActions, IStiTransformFilters, IStiTransformSorts, IStiGroupElement, IStiDataFilters {
@@ -27102,6 +27308,21 @@ declare namespace Stimulsoft.Report.Dashboard {
         getLocationMeter(): IStiMeter;
         removeLocationMeter(): any;
         createNewLocationMeter(): any;
+        addLocationColorMeter2(dataColumn: StiDataColumn): any;
+        addLocationColorMeter(meter: IStiMeter): any;
+        getLocationColorMeter(): IStiMeter;
+        removeLocationColorMeter(): any;
+        createNewLocationColorMeter(): any;
+        addLocationValueMeter2(dataColumn: StiDataColumn): any;
+        addLocationValueMeter(meter: IStiMeter): any;
+        getLocationValueMeter(): IStiMeter;
+        removeLocationValueMeter(): any;
+        createNewLocationValueMeter(): any;
+        locationType: StiOnlineMapLocationType;
+        culture: StiOnlineMapCulture;
+        locationColor: Color;
+        locationColorType: StiOnlineMapLocationColorType;
+        valueViewMode: StiOnlineMapValueViewMode;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard {
@@ -28495,6 +28716,22 @@ declare module Stimulsoft.Report.Dictionary {
     class StiFileAdapterService extends StiDataStoreAdapterService {
         readonly serviceName: string;
         getDataCategoryName(data: StiData): string;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import Promise = Stimulsoft.System.Promise;
+    class StiDataLeader {
+        private static fetchAll;
+        static regData(database: StiDatabase, dictionary: StiDictionary, loadData: boolean): void;
+        static regDataAsync(database: StiDatabase, dictionary: StiDictionary, loadData: boolean): Promise<void>;
+        static getColumnsFromData(adapter: StiDataAdapterService, data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
+        static getColumnsFromDataAsync(adapter: StiDataAdapterService, data: StiData, dataSource: StiDataSource): Promise<StiDataColumnsCollection>;
+        static connectDataSourceToData(adapter: StiDataAdapterService, dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
+        static connectDataSourceToDataAsync(adapter: StiDataAdapterService, dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
+        static retrieveDataAsync(dataSource: StiSqlSource, schemaOnly?: boolean): Promise<void>;
+        static connect(dataSource: StiDataSource, datas: StiDataCollection, loadData?: boolean): void;
+        static connectAsync(dataSource: StiDataSource, datas: StiDataCollection, loadData?: boolean): Promise<void>;
+        static disconnect(dataSource: StiDataSource): void;
     }
 }
 declare module Stimulsoft.Report.Dictionary {
@@ -31409,8 +31646,12 @@ declare module Stimulsoft.Report.Dictionary {
     }
 }
 declare module Stimulsoft.Report.Dictionary {
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
     import DataTable = Stimulsoft.System.Data.DataTable;
     class StiCustomDatabase extends StiSqlDatabase {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
         private dataAdapter;
         static registerCustomDatabase(options: {
             serviceName: string;
@@ -31759,10 +32000,6 @@ declare module Stimulsoft.Report.Dictionary {
         constructor(source?: StiBusinessObject | StiDataSource | Array<StiDataColumn> | Array<DataColumn>);
     }
 }
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiDataLeader {
-    }
-}
 declare module Stimulsoft.Report.Dictionary {
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import StiExpression = Stimulsoft.Report.Expressions.StiExpression;
@@ -32083,8 +32320,14 @@ declare module Stimulsoft.Report.Dictionary {
          */
         getSystemVariableValue(name: string): any;
         getApp(): IStiApp;
-        openConnectionsAsync(connections: List<IStiAppConnection>): Promise<void>;
-        closeConnections(): void;
+        /**
+         *  Opens specified connections to the data. Opens all connections if none of them is specified.
+         */
+        openConnections(connections: List<IStiAppConnection>): List<IStiAppConnection>;
+        /**
+         *  Closes all specified connections. Closes all connections if none of them is specified.
+         */
+        closeConnections(connections: List<IStiAppConnection>): void;
         private _cachedUserNamesAndPasswords;
         cachedUserNamesAndPasswords: Hashtable;
         private _useInternalData;
@@ -33262,37 +33505,6 @@ declare module Stimulsoft.Report.Engine {
         private getPageHeadersFromPage;
         private getPageFootersFromPage;
         constructor(engine: StiEngine);
-    }
-}
-declare module Stimulsoft.Report.Events {
-    import EventHandler = Stimulsoft.System.EventHandler;
-    import EventArgs = Stimulsoft.System.EventArgs;
-    var StiFillParametersEventHandler: EventHandler;
-    class StiFillParametersEventArgs extends EventArgs {
-        private val;
-        value: {
-            key: string;
-            value: any;
-        }[];
-        constructor(value?: {
-            key: string;
-            value: any;
-        }[]);
-    }
-}
-declare module Stimulsoft.Report.Engine {
-    import StiBand = Stimulsoft.Report.Components.StiBand;
-    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
-    import StiSubReport = Stimulsoft.Report.Components.StiSubReport;
-    import StiContainer = Stimulsoft.Report.Components.StiContainer;
-    class StiSubReportsHelper {
-        static getMasterDataBand(parent: StiContainer): StiDataBand;
-        static getParentBand(parent: StiContainer): StiBand;
-        static renderSubReport(containerOfSubReport: StiContainer, subReport: StiSubReport): void;
-        static specialSubReportHeight: number;
-        private static renderInternalSubReport;
-        private static renderExternalSubReport;
-        static renderDataBandsInContainer(containerOfDataBands: StiContainer, container: StiContainer, skipStaticBands?: boolean): void;
     }
 }
 declare module Stimulsoft.Report.Engine {
@@ -37044,6 +37256,18 @@ declare namespace Stimulsoft.Report.Helpers {
         private static initializeBrazilProvinces;
     }
 }
+declare module Stimulsoft.Report.Maps.Helpers {
+    import Dictionary = Stimulsoft.System.Collections.Dictionary;
+    class StiGssMapHelper {
+        private static hash;
+        static allowGss(id: StiMapID): boolean;
+        static get(id: StiMapID): Dictionary<string, string>;
+        static init(id: StiMapID): void;
+        static isGssValue(value: string): boolean;
+        private static add;
+        private static initUKCountries;
+    }
+}
 declare namespace Stimulsoft.Report.Helpers {
     import List = Stimulsoft.System.Collections.List;
     import IStiMapKeyHelper = Stimulsoft.Base.Map.IStiMapKeyHelper;
@@ -39216,6 +39440,7 @@ declare module Stimulsoft.Report {
         popDecimal(stateName: string, obj: Object, property: string): number;
         popRange(stateName: string, obj: Object, property: string): Range;
         isExist(stateName: string, obj: Object): boolean;
+        clearState(stateName: string): void;
         clear(): void;
     }
 }
@@ -52406,8 +52631,42 @@ declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
         constructor(key?: string, expression?: string, label?: string);
     }
 }
+declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
+    /**
+     *  Describes a column with data.
+     */
+    class StiLocationColorMapMeter extends StiDimensionMeter {
+        /**
+         *  ID code of this meter. Used in JSON saving.
+         */
+        ident: StiMeterIdent;
+        /**
+         *  Localized name of this component type.
+         */
+        localizedName: string;
+        constructor(key?: string, expression?: string, label?: string);
+    }
+}
+declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
+    /**
+     *  Describes a column with data.
+     */
+    class StiLocationValueMapMeter extends StiDimensionMeter {
+        /**
+         *  ID code of this meter. Used in JSON saving.
+         */
+        ident: StiMeterIdent;
+        /**
+         *  Localized name of this component type.
+         */
+        localizedName: string;
+        constructor(key?: string, expression?: string, label?: string);
+    }
+}
 declare namespace Stimulsoft.Dashboard.Helpers {
     import StiLocationMapMeter = Stimulsoft.Dashboard.Components.OnlineMap.StiLocationMapMeter;
+    import StiLocationColorMapMeter = Stimulsoft.Dashboard.Components.OnlineMap.StiLocationColorMapMeter;
+    import StiLocationValueMapMeter = Stimulsoft.Dashboard.Components.OnlineMap.StiLocationValueMapMeter;
     import StiDataTopN = Stimulsoft.Data.Engine.StiDataTopN;
     import StiKeyTreeViewBoxMeter = Stimulsoft.Dashboard.Components.TreeViewBox.StiKeyTreeViewBoxMeter;
     import StiKeyTreeViewMeter = Stimulsoft.Dashboard.Components.TreeView.StiKeyTreeViewMeter;
@@ -52518,9 +52777,13 @@ declare namespace Stimulsoft.Dashboard.Helpers {
         static getLatitude(meter: StiMeter): StiLatitudeMapMeter;
         static getLongitude(meter: StiMeter): StiLongitudeMapMeter;
         static getLocation(meter: StiMeter): StiLocationMapMeter;
+        static getLocationColor(meter: StiMeter): StiLocationColorMapMeter;
+        static getLocationValue(meter: StiMeter): StiLocationValueMapMeter;
         static getLatitude2(dataColumn: StiDataColumn): StiLatitudeMapMeter;
         static getLongitude2(dataColumn: StiDataColumn): StiLongitudeMapMeter;
         static getLocation2(dataColumn: StiDataColumn): StiLocationMapMeter;
+        static getLocationColor2(dataColumn: StiDataColumn): StiLocationColorMapMeter;
+        static getLocationValue2(dataColumn: StiDataColumn): StiLocationValueMapMeter;
     }
     class Pivot {
         static getColumn(meter: StiMeter): StiPivotColumn;
@@ -54521,100 +54784,6 @@ declare namespace Stimulsoft.Dashboard.Components.ListBox {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
-    enum StiOnlineMapLocationType {
-        Auto = 0,
-        AdminDivision1 = 1,
-        AdminDivision2 = 2,
-        CountryRegion = 3,
-        Neighborhood = 4,
-        PopulatedPlace = 5,
-        Postcode1 = 6,
-        Postcode2 = 7,
-        Postcode3 = 8,
-        Postcode4 = 9
-    }
-    enum StiOnlineMapCulture {
-        ar_SA = 0,
-        eu = 1,
-        bg = 2,
-        bg_BG = 3,
-        ca = 4,
-        ku_Arab = 5,
-        zh_CN = 6,
-        zh_HK = 7,
-        zh_Hans = 8,
-        zh_TW = 9,
-        zh_Hant = 10,
-        cs = 11,
-        cs_CZ = 12,
-        da = 13,
-        da_DK = 14,
-        nl_BE = 15,
-        nl = 16,
-        nl_NL = 17,
-        en_AU = 18,
-        en_CA = 19,
-        en_IN = 20,
-        en_GB = 21,
-        en_US = 22,
-        fi = 23,
-        fi_FI = 24,
-        fr_BE = 25,
-        fr_CA = 26,
-        fr = 27,
-        fr_FR = 28,
-        fr_CH = 29,
-        gl = 30,
-        de = 31,
-        de_DE = 32,
-        el = 33,
-        he = 34,
-        he_IL = 35,
-        hi = 36,
-        hi_IN = 37,
-        hu = 38,
-        hu_HU = 39,
-        is_IS = 40,
-        it = 41,
-        it_IT = 42,
-        ja = 43,
-        ja_JP = 44,
-        ko = 45,
-        Ko_KR = 46,
-        ky_Cyrl = 47,
-        lv = 48,
-        lv_LV = 49,
-        lt = 50,
-        lt_LT = 51,
-        nb = 52,
-        nb_NO = 53,
-        nn = 54,
-        pl = 55,
-        pl_PL = 56,
-        pt_BR = 57,
-        pt_P = 58,
-        ru = 59,
-        ru_RU = 60,
-        es_MX = 61,
-        es = 62,
-        es_ES = 63,
-        es_US = 64,
-        sv = 65,
-        sv_SE = 66,
-        tt_Cyrl = 67,
-        th = 68,
-        th_TH = 69,
-        tr = 70,
-        tr_TR = 71,
-        uk = 72,
-        uk_UA = 73,
-        ug_Arab = 74,
-        ca_ES_valencia = 75,
-        vi = 76,
-        vi_VN = 77
-    }
-}
-declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import IStiGlobalizationProvider = Stimulsoft.Report.IStiGlobalizationProvider;
     import StiElementLayout = Stimulsoft.Report.Dashboard.StiElementLayout;
@@ -54634,6 +54803,11 @@ declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
     import StiComponentId = Stimulsoft.Report.StiComponentId;
     import IStiTitleElement = Stimulsoft.Report.Dashboard.IStiTitleElement;
     import IStiOnlineMapElement = Stimulsoft.Report.Dashboard.IStiOnlineMapElement;
+    import StiOnlineMapLocationType = Stimulsoft.Report.Dashboard.StiOnlineMapLocationType;
+    import StiOnlineMapCulture = Stimulsoft.Report.Dashboard.StiOnlineMapCulture;
+    import StiOnlineMapLocationColorType = Stimulsoft.Report.Dashboard.StiOnlineMapLocationColorType;
+    import StiOnlineMapValueViewMode = Stimulsoft.Report.Dashboard.StiOnlineMapValueViewMode;
+    import Color = Stimulsoft.System.Drawing.Color;
     /**
      *  Map component of the dashboards.
      */
@@ -54684,6 +54858,16 @@ declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
         getLocationMeter(): IStiMeter;
         removeLocationMeter(): void;
         createNewLocationMeter(): void;
+        addLocationColorMeter2(dataColumn: StiDataColumn): void;
+        addLocationColorMeter(meter: IStiMeter): void;
+        getLocationColorMeter(): IStiMeter;
+        removeLocationColorMeter(): void;
+        createNewLocationColorMeter(): void;
+        addLocationValueMeter2(dataColumn: StiDataColumn): void;
+        addLocationValueMeter(meter: IStiMeter): void;
+        getLocationValueMeter(): IStiMeter;
+        removeLocationValueMeter(): void;
+        createNewLocationValueMeter(): void;
         /**
          *  Sets localized string to specified property name.
          */
@@ -54708,8 +54892,13 @@ declare namespace Stimulsoft.Dashboard.Components.OnlineMap {
         latitude: StiLatitudeMapMeter;
         longitude: StiLongitudeMapMeter;
         location: StiLocationMapMeter;
+        locationColorMeter: StiLocationMapMeter;
+        locationValue: StiLocationMapMeter;
         locationType: StiOnlineMapLocationType;
         culture: StiOnlineMapCulture;
+        locationColorType: StiOnlineMapLocationColorType;
+        valueViewMode: StiOnlineMapValueViewMode;
+        locationColor: Color;
         createNew(): StiComponent;
         /**
          *  Creates a new  component of the type StiOnlineMapElement with specified location.
@@ -55920,27 +56109,29 @@ declare namespace Stimulsoft.Dashboard.Components {
         LatitudeMapMeter = 22,
         LongitudeMapMeter = 23,
         LocationMapMeter = 24,
-        KeyMapMeter = 25,
-        NameMapMeter = 26,
-        ValueMapMeter = 27,
-        GroupMapMeter = 28,
-        ColorMapMeter = 29,
-        ColorScaleColumn = 30,
-        DataBarsColumn = 31,
-        DimensionColumn = 32,
-        IndicatorColumn = 33,
-        MeasureColumn = 34,
-        SparklinesColumn = 35,
-        PivotColumn = 36,
-        PivotRow = 37,
-        PivotSummary = 38,
-        NameListBoxMeter = 39,
-        KeyListBoxMeter = 40,
-        KeyTreeViewMeter = 41,
-        KeyTreeViewBoxMeter = 42,
-        NameComboBoxMeter = 43,
-        KeyComboBoxMeter = 44,
-        ValueDatePickerMeter = 45
+        LocationValueMapMeter = 25,
+        LocationColorMapMeter = 26,
+        KeyMapMeter = 27,
+        NameMapMeter = 28,
+        ValueMapMeter = 29,
+        GroupMapMeter = 30,
+        ColorMapMeter = 31,
+        ColorScaleColumn = 32,
+        DataBarsColumn = 33,
+        DimensionColumn = 34,
+        IndicatorColumn = 35,
+        MeasureColumn = 36,
+        SparklinesColumn = 37,
+        PivotColumn = 38,
+        PivotRow = 39,
+        PivotSummary = 40,
+        NameListBoxMeter = 41,
+        KeyListBoxMeter = 42,
+        KeyTreeViewMeter = 43,
+        KeyTreeViewBoxMeter = 44,
+        NameComboBoxMeter = 45,
+        KeyComboBoxMeter = 46,
+        ValueDatePickerMeter = 47
     }
 }
 declare namespace Stimulsoft.Dashboard.Components {
@@ -56257,11 +56448,31 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
+    import Promise = Stimulsoft.System.Promise;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
+    import Hashtable = Stimulsoft.System.Collections.Hashtable;
+    import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
+    import StiOnlineMapElement = Stimulsoft.Dashboard.Components.OnlineMap.StiOnlineMapElement;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import List = Stimulsoft.System.Collections.List;
     class StiOnlineMapHelper {
+        private static ICON;
+        private static EMPTY_ICON;
+        private static MAX_LOCATIONS;
+        private static MIN_RADIUS;
+        private static MAX_RADIUS;
+        private static DELTA_RADIUS;
+        private static htmlNameToColor;
+        private static lockHtmlNameToColor;
+        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): Promise<string>;
+        static calculateMapData(dataTable: StiDataTable, onlineMapElement: StiOnlineMapElement): Hashtable;
+        static getColors(count: number): List<Color>;
         static getLongitudeMeterIndex(dataTable: StiDataTable): number;
         static getLatitudeMeterIndex(dataTable: StiDataTable): number;
         static getLocationMeterIndex(dataTable: StiDataTable): number;
+        static getLocationColorMeterIndex(dataTable: StiDataTable): number;
+        static getLocationValueMeterIndex(dataTable: StiDataTable): number;
+        static parseColor(colorAttribute: string): Color;
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
@@ -57344,6 +57555,7 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
         static getLayout(element: IStiElement): any;
         private static fixColor;
         static getActionColors(element: IStiElement): any;
+        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): Promise<string>;
         static getDashboardInteraction(object_: any): any;
     }
 }
@@ -57563,10 +57775,11 @@ declare module Stimulsoft.Viewer {
     }
 }
 declare module Stimulsoft.Viewer {
+    import Promise = Stimulsoft.System.Promise;
     import StiReport = Stimulsoft.Report.StiReport;
     class StiVariablesHelper {
         private en_us_culture;
-        static fillDialogInfoItems(report: StiReport): void;
+        static fillDialogInfoItemsAsync(report: StiReport): Promise<void>;
         private static getVariableAlias;
         private static getItems;
         private static getDateTimeObject;
@@ -57575,7 +57788,7 @@ declare module Stimulsoft.Viewer {
         static applyReportParameters(report: StiReport, values: any): void;
         static applyReportBindingVariables(report: StiReport, values: any): void;
         private static setVariableValue;
-        static getVariables(report: StiReport, values: any): any;
+        static getVariablesAsync(report: StiReport, values: any): Promise<any>;
     }
 }
 declare module Stimulsoft.Viewer {
@@ -57830,6 +58043,7 @@ declare module Stimulsoft.Viewer {
         viewer: StiViewer;
         InitializeErrorMessageForm(): any;
         updateVisibleState(): any;
+        showParametersPanel(data: any, jsObject: any): any;
         constructor(parameters: any);
     }
     class StiViewer {
@@ -59409,6 +59623,28 @@ declare namespace Stimulsoft.Designer.Dashboards {
         private static topUpFilterElements;
     }
 }
+declare namespace Stimulsoft.Designer.Dashboards {
+    import Promise = Stimulsoft.System.Promise;
+    import IStiOnlineMapElement = Stimulsoft.Report.Dashboard.IStiOnlineMapElement;
+    import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
+    class StiOnlineMapElementHelper {
+        private onlineMapElement;
+        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): Promise<string>;
+        private getOnlineMapElementJSProperties;
+        private getMeterHashItem;
+        private getMetersHash;
+        private getMeterByContainerName;
+        executeJSCommand(parameters: any, callbackResult: any): void;
+        private setExpression;
+        private renameMeter;
+        private updateOnlineMapElementProperties;
+        private createNewItem;
+        private setFunction;
+        private setDataColumn;
+        private moveMeter;
+        constructor(onlineMapElement: IStiOnlineMapElement);
+    }
+}
 declare module Stimulsoft.Designer {
     import Promise = Stimulsoft.System.Promise;
     import IStiDashboardInteraction = Stimulsoft.Report.Dashboard.IStiDashboardInteraction;
@@ -59522,7 +59758,7 @@ declare module Stimulsoft.Designer {
         static getElementLayoutProperty(layout: StiElementLayout): string;
         static getPreviewSettingsProperty(report: StiReport): any;
         static getTopNProperty(topN: StiDataTopN): any;
-        static getOnlineMapContent(component: StiComponent): string;
+        static getOnlineMapContentAsync(component: StiComponent): Promise<string>;
         static getCultures(): any[];
         static getDashboardInteractionProperty(dashboardInteraction: IStiDashboardInteraction): any;
         static setAllProperties(component: StiComponent, props: any[]): void;
@@ -59660,24 +59896,6 @@ declare namespace Stimulsoft.Designer.Dashboards {
         private static getGaugeElementStyles;
         static getStylesContentAsync(report: StiReport, param: any): Promise<any[]>;
         constructor(gaugeElement: IStiGaugeElement);
-    }
-}
-declare namespace Stimulsoft.Designer.Dashboards {
-    import IStiOnlineMapElement = Stimulsoft.Report.Dashboard.IStiOnlineMapElement;
-    class StiOnlineMapElementHelper {
-        private onlineMapElement;
-        private getOnlineMapElementJSProperties;
-        private getMeterHashItem;
-        private getMetersHash;
-        private getMeterByContainerName;
-        executeJSCommand(parameters: any, callbackResult: any): void;
-        private setExpression;
-        private renameMeter;
-        private createNewItem;
-        private setFunction;
-        private setDataColumn;
-        private moveMeter;
-        constructor(onlineMapElement: IStiOnlineMapElement);
     }
 }
 declare namespace Stimulsoft.Designer.Dashboards {

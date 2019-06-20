@@ -2175,15 +2175,15 @@
   <Notices>
     <AccessDenied>액세스가 거부되었습니다!</AccessDenied>
     <AccountLocked>당신의 계정은 잠겨 있습니다! 그것을 해결하려면, sales@stimulsoft.com로 연락 주시기 바랍니다!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>Stimulsoft Reports.Ultimate 구독, Stimulsoft Reports.Server의 첫 번째 버전보다 이전에 만료되었습니다.</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>Stimulsoft Reports.Ultimate 구독, Stimulsoft Server의 첫 번째 버전보다 이전에 만료되었습니다.</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>라이센스 파일이 올바르지 않습니다. sales@stimulsoft.com 문의하십시오.</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>당신의 계정은 잠겨 있습니다. sales@stimulsoft.com 문의하십시오.</ActivationLockedAccount>
     <ActivationMaxActivationsReached>당신은 최대의 활성화에 도달했습니다. sales@stimulsoft.com 문의하십시오.</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server는 현재 사용할 수 없습니다! 나중에 다시 시도하십시오.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>구독 프로그램이 만료 되었기 때문에 Stimulsoft Reports.Server이 버전을 활성화 할 수 없습니다! 계정에 로그인하여 설치하고 활성화 할 수 Stimulsoft Reports.Server 버전을 확인하십시오.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>구독 프로그램이 만료 되었기 때문에 Stimulsoft Server이 버전을 활성화 할 수 없습니다! 계정에 로그인하여 설치하고 활성화 할 수 Stimulsoft Server 버전을 확인하십시오.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>사용 중 오류가 발생했습니다. 나중에 다시 시도하십시오.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>당신의 사용자 이름 (이메일) 또는 암호가 잘못되었습니다!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>당신의 계정 유형은 Stimulsoft Reports.Server을 활성화 할 수 없습니다!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>당신의 계정 유형은 Stimulsoft Server을 활성화 할 수 없습니다!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>계정은 지금 사용할 수 없습니다!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>계정은 아직 활성화되어 있지 않습니다! 등록시 E 메일에 보낸 지침을 따르십시오.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>이 작업 공간의 마지막 관리자 사용자이기 때문에 사용자 역할은 수정할 수 없습니다.</AuthCantChangeRoleBecauseLastAdministratorUser>

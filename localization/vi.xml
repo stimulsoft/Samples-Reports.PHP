@@ -2179,15 +2179,15 @@
   <Notices>
     <AccessDenied>Truy cập bị từ chối!</AccessDenied>
     <AccountLocked>Tài khoản của bạn đã bị khóa! Để giải quyết vấn đề, vui lòng gửi yêu cầu của bạn tới sales@stimulsoft.com!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>Thuê bao Stimulsoft Reports.Ultimate của bạn hết hạn sớm hơn phiên bản đầu tiên của Stimulsoft Reports.Server của chúng tôi đã được phát hành!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>Thuê bao Stimulsoft Reports.Ultimate của bạn hết hạn sớm hơn phiên bản đầu tiên của Stimulsoft Server của chúng tôi đã được phát hành!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>Giấy phép không đúng! Vui lòng liên hệ bộ phận kinh doanh của chúng tôi tại sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Tài khoản của bạn đã bị khóa. Vui lòng liên hệ phòng bán hàng của chúng tôi tại sales@stimulsoft.com!</ActivationLockedAccount>
     <ActivationMaxActivationsReached>Bạn đã đạt số lần kích hoạt tối đa. Vui lòng liên hệ phòng bán hàng của chúng tôi tại sales@stimulsoft.com!</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>Máy chủ kích hoạt Stimulsoft hiện không có sẵn! Vui lòng thử lại sau.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>Bạn không thể kích hoạt phiên bản này của Stimulsoft Reports.Server bởi vì thời gian sử dụng của bạn đã hết hạn! Vui lòng đăng nhập vào tài khoản của bạn và kiểm tra phiên bản nào của Stimulsoft Reports.Server bạn có thể cài đặt và kích hoạt.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>Bạn không thể kích hoạt phiên bản này của Stimulsoft Server bởi vì thời gian sử dụng của bạn đã hết hạn! Vui lòng đăng nhập vào tài khoản của bạn và kiểm tra phiên bản nào của Stimulsoft Server bạn có thể cài đặt và kích hoạt.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>Đã xảy ra lỗi khi kích hoạt. Vui lòng thử lại sau.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>Tên người dùng (thư điện tử) hoặc mật khẩu của bạn sai!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>Loại tài khoản của bạn không được cho phép kích hoạt Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>Loại tài khoản của bạn không được cho phép kích hoạt Stimulsoft Server!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>Không thể sử dụng tài khoản ngay bây giờ!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>Tài khoản chưa được kích hoạt! Vui lòng làm theo các hướng dẫn được gửi đến thư điện tử trong quá trình đăng ký.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>Không thể thay đổi vai trò người dùng vì đây là người dùng quản trị cuối cùng trong không gian làm việc này!</AuthCantChangeRoleBecauseLastAdministratorUser>

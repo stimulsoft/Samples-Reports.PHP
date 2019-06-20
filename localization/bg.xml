@@ -2179,15 +2179,15 @@
   <Notices>
     <AccessDenied>Достъпът забранен!</AccessDenied>
     <AccountLocked>Вашата регистрация е заключена! За да разрешите проблема, се обърнете към sales@stimulsoft.com!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>Вашият абонамент на Stimulsoft Reports.Ultimate изтече по-рано от публикуване на първата версия на нашия Stimulsoft Reports.Server!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>Вашият абонамент на Stimulsoft Reports.Ultimate изтече по-рано от публикуване на първата версия на нашия Stimulsoft Server!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>Некоректен лицензен файл! Моля, свържете се с нашия отдел продажби в sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Профилът ви е заключен. Моля, свържете се с нашия отдел продажби в sales@stimulsoft.com!</ActivationLockedAccount>
     <ActivationMaxActivationsReached>Вие достигнахте максимално разрешения брой на активации. Моля, свържете се с нашия отдел продажби в sales@stimulsoft.com!</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server в момента не е наличен! Опитайте отново по-късно.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>Вие не можете да активирате тази версия на Stimulsoft Reports.Server защото абонамента ви е изтекъл! Моля, влезте в профила си и проверите коя версия на Stimulsoft Reports.Server можете да инсталирате и активирте.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>Вие не можете да активирате тази версия на Stimulsoft Server защото абонамента ви е изтекъл! Моля, влезте в профила си и проверите коя версия на Stimulsoft Server можете да инсталирате и активирте.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>Възникна грешка при активиране. Моля, опитайте отново по-късно.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>Грешно потребителско име (Email) или парола!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>Типа на профила ви не позволява да активирате Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>Типа на профила ви не позволява да активирате Stimulsoft Server!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>Профила не може да бъде използван сега!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>Профила ви не е активиран все още! Моля, следвайте инструкциите, изпратени на Email по време на регистрацията.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>Ролята на потребител все още не може да се промени, тъй като това е последният потребител администратор в това работно пространство!</AuthCantChangeRoleBecauseLastAdministratorUser>

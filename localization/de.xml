@@ -2180,15 +2180,15 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
   <Notices>
     <AccessDenied>Zugriff verweigert!</AccessDenied>
     <AccountLocked>Ihr Konto wurde gesperrt! Um  dieses Problem zu lösen, bitte, senden Sie die Anfrage an sales@stimulsoft.com!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>Ihr Abonnement von Stimulsoft Reports.Ultimate ist früher abgelaufen, als erste Version des Stimulsoft Reports Servers freigegeben wurde!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>Ihr Abonnement von Stimulsoft Reports.Ultimate ist früher abgelaufen, als erste Version des Stimulsoft Servers freigegeben wurde!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>Die Lizenzdatei ist nicht korrekt! Bitte, kontaktieren Sie unsere Verkaufsabteilung sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Ihr Konto ist gesperrt. Bitte, kontaktieren Sie unsere Verkaufsabteilung über die folgende E-Mail-Adresse: sales@stimulsoft.com!</ActivationLockedAccount>
     <ActivationMaxActivationsReached>Sie haben maximale Anzahl an Aktivierungen erreicht. Bitte, kontaktieren Sie unsere Verkaufsabteilung über die folgende E-Mail-Adresse: sales@stimulsoft.com!</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server ist nicht jetzt verfügbar! Bitte, versuchen Sie später erneut.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>Sie können nicht diese Version Stimulsoft Reports.Server aktivieren, weil das Abonnement-Programm schon abgelaufen ist! Bitte, melden Sie an und prüfen, welche Version Stimulsoft Reports.Server Sie installieren und aktivieren können.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>Sie können nicht diese Version Stimulsoft Server aktivieren, weil das Abonnement-Programm schon abgelaufen ist! Bitte, melden Sie an und prüfen, welche Version Stimulsoft Server Sie installieren und aktivieren können.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>Während der Aktivierung ist einen Fehler aufgetreten. Bitte, versuchen Sie später erneut.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>Benutzername (E-Mail-Adresse) oder Passwort ist falsch!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>Ihrer Kontotyp erlaubt nicht Stimulsoft Reports.Server zu aktivieren!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>Ihrer Kontotyp erlaubt nicht Stimulsoft Server zu aktivieren!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>Das Konto kann nicht verwendet werden!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>Das Konto ist nicht nur aktiviert! Bitte, folgen Sie der Anleitung, die Sie in der E-Mail während der Registrierung erhalten haben.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>Die Benutzerrolle kann nicht verändert werden, weil die der letzte Administrator-Benutzer im Arbeitsbereich ist!</AuthCantChangeRoleBecauseLastAdministratorUser>

@@ -108,9 +108,11 @@
     <Export>Экспорт</Export>
     <ForceDelete>Все равно удалить</ForceDelete>
     <Help>Помощь</Help>
+    <Install>Установить</Install>
     <LessOptions>Меньше параметров</LessOptions>
     <LoadDataSet>Загрузить DataSet (*.data)</LoadDataSet>
     <More>Больше</More>
+    <MoreApps>Больше приложений</MoreApps>
     <MoreOptions>Больше параметров</MoreOptions>
     <MoveLeft>Переместить влево</MoveLeft>
     <MoveRight>Переместить вправо</MoveRight>
@@ -136,6 +138,7 @@
     <Test>Проверка</Test>
     <Up>Вверх</Up>
     <Upload>Загрузить</Upload>
+    <Waiting>Ожидание</Waiting>
     <Yes>&amp;Да</Yes>
   </Buttons>
   <Chart>
@@ -341,6 +344,8 @@
     <AccountSettings>Настройки аккаунта</AccountSettings>
     <AddAPlace>Добавление места</AddAPlace>
     <AreYouSureYouWantDeleteReport>Вы действительно хотите удалить отчет "{0}" с диска?</AreYouSureYouWantDeleteReport>
+    <Authorize>Авторизовать</Authorize>
+    <AuthorizeWithLicenseKey>Авторизация лицензионным ключом</AuthorizeWithLicenseKey>
     <ButtonChangePassword>Изменить пароль</ButtonChangePassword>
     <ButtonDeleteAll>Удалить все</ButtonDeleteAll>
     <ButtonDesign>Редактировать отчет</ButtonDesign>
@@ -384,9 +389,13 @@
     <HyperlinkForgotPassword>Забыл пароль</HyperlinkForgotPassword>
     <HyperlinkHavePassword>У меня есть пароль</HyperlinkHavePassword>
     <HyperlinkRegisterAccount>Создать аккаунт бесплатно</HyperlinkRegisterAccount>
+    <InstallSamples>Установить примеры</InstallSamples>
+    <LabelAddCloudFolder>Папка в Stimulsoft Cloud для размещения в ней отчетов и панелей индикаторов.</LabelAddCloudFolder>
+    <LabelAddFolder>Локальная папка для размещения в ней отчетов и панелей индикаторов.</LabelAddFolder>
     <labelCollectionName>Наименование коллекции:</labelCollectionName>
     <LabelCreated>Создан:</LabelCreated>
     <LabelCreateFolder>Папка для размещения в ней других элементов.</LabelCreateFolder>
+    <LabelCreateNewDashboard>Панель индикаторов для анализа данных.</LabelCreateNewDashboard>
     <LabelCreateReportTemplate>Отчет для вывода данных.</LabelCreateReportTemplate>
     <LabelCurrentPassword>Текущий пароль:</LabelCurrentPassword>
     <LabelDataFile>Файл данных:</LabelDataFile>
@@ -412,6 +421,7 @@
     <labelUserName>Имя пользователя:</labelUserName>
     <License>Лицензия</License>
     <LicenseInformation>Информация о лицензии</LicenseInformation>
+    <LicenseKey>Лицензионный ключ</LicenseKey>
     <Login>Войти</Login>
     <NofM>{0}: {1} из {2}</NofM>
     <Open>Открыть</Open>
@@ -425,8 +435,10 @@
     <OperationUpload>Отправить '{0}' на сервер</OperationUpload>
     <page>страница</page>
     <Platforms>Платформы</Platforms>
+    <Port>Порт</Port>
     <PrivacyPolicy>политикой конфиденциальности</PrivacyPolicy>
     <Products>Продукты</Products>
+    <Proxy>Прокси</Proxy>
     <PublishMessage>Чтобы опубликовать этот отчет, необходимо передать его на publish.stimulsoft.com</PublishMessage>
     <questionOpenThisFile>Вы действительно хотите открыть '{0}' файл?</questionOpenThisFile>
     <questionOverrideItem>Вы действительно хотите  перезаписать '{0}' файл?</questionOverrideItem>
@@ -465,10 +477,10 @@
     <TextItemsWorkspace>Рабочее пространство</TextItemsWorkspace>
     <TextLastName>Фамилия</TextLastName>
     <TextModify>Изменение</TextModify>
-    <TextNoFavoriteFiles>Нету избранных файлов</TextNoFavoriteFiles>
+    <TextNoFavoriteFiles>Нет избранных файлов</TextNoFavoriteFiles>
+    <TextNoFiles>Нет файлов</TextNoFiles>
     <TextNoNotifications>Нет уведомлений</TextNoNotifications>
-    <TextNoFiles>Нету файлов</TextNoFiles>
-    <TextNoRecentFiles>Нету последних файлов</TextNoRecentFiles>
+    <TextNoRecentFiles>Нет последних файлов</TextNoRecentFiles>
     <TextOwner>Владелец</TextOwner>
     <TextProfile>Профиль</TextProfile>
     <TextReports>Отчеты</TextReports>
@@ -764,6 +776,14 @@
     <TestConnection>Проверка соединения</TestConnection>
     <TextNotFound>Указанный текст не найден. Текст: {0}</TextNotFound>
   </DesignerFx>
+  <Desktop>
+    <ButtonAddCloud>Добавить папку из облака</ButtonAddCloud>
+    <ButtonAddFolder>Добавить папку</ButtonAddFolder>
+    <ButtonCreateDashboard>Создать панель индикаторов</ButtonCreateDashboard>
+    <ButtonCreateReport>Создать отчет</ButtonCreateReport>
+    <DoYouWantToInstallReports>Вы хотите установить шаблоны отчетов и панелей индикаторов?</DoYouWantToInstallReports>
+    <InstallSamplesDesc>Давайте установим наши примеры! Они помогут вам освоить работу с нашим продуктом.</InstallSamplesDesc>
+  </Desktop>
   <Dialogs>
     <StiButtonControl>Кнопка</StiButtonControl>
     <StiCheckBoxControl>Флажок</StiCheckBoxControl>
@@ -872,6 +892,7 @@
     <ExceptEditableFields>Исключить редактируемые</ExceptEditableFields>
     <ExportDataOnly>Только данные</ExportDataOnly>
     <ExportEachPageToSheet>Каждая страница отдельно</ExportEachPageToSheet>
+    <Exporting>Экспорт</Exporting>
     <ExportingCalculatingCoordinates>Расчет координат</ExportingCalculatingCoordinates>
     <ExportingCreatingDocument>Создание документа</ExportingCreatingDocument>
     <ExportingFormatingObjects>Форматирование объекта</ExportingFormatingObjects>
@@ -1847,6 +1868,7 @@
     <GridMode>Отображать сетку точками или линиями.</GridMode>
     <ImageAlignment>Разместить изображение в качестве </ImageAlignment>
     <ImageTransparency>Изменить прозрачность изображения.</ImageTransparency>
+    <Interaction>н</Interaction>
     <LineSpacing>Выберите, какой промежуток будет между строками или между абзацами текста.</LineSpacing>
     <Link>Связать выделенные компоненты с контейнерами, в которых они находятся.</Link>
     <LoadImage>Загрузить изображение для водяного знака из файла.</LoadImage>
@@ -2124,10 +2146,16 @@
     <menuHelp>Помощь</menuHelp>
     <menuHelpAboutProgramm>О программе...</menuHelpAboutProgramm>
     <menuHelpContents>Содержание...</menuHelpContents>
+    <menuHelpDemos>Демо</menuHelpDemos>
+    <menuHelpDocumentation>Документация</menuHelpDocumentation>
     <menuHelpFAQPage>Часто задаваемые вопросы</menuHelpFAQPage>
+    <menuHelpForum>Форум</menuHelpForum>
     <menuHelpHowToRegister>Регистрация</menuHelpHowToRegister>
     <menuHelpProductHomePage>Домашняя страница</menuHelpProductHomePage>
+    <menuHelpSamples>Примеры</menuHelpSamples>
     <menuHelpSupport>Поддержка</menuHelpSupport>
+    <menuHelpTrainingCourses>Учебные курсы</menuHelpTrainingCourses>
+    <menuHelpVideos>Видео</menuHelpVideos>
     <menuInsertColumnToLeft>Вставить колонку слева</menuInsertColumnToLeft>
     <menuInsertColumnToRight>Вставить колонку справа</menuInsertColumnToRight>
     <menuInsertRowAbove>Вставить строку выше</menuInsertRowAbove>
@@ -2181,19 +2209,20 @@
     <TextRegistrationSuccessfully>Регистрация прошла успешно!</TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>Это поле не заполнено!</ThisFieldIsNotSpecified>
     <ThisFunctionEmbedsAllReportDataToTheReport>Эта функция встраивает все данные отчета в ресурсы отчета и делает отчет автономным. Будьте осторожны! Все настройки данных будут изменены и не могут быть восстановлены после данного действия. Сначала необходимо сделать резервную копию отчета. {0} Вы уверены?</ThisFunctionEmbedsAllReportDataToTheReport>
+    <YouNeedToLoginFirstToStartUsingTheSoftware>Вы должны войти в систему, чтобы начать использовать приложение.</YouNeedToLoginFirstToStartUsingTheSoftware>
   </Messages>
   <Notices>
     <AccessDenied>Доступ запрещен!</AccessDenied>
     <AccountLocked>Ваш аккаунт заблокирован! Для решения проблемы, отправьте запрос на sales@stimulsoft.com!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>Ваша Программа Подписки для Stimulsoft Reports.Ultimate истекла раньше даты первого релиза Stimulsoft Reports.Server!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>Ваша Программа Подписки для Stimulsoft Reports.Ultimate истекла раньше даты первого релиза Stimulsoft Server!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>Файл лицензии не корректен! Пожалуйста свяжитесь с нашим отделом продаж на sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Ваш аккаунт заблокирован. Пожалуйста, свяжитесь с нашим отделом продаж по sales@stimulsoft.com!</ActivationLockedAccount>
     <ActivationMaxActivationsReached>Вы достигли максимального количества активаций лицензии. Пожалуйста, свяжитесь с нашим отделом продаж по sales@stimulsoft.com!</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>Сервер активации сейчас недоступен! Пожалуйста, попробуйте активировать лицензию позднее.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>Вы не можете активировать эту версию Stimulsoft Reports.Server, т.к. Ваша Программа Подписки истекла! Пожалуйста, войдите в Ваш аккаунт на нашем сайте и проверьте, какую версию Stimulsoft Reports.Server Вы можете установить и активировать.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>Вы не можете активировать эту версию Stimulsoft Server, т.к. Ваша Программа Подписки истекла! Пожалуйста, войдите в Ваш аккаунт на нашем сайте и проверьте, какую версию Stimulsoft Server Вы можете установить и активировать.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>Во время активации лицензии произошла ошибка. Пожалуйста, попробуйте активировать лицензию позднее.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>Имя пользователя (Email) или пароль указаны неверно!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>Ваш тип аккаунта не позволяет активировать лицензию Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>Ваш тип аккаунта не позволяет активировать лицензию Stimulsoft Server!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>Аккаунт не может быть использован сейчас!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>Этот аккаунт не активирован! Пожалуйста, следуйте инструкциям, которые были отправлены на Ваш Email во время регистрации.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>Роль данного пользователя не может быть изменена, т.к. это последний администратор в этом рабочем пространстве.</AuthCantChangeRoleBecauseLastAdministratorUser>
@@ -2531,8 +2560,8 @@
     <BlueViolet>Сине-фиолетовый</BlueViolet>
     <Brown>Коричневый</Brown>
     <BurlyWood>Древесный</BurlyWood>
-    <Carmine>Кармин</Carmine>
     <CadetBlue>Серо-синий</CadetBlue>
+    <Carmine>Кармин</Carmine>
     <Chartreuse>Зеленовато-желтый</Chartreuse>
     <Chocolate>Шоколадный</Chocolate>
     <Coral>Коралловый</Coral>
@@ -2544,7 +2573,6 @@
     <DarkCyan>Циан темный</DarkCyan>
     <DarkGoldenrod>Темно-золотистый</DarkGoldenrod>
     <DarkGray>Темно-серый</DarkGray>
-    <VeryDarkGray>Очень темно-серый</VeryDarkGray>
     <DarkGreen>Темно-зеленый</DarkGreen>
     <DarkKhaki>Хаки темный</DarkKhaki>
     <DarkMagenta>Фуксин темный</DarkMagenta>
@@ -2655,6 +2683,7 @@
     <Tomato>Томатный</Tomato>
     <Transparent>Прозрачный</Transparent>
     <Turquoise>Бирюзовый</Turquoise>
+    <VeryDarkGray>Очень темно-серый</VeryDarkGray>
     <Violet>Фиолетовый</Violet>
     <Wheat>Пшеничный</Wheat>
     <White>Белый</White>
@@ -3925,8 +3954,8 @@
     <ReportAuthor>Автор отчета</ReportAuthor>
     <ReportCacheMode>Кэш отчета</ReportCacheMode>
     <ReportDescription>Описание отчета</ReportDescription>
-    <ReportImage>Изображение отчета</ReportImage>
     <ReportIcon>Иконка отчета</ReportIcon>
+    <ReportImage>Изображение отчета</ReportImage>
     <ReportName>Наименование отчета</ReportName>
     <ReportUnit>Единица измерения</ReportUnit>
     <RequestFromUser>Запросить у пользователя</RequestFromUser>
@@ -4608,10 +4637,13 @@
     <title>Инструментарий</title>
   </Toolbox>
   <WelcomeScreen>
+    <AllDownloadsWillCanceled>Вы уверены, что хотите закрыть это окно? Все загрузки будут отменены.</AllDownloadsWillCanceled>
     <Description>Мы отобрали для вас отчеты, которые по нашему мнению, лучше всего подоходят для быстрого старта.</Description>
+    <GetStarted>С чего начать</GetStarted>
     <GetStartedWithDashboards>Начните с панели индикаторов</GetStartedWithDashboards>
     <GetStartedWithReports>Начните с отчетов</GetStartedWithReports>
     <MoreReports>Больше отчетов</MoreReports>
+    <ShowNextTime>Показывать '{0}' в следующий раз</ShowNextTime>
     <Title>Добро пожаловать в Stimulsoft Демо</Title>
   </WelcomeScreen>
   <Wizards>

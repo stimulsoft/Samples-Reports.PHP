@@ -2179,15 +2179,15 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
   <Notices>
     <AccessDenied>Access Denied!</AccessDenied>
     <AccountLocked>¡Tu cuenta esta bloqueada! Para resolverlo, ¡envíe su solicitud a sales@stimulsoft.com!</AccountLocked>
-    <ActivationExpiriedBeforeFirstRelease>¡Su suscripción de Stimulsoft Reports.Ultimate expiró antes de la primera versión de nuestro Stimulsoft Reports.Server fue lanzado!</ActivationExpiriedBeforeFirstRelease>
+    <ActivationExpiriedBeforeFirstRelease>¡Su suscripción de Stimulsoft Reports.Ultimate expiró antes de la primera versión de nuestro Stimulsoft Server fue lanzado!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>¡El fichero de licencia no es correcto! Por favor, póngase en contacto con nuestro departamento de ventas en sales@stimulsoft.com</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>¡Su cuenta esta bloqueada. Por favor, póngase en contacto con nuestro departamento de ventas en sales@stimulsoft.com!</ActivationLockedAccount>
     <ActivationMaxActivationsReached>¡Ha alcanzado el número máximo de activaciones. Por favor, póngase en contacto con nuestro departamento de ventas en sales@stimulsoft.com!</ActivationMaxActivationsReached>
     <ActivationServerIsNotAvailableNow>¡El servidor de activaciones de Stimulsoft no está disponible en estos momentos! Por favor, inténtelo de nuevo más tarde.</ActivationServerIsNotAvailableNow>
-    <ActivationServerVersionNotAllowed>¡No se puede activar esta versión de Stimulsoft Reports.Server porque su programa de suscripción ha caducado! Por favor, acceda a su cuenta y comprobar la versión de la Stimulsoft Reports.Server puede instalar y activar.</ActivationServerVersionNotAllowed>
+    <ActivationServerVersionNotAllowed>¡No se puede activar esta versión de Stimulsoft Server porque su programa de suscripción ha caducado! Por favor, acceda a su cuenta y comprobar la versión de la Stimulsoft Server puede instalar y activar.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>Se produjo un error durante la activación. Por favor, inténtelo de nuevo más tarde.</ActivationSomeTroublesOccurred>
     <ActivationUserNameOrPasswordIsWrong>¡Su nombre de usuario (correo electrónico) o la contraseña es incorrecta!</ActivationUserNameOrPasswordIsWrong>
-    <ActivationWrongAccountType>¡Su tipo de cuenta no permite activar Stimulsoft Reports.Server!</ActivationWrongAccountType>
+    <ActivationWrongAccountType>¡Su tipo de cuenta no permite activar Stimulsoft Server!</ActivationWrongAccountType>
     <AuthAccountCantBeUsedNow>¡La cuenta no se puede utilizar ahora!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>¡La cuenta no está activada todavía! Por favor, siga las instrucciones enviadas al correo electrónico durante el registro.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>¡El rol de usuario no se puede cambiar porque este es el último usuario del administrador en este espacio de trabajo!</AuthCantChangeRoleBecauseLastAdministratorUser>
