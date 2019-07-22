@@ -61,6 +61,10 @@
     <StiApplyGeneralTextFormatLong>Set the 'General' format for the '{0}' component.</StiApplyGeneralTextFormatLong>
   </CheckActions>
   <CheckComponent>
+    <StiFilterCircularDependencyElementCheckLong>The circular dependency of the filter is found at the element '{0}'. Please check the 'Parent Key' property of the {0} 'element!</StiFilterCircularDependencyElementCheckLong>
+    <StiFilterCircularDependencyElementCheckShort>Circular filter dependency</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterValueCheckLong>A filter value of '{0}' is not specified. This filter can't be processed.</StiFilterValueCheckLong>
+    <StiFilterValueCheckShort>A filter Value is not specified</StiFilterValueCheckShort>
     <StiAllowHtmlTagsInTextCheckLong>HTML tags are used in the text. But the AllowHtmlTags property is set to false. The content of the {0} component will be printed incorrectly.</StiAllowHtmlTagsInTextCheckLong>
     <StiAllowHtmlTagsInTextCheckShort>The AllowHtmlTags property is not set</StiAllowHtmlTagsInTextCheckShort>
     <StiCanBreakComponentInContainerCheckLong>The CanBreak property of the '{0}' container is set to false. Some nested components have the CanBreak property set to true.</StiCanBreakComponentInContainerCheckLong>
