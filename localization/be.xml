@@ -428,7 +428,7 @@
     <OpenFile>Адкрыць файл</OpenFile>
     <OperationCreate>Стварыць '{0}'</OperationCreate>
     <OperationDelete>Выдаліць '{0}' з сервера</OperationDelete>
-    <OperationDownload>Спампаваць з сервера</OperationDownload>
+    <OperationDownload>Атрыманне адаптара дадзеных</OperationDownload>
     <OperationGetList>Атрымаць спіс файлаў з сервера</OperationGetList>
     <OperationLogin>Злучыцца з серверам</OperationLogin>
     <OperationRename>Пераназваць '{0}' у '{1}'</OperationRename>

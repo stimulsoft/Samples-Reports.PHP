@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2019.3.3
-Build date: 2019.07.19
+Version: 2019.3.4
+Build date: 2019.08.05
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare namespace Stimulsoft.System.Collections {
@@ -2237,7 +2237,7 @@ declare namespace Stimulsoft.System.Drawing {
         static fromFile(path: string): Image;
         static fromBytes(bytes: number[]): Image;
         private setData;
-        convert(imageFormat: ImageFormat, flate?: boolean): Promise<Image>;
+        convert(imageFormat: ImageFormat, flate?: boolean): StiPromise<Image>;
         tryConvertSync(imageFormat: ImageFormat): boolean;
         dispose(): void;
         clone(): Image;
@@ -2400,7 +2400,7 @@ declare namespace Stimulsoft.System {
         static initialize(onResult?: Function): void;
         private static convert;
         static platform(): any;
-        static callRemoteApi(command: any, timeout: number): Promise<string>;
+        static callRemoteApi(command: any, timeout: number): StiPromise<string>;
         private static processFirebird;
         private static processMsSql;
         private static processMySql;
@@ -3898,40 +3898,6 @@ declare namespace Stimulsoft.System {
         get(index: Number): any;
     }
 }
-declare namespace Stimulsoft.System {
-    class Promise<T> {
-        private _this;
-        returnValue: T;
-        private _tryFunctions;
-        private _finallyFunction;
-        private _timeout;
-        private _startTime;
-        private _callTry;
-        private _callCatch;
-        private _callFinaly;
-        private _callTimeout;
-        private _catchArgument;
-        private _finalyArgument;
-        private promise;
-        private timeoutHanderId;
-        private assignFunction;
-        private _catchFunctions;
-        try(tryFunction: Function, _this?: any): Promise<T>;
-        catch(catchFunction: Function, _this?: any): Promise<T>;
-        finally(finallyFunction: Function, _this?: any): Promise<T>;
-        this(_this: any): Promise<T>;
-        timeout(timeout: number): Promise<T>;
-        callTry(returnValue?: T): Promise<T>;
-        callCatch(catchArgument?: any): void;
-        private callFinally;
-        callTimeout(): void;
-        private nextPromises;
-        abort(previusPromise?: Promise<any>): Promise<T>;
-        private abortFunction;
-        onAbort(abortFunction: Function): void;
-        constructor();
-    }
-}
 declare namespace Stimulsoft.Report {
     class Range {
         readonly rangeName: string;
@@ -4082,6 +4048,40 @@ declare namespace Stimulsoft.System {
     class StiError {
         static errorMessageForm: any;
         static showError(e: any, showForm?: boolean): void;
+    }
+}
+declare namespace Stimulsoft.System {
+    class StiPromise<T> {
+        private _this;
+        returnValue: T;
+        private _tryFunctions;
+        private _finallyFunction;
+        private _timeout;
+        private _startTime;
+        private _callTry;
+        private _callCatch;
+        private _callFinaly;
+        private _callTimeout;
+        private _catchArgument;
+        private _finalyArgument;
+        private promise;
+        private timeoutHanderId;
+        private assignFunction;
+        private _catchFunctions;
+        try(tryFunction: Function, _this?: any): StiPromise<T>;
+        catch(catchFunction: Function, _this?: any): StiPromise<T>;
+        finally(finallyFunction: Function, _this?: any): StiPromise<T>;
+        this(_this: any): StiPromise<T>;
+        timeout(timeout: number): StiPromise<T>;
+        callTry(returnValue?: T): StiPromise<T>;
+        callCatch(catchArgument?: any): void;
+        private callFinally;
+        callTimeout(): void;
+        private nextPromises;
+        abort(previusPromise?: StiPromise<any>): StiPromise<T>;
+        private abortFunction;
+        onAbort(abortFunction: Function): void;
+        constructor();
     }
 }
 /**
@@ -5927,10 +5927,14 @@ declare namespace Stimulsoft.Base.Helpers {
 declare namespace Stimulsoft.Base.Helpers {
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import Size = Stimulsoft.System.Drawing.Size;
+    import List = Stimulsoft.System.Collections.List;
+    import StiPromise = Stimulsoft.System.StiPromise;
     class StiBingMapHelper {
         static BingKey: string;
         private static Script;
-        static getImage(size: Size, pushPins?: []): any;
+        static getImageAsync(size: Size, pushPins?: List<string>): StiPromise<string>;
+        private static base64ArrayBuffer;
+        private static getBingUrl;
         static getScript(mapData: Hashtable): string;
         private static getCacheKey;
     }
@@ -6751,6 +6755,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "WizardXmlDescription": string;
             };
             "Desktop": {
+                "WhoAreYou": string;
                 "ButtonCreateReport": string;
                 "ButtonCreateDashboard": string;
                 "ButtonAddFolder": string;
@@ -6855,6 +6860,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "DrillUp": string;
                 "DuplicateField": string;
                 "EditExpression": string;
+                "EditField": string;
                 "EmptyDashboardFooter": string;
                 "EmptyDashboardHeader": string;
                 "FieldInteractions": string;
@@ -8496,6 +8502,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "NotificationValueIsNotCorrect": string;
                 "OutOfRange": string;
                 "ParsingCommandException": string;
+                "PleaseLogin": string;
                 "QuotaMaximumComputingCyclesCountExceeded": string;
                 "QuotaMaximumDataRowsCountExceeded": string;
                 "QuotaMaximumFileSizeExceeded": string;
@@ -8547,6 +8554,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "RetrievingInformation": string;
                 "Tags": string;
                 "Title": string;
+                "DownloadDataAdapter": string;
                 "ViewLicense": string;
             };
             "Panels": {
@@ -8837,6 +8845,14 @@ declare namespace Stimulsoft.Base.Localization {
                 "YellowGreen": string;
             };
             "PropertyEnum": {
+                "StiIconAlignmentNone": string;
+                "StiIconAlignmentLeft": string;
+                "StiIconAlignmentRight": string;
+                "StiIconAlignmentTop": string;
+                "StiIconAlignmentBottom": string;
+                "StiExtendedStyleBoolFromStyle": string;
+                "StiExtendedStyleBoolTrue": string;
+                "StiExtendedStyleBoolFalse": string;
                 "boolFalse": string;
                 "boolTrue": string;
                 "BorderStyleFixed3D": string;
@@ -8996,6 +9012,9 @@ declare namespace Stimulsoft.Base.Localization {
                 "StiDisplayNameTypeFull": string;
                 "StiDisplayNameTypeNone": string;
                 "StiDisplayNameTypeShort": string;
+                "StiDesignerSpecificationAuto": string;
+                "StiDesignerSpecificationDeveloper": string;
+                "StiDesignerSpecificationBICreator": string;
                 "StiDockStyleBottom": string;
                 "StiDockStyleFill": string;
                 "StiDockStyleLeft": string;
@@ -9131,6 +9150,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "StiMarkerTypeStar6": string;
                 "StiMarkerTypeStar7": string;
                 "StiMarkerTypeStar8": string;
+                "StiMarkerTypeHalfCircle": string;
                 "StiMarkerTypeTriangle": string;
                 "StiNestedFactorHigh": string;
                 "StiNestedFactorLow": string;
@@ -9443,6 +9463,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "ZigZag": string;
             };
             "PropertyMain": {
+                "IconAlignment": string;
                 "AcceptsReturn": string;
                 "AcceptsTab": string;
                 "Actual": string;
@@ -9886,6 +9907,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "Length": string;
                 "LengthUnderLabels": string;
                 "Lighting": string;
+                "LimitRows": string;
                 "Linear": string;
                 "LinearBarBorderBrush": string;
                 "LinearBarBrush": string;
@@ -9933,6 +9955,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "MarkerColor": string;
                 "MarkerSize": string;
                 "MarkerType": string;
+                "MarkerAngle": string;
                 "MarkerVisible": string;
                 "MasterComponent": string;
                 "MasterKeyDataColumn": string;
@@ -10152,6 +10175,7 @@ declare namespace Stimulsoft.Base.Localization {
                 "SeriesLabelsLineColor": string;
                 "SeriesLighting": string;
                 "SeriesShowShadow": string;
+                "SeriesShowBorder": string;
                 "SeriesTitle": string;
                 "Shadow": string;
                 "ShadowBrush": string;
@@ -11707,7 +11731,7 @@ declare namespace Stimulsoft.Base {
     }
 }
 declare namespace Stimulsoft.Base {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import DataTable = Stimulsoft.System.Data.DataTable;
     import List = Stimulsoft.System.Collections.List;
     let IStiAppDataSource: string;
@@ -11730,7 +11754,7 @@ declare namespace Stimulsoft.Base {
          * @param allowConnectToData Allow to call Connect() method. By default is true.
          * @returns The DataTable with data.
          */
-        getDataTable2Async(allowConnectToData: boolean): Promise<DataTable>;
+        getDataTable2Async(allowConnectToData: boolean): StiPromise<DataTable>;
         /**
          * Returns a reference to the dictionary which contains this datasource.
          * @returns Reference to the app.
@@ -12624,11 +12648,11 @@ declare namespace Stimulsoft.Data.Engine {
     }
 }
 declare namespace Stimulsoft.Data.Engine {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import List = Stimulsoft.System.Collections.List;
     import IStiMeter = Stimulsoft.Base.Meters.IStiMeter;
     class StiDataAnalyzer {
-        static analyseAsync(query: IStiQueryObject, group: string, meters: List<IStiMeter>, option?: StiDataRequestOption, userSorts?: List<StiDataSortRule>, userFilters?: List<StiDataFilterRule>, dataFilters?: List<StiDataFilterRule>, dataActions?: List<StiDataActionRule>, transformSorts?: List<StiDataSortRule>, transformFilters?: List<StiDataFilterRule>, transformActions?: List<StiDataActionRule>, drillDownFilters?: List<StiDataFilterRule>): Promise<StiDataTable>;
+        static analyseAsync(query: IStiQueryObject, group: string, meters: List<IStiMeter>, option?: StiDataRequestOption, userSorts?: List<StiDataSortRule>, userFilters?: List<StiDataFilterRule>, dataFilters?: List<StiDataFilterRule>, dataActions?: List<StiDataActionRule>, transformSorts?: List<StiDataSortRule>, transformFilters?: List<StiDataFilterRule>, transformActions?: List<StiDataActionRule>, drillDownFilters?: List<StiDataFilterRule>): StiPromise<StiDataTable>;
         private static unionNames;
         private static getUniqueCode;
         private static getUniqueCode2;
@@ -13197,7 +13221,7 @@ declare namespace Stimulsoft.Data.Engine {
 }
 declare namespace Stimulsoft.Data.Engine {
     import IStiApp = Stimulsoft.Base.IStiApp;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiAppDataSource = Stimulsoft.Base.IStiAppDataSource;
     import DataTable = Stimulsoft.System.Data.DataTable;
     import List = Stimulsoft.System.Collections.List;
@@ -13207,15 +13231,20 @@ declare namespace Stimulsoft.Data.Engine {
         /**
          * Returns all data tables which is used in all elements of the dashboard
          */
-        static fetchAsync(query: IStiQueryObject, group: string, option?: StiDataRequestOption, filterNames?: List<string>): Promise<List<DataTable>>;
+        static fetchAsync(query: IStiQueryObject, group: string, option?: StiDataRequestOption, filterNames?: List<string>): StiPromise<List<DataTable>>;
+        static retrieveUsedDataSources(query: IStiQueryObject, group: string, filterNames: List<string>): List<IStiAppDataSource>;
+        static fetch2Async(app: IStiApp, dataSourceName: string, option?: StiDataRequestOption): StiPromise<DataTable>;
+        static fetch3Async(app: IStiApp, dataSource: IStiAppDataSource, option?: StiDataRequestOption): StiPromise<DataTable>;
         static isAllBICached(query: IStiQueryObject, group: string, option?: StiDataRequestOption): boolean;
-        static getDataTableAsync(app: IStiApp, dataSource: IStiAppDataSource, option?: StiDataRequestOption): Promise<DataTable>;
+        static getDataTableAsync(app: IStiApp, dataSource: IStiAppDataSource, option?: StiDataRequestOption): StiPromise<DataTable>;
         private static getDataTable2Async;
         static processCalculatedColumns(dataTable: DataTable, dataSource: IStiAppDataSource): DataTable;
         private static addTableNameToColumnNames;
         static getFromCache(dataSource: IStiAppDataSource): DataTable;
-        private static existsInCache;
-        static addToCache(dataSource: IStiAppDataSource, dataTable: DataTable): void;
+        static existsInCache(dataSource: IStiAppDataSource): boolean;
+        static addToCache(dataSource: IStiAppDataSource, dataTable: {
+            ref: DataTable;
+        }): void;
         private static getCacheKey;
         static cleanCache(appKey: string): void;
     }
@@ -22718,6 +22747,7 @@ declare namespace Stimulsoft.Report.Chart {
         chartAreaBrush: StiBrush;
         chartAreaBorderColor: Color;
         seriesShowShadow: boolean;
+        seriesShowBorder: boolean;
         seriesLighting: boolean;
         seriesLabelsFont: Font;
         seriesLabelsColor: Color;
@@ -29777,19 +29807,19 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        backColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        glyphColor: System.Drawing.Color;
-        separatorColor: System.Drawing.Color;
-        selectedBackColor: System.Drawing.Color;
-        selectedForeColor: System.Drawing.Color;
-        selectedGlyphColor: System.Drawing.Color;
-        hotBackColor: System.Drawing.Color;
-        hotForeColor: System.Drawing.Color;
-        hotGlyphColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
-        hotSelectedForeColor: System.Drawing.Color;
-        hotSelectedGlyphColor: System.Drawing.Color;
+        backColor: Color;
+        foreColor: Color;
+        glyphColor: Color;
+        separatorColor: Color;
+        selectedBackColor: Color;
+        selectedForeColor: Color;
+        selectedGlyphColor: Color;
+        hotBackColor: Color;
+        hotForeColor: Color;
+        hotGlyphColor: Color;
+        hotSelectedBackColor: Color;
+        hotSelectedForeColor: Color;
+        hotSelectedGlyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29814,19 +29844,19 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        separatorColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        glyphColor: System.Drawing.Color;
-        selectedBackColor: System.Drawing.Color;
-        selectedForeColor: System.Drawing.Color;
-        selectedGlyphColor: System.Drawing.Color;
-        hotBackColor: System.Drawing.Color;
-        hotForeColor: System.Drawing.Color;
-        hotGlyphColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
-        hotSelectedForeColor: System.Drawing.Color;
-        hotSelectedGlyphColor: System.Drawing.Color;
+        separatorColor: Color;
+        backColor: Color;
+        foreColor: Color;
+        glyphColor: Color;
+        selectedBackColor: Color;
+        selectedForeColor: Color;
+        selectedGlyphColor: Color;
+        hotBackColor: Color;
+        hotForeColor: Color;
+        hotGlyphColor: Color;
+        hotSelectedBackColor: Color;
+        hotSelectedForeColor: Color;
+        hotSelectedGlyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29834,19 +29864,19 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        backColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        selectedBackColor: System.Drawing.Color;
-        selectedForeColor: System.Drawing.Color;
-        glyphColor: System.Drawing.Color;
-        separatorColor: System.Drawing.Color;
-        selectedGlyphColor: System.Drawing.Color;
-        hotBackColor: System.Drawing.Color;
-        hotForeColor: System.Drawing.Color;
-        hotGlyphColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
-        hotSelectedForeColor: System.Drawing.Color;
-        hotSelectedGlyphColor: System.Drawing.Color;
+        backColor: Color;
+        foreColor: Color;
+        selectedBackColor: Color;
+        selectedForeColor: Color;
+        glyphColor: Color;
+        separatorColor: Color;
+        selectedGlyphColor: Color;
+        hotBackColor: Color;
+        hotForeColor: Color;
+        hotGlyphColor: Color;
+        hotSelectedBackColor: Color;
+        hotSelectedForeColor: Color;
+        hotSelectedGlyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29854,19 +29884,19 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        backColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        selectedBackColor: System.Drawing.Color;
-        selectedForeColor: System.Drawing.Color;
-        glyphColor: System.Drawing.Color;
-        separatorColor: System.Drawing.Color;
-        selectedGlyphColor: System.Drawing.Color;
-        hotBackColor: System.Drawing.Color;
-        hotForeColor: System.Drawing.Color;
-        hotGlyphColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
-        hotSelectedForeColor: System.Drawing.Color;
-        hotSelectedGlyphColor: System.Drawing.Color;
+        backColor: Color;
+        foreColor: Color;
+        selectedBackColor: Color;
+        selectedForeColor: Color;
+        glyphColor: Color;
+        separatorColor: Color;
+        selectedGlyphColor: Color;
+        hotBackColor: Color;
+        hotForeColor: Color;
+        hotGlyphColor: Color;
+        hotSelectedBackColor: Color;
+        hotSelectedForeColor: Color;
+        hotSelectedGlyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29874,8 +29904,8 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        selectedBackColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
+        selectedBackColor: Color;
+        hotSelectedBackColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29883,8 +29913,8 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        selectedBackColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
+        selectedBackColor: Color;
+        hotSelectedBackColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29892,19 +29922,19 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        backColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        glyphColor: System.Drawing.Color;
-        separatorColor: System.Drawing.Color;
-        selectedBackColor: System.Drawing.Color;
-        selectedForeColor: System.Drawing.Color;
-        selectedGlyphColor: System.Drawing.Color;
-        hotBackColor: System.Drawing.Color;
-        hotForeColor: System.Drawing.Color;
-        hotGlyphColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
-        hotSelectedForeColor: System.Drawing.Color;
-        hotSelectedGlyphColor: System.Drawing.Color;
+        backColor: Color;
+        foreColor: Color;
+        glyphColor: Color;
+        separatorColor: Color;
+        selectedBackColor: Color;
+        selectedForeColor: Color;
+        selectedGlyphColor: Color;
+        hotBackColor: Color;
+        hotForeColor: Color;
+        hotGlyphColor: Color;
+        hotSelectedBackColor: Color;
+        hotSelectedForeColor: Color;
+        hotSelectedGlyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29912,19 +29942,19 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        backColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        selectedBackColor: System.Drawing.Color;
-        selectedForeColor: System.Drawing.Color;
-        glyphColor: System.Drawing.Color;
-        separatorColor: System.Drawing.Color;
-        selectedGlyphColor: System.Drawing.Color;
-        hotBackColor: System.Drawing.Color;
-        hotForeColor: System.Drawing.Color;
-        hotGlyphColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
-        hotSelectedForeColor: System.Drawing.Color;
-        hotSelectedGlyphColor: System.Drawing.Color;
+        backColor: Color;
+        foreColor: Color;
+        selectedBackColor: Color;
+        selectedForeColor: Color;
+        glyphColor: Color;
+        separatorColor: Color;
+        selectedGlyphColor: Color;
+        hotBackColor: Color;
+        hotForeColor: Color;
+        hotGlyphColor: Color;
+        hotSelectedBackColor: Color;
+        hotSelectedForeColor: Color;
+        hotSelectedGlyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29932,8 +29962,8 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        selectedBackColor: System.Drawing.Color;
-        hotSelectedBackColor: System.Drawing.Color;
+        selectedBackColor: Color;
+        hotSelectedBackColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29955,11 +29985,11 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        borderColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
-        titleBackColor: System.Drawing.Color;
-        titleForeColor: System.Drawing.Color;
+        borderColor: Color;
+        foreColor: Color;
+        backColor: Color;
+        titleBackColor: Color;
+        titleForeColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -29979,10 +30009,10 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        foreColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
-        titleBackColor: System.Drawing.Color;
-        titleForeColor: System.Drawing.Color;
+        foreColor: Color;
+        backColor: Color;
+        titleBackColor: Color;
+        titleForeColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30003,11 +30033,11 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        foreColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
-        titleForeColor: System.Drawing.Color;
-        titleBackColor: System.Drawing.Color;
-        borderColor: System.Drawing.Color;
+        foreColor: Color;
+        backColor: Color;
+        titleForeColor: Color;
+        titleBackColor: Color;
+        borderColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30039,11 +30069,11 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        borderColor: System.Drawing.Color;
-        foreColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
-        titleBackColor: System.Drawing.Color;
-        titleForeColor: System.Drawing.Color;
+        borderColor: Color;
+        foreColor: Color;
+        backColor: Color;
+        titleBackColor: Color;
+        titleForeColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30087,7 +30117,7 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
+        glyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30095,7 +30125,7 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
+        glyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30114,8 +30144,8 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        glyphColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30147,7 +30177,7 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
+        glyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30155,7 +30185,7 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
+        glyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30163,7 +30193,7 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
+        glyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30171,8 +30201,8 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        glyphColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30180,7 +30210,7 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        glyphColor: System.Drawing.Color;
+        glyphColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30208,20 +30238,20 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        columnHeaderBackColor: System.Drawing.Color;
-        columnHeaderForeColor: System.Drawing.Color;
-        rowHeaderBackColor: System.Drawing.Color;
-        rowHeaderForeColor: System.Drawing.Color;
-        hotColumnHeaderBackColor: System.Drawing.Color;
-        hotRowHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        columnHeaderBackColor: Color;
+        columnHeaderForeColor: Color;
+        rowHeaderBackColor: Color;
+        rowHeaderForeColor: Color;
+        hotColumnHeaderBackColor: Color;
+        hotRowHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30272,20 +30302,20 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        columnHeaderBackColor: System.Drawing.Color;
-        columnHeaderForeColor: System.Drawing.Color;
-        rowHeaderBackColor: System.Drawing.Color;
-        rowHeaderForeColor: System.Drawing.Color;
-        hotColumnHeaderBackColor: System.Drawing.Color;
-        hotRowHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        columnHeaderBackColor: Color;
+        columnHeaderForeColor: Color;
+        rowHeaderBackColor: Color;
+        rowHeaderForeColor: Color;
+        hotColumnHeaderBackColor: Color;
+        hotRowHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30293,20 +30323,20 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        columnHeaderBackColor: System.Drawing.Color;
-        columnHeaderForeColor: System.Drawing.Color;
-        rowHeaderBackColor: System.Drawing.Color;
-        rowHeaderForeColor: System.Drawing.Color;
-        hotColumnHeaderBackColor: System.Drawing.Color;
-        hotRowHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        columnHeaderBackColor: Color;
+        columnHeaderForeColor: Color;
+        rowHeaderBackColor: Color;
+        rowHeaderForeColor: Color;
+        hotColumnHeaderBackColor: Color;
+        hotRowHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30314,20 +30344,20 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        columnHeaderBackColor: System.Drawing.Color;
-        columnHeaderForeColor: System.Drawing.Color;
-        rowHeaderBackColor: System.Drawing.Color;
-        rowHeaderForeColor: System.Drawing.Color;
-        hotColumnHeaderBackColor: System.Drawing.Color;
-        hotRowHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        columnHeaderBackColor: Color;
+        columnHeaderForeColor: Color;
+        rowHeaderBackColor: Color;
+        rowHeaderForeColor: Color;
+        hotColumnHeaderBackColor: Color;
+        hotRowHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30367,20 +30397,20 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        columnHeaderBackColor: System.Drawing.Color;
-        columnHeaderForeColor: System.Drawing.Color;
-        rowHeaderBackColor: System.Drawing.Color;
-        rowHeaderForeColor: System.Drawing.Color;
-        hotColumnHeaderBackColor: System.Drawing.Color;
-        hotRowHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        columnHeaderBackColor: Color;
+        columnHeaderForeColor: Color;
+        rowHeaderBackColor: Color;
+        rowHeaderForeColor: Color;
+        hotColumnHeaderBackColor: Color;
+        hotRowHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30388,20 +30418,20 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        columnHeaderBackColor: System.Drawing.Color;
-        columnHeaderForeColor: System.Drawing.Color;
-        rowHeaderBackColor: System.Drawing.Color;
-        rowHeaderForeColor: System.Drawing.Color;
-        hotColumnHeaderBackColor: System.Drawing.Color;
-        hotRowHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        columnHeaderBackColor: Color;
+        columnHeaderForeColor: Color;
+        rowHeaderBackColor: Color;
+        rowHeaderForeColor: Color;
+        hotColumnHeaderBackColor: Color;
+        hotRowHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30436,10 +30466,10 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        foreColor: System.Drawing.Color;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
+        foreColor: Color;
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30447,9 +30477,9 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30483,10 +30513,10 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
-        backColor: System.Drawing.Color;
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30494,10 +30524,10 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
-        backColor: System.Drawing.Color;
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30505,9 +30535,9 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30515,9 +30545,9 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30525,9 +30555,9 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30547,9 +30577,9 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        trackColor: System.Drawing.Color;
-        bandColor: System.Drawing.Color;
-        seriesColors: System.Drawing.Color[];
+        trackColor: Color;
+        bandColor: Color;
+        seriesColors: Color[];
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30636,17 +30666,17 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        headerBackColor: System.Drawing.Color;
-        headerForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        hotHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        headerBackColor: Color;
+        headerForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        hotHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -30758,17 +30788,17 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
         сomponentId: StiComponentId;
         localizedName: string;
         ident: StiElementStyleIdent;
-        cellBackColor: System.Drawing.Color;
-        cellForeColor: System.Drawing.Color;
-        alternatingCellBackColor: System.Drawing.Color;
-        alternatingCellForeColor: System.Drawing.Color;
-        headerBackColor: System.Drawing.Color;
-        headerForeColor: System.Drawing.Color;
-        selectedCellBackColor: System.Drawing.Color;
-        selectedCellForeColor: System.Drawing.Color;
-        hotHeaderBackColor: System.Drawing.Color;
-        lineColor: System.Drawing.Color;
-        backColor: System.Drawing.Color;
+        cellBackColor: Color;
+        cellForeColor: Color;
+        alternatingCellBackColor: Color;
+        alternatingCellForeColor: Color;
+        headerBackColor: Color;
+        headerForeColor: Color;
+        selectedCellBackColor: Color;
+        selectedCellForeColor: Color;
+        hotHeaderBackColor: Color;
+        lineColor: Color;
+        backColor: Color;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Styles {
@@ -31496,6 +31526,7 @@ declare namespace Stimulsoft.Report.Styles {
         chartAreaShowShadow: boolean;
         seriesLighting: boolean;
         seriesShowShadow: boolean;
+        seriesShowBorder: boolean;
         seriesLabelsLineColor: Color;
         trendLineColor: Color;
         trendLineShowShadow: boolean;
@@ -31584,36 +31615,49 @@ declare namespace Stimulsoft.Report.Dashboard.Styles {
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Visuals {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
     let IStiGaugeVisualSvgHelper: string;
     interface IStiGaugeVisualSvgHelper {
-        writeGaugeAsync(writer: XmlTextWriter, svgData: StiSvgData, needAnimation: boolean): Promise<void>;
+        writeGaugeAsync(writer: XmlTextWriter, svgData: StiSvgData, needAnimation: boolean): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Visuals {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
     let IStiIndicatorVisualSvgHelper: string;
     interface IStiIndicatorVisualSvgHelper {
-        writeIndicatorAsync(writer: XmlTextWriter, svgData: StiSvgData): Promise<void>;
+        writeIndicatorAsync(writer: XmlTextWriter, svgData: StiSvgData): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard.Visuals {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
     let IStiProgressVisualSvgHelper: string;
     interface IStiProgressVisualSvgHelper {
-        writeProgressAsync(writer: XmlTextWriter, svgData: StiSvgData): Promise<void>;
+        writeProgressAsync(writer: XmlTextWriter, svgData: StiSvgData): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard {
     let IStiChartArea: string;
     let ImplementsIStiChartArea: any[];
     interface IStiChartArea {
+    }
+}
+import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+import Color = Stimulsoft.System.Drawing.Color;
+declare namespace Stimulsoft.Report.Dashboard {
+    let IStiChartConstantLines: string;
+    let ImplementsIStiChartConstantLines: any[];
+    interface IStiChartConstantLines {
+        text: string;
+        lineStyle: StiPenStyle;
+        lineColor: Color;
+        axisValue: string;
+        lineWidth: number;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard {
@@ -31671,6 +31715,7 @@ declare namespace Stimulsoft.Report.Dashboard {
     }
 }
 declare namespace Stimulsoft.Report.Dashboard {
+    import IStiChartElementCondition = Stimulsoft.Report.Dashboard.IStiChartElementCondition;
     import IStiConvertibleElement = Stimulsoft.Report.Dashboard.IStiConvertibleElement;
     import IStiDataTransformationElement = Stimulsoft.Data.Engine.IStiDataTransformationElement;
     import IStiDataTopN = Stimulsoft.Data.Engine.IStiDataTopN;
@@ -31752,6 +31797,12 @@ declare namespace Stimulsoft.Report.Dashboard {
         insertSeries(meter: IStiMeter): any;
         removeSeries(): any;
         createNewSeries(): any;
+        addConstantLine(text: string, axisValue: string, lineColor: Color, lineStyle: StiPenStyle, lineWidth: number): any;
+        fetchConstantLines(): List<IStiChartConstantLines>;
+        clearConstantLines(): any;
+        addChartCondition(keyValueMeter: string, dataType: StiFilterDataType, condition: StiFilterCondition, value: string, color: Color, markerType: StiMarkerType, markerAngle: number): any;
+        fetchChartConditions(): List<IStiChartElementCondition>;
+        clearChartConditions(): any;
         convertToBubble(): any;
         convertFromBubble(): any;
         checkBrowsableProperties(): any;
@@ -31759,9 +31810,27 @@ declare namespace Stimulsoft.Report.Dashboard {
         isAxisAreaChart: boolean;
         isPieChart: boolean;
         isDoughnutChart: boolean;
+        isFunnelChart: boolean;
+        isTreemapChart: boolean;
         argumentFormat: StiFormatService;
         valueFormat: StiFormatService;
         colorEach: boolean;
+    }
+}
+import StiMarkerType = Stimulsoft.Report.Chart.StiMarkerType;
+import StiFilterCondition = Stimulsoft.Report.Components.StiFilterCondition;
+import StiFilterDataType = Stimulsoft.Report.Components.StiFilterDataType;
+declare namespace Stimulsoft.Report.Dashboard {
+    let IStiChartElementCondition: string;
+    let ImplementsIStiChartElementCondition: any[];
+    interface IStiChartElementCondition {
+        keyValueMeter: string;
+        dataType: StiFilterDataType;
+        condition: StiFilterCondition;
+        value: string;
+        color: Color;
+        markerType: StiMarkerType;
+        markerAngle: number;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard {
@@ -31781,14 +31850,14 @@ declare namespace Stimulsoft.Report.Dashboard {
 }
 declare namespace Stimulsoft.Report.Dashboard {
     import IStiConvertibleElement = Stimulsoft.Report.Dashboard.IStiConvertibleElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiAppCell = Stimulsoft.Base.IStiAppCell;
     let IStiFilterElement: string;
     let ImplementsIStiFilterElement: any[];
     interface IStiFilterElement extends IStiAppCell, IStiConvertibleElement {
         getParentKey(): string;
         setParentKey(key: string): any;
-        applyDefaultFiltersAsync(): Promise<void>;
+        applyDefaultFiltersAsync(): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Report.Dashboard {
@@ -32459,1927 +32528,6 @@ declare namespace Stimulsoft.Report.Dashboard {
         static remove(element: IStiPivotTableElement): void;
         static contains(element: IStiPivotTableElement): boolean;
         static clean(reportKey: string): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import IStiReportComponent = Stimulsoft.Base.IStiReportComponent;
-    class StiReportParser {
-        private static cache;
-        static parse(expression: string, component: IStiReportComponent, allowCache?: boolean): string;
-        private static parseOrDefault;
-        private static tryParse;
-        private static getCacheKey;
-        static addToCache(expression: string, result: string, component: IStiReportComponent): void;
-        static getFromCache(expression: string, component: IStiReportComponent): string;
-        static cleanCache(reportKey: string): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import IStiAppDictionary = Stimulsoft.Base.IStiAppDictionary;
-    import IStiApp = Stimulsoft.Base.IStiApp;
-    class StiCacheCleaner {
-        static clean(element?: IStiElement | IStiAppDictionary | IStiApp | string): void;
-        static clean1(element: IStiElement): void;
-        static clean2(dictionary: IStiAppDictionary): void;
-        static clean3(app: IStiApp): void;
-        static clean4(reportKey?: string): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    class StiDashboardAssembly {
-        static readonly isAssemblyLoaded: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import IStiDashboard = Stimulsoft.Report.Dashboard.IStiDashboard;
-    class StiDashboardCreator {
-        static createDashboard(report: StiReport): IStiDashboard;
-        static createDashboardElement(typeComponent: string): StiComponent;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    class StiDashboardDesignAssembly {
-        static getHtmlTextHelper(): IStiHtmlTextHelper;
-    }
-}
-declare namespace Stimulsoft.Report.Export {
-    /**
-     *  Enumeration for setting compression scheme of the exported Tiff image.
-     */
-    enum StiTiffCompressionScheme {
-        Default = 20,
-        LZW = 2,
-        CCITT3 = 3,
-        CCITT4 = 4,
-        Rle = 5,
-        None = 6
-    }
-    /**
-     *  Enumeration which sets an exported mode for the Html export.
-     */
-    enum StiHtmlExportMode {
-        /**
-         *  A span tag of the HTML will be used for the exporting of the rendered document.
-         */
-        Span = 1,
-        /**
-         *  A div tag of the HTML will be used for the exporting of the rendered document.
-         */
-        Div = 2,
-        /**
-         *  A table tag of the HTML will be used for the exporting of the rendered document.
-         */
-        Table = 3
-    }
-    /**
-     *  Enumeration which sets a quality of images which will be exported.
-     */
-    enum StiHtmlExportQuality {
-        /**
-         *  Sets a high quality of the exported images.
-         */
-        High = 1,
-        /**
-         *  Sets a low quality of the exported images.
-         */
-        Low = 2
-    }
-    /**
-     *  Enumeration describes possible user access privileges to the pdf document.
-     *  User access privileges are managed by the user password.
-     *  Owner with the correct owner password has all possible privileges for the content of the
-     *  pdf document and a rule for setting document permissions.
-     */
-    enum StiUserAccessPrivileges {
-        /**
-         *  User password allows only opening the pdf document, decrypt it, and display it on the screen.
-         */
-        None = 0,
-        /**
-         *  User password allows opening the pdf document, decrypt it, display it on the screen and print
-         *  its content.
-         */
-        PrintDocument = 1,
-        /**
-         *  User password allows modifying the content of the pdf document.
-         */
-        ModifyContents = 2,
-        /**
-         *  User password allows copying text and graphics objects from the content of the pdf document.
-         */
-        CopyTextAndGraphics = 4,
-        /**
-         *  User password allows adding or modifying text annotations in the content of the pdf document.
-         */
-        AddOrModifyTextAnnotations = 8,
-        /**
-         *  User password allows all modifications on the content of the pdf document.
-         */
-        All = 15
-    }
-    /**
-     *  Enumeration which sets an encryption key length of the resulting pdf file.
-     */
-    enum StiPdfEncryptionKeyLength {
-        /**
-         *  RC4 algorithm, 40 bit encryption key length (Acrobat 3).
-         */
-        Bit40 = 1,
-        /**
-         *  RC4 algorithm, 128 bit encryption key length (Acrobat 5).
-         */
-        Bit128 = 2,
-        /**
-         *  AES algorithm, 128 bit encryption key length, revision 4 (Acrobat 7).
-         */
-        Bit128_r4 = 3,
-        /**
-         *  AES algorithm, 256 bit encryption key length, revision 5 (Acrobat 9).
-         */
-        Bit256_r5 = 4,
-        /**
-         *  AES algorithm, 256 bit encryption key length, revision 6 (Acrobat X).
-         */
-        Bit256_r6 = 5
-    }
-    /**
-     *  Enumeration which sets an image compression method for PDF export.
-     */
-    enum StiPdfImageCompressionMethod {
-        /**
-         *  A Jpeg method (DCTDecode) will be used for the exporting of the rendered document.
-         */
-        Jpeg = 1,
-        /**
-         *  A Flate method (FlateDecode) will be used for the exporting of the rendered document.
-         */
-        Flate = 2,
-        /**
-         *  A Indexed method (IndexedColors + FlateDecode) will be used for the exporting of the rendered document.
-         */
-        Indexed = 3
-    }
-    /**
-     *  Enumeration which sets an AutoPrint mode for pdf files
-     */
-    enum StiPdfAutoPrintMode {
-        /**
-         *  Do not use AutoPrint feature
-         */
-        None = 1,
-        /**
-         *  Use printing with print dialog
-         */
-        Dialog = 2,
-        /**
-         *  Use silent printing
-         */
-        Silent = 3
-    }
-    /**
-     *  Enumeration describes a type of the border.
-     */
-    enum StiTxtBorderType {
-        /**
-         *  A border which consists of "+","-","|" symbols.
-         */
-        Simple = 1,
-        /**
-         *  A border which consists of character graphics symbols.
-         *  A Single type of the border.
-         */
-        UnicodeSingle = 2,
-        /**
-         *  A border consists of character graphics symbols.
-         *  A Double type of the border.
-         */
-        UnicodeDouble = 3
-    }
-    /**
-     *  Enumeration describes a type of palette of the PCX file.
-     */
-    enum StiPcxPaletteType {
-        /**
-         *  Monochrome palette (1 bit)
-         */
-        Monochrome = 1,
-        /**
-         *  Color palette (24 bit)
-         */
-        Color = 2
-    }
-    /**
-     *  Enumeration describes a type of dithering for monochrome PCX file.
-     */
-    enum StiMonochromeDitheringType {
-        /**
-         *  Without dithering.
-         *  Low quality, small size of file.
-         */
-        None = 1,
-        /**
-         *  Floyd-Steinberg dithering.
-         *  Good quality, big size of file.
-         */
-        FloydSteinberg = 2,
-        /**
-         *  Ordered dithering with Bayer matrix 4x4.
-         *  Poor quality, medium size of file.
-         */
-        Ordered = 3
-    }
-    /**
-     *  Enumeration describes a type of the images for the exports.
-     */
-    enum StiImageType {
-        Bmp = 1,
-        Gif = 2,
-        Jpeg = 3,
-        Pcx = 4,
-        Png = 5,
-        Tiff = 6,
-        Emf = 7,
-        Svg = 8,
-        Svgz = 9
-    }
-    /**
-     *  Enumeration describes a type of the html exports.
-     */
-    enum StiHtmlType {
-        Html = 1,
-        Html5 = 2,
-        Mht = 3
-    }
-    /**
-     *  Enumeration describes a type of the chart in the html exports.
-     */
-    enum StiHtmlChartType {
-        Image = 1,
-        Vector = 2,
-        AnimatedVector = 3
-    }
-    /**
-     *  Enumeration describes a type of the excel exports.
-     */
-    enum StiExcelType {
-        /**
-         *  Excel format from Office 97 to Office 2003.
-         */
-        ExcelBinary = 1,
-        /**
-         *  Xml Excel format starts from Office 2003.
-         */
-        ExcelXml = 2,
-        /**
-         *  Excel format starts from Office 2007.
-         */
-        Excel2007 = 3
-    }
-    /**
-     *  Enumeration describes a type of the data exports.
-     */
-    enum StiDataType {
-        Csv = 1,
-        Dbf = 2,
-        Dif = 3,
-        Sylk = 4,
-        Xml = 5,
-        Json = 6
-    }
-    /**
-     *  Enumeration which defines a position of the export item in the export menu.
-     */
-    enum StiExportPosition {
-        Pdf = 0,
-        Xps = 1,
-        Ppt2007 = 2,
-        Html = 10,
-        Html5 = 11,
-        Mht = 12,
-        Txt = 20,
-        Rtf = 21,
-        Word2007 = 22,
-        Odt = 23,
-        Excel = 30,
-        ExcelXml = 31,
-        Excel2007 = 32,
-        Ods = 33,
-        Data = 40,
-        Dbf = 41,
-        Xml = 42,
-        Dif = 43,
-        Sylk = 44,
-        Image = 50,
-        Bmp = 50,
-        Gif = 51,
-        Jpeg = 52,
-        Pcx = 53,
-        Png = 54,
-        Tiff = 55,
-        Emf = 60,
-        Svg = 61,
-        Svgz = 62
-    }
-    enum StiHtmlExportBookmarksMode {
-        BookmarksOnly = 1,
-        ReportOnly = 2,
-        All = 3
-    }
-    /**
-     *  Enumeration for setting Code Pages.
-     */
-    enum StiDbfCodePages {
-        /**
-         *  A parameter indicating that the code page of the exported document will not be specified.
-         */
-        Default = 0,
-        /**
-         *  A code page of the exported document is U.S. MS-DOS. Code page number 437.
-         */
-        USDOS = 437,
-        /**
-         *  A code page of the exported document is Mazovia (Polish) MS-DOS. Code page number 620.
-         */
-        MazoviaDOS = 620,
-        /**
-         *  A code page of the exported document is Greek MS-DOS (437G). Code page number 737.
-         */
-        GreekDOS = 737,
-        /**
-         *  A code page of the exported document is International MS-DOS. Code page number 850.
-         */
-        InternationalDOS = 850,
-        /**
-         *  A code page of the exported document is Eastern European MS-DOS. Code page number 852.
-         */
-        EasternEuropeanDOS = 852,
-        /**
-         *  A code page of the exported document is Icelandic MS-DOS. Code page number 861.
-         */
-        IcelandicDOS = 861,
-        /**
-         *  A code page of the exported document is Nordic MS-DOS. Code page number 865.
-         */
-        NordicDOS = 865,
-        /**
-         *  A code page of the exported document is Russian MS-DOS. Code page number 866.
-         */
-        RussianDOS = 866,
-        /**
-         *  A code page of the exported document is Kamenicky (Czech) MS-DOS. Code page number 895.
-         */
-        KamenickyDOS = 895,
-        /**
-         *  A code page of the exported document is Turkish MS-DOS. Code page number 857.
-         */
-        TurkishDOS = 857,
-        /**
-         *  A code page of the exported document is EasternEuropean MS-DOS. Code page number 1250.
-         */
-        EasternEuropeanWindows = 1250,
-        /**
-         *  A code page of the exported document is Russian Windows. Code page number 1251.
-         */
-        RussianWindows = 1251,
-        /**
-         *  A code page of the exported document is Windows ANSI. Code page number 1252.
-         */
-        WindowsANSI = 1252,
-        /**
-         *  A code page of the exported document is Greek Windows. Code page number 1253.
-         */
-        GreekWindows = 1253,
-        /**
-         *  A code page of the exported document is Turkish Windows. Code page number 1254.
-         */
-        TurkishWindows = 1254,
-        /**
-         *  A code page of the exported document is Standard Macintosh. Code page number 10000.
-         */
-        StandardMacintosh = 10000,
-        /**
-         *  A code page of the exported document is Greek Macintosh. Code page number 10006.
-         */
-        GreekMacintosh = 10006,
-        /**
-         *  A code page of the exported document is Russian Macintosh. Code page number 10007.
-         */
-        RussianMacintosh = 10007,
-        /**
-         *  A code page of the exported document is Eastern European Macintosh. Code page number 10029.
-         */
-        EasternEuropeanMacintosh = 10029
-    }
-    /**
-     *  Enumeration for the types of data for the export.
-     */
-    enum StiExportDataType {
-        /**
-         *  A string type.
-         */
-        String = 0,
-        /**
-         *  An Integer32 type.
-         */
-        Int = 1,
-        /**
-         *  An Integer64 type.
-         */
-        Long = 2,
-        /**
-         *  A Float type.
-         */
-        Float = 3,
-        /**
-         *  A Double type.
-         */
-        Double = 4,
-        /**
-         *  A Data type.
-         */
-        Date = 5,
-        /**
-         *  A Boolean type.
-         */
-        Bool = 6
-    }
-    /**
-     *  Enumeration for setting format of the exported images.
-     */
-    enum StiImageFormat {
-        /**
-         *  Images are exported in the color mode.
-         */
-        Color = 1,
-        /**
-         *  Images are exported in the grayscale mode.
-         */
-        Grayscale = 2,
-        /**
-         *  Images are exported in the monochrome mode.
-         */
-        Monochrome = 3
-    }
-    /**
-     *  Enumeration for setting modes of the rtf export.
-     */
-    enum StiRtfExportMode {
-        /**
-         *
-         */
-        Table = 4,
-        /**
-         *
-         */
-        Frame = 1,
-        /**
-         *
-         */
-        WinWord = 2,
-        /**
-         *
-         */
-        TabbedText = 3
-    }
-    /**
-     *  Enumeration for setting modes of the data export.
-     */
-    enum StiDataExportMode {
-        Data = 1,
-        Headers = 2,
-        DataAndHeaders = 3,
-        Footers = 4,
-        HeadersFooters = 6,
-        DataAndHeadersFooters = 7,
-        AllBands = 15
-    }
-    /**
-     *  Enumeration for setting modes of restrict editing
-     */
-    enum StiWord2007RestrictEditing {
-        /**
-         *  No restrictions
-         */
-        No = 1,
-        /**
-         *  Except Editable fields
-         */
-        ExceptEditableFields = 2,
-        /**
-         *  Yes
-         */
-        Yes = 3
-    }
-    /**
-     *  Enumeration for setting modes of restrict editing
-     */
-    enum StiExcel2007RestrictEditing {
-        /**
-         *  No restrictions
-         */
-        No = 1,
-        /**
-         *  Except Editable fields
-         */
-        ExceptEditableFields = 2,
-        /**
-         *  Yes
-         */
-        Yes = 3
-    }
-    /**
-     *  Enumeration for setting modes of restrict editing
-     */
-    enum StiPdfAllowEditable {
-        No = 1,
-        Yes = 2
-    }
-    /**
-     *  Enumeration for setting modes of using of image resolution
-     */
-    enum StiImageResolutionMode {
-        Exactly = 1,
-        NoMoreThan = 2,
-        Auto = 3
-    }
-    /**
-     *  Enumeration for setting modes of compliance
-     */
-    enum StiPdfComplianceMode {
-        None = 0,
-        A1 = 1,
-        A2 = 2,
-        A3 = 3
-    }
-    /**
-     *  Enumeration for setting modes of Excel sheet view
-     */
-    enum StiExcelSheetViewMode {
-        Normal = 1,
-        PageLayout = 2,
-        PageBreakPreview = 3
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import Promise = Stimulsoft.System.Promise;
-    import MemoryStream = Stimulsoft.System.IO.MemoryStream;
-    import StiExportSettings = Stimulsoft.Report.Export.StiExportSettings;
-    class StiDashboardExport {
-        static exportAsync(report: StiReport, stream: MemoryStream, settings: StiExportSettings): Promise<void>;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboards {
-    import IStiTableElementAutoSizer = Stimulsoft.Report.Dashboard.IStiTableElementAutoSizer;
-    import IStiProgressVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiProgressVisualSvgHelper;
-    import IStiIndicatorVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiIndicatorVisualSvgHelper;
-    import IStiGaugeVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiGaugeVisualSvgHelper;
-    class StiDashboardHelperCreator {
-        static createTableElementAutoSizer(): IStiTableElementAutoSizer;
-        static createProgressVisualSvgHelper(): IStiProgressVisualSvgHelper;
-        static createIndicatorVisualSvgHelper(): IStiIndicatorVisualSvgHelper;
-        static createGaugeVisualSvgHelper(): IStiGaugeVisualSvgHelper;
-    }
-}
-import StiElementMeterAction = Stimulsoft.Report.StiElementMeterAction;
-declare namespace Stimulsoft.Report.Dashboard {
-    class StiElementChangedArgs {
-        action: StiElementMeterAction;
-        oldName: string;
-        newName: string;
-        static createEmptyArgs(): StiElementChangedArgs;
-        static createRenamingArgs(oldName: string, newName: string): StiElementChangedArgs;
-        static createDeletingArgs(name: string): StiElementChangedArgs;
-        static createClearingAllArgs(): StiElementChangedArgs;
-    }
-}
-import IStiTransformActions = Stimulsoft.Data.Engine.IStiTransformActions;
-import IStiTransformFilters = Stimulsoft.Data.Engine.IStiTransformFilters;
-declare namespace Stimulsoft.Report.Dashboard {
-    class StiElementChangedProcessor {
-        static processElementChanging(element: any, args: StiElementChangedArgs): void;
-        private static processElementRenaming;
-        private static processElementClearing;
-        private static processElementDeleting;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import Promise = Stimulsoft.System.Promise;
-    import StiDataRequestOption = Stimulsoft.Data.Engine.StiDataRequestOption;
-    import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
-    class StiElementDataCache {
-        private static worker;
-        private static elements;
-        private static cache;
-        private static pivotCreator;
-        static tryToGetOrCreateAsync(element: IStiElement, option?: StiDataRequestOption): Promise<StiDataTable>;
-        static getOrCreateAsync(element: IStiElement, option?: StiDataRequestOption): Promise<StiDataTable>;
-        static getOrCreatePivotAsync(element: IStiPivotTableElement, creator: IStiPivotTableCreator, option?: StiDataRequestOption): Promise<IStiPivotGridContainer>;
-        static getOrCreateWithProgressAsync(element: IStiElement, option?: StiDataRequestOption): Promise<StiDataTable>;
-        static getOrCreatePivotWithProgressAsync(element: IStiPivotTableElement, creator: IStiPivotTableCreator, option?: StiDataRequestOption): Promise<IStiPivotGridContainer>;
-        static get(element: IStiElement): StiDataTable;
-        static createAsync(element: IStiElement, option: StiDataRequestOption): Promise<StiDataTable>;
-        static add(element: IStiElement, dataTable: StiDataTable): void;
-        private static initWorkerAsync;
-        static getKey(element: IStiElement): string;
-        static cleanCache(reportKey: string): void;
-        private static getUserFilters;
-        private static getUserSorts;
-        private static getDataFilters;
-        private static getTransformActions;
-        private static getTransformFilters;
-        private static getTransformSorts;
-        private static getDrillDownFilters;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiElementLayout implements IStiJsonReportObject, ICloneable {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        static createFromJsonObject(jObject: StiJson): StiElementLayout;
-        static createFromXml(xmlNode: XmlNode): StiElementLayout;
-        /**
-         *  Creates a new object that is a copy of the current instance.
-         *  @returns A new object that is a copy of this instance.
-         */
-        clone(): StiElementLayout;
-        readonly isDefault: boolean;
-        fullScreenButton: boolean;
-        saveButton: boolean;
-        StiElementLayout(): void;
-        constructor(saveButton?: boolean, fullScreenButton?: boolean);
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    class StiGroupElementHelper {
-        static getGroup(element: IStiElement): string;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import Type = Stimulsoft.System.Type;
-    class StiInvokeMethodsHelper {
-        static invokeStaticMethod(assemblyName: string, className: string, methodName: string, parameters?: any[], parametersTypes?: Type[]): any;
-        static setPropertyValue(obj: any, propertyName: string, value: any): void;
-        static getPropertyValue(obj: any, propertyName: string): any;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    /**
-     *  Describes the class that realizes object margin.
-     */
-    class StiMargin implements ICloneable, IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode, defLeft?: number, defTop?: number, defRight?: number, defBotttom?: number): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        /**
-         *  Creates a new object that is a copy of the current instance.
-         *  @returns A new object that is a copy of this instance.
-         */
-        clone(): any;
-        /**
-         *  Gets or sets left margin size on the object.
-         */
-        left: number;
-        /**
-         *  Gets or sets top margin size on the object.
-         */
-        top: number;
-        /**
-         *  Gets or sets right margin size on the object.
-         */
-        right: number;
-        /**
-         *  Gets or sets bottom margin size on the object.
-         */
-        bottom: number;
-        readonly isEmpty: boolean;
-        /**
-         *  Tests to see whether the specified object is a SizeD with the same dimensions as this SizeD.
-         *  @param obj The Object to test.
-         *  @returns This method returns true if obj is a SizeD and has the same width and height as this SizeD; otherwise, false.
-         */
-        stiEquals(obj: any): boolean;
-        static empty: StiMargin;
-        /**
-         *  Creates a new object of the type StiMargin.
-         *  @param all The margin size for all sides of the object.
-         */
-        static create(all?: number): StiMargin;
-        /**
-         *  Creates a new object of the type StiMargin.
-         *  @param left Left margin size on the object.
-         *  @param top Top margin size on the object.
-         *  @param right Right margin size on the object.
-         *  @param bottom Bottom margin size on the object.
-         */
-        constructor(left: number, top: number, right: number, bottom: number);
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    /**
-     *  Describes the class that realizes object padding.
-     */
-    class StiPadding implements ICloneable, IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode, defLeft?: number, defTop?: number, defRight?: number, defBotttom?: number): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        /**
-         *  Creates a new object that is a copy of the current instance.
-         *  @returns A new object that is a copy of this instance.
-         */
-        clone(): any;
-        /**
-         *  Gets or sets left padding size on the object.
-         */
-        left: number;
-        /**
-         *  Gets or sets top padding size on the object.
-         */
-        top: number;
-        /**
-         *  Gets or sets right padding size on the object.
-         */
-        right: number;
-        /**
-         *  Gets or sets bottom padding size on the object.
-         */
-        bottom: number;
-        readonly isEmpty: boolean;
-        /**
-         *  Tests to see whether the specified object is a SizeD with the same dimensions as this SizeD.
-         *  @param obj The Object to test.
-         *  @returns This method returns true if obj is a SizeD and has the same width and height as this SizeD; otherwise, false.
-         */
-        stiEquals(obj: any): boolean;
-        static empty: StiPadding;
-        /**
-         *  Creates a new object of the type StiPadding.
-         *  @param all The padding size for all sides of the object.
-         */
-        static create(all?: number): StiPadding;
-        /**
-         *  Creates a new object of the type StiPadding.
-         *  @param left Left padding size on the object.
-         *  @param top Top padding size on the object.
-         *  @param right Right padding size on the object.
-         *  @param bottom Bottom padding size on the object.
-         */
-        constructor(left: number, top: number, right: number, bottom: number);
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import Color = Stimulsoft.System.Drawing.Color;
-    import List = Stimulsoft.System.Collections.List;
-    class StiPredefinedColors {
-        static sets: List<Color[]>;
-        static negativeSets: List<Color[]>;
-    }
-}
-declare namespace Stimulsoft.Report.Dashboard {
-    import Font = Stimulsoft.System.Drawing.Font;
-    import Size = Stimulsoft.System.Drawing.Size;
-    class StiStringMeasureCache {
-        private static stringToSize;
-        static getSize(font: Font, str: string): Size;
-        static putSize(font: Font, str: string, size: Size): void;
-        private static getHashCode;
-    }
-}
-declare namespace Stimulsoft.Report {
-    import Range = Stimulsoft.Report.Range;
-    import CultureInfo = Stimulsoft.System.Globalization.CultureInfo;
-    import TypeConverter = Stimulsoft.System.ComponentModel.TypeConverter;
-    class RangeConverter extends TypeConverter {
-        readonly GetPropertiesSupported: boolean;
-        static rangeToString(range: Range): string;
-        static stringToRange(str: string): Range;
-        convertTo(context: any, culture: CultureInfo, value: any, destinationType: Stimulsoft.System.Type): any;
-        canConvertFrom(context: any, sourceType: Stimulsoft.System.Type): boolean;
-        canConvertTo(context: any, destinationType: Stimulsoft.System.Type): boolean;
-        convertFrom(context: any, culture: CultureInfo, value: any): any;
-    }
-}
-declare namespace Stimulsoft.Report.Units {
-    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
-    import SizeD = Stimulsoft.System.Drawing.Size;
-    class StiHundredthsOfInchUnit extends StiUnit {
-        readonly rulerStep: number;
-        readonly factor: number;
-        readonly shortName: string;
-        readonly name: string;
-        convertToHInches(rect: RectangleD): RectangleD;
-        convertToHInches(size: SizeD): SizeD;
-        convertToHInches(value: number): number;
-        convertFromHInches(rect: RectangleD): RectangleD;
-        convertFromHInches(size: SizeD): SizeD;
-        convertFromHInches(value: number): number;
-    }
-}
-declare namespace Stimulsoft.Report.Units {
-    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
-    import SizeD = Stimulsoft.System.Drawing.Size;
-    class StiCentimetersUnit extends StiUnit {
-        readonly rulerStep: number;
-        readonly factor: number;
-        readonly shortName: string;
-        readonly name: string;
-        convertToHInches(rect: RectangleD): RectangleD;
-        convertToHInches(size: SizeD): SizeD;
-        convertToHInches(value: number): number;
-        convertFromHInches(rect: RectangleD): RectangleD;
-        convertFromHInches(size: SizeD): SizeD;
-        convertFromHInches(value: number): number;
-    }
-}
-declare namespace Stimulsoft.Report.Units {
-    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
-    import SizeD = Stimulsoft.System.Drawing.Size;
-    class StiMillimetersUnit extends Stimulsoft.Report.Units.StiUnit {
-        readonly rulerStep: number;
-        readonly factor: number;
-        readonly shortName: string;
-        readonly name: string;
-        convertToHInches(rect: RectangleD): RectangleD;
-        convertToHInches(size: SizeD): SizeD;
-        convertToHInches(value: number): number;
-        convertFromHInches(rect: RectangleD): RectangleD;
-        convertFromHInches(size: SizeD): SizeD;
-        convertFromHInches(value: number): number;
-    }
-}
-declare namespace Stimulsoft.Report.Design {
-    import StiAction = Stimulsoft.Base.Drawing.StiAction;
-    import Color = Stimulsoft.System.Drawing.Color;
-    import StiQuickInfoType = Stimulsoft.Report.Components.StiQuickInfoType;
-    class StiDesignerInfo {
-        clone(report: StiReport): StiDesignerInfo;
-        private _forceDesigningMode;
-        forceDesigningMode: boolean;
-        private _quickInfoType;
-        quickInfoType: StiQuickInfoType;
-        private _generateLocalizedName;
-        generateLocalizedName: boolean;
-        private _showDimensionLines;
-        showDimensionLines: boolean;
-        private _quickInfoOverlay;
-        quickInfoOverlay: boolean;
-        private _isComponentsMoving;
-        isComponentsMoving: boolean;
-        private _currentAction;
-        currentAction: StiAction;
-        private _isTableMode;
-        isTableMode: boolean;
-        private _drawEventMarkers;
-        drawEventMarkers: boolean;
-        private _drawMarkersWhenMoving;
-        drawMarkersWhenMoving: boolean;
-        private _runDesignerAfterInsert;
-        runDesignerAfterInsert: boolean;
-        private _useLastFormat;
-        useLastFormat: boolean;
-        private _autoSaveInterval;
-        autoSaveInterval: number;
-        private _enableAutoSaveMode;
-        enableAutoSaveMode: boolean;
-        private _showOrder;
-        showOrder: boolean;
-        private _alignToGrid;
-        alignToGrid: boolean;
-        private _autoSaveReportToReportClass;
-        autoSaveReportToReportClass: boolean;
-        private _showHeaders;
-        showHeaders: boolean;
-        private _showGrid;
-        showGrid: boolean;
-        private _showInteractive;
-        showInteractive: boolean;
-        private _zoom;
-        zoom: number;
-        private _showRulers;
-        showRulers: boolean;
-        private _gridSizePoints;
-        gridSizePoints: number;
-        private _gridSizePixels;
-        gridSizePixels: number;
-        private _gridSizeCentimetres;
-        gridSizeCentimetres: number;
-        private _gridSizeHundredthsOfInch;
-        gridSizeHundredthsOfInch: number;
-        private _gridSizeInch;
-        gridSizeInch: number;
-        private _gridSizeMillimeters;
-        gridSizeMillimeters: number;
-        readonly gridSize: number;
-        private _fillBands;
-        fillBands: boolean;
-        private _fillCrossBands;
-        fillCrossBands: boolean;
-        private _fillContainer;
-        fillContainer: boolean;
-        private _fillComponent;
-        fillComponent: boolean;
-        private _useComponentColor;
-        useComponentColor: boolean;
-        private _gridMode;
-        gridMode: StiGridMode;
-        private _report;
-        report: StiReport;
-        getFillColor(color: Color): Color;
-        constructor(report?: StiReport);
-    }
-}
-declare namespace Stimulsoft.Report.Design {
-    class StiExpressionPacker {
-        static packExpression(expressionStr: string, report: StiReport, useBraces: boolean): string;
-        static unPackExpression(expressionStr: string, report: StiReport, useBraces: boolean): string;
-        private static isValidName;
-        static getCorrectedAlias(report: StiReport, alias: string): string;
-        private static addWord;
-        private static buildDictionary;
-        private static buildBusinessObject;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import Type = Stimulsoft.System.Type;
-    import StiService = Stimulsoft.Base.Services.StiService;
-    import Promise = Stimulsoft.System.Promise;
-    class StiDataAdapterService extends StiService {
-        readonly serviceCategory: string;
-        readonly serviceType: Type;
-        readonly isObjectAdapter: boolean;
-        getDataCategoryName(data: StiData): string;
-        static getDataAdapter(dataSource: StiDataSource): StiDataAdapterService;
-        static getDataAdapter2(data: StiData): StiDataAdapterService;
-        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
-        getDataSourceType(): Type;
-        getDataTypes(): Type[];
-        isAdapterDataType(type: Type): boolean;
-        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource, connectionString: string): Promise<StiDataColumnsCollection>;
-        getColumnsFromData(data: StiData, dataSource: StiDataSource, connectionString: string): StiDataColumnsCollection;
-        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
-        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
-        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-        toString(): string;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiDataStoreAdapterService extends StiDataAdapterService {
-        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
-        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiFileAdapterService extends StiDataStoreAdapterService {
-        readonly serviceName: string;
-        getDataCategoryName(data: StiData): string;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import Promise = Stimulsoft.System.Promise;
-    class StiDataLeader {
-        private static fetchAll;
-        static regData(database: StiDatabase, dictionary: StiDictionary, loadData: boolean): void;
-        static regDataAsync(database: StiDatabase, dictionary: StiDictionary, loadData: boolean): Promise<void>;
-        static getColumnsFromData(adapter: StiDataAdapterService, data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
-        static getColumnsFromDataAsync(adapter: StiDataAdapterService, data: StiData, dataSource: StiDataSource): Promise<StiDataColumnsCollection>;
-        static connectDataSourceToData(adapter: StiDataAdapterService, dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        static connectDataSourceToDataAsync(adapter: StiDataAdapterService, dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        static retrieveDataAsync(dataSource: StiSqlSource, schemaOnly?: boolean): Promise<void>;
-        static connect(dataSource: StiDataSource, datas: StiDataCollection, loadData?: boolean): void;
-        static connectAsync(dataSource: StiDataSource, datas: StiDataCollection, loadData?: boolean): Promise<void>;
-        static disconnect(dataSource: StiDataSource): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiCsvAdapterService extends StiFileAdapterService {
-        readonly name: string;
-        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
-        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
-        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
-        getDataSourceType(): Stimulsoft.System.Type;
-        getDataTypes(): Stimulsoft.System.Type[];
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-        checkConvertNulls(dataSource: StiCsvSource): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiNoSqlAdapterService extends StiDataStoreAdapterService {
-        getDataCategoryName(data: StiData): string;
-        testConnection(connectionString: string): string;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMongoDbAdapterService extends StiNoSqlAdapterService {
-        readonly name: string;
-        getDataSourceType(): Stimulsoft.System.Type;
-        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import Type = Stimulsoft.System.Type;
-    /**
-     *  Describes the adapter of the data transformation.
-     */
-    class StiDataTransformationAdapterService extends StiDataStoreAdapterService {
-        /**
-         *  Gets a service name.
-         */
-        serviceName: string;
-        isObjectAdapter: boolean;
-        /**
-         *  Calls the form for Data Source edition.
-         *
-         *  @param dictionary Dictionary in which Data Source is located.
-         *  @param dataSource Data Source.
-         *  @returns Result of gialog form.
-         */
-        edit(dictionary: StiDictionary, dataSource: StiDataSource): boolean;
-        /**
-         *  Calls the form for a new Data Source edition.
-         *
-         * @param dictionary Dictionary in which Data Source is located.
-         * @param dataSource Data Source.
-         * @returns>Result of gialog form.
-         */
-        new(dictionary: StiDictionary, dataSource: StiDataSource): boolean;
-        /**
-         *  Returns the array of data types to which the Data Source may refer.
-         *
-         * @returns Array of data types.
-         */
-        getDataTypes(): Type[];
-        /**
-         *  Returns a collection of columns of data.
-         *
-         * @param data Data to find column.
-         * @returns> Collection of columns found.
-         */
-        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
-        /**
-         *  Returns a collection of parameters of data.
-         *
-         * @param data Data to find parameters.
-         * @returns Collection of parameters found.
-         */
-        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
-        /**
-         *  Returns name of category for data.
-         */
-        getDataCategoryName(data: StiData): string;
-        /**
-         *  Returns the type of the Data Source.
-         *
-         * @returns The type of Data Source.
-         */
-        getDataSourceType(): Type;
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import Promise = Stimulsoft.System.Promise;
-    import Type = Stimulsoft.System.Type;
-    class StiVirtualAdapterService extends StiDataStoreAdapterService {
-        readonly serviceName: string;
-        readonly isObjectAdapter: boolean;
-        getDataTypes(): Type[];
-        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource, connectionString: string): Promise<StiDataColumnsCollection>;
-        getColumnsFromData(data: StiData, dataSource: StiDataSource, connectionString: string): StiDataColumnsCollection;
-        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
-        getDataCategoryName(data: StiData): string;
-        getDataSourceType(): Type;
-        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
-    import DataTable = Stimulsoft.System.Data.DataTable;
-    import Promise = Stimulsoft.System.Promise;
-    class StiSqlAdapterService extends StiDataStoreAdapterService {
-        readonly url: string;
-        readonly serviceName: string;
-        readonly name: string;
-        getDatabaseSpecificName(name: string): string;
-        getDataCategoryName(data: StiData): string;
-        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource, connectionString: string): Promise<StiDataColumnsCollection>;
-        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
-        getDataSourceType(): Stimulsoft.System.Type;
-        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        callRemoteApi(command: any, timeout: number): Promise<string>;
-        private static callTurn;
-        process(report: StiReport, command: any, timeout: number): Promise<any>;
-        testConnectionAsync(report: StiReport, connectionString: string): Promise<string>;
-        createConnectionInDataStore(dictionary: StiDictionary, database: StiSqlDatabase): void;
-        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): Promise<StiDataSchema>;
-        retrieveDataAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString: string): Promise<DataTable>;
-        constructor();
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
-    import Promise = Stimulsoft.System.Promise;
-    class StiODataAdapterService extends StiSqlAdapterService {
-        readonly serviceName: string;
-        getDataSourceType(): Stimulsoft.System.Type;
-        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-        testConnectionAsync(report: StiReport, connectionString: string): Promise<string>;
-        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): Promise<StiDataSchema>;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
-    import Promise = Stimulsoft.System.Promise;
-    class StiFirebirdAdapterService extends StiSqlAdapterService {
-        readonly name: string;
-        getDataSourceType(): Stimulsoft.System.Type;
-        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): Promise<StiDataSchema>;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
-    import Promise = Stimulsoft.System.Promise;
-    class StiMySqlAdapterService extends StiSqlAdapterService {
-        readonly name: string;
-        getDatabaseSpecificName(name: string): string;
-        getDataSourceType(): Stimulsoft.System.Type;
-        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): Promise<StiDataSchema>;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
-    import Promise = Stimulsoft.System.Promise;
-    class StiOracleAdapterService extends StiSqlAdapterService {
-        readonly name: string;
-        getDataSourceType(): Stimulsoft.System.Type;
-        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): Promise<StiDataSchema>;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
-    import Promise = Stimulsoft.System.Promise;
-    class StiPostgreSQLAdapterService extends StiSqlAdapterService {
-        readonly name: string;
-        getDataSourceType(): Stimulsoft.System.Type;
-        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): Promise<StiDataSchema>;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import Promise = Stimulsoft.System.Promise;
-    import DataTable = Stimulsoft.System.Data.DataTable;
-    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
-    class StiCustomAdapterService extends StiSqlAdapterService {
-        private processUserFunction;
-        static registerCustomAdapterService(options: {
-            name: string;
-            process: (command: any, callback: (result: any) => void) => void;
-        }): StiCustomAdapterService;
-        private _name;
-        readonly name: string;
-        getDataSourceType(): Stimulsoft.System.Type;
-        callRemoteApi(command: any, timeout: number): Promise<string>;
-        retrieveDataAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString: string): Promise<DataTable>;
-        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): Promise<StiDataSchema>;
-        constructor();
-    }
-}
-declare namespace Stimulsoft.Report.Engine {
-    import Type = Stimulsoft.System.Type;
-    class StiBuilder {
-        private static typeToBuilder;
-        static getBuilder(componentType: Type): StiBuilder;
-        setReportVariables(masterComp: Stimulsoft.Report.Components.StiComponent): void;
-        prepare(masterComp: Stimulsoft.Report.Components.StiComponent): void;
-        unPrepare(masterComp: Stimulsoft.Report.Components.StiComponent): void;
-        internalRender(masterComp: Stimulsoft.Report.Components.StiComponent): Stimulsoft.Report.Components.StiComponent;
-        render(masterComp: Stimulsoft.Report.Components.StiComponent): Stimulsoft.Report.Components.StiComponent;
-    }
-}
-declare namespace Stimulsoft.Report.Engine {
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    class StiComponentBuilder extends StiBuilder {
-        setReportVariables(masterComp: StiComponent): void;
-        prepare(masterComp: StiComponent): void;
-        unPrepare(masterComp: StiComponent): void;
-        internalRender(masterComp: StiComponent): StiComponent;
-        render(masterComp: StiComponent): StiComponent;
-    }
-}
-declare namespace Stimulsoft.Report.Engine {
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiContainer = Stimulsoft.Report.Components.StiContainer;
-    class StiContainerBuilder extends StiComponentBuilder {
-        /** Returns a panel for the component rendering. */
-        static getRenderContainer(comp: StiComponent, type?: Stimulsoft.System.Type): StiContainer;
-        internalRender(masterComp: StiComponent): StiComponent;
-    }
-}
-declare namespace Stimulsoft.Report.Engine {
-    import StiBand = Stimulsoft.Report.Components.StiBand;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import StiComponentsCollection = Stimulsoft.Report.Components.StiComponentsCollection;
-    class StiBandBuilder extends StiContainerBuilder {
-        static getChildBands(masterBand: StiBand): StiComponentsCollection;
-        static getSubReports(masterBand: StiBand): StiComponentsCollection;
-        prepare(masterComp: StiComponent): void;
-    }
-}
-declare namespace Stimulsoft.Report.Engine {
-    import StiGroupHeaderBand = Stimulsoft.Report.Components.StiGroupHeaderBand;
-    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    class StiGroupHeaderBandBuilder extends StiBandBuilder {
-        static getMaster(masterGroupHeaderBand: StiGroupHeaderBand): StiDataBand;
-        static getCurrentConditionValue(masterGroupHeaderBand: StiGroupHeaderBand): any;
-        static getCurrentSummaryExpressionValue(masterGroupHeaderBand: StiGroupHeaderBand): any;
-        setReportVariables(masterComp: StiComponent): void;
-        prepare(masterComp: StiComponent): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import DataRow = Stimulsoft.System.Data.DataRow;
-    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
-    import StiComponent = Stimulsoft.Report.Components.StiComponent;
-    import DataTable = Stimulsoft.System.Data.DataTable;
-    import Type = Stimulsoft.System.Type;
-    import ICloneable = Stimulsoft.System.ICloneable;
-    import List = Stimulsoft.System.Collections.List;
-    import IEnumerator = Stimulsoft.System.Collections.IEnumerator;
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import Hashtable = Stimulsoft.System.Collections.Hashtable;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiDataCollection = Stimulsoft.Report.Dictionary.StiDataCollection;
-    import StiComponentsCollection = Stimulsoft.Report.Components.StiComponentsCollection;
-    import Promise = Stimulsoft.System.Promise;
-    import IStiAppDictionary = Stimulsoft.Base.IStiAppDictionary;
-    import IStiAppDataSource = Stimulsoft.Base.IStiAppDataSource;
-    import IStiAppDataColumn = Stimulsoft.Base.IStiAppDataColumn;
-    import IStiAppConnection = Stimulsoft.Base.IStiAppConnection;
-    import IStiAppDataRelation = Stimulsoft.Base.IStiAppDataRelation;
-    class StiDataSource implements ICloneable, IStiAppDataSource, IStiStateSaveRestore, IStiEnumerator, IStiName, IStiInherited, IStiJsonReportObject {
-        implements(): string[];
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        getNameInSource(): string;
-        getName(): string;
-        /**
-         *  Returns a DataTable with data from this datasource.
-         *  @returns The DataTable with data.
-         */
-        getDataTable2Async(allowConnectToData: boolean): Promise<DataTable>;
-        /**
-         *  Returns reference to the dictionary which contains this datasource.
-         *  @returns Reference to the app.
-         */
-        getDictionary(): IStiAppDictionary;
-        /**
-         *  Returns an enumeration of the data columns from this dictionary.
-         *  @returns The enumeration of the data columns.
-         */
-        fetchColumns(): List<IStiAppDataColumn>;
-        /**
-         *  Returns a connection to data for this data source.
-         *  @returns Reference to the connection.
-         */
-        getConnection(): IStiAppConnection;
-        /**
-         *  Returns an enumeration of the parent data relations for this data source.
-         *  @returns The enumeration of the data relations.
-         */
-        fetchParentRelations(activePreferred: boolean): List<IStiAppDataRelation>;
-        /**
-         *  Returns an enumeration of the child data relations for this data source.
-         *  @returns The enumeration of the data relations.
-         */
-        fetchChildRelations(activePreferred: boolean): List<IStiAppDataRelation>;
-        /**
-         *  Returns an array of values for the specified column in the specified position.
-         *  @param names An array of names of the data column.
-         *  @returns The enumeration of the data column values.
-         */
-        fetchColumnValues(names: string[]): List<any[]>;
-        getKey(): string;
-        setKey(key: string): void;
-        private _inherited;
-        inherited: boolean;
-        readonly current: any;
-        moveNext(): boolean;
-        reset(): void;
-        getEnumerator(): IEnumerator;
-        private _name;
-        name: string;
-        protected positionValue: number;
-        position: number;
-        readonly realCount: number;
-        readonly count: number;
-        protected isBofValue: boolean;
-        /** Gets value indicates that this position specifies to the beginning of data. */
-        isBof: boolean;
-        protected isEofValue: boolean;
-        /** Gets value indicates that this position specifies to the data end. */
-        isEof: boolean;
-        /** Gets value indicates that no data. */
-        readonly isEmpty: boolean;
-        first(): void;
-        prior(): void;
-        next(): void;
-        last(): void;
-        clone(): StiDataSource;
-        memberwiseClone(): StiDataSource;
-        private _states;
-        protected readonly states: StiStatesManager;
-        saveState(stateName: string): void;
-        restoreState(stateName: string): void;
-        clearAllStates(): void;
-        private nameOfDataBandWhichInitDataSource;
-        isInited: boolean;
-        initForSubreport: boolean;
-        xmlRefAttrValue: string;
-        private relationNameStored;
-        private resFilterMethod;
-        private resSortColumns;
-        private isEqualSort;
-        setData(dataBand: StiDataBand, relationName: string, filterMethod: any, sortColumns: string[], reinit: boolean, component: StiComponent): void;
-        getConditions(dataBand: StiDataBand): any[][][];
-        setDetails(relationName: string): void;
-        setFilter(filterMethod: any): void;
-        setSort(conditions: any[][][], sortColumns: string[], component: StiComponent, databand: StiDataBand, groupHeaders: StiComponentsCollection): void;
-        resetDetailsRows(): void;
-        resetData(): void;
-        getDataRow(index: number): DataRow;
-        /** Returns the parent row with data for the indicated relation. */
-        getParentData(relation: string): StiDataRow;
-        /** Returns the colection of Parent relations. */
-        getParentRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
-        /** Returns a collection of Child relations. */
-        getChildRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
-        /** Returns the parent Data Source by the relation name. */
-        getParentDataSource(relationName: string, allowRelationName?: boolean): StiDataSource;
-        /** Returns the child Data Source by the relation name. */
-        getChildDataSource(relationName: string): StiDataSource;
-        protected invokeConnecting(): void;
-        protected invokeDisconnecting(): void;
-        connectAsync(datas: StiDataCollection, loadData: boolean): Promise<void>;
-        connect(datas: StiDataCollection, loadData: boolean): void;
-        protected getDataAdapterType(): Type;
-        protected readonly dataAdapterType: string;
-        fillColumns(): void;
-        getDataAdapter(): StiDataAdapterService;
-        private _parameters;
-        parameters: StiDataParametersCollection;
-        getDataTable(table?: DataTable): DataTable;
-        getByName(columnName: string): any;
-        getData(columnName: string, index?: number): any;
-        getColumnIndex(columnName: string): number;
-        private _rows;
-        rows: StiRowsCollection;
-        columnsIndexs: Hashtable;
-        calcColumns: Hashtable;
-        detailRows: DataRow[];
-        rowToLevel: Hashtable;
-        synchronizeColumns(): void;
-        checkColumnsIndexs(): void;
-        toString(): string;
-        getLevel(): number;
-        getCategoryName(): string;
-        createNew(): StiDataSource;
-        private _isCloud;
-        readonly isCloud: boolean;
-        private _dictionary;
-        dictionary: StiDictionary;
-        private _dataTable;
-        dataTable: Stimulsoft.System.Data.DataTable;
-        readonly isConnected: boolean;
-        private _columns;
-        columns: StiDataColumnsCollection;
-        connectionOrder: number;
-        disconnect(): void;
-        connectOnStart: boolean;
-        getByColumnName(columnName: string): any;
-        private _alias;
-        alias: string;
-        private _key;
-        key: string;
-        parentRelationList(activePreferred?: boolean): List<StiDataRelation>;
-        childRelationList(activePreferred?: boolean): List<StiDataRelation>;
-        constructor(name: string, alias: string, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiDataStoreSource extends StiDataSource implements IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        getCategoryName(): string;
-        dataName: string;
-        private _nameInSource;
-        nameInSource: string;
-        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import Type = Stimulsoft.System.Type;
-    class StiDataTableSource extends StiDataStoreSource implements IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        getCategoryName(): string;
-        getDataAdapterType(): Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import Type = Stimulsoft.System.Type;
-    import Promise = Stimulsoft.System.Promise;
-    class StiDataTableAdapterService extends StiDataStoreAdapterService {
-        readonly serviceName: string;
-        readonly isObjectAdapter: boolean;
-        getDataCategoryName(data: StiData): string;
-        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource): Promise<StiDataColumnsCollection>;
-        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
-        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
-        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
-        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
-        getDataSourceType(): Type;
-        getDataTypes(): Type[];
-        getDataFromDataSource(dictionary: StiDictionary, dataSource: StiDataSource): StiData;
-        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): Promise<void>;
-        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiAggregateFunctionService {
-        readonly serviceName: string;
-        init(): void;
-        reset(): void;
-        calcItem(value: any): any;
-        getValue(): any;
-        setValue(value: any): any;
-        isFirstInit: boolean;
-        readonly recureParam: boolean;
-        private _runningTotal;
-        runningTotal: boolean;
-        constructor(runningTotal?: boolean);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiAvgDateFunctionService extends StiAggregateFunctionService {
-        private avgValue;
-        private count;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiAvgFunctionService extends StiAggregateFunctionService {
-        private summary;
-        private count;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiAvgTimeFunctionService extends StiAggregateFunctionService {
-        private avgValue;
-        private count;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiCountDistinctFunctionService extends StiAggregateFunctionService {
-        private counter;
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiCountFunctionService extends StiAggregateFunctionService {
-        private counter;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiFirstFunctionService extends StiAggregateFunctionService {
-        private value;
-        private first;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiLastFunctionService extends StiAggregateFunctionService {
-        private value;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMaxDateFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private maximum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMaxFunctionService extends StiAggregateFunctionService {
-        private maximum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMaxStrFunctionService extends StiAggregateFunctionService {
-        private values;
-        static ascComparison(str1: string, str2: string): number;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMaxTimeFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private maximum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMedianFunctionService extends StiAggregateFunctionService {
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMinDateFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private minimum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMinFunctionService extends StiAggregateFunctionService {
-        private minimum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMinStrFunctionService extends StiAggregateFunctionService {
-        private values;
-        static ascComparison(str1: string, str2: string): number;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMinTimeFunctionService extends StiAggregateFunctionService {
-        private valueProcessed;
-        private minimum;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiModeFunctionService extends StiAggregateFunctionService {
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import StiRankOrder = Stimulsoft.Report.StiRankOrder;
-    class StiRankFunctionService extends StiAggregateFunctionService {
-        private hash;
-        private sortOrder;
-        private dense;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-        constructor(runningTotal: boolean, dense?: boolean, sortOrder?: StiRankOrder);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiSumDistinctFunctionService extends StiAggregateFunctionService {
-        private summary;
-        private values;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any, valueToSum?: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiSumFunctionService extends StiAggregateFunctionService {
-        private summary;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiSumNullableFunctionService extends StiAggregateFunctionService {
-        private summary;
-        private hasValues;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiSumTimeFunctionService extends StiAggregateFunctionService {
-        private sumValue;
-        readonly serviceName: string;
-        init(): void;
-        calcItem(value: any): void;
-        getValue(): any;
-        setValue(value: any): void;
-        readonly recureParam: boolean;
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiBusinessObjectCategory {
-        private _category;
-        category: string;
-        constructor(category: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiBusinessObjectData {
-        private _category;
-        category: string;
-        private _name;
-        name: string;
-        private _alias;
-        alias: string;
-        private _businessObjectValue;
-        businessObjectValue: any;
-        constructor(category: string, name: string, alias: string, value: any);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiFileDataSource extends StiDataStoreSource {
-        readonly componentId: StiComponentId;
-        path: string;
-        codePage: number;
-        constructor(path?: string, name?: string, alias?: string, codePage?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    class StiCsvSource extends StiFileDataSource implements IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        readonly componentId: StiComponentId;
-        getDataAdapterType(): Stimulsoft.System.Type;
-        separator: string;
-        convertEmptyStringToNull: boolean;
-        createNew(): StiDataSource;
-        constructor(path?: string, name?: string, alias?: string, codePage?: number, separator?: string, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import Promise = Stimulsoft.System.Promise;
-    class StiSqlSource extends StiDataTableSource implements IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _allowExpressions;
-        allowExpressions: boolean;
-        private _type;
-        type: StiSqlSourceType;
-        private _commandTimeout;
-        commandTimeout: number;
-        private _reconnectOnEachRow;
-        reconnectOnEachRow: boolean;
-        private _sqlCommand;
-        sqlCommand: string;
-        getDataAdapterType(): Stimulsoft.System.Type;
-        updateParameters(): void;
-        retrieveDataAsync(schemaOnly?: boolean): Promise<void>;
-        getFinalSqlCommand(): string;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiNoSqlSource extends StiSqlSource {
-        query: string;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMongoDbSource extends StiNoSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
-    import StiJson = Stimulsoft.Base.StiJson;
-    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
-    import IStiFilter = Stimulsoft.Report.Components.IStiFilter;
-    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
-    import Type = Stimulsoft.System.Type;
-    class StiVirtualSource extends StiDataStoreSource implements IStiFilter, IStiJsonReportObject {
-        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
-        loadFromJsonObject(jObject: StiJson): void;
-        loadFromXml(xmlNode: XmlNode): void;
-        private _filterMethodHandler;
-        filterMethodHandler: Function;
-        private _filterOn;
-        filterOn: boolean;
-        private _filterMode;
-        filterMode: StiFilterMode;
-        private _filters;
-        filters: Stimulsoft.Report.Components.StiFiltersCollection;
-        protected getDataAdapterType(): Type;
-        private _groupColumns;
-        groupColumns: string[];
-        private _results;
-        results: string[];
-        private _sort;
-        sort: string[];
-        connectToData(): void;
-        private compare;
-        private initTotals;
-        private addRow;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiODataSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiFirebirdSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiMySqlSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiOracleSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiPostgreSQLSource extends StiSqlSource {
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
-    }
-}
-declare namespace Stimulsoft.Report.Dictionary {
-    class StiCustomSource extends StiSqlSource {
-        static registerCustomSource(): void;
-        getDataAdapterType(): Stimulsoft.System.Type;
-        readonly componentId: StiComponentId;
-        createNew(): StiDataSource;
-        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
     }
 }
 declare namespace Stimulsoft.Report.Dictionary {
@@ -35134,6 +33282,232 @@ declare namespace Stimulsoft.Report.Engine {
         Param4 = 8
     }
 }
+declare namespace Stimulsoft.Report.Engine {
+    import Type = Stimulsoft.System.Type;
+    class StiBuilder {
+        private static typeToBuilder;
+        static getBuilder(componentType: Type): StiBuilder;
+        setReportVariables(masterComp: Stimulsoft.Report.Components.StiComponent): void;
+        prepare(masterComp: Stimulsoft.Report.Components.StiComponent): void;
+        unPrepare(masterComp: Stimulsoft.Report.Components.StiComponent): void;
+        internalRender(masterComp: Stimulsoft.Report.Components.StiComponent): Stimulsoft.Report.Components.StiComponent;
+        render(masterComp: Stimulsoft.Report.Components.StiComponent): Stimulsoft.Report.Components.StiComponent;
+    }
+}
+declare namespace Stimulsoft.Report.Engine {
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    class StiComponentBuilder extends StiBuilder {
+        setReportVariables(masterComp: StiComponent): void;
+        prepare(masterComp: StiComponent): void;
+        unPrepare(masterComp: StiComponent): void;
+        internalRender(masterComp: StiComponent): StiComponent;
+        render(masterComp: StiComponent): StiComponent;
+    }
+}
+declare namespace Stimulsoft.Report.Engine {
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiContainer = Stimulsoft.Report.Components.StiContainer;
+    class StiContainerBuilder extends StiComponentBuilder {
+        /** Returns a panel for the component rendering. */
+        static getRenderContainer(comp: StiComponent, type?: Stimulsoft.System.Type): StiContainer;
+        internalRender(masterComp: StiComponent): StiComponent;
+    }
+}
+declare namespace Stimulsoft.Report.Engine {
+    import StiBand = Stimulsoft.Report.Components.StiBand;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import StiComponentsCollection = Stimulsoft.Report.Components.StiComponentsCollection;
+    class StiBandBuilder extends StiContainerBuilder {
+        static getChildBands(masterBand: StiBand): StiComponentsCollection;
+        static getSubReports(masterBand: StiBand): StiComponentsCollection;
+        prepare(masterComp: StiComponent): void;
+    }
+}
+declare namespace Stimulsoft.Report.Engine {
+    import StiGroupHeaderBand = Stimulsoft.Report.Components.StiGroupHeaderBand;
+    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    class StiGroupHeaderBandBuilder extends StiBandBuilder {
+        static getMaster(masterGroupHeaderBand: StiGroupHeaderBand): StiDataBand;
+        static getCurrentConditionValue(masterGroupHeaderBand: StiGroupHeaderBand): any;
+        static getCurrentSummaryExpressionValue(masterGroupHeaderBand: StiGroupHeaderBand): any;
+        setReportVariables(masterComp: StiComponent): void;
+        prepare(masterComp: StiComponent): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import DataRow = Stimulsoft.System.Data.DataRow;
+    import StiDataBand = Stimulsoft.Report.Components.StiDataBand;
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import DataTable = Stimulsoft.System.Data.DataTable;
+    import Type = Stimulsoft.System.Type;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import List = Stimulsoft.System.Collections.List;
+    import IEnumerator = Stimulsoft.System.Collections.IEnumerator;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import Hashtable = Stimulsoft.System.Collections.Hashtable;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiDataCollection = Stimulsoft.Report.Dictionary.StiDataCollection;
+    import StiComponentsCollection = Stimulsoft.Report.Components.StiComponentsCollection;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import IStiAppDictionary = Stimulsoft.Base.IStiAppDictionary;
+    import IStiAppDataSource = Stimulsoft.Base.IStiAppDataSource;
+    import IStiAppDataColumn = Stimulsoft.Base.IStiAppDataColumn;
+    import IStiAppConnection = Stimulsoft.Base.IStiAppConnection;
+    import IStiAppDataRelation = Stimulsoft.Base.IStiAppDataRelation;
+    class StiDataSource implements ICloneable, IStiAppDataSource, IStiStateSaveRestore, IStiEnumerator, IStiName, IStiInherited, IStiJsonReportObject {
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        getNameInSource(): string;
+        getName(): string;
+        /**
+         *  Returns a DataTable with data from this datasource.
+         *  @returns The DataTable with data.
+         */
+        getDataTable2Async(allowConnectToData: boolean): StiPromise<DataTable>;
+        /**
+         *  Returns reference to the dictionary which contains this datasource.
+         *  @returns Reference to the app.
+         */
+        getDictionary(): IStiAppDictionary;
+        /**
+         *  Returns an enumeration of the data columns from this dictionary.
+         *  @returns The enumeration of the data columns.
+         */
+        fetchColumns(): List<IStiAppDataColumn>;
+        /**
+         *  Returns a connection to data for this data source.
+         *  @returns Reference to the connection.
+         */
+        getConnection(): IStiAppConnection;
+        /**
+         *  Returns an enumeration of the parent data relations for this data source.
+         *  @returns The enumeration of the data relations.
+         */
+        fetchParentRelations(activePreferred: boolean): List<IStiAppDataRelation>;
+        /**
+         *  Returns an enumeration of the child data relations for this data source.
+         *  @returns The enumeration of the data relations.
+         */
+        fetchChildRelations(activePreferred: boolean): List<IStiAppDataRelation>;
+        /**
+         *  Returns an array of values for the specified column in the specified position.
+         *  @param names An array of names of the data column.
+         *  @returns The enumeration of the data column values.
+         */
+        fetchColumnValues(names: string[]): List<any[]>;
+        getKey(): string;
+        setKey(key: string): void;
+        private _inherited;
+        inherited: boolean;
+        readonly current: any;
+        moveNext(): boolean;
+        reset(): void;
+        getEnumerator(): IEnumerator;
+        private _name;
+        name: string;
+        protected positionValue: number;
+        position: number;
+        readonly realCount: number;
+        readonly count: number;
+        protected isBofValue: boolean;
+        /** Gets value indicates that this position specifies to the beginning of data. */
+        isBof: boolean;
+        protected isEofValue: boolean;
+        /** Gets value indicates that this position specifies to the data end. */
+        isEof: boolean;
+        /** Gets value indicates that no data. */
+        readonly isEmpty: boolean;
+        first(): void;
+        prior(): void;
+        next(): void;
+        last(): void;
+        clone(): StiDataSource;
+        memberwiseClone(): StiDataSource;
+        private _states;
+        protected readonly states: StiStatesManager;
+        saveState(stateName: string): void;
+        restoreState(stateName: string): void;
+        clearAllStates(): void;
+        private nameOfDataBandWhichInitDataSource;
+        isInited: boolean;
+        initForSubreport: boolean;
+        xmlRefAttrValue: string;
+        private relationNameStored;
+        private resFilterMethod;
+        private resSortColumns;
+        private isEqualSort;
+        setData(dataBand: StiDataBand, relationName: string, filterMethod: any, sortColumns: string[], reinit: boolean, component: StiComponent): void;
+        getConditions(dataBand: StiDataBand): any[][][];
+        setDetails(relationName: string): void;
+        setFilter(filterMethod: any): void;
+        setSort(conditions: any[][][], sortColumns: string[], component: StiComponent, databand: StiDataBand, groupHeaders: StiComponentsCollection): void;
+        resetDetailsRows(): void;
+        resetData(): void;
+        getDataRow(index: number): DataRow;
+        /** Returns the parent row with data for the indicated relation. */
+        getParentData(relation: string): StiDataRow;
+        /** Returns the colection of Parent relations. */
+        getParentRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
+        /** Returns a collection of Child relations. */
+        getChildRelations(): Stimulsoft.Report.Dictionary.StiDataRelationsCollection;
+        /** Returns the parent Data Source by the relation name. */
+        getParentDataSource(relationName: string, allowRelationName?: boolean): StiDataSource;
+        /** Returns the child Data Source by the relation name. */
+        getChildDataSource(relationName: string): StiDataSource;
+        protected invokeConnecting(): void;
+        protected invokeDisconnecting(): void;
+        connectAsync(datas: StiDataCollection, loadData: boolean): StiPromise<void>;
+        connect(datas: StiDataCollection, loadData: boolean): void;
+        protected getDataAdapterType(): Type;
+        protected readonly dataAdapterType: string;
+        fillColumns(): void;
+        getDataAdapter(): StiDataAdapterService;
+        private _parameters;
+        parameters: StiDataParametersCollection;
+        getDataTable(table?: DataTable): DataTable;
+        getByName(columnName: string): any;
+        getData(columnName: string, index?: number): any;
+        getDataAsync(columnName: string, index?: number): StiPromise<any>;
+        getColumnIndex(columnName: string): number;
+        private _rows;
+        rows: StiRowsCollection;
+        columnsIndexs: Hashtable;
+        calcColumns: Hashtable;
+        detailRows: DataRow[];
+        rowToLevel: Hashtable;
+        synchronizeColumns(): void;
+        checkColumnsIndexs(): void;
+        toString(): string;
+        getLevel(): number;
+        getCategoryName(): string;
+        createNew(): StiDataSource;
+        private _isCloud;
+        readonly isCloud: boolean;
+        private _dictionary;
+        dictionary: StiDictionary;
+        private _dataTable;
+        dataTable: Stimulsoft.System.Data.DataTable;
+        readonly isConnected: boolean;
+        private _columns;
+        columns: StiDataColumnsCollection;
+        connectionOrder: number;
+        disconnect(): void;
+        connectOnStart: boolean;
+        getByColumnName(columnName: string): any;
+        private _alias;
+        alias: string;
+        private _key;
+        key: string;
+        parentRelationList(activePreferred?: boolean): List<StiDataRelation>;
+        childRelationList(activePreferred?: boolean): List<StiDataRelation>;
+        constructor(name: string, alias: string, key?: string);
+    }
+}
 declare namespace Stimulsoft.Report.Engine.StiParser {
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import Type = Stimulsoft.System.Type;
@@ -35375,6 +33749,14 @@ declare namespace Stimulsoft.Report.Engine.StiParser {
         constructor(type: StiAsmCommandType, parameter1?: any, parameter2?: any);
         toString(): string;
     }
+    class StiParserGetDataFieldValueEventArgs {
+        dataSourceName: string;
+        dataColumnName: string;
+        processed: boolean;
+        value: any;
+        asmCommand: StiAsmCommand;
+        constructor(dataSourceName: string, dataColumnName: string);
+    }
     class StiParser extends StiParser_Parser {
         private sender;
         executeAsm(objectAsmList: any): any;
@@ -35389,6 +33771,1713 @@ declare namespace Stimulsoft.Report.Engine.StiParser {
         static prepareReportVariables(report: StiReport): void;
         static prepareVariableValue(varr: StiVariable, report: StiReport, textBox?: StiText, fillItems?: boolean): any;
         private static getExpressionValue;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import StiParserGetDataFieldValueEventArgs = Stimulsoft.Report.Engine.StiParser.StiParserGetDataFieldValueEventArgs;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import IStiReportComponent = Stimulsoft.Base.IStiReportComponent;
+    class StiReportParser {
+        private static cache;
+        static parse(expression: string, component: IStiReportComponent, allowCache?: boolean): string;
+        static parseAsync(expression: string, component: IStiReportComponent, allowCache?: boolean): StiPromise<string>;
+        private static parseOrDefault;
+        private static parseOrDefaultAsync;
+        private static tryParse;
+        private static tryParseAsync;
+        static getDataFieldValueProcessorAsync(sender: any, e: StiParserGetDataFieldValueEventArgs): StiPromise<void>;
+        private static getCacheKey;
+        static addToCache(expression: string, result: string, component: IStiReportComponent): void;
+        static getFromCache(expression: string, component: IStiReportComponent): string;
+        static cleanCache(reportKey: string): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import IStiAppDictionary = Stimulsoft.Base.IStiAppDictionary;
+    import IStiApp = Stimulsoft.Base.IStiApp;
+    class StiCacheCleaner {
+        static clean(element?: IStiElement | IStiAppDictionary | IStiApp | string): void;
+        static clean1(element: IStiElement): void;
+        static clean2(dictionary: IStiAppDictionary): void;
+        static clean3(app: IStiApp): void;
+        static clean4(reportKey?: string): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    class StiDashboardAssembly {
+        static readonly isAssemblyLoaded: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import StiComponent = Stimulsoft.Report.Components.StiComponent;
+    import IStiDashboard = Stimulsoft.Report.Dashboard.IStiDashboard;
+    class StiDashboardCreator {
+        static createDashboard(report: StiReport): IStiDashboard;
+        static createDashboardElement(typeComponent: string): StiComponent;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    class StiDashboardDesignAssembly {
+        static getHtmlTextHelper(): IStiHtmlTextHelper;
+    }
+}
+declare namespace Stimulsoft.Report.Export {
+    /**
+     *  Enumeration for setting compression scheme of the exported Tiff image.
+     */
+    enum StiTiffCompressionScheme {
+        Default = 20,
+        LZW = 2,
+        CCITT3 = 3,
+        CCITT4 = 4,
+        Rle = 5,
+        None = 6
+    }
+    /**
+     *  Enumeration which sets an exported mode for the Html export.
+     */
+    enum StiHtmlExportMode {
+        /**
+         *  A span tag of the HTML will be used for the exporting of the rendered document.
+         */
+        Span = 1,
+        /**
+         *  A div tag of the HTML will be used for the exporting of the rendered document.
+         */
+        Div = 2,
+        /**
+         *  A table tag of the HTML will be used for the exporting of the rendered document.
+         */
+        Table = 3
+    }
+    /**
+     *  Enumeration which sets a quality of images which will be exported.
+     */
+    enum StiHtmlExportQuality {
+        /**
+         *  Sets a high quality of the exported images.
+         */
+        High = 1,
+        /**
+         *  Sets a low quality of the exported images.
+         */
+        Low = 2
+    }
+    /**
+     *  Enumeration describes possible user access privileges to the pdf document.
+     *  User access privileges are managed by the user password.
+     *  Owner with the correct owner password has all possible privileges for the content of the
+     *  pdf document and a rule for setting document permissions.
+     */
+    enum StiUserAccessPrivileges {
+        /**
+         *  User password allows only opening the pdf document, decrypt it, and display it on the screen.
+         */
+        None = 0,
+        /**
+         *  User password allows opening the pdf document, decrypt it, display it on the screen and print
+         *  its content.
+         */
+        PrintDocument = 1,
+        /**
+         *  User password allows modifying the content of the pdf document.
+         */
+        ModifyContents = 2,
+        /**
+         *  User password allows copying text and graphics objects from the content of the pdf document.
+         */
+        CopyTextAndGraphics = 4,
+        /**
+         *  User password allows adding or modifying text annotations in the content of the pdf document.
+         */
+        AddOrModifyTextAnnotations = 8,
+        /**
+         *  User password allows all modifications on the content of the pdf document.
+         */
+        All = 15
+    }
+    /**
+     *  Enumeration which sets an encryption key length of the resulting pdf file.
+     */
+    enum StiPdfEncryptionKeyLength {
+        /**
+         *  RC4 algorithm, 40 bit encryption key length (Acrobat 3).
+         */
+        Bit40 = 1,
+        /**
+         *  RC4 algorithm, 128 bit encryption key length (Acrobat 5).
+         */
+        Bit128 = 2,
+        /**
+         *  AES algorithm, 128 bit encryption key length, revision 4 (Acrobat 7).
+         */
+        Bit128_r4 = 3,
+        /**
+         *  AES algorithm, 256 bit encryption key length, revision 5 (Acrobat 9).
+         */
+        Bit256_r5 = 4,
+        /**
+         *  AES algorithm, 256 bit encryption key length, revision 6 (Acrobat X).
+         */
+        Bit256_r6 = 5
+    }
+    /**
+     *  Enumeration which sets an image compression method for PDF export.
+     */
+    enum StiPdfImageCompressionMethod {
+        /**
+         *  A Jpeg method (DCTDecode) will be used for the exporting of the rendered document.
+         */
+        Jpeg = 1,
+        /**
+         *  A Flate method (FlateDecode) will be used for the exporting of the rendered document.
+         */
+        Flate = 2,
+        /**
+         *  A Indexed method (IndexedColors + FlateDecode) will be used for the exporting of the rendered document.
+         */
+        Indexed = 3
+    }
+    /**
+     *  Enumeration which sets an AutoPrint mode for pdf files
+     */
+    enum StiPdfAutoPrintMode {
+        /**
+         *  Do not use AutoPrint feature
+         */
+        None = 1,
+        /**
+         *  Use printing with print dialog
+         */
+        Dialog = 2,
+        /**
+         *  Use silent printing
+         */
+        Silent = 3
+    }
+    /**
+     *  Enumeration describes a type of the border.
+     */
+    enum StiTxtBorderType {
+        /**
+         *  A border which consists of "+","-","|" symbols.
+         */
+        Simple = 1,
+        /**
+         *  A border which consists of character graphics symbols.
+         *  A Single type of the border.
+         */
+        UnicodeSingle = 2,
+        /**
+         *  A border consists of character graphics symbols.
+         *  A Double type of the border.
+         */
+        UnicodeDouble = 3
+    }
+    /**
+     *  Enumeration describes a type of palette of the PCX file.
+     */
+    enum StiPcxPaletteType {
+        /**
+         *  Monochrome palette (1 bit)
+         */
+        Monochrome = 1,
+        /**
+         *  Color palette (24 bit)
+         */
+        Color = 2
+    }
+    /**
+     *  Enumeration describes a type of dithering for monochrome PCX file.
+     */
+    enum StiMonochromeDitheringType {
+        /**
+         *  Without dithering.
+         *  Low quality, small size of file.
+         */
+        None = 1,
+        /**
+         *  Floyd-Steinberg dithering.
+         *  Good quality, big size of file.
+         */
+        FloydSteinberg = 2,
+        /**
+         *  Ordered dithering with Bayer matrix 4x4.
+         *  Poor quality, medium size of file.
+         */
+        Ordered = 3
+    }
+    /**
+     *  Enumeration describes a type of the images for the exports.
+     */
+    enum StiImageType {
+        Bmp = 1,
+        Gif = 2,
+        Jpeg = 3,
+        Pcx = 4,
+        Png = 5,
+        Tiff = 6,
+        Emf = 7,
+        Svg = 8,
+        Svgz = 9
+    }
+    /**
+     *  Enumeration describes a type of the html exports.
+     */
+    enum StiHtmlType {
+        Html = 1,
+        Html5 = 2,
+        Mht = 3
+    }
+    /**
+     *  Enumeration describes a type of the chart in the html exports.
+     */
+    enum StiHtmlChartType {
+        Image = 1,
+        Vector = 2,
+        AnimatedVector = 3
+    }
+    /**
+     *  Enumeration describes a type of the excel exports.
+     */
+    enum StiExcelType {
+        /**
+         *  Excel format from Office 97 to Office 2003.
+         */
+        ExcelBinary = 1,
+        /**
+         *  Xml Excel format starts from Office 2003.
+         */
+        ExcelXml = 2,
+        /**
+         *  Excel format starts from Office 2007.
+         */
+        Excel2007 = 3
+    }
+    /**
+     *  Enumeration describes a type of the data exports.
+     */
+    enum StiDataType {
+        Csv = 1,
+        Dbf = 2,
+        Dif = 3,
+        Sylk = 4,
+        Xml = 5,
+        Json = 6
+    }
+    /**
+     *  Enumeration which defines a position of the export item in the export menu.
+     */
+    enum StiExportPosition {
+        Pdf = 0,
+        Xps = 1,
+        Ppt2007 = 2,
+        Html = 10,
+        Html5 = 11,
+        Mht = 12,
+        Txt = 20,
+        Rtf = 21,
+        Word2007 = 22,
+        Odt = 23,
+        Excel = 30,
+        ExcelXml = 31,
+        Excel2007 = 32,
+        Ods = 33,
+        Data = 40,
+        Dbf = 41,
+        Xml = 42,
+        Dif = 43,
+        Sylk = 44,
+        Image = 50,
+        Bmp = 50,
+        Gif = 51,
+        Jpeg = 52,
+        Pcx = 53,
+        Png = 54,
+        Tiff = 55,
+        Emf = 60,
+        Svg = 61,
+        Svgz = 62
+    }
+    enum StiHtmlExportBookmarksMode {
+        BookmarksOnly = 1,
+        ReportOnly = 2,
+        All = 3
+    }
+    /**
+     *  Enumeration for setting Code Pages.
+     */
+    enum StiDbfCodePages {
+        /**
+         *  A parameter indicating that the code page of the exported document will not be specified.
+         */
+        Default = 0,
+        /**
+         *  A code page of the exported document is U.S. MS-DOS. Code page number 437.
+         */
+        USDOS = 437,
+        /**
+         *  A code page of the exported document is Mazovia (Polish) MS-DOS. Code page number 620.
+         */
+        MazoviaDOS = 620,
+        /**
+         *  A code page of the exported document is Greek MS-DOS (437G). Code page number 737.
+         */
+        GreekDOS = 737,
+        /**
+         *  A code page of the exported document is International MS-DOS. Code page number 850.
+         */
+        InternationalDOS = 850,
+        /**
+         *  A code page of the exported document is Eastern European MS-DOS. Code page number 852.
+         */
+        EasternEuropeanDOS = 852,
+        /**
+         *  A code page of the exported document is Icelandic MS-DOS. Code page number 861.
+         */
+        IcelandicDOS = 861,
+        /**
+         *  A code page of the exported document is Nordic MS-DOS. Code page number 865.
+         */
+        NordicDOS = 865,
+        /**
+         *  A code page of the exported document is Russian MS-DOS. Code page number 866.
+         */
+        RussianDOS = 866,
+        /**
+         *  A code page of the exported document is Kamenicky (Czech) MS-DOS. Code page number 895.
+         */
+        KamenickyDOS = 895,
+        /**
+         *  A code page of the exported document is Turkish MS-DOS. Code page number 857.
+         */
+        TurkishDOS = 857,
+        /**
+         *  A code page of the exported document is EasternEuropean MS-DOS. Code page number 1250.
+         */
+        EasternEuropeanWindows = 1250,
+        /**
+         *  A code page of the exported document is Russian Windows. Code page number 1251.
+         */
+        RussianWindows = 1251,
+        /**
+         *  A code page of the exported document is Windows ANSI. Code page number 1252.
+         */
+        WindowsANSI = 1252,
+        /**
+         *  A code page of the exported document is Greek Windows. Code page number 1253.
+         */
+        GreekWindows = 1253,
+        /**
+         *  A code page of the exported document is Turkish Windows. Code page number 1254.
+         */
+        TurkishWindows = 1254,
+        /**
+         *  A code page of the exported document is Standard Macintosh. Code page number 10000.
+         */
+        StandardMacintosh = 10000,
+        /**
+         *  A code page of the exported document is Greek Macintosh. Code page number 10006.
+         */
+        GreekMacintosh = 10006,
+        /**
+         *  A code page of the exported document is Russian Macintosh. Code page number 10007.
+         */
+        RussianMacintosh = 10007,
+        /**
+         *  A code page of the exported document is Eastern European Macintosh. Code page number 10029.
+         */
+        EasternEuropeanMacintosh = 10029
+    }
+    /**
+     *  Enumeration for the types of data for the export.
+     */
+    enum StiExportDataType {
+        /**
+         *  A string type.
+         */
+        String = 0,
+        /**
+         *  An Integer32 type.
+         */
+        Int = 1,
+        /**
+         *  An Integer64 type.
+         */
+        Long = 2,
+        /**
+         *  A Float type.
+         */
+        Float = 3,
+        /**
+         *  A Double type.
+         */
+        Double = 4,
+        /**
+         *  A Data type.
+         */
+        Date = 5,
+        /**
+         *  A Boolean type.
+         */
+        Bool = 6
+    }
+    /**
+     *  Enumeration for setting format of the exported images.
+     */
+    enum StiImageFormat {
+        /**
+         *  Images are exported in the color mode.
+         */
+        Color = 1,
+        /**
+         *  Images are exported in the grayscale mode.
+         */
+        Grayscale = 2,
+        /**
+         *  Images are exported in the monochrome mode.
+         */
+        Monochrome = 3
+    }
+    /**
+     *  Enumeration for setting modes of the rtf export.
+     */
+    enum StiRtfExportMode {
+        /**
+         *
+         */
+        Table = 4,
+        /**
+         *
+         */
+        Frame = 1,
+        /**
+         *
+         */
+        WinWord = 2,
+        /**
+         *
+         */
+        TabbedText = 3
+    }
+    /**
+     *  Enumeration for setting modes of the data export.
+     */
+    enum StiDataExportMode {
+        Data = 1,
+        Headers = 2,
+        DataAndHeaders = 3,
+        Footers = 4,
+        HeadersFooters = 6,
+        DataAndHeadersFooters = 7,
+        AllBands = 15
+    }
+    /**
+     *  Enumeration for setting modes of restrict editing
+     */
+    enum StiWord2007RestrictEditing {
+        /**
+         *  No restrictions
+         */
+        No = 1,
+        /**
+         *  Except Editable fields
+         */
+        ExceptEditableFields = 2,
+        /**
+         *  Yes
+         */
+        Yes = 3
+    }
+    /**
+     *  Enumeration for setting modes of restrict editing
+     */
+    enum StiExcel2007RestrictEditing {
+        /**
+         *  No restrictions
+         */
+        No = 1,
+        /**
+         *  Except Editable fields
+         */
+        ExceptEditableFields = 2,
+        /**
+         *  Yes
+         */
+        Yes = 3
+    }
+    /**
+     *  Enumeration for setting modes of restrict editing
+     */
+    enum StiPdfAllowEditable {
+        No = 1,
+        Yes = 2
+    }
+    /**
+     *  Enumeration for setting modes of using of image resolution
+     */
+    enum StiImageResolutionMode {
+        Exactly = 1,
+        NoMoreThan = 2,
+        Auto = 3
+    }
+    /**
+     *  Enumeration for setting modes of compliance
+     */
+    enum StiPdfComplianceMode {
+        None = 0,
+        A1 = 1,
+        A2 = 2,
+        A3 = 3
+    }
+    /**
+     *  Enumeration for setting modes of Excel sheet view
+     */
+    enum StiExcelSheetViewMode {
+        Normal = 1,
+        PageLayout = 2,
+        PageBreakPreview = 3
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import MemoryStream = Stimulsoft.System.IO.MemoryStream;
+    import StiExportSettings = Stimulsoft.Report.Export.StiExportSettings;
+    class StiDashboardExport {
+        static exportAsync(report: StiReport, stream: MemoryStream, settings: StiExportSettings): StiPromise<void>;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboards {
+    import IStiTableElementAutoSizer = Stimulsoft.Report.Dashboard.IStiTableElementAutoSizer;
+    import IStiProgressVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiProgressVisualSvgHelper;
+    import IStiIndicatorVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiIndicatorVisualSvgHelper;
+    import IStiGaugeVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiGaugeVisualSvgHelper;
+    class StiDashboardHelperCreator {
+        static createTableElementAutoSizer(): IStiTableElementAutoSizer;
+        static createProgressVisualSvgHelper(): IStiProgressVisualSvgHelper;
+        static createIndicatorVisualSvgHelper(): IStiIndicatorVisualSvgHelper;
+        static createGaugeVisualSvgHelper(): IStiGaugeVisualSvgHelper;
+    }
+}
+import StiElementMeterAction = Stimulsoft.Report.StiElementMeterAction;
+declare namespace Stimulsoft.Report.Dashboard {
+    class StiElementChangedArgs {
+        action: StiElementMeterAction;
+        oldName: string;
+        newName: string;
+        static createEmptyArgs(): StiElementChangedArgs;
+        static createRenamingArgs(oldName: string, newName: string): StiElementChangedArgs;
+        static createDeletingArgs(name: string): StiElementChangedArgs;
+        static createClearingAllArgs(): StiElementChangedArgs;
+    }
+}
+import IStiTransformActions = Stimulsoft.Data.Engine.IStiTransformActions;
+import IStiTransformFilters = Stimulsoft.Data.Engine.IStiTransformFilters;
+declare namespace Stimulsoft.Report.Dashboard {
+    class StiElementChangedProcessor {
+        static processElementChanging(element: any, args: StiElementChangedArgs): void;
+        private static processElementRenaming;
+        private static processElementClearing;
+        private static processElementDeleting;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import StiDataRequestOption = Stimulsoft.Data.Engine.StiDataRequestOption;
+    import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
+    class StiElementDataCache {
+        private static worker;
+        private static elements;
+        private static cache;
+        private static pivotCreator;
+        static tryToGetOrCreateAsync(element: IStiElement, option?: StiDataRequestOption): StiPromise<StiDataTable>;
+        static getOrCreateAsync(element: IStiElement, option?: StiDataRequestOption): StiPromise<StiDataTable>;
+        static getOrCreatePivotAsync(element: IStiPivotTableElement, creator: IStiPivotTableCreator, option?: StiDataRequestOption): StiPromise<IStiPivotGridContainer>;
+        static getOrCreateWithProgressAsync(element: IStiElement, option?: StiDataRequestOption): StiPromise<StiDataTable>;
+        static getOrCreatePivotWithProgressAsync(element: IStiPivotTableElement, creator: IStiPivotTableCreator, option?: StiDataRequestOption): StiPromise<IStiPivotGridContainer>;
+        static get(element: IStiElement): StiDataTable;
+        static createAsync(element: IStiElement, option: StiDataRequestOption): StiPromise<StiDataTable>;
+        static add(element: IStiElement, dataTable: StiDataTable): void;
+        private static initWorkerAsync;
+        static getKey(element: IStiElement): string;
+        static cleanCache(reportKey: string): void;
+        private static getUserFilters;
+        private static getUserSorts;
+        private static getDataFilters;
+        private static getTransformActions;
+        private static getTransformFilters;
+        private static getTransformSorts;
+        private static getDrillDownFilters;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiElementLayout implements IStiJsonReportObject, ICloneable {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        static createFromJsonObject(jObject: StiJson): StiElementLayout;
+        static createFromXml(xmlNode: XmlNode): StiElementLayout;
+        /**
+         *  Creates a new object that is a copy of the current instance.
+         *  @returns A new object that is a copy of this instance.
+         */
+        clone(): StiElementLayout;
+        readonly isDefault: boolean;
+        fullScreenButton: boolean;
+        saveButton: boolean;
+        StiElementLayout(): void;
+        constructor(saveButton?: boolean, fullScreenButton?: boolean);
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    class StiGroupElementHelper {
+        static getGroup(element: IStiElement): string;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import Type = Stimulsoft.System.Type;
+    class StiInvokeMethodsHelper {
+        static invokeStaticMethod(assemblyName: string, className: string, methodName: string, parameters?: any[], parametersTypes?: Type[]): any;
+        static setPropertyValue(obj: any, propertyName: string, value: any): void;
+        static getPropertyValue(obj: any, propertyName: string): any;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    /**
+     *  Describes the class that realizes object margin.
+     */
+    class StiMargin implements ICloneable, IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode, defLeft?: number, defTop?: number, defRight?: number, defBotttom?: number): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        /**
+         *  Creates a new object that is a copy of the current instance.
+         *  @returns A new object that is a copy of this instance.
+         */
+        clone(): any;
+        /**
+         *  Gets or sets left margin size on the object.
+         */
+        left: number;
+        /**
+         *  Gets or sets top margin size on the object.
+         */
+        top: number;
+        /**
+         *  Gets or sets right margin size on the object.
+         */
+        right: number;
+        /**
+         *  Gets or sets bottom margin size on the object.
+         */
+        bottom: number;
+        readonly isEmpty: boolean;
+        /**
+         *  Tests to see whether the specified object is a SizeD with the same dimensions as this SizeD.
+         *  @param obj The Object to test.
+         *  @returns This method returns true if obj is a SizeD and has the same width and height as this SizeD; otherwise, false.
+         */
+        stiEquals(obj: any): boolean;
+        static empty: StiMargin;
+        /**
+         *  Creates a new object of the type StiMargin.
+         *  @param all The margin size for all sides of the object.
+         */
+        static create(all?: number): StiMargin;
+        /**
+         *  Creates a new object of the type StiMargin.
+         *  @param left Left margin size on the object.
+         *  @param top Top margin size on the object.
+         *  @param right Right margin size on the object.
+         *  @param bottom Bottom margin size on the object.
+         */
+        constructor(left: number, top: number, right: number, bottom: number);
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    /**
+     *  Describes the class that realizes object padding.
+     */
+    class StiPadding implements ICloneable, IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode, defLeft?: number, defTop?: number, defRight?: number, defBotttom?: number): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        /**
+         *  Creates a new object that is a copy of the current instance.
+         *  @returns A new object that is a copy of this instance.
+         */
+        clone(): any;
+        /**
+         *  Gets or sets left padding size on the object.
+         */
+        left: number;
+        /**
+         *  Gets or sets top padding size on the object.
+         */
+        top: number;
+        /**
+         *  Gets or sets right padding size on the object.
+         */
+        right: number;
+        /**
+         *  Gets or sets bottom padding size on the object.
+         */
+        bottom: number;
+        readonly isEmpty: boolean;
+        /**
+         *  Tests to see whether the specified object is a SizeD with the same dimensions as this SizeD.
+         *  @param obj The Object to test.
+         *  @returns This method returns true if obj is a SizeD and has the same width and height as this SizeD; otherwise, false.
+         */
+        stiEquals(obj: any): boolean;
+        static empty: StiPadding;
+        /**
+         *  Creates a new object of the type StiPadding.
+         *  @param all The padding size for all sides of the object.
+         */
+        static create(all?: number): StiPadding;
+        /**
+         *  Creates a new object of the type StiPadding.
+         *  @param left Left padding size on the object.
+         *  @param top Top padding size on the object.
+         *  @param right Right padding size on the object.
+         *  @param bottom Bottom padding size on the object.
+         */
+        constructor(left: number, top: number, right: number, bottom: number);
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import Color = Stimulsoft.System.Drawing.Color;
+    import List = Stimulsoft.System.Collections.List;
+    class StiPredefinedColors {
+        static sets: List<Color[]>;
+        static negativeSets: List<Color[]>;
+    }
+}
+declare namespace Stimulsoft.Report.Dashboard {
+    import Font = Stimulsoft.System.Drawing.Font;
+    import Size = Stimulsoft.System.Drawing.Size;
+    class StiStringMeasureCache {
+        private static stringToSize;
+        static getSize(font: Font, str: string): Size;
+        static putSize(font: Font, str: string, size: Size): void;
+        private static getHashCode;
+    }
+}
+declare namespace Stimulsoft.Report {
+    import Range = Stimulsoft.Report.Range;
+    import CultureInfo = Stimulsoft.System.Globalization.CultureInfo;
+    import TypeConverter = Stimulsoft.System.ComponentModel.TypeConverter;
+    class RangeConverter extends TypeConverter {
+        readonly GetPropertiesSupported: boolean;
+        static rangeToString(range: Range): string;
+        static stringToRange(str: string): Range;
+        convertTo(context: any, culture: CultureInfo, value: any, destinationType: Stimulsoft.System.Type): any;
+        canConvertFrom(context: any, sourceType: Stimulsoft.System.Type): boolean;
+        canConvertTo(context: any, destinationType: Stimulsoft.System.Type): boolean;
+        convertFrom(context: any, culture: CultureInfo, value: any): any;
+    }
+}
+declare namespace Stimulsoft.Report.Units {
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import SizeD = Stimulsoft.System.Drawing.Size;
+    class StiHundredthsOfInchUnit extends StiUnit {
+        readonly rulerStep: number;
+        readonly factor: number;
+        readonly shortName: string;
+        readonly name: string;
+        convertToHInches(rect: RectangleD): RectangleD;
+        convertToHInches(size: SizeD): SizeD;
+        convertToHInches(value: number): number;
+        convertFromHInches(rect: RectangleD): RectangleD;
+        convertFromHInches(size: SizeD): SizeD;
+        convertFromHInches(value: number): number;
+    }
+}
+declare namespace Stimulsoft.Report.Units {
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import SizeD = Stimulsoft.System.Drawing.Size;
+    class StiCentimetersUnit extends StiUnit {
+        readonly rulerStep: number;
+        readonly factor: number;
+        readonly shortName: string;
+        readonly name: string;
+        convertToHInches(rect: RectangleD): RectangleD;
+        convertToHInches(size: SizeD): SizeD;
+        convertToHInches(value: number): number;
+        convertFromHInches(rect: RectangleD): RectangleD;
+        convertFromHInches(size: SizeD): SizeD;
+        convertFromHInches(value: number): number;
+    }
+}
+declare namespace Stimulsoft.Report.Units {
+    import RectangleD = Stimulsoft.System.Drawing.Rectangle;
+    import SizeD = Stimulsoft.System.Drawing.Size;
+    class StiMillimetersUnit extends Stimulsoft.Report.Units.StiUnit {
+        readonly rulerStep: number;
+        readonly factor: number;
+        readonly shortName: string;
+        readonly name: string;
+        convertToHInches(rect: RectangleD): RectangleD;
+        convertToHInches(size: SizeD): SizeD;
+        convertToHInches(value: number): number;
+        convertFromHInches(rect: RectangleD): RectangleD;
+        convertFromHInches(size: SizeD): SizeD;
+        convertFromHInches(value: number): number;
+    }
+}
+declare namespace Stimulsoft.Report.Design {
+    import StiAction = Stimulsoft.Base.Drawing.StiAction;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import StiQuickInfoType = Stimulsoft.Report.Components.StiQuickInfoType;
+    class StiDesignerInfo {
+        clone(report: StiReport): StiDesignerInfo;
+        private _forceDesigningMode;
+        forceDesigningMode: boolean;
+        private _quickInfoType;
+        quickInfoType: StiQuickInfoType;
+        private _generateLocalizedName;
+        generateLocalizedName: boolean;
+        private _showDimensionLines;
+        showDimensionLines: boolean;
+        private _quickInfoOverlay;
+        quickInfoOverlay: boolean;
+        private _isComponentsMoving;
+        isComponentsMoving: boolean;
+        private _currentAction;
+        currentAction: StiAction;
+        private _isTableMode;
+        isTableMode: boolean;
+        private _drawEventMarkers;
+        drawEventMarkers: boolean;
+        private _drawMarkersWhenMoving;
+        drawMarkersWhenMoving: boolean;
+        private _runDesignerAfterInsert;
+        runDesignerAfterInsert: boolean;
+        private _useLastFormat;
+        useLastFormat: boolean;
+        private _autoSaveInterval;
+        autoSaveInterval: number;
+        private _enableAutoSaveMode;
+        enableAutoSaveMode: boolean;
+        private _showOrder;
+        showOrder: boolean;
+        private _alignToGrid;
+        alignToGrid: boolean;
+        private _autoSaveReportToReportClass;
+        autoSaveReportToReportClass: boolean;
+        private _showHeaders;
+        showHeaders: boolean;
+        private _showGrid;
+        showGrid: boolean;
+        private _showInteractive;
+        showInteractive: boolean;
+        private _zoom;
+        zoom: number;
+        private _showRulers;
+        showRulers: boolean;
+        private _gridSizePoints;
+        gridSizePoints: number;
+        private _gridSizePixels;
+        gridSizePixels: number;
+        private _gridSizeCentimetres;
+        gridSizeCentimetres: number;
+        private _gridSizeHundredthsOfInch;
+        gridSizeHundredthsOfInch: number;
+        private _gridSizeInch;
+        gridSizeInch: number;
+        private _gridSizeMillimeters;
+        gridSizeMillimeters: number;
+        readonly gridSize: number;
+        private _fillBands;
+        fillBands: boolean;
+        private _fillCrossBands;
+        fillCrossBands: boolean;
+        private _fillContainer;
+        fillContainer: boolean;
+        private _fillComponent;
+        fillComponent: boolean;
+        private _useComponentColor;
+        useComponentColor: boolean;
+        private _gridMode;
+        gridMode: StiGridMode;
+        private _report;
+        report: StiReport;
+        getFillColor(color: Color): Color;
+        constructor(report?: StiReport);
+    }
+}
+declare namespace Stimulsoft.Report.Design {
+    class StiExpressionPacker {
+        static packExpression(expressionStr: string, report: StiReport, useBraces: boolean): string;
+        static unPackExpression(expressionStr: string, report: StiReport, useBraces: boolean): string;
+        private static isValidName;
+        static getCorrectedAlias(report: StiReport, alias: string): string;
+        private static addWord;
+        private static buildDictionary;
+        private static buildBusinessObject;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import Type = Stimulsoft.System.Type;
+    import StiService = Stimulsoft.Base.Services.StiService;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiDataAdapterService extends StiService {
+        readonly serviceCategory: string;
+        readonly serviceType: Type;
+        readonly isObjectAdapter: boolean;
+        getDataCategoryName(data: StiData): string;
+        static getDataAdapter(dataSource: StiDataSource): StiDataAdapterService;
+        static getDataAdapter2(data: StiData): StiDataAdapterService;
+        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
+        getDataSourceType(): Type;
+        getDataTypes(): Type[];
+        isAdapterDataType(type: Type): boolean;
+        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource, connectionString: string): StiPromise<StiDataColumnsCollection>;
+        getColumnsFromData(data: StiData, dataSource: StiDataSource, connectionString: string): StiDataColumnsCollection;
+        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
+        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
+        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): StiPromise<void>;
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+        toString(): string;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiDataStoreAdapterService extends StiDataAdapterService {
+        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
+        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiFileAdapterService extends StiDataStoreAdapterService {
+        readonly serviceName: string;
+        getDataCategoryName(data: StiData): string;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiDataLeader {
+        private static fetchAll;
+        static regData(database: StiDatabase, dictionary: StiDictionary, loadData: boolean): void;
+        static regDataAsync(database: StiDatabase, dictionary: StiDictionary, loadData: boolean): StiPromise<void>;
+        private static regDataAfter;
+        private static regDataAfterAsync;
+        static existsInCache(database: StiDatabase, dictionary: StiDictionary): boolean;
+        static getColumnsFromData(adapter: StiDataAdapterService, data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
+        static getColumnsFromDataAsync(adapter: StiDataAdapterService, data: StiData, dataSource: StiDataSource): StiPromise<StiDataColumnsCollection>;
+        static connectDataSourceToData(adapter: StiDataAdapterService, dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): StiPromise<void>;
+        static connectDataSourceToDataAsync(adapter: StiDataAdapterService, dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): StiPromise<void>;
+        static retrieveDataAsync(dataSource: StiSqlSource, schemaOnly?: boolean): StiPromise<void>;
+        static connect(dataSource: StiDataSource, datas: StiDataCollection, loadData?: boolean): void;
+        static connectAsync(dataSource: StiDataSource, datas: StiDataCollection, loadData?: boolean): StiPromise<void>;
+        static disconnect(dataSource: StiDataSource): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiCsvAdapterService extends StiFileAdapterService {
+        readonly name: string;
+        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
+        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
+        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
+        getDataSourceType(): Stimulsoft.System.Type;
+        getDataTypes(): Stimulsoft.System.Type[];
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+        checkConvertNulls(dataSource: StiCsvSource): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiNoSqlAdapterService extends StiDataStoreAdapterService {
+        getDataCategoryName(data: StiData): string;
+        testConnection(connectionString: string): string;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMongoDbAdapterService extends StiNoSqlAdapterService {
+        readonly name: string;
+        getDataSourceType(): Stimulsoft.System.Type;
+        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import Type = Stimulsoft.System.Type;
+    /**
+     *  Describes the adapter of the data transformation.
+     */
+    class StiDataTransformationAdapterService extends StiDataStoreAdapterService {
+        /**
+         *  Gets a service name.
+         */
+        serviceName: string;
+        isObjectAdapter: boolean;
+        /**
+         *  Calls the form for Data Source edition.
+         *
+         *  @param dictionary Dictionary in which Data Source is located.
+         *  @param dataSource Data Source.
+         *  @returns Result of gialog form.
+         */
+        edit(dictionary: StiDictionary, dataSource: StiDataSource): boolean;
+        /**
+         *  Calls the form for a new Data Source edition.
+         *
+         * @param dictionary Dictionary in which Data Source is located.
+         * @param dataSource Data Source.
+         * @returns>Result of gialog form.
+         */
+        new(dictionary: StiDictionary, dataSource: StiDataSource): boolean;
+        /**
+         *  Returns the array of data types to which the Data Source may refer.
+         *
+         * @returns Array of data types.
+         */
+        getDataTypes(): Type[];
+        /**
+         *  Returns a collection of columns of data.
+         *
+         * @param data Data to find column.
+         * @returns> Collection of columns found.
+         */
+        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
+        /**
+         *  Returns a collection of parameters of data.
+         *
+         * @param data Data to find parameters.
+         * @returns Collection of parameters found.
+         */
+        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
+        /**
+         *  Returns name of category for data.
+         */
+        getDataCategoryName(data: StiData): string;
+        /**
+         *  Returns the type of the Data Source.
+         *
+         * @returns The type of Data Source.
+         */
+        getDataSourceType(): Type;
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import Type = Stimulsoft.System.Type;
+    class StiVirtualAdapterService extends StiDataStoreAdapterService {
+        readonly serviceName: string;
+        readonly isObjectAdapter: boolean;
+        getDataTypes(): Type[];
+        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource, connectionString: string): StiPromise<StiDataColumnsCollection>;
+        getColumnsFromData(data: StiData, dataSource: StiDataSource, connectionString: string): StiDataColumnsCollection;
+        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
+        getDataCategoryName(data: StiData): string;
+        getDataSourceType(): Type;
+        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): StiPromise<void>;
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
+    import DataTable = Stimulsoft.System.Data.DataTable;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiSqlAdapterService extends StiDataStoreAdapterService {
+        readonly url: string;
+        readonly serviceName: string;
+        readonly name: string;
+        getDatabaseSpecificName(name: string): string;
+        getDataCategoryName(data: StiData): string;
+        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource, connectionString: string): StiPromise<StiDataColumnsCollection>;
+        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
+        getDataSourceType(): Stimulsoft.System.Type;
+        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): StiPromise<void>;
+        callRemoteApi(command: any, timeout: number): StiPromise<string>;
+        private static callTurn;
+        process(report: StiReport, command: any, timeout: number): StiPromise<any>;
+        testConnectionAsync(report: StiReport, connectionString: string): StiPromise<string>;
+        createConnectionInDataStore(dictionary: StiDictionary, database: StiSqlDatabase): void;
+        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): StiPromise<StiDataSchema>;
+        retrieveDataAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString: string): StiPromise<DataTable>;
+        constructor();
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiODataAdapterService extends StiSqlAdapterService {
+        readonly serviceName: string;
+        getDataSourceType(): Stimulsoft.System.Type;
+        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): StiPromise<void>;
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+        testConnectionAsync(report: StiReport, connectionString: string): StiPromise<string>;
+        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): StiPromise<StiDataSchema>;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiFirebirdAdapterService extends StiSqlAdapterService {
+        readonly name: string;
+        getDataSourceType(): Stimulsoft.System.Type;
+        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): StiPromise<StiDataSchema>;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiMySqlAdapterService extends StiSqlAdapterService {
+        readonly name: string;
+        getDatabaseSpecificName(name: string): string;
+        getDataSourceType(): Stimulsoft.System.Type;
+        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): StiPromise<StiDataSchema>;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiOracleAdapterService extends StiSqlAdapterService {
+        readonly name: string;
+        getDataSourceType(): Stimulsoft.System.Type;
+        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): StiPromise<StiDataSchema>;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiPostgreSQLAdapterService extends StiSqlAdapterService {
+        readonly name: string;
+        getDataSourceType(): Stimulsoft.System.Type;
+        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): StiPromise<StiDataSchema>;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import DataTable = Stimulsoft.System.Data.DataTable;
+    import StiDataSchema = Stimulsoft.Base.StiDataSchema;
+    class StiCustomAdapterService extends StiSqlAdapterService {
+        private processUserFunction;
+        static registerCustomAdapterService(options: {
+            name: string;
+            process: (command: any, callback: (result: any) => void) => void;
+        }): StiCustomAdapterService;
+        private _name;
+        readonly name: string;
+        getDataSourceType(): Stimulsoft.System.Type;
+        callRemoteApi(command: any, timeout: number): StiPromise<string>;
+        retrieveDataAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString: string): StiPromise<DataTable>;
+        retrieveSchemaAsync(report: StiReport, dataSource: StiSqlSource, connectionString: string, queryString?: string): StiPromise<StiDataSchema>;
+        constructor();
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiDataStoreSource extends StiDataSource implements IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        getCategoryName(): string;
+        dataName: string;
+        private _nameInSource;
+        nameInSource: string;
+        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import Type = Stimulsoft.System.Type;
+    class StiDataTableSource extends StiDataStoreSource implements IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        getCategoryName(): string;
+        getDataAdapterType(): Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import Type = Stimulsoft.System.Type;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiDataTableAdapterService extends StiDataStoreAdapterService {
+        readonly serviceName: string;
+        readonly isObjectAdapter: boolean;
+        getDataCategoryName(data: StiData): string;
+        getColumnsFromDataAsync(data: StiData, dataSource: StiDataSource): StiPromise<StiDataColumnsCollection>;
+        getColumnsFromData(data: StiData, dataSource: StiDataSource): StiDataColumnsCollection;
+        getParametersFromData(data: StiData, dataSource: StiDataSource): StiDataParametersCollection;
+        setDataSourceNames(data: StiData, dataSource: StiDataSource): void;
+        create(dictionary: StiDictionary, addToDictionary?: boolean): StiDataSource;
+        getDataSourceType(): Type;
+        getDataTypes(): Type[];
+        getDataFromDataSource(dictionary: StiDictionary, dataSource: StiDataSource): StiData;
+        connectDataSourceToDataAsync(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): StiPromise<void>;
+        connectDataSourceToData(dictionary: StiDictionary, dataSource: StiDataSource, loadData: boolean): void;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiAggregateFunctionService {
+        readonly serviceName: string;
+        init(): void;
+        reset(): void;
+        calcItem(value: any): any;
+        getValue(): any;
+        setValue(value: any): any;
+        isFirstInit: boolean;
+        readonly recureParam: boolean;
+        private _runningTotal;
+        runningTotal: boolean;
+        constructor(runningTotal?: boolean);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiAvgDateFunctionService extends StiAggregateFunctionService {
+        private avgValue;
+        private count;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiAvgFunctionService extends StiAggregateFunctionService {
+        private summary;
+        private count;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiAvgTimeFunctionService extends StiAggregateFunctionService {
+        private avgValue;
+        private count;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiCountDistinctFunctionService extends StiAggregateFunctionService {
+        private counter;
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiCountFunctionService extends StiAggregateFunctionService {
+        private counter;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiFirstFunctionService extends StiAggregateFunctionService {
+        private value;
+        private first;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiLastFunctionService extends StiAggregateFunctionService {
+        private value;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMaxDateFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private maximum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMaxFunctionService extends StiAggregateFunctionService {
+        private maximum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMaxStrFunctionService extends StiAggregateFunctionService {
+        private values;
+        static ascComparison(str1: string, str2: string): number;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMaxTimeFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private maximum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMedianFunctionService extends StiAggregateFunctionService {
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMinDateFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private minimum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMinFunctionService extends StiAggregateFunctionService {
+        private minimum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMinStrFunctionService extends StiAggregateFunctionService {
+        private values;
+        static ascComparison(str1: string, str2: string): number;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMinTimeFunctionService extends StiAggregateFunctionService {
+        private valueProcessed;
+        private minimum;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiModeFunctionService extends StiAggregateFunctionService {
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiRankOrder = Stimulsoft.Report.StiRankOrder;
+    class StiRankFunctionService extends StiAggregateFunctionService {
+        private hash;
+        private sortOrder;
+        private dense;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+        constructor(runningTotal: boolean, dense?: boolean, sortOrder?: StiRankOrder);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiSumDistinctFunctionService extends StiAggregateFunctionService {
+        private summary;
+        private values;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any, valueToSum?: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiSumFunctionService extends StiAggregateFunctionService {
+        private summary;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiSumNullableFunctionService extends StiAggregateFunctionService {
+        private summary;
+        private hasValues;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiSumTimeFunctionService extends StiAggregateFunctionService {
+        private sumValue;
+        readonly serviceName: string;
+        init(): void;
+        calcItem(value: any): void;
+        getValue(): any;
+        setValue(value: any): void;
+        readonly recureParam: boolean;
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiBusinessObjectCategory {
+        private _category;
+        category: string;
+        constructor(category: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiBusinessObjectData {
+        private _category;
+        category: string;
+        private _name;
+        name: string;
+        private _alias;
+        alias: string;
+        private _businessObjectValue;
+        businessObjectValue: any;
+        constructor(category: string, name: string, alias: string, value: any);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiFileDataSource extends StiDataStoreSource {
+        readonly componentId: StiComponentId;
+        path: string;
+        codePage: number;
+        constructor(path?: string, name?: string, alias?: string, codePage?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    class StiCsvSource extends StiFileDataSource implements IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        readonly componentId: StiComponentId;
+        getDataAdapterType(): Stimulsoft.System.Type;
+        separator: string;
+        convertEmptyStringToNull: boolean;
+        createNew(): StiDataSource;
+        constructor(path?: string, name?: string, alias?: string, codePage?: number, separator?: string, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiSqlSource extends StiDataTableSource implements IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _allowExpressions;
+        allowExpressions: boolean;
+        private _type;
+        type: StiSqlSourceType;
+        private _commandTimeout;
+        commandTimeout: number;
+        private _reconnectOnEachRow;
+        reconnectOnEachRow: boolean;
+        private _sqlCommand;
+        sqlCommand: string;
+        getDataAdapterType(): Stimulsoft.System.Type;
+        updateParameters(): void;
+        retrieveDataAsync(schemaOnly?: boolean): StiPromise<void>;
+        getFinalSqlCommand(): string;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiNoSqlSource extends StiSqlSource {
+        query: string;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMongoDbSource extends StiNoSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import IStiFilter = Stimulsoft.Report.Components.IStiFilter;
+    import StiFilterMode = Stimulsoft.Report.Components.StiFilterMode;
+    import Type = Stimulsoft.System.Type;
+    class StiVirtualSource extends StiDataStoreSource implements IStiFilter, IStiJsonReportObject {
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        private _filterMethodHandler;
+        filterMethodHandler: Function;
+        private _filterOn;
+        filterOn: boolean;
+        private _filterMode;
+        filterMode: StiFilterMode;
+        private _filters;
+        filters: Stimulsoft.Report.Components.StiFiltersCollection;
+        protected getDataAdapterType(): Type;
+        private _groupColumns;
+        groupColumns: string[];
+        private _results;
+        results: string[];
+        private _sort;
+        sort: string[];
+        connectToDataAsync(allowConnect?: boolean): StiPromise<void>;
+        private connectToDataInternal;
+        private compare;
+        private initTotals;
+        private addRow;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiODataSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiFirebirdSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiMySqlSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiOracleSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiPostgreSQLSource extends StiSqlSource {
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
+    }
+}
+declare namespace Stimulsoft.Report.Dictionary {
+    class StiCustomSource extends StiSqlSource {
+        static registerCustomSource(): void;
+        getDataAdapterType(): Stimulsoft.System.Type;
+        readonly componentId: StiComponentId;
+        createNew(): StiDataSource;
+        constructor(nameInSource?: string, name?: string, alias?: string, sqlCommand?: string, connectOnStart?: boolean, reconnectOnEachRow?: boolean, commandTimeout?: number, key?: string);
     }
 }
 declare namespace Stimulsoft.Report.Dictionary {
@@ -35523,7 +35612,7 @@ declare namespace Stimulsoft.Report.Dictionary {
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import List = Stimulsoft.System.Collections.List;
     class StiDataSourcesCollection extends CollectionBase<StiDataSource> implements IStiJsonReportObject, ICloneable, IComparer<any> {
         implements(): string[];
@@ -35554,7 +35643,7 @@ declare namespace Stimulsoft.Report.Dictionary {
         clone(): any;
         sort(order?: StiSortOrder, sortColumns?: boolean): void;
         clearParametersExpression(): void;
-        connectAsync(loadData: boolean, datas?: StiDataCollection): Promise<void>;
+        connectAsync(loadData: boolean, datas?: StiDataCollection): StiPromise<void>;
         connect(loadData: boolean, datas?: StiDataCollection): void;
         disconnect(): void;
         constructor(dictionary: StiDictionary);
@@ -35567,7 +35656,7 @@ declare namespace Stimulsoft.Report.Dictionary {
     }
 }
 declare namespace Stimulsoft.Report.Dictionary {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import List = Stimulsoft.System.Collections.List;
@@ -35599,13 +35688,13 @@ declare namespace Stimulsoft.Report.Dictionary {
          *  Returns a DataTable with data from this datasource.
          *  @returns The DataTable with data.
          */
-        getDataTable2Async(allowConnectToData: boolean): Promise<DataTable>;
+        getDataTable2Async(allowConnectToData: boolean): StiPromise<DataTable>;
         getDataAdapterType(): Type;
         sorts: List<StiDataSortRule>;
         filters: List<StiDataFilterRule>;
         actions: List<StiDataActionRule>;
-        retrieveDataTableAsync(option: StiDataRequestOption): Promise<DataTable>;
-        connectToDataAsync(): Promise<void>;
+        retrieveDataTableAsync(option: StiDataRequestOption): StiPromise<DataTable>;
+        connectToDataAsync(): StiPromise<void>;
         getMeters(group?: string): List<IStiMeter>;
         getMeter(column: StiDataTransformationColumn): IStiMeter;
         componentId: StiComponentId;
@@ -35787,7 +35876,7 @@ declare namespace Stimulsoft.Report.Dictionary {
     import Type = Stimulsoft.System.Type;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiAppConnection = Stimulsoft.Base.IStiAppConnection;
     enum Order {
         Name = 100,
@@ -35834,11 +35923,11 @@ declare namespace Stimulsoft.Report.Dictionary {
         key: string;
         readonly connectionType: StiConnectionType;
         applyDatabaseInformation(information: StiDatabaseInformation, report: StiReport, informationAll?: StiDatabaseInformation): void;
-        getDatabaseInformationAsync(dictionary: StiDictionary): Promise<StiDatabaseInformation>;
+        getDatabaseInformationAsync(dictionary: StiDictionary): StiPromise<StiDatabaseInformation>;
         getDatabaseInformation(dictionary: StiDictionary): StiDatabaseInformation;
         toString(): string;
         regData(dictionary: StiDictionary, loadData: boolean): void;
-        regDataAsync(dictionary: StiDictionary, loadData: boolean): Promise<void>;
+        regDataAsync(dictionary: StiDictionary, loadData: boolean): StiPromise<void>;
         createNew(): StiDatabase;
         constructor(name?: string, alias?: string, key?: string);
     }
@@ -36202,7 +36291,7 @@ declare namespace Stimulsoft.Report.Dictionary {
     }
 }
 declare namespace Stimulsoft.Report.Dictionary {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDatabase = Stimulsoft.Report.Dictionary.StiDatabase;
     class StiJsonDatabase extends StiFileDatabase {
         createNew(): StiDatabase;
@@ -36210,15 +36299,15 @@ declare namespace Stimulsoft.Report.Dictionary {
         private getDataSet;
         private getDataSetAsync;
         getDatabaseInformation(dictionary: StiDictionary): StiDatabaseInformation;
-        getDatabaseInformationAsync(dictionary: StiDictionary): Promise<StiDatabaseInformation>;
+        getDatabaseInformationAsync(dictionary: StiDictionary): StiPromise<StiDatabaseInformation>;
         regData(dictionary: StiDictionary, loadData: boolean): void;
-        regDataAsync(dictionary: StiDictionary, loadData: boolean): Promise<void>;
+        regDataAsync(dictionary: StiDictionary, loadData: boolean): StiPromise<void>;
         constructor(name?: string, pathData?: string, key?: string);
     }
 }
 declare namespace Stimulsoft.Report.Dictionary {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import StiDatabase = Stimulsoft.Report.Dictionary.StiDatabase;
@@ -36236,9 +36325,9 @@ declare namespace Stimulsoft.Report.Dictionary {
         private getDataSet;
         private getDataSetAsync;
         regData(dictionary: StiDictionary, loadData: boolean): void;
-        regDataAsync(dictionary: StiDictionary, loadData: boolean): Promise<void>;
+        regDataAsync(dictionary: StiDictionary, loadData: boolean): StiPromise<void>;
         getDatabaseInformation(dictionary: StiDictionary): StiDatabaseInformation;
-        getDatabaseInformationAsync(dictionary: StiDictionary): Promise<StiDatabaseInformation>;
+        getDatabaseInformationAsync(dictionary: StiDictionary): StiPromise<StiDatabaseInformation>;
         constructor(name?: string, pathSchema?: string, pathData?: string, key?: string, xmlType?: StiXmlType);
     }
 }
@@ -36286,7 +36375,7 @@ declare namespace Stimulsoft.Report.Dictionary {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
     import StiJson = Stimulsoft.Base.StiJson;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     class StiSqlDatabase extends StiDatabase implements IStiJsonReportObject {
         private static encryptedId;
         createNew(): StiDatabase;
@@ -36311,7 +36400,7 @@ declare namespace Stimulsoft.Report.Dictionary {
         protected applyDatabaseInformationViews(information: StiDatabaseInformation, report: StiReport, informationAll: StiDatabaseInformation): void;
         protected applyDatabaseInformationProcedures(information: StiDatabaseInformation, report: StiReport, informationAll: StiDatabaseInformation): void;
         protected applyDatabaseInformationSource(information: StiDatabaseInformation, report: StiReport, informationAll: StiDatabaseInformation, dataTable: DataTable, type?: StiSqlSourceType): void;
-        getDatabaseInformationAsync(dictionary: StiDictionary): Promise<StiDatabaseInformation>;
+        getDatabaseInformationAsync(dictionary: StiDictionary): StiPromise<StiDatabaseInformation>;
         private static getDatabaseInformationTables;
         private static getDatabaseInformationViews;
         private static getDatabaseInformationProcedures;
@@ -36987,7 +37076,7 @@ declare namespace Stimulsoft.Report.Dictionary {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import StiJson = Stimulsoft.Base.StiJson;
     import ICloneable = Stimulsoft.System.ICloneable;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import List = Stimulsoft.System.Collections.List;
     import IStiAppDictionary = Stimulsoft.Base.IStiAppDictionary;
     import IStiAppDataSource = Stimulsoft.Base.IStiAppDataSource;
@@ -37087,7 +37176,7 @@ declare namespace Stimulsoft.Report.Dictionary {
         readonly isRequestFromUserVariablesPresent: boolean;
         private equalsColumns;
         createDatabases(loadData: boolean): void;
-        createDatabasesAsync(loadData: boolean): Promise<void>;
+        createDatabasesAsync(loadData: boolean): StiPromise<void>;
         removeUnusedData(): void;
         removeUnusedDataSourcesV2(): void;
         retrievalData(REFusedRelations: any, REFusedDataSources: any, REFusedColumns: any): void;
@@ -37096,17 +37185,17 @@ declare namespace Stimulsoft.Report.Dictionary {
         synchronize(): void;
         synchronizeBusinessObjects(): void;
         synchronizeColumns(data: StiData, dataSource: StiDataSource): void;
-        synchronizeColumnsAsync(data: StiData, dataSource: StiDataSource): Promise<void>;
+        synchronizeColumnsAsync(data: StiData, dataSource: StiDataSource): StiPromise<void>;
         synchronizeColumns3(data: StiBusinessObjectData, source: StiBusinessObject): void;
         synchronizeColumns2(data: any, source: StiBusinessObject): void;
         clear(): void;
         private disposeCacheDataSet;
         renameDatabase(database: StiDatabase, newName: string): void;
-        connectToDatabasesAsync(databases?: List<StiDatabase>, loadData?: boolean): Promise<void>;
-        connectAsync(loadData?: boolean, dataSources?: StiDataSource[]): Promise<void>;
+        connectToDatabasesAsync(databases?: List<StiDatabase>, loadData?: boolean): StiPromise<void>;
+        connectAsync(loadData?: boolean, dataSources?: StiDataSource[]): StiPromise<void>;
         connect(loadData?: boolean, dataSources?: StiDataSource[]): void;
-        connectVirtualDataSources(): void;
-        connectDataTransformationsAsync(): Promise<void>;
+        connectVirtualDataSourcesAsync(): StiPromise<void>;
+        connectDataTransformationsAsync(): StiPromise<void>;
         connectCrossTabDataSources(): void;
         disconnect(): void;
         private disconnectingDatabases;
@@ -37573,9 +37662,9 @@ declare namespace Stimulsoft.Report.Engine {
     }
 }
 declare namespace Stimulsoft.Report.Engine {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     class StiReportBuilder {
-        static renderSingleReportAsync(masterReport: StiReport, renderState: StiRenderState): Promise<void>;
+        static renderSingleReportAsync(masterReport: StiReport, renderState: StiRenderState): StiPromise<void>;
         static renderSubReports(ownerReport: StiReport, renderState: StiRenderState): void;
     }
 }
@@ -38171,11 +38260,11 @@ declare namespace Stimulsoft.Report.Engine {
 declare namespace Stimulsoft.Report.Engine {
     import EventArgs = Stimulsoft.System.EventArgs;
     import StiPage = Stimulsoft.Report.Components.StiPage;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     class StiRenderProvider {
-        static renderAsync(report: StiReport, state: StiRenderState): Promise<void>;
+        static renderAsync(report: StiReport, state: StiRenderState): StiPromise<void>;
         static StiRenderProviderV2_AddAnchor_Rendering(sender: any, e: EventArgs): void;
-        static connectToDataAsync(report: StiReport): Promise<void>;
+        static connectToDataAsync(report: StiReport): StiPromise<void>;
         static connectToData(report: StiReport): void;
         private static disconnectFromData;
         private static isDialogsOnStartExist;
@@ -39464,11 +39553,29 @@ declare namespace Stimulsoft.Report.Export {
         private static rectToRectangle;
     }
 }
+declare namespace Stimulsoft.Report.Painters {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
+    import StiMap = Stimulsoft.Report.Maps.StiMap;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    class StiMapGdiPainter {
+        useBackground: boolean;
+        key: string;
+        getImageAsync(map: StiMap, zoom: number, width?: number, height?: number): StiPromise<string>;
+        paintOnlineMapAsync(rect: Rectangle, map: StiMap): StiPromise<string>;
+        tryToDecimal(value: any): number;
+        constructor();
+    }
+}
 declare namespace Stimulsoft.Report.Maps {
     import Color = Stimulsoft.System.Drawing.Color;
+    import StiPromise = Stimulsoft.System.StiPromise;
+    import StiHtmlTextWriter = Stimulsoft.Report.Export.StiHtmlTextWriter;
     class StiMapHelper {
         private static globalReport;
         private static globalMap;
+        static cache: {};
+        static addToCahe(map: StiMap, width: number, height: number): string;
+        static renderOnlineMap(writer: StiHtmlTextWriter): StiPromise<void>;
         static isWorld(id: StiMapID): boolean;
         static isAfrica(id: StiMapID): boolean;
         static isNorthAmerica(id: StiMapID): boolean;
@@ -41270,9 +41377,9 @@ declare namespace Stimulsoft.Report.Export {
 }
 declare namespace Stimulsoft.Report.Export {
     import ImageFormat = Stimulsoft.System.Drawing.Imaging.ImageFormat;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     class StiExportImageHelper {
-        static convertAllImages(renderedReport: StiReport, imageFormat: ImageFormat, flate?: boolean): Promise<void>;
+        static convertAllImages(renderedReport: StiReport, imageFormat: ImageFormat, flate?: boolean): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Report.Export {
@@ -41429,6 +41536,7 @@ declare namespace Stimulsoft.Report.Export {
         writeAttribute(attr: string, value: string): void;
         writeStyleAttribute(attr: string, value: string): void;
         flush(): void;
+        getStream(): TextWriter;
         private closeTag;
         private checkIndent;
         constructor(baseStream: TextWriter);
@@ -44421,8 +44529,12 @@ declare namespace Stimulsoft.Report.Chart {
         clone(): StiChartCondition;
         private _color;
         color: Color;
+        private _markerType;
+        markerType: StiMarkerType;
+        private _markerAngle;
+        markerAngle: number;
         conditions: StiChartConditionsCollection;
-        constructor(color?: Color, item?: StiFilterItem, dataType?: StiFilterDataType, condition?: StiFilterCondition, value?: string);
+        constructor(color?: Color, item?: StiFilterItem, dataType?: StiFilterDataType, condition?: StiFilterCondition, value?: string, markerType?: StiMarkerType, markerAngle?: number);
     }
 }
 declare namespace Stimulsoft.Report.Chart {
@@ -47799,6 +47911,7 @@ declare namespace Stimulsoft.Report.Chart {
         readonly gridLinesVertColor: Color;
         readonly seriesLighting: boolean;
         readonly seriesShowShadow: boolean;
+        readonly seriesShowBorder: boolean;
         readonly markerVisible: boolean;
         readonly firstStyleColor: Color;
         readonly lastStyleColor: Color;
@@ -47838,6 +47951,7 @@ declare namespace Stimulsoft.Report.Chart {
         readonly chartAreaShowShadow: boolean;
         readonly seriesLighting: boolean;
         readonly seriesShowShadow: boolean;
+        readonly seriesShowBorder: boolean;
         readonly seriesLabelsBrush: StiBrush;
         readonly seriesLabelsColor: Color;
         readonly seriesLabelsBorderColor: Color;
@@ -55241,7 +55355,7 @@ declare namespace Stimulsoft.Report.Gauge {
          */
         localizedName: string;
         brush: StiBrush;
-        foreColor: System.Drawing.Color;
+        foreColor: Color;
         markerBrush: StiBrush;
         linearMarkerBorder: StiBrush;
         linearScaleBrush: StiBrush;
@@ -55259,7 +55373,7 @@ declare namespace Stimulsoft.Report.Gauge {
          */
         localizedName: string;
         brush: StiBrush;
-        foreColor: System.Drawing.Color;
+        foreColor: Color;
         markerBrush: StiBrush;
         linearMarkerBorder: StiBrush;
         needleBrush: StiBrush;
@@ -56435,6 +56549,36 @@ declare namespace Stimulsoft.Dashboard.Components.Chart {
         text: string;
         readonly isDefault: boolean;
         constructor(font?: Font, text?: string, color?: Color, alignment?: StringAlignment, position?: StiTitlePosition, visible?: boolean);
+    }
+}
+declare namespace Stimulsoft.Dashboard.Components.Chart {
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import Color = Stimulsoft.System.Drawing.Color;
+    import IStiChartConstantLines = Stimulsoft.Report.Dashboard.IStiChartConstantLines;
+    class StiChartConstantLines implements ICloneable, IStiChartConstantLines, IStiJsonReportObject {
+        private static ImplementsStiChartConstantLines;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        /**
+         *  Creates a new object that is a copy of the current instance.
+         *  @returns A new object that is a copy of this instance.
+         */
+        clone(): StiChartConstantLines;
+        text: string;
+        lineStyle: StiPenStyle;
+        lineColor: Color;
+        axisValue: string;
+        lineWidth: number;
+        static createFromJson(json: StiJson): StiChartConstantLines;
+        static createFromXml(xmlNode: XmlNode): StiChartConstantLines;
+        constructor(text?: string, axisValue?: string, lineColor?: Color, lineStyle?: StiPenStyle, lineWidth?: number);
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.TreeViewBox {
@@ -58220,6 +58364,9 @@ declare namespace Stimulsoft.Dashboard.Components.Chart {
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import IStiGlobalizationProvider = Stimulsoft.Report.IStiGlobalizationProvider;
     import IStiDrillDownElement = Stimulsoft.Data.Engine.IStiDrillDownElement;
+    import IStiChartConstantLines = Stimulsoft.Report.Dashboard.IStiChartConstantLines;
+    import IStiChartElementCondition = Stimulsoft.Report.Dashboard.IStiChartElementCondition;
+    import StiPenStyle = Stimulsoft.Base.Drawing.StiPenStyle;
     class StiChartElement extends StiElement implements IStiChartElement, IStiSkipOwnFilter, IStiTitleElement, IStiElementLayout, IStiJsonReportObject, IStiGlobalizationProvider, IStiSeriesColors, IStiNegativeSeriesColors, IStiElementInteraction, IStiDrillDownElement {
         private static ImplementsStiChartElement;
         implements(): string[];
@@ -58301,6 +58448,12 @@ declare namespace Stimulsoft.Dashboard.Components.Chart {
         insertSeries(meter: IStiMeter): void;
         removeSeries(): void;
         createNewSeries(): void;
+        addConstantLine(text: string, axisValue: string, lineColor: Color, lineStyle: StiPenStyle, lineWidth: number): void;
+        fetchConstantLines(): List<IStiChartConstantLines>;
+        clearConstantLines(): void;
+        addChartCondition(keyValueMeter: string, dataType: StiFilterDataType, condition: StiFilterCondition, value: string, color: Color, markerType: StiMarkerType, markerAngle: number): void;
+        fetchChartConditions(): List<IStiChartElementCondition>;
+        clearChartConditions(): void;
         convertFrom(element: IStiElement): void;
         fetchAllMeters(): List<IStiMeter>;
         getMeters(): List<IStiMeter>;
@@ -58406,6 +58559,10 @@ declare namespace Stimulsoft.Dashboard.Components.Chart {
          */
         valueFormat: StiFormatService;
         private shouldSerializeValueFormat;
+        constantLines: List<StiChartConstantLines>;
+        private shouldSerializeConstantLines;
+        chartConditions: List<StiChartElementCondition>;
+        private shouldSerializeConditions;
         readonly isAxisAreaChart: boolean;
         readonly isBubbleChart: boolean;
         readonly isRange: boolean;
@@ -58431,6 +58588,40 @@ declare namespace Stimulsoft.Dashboard.Components.Chart {
          *  @param rect The rectangle describes size and position of the component.
          */
         constructor(rect?: Rectangle);
+    }
+}
+declare namespace Stimulsoft.Dashboard.Components.Chart {
+    import ICloneable = Stimulsoft.System.ICloneable;
+    import XmlNode = Stimulsoft.System.Xml.XmlNode;
+    import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
+    import StiJsonSaveMode = Stimulsoft.Base.StiJsonSaveMode;
+    import StiJson = Stimulsoft.Base.StiJson;
+    import IStiChartElementCondition = Stimulsoft.Report.Dashboard.IStiChartElementCondition;
+    import StiMarkerType = Stimulsoft.Report.Chart.StiMarkerType;
+    import StiFilterCondition = Stimulsoft.Report.Components.StiFilterCondition;
+    import StiFilterDataType = Stimulsoft.Report.Components.StiFilterDataType;
+    import Color = Stimulsoft.System.Drawing.Color;
+    class StiChartElementCondition implements ICloneable, IStiChartElementCondition, IStiJsonReportObject {
+        private static ImplementsStiChartElementCondition;
+        implements(): string[];
+        saveToJsonObject(mode: StiJsonSaveMode): StiJson;
+        loadFromJsonObject(jObject: StiJson): void;
+        loadFromXml(xmlNode: XmlNode): void;
+        /**
+         *  Creates a new object that is a copy of the current instance.
+         *  @returns A new object that is a copy of this instance.
+         */
+        clone(): StiChartElementCondition;
+        color: Color;
+        markerAngle: number;
+        markerType: StiMarkerType;
+        condition: StiFilterCondition;
+        dataType: StiFilterDataType;
+        value: string;
+        keyValueMeter: string;
+        static createFromJson(json: StiJson): StiChartElementCondition;
+        static createFromXml(xmlNode: XmlNode): StiChartElementCondition;
+        constructor(keyValueMeter?: string, color?: Color, dataType?: StiFilterDataType, condition?: StiFilterCondition, value?: string, markerType?: StiMarkerType, markerAngle?: number);
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.Chart {
@@ -58611,7 +58802,7 @@ declare namespace Stimulsoft.Dashboard.Components.Chart {
 }
 declare namespace Stimulsoft.Dashboard.Components.ComboBox {
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
@@ -58652,7 +58843,7 @@ declare namespace Stimulsoft.Dashboard.Components.ComboBox {
         group: string;
         getParentKey(): string;
         setParentKey(key: string): void;
-        applyDefaultFiltersAsync(): Promise<void>;
+        applyDefaultFiltersAsync(): StiPromise<void>;
         userFilters: List<StiDataFilterRule>;
         transformActions: List<StiDataActionRule>;
         transformFilters: List<StiDataFilterRule>;
@@ -58722,13 +58913,13 @@ declare namespace Stimulsoft.Dashboard.Components.ComboBox {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.ComboBox {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDataFilterRule = Stimulsoft.Data.Engine.StiDataFilterRule;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     import List = Stimulsoft.System.Collections.List;
     class StiComboBoxHelper {
         static fetchItems(comboBoxElement: StiComboBoxElement, dataTable: StiDataTable): StiComboBoxItem[];
-        static fetchDefaultUserFiltersAsync(comboBoxElement: StiComboBoxElement): Promise<List<StiDataFilterRule>>;
+        static fetchDefaultUserFiltersAsync(comboBoxElement: StiComboBoxElement): StiPromise<List<StiDataFilterRule>>;
         private static getNameMeterIndex;
         private static getKeyMeterIndex;
         static getKeyMeterExpression(comboBoxElement: StiComboBoxElement): string;
@@ -58745,7 +58936,7 @@ declare namespace Stimulsoft.Dashboard.Components.ComboBox {
 }
 declare namespace Stimulsoft.Dashboard.Components.DatePicker {
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
@@ -58788,7 +58979,7 @@ declare namespace Stimulsoft.Dashboard.Components.DatePicker {
         group: string;
         getParentKey(): string;
         setParentKey(key: string): void;
-        applyDefaultFiltersAsync(): Promise<void>;
+        applyDefaultFiltersAsync(): StiPromise<void>;
         userFilters: List<StiDataFilterRule>;
         dataFilters: List<StiDataFilterRule>;
         private _style;
@@ -58846,7 +59037,7 @@ declare namespace Stimulsoft.Dashboard.Components.DatePicker {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.DatePicker {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDataFilterCondition = Stimulsoft.Data.Engine.StiDataFilterCondition;
     import StiDataFilterRule = Stimulsoft.Data.Engine.StiDataFilterRule;
     import StiInitialDateRangeSelection = Stimulsoft.Report.Dashboard.StiInitialDateRangeSelection;
@@ -58858,7 +59049,7 @@ declare namespace Stimulsoft.Dashboard.Components.DatePicker {
         }, end: {
             ref: DateTime;
         }): void;
-        static fetchDefaultUserFiltersAsync(datePickerElement: StiDatePickerElement): Promise<List<StiDataFilterRule>>;
+        static fetchDefaultUserFiltersAsync(datePickerElement: StiDatePickerElement): StiPromise<List<StiDataFilterRule>>;
         private static getSingleDefaultUserFilters;
         private static getRangeDefaultUserFilters;
         private static getAutoRangeDefaultUserFiltersAsync;
@@ -59012,7 +59203,7 @@ declare namespace Stimulsoft.Dashboard.Components.Gauge {
 }
 declare namespace Stimulsoft.Dashboard.Components.Gauge {
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiElementLayout = Stimulsoft.Report.Dashboard.StiElementLayout;
     import IStiElementLayout = Stimulsoft.Report.Dashboard.IStiElementLayout;
@@ -59075,7 +59266,7 @@ declare namespace Stimulsoft.Dashboard.Components.Gauge {
         addRange(): IStiGaugeRange;
         removeRange(index: number): void;
         createdDefaultRanges(): void;
-        getGaugeComponentAsync(size?: Size): Promise<IStiGauge>;
+        getGaugeComponentAsync(size?: Size): StiPromise<IStiGauge>;
         convertFrom(element: IStiElement): void;
         group: string;
         title: StiTitle;
@@ -59442,7 +59633,7 @@ declare namespace Stimulsoft.Dashboard.Components.Indicator {
 }
 declare namespace Stimulsoft.Dashboard.Components.ListBox {
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
@@ -59494,7 +59685,7 @@ declare namespace Stimulsoft.Dashboard.Components.ListBox {
         title: StiTitle;
         getParentKey(): string;
         setParentKey(key: string): void;
-        applyDefaultFiltersAsync(): Promise<void>;
+        applyDefaultFiltersAsync(): StiPromise<void>;
         addKeyMeter2(dataColumn: StiDataColumn): void;
         addKeyMeter(meter: IStiMeter): void;
         getKeyMeter(): IStiMeter;
@@ -59565,13 +59756,13 @@ declare namespace Stimulsoft.Dashboard.Components.ListBox {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.ListBox {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDataFilterRule = Stimulsoft.Data.Engine.StiDataFilterRule;
     import List = Stimulsoft.System.Collections.List;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     class StiListBoxHelper {
         static fetchItems(listBoxElement: StiListBoxElement, dataTable: StiDataTable): StiListBoxItem[];
-        static fetchDefaultUserFiltersAsync(listBoxElement: StiListBoxElement): Promise<List<StiDataFilterRule>>;
+        static fetchDefaultUserFiltersAsync(listBoxElement: StiListBoxElement): StiPromise<List<StiDataFilterRule>>;
         static getNameMeterIndex(table: StiDataTable): number;
         static getKeyMeterIndex(table: StiDataTable): number;
         static getKeyMeterExpression(listBoxElement: StiListBoxElement): string;
@@ -60674,7 +60865,7 @@ declare namespace Stimulsoft.Dashboard.Components.TreeView {
 }
 declare namespace Stimulsoft.Dashboard.Components.TreeView {
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import IStiGlobalizationProvider = Stimulsoft.Report.IStiGlobalizationProvider;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
@@ -60715,7 +60906,7 @@ declare namespace Stimulsoft.Dashboard.Components.TreeView {
         group: string;
         getParentKey(): string;
         setParentKey(key: string): void;
-        applyDefaultFiltersAsync(): Promise<void>;
+        applyDefaultFiltersAsync(): StiPromise<void>;
         title: StiTitle;
         private _style;
         style: StiElementStyleIdent;
@@ -60791,7 +60982,7 @@ declare namespace Stimulsoft.Dashboard.Components.TreeView {
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.TreeView {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDataFilterRule = Stimulsoft.Data.Engine.StiDataFilterRule;
     import StiTreeViewBoxElement = Stimulsoft.Dashboard.Components.TreeViewBox.StiTreeViewBoxElement;
     import List = Stimulsoft.System.Collections.List;
@@ -60799,15 +60990,15 @@ declare namespace Stimulsoft.Dashboard.Components.TreeView {
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     class StiTreeViewHelper {
         static fetchItems(dataTable: StiDataTable, removeEmptyField?: boolean, fillLastTagOnly?: boolean): List<StiTreeItem>;
-        static fetchDefaultUserFiltersAsync(treeViewBoxElement: StiTreeViewBoxElement): Promise<List<StiDataFilterRule>>;
-        static fetchDefaultUserFilters2Async(treeViewElement: StiTreeViewElement): Promise<List<StiDataFilterRule>>;
+        static fetchDefaultUserFiltersAsync(treeViewBoxElement: StiTreeViewBoxElement): StiPromise<List<StiDataFilterRule>>;
+        static fetchDefaultUserFilters2Async(treeViewElement: StiTreeViewElement): StiPromise<List<StiDataFilterRule>>;
         static format(treeViewBoxElement: StiTreeViewBoxElement, value: any): string;
         static format2(treeViewElement: StiTreeViewElement, value: any): string;
     }
 }
 declare namespace Stimulsoft.Dashboard.Components.TreeViewBox {
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import StiComponentToolboxPosition = Stimulsoft.Report.Components.StiComponentToolboxPosition;
@@ -60848,7 +61039,7 @@ declare namespace Stimulsoft.Dashboard.Components.TreeViewBox {
         group: string;
         getParentKey(): string;
         setParentKey(key: string): void;
-        applyDefaultFiltersAsync(): Promise<void>;
+        applyDefaultFiltersAsync(): StiPromise<void>;
         private _style;
         style: StiElementStyleIdent;
         customStyleName: string;
@@ -61176,14 +61367,14 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
     import IStiGaugeVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiGaugeVisualSvgHelper;
     class StiGaugeVisualSvgHelper implements IStiGaugeVisualSvgHelper {
         private static ImplementsStiGaugeVisualSvgHelper;
         implements(): string[];
-        writeGaugeAsync(writer: XmlTextWriter, svgData: StiSvgData, needAnimation: boolean): Promise<void>;
+        writeGaugeAsync(writer: XmlTextWriter, svgData: StiSvgData, needAnimation: boolean): StiPromise<void>;
         private paintTitle;
         private getTitleMinFontSize;
         private getTitleHeight;
@@ -61266,18 +61457,18 @@ declare namespace Stimulsoft.Dashboard.Visuals.Indicator {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import IStiIndicatorVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiIndicatorVisualSvgHelper;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
     class StiIndicatorVisualSvgHelper implements IStiIndicatorVisualSvgHelper {
         private static ImplementsStiIndicatorVisualSvgHelper;
         implements(): string[];
-        writeIndicatorAsync(writer: XmlTextWriter, svgData: StiSvgData): Promise<void>;
+        writeIndicatorAsync(writer: XmlTextWriter, svgData: StiSvgData): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     import Hashtable = Stimulsoft.System.Collections.Hashtable;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
@@ -61293,7 +61484,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
         private static DELTA_RADIUS;
         private static htmlNameToColor;
         private static lockHtmlNameToColor;
-        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): Promise<string>;
+        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): StiPromise<string>;
         static calculateMapData(dataTable: StiDataTable, onlineMapElement: StiOnlineMapElement): Hashtable;
         static getColors(count: number): List<Color>;
         static getLongitudeMeterIndex(dataTable: StiDataTable): number;
@@ -61305,7 +61496,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiCrossTab = Stimulsoft.Report.CrossTab.StiCrossTab;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     import StiPivotTableElement = Stimulsoft.Dashboard.Components.PivotTable.StiPivotTableElement;
@@ -61313,7 +61504,7 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     import IStiPivotTableElement = Stimulsoft.Report.Dashboard.IStiPivotTableElement;
     class StiPivotTableHelper {
         static summaryTypes: Hashtable;
-        static getViewerDataAsync(pivotElement: IStiPivotTableElement): Promise<any>;
+        static getViewerDataAsync(pivotElement: IStiPivotTableElement): StiPromise<any>;
         private static cellItem;
         static applyStyle(pivot: StiPivotTableElement, crossTab: StiCrossTab, exportDataOnly: boolean): void;
         static buildCross(masterCrossTab: StiCrossTab, dataTable: StiDataTable, pivot: StiPivotTableElement): void;
@@ -61358,14 +61549,14 @@ declare namespace Stimulsoft.Dashboard.Visuals.Progress.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
     import IStiProgressVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiProgressVisualSvgHelper;
     class StiProgressVisualSvgHelper implements IStiProgressVisualSvgHelper {
         private static ImplementsStiProgressVisualSvgHelper;
         implements(): string[];
-        writeProgressAsync(writer: XmlTextWriter, svgData: StiSvgData): Promise<void>;
+        writeProgressAsync(writer: XmlTextWriter, svgData: StiSvgData): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
@@ -61524,6 +61715,8 @@ declare namespace Stimulsoft.Dashboard.Render {
         private renderLegend;
         private static renderSeriesLabelsLegendValueType;
         private static renderLegendLabelsColor;
+        private static renderConditions;
+        private static renderConstantLines;
         private renderSeriesLabels;
         private static renderPieLabelsAutoRotate;
         private static renderPieLabelsColor;
@@ -62047,19 +62240,19 @@ declare namespace Stimulsoft.Dashboard.Export.Settings {
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Type = Stimulsoft.System.Type;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiExportTool {
         private static typeToTool;
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
         static getTool(type: Type): StiExportTool;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Image = Stimulsoft.System.Drawing.Image;
     import Graphics = Stimulsoft.System.Drawing.Graphics;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
@@ -62067,35 +62260,35 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     class StiElementExportTool extends StiExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
-        protected renderContentAsync(element: IStiElement, destination: StiPanel, rect: Rectangle): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
+        protected renderContentAsync(element: IStiElement, destination: StiPanel, rect: Rectangle): StiPromise<void>;
         private drawElementAsync;
-        protected drawAsync(element: IStiElement, rect: Rectangle): Promise<Image>;
-        protected paintContentAsync(g: Graphics, rect: Rectangle, element: IStiElement): Promise<void>;
-        paintAtomAsync(g: Graphics, rect: Rectangle, element: IStiElement): Promise<void>;
+        protected drawAsync(element: IStiElement, rect: Rectangle): StiPromise<Image>;
+        protected paintContentAsync(g: Graphics, rect: Rectangle, element: IStiElement): StiPromise<void>;
+        paintAtomAsync(g: Graphics, rect: Rectangle, element: IStiElement): StiPromise<void>;
         protected renderEmptyDataMessage(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): boolean;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import List = Stimulsoft.System.Collections.List;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     class StiChartElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings, chartStartValues?: List<number[]>): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings, chartStartValues?: List<number[]>): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiComboBoxElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
         getValuesCount(dataTable: StiDataTable): number;
         private renderElement;
         private renderItem;
@@ -62103,26 +62296,26 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiDatePickerElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiGaugeElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import List = Stimulsoft.System.Collections.List;
     import StiCheckStyle = Stimulsoft.Report.Components.StiCheckStyle;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
@@ -62130,8 +62323,8 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiListBoxElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
-        protected renderItemsAsync(destination: StiPanel, rect: Rectangle, element: IStiElement): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
+        protected renderItemsAsync(destination: StiPanel, rect: Rectangle, element: IStiElement): StiPromise<void>;
         protected renderItems2(destination: StiPanel, rect: Rectangle, element: IStiElement, values: List<string>, checks: List<StiCheckStyle>): void;
         protected renderItem(destination: StiPanel, rect: Rectangle, element: IStiElement, value: string, checkStyle: StiCheckStyle, underline: boolean, drawCheckBox: boolean): void;
         private static renderCheckBox;
@@ -62139,22 +62332,22 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiPanelElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiPivotTableElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
         private static renderForWebDesigner;
         private static renderCells;
         private static convertSizes;
@@ -62163,27 +62356,27 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiRegionMapElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     class StiShapeElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiTableElement = Stimulsoft.Report.Dashboard.IStiTableElement;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
@@ -62191,8 +62384,8 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
     import StiTableElement = Stimulsoft.Dashboard.Components.Table.StiTableElement;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     class StiTableElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
-        static renderCellsForViewerAsync(element: IStiTableElement): Promise<any[]>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
+        static renderCellsForViewerAsync(element: IStiTableElement): StiPromise<any[]>;
         private static renderCellsAsync;
         private static measureSparklinesCell;
         private static measureHeader;
@@ -62215,35 +62408,35 @@ declare namespace Stimulsoft.Dashboard.Export.Tools {
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiTextElementExportTool extends StiElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
         private changeFontSize;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiTreeViewBoxElementExportTool extends StiComboBoxElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Dashboard.Export.Tools {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiCheckStyle = Stimulsoft.Report.Components.StiCheckStyle;
     import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import StiPanel = Stimulsoft.Report.Components.StiPanel;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiTreeViewElementExportTool extends StiListBoxElementExportTool {
-        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        renderAsync(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): StiPromise<void>;
         private getCheckStyle;
-        protected renderItemsAsync(destination: StiPanel, rect: Rectangle, element: IStiElement): Promise<void>;
+        protected renderItemsAsync(destination: StiPanel, rect: Rectangle, element: IStiElement): StiPromise<void>;
         protected renderItem(destination: StiPanel, rect: Rectangle, element: IStiElement, value: string, checkStyle: StiCheckStyle, underline: boolean, drawCheckBox: boolean): void;
         private static renderExpander;
     }
@@ -62259,7 +62452,7 @@ declare namespace Stimulsoft.Dashboard.Export {
     }
 }
 declare namespace Stimulsoft.Dashboard.Export {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import List = Stimulsoft.System.Collections.List;
     import StiContainer = Stimulsoft.Report.Components.StiContainer;
@@ -62270,10 +62463,10 @@ declare namespace Stimulsoft.Dashboard.Export {
         private static exportToStreamAsync;
         private static renderDashboardAsync;
         private static renderSingleElementAsync;
-        static renderElementsAsync(parent: StiContainer, elements: List<IStiElement>, scaleX: number, scaleY: number, settings: StiDashboardExportSettings): Promise<void>;
+        static renderElementsAsync(parent: StiContainer, elements: List<IStiElement>, scaleX: number, scaleY: number, settings: StiDashboardExportSettings): StiPromise<void>;
         static renderElementAsync(parent: StiContainer, element: IStiElement, scaleX: number, scaleY: number, settings: StiDashboardExportSettings, chartStartValues?: List<number[]>, refTitleRect?: {
             ref: Rectangle;
-        }): Promise<StiComponent>;
+        }): StiPromise<StiComponent>;
     }
 }
 
@@ -62332,12 +62525,12 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiComboBoxElement = Stimulsoft.Report.Dashboard.IStiComboBoxElement;
     import List = Stimulsoft.System.Collections.List;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     class StiComboBoxElementViewHelper {
-        static getElementItemsAsync(comboBoxElement: IStiComboBoxElement): Promise<List<any>>;
+        static getElementItemsAsync(comboBoxElement: IStiComboBoxElement): StiPromise<List<any>>;
         static comboBoxItem(label: string, value: any): any;
         private static format;
         static getSettings(comboBoxElement: IStiComboBoxElement): any;
@@ -62357,23 +62550,23 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import StiExportFormat = Stimulsoft.Report.StiExportFormat;
     class StiDashboardsSvgHelper {
         private static getSvgImageValue;
         private static saveElementToVectorStringAsync;
-        static saveElementToStringAsync(element: IStiElement, scaleX?: number, scaleY?: number, designMode?: boolean, exportFormat?: StiExportFormat, requestParams?: any): Promise<string>;
-        static saveElementToBase64Async(element: IStiElement, scaleX?: number, scaleY?: number, designMode?: boolean, exportFormat?: StiExportFormat, requestParams?: any): Promise<string>;
+        static saveElementToStringAsync(element: IStiElement, scaleX?: number, scaleY?: number, designMode?: boolean, exportFormat?: StiExportFormat, requestParams?: any): StiPromise<string>;
+        static saveElementToBase64Async(element: IStiElement, scaleX?: number, scaleY?: number, designMode?: boolean, exportFormat?: StiExportFormat, requestParams?: any): StiPromise<string>;
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     import Font = Stimulsoft.System.Drawing.Font;
     import StiSimpleBorder = Stimulsoft.Base.Drawing.StiSimpleBorder;
     class StiDashboardElementViewHelper {
-        static getElementContentAttributesAsync(element: IStiElement, scaleX: number, scaleY: number, requestParams: any): Promise<any>;
+        static getElementContentAttributesAsync(element: IStiElement, scaleX: number, scaleY: number, requestParams: any): StiPromise<any>;
         static getForeColor(element: IStiElement): string;
         static getBackColor(element: IStiElement): string;
         static getBorder(element: IStiElement): any;
@@ -62385,13 +62578,13 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
         static getLayout(element: IStiElement): any;
         private static fixColor;
         static getActionColors(element: IStiElement): any;
-        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): Promise<string>;
+        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): StiPromise<string>;
         static getDashboardInteraction(object_: any): any;
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     import IStiDrillDownElement = Stimulsoft.Data.Engine.IStiDrillDownElement;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiReport = Stimulsoft.Report.StiReport;
     import List = Stimulsoft.System.Collections.List;
     import StiDataFilterRule = Stimulsoft.Data.Engine.StiDataFilterRule;
@@ -62404,19 +62597,19 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
         static applyFiltering(report: StiReport, parameters: any): void;
         static applyFiltersToElement(element: IStiElement, filters: any[]): void;
         static getElementFilters(element: IStiElement): any[];
-        static getFilterItemsAsync(report: StiReport, requestParams: any): Promise<any>;
+        static getFilterItemsAsync(report: StiReport, requestParams: any): StiPromise<any>;
         static getDrillDownFilters(drillDownElement: IStiDrillDownElement): any[];
         static getDrillDownFiltersList(drillDownElement: IStiDrillDownElement): any[];
         static filterRuleItem(filterRule: StiDataFilterRule): any;
         private static sortFilterMenuItem;
-        static getFilterItemsHelperAsync(query: IStiQueryObject, meters: List<IStiMeter>, columnIndex: number, sorts: List<StiDataSortRule>, filters: List<StiDataFilterRule>, element?: IStiElement): Promise<any>;
+        static getFilterItemsHelperAsync(query: IStiQueryObject, meters: List<IStiMeter>, columnIndex: number, sorts: List<StiDataSortRule>, filters: List<StiDataFilterRule>, element?: IStiElement): StiPromise<any>;
         static typeToString(type: Type): string;
         static toFilterString(value: any, type?: Type): string;
         static toDisplayString(value: any, type?: Type): string;
         private static distinct;
         private static isValueCanBeFiltered;
         private static getLevel;
-        static applyDefaultFiltersForFilterElementsAsync(report: StiReport): Promise<any>;
+        static applyDefaultFiltersForFilterElementsAsync(report: StiReport): StiPromise<any>;
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
@@ -62431,21 +62624,21 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiDatePickerElement = Stimulsoft.Report.Dashboard.IStiDatePickerElement;
     class StiDatePickerElementViewHelper {
-        static getAutoRangeValuesAsync(datePickerElement: IStiDatePickerElement): Promise<any>;
+        static getAutoRangeValuesAsync(datePickerElement: IStiDatePickerElement): StiPromise<any>;
         static getColumnPath(datePickerElement: IStiDatePickerElement): string;
         static getSettings(datePickerElement: IStiDatePickerElement): any;
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiListBoxElement = Stimulsoft.Report.Dashboard.IStiListBoxElement;
     import List = Stimulsoft.System.Collections.List;
     import StiDataTable = Stimulsoft.Data.Engine.StiDataTable;
     class StiListBoxElementViewHelper {
-        static getElementItemsAsync(listBoxElement: IStiListBoxElement): Promise<List<any>>;
+        static getElementItemsAsync(listBoxElement: IStiListBoxElement): StiPromise<List<any>>;
         static listBoxItem(label: string, value: any): any;
         private static format;
         static getSettings(listBoxElement: IStiListBoxElement): any;
@@ -62455,10 +62648,10 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiPivotTableElement = Stimulsoft.Report.Dashboard.IStiPivotTableElement;
     class StiPivotTableElementViewHelper {
-        static getPivotTableDataAsync(pivotElement: IStiPivotTableElement): Promise<any>;
+        static getPivotTableDataAsync(pivotElement: IStiPivotTableElement): StiPromise<any>;
         static getPivotTableSettings(tableElement: IStiPivotTableElement): any;
         private static getCellAlignment;
     }
@@ -62484,10 +62677,10 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiTableElement = Stimulsoft.Report.Dashboard.IStiTableElement;
     class StiTableElementViewHelper {
-        static getTableDataAsync(tableElement: IStiTableElement): Promise<any[]>;
+        static getTableDataAsync(tableElement: IStiTableElement): StiPromise<any[]>;
         static getTableSettings(tableElement: IStiTableElement): any;
         private static getCellForeColor;
         private static getHeaderForeColor;
@@ -62497,12 +62690,12 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiTreeViewBoxElement = Stimulsoft.Report.Dashboard.IStiTreeViewBoxElement;
     import List = Stimulsoft.System.Collections.List;
     import IStiMeter = Stimulsoft.Base.Meters.IStiMeter;
     class StiTreeViewBoxElementViewHelper {
-        static getElementItemsAsync(treeViewBoxElement: IStiTreeViewBoxElement): Promise<List<any>>;
+        static getElementItemsAsync(treeViewBoxElement: IStiTreeViewBoxElement): StiPromise<List<any>>;
         static treeViewBoxItem(treeViewBoxElement: IStiTreeViewBoxElement, key?: any, meter?: IStiMeter): any;
         private static format;
         static getSettings(treeViewBoxElement: IStiTreeViewBoxElement): any;
@@ -62511,12 +62704,12 @@ declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 declare namespace Stimulsoft.Viewer.Helpers.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiTreeViewElement = Stimulsoft.Report.Dashboard.IStiTreeViewElement;
     import List = Stimulsoft.System.Collections.List;
     import IStiMeter = Stimulsoft.Base.Meters.IStiMeter;
     class StiTreeViewElementViewHelper {
-        static getElementItemsAsync(treeViewElement: IStiTreeViewElement): Promise<List<any>>;
+        static getElementItemsAsync(treeViewElement: IStiTreeViewElement): StiPromise<List<any>>;
         static treeViewItem(treeViewElement: IStiTreeViewElement, key?: any, meter?: IStiMeter): any;
         private static format;
         static getSettings(treeViewElement: IStiTreeViewElement): any;
@@ -62537,7 +62730,7 @@ declare namespace Stimulsoft.Viewer {
     }
 }
 declare namespace Stimulsoft.Viewer {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiReport = Stimulsoft.Report.StiReport;
     import StiExportFormat = Stimulsoft.Report.StiExportFormat;
     import IStiDashboardExportSettings = Stimulsoft.Report.Dashboard.Export.IStiDashboardExportSettings;
@@ -62551,7 +62744,7 @@ declare namespace Stimulsoft.Viewer {
         /**
          *  Exports dashboard page or element to the specified format
          */
-        static exportDashboardAsync(requestParams: any, report: StiReport, exportSettings: IStiDashboardExportSettings): Promise<number[]>;
+        static exportDashboardAsync(requestParams: any, report: StiReport, exportSettings: IStiDashboardExportSettings): StiPromise<number[]>;
     }
 }
 declare namespace Stimulsoft.Viewer {
@@ -62562,7 +62755,7 @@ declare namespace Stimulsoft.Viewer {
     }
 }
 declare namespace Stimulsoft.Viewer {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiReport = Stimulsoft.Report.StiReport;
     import Color = Stimulsoft.System.Drawing.Color;
     class StiReportHelper {
@@ -62576,7 +62769,7 @@ declare namespace Stimulsoft.Viewer {
         static getDashboards(report: StiReport): any[];
         static isReportHasDashboards(report: StiReport): boolean;
         private static getElementsPositions;
-        static getDashboardPageAsync(report: StiReport, pageIndex: number, requestParams: any): Promise<any>;
+        static getDashboardPageAsync(report: StiReport, pageIndex: number, requestParams: any): StiPromise<any>;
         private static calculateParentPanelPositions;
         static applySorting(report: StiReport, parameters: any): void;
         static applyCollapsing(report: StiReport, parameters: any): void;
@@ -62605,11 +62798,11 @@ declare namespace Stimulsoft.Viewer {
     }
 }
 declare namespace Stimulsoft.Viewer {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiReport = Stimulsoft.Report.StiReport;
     class StiVariablesHelper {
         private en_us_culture;
-        static fillDialogInfoItemsAsync(report: StiReport): Promise<void>;
+        static fillDialogInfoItemsAsync(report: StiReport): StiPromise<void>;
         private static getVariableAlias;
         private static getItems;
         private static getDateTimeObject;
@@ -62618,7 +62811,7 @@ declare namespace Stimulsoft.Viewer {
         static applyReportParameters(report: StiReport, values: any): void;
         static applyReportBindingVariables(report: StiReport, values: any): void;
         private static setVariableValue;
-        static getVariablesAsync(report: StiReport, values: any): Promise<any>;
+        static getVariablesAsync(report: StiReport, values: any): StiPromise<any>;
         static getVariablesValues(report: StiReport): any;
     }
 }
@@ -64088,6 +64281,10 @@ declare namespace Stimulsoft.Report.Check {
                 "StiApplyGeneralTextFormatLong": string;
             };
             "CheckComponent": {
+                "StiFilterCircularDependencyElementCheckLong": string;
+                "StiFilterCircularDependencyElementCheckShort": string;
+                "StiFilterValueCheckLong": string;
+                "StiFilterValueCheckShort": string;
                 "StiAllowHtmlTagsInTextCheckLong": string;
                 "StiAllowHtmlTagsInTextCheckShort": string;
                 "StiCanBreakComponentInContainerCheckLong": string;
@@ -66166,6 +66363,8 @@ declare namespace Stimulsoft.Designer {
 }
 declare namespace Stimulsoft.Designer {
     class StiToolbarOptions {
+        /** Gets or sets a value which indicates that toolbar will be shown in the designer. */
+        visible: boolean;
         /** Gets or sets a visibility of the preview button in the toolbar of the designer. */
         showPreviewButton: boolean;
         /** Gets or sets a visibility of the save button in the toolbar of the designer. */
@@ -66207,7 +66406,7 @@ declare namespace Stimulsoft.Designer {
     import StiDataColumn = Stimulsoft.Report.Dictionary.StiDataColumn;
     import StiBusinessObject = Stimulsoft.Report.Dictionary.StiBusinessObject;
     import StiReport = Stimulsoft.Report.StiReport;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiFileDatabase = Stimulsoft.Report.Dictionary.StiFileDatabase;
     import StiDataTransformation = Stimulsoft.Report.Dictionary.StiDataTransformation;
     class StiDictionaryHelper {
@@ -66317,21 +66516,21 @@ declare namespace Stimulsoft.Designer {
         static editBusinessObjectCategory(report: StiReport, param: any, callbackResult: any): void;
         static synchronizeDictionary(report: StiReport, param: any, callbackResult: any): void;
         static newDictionary(report: StiReport, param: any, callbackResult: any): void;
-        static getAllConnectionsAsync(report: StiReport, param: any, callbackResult: any): Promise<void>;
-        static retrieveColumnsAsync(report: StiReport, param: any, callbackResult: any): Promise<void>;
-        static getDatabaseDataAsync(report: StiReport, param: any, callbackResult: any): Promise<void>;
+        static getAllConnectionsAsync(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
+        static retrieveColumnsAsync(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
+        static getDatabaseDataAsync(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
         static applySelectedData(report: StiReport, param: any, callbackResult: any): void;
-        static testConnectionAsync(report: StiReport, param: any, callbackResult: any): Promise<void>;
-        static runQueryScriptAsync(report: StiReport, param: any, callbackResult: any): Promise<void>;
-        static viewDataAsync(report: StiReport, param: any, callbackResult: any): Promise<void>;
+        static testConnectionAsync(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
+        static runQueryScriptAsync(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
+        static viewDataAsync(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
         static createFieldOnDblClick(report: StiReport, param: any, callbackResult: any): void;
         static getParamsFromQueryString(report: StiReport, param: any, callbackResult: any): void;
-        static getImagesGallery(report: StiReport, param: any, callbackResult: any): Promise<void>;
+        static getImagesGallery(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
         static getRichTextGallery(report: StiReport, param: any, callbackResult: any): void;
         static getSampleConnectionString(report: StiReport, param: any, callbackResult: any): void;
         static createDatabaseFromResource(report: StiReport, param: any, callbackResult: any): void;
         static deleteAllDataSources(report: StiReport, param: any, callbackResult: any): void;
-        static getVariableItemsFromDataColumn(report: StiReport, param: any, callbackResult: any): Promise<void>;
+        static getVariableItemsFromDataColumn(report: StiReport, param: any, callbackResult: any): StiPromise<void>;
         static moveDictionaryItem(report: StiReport, param: any, callbackResult: any): void;
         static moveConnectionDataToResource(report: StiReport, param: any, callbackResult: any): void;
         static openDictionary(report: StiReport, param: any, callbackResult: any): void;
@@ -66418,6 +66617,7 @@ declare namespace Stimulsoft.Designer.Dashboards {
         private setSeriesType;
         private static getChartElementStyles;
         static getStylesContent(report: StiReport, param: any): any[];
+        static getValueMeters(chartElement: IStiChartElement): any[];
         constructor(chartElement: IStiChartElement);
     }
 }
@@ -66450,12 +66650,12 @@ declare namespace Stimulsoft.Designer.Dashboards {
     }
 }
 declare namespace Stimulsoft.Designer.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiOnlineMapElement = Stimulsoft.Report.Dashboard.IStiOnlineMapElement;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiOnlineMapElementHelper {
         private onlineMapElement;
-        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): Promise<string>;
+        static getBingMapScriptAsync(element: IStiElement, showTitle: boolean): StiPromise<string>;
         private getOnlineMapElementJSProperties;
         private getMeterHashItem;
         private getMetersHash;
@@ -66472,10 +66672,11 @@ declare namespace Stimulsoft.Designer.Dashboards {
     }
 }
 declare namespace Stimulsoft.Designer {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiDashboardInteraction = Stimulsoft.Report.Dashboard.IStiDashboardInteraction;
     import StiElementLayout = Stimulsoft.Report.Dashboard.StiElementLayout;
     import StiDataTopN = Stimulsoft.Data.Engine.StiDataTopN;
+    import IStiChartElement = Stimulsoft.Report.Dashboard.IStiChartElement;
     import StiSimpleBorder = Stimulsoft.Base.Drawing.StiSimpleBorder;
     import StiDataColumn = Stimulsoft.Report.Dictionary.StiDataColumn;
     import StiTable = Stimulsoft.Report.Components.Table.StiTable;
@@ -66523,7 +66724,7 @@ declare namespace Stimulsoft.Designer {
         static getComponentIndex(component: StiComponent): number;
         static getAllChildComponents(component: StiComponent): string;
         static getPropsRebuildPage(report: StiReport, currentPage: StiPage): any;
-        static getAllDbsElementsSvgContentsAsync(report: StiReport): Promise<any>;
+        static getAllDbsElementsSvgContentsAsync(report: StiReport): StiPromise<any>;
         static getPageIndexes(report: StiReport): any;
         static setComponentRectWithOffset(comp: StiComponent, newCompRect: RectangleD, command: string, resizeType: string, compProps: any): void;
         static setComponentRect(component: StiComponent, rect: RectangleD, alignToGrid?: boolean): void;
@@ -66569,7 +66770,7 @@ declare namespace Stimulsoft.Designer {
         static getFilterDataProperty(component: StiBaseCondition | StiComponent): string;
         static getFilterOnProperty(component: StiBaseCondition | StiComponent): boolean;
         static getFilterModeProperty(component: StiBaseCondition | StiComponent): string;
-        static getSvgContentAsync2(component: StiComponent, zoom?: number): Promise<string>;
+        static getSvgContentAsync2(component: StiComponent, zoom?: number): StiPromise<string>;
         static getConditionsProperty(component: StiComponent): string;
         static getDataBarConditionObject(condition: StiDataBarCondition): any;
         static getIconSetConditionObject(condition: StiIconSetCondition): any;
@@ -66584,9 +66785,11 @@ declare namespace Stimulsoft.Designer {
         static getElementLayoutProperty(layout: StiElementLayout): string;
         static getPreviewSettingsProperty(report: StiReport): any;
         static getTopNProperty(topN: StiDataTopN): any;
-        static getOnlineMapContentAsync(component: StiComponent): Promise<string>;
+        static getOnlineMapContentAsync(component: StiComponent): StiPromise<string>;
         static getCultures(): any[];
         static getDashboardInteractionProperty(dashboardInteraction: IStiDashboardInteraction): any;
+        static getChartConstantLinesProperty(chartElement: IStiChartElement): any[];
+        static getChartConditionsProperty(chartElement: IStiChartElement): any[];
         static setAllProperties(component: StiComponent, props: any[]): void;
         static setSubReportPageProperty(component: any, propertyValue: any): void;
         static setContainerProperty(component: StiComponent, propertyValue: string): void;
@@ -66601,6 +66804,8 @@ declare namespace Stimulsoft.Designer {
         static setColorsCollectionProperty(object_: any, propertyName: string, propertyValue: any[]): void;
         static setTopNProperty(component: any, propertyValue: any): void;
         static setDashboardInteractionProperty(dashboardInteraction: IStiDashboardInteraction, propertyValue: any): void;
+        static setChartConstantLinesProperty(component: any, propertyValue: any): void;
+        static setChartConditionsProperty(component: any, propertyValue: any): void;
         static setRichTextProperty(component: StiComponent, propertyValue: string): void;
         static setTextFormatProperty(component: StiComponent, propertyValue: any, propertyName?: string): void;
         static setConditionProperty(component: StiComponent, propertyValue: string): void;
@@ -66670,11 +66875,11 @@ declare namespace Stimulsoft.Designer {
         static updateReportAliases(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): void;
         private static getPageTypeFromContent;
         static openPage(report: StiReport, param: any, callbackResult: any): void;
-        static checkSvgContent(checkObject: any): Promise<void>;
+        static checkSvgContent(checkObject: any): StiPromise<void>;
     }
 }
 declare namespace Stimulsoft.Designer.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiProgressElement = Stimulsoft.Report.Dashboard.IStiProgressElement;
     import StiReport = Stimulsoft.Report.StiReport;
     class StiProgressElementHelper {
@@ -66692,12 +66897,12 @@ declare namespace Stimulsoft.Designer.Dashboards {
         private setDataColumn;
         private setPropertyValue;
         private static getProgressElementStyles;
-        static getStylesContentAsync(report: StiReport, param: any): Promise<any[]>;
+        static getStylesContentAsync(report: StiReport, param: any): StiPromise<any[]>;
         constructor(progressElement: IStiProgressElement);
     }
 }
 declare namespace Stimulsoft.Designer.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiGaugeElement = Stimulsoft.Report.Dashboard.IStiGaugeElement;
     import StiReport = Stimulsoft.Report.StiReport;
     class StiGaugeElementHelper {
@@ -66720,7 +66925,7 @@ declare namespace Stimulsoft.Designer.Dashboards {
         private addGaugeRange;
         private removeGaugeRange;
         private static getGaugeElementStyles;
-        static getStylesContentAsync(report: StiReport, param: any): Promise<any[]>;
+        static getStylesContentAsync(report: StiReport, param: any): StiPromise<any[]>;
         constructor(gaugeElement: IStiGaugeElement);
     }
 }
@@ -66753,7 +66958,7 @@ declare namespace Stimulsoft.Designer.Dashboards {
     }
 }
 declare namespace Stimulsoft.Designer.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import Color = Stimulsoft.System.Drawing.Color;
     import StiPage = Stimulsoft.Report.Components.StiPage;
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
@@ -66767,8 +66972,8 @@ declare namespace Stimulsoft.Designer.Dashboards {
         static getSelectionCornerColor(page: StiPage): Color;
         static getDashboardBackColor(page: StiPage): Color;
         static createDashboardElement(report: StiReport, typeComponent: string): StiComponent;
-        static getDashboardStylesAsync(report: StiReport, param: any, callbackResult: any): Promise<any[]>;
-        static getDashboardStyleSampleImageAsync(element: IStiElement, width: number, height: number): Promise<string>;
+        static getDashboardStylesAsync(report: StiReport, param: any, callbackResult: any): StiPromise<any[]>;
+        static getDashboardStyleSampleImageAsync(element: IStiElement, width: number, height: number): StiPromise<string>;
         static changeDashboardStyle(report: StiReport, param: any, callbackResult: any): void;
     }
 }
@@ -66790,7 +66995,7 @@ declare namespace Stimulsoft.Designer.Dashboards {
     }
 }
 declare namespace Stimulsoft.Designer.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
     class StiElementDataFiltersHelper {
         private element;
@@ -66799,7 +67004,7 @@ declare namespace Stimulsoft.Designer.Dashboards {
         private getDataFilterType;
         private getFiltersAsync;
         private getDataValuesFromDataPathAsync;
-        executeJSCommandAsync(parameters: any, callbackResult: any): Promise<void>;
+        executeJSCommandAsync(parameters: any, callbackResult: any): StiPromise<void>;
         private createNewItem;
         private editField;
         private moveFilter;
@@ -66820,7 +67025,7 @@ declare namespace Stimulsoft.Designer.Dashboards {
     }
 }
 declare namespace Stimulsoft.Designer.Dashboards {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import IStiIndicatorElement = Stimulsoft.Report.Dashboard.IStiIndicatorElement;
     import StiReport = Stimulsoft.Report.StiReport;
     class StiIndicatorElementHelper {
@@ -66838,7 +67043,7 @@ declare namespace Stimulsoft.Designer.Dashboards {
         private createNewItem;
         private setDataColumn;
         private static getIndicatorElementStyles;
-        static getStylesContentAsync(report: StiReport, param: any): Promise<any[]>;
+        static getStylesContentAsync(report: StiReport, param: any): StiPromise<any[]>;
         constructor(indicatorElement: IStiIndicatorElement);
     }
 }
@@ -67088,7 +67293,7 @@ declare namespace Stimulsoft.Designer {
     }
 }
 declare namespace Stimulsoft.Designer {
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     import StiDataTransformationColumn = Stimulsoft.Report.Dictionary.StiDataTransformationColumn;
     import StiDictionary = Stimulsoft.Report.Dictionary.StiDictionary;
     import StiDataActionRule = Stimulsoft.Data.Engine.StiDataActionRule;
@@ -67119,11 +67324,11 @@ declare namespace Stimulsoft.Designer {
         static getFilterRules(dataTransformation: StiDataTransformation): any[];
         static getActionRules(dataTransformation: StiDataTransformation): any[];
         static applyProperties(dataTransformation: StiDataTransformation, dataSourceProps: any, report: StiReport): void;
-        static getDataGridContentAsync(dataTransformation?: StiDataTransformation): Promise<any>;
-        static getFilterItemsHelperAsync2(dataTransformation: StiDataTransformation, parameters: any): Promise<any>;
-        static getFilterItemsHelperAsync(report: StiReport, parameters: any): Promise<any>;
-        static executeJSCommandAsync(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): Promise<void>;
-        static getDataTransformationFromElementAsync(report: StiReport, param: any): Promise<StiDataTransformation>;
+        static getDataGridContentAsync(dataTransformation?: StiDataTransformation): StiPromise<any>;
+        static getFilterItemsHelperAsync2(dataTransformation: StiDataTransformation, parameters: any): StiPromise<any>;
+        static getFilterItemsHelperAsync(report: StiReport, parameters: any): StiPromise<any>;
+        static executeJSCommandAsync(designer: StiDesigner, report: StiReport, param: any, callbackResult: any): StiPromise<void>;
+        static getDataTransformationFromElementAsync(report: StiReport, param: any): StiPromise<StiDataTransformation>;
     }
 }
 declare namespace Stimulsoft.Designer {
@@ -67353,7 +67558,7 @@ declare namespace Stimulsoft.Designer {
     import DataTable = Stimulsoft.System.Data.DataTable;
     import StiDataSource = Stimulsoft.Report.Dictionary.StiDataSource;
     import StiBusinessObject = Stimulsoft.Report.Dictionary.StiBusinessObject;
-    import Promise = Stimulsoft.System.Promise;
+    import StiPromise = Stimulsoft.System.StiPromise;
     class StiViewDataHelper {
         constructor(dataSource: StiDataSource, businessObject?: StiBusinessObject);
         private isDataSourceConnected;
@@ -67363,7 +67568,7 @@ declare namespace Stimulsoft.Designer {
         private fillLevel2;
         private fillLevel4;
         private connectDataSourceFirstTimeAsync;
-        buildAsync(): Promise<void>;
+        buildAsync(): StiPromise<void>;
         private buildBusinessObject;
         private buildDataSourceAsync;
     }
