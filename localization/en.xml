@@ -620,12 +620,14 @@
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
+   
     <AddRange>Add Range</AddRange>
     <AfterGroupingData>Apply after grouping data</AfterGroupingData>
     <AllowUserDrillDown>Allow User Drill Down</AllowUserDrillDown>
     <AllowUserFiltering>Allow User Filtering</AllowUserFiltering>
     <AllowUserSorting>Allow User Sorting</AllowUserSorting>
     <Blanks>(Blanks)</Blanks>
+    <FullRowSelect>Full Row Select</FullRowSelect>
     <BooleanFilters>Boolean Filters</BooleanFilters>
     <CannotLoadDashboard>You cannot load a report with dashboards.</CannotLoadDashboard>
     <ChangeChartType>Change Chart Type</ChangeChartType>
@@ -641,8 +643,10 @@
     <Dimension>Dimension</Dimension>
     <Dimensions>Dimensions</Dimensions>
     <DragDropDataFromDictionary>Drag &amp; drop data from Dictionary</DragDropDataFromDictionary>
+    <DragDropData>Drag &amp; drop data</DragDropData>
     <DrillDown>Drill Down</DrillDown>
-    <DrillDownSelected>Drill Down Selected</DrillDownSelected>
+    <DrillDownSelected>Drill-Down Selected</DrillDownSelected>
+    <DrillDownFiltered>Drill-Down Filtered</DrillDownFiltered>
     <DrillUp>Drill Up</DrillUp>
     <DuplicateField>Duplicate Field</DuplicateField>
     <EditExpression>Edit Expression</EditExpression>
@@ -830,6 +834,7 @@
     <ReplaceAll>Replace &amp;All</ReplaceAll>
     <ReplaceWith>Replace With:</ReplaceWith>
     <Search>Search</Search>
+    <TypeToSearch>Type to search</TypeToSearch>
     <SearchHiddenText>Hidden Text</SearchHiddenText>
     <SearchUp>Search &amp;Up</SearchUp>
     <SelectionOnly>Selection &amp;Only</SelectionOnly>
@@ -1408,6 +1413,7 @@
     <MessageTopBottomNotValid>Top and Bottom value is not a valid.</MessageTopBottomNotValid>
     <Minutes>{0} minutes</Minutes>
     <SaveReportEvery>Save Report Every:</SaveReportEvery>
+    <ScaleMode>Scale Mode</ScaleMode>
     <SelectUILanguage>Select UI Language</SelectUILanguage>
     <ShowDialogForms>Show Dialog Forms</ShowDialogForms>
     <ShowDimensionLines>Show Dimension Lines</ShowDimensionLines>
@@ -1924,7 +1930,7 @@
     <ShowBehind>Show the watermark text behind the components.</ShowBehind>
     <ShowImageBehind>Put the watermark image behind all components on a page.</ShowImageBehind>
     <ShowToolbox>Show the toolbox.</ShowToolbox>
-    <StimulsoftHelp>Help Stimulsoft</StimulsoftHelp>
+    <StimulsoftHelp>Stimulsoft Help</StimulsoftHelp>
     <StyleDesigner>Run Style Designer.</StyleDesigner>
     <TellMeMore>Tell me more</TellMeMore>
     <Text>Watermark text.</Text>
@@ -2801,6 +2807,8 @@
     <StiDateTimeTypeDate>Date</StiDateTimeTypeDate>
     <StiDateTimeTypeDateAndTime>Date and Time</StiDateTimeTypeDateAndTime>
     <StiDateTimeTypeTime>Time</StiDateTimeTypeTime>
+    <StiDesignerScaleModeAutomaticScaling>Automatic Scaling</StiDesignerScaleModeAutomaticScaling>
+    <StiDesignerScaleModeScaling100>100% Scaling</StiDesignerScaleModeScaling100>
     <StiDesignerSpecificationAuto>Determine Automatically</StiDesignerSpecificationAuto>
     <StiDesignerSpecificationBICreator>I'm BI Creator</StiDesignerSpecificationBICreator>
     <StiDesignerSpecificationDeveloper>I'm Developer</StiDesignerSpecificationDeveloper>
@@ -3063,6 +3071,8 @@
     <StiSeriesSortTypeValue>Value</StiSeriesSortTypeValue>
     <StiSeriesYAxisLeftYAxis>Left Y Axis</StiSeriesYAxisLeftYAxis>
     <StiSeriesYAxisRightYAxis>Right Y Axis</StiSeriesYAxisRightYAxis>
+    <StiSeriesXAxisBottomXAxis>Bottom X Axis</StiSeriesXAxisBottomXAxis>
+    <StiSeriesXAxisTopXAxis>Top X Axis</StiSeriesXAxisTopXAxis>
     <StiShapeDirectionDown>Down</StiShapeDirectionDown>
     <StiShapeDirectionLeft>Left</StiShapeDirectionLeft>
     <StiShapeDirectionRight>Right</StiShapeDirectionRight>
@@ -3273,6 +3283,8 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
+    <Variation>Variation</Variation>
+    <TargetIcon>Target Icon</TargetIcon>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
     <AcceptsTab>Accepts Tab</AcceptsTab>
     <Actual>Actual</Actual>
@@ -3572,6 +3584,8 @@
     <FooterCanGrow>Footer Can Grow</FooterCanGrow>
     <FooterCanShrink>Footer Can Shrink</FooterCanShrink>
     <FooterColor>Footer Color</FooterColor>
+    <FooterFont>Footer Font</FooterFont>
+    <FooterForeColor>Footer Fore Color</FooterForeColor>
     <FooterForeground>Footer Foreground</FooterForeground>
     <FooterPrintAtBottom>Footer Print At Bottom</FooterPrintAtBottom>
     <FooterPrintIfEmpty>Footer Print If Empty</FooterPrintIfEmpty>
@@ -4310,6 +4324,7 @@
     <qnSynchronizeServices>Synchronized services?</qnSynchronizeServices>
   </Questions>
   <Report>
+    <Null>Null</Null>
     <ActiveRelation>Active Relation</ActiveRelation>
     <Address>Address</Address>
     <Alphabetical>Alphabetical</Alphabetical>

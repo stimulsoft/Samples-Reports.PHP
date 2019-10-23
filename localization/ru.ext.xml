@@ -62,7 +62,6 @@
   </CheckActions>
   <CheckComponent>
     <StiFilterValueCheckLong>Для компонента {0} задан фильтр, но в нём не задано значение. Поэтому фильтр не применяется.</StiFilterValueCheckLong>
-    <StiFilterValueCheckShort>В фильтре не задано значение</StiFilterValueCheckShort>
     <StiAllowHtmlTagsInTextCheckLong>В тексте используются Html тэги, но значение свойства AllowHtmlTags равно false. Содержимое компонента {0} напечатается неправильно.</StiAllowHtmlTagsInTextCheckLong>
     <StiAllowHtmlTagsInTextCheckShort>Не задано значение свойства AllowHtmlTags</StiAllowHtmlTagsInTextCheckShort>
     <StiCanBreakComponentInContainerCheckLong>У контейнера '{0}' значение свойства CanBreak равно false, а у некоторых вложенных компонентов значение свойства CanBreak равно true.</StiCanBreakComponentInContainerCheckLong>
@@ -102,7 +101,6 @@
     <StiEventsAtInterpretationCheckShort>События в интерпретации</StiEventsAtInterpretationCheckShort>
     <StiFilterCircularDependencyElementCheckLong>Циклическая зависимость фильтра найдена у '{0}' элемента. Пожалуйста, проверьте свойство 'Главный элемент' у '{0}' элемента!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>Циклическая зависимость фильтра</StiFilterCircularDependencyElementCheckShort>
-    <StiFilterValueCheckLong>Для компонента {0} задан фильтр, но в нём не задано значение. Поэтому фильтр не применяется.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>В фильтре не задано значение</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>Шрифт '{0}' указанный для компонента '{1}' не найден.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>Шрифт не найден.</StiFontMissingCheckShort>
@@ -323,6 +321,7 @@
     <Use>Использовать</Use>
     <UseCompilationCache>Использовать компиляцию для кэширования</UseCompilationCache>
     <UseCompressedScripts>Использовать сжатые скрипты</UseCompressedScripts>
+    <UseLatestVersion>Использовать последнюю версию библиотек</UseLatestVersion>
     <UseWpfDesignerV2>Использовать дизайнер V2</UseWpfDesignerV2>
   </Publish>
   <ReportComparer>

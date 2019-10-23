@@ -29,7 +29,7 @@ class StiFirebirdAdapter {
 		$info->database = "";
 		$info->userId = "";
 		$info->password = "";
-		$info->charset = "utf8";
+		$info->charset = "UTF8";
 		
 		$parameters = explode(";", $connectionString);
 		foreach($parameters as $parameter)
