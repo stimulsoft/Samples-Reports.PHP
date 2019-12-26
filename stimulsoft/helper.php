@@ -5,11 +5,19 @@ require_once 'adapters/mssql.php';
 require_once 'adapters/firebird.php';
 require_once 'adapters/postgresql.php';
 require_once 'adapters/oracle.php';
-require_once 'email/class.phpmailer.php';
-require_once 'email/class.pop3.php';
-require_once 'email/class.smtp.php';
-require_once 'email/PHPMailerAutoload.php';
 
+if (substr(PHP_VERSION, 0, 1) == '5') {
+	require_once 'phpmailer/v5/class.phpmailer.php';
+	require_once 'phpmailer/v5/class.pop3.php';
+	require_once 'phpmailer/v5/class.smtp.php';
+	require_once 'phpmailer/v5/PHPMailerAutoload.php';
+}
+else {
+	require_once 'phpmailer/v6/PHPMailer.php';
+	require_once 'phpmailer/v6/SMTP.php';
+	require_once 'phpmailer/v6/POP3.php';
+	require_once 'phpmailer/v6/Exception.php';
+}
 
 function stiErrorHandler($errNo, $errStr, $errFile, $errLine) {
 	$result = StiResult::error("[".$errNo."] ".$errStr." (".$errFile.", Line ".$errLine.")");
@@ -173,8 +181,8 @@ class StiHandler {
 		
 		// Detect auth mode
 		$auth = $settings->host != null && $settings->login != null && $settings->password != null;
-
-		$mail = new PHPMailer(true);
+		
+		$mail = substr(PHP_VERSION, 0, 1) == '5' ? new PHPMailer(true) : new PHPMailer\PHPMailer\PHPMailer(true);
 		if ($auth) $mail->IsSMTP();
 		try {
 			$mail->CharSet = $settings->charset;
@@ -367,12 +375,15 @@ class StiHelper {
 					else command[p] = args[p];
 				}
 				
+				var isNullOrEmpty = function (value) {
+					return value == null || value === "" || value === undefined;
+				}
 				var json = JSON.stringify(command);
 				if (!callback) callback = function (message) {
-					if (Stimulsoft.System.StiError.errorMessageForm && !String.isNullOrEmpty(message)) {
+					if (Stimulsoft.System.StiError.errorMessageForm && !isNullOrEmpty(message)) {
 						var obj = JSON.parse(message);
-						if (!obj.success || !String.isNullOrEmpty(obj.notice)) {
-							var message = String.isNullOrEmpty(obj.notice) ? "There was some error" : obj.notice;
+						if (!obj.success || !isNullOrEmpty(obj.notice)) {
+							var message = isNullOrEmpty(obj.notice) ? "There was some error" : obj.notice;
 							Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
 						}
 					}
