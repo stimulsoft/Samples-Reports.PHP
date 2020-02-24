@@ -271,6 +271,8 @@
     <StripsEditorForm>Strips Editor Form</StripsEditorForm>
     <Style>Style</Style>
     <Treemap>Treemap</Treemap>
+    <Sunburst>Sunburst</Sunburst>
+    <Waterfall>Waterfall</Waterfall>
   </Chart>
   <CharterMapEditor>
     <Characters>Characters</Characters>
@@ -3304,6 +3306,7 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
+    <ParetoSeriesColors>Pareto Series Colors</ParetoSeriesColors>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
     <AcceptsTab>Accepts Tab</AcceptsTab>
     <Actual>Actual</Actual>
@@ -3318,6 +3321,7 @@
     <AllowApplyBrushNegative>Allow Apply Brush Negative</AllowApplyBrushNegative>
     <AllowApplyColorNegative>Allow Apply Color Negative</AllowApplyColorNegative>
     <AllowApplyStyle>Allow Apply Style</AllowApplyStyle>
+    <AllowApplyLineColor>Allow Apply Line Color</AllowApplyLineColor>
     <AllowExpressions>Allow Expressions</AllowExpressions>
     <AllowHtmlTags>Allow HTML Tags</AllowHtmlTags>
     <AllowSeries>Allow Series</AllowSeries>
@@ -3697,6 +3701,7 @@
     <IndividualColor>Individual Color</IndividualColor>
     <InitBy>Init by</InitBy>
     <InitialSelection>Initial Selection</InitialSelection>
+    <InitialSelectionSource>Initial Selection Source</InitialSelectionSource>
     <Insert>Insert</Insert>
     <Interaction>Interaction</Interaction>
     <InterlacedBrush>Interlaced Brush</InterlacedBrush>
