@@ -2872,7 +2872,7 @@
     <StiDesignerScaleModeAutomaticScaling>Автомасштаб</StiDesignerScaleModeAutomaticScaling>
     <StiDesignerScaleModeScaling100>100% масштаб</StiDesignerScaleModeScaling100>
     <StiDesignerSpecificationAuto>Определять автоматически</StiDesignerSpecificationAuto>
-    <StiDesignerSpecificationBICreator>Я редактор BI</StiDesignerSpecificationBICreator>
+    <StiDesignerSpecificationBICreator>Я редактор</StiDesignerSpecificationBICreator>
     <StiDesignerSpecificationDeveloper>Я разработчик</StiDesignerSpecificationDeveloper>
     <StiDisplayNameTypeFull>Полное</StiDisplayNameTypeFull>
     <StiDisplayNameTypeNone>Нет</StiDisplayNameTypeNone>
@@ -3452,6 +3452,8 @@
     <BorderWidth>Ширина границы</BorderWidth>
     <Bottom>Снизу</Bottom>
     <BottomSide>Нижняя сторона</BottomSide>
+    <BubbleBackColor>Цвет фона пузырька</BubbleBackColor>
+    <BubbleBorderColor>Цвет границы пузырька</BubbleBorderColor>
     <BreakIfLessThan>Новая, если больше чем</BreakIfLessThan>
     <Brush>Кисть</Brush>
     <BrushNegative>Кисть негативных значений</BrushNegative>
@@ -4120,6 +4122,7 @@
     <ShowXAxis>Показывать X ось</ShowXAxis>
     <ShowYAxis>Показывать Y ось</ShowYAxis>
     <ShowZeros>Показывать нули</ShowZeros>
+    <ShowBubble>Показывать пузырьки</ShowBubble>
     <ShrinkFontToFit>Уменьшить шрифт чтобы вместить</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>Уменьшить шрифт чтобы вместить минимальный размер</ShrinkFontToFitMinimumSize>
     <Side>Сторона</Side>

@@ -164,6 +164,7 @@
     <Common>Common</Common>
     <ConstantLine>Constant Line</ConstantLine>
     <ConstantLinesEditorForm>Constant Lines Editor</ConstantLinesEditorForm>
+    <TrendLinesEditorForm>Trend Lines Editor</TrendLinesEditorForm>
     <DataColumns>Data Columns</DataColumns>
     <Doughnut>Doughnut</Doughnut>
     <Financial>Financial</Financial>
@@ -366,6 +367,8 @@
     <ButtonRun>Run</ButtonRun>
     <ButtonShare>Share</ButtonShare>
     <ButtonSignUp>Sign Up</ButtonSignUp>
+    <ButtonSignUpWith>Sign Up with {0}</ButtonSignUpWith>
+    <ButtonLogInWith>Log In with {0}</ButtonLogInWith>
     <ButtonSkip>Skip</ButtonSkip>
     <ButtonView>View</ButtonView>
     <ButtonWhereUsed>Where is it used?</ButtonWhereUsed>
@@ -833,6 +836,7 @@
     <FromCursor>From Cursor</FromCursor>
     <GotoLine>Go To &amp;Line</GotoLine>
     <InsertSymbol>Insert Symbol</InsertSymbol>
+    <InsertLink>Insert Link</InsertLink>
     <Line>Line: {0}</Line>
     <LineNumber>Line Number:</LineNumber>
     <LineNumberIndex>Line Number ({0} - {1})</LineNumberIndex>
@@ -863,6 +867,7 @@
     <ComponentIsNotRelease>Component is not release "{0}".</ComponentIsNotRelease>
     <ContainerIsNotValidForComponent>Container {0} is not valid for component {1}.</ContainerIsNotValidForComponent>
     <DataNotFound>Data not found.</DataNotFound>
+    <DataNotLoaded>No data loaded.</DataNotLoaded>
     <Error>Error!</Error>
     <ErrorsList>Errors List</ErrorsList>
     <FieldRequire>Field "{0}" required filling.</FieldRequire>
@@ -2223,6 +2228,8 @@
     <YouNeedToLoginFirstToStartUsingTheSoftware>You need to login first to start using the software. The application will close if you quit the login form.</YouNeedToLoginFirstToStartUsingTheSoftware>
   </Messages>
   <Notices>
+    <AuthTokenIsNotCorrect>Token is not correct!</AuthTokenIsNotCorrect>
+    <AuthUserNameNotAssociatedWithYourAccount>Username (email) {0} is not associated with your {1} account!</AuthUserNameNotAssociatedWithYourAccount>
     <AccessDenied>Access Denied!</AccessDenied>
     <AccountLocked>Your account is locked! In order to resolve it, please send your request to sales@stimulsoft.com!</AccountLocked>
     <ActivationExpiriedBeforeFirstRelease>Your Subscription of Stimulsoft Reports.Ultimate expired earlier than the first version of our Stimulsoft Server was released!</ActivationExpiriedBeforeFirstRelease>
@@ -2460,10 +2467,12 @@
     <DescriptionCategory>Description</DescriptionCategory>
     <DesignCategory>Design</DesignCategory>
     <DisplayCategory>Display</DisplayCategory>
+    <EngineCategory>Engine</EngineCategory>
     <ExportCategory>Export</ExportCategory>
     <ExportEventsCategory>Export Events</ExportEventsCategory>
     <FooterTableCategory>Footer Table</FooterTableCategory>
     <GaugeCategory>Gauge</GaugeCategory>
+    <GlobalizationCategory>Globalization</GlobalizationCategory>
     <GridLinesCategory>Grid Lines</GridLinesCategory>
     <HeaderTableCategory>Header Table</HeaderTableCategory>
     <HierarchicalCategory>Hierarchical</HierarchicalCategory>
@@ -2513,6 +2522,7 @@
     <ValueHighCategory>Value High</ValueHighCategory>
     <ValueLowCategory>Value Low</ValueLowCategory>
     <ValueOpenCategory>Value Open</ValueOpenCategory>
+    <ViewCategory>View</ViewCategory>
     <WeightCategory>Weight</WeightCategory>
     <WinControlCategory>Win Control</WinControlCategory>
     <ZipCodeCategory>ZIP Code</ZipCodeCategory>
@@ -2663,6 +2673,10 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
+    <StiChartTrendLineTypeLinear>Linear</StiChartTrendLineTypeLinear>
+    <StiChartTrendLineTypeLogarithmic>Logarithmic</StiChartTrendLineTypeLogarithmic>
+    <StiChartTrendLineTypeNone>None</StiChartTrendLineTypeNone>
+    <StiChartTrendLineTypeExponential>Exponential</StiChartTrendLineTypeExponential>
     <boolFalse>False</boolFalse>
     <boolTrue>True</boolTrue>
     <BorderStyleFixed3D>Fixed 3D</BorderStyleFixed3D>
@@ -2822,7 +2836,7 @@
     <StiDesignerScaleModeAutomaticScaling>Automatic Scaling</StiDesignerScaleModeAutomaticScaling>
     <StiDesignerScaleModeScaling100>100% Scaling</StiDesignerScaleModeScaling100>
     <StiDesignerSpecificationAuto>Determine Automatically</StiDesignerSpecificationAuto>
-    <StiDesignerSpecificationBICreator>I'm BI Creator</StiDesignerSpecificationBICreator>
+    <StiDesignerSpecificationBICreator>I'm Creator</StiDesignerSpecificationBICreator>
     <StiDesignerSpecificationDeveloper>I'm Developer</StiDesignerSpecificationDeveloper>
     <StiDisplayNameTypeFull>Full</StiDisplayNameTypeFull>
     <StiDisplayNameTypeNone>None</StiDisplayNameTypeNone>
@@ -3399,6 +3413,8 @@
     <BorderWidth>Border Width</BorderWidth>
     <Bottom>Bottom</Bottom>
     <BottomSide>Bottom Side</BottomSide>
+    <BubbleBackColor>Bubble Back Color</BubbleBackColor>
+    <BubbleBorderColor>Bubble Border Color</BubbleBorderColor>
     <BreakIfLessThan>Break if Less Than</BreakIfLessThan>
     <Brush>Brush</Brush>
     <BrushNegative>Brush Negative</BrushNegative>
@@ -3892,6 +3908,7 @@
     <PaperSourceOfOtherPages>Paper Source of Other Pages</PaperSourceOfOtherPages>
     <Parameter>Parameter</Parameter>
     <Parameters>Parameters</Parameters>
+    <ParametersDateFormat>Parameters Date Format</ParametersDateFormat>
     <ParametersOrientation>Parameters Orientation</ParametersOrientation>
     <ParentColumns>Parent Columns</ParentColumns>
     <ParentSource>Parent Data Source</ParentSource>
@@ -4063,6 +4080,7 @@
     <ShowXAxis>Show X Axis</ShowXAxis>
     <ShowYAxis>Show Y Axis</ShowYAxis>
     <ShowZeros>Show Zeros</ShowZeros>
+    <ShowBubble>Show Bubble</ShowBubble>
     <ShrinkFontToFit>Shrink Font to Fit</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>Shrink Font to Fit Minimum Size</ShrinkFontToFitMinimumSize>
     <Side>Side</Side>
@@ -4177,6 +4195,7 @@
     <TrackColor>Track Color</TrackColor>
     <TransparentColor>Transparent Color</TransparentColor>
     <TrendLine>Trend Line</TrendLine>
+    <TrendLines>Trend Lines</TrendLines>
     <TrendLineColor>Trend Line Color</TrendLineColor>
     <TrendLineShowShadow>Trend Line Show Shadow</TrendLineShowShadow>
     <TrimExcessData>Trim Excess Data</TrimExcessData>
