@@ -1067,7 +1067,6 @@
   <StiDynamicBand>
     <BreakIfLessThan>Une valeur indiquant combien d'espace libre sur une page (en pourcentage) doit être réservé pour une nouvelle page ou nouvelle colonne. La valeur doit être comprise entre 0 et 100. Si la valeur vaut 100, dans tous les cas, une nouvelle page ou une nouvelle colonne sera créée. Cette propriété est utilisée avec les propriétés, nouvelle page avant, nouvelle page après, nouvelle colonne avant, nouvelle colonne après.</BreakIfLessThan>
     <NewColumnAfter>Si cette propriété est à vrai, après la sortie d'une bande, une nouvelle colonne sera générée.</NewColumnAfter>
-    <NewColumnBefore>Si cette propriété est à vrai, avant la sortie d'une bande, une nouvelle colonne sera générée.</NewColumnBefore>
     <NewPageAfter>Si cette propriété est à vrai, après la sortie d'une bande, une nouvelle page sera générée.</NewPageAfter>
     <NewPageBefore>Si cette propriété est à vrai, avant la sortie d'une bande, une nouvelle page sera générée. La sortie d'une bande continuera sur la page suivante.</NewPageBefore>
     <PrintAtBottom>Valeur indiquant que le pied est imprimé en bas de la page.</PrintAtBottom>

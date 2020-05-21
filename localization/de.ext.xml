@@ -1067,7 +1067,6 @@
   <StiDynamicBand>
     <BreakIfLessThan>Wert, der anzeigt, wieviel Leerraum auf einer Seite (in Prozent) für den Aufbau einer neuen Seite oder einer neuen Spalte zu reservieren ist. Dieser Wert ist zwischen 0 und 100 anzugeben. Wenn der Wert 100 beträgt, wird generell eine neue Seite oder eine neue Spalte aufgebaut. Diese Eigenschaft wird gemeinsam verwendet mit den Eigenschaften 'Vor der neuen Seite', 'Nach der neuen Seite', 'Vor der neuen Spalte', 'Nach der neuen Spalte'.</BreakIfLessThan>
     <NewColumnAfter>Wenn der Wert dieser Eigenschaft wahr ist, wird nach der Ausgabe des Bandes eine neue Spalte.</NewColumnAfter>
-    <NewColumnBefore>Wert, der anzeigt; dass der Fuß am Ende der Seite ausgegeben wird.</NewColumnBefore>
     <NewPageAfter>Wenn der Wert dieser Eigenschaft wahr ist, wird nach der Ausgabe des Bandes eine neue Seite erzeugt.</NewPageAfter>
     <NewPageBefore>Wenn der Wert dieser Eigenschaft wahr ist, wird vor der Ausgabe des Bandes eine neue Seite erzeugt. Die Ausgabe des Bandes wird auf der nächsten Seite fortgeführt.</NewPageBefore>
     <PrintAtBottom>Wert, der anzeigt; dass der Fuß am Ende der Seite ausgegeben wird.</PrintAtBottom>

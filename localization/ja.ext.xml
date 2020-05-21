@@ -1093,7 +1093,6 @@
   <StiDynamicBand>
     <BreakIfLessThan>ページ上の空き領域の割合（パーセント単位）を、新しいページまたは新しい列の作成に予約する必要があることを示す値。値は0〜100の範囲で設定する必要があります。値が100の場合は、いずれの場合も新しいページまたは新しい列が作成されます。このプロパティは、NewPageBefore、NewPageAfter、NewColumnBefore、NewColumnAfterプロパティと共に使用されます。</BreakIfLessThan>
     <NewColumnAfter>このプロパティの値がtrueの場合、バンドの出力後に新しい列が生成されます。</NewColumnAfter>
-    <NewColumnBefore>ページの下部にフッターが印刷されていることを示す値</NewColumnBefore>
     <NewPageAfter>このプロパティの値がtrueの場合、バンドの出力後に新しいページが生成</NewPageAfter>
     <NewPageBefore>このプロパティの値がtrueの場合、バンドの出力前に新しいページが生成　次のページでバンドの出力を続けます。</NewPageBefore>
     <PrintAtBottom>フッターがページの下部に印刷されていることを示す値</PrintAtBottom>

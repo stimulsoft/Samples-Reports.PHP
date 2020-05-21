@@ -137,6 +137,8 @@
     <Submit>Submit</Submit>
     <Test>Test</Test>
     <Up>Up</Up>
+    <Upgrade>Upgrade</Upgrade>
+    <UpgradeNow>Upgrade Now</UpgradeNow>
     <Upload>Upload</Upload>
     <Waiting>Waiting</Waiting>
     <Yes>&amp;Yes</Yes>
@@ -164,7 +166,6 @@
     <Common>Common</Common>
     <ConstantLine>Constant Line</ConstantLine>
     <ConstantLinesEditorForm>Constant Lines Editor</ConstantLinesEditorForm>
-    <TrendLinesEditorForm>Trend Lines Editor</TrendLinesEditorForm>
     <DataColumns>Data Columns</DataColumns>
     <Doughnut>Doughnut</Doughnut>
     <Financial>Financial</Financial>
@@ -271,8 +272,9 @@
     <Strip>Strip</Strip>
     <StripsEditorForm>Strips Editor Form</StripsEditorForm>
     <Style>Style</Style>
-    <Treemap>Treemap</Treemap>
     <Sunburst>Sunburst</Sunburst>
+    <Treemap>Treemap</Treemap>
+    <TrendLinesEditorForm>Trend Lines Editor</TrendLinesEditorForm>
     <Waterfall>Waterfall</Waterfall>
   </Chart>
   <CharterMapEditor>
@@ -346,7 +348,6 @@
     <VerticalNone>&lt;b&gt;None&lt;/b&gt;&lt;br&gt;Do not display Vertical Gridlines&lt;/br&gt;</VerticalNone>
   </ChartRibbon>
   <Cloud>
-    <SearchForOnlineTemplates>Search for online templates</SearchForOnlineTemplates>
     <AcceptTermsAndPrivacyPolicy>I read and accept the {0} and {1}</AcceptTermsAndPrivacyPolicy>
     <AccountSettings>Account Settings</AccountSettings>
     <AddAPlace>Add a Place</AddAPlace>
@@ -357,6 +358,7 @@
     <ButtonDeleteAll>Delete All</ButtonDeleteAll>
     <ButtonDesign>Design Report</ButtonDesign>
     <ButtonLater>Later</ButtonLater>
+    <ButtonLogInWith>Log In with {0}</ButtonLogInWith>
     <ButtonLogout>Logout</ButtonLogout>
     <ButtonPublish>Publish</ButtonPublish>
     <ButtonPurchase>Purchase</ButtonPurchase>
@@ -368,7 +370,6 @@
     <ButtonShare>Share</ButtonShare>
     <ButtonSignUp>Sign Up</ButtonSignUp>
     <ButtonSignUpWith>Sign Up with {0}</ButtonSignUpWith>
-    <ButtonLogInWith>Log In with {0}</ButtonLogInWith>
     <ButtonSkip>Skip</ButtonSkip>
     <ButtonView>View</ButtonView>
     <ButtonWhereUsed>Where is it used?</ButtonWhereUsed>
@@ -468,6 +469,7 @@
     <SaveAsType>Save as type</SaveAsType>
     <SaveFile>Save File</SaveFile>
     <SavingToStimulsoftCloudPleaseWait>Saving the report to Stimulsoft Cloud. Please wait!</SavingToStimulsoftCloudPleaseWait>
+    <SearchForOnlineTemplates>Search for online templates</SearchForOnlineTemplates>
     <ShareWindowTitleNew>Share</ShareWindowTitleNew>
     <ShowAllFiles>Show All Files</ShowAllFiles>
     <ShowNotificationMessages>Show Notification Messages</ShowNotificationMessages>
@@ -629,6 +631,8 @@
     <StiZipCode>ZIP Code</StiZipCode>
   </Components>
   <Dashboard>
+    <DataFilterGrouping>This operation is used for grouping different columns only.</DataFilterGrouping>
+    <ViewEditCompilationNotice>You can't edit the report which has the 'Report.CalculationMode' property equals to 'Compilation' value. Please set that property to an 'Interpretation' value.</ViewEditCompilationNotice>
     <AddRange>Add Range</AddRange>
     <AfterGroupingData>Apply after grouping data</AfterGroupingData>
     <AllowUserDrillDown>Allow User Drill-Down</AllowUserDrillDown>
@@ -795,13 +799,20 @@
     <TextNotFound>The specified text was not found. Text : {0}</TextNotFound>
   </DesignerFx>
   <Desktop>
+    <Beginner>Beginner</Beginner>
     <ButtonAddCloud>Add Cloud Folder</ButtonAddCloud>
     <ButtonAddFolder>Add Folder</ButtonAddFolder>
     <ButtonCreateDashboard>Create Dashboard</ButtonCreateDashboard>
     <ButtonCreateReport>Create Report</ButtonCreateReport>
+    <Creator>Creator</Creator>
+    <Developer>Developer</Developer>
     <DoYouWantToInstallReports>Do you want to install templates of reports and dashboards?</DoYouWantToInstallReports>
     <InstallSamplesDesc>Let's install our sample projects. They will help you learn the basics of working with our software.</InstallSamplesDesc>
+    <PleaseAnswerWhoAreYou>Please, answer who you are?</PleaseAnswerWhoAreYou>
     <WhoAreYou>Who Are you?</WhoAreYou>
+    <WhoAreYouBeginnerDescription>Perfect fit if you are doing the first run of the designer.</WhoAreYouBeginnerDescription>
+    <WhoAreYouCreatorDescription>Perfect fit for creating reports. The necessary functionality for design is available.</WhoAreYouCreatorDescription>
+    <WhoAreYouDeveloperDescription>Perfect fit for creating applications. Complete functionality for the report design and embedding components included.</WhoAreYouDeveloperDescription>
   </Desktop>
   <Dialogs>
     <StiButtonControl>Button</StiButtonControl>
@@ -835,8 +846,8 @@
     <FindWhat>Find What:</FindWhat>
     <FromCursor>From Cursor</FromCursor>
     <GotoLine>Go To &amp;Line</GotoLine>
-    <InsertSymbol>Insert Symbol</InsertSymbol>
     <InsertLink>Insert Link</InsertLink>
+    <InsertSymbol>Insert Symbol</InsertSymbol>
     <Line>Line: {0}</Line>
     <LineNumber>Line Number:</LineNumber>
     <LineNumberIndex>Line Number ({0} - {1})</LineNumberIndex>
@@ -2228,19 +2239,21 @@
     <YouNeedToLoginFirstToStartUsingTheSoftware>You need to login first to start using the software. The application will close if you quit the login form.</YouNeedToLoginFirstToStartUsingTheSoftware>
   </Messages>
   <Notices>
-    <AuthTokenIsNotCorrect>Token is not correct!</AuthTokenIsNotCorrect>
-    <AuthUserNameNotAssociatedWithYourAccount>Username (email) {0} is not associated with your {1} account!</AuthUserNameNotAssociatedWithYourAccount>
     <AccessDenied>Access Denied!</AccessDenied>
     <AccountLocked>Your account is locked! In order to resolve it, please send your request to sales@stimulsoft.com!</AccountLocked>
     <ActivationExpiriedBeforeFirstRelease>Your Subscription of Stimulsoft Reports.Ultimate expired earlier than the first version of our Stimulsoft Server was released!</ActivationExpiriedBeforeFirstRelease>
     <ActivationLicenseIsNotCorrect>License file is not correct! Please contact our sales department at sales@stimulsoft.com!</ActivationLicenseIsNotCorrect>
     <ActivationLockedAccount>Your account is locked. Please contact our sales department at sales@stimulsoft.com!</ActivationLockedAccount>
+    <ActivationLockedAccountExt>Your account is locked.</ActivationLockedAccountExt>
     <ActivationMaxActivationsReached>You reached the maximum number of activations. Please contact our sales department at sales@stimulsoft.com!</ActivationMaxActivationsReached>
+    <ActivationMaxComputersReached>You’ve already registered the maximum number of computers available for your subscription.</ActivationMaxComputersReached>
     <ActivationServerIsNotAvailableNow>Stimulsoft Activation Server is not available now! Please try again later.</ActivationServerIsNotAvailableNow>
     <ActivationServerVersionNotAllowed>You cannot activate this version of Stimulsoft Server because your Subscription Program expired! Please log in to your account and check which version of the Stimulsoft Server you can install and activate.</ActivationServerVersionNotAllowed>
     <ActivationSomeTroublesOccurred>An error occurred during activation. Please try again later.</ActivationSomeTroublesOccurred>
+    <ActivationTrialExpired>You can continue to use Stimulsoft Designer by purchasing the software.</ActivationTrialExpired>
     <ActivationUserNameOrPasswordIsWrong>Your user name (Email) or password is wrong!</ActivationUserNameOrPasswordIsWrong>
     <ActivationWrongAccountType>Your account type does not allow to activate Stimulsoft Server!</ActivationWrongAccountType>
+    <Alert>Alert</Alert>
     <AuthAccountCantBeUsedNow>The account cannot be used now!</AuthAccountCantBeUsedNow>
     <AuthAccountIsNotActivated>The account is not activated yet! Please follow the instructions sent to the Email during registration.</AuthAccountIsNotActivated>
     <AuthCantChangeRoleBecauseLastAdministratorUser>The user role cannot be changed because this is the last administrator user in this workspace!</AuthCantChangeRoleBecauseLastAdministratorUser>
@@ -2262,9 +2275,11 @@
     <AuthRoleNameAlreadyExists>The role with the specified name "{0}" already exists!</AuthRoleNameAlreadyExists>
     <AuthRoleNameIsSystemRole>The role with the specified name "{0}" is a system role!</AuthRoleNameIsSystemRole>
     <AuthSendMessageWithInstructions>A message with further instructions is sent to "{0}"!</AuthSendMessageWithInstructions>
+    <AuthTokenIsNotCorrect>Token is not correct!</AuthTokenIsNotCorrect>
     <AuthUserHasLoggedOut>You have logged out!</AuthUserHasLoggedOut>
     <AuthUserNameAlreadyExists>The username (Email) is already in use!</AuthUserNameAlreadyExists>
     <AuthUserNameIsNotSpecified>The username (Email) is not specified!</AuthUserNameIsNotSpecified>
+    <AuthUserNameNotAssociatedWithYourAccount>Username (email) {0} is not associated with your {1} account!</AuthUserNameNotAssociatedWithYourAccount>
     <AuthUserNameOrPasswordIsNotCorrect>The username (Email) or password is incorrect!</AuthUserNameOrPasswordIsNotCorrect>
     <AuthUserNameShouldLookLikeAnEmailAddress>The username should be similar to the Email address!</AuthUserNameShouldLookLikeAnEmailAddress>
     <AuthWorkspaceNameAlreadyInUse>The workspace name is already in use!</AuthWorkspaceNameAlreadyInUse>
@@ -2287,10 +2302,13 @@
     <ItemCantBeMovedToSpecifiedPlace>The item cannot be moved to a specified place!</ItemCantBeMovedToSpecifiedPlace>
     <ItemDoesNotSupport>The item does not support "{0}"!</ItemDoesNotSupport>
     <KeyAndToKeyAreEqual>A Key and ToKey are equal!</KeyAndToKeyAreEqual>
+    <MaximumComputers>Maximum of Computers</MaximumComputers>
     <MessageMaximumFileSizeExceeded>Attention! The size of the file that you are trying to add exceeds the maximum-allowed size. Do you want to add this file anyway (report processing may slow down significantly)?</MessageMaximumFileSizeExceeded>
-    <NewProduct>A new product is added to your subscription!</NewProduct>
-    <NewVersionsAvailable>New version available!</NewVersionsAvailable>
+    <NewDesignerAvailable>Stimulsoft Designer {0} is available.</NewDesignerAvailable>
+    <NewProduct>The new product is added to your subscription!</NewProduct>
+    <NewVersionsAvailable>New version</NewVersionsAvailable>
     <NotificationFailed>Failed result!</NotificationFailed>
+    <NotificationFailedAddFollowingFiles>Failed to add the following files. Exceeded the size {0} MB.</NotificationFailedAddFollowingFiles>
     <NotificationFilesUploadingComplete>The files uploaded successfully.</NotificationFilesUploadingComplete>
     <NotificationFileUploading>The file "{0}" is uploading.</NotificationFileUploading>
     <NotificationItemDelete>The items are deleting.</NotificationItemDelete>
@@ -2328,24 +2346,27 @@
     <OutOfRange>Out of range ("{0}")!</OutOfRange>
     <ParsingCommandException>An exception of processing the command in the specified xml: {0}</ParsingCommandException>
     <PleaseLogin>Please login using your Stimulsoft account credentials or register a new account before publishing report.</PleaseLogin>
-    <QuotaMaximumComputingCyclesCountExceeded>Maximum computing cycles count exceeded.</QuotaMaximumComputingCyclesCountExceeded>
-    <QuotaMaximumDataRowsCountExceeded>Maximum data rows count in one data source exceeded.</QuotaMaximumDataRowsCountExceeded>
+    <QuotaMaximumComputingCyclesCountExceeded>Maximum computing cycles exceeded.</QuotaMaximumComputingCyclesCountExceeded>
+    <QuotaMaximumDataRowsCountExceeded>Maximum data rows in one data source exceeded.</QuotaMaximumDataRowsCountExceeded>
     <QuotaMaximumFileSizeExceeded>Maximum file size exceeded.</QuotaMaximumFileSizeExceeded>
-    <QuotaMaximumItemsCountExceeded>Maximum items count exceeded.</QuotaMaximumItemsCountExceeded>
-    <QuotaMaximumReportPagesCountExceeded>Maximum report pages count exceeded.</QuotaMaximumReportPagesCountExceeded>
-    <QuotaMaximumResourcesCountExceeded>Maximum resources count exceeded.</QuotaMaximumResourcesCountExceeded>
-    <QuotaMaximumUsersCountExceeded>Maximum users count exceeded.</QuotaMaximumUsersCountExceeded>
-    <QuotaMaximumWorkspacesCountExceeded>Maximum workspaces count exceeded.</QuotaMaximumWorkspacesCountExceeded>
+    <QuotaMaximumItemsCountExceeded>Maximum items exceeded.</QuotaMaximumItemsCountExceeded>
+    <QuotaMaximumRefreshCountExceeded>Maximum refresh count exceeded</QuotaMaximumRefreshCountExceeded>
+    <QuotaMaximumReportPagesCountExceeded>Maximum report pages exceeded.</QuotaMaximumReportPagesCountExceeded>
+    <QuotaMaximumResourcesCountExceeded>Maximum resources exceeded.</QuotaMaximumResourcesCountExceeded>
+    <QuotaMaximumResourceSizeExceeded>Maximum resource size exceeded.</QuotaMaximumResourceSizeExceeded>
+    <QuotaMaximumUsersCountExceeded>Maximum users exceeded.</QuotaMaximumUsersCountExceeded>
+    <QuotaMaximumWorkspacesCountExceeded>Maximum workspaces exceeded.</QuotaMaximumWorkspacesCountExceeded>
     <SchedulerCantRunItSelf>The scheduler cannot run itself!</SchedulerCantRunItSelf>
     <SessionTimeOut>Session timeout</SessionTimeOut>
     <SnapshotAlreadyProcessed>The report snapshot is already processed!</SnapshotAlreadyProcessed>
     <SpecifiedItemIsNot>The specified item is not "{0}"!</SpecifiedItemIsNot>
     <SubscriptionExpired>Your subscription has expired!</SubscriptionExpired>
     <SubscriptionExpiredDate>Your subscription will expire on {0}</SubscriptionExpiredDate>
+    <SubscriptionExpiredExt>Your subscription has expired. Update your subscription to get the last version.</SubscriptionExpiredExt>
     <SubscriptionsOut10>10 days left when the subscription expires!</SubscriptionsOut10>
     <SubscriptionsOut20>The subscription period will expire in 20 days!</SubscriptionsOut20>
     <SuccessfullyRenewed>Your subscription has been successfully updated!</SuccessfullyRenewed>
-    <TrialToLicense>Thank you for choosing Stimulsoft!</TrialToLicense>
+    <TrialToLicense>We would like to thank you for choosing our software!</TrialToLicense>
     <VersionCopyFromItem>Copy from item "{0}".</VersionCopyFromItem>
     <VersionCreatedFromFile>Created from file "{0}".</VersionCreatedFromFile>
     <VersionCreatedFromItem>Created from item "{0}".</VersionCreatedFromItem>
@@ -2356,6 +2377,8 @@
     <WithSpecifiedKeyIsNotFound>"{0}" with the specified key is not found!</WithSpecifiedKeyIsNotFound>
     <WouldYouLikeToUpdateNow>Would you like to update now?</WouldYouLikeToUpdateNow>
     <YourTimeSessionHasExpired>Your time session has expired!</YourTimeSessionHasExpired>
+    <YourTrialHasExpired>Your trial has expired.</YourTrialHasExpired>
+    <YourTrialWillExpire>Your trial will expire in {0} days.</YourTrialWillExpire>
     <YouUsingTrialVersion>You are using a trial version!</YouUsingTrialVersion>
   </Notices>
   <NuGet>
@@ -2673,10 +2696,6 @@
     <YellowGreen>Yellow Green</YellowGreen>
   </PropertyColor>
   <PropertyEnum>
-    <StiChartTrendLineTypeLinear>Linear</StiChartTrendLineTypeLinear>
-    <StiChartTrendLineTypeLogarithmic>Logarithmic</StiChartTrendLineTypeLogarithmic>
-    <StiChartTrendLineTypeNone>None</StiChartTrendLineTypeNone>
-    <StiChartTrendLineTypeExponential>Exponential</StiChartTrendLineTypeExponential>
     <boolFalse>False</boolFalse>
     <boolTrue>True</boolTrue>
     <BorderStyleFixed3D>Fixed 3D</BorderStyleFixed3D>
@@ -2803,6 +2822,10 @@
     <StiChartTitleDockLeft>Left</StiChartTitleDockLeft>
     <StiChartTitleDockRight>Right</StiChartTitleDockRight>
     <StiChartTitleDockTop>Top</StiChartTitleDockTop>
+    <StiChartTrendLineTypeExponential>Exponential</StiChartTrendLineTypeExponential>
+    <StiChartTrendLineTypeLinear>Linear</StiChartTrendLineTypeLinear>
+    <StiChartTrendLineTypeLogarithmic>Logarithmic</StiChartTrendLineTypeLogarithmic>
+    <StiChartTrendLineTypeNone>None</StiChartTrendLineTypeNone>
     <StiCheckStyleCheck>Check</StiCheckStyleCheck>
     <StiCheckStyleCheckRectangle>Check Rectangle</StiCheckStyleCheckRectangle>
     <StiCheckStyleCross>Cross</StiCheckStyleCross>
@@ -2836,6 +2859,7 @@
     <StiDesignerScaleModeAutomaticScaling>Automatic Scaling</StiDesignerScaleModeAutomaticScaling>
     <StiDesignerScaleModeScaling100>100% Scaling</StiDesignerScaleModeScaling100>
     <StiDesignerSpecificationAuto>Determine Automatically</StiDesignerSpecificationAuto>
+    <StiDesignerSpecificationBeginner>I'm Beginner</StiDesignerSpecificationBeginner>
     <StiDesignerSpecificationBICreator>I'm Creator</StiDesignerSpecificationBICreator>
     <StiDesignerSpecificationDeveloper>I'm Developer</StiDesignerSpecificationDeveloper>
     <StiDisplayNameTypeFull>Full</StiDisplayNameTypeFull>
@@ -2906,6 +2930,9 @@
     <StiFontIconGroupTransportationIcons>Transportation</StiFontIconGroupTransportationIcons>
     <StiFontIconGroupVideoPlayerIcons>Video</StiFontIconGroupVideoPlayerIcons>
     <StiFontIconGroupWebApplicationIcons>Application</StiFontIconGroupWebApplicationIcons>
+    <StiFontSizeModeAuto>Auto</StiFontSizeModeAuto>
+    <StiFontSizeModeTarget>Target</StiFontSizeModeTarget>
+    <StiFontSizeModeValue>Value</StiFontSizeModeValue>
     <StiFormStartModeOnEnd>On End</StiFormStartModeOnEnd>
     <StiFormStartModeOnPreview>On Preview</StiFormStartModeOnPreview>
     <StiFormStartModeOnStart>On Start</StiFormStartModeOnStart>
@@ -2915,9 +2942,11 @@
     <StiGaugeRangeModeValue>Value</StiGaugeRangeModeValue>
     <StiGaugeRangeTypeColor>Color</StiGaugeRangeTypeColor>
     <StiGaugeRangeTypeNone>None</StiGaugeRangeTypeNone>
+    <StiGaugeTypeBullet>Bullet</StiGaugeTypeBullet>
     <StiGaugeTypeFullCircular>Full Circular</StiGaugeTypeFullCircular>
     <StiGaugeTypeHalfCircular>Half-Circular</StiGaugeTypeHalfCircular>
-    <StiGaugeTypeLinear>Linear</StiGaugeTypeLinear>
+    <StiGaugeTypeHorizontalLinear>Horizontal Linear</StiGaugeTypeHorizontalLinear>
+    <StiGaugeTypeLinear>Vertical Linear</StiGaugeTypeLinear>
     <StiGroupSortDirectionAscending>Ascending</StiGroupSortDirectionAscending>
     <StiGroupSortDirectionDescending>Descending</StiGroupSortDirectionDescending>
     <StiGroupSortDirectionNone>None</StiGroupSortDirectionNone>
@@ -3320,7 +3349,6 @@
     <ZigZag>Zig Zag</ZigZag>
   </PropertyHatchStyle>
   <PropertyMain>
-    <ParetoSeriesColors>Pareto Series Colors</ParetoSeriesColors>
     <AcceptsReturn>Accepts Return</AcceptsReturn>
     <AcceptsTab>Accepts Tab</AcceptsTab>
     <Actual>Actual</Actual>
@@ -3334,8 +3362,8 @@
     <AllowApplyBrush>Allow Apply Brush</AllowApplyBrush>
     <AllowApplyBrushNegative>Allow Apply Brush Negative</AllowApplyBrushNegative>
     <AllowApplyColorNegative>Allow Apply Color Negative</AllowApplyColorNegative>
-    <AllowApplyStyle>Allow Apply Style</AllowApplyStyle>
     <AllowApplyLineColor>Allow Apply Line Color</AllowApplyLineColor>
+    <AllowApplyStyle>Allow Apply Style</AllowApplyStyle>
     <AllowExpressions>Allow Expressions</AllowExpressions>
     <AllowHtmlTags>Allow HTML Tags</AllowHtmlTags>
     <AllowSeries>Allow Series</AllowSeries>
@@ -3413,12 +3441,12 @@
     <BorderWidth>Border Width</BorderWidth>
     <Bottom>Bottom</Bottom>
     <BottomSide>Bottom Side</BottomSide>
-    <BubbleBackColor>Bubble Back Color</BubbleBackColor>
-    <BubbleBorderColor>Bubble Border Color</BubbleBorderColor>
     <BreakIfLessThan>Break if Less Than</BreakIfLessThan>
     <Brush>Brush</Brush>
     <BrushNegative>Brush Negative</BrushNegative>
     <BrushType>Brush Type</BrushType>
+    <BubbleBackColor>Bubble Back Color</BubbleBackColor>
+    <BubbleBorderColor>Bubble Border Color</BubbleBorderColor>
     <BusinessObject>Business Object</BusinessObject>
     <CacheAllData>Cache All Data</CacheAllData>
     <CacheTotals>Cache Totals</CacheTotals>
@@ -3615,6 +3643,7 @@
     <FontItalic>Font Italic</FontItalic>
     <FontName>Font Name</FontName>
     <FontSize>Font Size</FontSize>
+    <FontSizeMode>Font Size Mode</FontSizeMode>
     <FontStrikeout>Font Strikeout</FontStrikeout>
     <FontSubscript>Subscript</FontSubscript>
     <FontSuperscript>Superscript</FontSuperscript>
@@ -3913,6 +3942,7 @@
     <ParentColumns>Parent Columns</ParentColumns>
     <ParentSource>Parent Data Source</ParentSource>
     <ParentValue>Parent Value</ParentValue>
+    <ParetoSeriesColors>Pareto Series Colors</ParetoSeriesColors>
     <PasswordChar>Password Char</PasswordChar>
     <Path>Path</Path>
     <PathData>Path Data</PathData>
@@ -4056,6 +4086,7 @@
     <ShortValue>Short Value</ShortValue>
     <ShowAllValue>Show All Value</ShowAllValue>
     <ShowBehind>Show Behind</ShowBehind>
+    <ShowBubble>Show Bubble</ShowBubble>
     <ShowDialog>Show Dialog</ShowDialog>
     <ShowEdgeValues>Show Edge Values</ShowEdgeValues>
     <ShowImageBehind>Show Image Behind</ShowImageBehind>
@@ -4080,7 +4111,6 @@
     <ShowXAxis>Show X Axis</ShowXAxis>
     <ShowYAxis>Show Y Axis</ShowYAxis>
     <ShowZeros>Show Zeros</ShowZeros>
-    <ShowBubble>Show Bubble</ShowBubble>
     <ShrinkFontToFit>Shrink Font to Fit</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>Shrink Font to Fit Minimum Size</ShrinkFontToFitMinimumSize>
     <Side>Side</Side>
@@ -4195,8 +4225,8 @@
     <TrackColor>Track Color</TrackColor>
     <TransparentColor>Transparent Color</TransparentColor>
     <TrendLine>Trend Line</TrendLine>
-    <TrendLines>Trend Lines</TrendLines>
     <TrendLineColor>Trend Line Color</TrendLineColor>
+    <TrendLines>Trend Lines</TrendLines>
     <TrendLineShowShadow>Trend Line Show Shadow</TrendLineShowShadow>
     <TrimExcessData>Trim Excess Data</TrimExcessData>
     <Trimming>Trimming</Trimming>

@@ -101,6 +101,8 @@
     <StiEventsAtInterpretationCheckShort>События в интерпретации</StiEventsAtInterpretationCheckShort>
     <StiFilterCircularDependencyElementCheckLong>Циклическая зависимость фильтра найдена у '{0}' элемента. Пожалуйста, проверьте свойство 'Главный элемент' у '{0}' элемента!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>Циклическая зависимость фильтра</StiFilterCircularDependencyElementCheckShort>
+    <StiExpressionElementCheckLong>Выражение '{0}' в '{1}' компоненте работает неверно. Следующее сообщение было получено от парсера: '{2}'.</StiExpressionElementCheckLong>
+    <StiExpressionElementCheckShort>Выражение работает неверно!</StiExpressionElementCheckShort>
     <StiFilterValueCheckShort>В фильтре не задано значение</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>Шрифт '{0}' указанный для компонента '{1}' не найден.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>Шрифт не найден.</StiFontMissingCheckShort>
@@ -1088,7 +1090,7 @@
   <StiDynamicBand>
     <BreakIfLessThan>Значение определяет, сколько свободного места на странице (в процентах) должно остаться для формирования новой страницы или новой колонки. Значение должно быть установлено в диапазон от 0 до 100. Если значение равно 100, то, в любом случае, новая страница или колонка будут сформированы. Данное свойство используется вместе со свойствами NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter.</BreakIfLessThan>
     <NewColumnAfter>Если данное свойство установлено в true, то, после вывода бенда, новая колонка будет создана.</NewColumnAfter>
-    <NewColumnBefore>Значение определяет, что итог печатается внизу страницы.</NewColumnBefore>
+    <NewColumnBefore>Если данное свойство установлено в true, то, перед вывода бенда, новая колонка будет создана.</NewColumnBefore>
     <NewPageAfter>Если данное свойство установлено в true, то, после вывода бенда, новая страница будет создана.</NewPageAfter>
     <NewPageBefore>Если данное свойство установлено в true, то, перед выводом бенда, новая страница будет создана. Вывод бенда будет продолжен на следующей странице.</NewPageBefore>
     <PrintAtBottom>Значение определяет, что итог печатается внизу страницы.</PrintAtBottom>

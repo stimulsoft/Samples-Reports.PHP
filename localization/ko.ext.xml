@@ -1088,7 +1088,6 @@
   <StiDynamicBand>
     <BreakIfLessThan>페이지에서 사용 가능한 공간의 비율 (백분율)을 새 페이지 또는 새 열 만들기에 예약 할 필요가있는 것을 나타내는 값. 값은 0~100의 범위에서 설정해야합니다. 값이 100의 경우는 어떤 경우에도 새 페이지 또는 새 열이 만들어집니다. 이 속성은 NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter 속성과 함께 사용됩니다.</BreakIfLessThan>
     <NewColumnAfter>이 속성의 값이 true의 경우, 밴드의 출력 후에 새로운 라인이 생성됩니다.</NewColumnAfter>
-    <NewColumnBefore>페이지 하단에 바닥 글이 인쇄되어 있는지를 나타내는 값</NewColumnBefore>
     <NewPageAfter>이 속성의 값이 true의 경우, 밴드의 출력 후에 새로운 페이지가 생성</NewPageAfter>
     <NewPageBefore>이 속성의 값이 true의 경우, 밴드의 출력 전에 새로운 페이지가 생성 다음 페이지에서 밴드의 출력을 계속합니다.</NewPageBefore>
     <PrintAtBottom>바닥 글이 페이지의 하단에 인쇄되어있는 것을 나타내는 값</PrintAtBottom>

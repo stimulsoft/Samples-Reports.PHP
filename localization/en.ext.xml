@@ -100,6 +100,8 @@
     <StiEventsAtInterpretationCheckShort>Events in Interpretation</StiEventsAtInterpretationCheckShort>
     <StiFilterCircularDependencyElementCheckLong>The circular dependency of the filter is found at the element '{0}'. Please check the 'Parent Key' property of the {0} 'element!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>Circular filter dependency</StiFilterCircularDependencyElementCheckShort>
+    <StiExpressionElementCheckLong>The expression '{0}' in the '{1}' component works incorrectly. The following message was received from the parser: '{2}'.</StiExpressionElementCheckLong>
+    <StiExpressionElementCheckShort>An expression works incorrectly!</StiExpressionElementCheckShort>
     <StiFilterValueCheckLong>A filter value of '{0}' is not specified. This filter can't be processed.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>A filter Value is not specified</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>The font '{0}' specified for the component '{1}' is not found.</StiFontMissingCheckLong>
@@ -1088,7 +1090,7 @@
   <StiDynamicBand>
     <BreakIfLessThan>A value that indicates how much free space is on a page (in per cent) should be reserved for formation of a new page or a new column. The value should be set in the range from 0 to 100. If the value is 100 then, in any case, a new page or a new column will be formed. This property is used together with NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter properties.</BreakIfLessThan>
     <NewColumnAfter>If the value of this property is true, then, after output of a band, a new column will be generated.</NewColumnAfter>
-    <NewColumnBefore>A value indicates that the footer is printed at bottom of page.</NewColumnBefore>
+    <NewColumnBefore>If the value of this property is true, then, before output of a band, a new column will be generated.</NewColumnBefore>
     <NewPageAfter>If the value of this property is true, then, after output of a band, a new page will be generated.</NewPageAfter>
     <NewPageBefore>If the value of this property is true, then, before output of a band, a new page will be generated. Output of a band will be continued on the next page.</NewPageBefore>
     <PrintAtBottom>A value indicates that the footer is printed at bottom of page.</PrintAtBottom>
