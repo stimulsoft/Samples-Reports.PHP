@@ -267,6 +267,7 @@
     <CopyingLibraries>Copying project files...</CopyingLibraries>
     <DeployReportPlatform>Deploy Report to Platform:</DeployReportPlatform>
     <DownloadingLibraries>Downloading libraries...</DownloadingLibraries>
+    <EmbedAllDataToResources>The report contains data connections that are not supported in the selected platform. Do you want to embed available data in the report as resources? In this case, all connections will be replaced with XML resources.</EmbedAllDataToResources>
     <ExportFormat>Export Report to:</ExportFormat>
     <ExportFormatData>Data</ExportFormatData>
     <ExportFormatDataType>Data Type:</ExportFormatDataType>
@@ -1175,6 +1176,13 @@
     <ValueDataColumnEnd>A name of the column that contains the end value.</ValueDataColumnEnd>
     <ValueEnd>The end value expression. Example: {Order.Value}</ValueEnd>
   </StiGanttSeries>
+  <StiGaugeElement>
+    <Font>Font.</Font>
+    <ForeColor>Fore color.</ForeColor>
+    <Series>Gauge Series.</Series>
+    <Style>Gauge Style.</Style>
+    <Title>Gauge Title.</Title>
+  </StiGaugeElement>
   <StiGlareBrush>
     <Angle>The angle, measured in degrees clockwise from the x-axis, of the gradient's orientation line.</Angle>
     <EndColor>The end color for the gradient.</EndColor>

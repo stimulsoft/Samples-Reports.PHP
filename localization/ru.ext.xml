@@ -267,6 +267,7 @@
     <CopyingLibraries>Копирование файлов проекта...</CopyingLibraries>
     <DeployReportPlatform>Платформа для развертывания отчета:</DeployReportPlatform>
     <DownloadingLibraries>Загрузка библиотек...</DownloadingLibraries>
+    <EmbedAllDataToResources>Отчёт содержит соединения с данными, которые не поддерживаются в выбранной платформе. Хотите встроить доступные данные в отчёт в виде ресурсов? В этом случае, все соединения будут заменены на XML ресурсы.</EmbedAllDataToResources>
     <ExportFormat>Формат экспорта:</ExportFormat>
     <ExportFormatData>Данные</ExportFormatData>
     <ExportFormatDataType>Тип данных:</ExportFormatDataType>
@@ -1090,7 +1091,7 @@
   <StiDynamicBand>
     <BreakIfLessThan>Значение определяет, сколько свободного места на странице (в процентах) должно остаться для формирования новой страницы или новой колонки. Значение должно быть установлено в диапазон от 0 до 100. Если значение равно 100, то, в любом случае, новая страница или колонка будут сформированы. Данное свойство используется вместе со свойствами NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter.</BreakIfLessThan>
     <NewColumnAfter>Если данное свойство установлено в true, то, после вывода бенда, новая колонка будет создана.</NewColumnAfter>
-    <NewColumnBefore>Если данное свойство установлено в true, то, перед вывода бенда, новая колонка будет создана.</NewColumnBefore>
+    <NewColumnBefore>Если данное свойство установлено в true, то, перед выводом бенда, новая колонка будет создана.</NewColumnBefore>
     <NewPageAfter>Если данное свойство установлено в true, то, после вывода бенда, новая страница будет создана.</NewPageAfter>
     <NewPageBefore>Если данное свойство установлено в true, то, перед выводом бенда, новая страница будет создана. Вывод бенда будет продолжен на следующей странице.</NewPageBefore>
     <PrintAtBottom>Значение определяет, что итог печатается внизу страницы.</PrintAtBottom>

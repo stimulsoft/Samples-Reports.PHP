@@ -34,7 +34,7 @@ require_once 'stimulsoft/helper.php';
 				// Get report file name
 				var fileName = String.isNullOrEmpty(report.reportAlias) ? report.reportName : report.reportAlias;
 				// Save data to file
-				Object.saveAs(pdfData, fileName + ".pdf", "application/pdf");
+				Stimulsoft.System.StiObject.saveAs(pdfData, fileName + ".pdf", "application/pdf");
 			});
 		}
 	</script>

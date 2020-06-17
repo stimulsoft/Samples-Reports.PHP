@@ -98,6 +98,12 @@
     <StiDataSourcesForImageCheckShort>Mehrere Datenquellen wurden ausgewählt</StiDataSourcesForImageCheckShort>
     <StiEventsAtInterpretationCheckLong>Das Skript im '{0}' Ereignis in der '{1}' Komponente arbeitet nicht im Interpretation-Modus.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>Ereignisse in Interpretation</StiEventsAtInterpretationCheckShort>
+    <StiExpressionElementCheckLong>Der Ausdruck '{0}' in der '{1}' Komponente funktioniert fehlerhaft. Die folgende Nachricht wurde aus dem Parser: '{2}' erhalten.</StiExpressionElementCheckLong>
+    <StiExpressionElementCheckShort>Ein Ausdruck funktioniert fehlerhaft!</StiExpressionElementCheckShort>
+    <StiFilterCircularDependencyElementCheckLong>Die zirkuläre Abhängigkeit des Filters ist nicht für das Element'{0}' gefunden. Bitte, prüfen Sie die 'Parent Key' Eigenschft des {0} 'Elementes!</StiFilterCircularDependencyElementCheckLong>
+    <StiFilterCircularDependencyElementCheckShort>Zirkuläre Abhängigkeit des Filters</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterValueCheckLong>Ein Filterwert von '{0}' ist nicht angegeben. Dieser Filter kann nicht verarbeitet werden.</StiFilterValueCheckLong>
+    <StiFilterValueCheckShort>Ein Filterwert ist nicht angegeben.</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>Die für Komponente '{1}' angegebene Schrift '{0}' ist nicht gefunden.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>Die Schrift ist nicht gefunden.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>Systemvariable werden im Report benutzt, die nicht in der EngineV1 nicht verfügbar sind. Soll EngineV2 benutzt werden ?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -205,6 +211,9 @@
     <RenderingMessage>Nachricht bei der Reporterstellung. </RenderingMessage>
     <Warning>Warnung! </Warning>
   </CheckGlobal>
+  <CheckLicense>
+    <StiLicenseTrialCheckLong>Sie verwenden die Testversion von Stimulsoft Reports and Dashboards. Um die Software für die Produktion zu verwenden, kaufen Sie die Lizenz ein.</StiLicenseTrialCheckLong>
+  </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>Nicht zugeordnete Punkte wurden auf Seite '{0}'gefunden: {1}. Punkte sind unsichtbar und in folgenden einfachen Figuren benutzt: senkrechte Linien, Rechteck und abgerundete Rechtecke. Wenn der Punkt nicht zu irgendeiner Komponente passt, kann er gelöscht werden.</StiLostPointsOnPageCheckLong>
     <StiLostPointsOnPageCheckShort>Nicht zugeordnete Punkte</StiLostPointsOnPageCheckShort>
@@ -258,6 +267,7 @@
     <CopyingLibraries>Projektdateien werden kopiert...</CopyingLibraries>
     <DeployReportPlatform>Den Bericht in die Plattform bereitstellen:</DeployReportPlatform>
     <DownloadingLibraries>Bibliotheken werden heruntergeladen...</DownloadingLibraries>
+    <EmbedAllDataToResources>Der Bericht enthält die Verbindungen mit Daten, die in ausgewählter Plattform nicht unterstützt werden. Möchten Sie die verfügbaren Daten als Ressourcen in den Bericht einbetten? In diesem Fall werden alle Verbindungen durch XML-Ressourcen erstetzt werden.</EmbedAllDataToResources>
     <ExportFormat>Den Bericht exporieren in:</ExportFormat>
     <ExportFormatData>Daten</ExportFormatData>
     <ExportFormatDataType>Datentyp:</ExportFormatDataType>
@@ -314,6 +324,7 @@
     <Use>Verwenden</Use>
     <UseCompilationCache>Kompilationszwischenspeichern verwenden</UseCompilationCache>
     <UseCompressedScripts>Komprimierte Scripts verwenden</UseCompressedScripts>
+    <UseLatestVersion>Die letzte Version der Bibliotheken verwenden</UseLatestVersion>
     <UseWpfDesignerV2>Designer V2 verwenden</UseWpfDesignerV2>
   </Publish>
   <ReportComparer>
@@ -1053,6 +1064,19 @@
     <ValueBinding>Datenbindungen für den Text.</ValueBinding>
     <ValueChangedEvent>Script des Ereignisses 'Wert geändert'.</ValueChangedEvent>
   </StiDateTimePickerControl>
+  <StiDialogStyle>
+    <GlyphColor>Eine Glyphe-Farbe des Stils.</GlyphColor>
+    <HotBackColor>Eine Hintergrundfarbe beim Daraufzeigen des Stils.</HotBackColor>
+    <HotForeColor>Eine Fordergrundfarbe beim Daraufzeigen des Elementes des Stils.</HotForeColor>
+    <HotGlyphColor>Eine Glyphe-Farbe beim Daraufzeigen des Elementes des Stils.</HotGlyphColor>
+    <HotSelectedBackColor>Eine Hintergrundfarbe beim Daraufzeigen des ausgewählten Elementes des Stils.</HotSelectedBackColor>
+    <HotSelectedForeColor>Eine Fordergrundfarbe beim Daraufzeigen des ausgewählten Elementes des Stils.</HotSelectedForeColor>
+    <HotSelectedGlyphColor>Eine Glyphe-Farbe beim Daraufzeigen des ausgewählten Elementes des Stils.</HotSelectedGlyphColor>
+    <SelectedBackColor>Aine Hintergrundfarbe des ausgewählten Elementes des Stils.</SelectedBackColor>
+    <SelectedForeColor>Eine Fordergrundfarbe des ausgewählten Elementes des Stils.</SelectedForeColor>
+    <SelectedGlyphColor>AEine Glyphe-Farbe des ausgewählten Elementes des Stils.</SelectedGlyphColor>
+    <SeparatorColor>Die Farbe für Darstellung des Stils.</SeparatorColor>
+  </StiDialogStyle>
   <StiDoughnutSeries>
     <Diameter>Feste Größe des Durchmessers des Rings.</Diameter>
   </StiDoughnutSeries>
@@ -1067,6 +1091,7 @@
   <StiDynamicBand>
     <BreakIfLessThan>Wert, der anzeigt, wieviel Leerraum auf einer Seite (in Prozent) für den Aufbau einer neuen Seite oder einer neuen Spalte zu reservieren ist. Dieser Wert ist zwischen 0 und 100 anzugeben. Wenn der Wert 100 beträgt, wird generell eine neue Seite oder eine neue Spalte aufgebaut. Diese Eigenschaft wird gemeinsam verwendet mit den Eigenschaften 'Vor der neuen Seite', 'Nach der neuen Seite', 'Vor der neuen Spalte', 'Nach der neuen Spalte'.</BreakIfLessThan>
     <NewColumnAfter>Wenn der Wert dieser Eigenschaft wahr ist, wird nach der Ausgabe des Bandes eine neue Spalte.</NewColumnAfter>
+    <NewColumnBefore>Wenn der Wert dieser Eigenschaft auf True gesetzt ist, dann wird eine neue Spalte vor der Ausgabe vom Band generiert.</NewColumnBefore>
     <NewPageAfter>Wenn der Wert dieser Eigenschaft wahr ist, wird nach der Ausgabe des Bandes eine neue Seite erzeugt.</NewPageAfter>
     <NewPageBefore>Wenn der Wert dieser Eigenschaft wahr ist, wird vor der Ausgabe des Bandes eine neue Seite erzeugt. Die Ausgabe des Bandes wird auf der nächsten Seite fortgeführt.</NewPageBefore>
     <PrintAtBottom>Wert, der anzeigt; dass der Fuß am Ende der Seite ausgegeben wird.</PrintAtBottom>

@@ -98,6 +98,8 @@
     <StiDataSourcesForImageCheckShort>여러 데이터 소스가 설정되어 있습니다.</StiDataSourcesForImageCheckShort>
     <StiEventsAtInterpretationCheckLong>'{1}'구성 요소에서 '{0}'이벤트의 스크립트가 해석 모드에서 작동하지 않습니다.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>해석 이벤트</StiEventsAtInterpretationCheckShort>
+    <StiExpressionElementCheckLong>'{1}'구성 요소의 '{0}'표현식이 잘못 작동합니다. 파서에서 '{2}'메시지가 수신되었습니다.</StiExpressionElementCheckLong>
+    <StiExpressionElementCheckShort>식이 잘못 작동합니다!</StiExpressionElementCheckShort>
     <StiFilterCircularDependencyElementCheckLong>필터의 순환 종속성은 '{0}' 요소에 있습니다. {0} '요소'의 '부모 키' 속성을 확인하세요!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>원형 필터 종속성입니다</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>필터 값 '{0}'이(가) 지정되지 않았습니다. 이 필터는 처리할 수 없습니다.</StiFilterValueCheckLong>
@@ -211,7 +213,7 @@
   </CheckGlobal>
   <CheckLicense>
     <StiLicenseTrialCheckLong>Stimulsoft Reports 및 대시보드의 평가판을 사용하고 있습니다. 운영 중인 소프트웨어를 사용하려면 라이센스를 구입해야 합니다.</StiLicenseTrialCheckLong>
-  </CheckLicense>  
+  </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>'{0}'페이지에서 잃어버린 점이 발견 : '{1}'점은 불가하며 다음의 원시적으로 사용됩니다 : 수직선 사각형 및 둥근 사각형. 포인트가 어떤 구성 요소와 일치하지 않는 경우는 그 점을 제거 할 수 있습니다.</StiLostPointsOnPageCheckLong>
     <StiLostPointsOnPageCheckShort>잃어버린 포인트</StiLostPointsOnPageCheckShort>
@@ -740,8 +742,8 @@
     <ContourColor>윤곽선 색상</ContourColor>
     <ExcelValue>Excel로 데이터를 내보내는 데 사용되는 식</ExcelValue>
     <GetCheckedEvent>상태가 체크되어있을 때 발생</GetCheckedEvent>
+    <Size>윤곽 크기</Size>
     <Values>논리 값을 기술하는 캐릭터 라인</Values>
-    <Size>윤곽 크기</Size>	
   </StiCheckBox>
   <StiCheckBoxControl>
     <Checked>체크 박스가 체크 된 상태에 있는지 여부를 나타내는 값</Checked>
@@ -1039,7 +1041,7 @@
     <CommandTimeout>명령 실행 중에 시도를 취소하고 오류를 생성하기 전에 대기하는 시간 (초). 기본값은 30입니다.</CommandTimeout>
     <ConnectionOrder>데이터 소스가 데이터에 어떤 순서로 연결 여부를 나타내는 값</ConnectionOrder>
     <ConnectOnStart>데이터 소스가 자동으로 데이터에 연결되어 있지 않음을 나타내는 값</ConnectOnStart>
-	<Name>리포트에 사용될 데이터 원본 이름입니다.</Name>
+    <Name>리포트에 사용될 데이터 원본 이름입니다.</Name>
     <NameInSource>데이터베이스의 데이터 소스의 이름</NameInSource>
     <Parameters>SQL 쿼리의 매개 변수 컬렉션</Parameters>
     <Path>데이터 파일 경로</Path>
@@ -1073,7 +1075,7 @@
     <SelectedForeColor>스타일에서 선택한 항목의 전경색입니다.</SelectedForeColor>
     <SelectedGlyphColor>스타일에서 선택한 항목의 글리프 색상입니다.</SelectedGlyphColor>
     <SeparatorColor>스타일을 그릴 수 있는 색상입니다.</SeparatorColor>
-  </StiDialogStyle>  
+  </StiDialogStyle>
   <StiDoughnutSeries>
     <Diameter>도넛 시리즈의 직경의 고정 크기</Diameter>
   </StiDoughnutSeries>
@@ -1088,6 +1090,7 @@
   <StiDynamicBand>
     <BreakIfLessThan>페이지에서 사용 가능한 공간의 비율 (백분율)을 새 페이지 또는 새 열 만들기에 예약 할 필요가있는 것을 나타내는 값. 값은 0~100의 범위에서 설정해야합니다. 값이 100의 경우는 어떤 경우에도 새 페이지 또는 새 열이 만들어집니다. 이 속성은 NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter 속성과 함께 사용됩니다.</BreakIfLessThan>
     <NewColumnAfter>이 속성의 값이 true의 경우, 밴드의 출력 후에 새로운 라인이 생성됩니다.</NewColumnAfter>
+    <NewColumnBefore>이 속성의 값이 true이면 밴드를 출력하기 전에 새 열이 생성됩니다.</NewColumnBefore>
     <NewPageAfter>이 속성의 값이 true의 경우, 밴드의 출력 후에 새로운 페이지가 생성</NewPageAfter>
     <NewPageBefore>이 속성의 값이 true의 경우, 밴드의 출력 전에 새로운 페이지가 생성 다음 페이지에서 밴드의 출력을 계속합니다.</NewPageBefore>
     <PrintAtBottom>바닥 글이 페이지의 하단에 인쇄되어있는 것을 나타내는 값</PrintAtBottom>

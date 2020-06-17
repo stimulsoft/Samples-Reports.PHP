@@ -98,6 +98,12 @@
     <StiDataSourcesForImageCheckShort>Plusieurs sources de données ont été définies</StiDataSourcesForImageCheckShort>
     <StiEventsAtInterpretationCheckLong>Le script dans l'événement '{0}' du composant '{1}' ne marche pas dans le mode interprétation.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>Évènements dans le mode interprétation</StiEventsAtInterpretationCheckShort>
+    <StiExpressionElementCheckLong>L'expression "{0}" dans le composant "{1}" ne fonctionne pas correctement. Le message suivant a été reçu depuis le parser : '{2}'.</StiExpressionElementCheckLong>
+    <StiExpressionElementCheckShort>Une expression ne fonctionne pas correctement !</StiExpressionElementCheckShort>
+    <StiFilterCircularDependencyElementCheckLong>La dépendance circulaire du filtre se trouve à l'élément '{0}'. Veuillez vérifier la propriété "Clé parente" de l'élément "{0}" !</StiFilterCircularDependencyElementCheckLong>
+    <StiFilterCircularDependencyElementCheckShort>Dépendance du filtre circulaire</StiFilterCircularDependencyElementCheckShort>
+    <StiFilterValueCheckLong>Une valeur de filtre de "{0}" n'est pas spécifiée. Ce filtre ne peut pas être traité.</StiFilterValueCheckLong>
+    <StiFilterValueCheckShort>Une valeur de filtre n'est pas spécifiée</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>La police '{0}' spécifiée pour le composant '{1}' n'a pas été trouvée.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>La police n'a pas été trouvée</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>Des variables système qui ne sont pas disponibles dans l'EngineV1 sont utilisées dans le rapport. Voulez-vous utiliser l'EngineV2.</StiFunctionsOnlyForEngineV2CheckLong>
@@ -205,6 +211,9 @@
     <RenderingMessage>Message du Rendu du rapport.</RenderingMessage>
     <Warning>Avertissement! </Warning>
   </CheckGlobal>
+  <CheckLicense>
+    <StiLicenseTrialCheckLong>Vous utilisez la version d'essai de Stimulsoft Rapports et Tableaux de bord. Pour utiliser le logiciel en production, vous devez acheter une licence.</StiLicenseTrialCheckLong>
+  </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>Des points perdus ont été trouvés sur la page '{0}' : {1}. Les point sont invisible et sont utilisés par les primitives suivantes: ligne verticale, rectangle et rectangle aux coins arrondis. Si le point ne correspond à aucun composant, il peut être supprimé.</StiLostPointsOnPageCheckLong>
     <StiLostPointsOnPageCheckShort>Points perdus</StiLostPointsOnPageCheckShort>
@@ -314,6 +323,7 @@
     <Use>Utiliser</Use>
     <UseCompilationCache>Utiliser le cache de compilation</UseCompilationCache>
     <UseCompressedScripts>Utiliser lles scripts compressés</UseCompressedScripts>
+    <UseLatestVersion>Utiliser la dernière version des librairies</UseLatestVersion>
     <UseWpfDesignerV2>Utiliser le concepteur V2</UseWpfDesignerV2>
   </Publish>
   <ReportComparer>
@@ -1053,6 +1063,19 @@
     <ValueBinding>Liaison de données pour la valeur.</ValueBinding>
     <ValueChangedEvent>Se produit quand la date a changé.</ValueChangedEvent>
   </StiDateTimePickerControl>
+  <StiDialogStyle>
+    <GlyphColor>Une couleur de glyphe du style.</GlyphColor>
+    <HotBackColor>Une couleur de fond d'un élément chaud du style.</HotBackColor>
+    <HotForeColor>Une couleur d'avant-plan d'un élément chaud du style.</HotForeColor>
+    <HotGlyphColor>Une couleur de glyphe d'un élément chaud du style.</HotGlyphColor>
+    <HotSelectedBackColor>Une couleur de fond d'un élément sélectionné à chaud du style..</HotSelectedBackColor>
+    <HotSelectedForeColor>Une couleur de premier plan d'un élément sélectionné du style.</HotSelectedForeColor>
+    <HotSelectedGlyphColor>Une couleur de glyphe d'un élément sélectionné à chaud du style.</HotSelectedGlyphColor>
+    <SelectedBackColor>Une couleur de fond d'un élément sélectionné du style.</SelectedBackColor>
+    <SelectedForeColor>Une couleur de premier plan d'un élément sélectionné du style.</SelectedForeColor>
+    <SelectedGlyphColor>Une couleur de glyphe d'un élément sélectionné du style.</SelectedGlyphColor>
+    <SeparatorColor>Une couleur pour le dessin du style.</SeparatorColor>
+  </StiDialogStyle>
   <StiDoughnutSeries>
     <Diameter>Diamètre d'une série anneau.</Diameter>
   </StiDoughnutSeries>
@@ -1067,6 +1090,7 @@
   <StiDynamicBand>
     <BreakIfLessThan>Une valeur indiquant combien d'espace libre sur une page (en pourcentage) doit être réservé pour une nouvelle page ou nouvelle colonne. La valeur doit être comprise entre 0 et 100. Si la valeur vaut 100, dans tous les cas, une nouvelle page ou une nouvelle colonne sera créée. Cette propriété est utilisée avec les propriétés, nouvelle page avant, nouvelle page après, nouvelle colonne avant, nouvelle colonne après.</BreakIfLessThan>
     <NewColumnAfter>Si cette propriété est à vrai, après la sortie d'une bande, une nouvelle colonne sera générée.</NewColumnAfter>
+    <NewColumnBefore>Si la valeur de cette propriété est vraie, alors, avant la sortie d'une bande, une nouvelle colonne sera générée.</NewColumnBefore>
     <NewPageAfter>Si cette propriété est à vrai, après la sortie d'une bande, une nouvelle page sera générée.</NewPageAfter>
     <NewPageBefore>Si cette propriété est à vrai, avant la sortie d'une bande, une nouvelle page sera générée. La sortie d'une bande continuera sur la page suivante.</NewPageBefore>
     <PrintAtBottom>Valeur indiquant que le pied est imprimé en bas de la page.</PrintAtBottom>
