@@ -8,7 +8,7 @@ require_once 'stimulsoft/helper.php';
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Stimulsoft Reports.PHP - Render & Export</title>
 
-	<!-- Stimusloft Reports.JS -->
+	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
 	
 	<?php 

@@ -12,12 +12,13 @@ require_once 'stimulsoft/helper.php';
 	<link href="css/stimulsoft.viewer.office2013.whiteteal.css" rel="stylesheet">
 	<link href="css/stimulsoft.designer.office2013.lightgrayteal.css" rel="stylesheet">
 
-	<!-- Stimusloft Reports.JS -->
+	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
-	<script src="scripts/stimulsoft.reports.maps.js" type="text/javascript"></script>
 	
-	<!-- Stimusloft Dashboards.JS -->
+	<!-- Stimulsoft Dashboards.JS -->
 	<script src="scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
+	
+	<!-- Stimulsoft JS Viewer (for preview tab) and Stimulsoft JS Designer-->
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 	<script src="scripts/stimulsoft.designer.js" type="text/javascript"></script>
 	
