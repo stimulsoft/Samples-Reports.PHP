@@ -261,30 +261,42 @@
     <Cancel>Cancel</Cancel>
     <Close>Close</Close>
     <ConnectionsFromReport>Use Connection from Report</ConnectionsFromReport>
+    <ConnectionsFromReportToolTip>Connections saved in the report template will be used without any modifications.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Register Data from Code</ConnectionsRegData>
+    <ConnectionsRegDataToolTip>You will be offered to connect data from code in the form of XML or JSON data, or, if possible, in the form of business objects.</ConnectionsRegDataToolTip>
     <ConnectionsReplace>Replace Connection String</ConnectionsReplace>
+    <ConnectionsReplaceToolTip>You will be offered to change the connection from the code, depending on its type - file path, database connection string.</ConnectionsReplaceToolTip>
     <Copy>Copy</Copy>
     <CopyingLibraries>Copying project files...</CopyingLibraries>
     <DeployReportPlatform>Deploy Report to Platform:</DeployReportPlatform>
     <DownloadingLibraries>Downloading libraries...</DownloadingLibraries>
     <EmbedAllDataToResources>The report contains data connections that are not supported in the selected platform. Do you want to embed available data in the report as resources? In this case, all connections will be replaced with XML resources.</EmbedAllDataToResources>
+    <EmbedAllDataToResourcesToolTip>All data will be loaded and added to the report template as resources. This allows you to view the report without having to query the database.</EmbedAllDataToResourcesToolTip>
     <ExportFormat>Export Report to:</ExportFormat>
     <ExportFormatData>Data</ExportFormatData>
     <ExportFormatDataType>Data Type:</ExportFormatDataType>
     <ExportFormatImage>Image</ExportFormatImage>
     <ExportFormatImageType>Image Type:</ExportFormatImageType>
     <FullScreenViewer>Display the Viewer in Full Browser Window</FullScreenViewer>
+    <FullScreenViewerToolTip>The viewer with the report will be displayed in the entire available space of the browser window.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Get Stimulsoft Libraries from {0}</GetLibrariesFrom>
+    <GetLibrariesFromToolTip>All necessary libraries and scripts will be connected from the repository. Otherwise, they will be copied into the project and connected directly.</GetLibrariesFromToolTip>
     <GroupAddons>Addons</GroupAddons>
     <GroupConnections>Data Connections</GroupConnections>
     <GroupParameters>Report Parameters</GroupParameters>
     <HideOptions>Hide Options</HideOptions>
     <IncludeFonts>Include Fonts</IncludeFonts>
+    <IncludeFontsToolTip>The fonts necessary for correct calculation of the sizes of report components will be copied and connected to the project.</IncludeFontsToolTip>
     <IncludeLibrariesToStandalone>Include Stimulsoft Libraries to the Executable File</IncludeLibrariesToStandalone>
+    <IncludeLibrariesToStandaloneToolTip>All necessary libraries and files will be included in the executable file. Otherwise, a ZIP archive will be created.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Include License Key</IncludeLicenseKey>
+    <IncludeLicenseKeyToolTip>The license key from the account of the currently authorized user will be integrated into the project.</IncludeLicenseKeyToolTip>
     <IncludeLocalization>Include Localization</IncludeLocalization>
+    <IncludeLocalizationToolTip>The selected localization will be copied and connected to the project.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Include Report as Packed String to Code</IncludeReportPackedStringToCode>
+    <IncludeReportPackedStringToCodeToolTip>The report will be saved as a Base64 string right in the project code. This allows you to get rid of additional files.</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>Include UI Theme</IncludeUITheme>
+    <IncludeUIThemeToolTip>The selected user interface theme will be set in the component settings.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Framework Type:</JavaScriptFramework>
     <LicenseKeyTypeFile>File</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
@@ -298,16 +310,23 @@
     <LoadReportStream>Stream</LoadReportStream>
     <LoadReportString>String</LoadReportString>
     <ParametersFromReport>Use Value from Report</ParametersFromReport>
+    <ParametersFromReportToolTip>The values ​​of the parameters set in the report template will be used.</ParametersFromReportToolTip>
     <ParametersReplace>Replace Value from {0}Code</ParametersReplace>
+    <ParametersReplaceToolTip>You will be offered to change the values ​​of the report parameters from the code.</ParametersReplaceToolTip>
     <ParametersReplacePhpInfo>The parameter will be removed from the report dictionary and can be used only in the SQL query.</ParametersReplacePhpInfo>
     <ParametersRequestFromUser>Request from User</ParametersRequestFromUser>
+    <ParametersRequestFromUserToolTip>The report parameter will be requested from the user when viewing the report in the viewer window.</ParametersRequestFromUserToolTip>
     <Publish>Publish</Publish>
     <PublishType>Report Publish Type:</PublishType>
     <PublishTypeProject>Project</PublishTypeProject>
+    <PublishTypeProjectToolTip>A ZIP archive will be created with the finished project and all the necessary files for further compilation and launch.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Standalone</PublishTypeStandalone>
+    <PublishTypeStandaloneToolTip>An already compiled application for viewing the report will be created.</PublishTypeStandaloneToolTip>
     <ReadMore>Read More</ReadMore>
     <RegDataOnlyForPreview>Use Only for Report Preview</RegDataOnlyForPreview>
+    <RegDataOnlyForPreviewToolTip>The data will be connected to the report only at the moment of the preview.</RegDataOnlyForPreviewToolTip>
     <RegDataSynchronize>Synchronize Report Dictionary</RegDataSynchronize>
+    <RegDataSynchronizeToolTip>After connecting the data to the report, the data dictionary will be synchronized - data sources, columns and their types, data links.</RegDataSynchronizeToolTip>
     <ReplaceConnectionString>Replace Connection String</ReplaceConnectionString>
     <ReplacePathToData>Replace Path to the Data</ReplacePathToData>
     <ReportAction>What to do with Report:</ReportAction>
@@ -323,9 +342,13 @@
     <TrialVersion>Trial Version</TrialVersion>
     <Use>Use</Use>
     <UseCompilationCache>Use Compilation Cache</UseCompilationCache>
+    <UseCompilationCacheToolTip>The rendered report will be saved in a temporary directory, which allows you to speed up its rendering and reduce memory usage.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Use Compressed Scripts</UseCompressedScripts>
+    <UseCompressedScriptsToolTip>Packed scripts will be used instead of regular ones. This allows you to reduce their size, but it takes some time to unpack when running.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Use the latest version of libraries</UseLatestVersion>
+    <UseLatestVersionToolTip>When connecting libraries and scripts, the latest available official version of the product will be used instead of the currently installed version.</UseLatestVersionToolTip>
     <UseWpfDesignerV2>Use the Designer V2</UseWpfDesignerV2>
+    <UseWpfDesignerV2ToolTip>The updated WPF report designer will be used. It has a new UI, increased speed, and other optimizations.</UseWpfDesignerV2ToolTip>
   </Publish>
   <ReportComparer>
     <Change>Change</Change>
@@ -867,7 +890,7 @@
     <DoubleClickEvent>Occurs when a user double clicks the component in the report viewer.</DoubleClickEvent>
     <Editable>A value indicates that a component can be edited in the window of viewer.</Editable>
     <Enabled>A value that indicates will this component be available or not.</Enabled>
-    <FilterMode>The filter mode.</FilterMode>
+    <FilterMode>A logical operation of combining filters for the current band.</FilterMode>
     <FilterOn>A value that indicates, that filter is turned on.</FilterOn>
     <Filters>A collection of the data filters.</Filters>
     <FixedWidth>A value which indicates that the cell have fixed width.</FixedWidth>

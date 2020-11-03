@@ -261,30 +261,42 @@
     <Cancel>Отмена</Cancel>
     <Close>Закрыть</Close>
     <ConnectionsFromReport>Использовать заданное в отчете подключение</ConnectionsFromReport>
+    <ConnectionsFromReportToolTip>Будут использованы сохранённые в шаблоне отчёта подключения без каких-либо изменений.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Подключить данные из кода</ConnectionsRegData>
+    <ConnectionsRegDataToolTip>Будет предложен вариант подключения данных из кода в виде XML или JSON данных, либо при возможности в виде бизнес объектов.</ConnectionsRegDataToolTip>
     <ConnectionsReplace>Заменить строку подключения</ConnectionsReplace>
+    <ConnectionsReplaceToolTip>Будет предложен вариант изменения подключения из кода в зависимости от его типа - путь к файлу, строка подключения к базе данных.</ConnectionsReplaceToolTip>
     <Copy>Копировать</Copy>
     <CopyingLibraries>Копирование файлов проекта...</CopyingLibraries>
     <DeployReportPlatform>Платформа для развертывания отчета:</DeployReportPlatform>
     <DownloadingLibraries>Загрузка библиотек...</DownloadingLibraries>
     <EmbedAllDataToResources>Отчёт содержит соединения с данными, которые не поддерживаются в выбранной платформе. Хотите встроить доступные данные в отчёт в виде ресурсов? В этом случае, все соединения будут заменены на XML ресурсы.</EmbedAllDataToResources>
+    <EmbedAllDataToResourcesToolTip>Все данные будут загружены и включены в шаблон отчёта в виде ресурсов. Это позволяет просматривать отчёт без необходимости запросов к базе данных.</EmbedAllDataToResourcesToolTip>
     <ExportFormat>Формат экспорта:</ExportFormat>
     <ExportFormatData>Данные</ExportFormatData>
     <ExportFormatDataType>Тип данных:</ExportFormatDataType>
     <ExportFormatImage>Изображение</ExportFormatImage>
     <ExportFormatImageType>Тип изображения:</ExportFormatImageType>
     <FullScreenViewer>Отобразить вьювер на все окно Web-браузера</FullScreenViewer>
+    <FullScreenViewerToolTip>Вьювер с отчётом будут отображены на всём доступном пространстве окна браузера.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Подключить библиотеки Stimulsoft из {0}</GetLibrariesFrom>
+    <GetLibrariesFromToolTip>Все необходимые библиотеки и скрипты будут подключены из репозитория, иначе будут скопированы в проект и подключены напрямую.</GetLibrariesFromToolTip>
     <GroupAddons>Дополнительно</GroupAddons>
     <GroupConnections>Подключения к данным</GroupConnections>
     <GroupParameters>Параметры отчета</GroupParameters>
     <HideOptions>Скрыть опции</HideOptions>
     <IncludeFonts>Добавить шрифты</IncludeFonts>
+    <IncludeFontsToolTip>В проект будут скопированы и подключены шрифты, необходимые для корректного вычисления размеров компонентов отчёта.</IncludeFontsToolTip>
     <IncludeLibrariesToStandalone>Добавить библиотеки Stimulsoft в исполняемый файл</IncludeLibrariesToStandalone>
+    <IncludeLibrariesToStandaloneToolTip>Все необходимые библиотеки и файлы будут включены в исполняемый файл, иначе будет создан ZIP архив.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Добавить лицензионный ключ</IncludeLicenseKey>
+    <IncludeLicenseKeyToolTip>В проект будет интегрирован лицензионный ключ из аккаунта авторизованного в данный момент пользователя.</IncludeLicenseKeyToolTip>
     <IncludeLocalization>Добавить локализацию</IncludeLocalization>
+    <IncludeLocalizationToolTip>В проект будет скопирована и подключена выбранная локализация.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Добавить отчет в код в виде упакованной строки</IncludeReportPackedStringToCode>
+    <IncludeReportPackedStringToCodeToolTip>Отчёт будет сохранён в виде Base64 строки прямо в коде проекта. Это позволяет избавиться от дополнительных файлов.</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>Добавить тему оформления</IncludeUITheme>
+    <IncludeUIThemeToolTip>В настройках компонентов будет установлена выбранная тема оформления интерфейса.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Тип фрэймворка:</JavaScriptFramework>
     <LicenseKeyTypeFile>Файл</LicenseKeyTypeFile>
     <LicenseKeyTypeString>Строка</LicenseKeyTypeString>
@@ -298,16 +310,23 @@
     <LoadReportStream>Поток</LoadReportStream>
     <LoadReportString>Строка</LoadReportString>
     <ParametersFromReport>Использовать заданное в отчете значение</ParametersFromReport>
+    <ParametersFromReportToolTip>Будут использованы значения параметров, установленных в шаблоне отчёта.</ParametersFromReportToolTip>
     <ParametersReplace>Заменить значение из {0}кода</ParametersReplace>
+    <ParametersReplaceToolTip>Будет предложен вариант изменения значений параметров отчёта из кода.</ParametersReplaceToolTip>
     <ParametersReplacePhpInfo>Параметр будет удален из словаря отчета и может быть использован только в SQL запросе.</ParametersReplacePhpInfo>
     <ParametersRequestFromUser>Запрашивать у пользователя</ParametersRequestFromUser>
+    <ParametersRequestFromUserToolTip>Параметр отчёта будет запрошен у пользователя в момент просмотра отчёта в окне вьювера.</ParametersRequestFromUserToolTip>
     <Publish>Опубликовать</Publish>
     <PublishType>Тип развертывания:</PublishType>
     <PublishTypeProject>Проект</PublishTypeProject>
+    <PublishTypeProjectToolTip>Будет создан ZIP архив с готовым проектом и всеми необходимыми файлами для дальнейшей компиляции и запуска.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Автономное приложение</PublishTypeStandalone>
+    <PublishTypeStandaloneToolTip>Будет создано уже скомпилированное приложение для просмотра отчёта.</PublishTypeStandaloneToolTip>
     <ReadMore>Подробнее</ReadMore>
     <RegDataOnlyForPreview>Использовать только для предварительного просмотра отчета</RegDataOnlyForPreview>
+    <RegDataOnlyForPreviewToolTip>Данные будут подключены к отчёту только в момент предварительного просмотра.</RegDataOnlyForPreviewToolTip>
     <RegDataSynchronize>Синхронизировать словарь данных отчета</RegDataSynchronize>
+    <RegDataSynchronizeToolTip>После подключения данных к отчёту, будет проведена синхронизация словаря данных - источников данных, колонок и их типов, связей данных.</RegDataSynchronizeToolTip>
     <ReplaceConnectionString>Заменить строку подключения</ReplaceConnectionString>
     <ReplacePathToData>Заменить путь к данным</ReplacePathToData>
     <ReportAction>Действие над отчетом:</ReportAction>
@@ -323,9 +342,13 @@
     <TrialVersion>Пробная версия</TrialVersion>
     <Use>Использовать</Use>
     <UseCompilationCache>Использовать компиляцию для кэширования</UseCompilationCache>
+    <UseCompilationCacheToolTip>Скомпилированный отчёт будет сохранён во временной директории, это позволяет ускорить последующее его построение и сократить использование памяти.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Использовать сжатые скрипты</UseCompressedScripts>
+    <UseCompressedScriptsToolTip>Будут использованы упакованные скрипты вместо обычных. Это позволяет уменьшить их размер, однако требует некоторое время на из распаковку в момент запуска.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Использовать последнюю версию библиотек</UseLatestVersion>
+    <UseLatestVersionToolTip>При подключении библиотек и скриптов будет использоваться последний доступный официальный релиз продукта вместо текущей установленной версии.</UseLatestVersionToolTip>
     <UseWpfDesignerV2>Использовать дизайнер V2</UseWpfDesignerV2>
+    <UseWpfDesignerV2ToolTip>Будет использован обновлённый WPF дизайнер отчётов, который имеет новый интерфейс, повышенную скорость работы и другие оптимизации.</UseWpfDesignerV2ToolTip>
   </Publish>
   <ReportComparer>
     <Change>Изменить</Change>
@@ -867,7 +890,7 @@
     <DoubleClickEvent>Срабатывает, когда пользователь двойным щелчком нажимает на компонент в окне предварительного просмотра.</DoubleClickEvent>
     <Editable>Значение, которое указывает, что компонент можно редактировать в окне вьювера.</Editable>
     <Enabled>Значение, которое указывает, будет ли компонент доступен.</Enabled>
-    <FilterMode>Режим фильтра.</FilterMode>
+    <FilterMode>Логическая операция сочетания фильтров для текущего бэнда.</FilterMode>
     <FilterOn>Значение указывает, что фильтр включен.</FilterOn>
     <Filters>Коллекция фильтров данных.</Filters>
     <FixedWidth>Значение, которое определяет, что ячейка имеет фиксированную ширину.</FixedWidth>

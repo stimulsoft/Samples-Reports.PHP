@@ -261,30 +261,42 @@
     <Cancel>Abbrechen</Cancel>
     <Close>Schlie?en</Close>
     <ConnectionsFromReport>Verbindung aus dem Bericht verwenden</ConnectionsFromReport>
+    <ConnectionsFromReportToolTip>In der Berichtsvorlage gespeicherte Verbindungen werden ohne irgendwelche Änderungen verwendet werden.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Daten aus dem Code regisitrieren</ConnectionsRegData>
+    <ConnectionsRegDataToolTip>Es wird angeboten werden, die Daten aus dem Code als XML- oder JSON-Daten, oder, wenn es möglich ist, als Business-Objekte zu verbinden.</ConnectionsRegDataToolTip>
     <ConnectionsReplace>Verbindungsstring ersetzen</ConnectionsReplace>
+    <ConnectionsReplaceToolTip>Es wird angeboten werden, die Verbindung aus dem Code abhängig vom seinen Typen - Weg zur Datei, Verbindungszeichenfolge zur Datenbank, ändern.</ConnectionsReplaceToolTip>
     <Copy>Kopieren</Copy>
     <CopyingLibraries>Projektdateien werden kopiert...</CopyingLibraries>
     <DeployReportPlatform>Den Bericht in die Plattform bereitstellen:</DeployReportPlatform>
     <DownloadingLibraries>Bibliotheken werden heruntergeladen...</DownloadingLibraries>
     <EmbedAllDataToResources>Der Bericht enthält die Verbindungen mit Daten, die in ausgewählter Plattform nicht unterstützt werden. Möchten Sie die verfügbaren Daten als Ressourcen in den Bericht einbetten? In diesem Fall werden alle Verbindungen durch XML-Ressourcen erstetzt werden.</EmbedAllDataToResources>
+    <EmbedAllDataToResourcesToolTip>Alle Daten werden in Berichtsvorlage als Ressourcen geladen und hinzugefügt werden. Es erlaubt Ihnen, den Bericht ohne Abfrage zur Datenbank anzuzeigen.</EmbedAllDataToResourcesToolTip>
     <ExportFormat>Den Bericht exporieren in:</ExportFormat>
     <ExportFormatData>Daten</ExportFormatData>
     <ExportFormatDataType>Datentyp:</ExportFormatDataType>
     <ExportFormatImage>Bild</ExportFormatImage>
     <ExportFormatImageType>Bildtyp:</ExportFormatImageType>
     <FullScreenViewer>Den Viewer im vollen Browserfenster  anzeigen</FullScreenViewer>
+    <FullScreenViewerToolTip>Der Viewer mit dem Bericht wird auf dem ganzen verfügbaren Bereich des Browser-Fensters angezeigt werden.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Stimulsoft Sammlungen aus {0} erhalten</GetLibrariesFrom>
+    <GetLibrariesFromToolTip>Alle erforderlichen Bibliotheken und Skripte werden aus dem Repository verbindet werden. Ansonsten, sie werden ins Projekt kopiert und direkt verbindet werden.</GetLibrariesFromToolTip>
     <GroupAddons>Addons</GroupAddons>
     <GroupConnections>Datenverbindungs</GroupConnections>
     <GroupParameters>Berichtsparameter</GroupParameters>
     <HideOptions>Optionen ausblenden</HideOptions>
     <IncludeFonts>Schriftarten einschlie?en</IncludeFonts>
+    <IncludeFontsToolTip>Ins Projekt werden die Scriftarten, die für korrekte Berechnung der Komponentengröße des Berichtes erforderlich sind, kopiert und verbindet werden.</IncludeFontsToolTip>
     <IncludeLibrariesToStandalone>Stimulsoft Sammlungen in die ausfuhrbare Datei einschlie?en</IncludeLibrariesToStandalone>
+    <IncludeLibrariesToStandaloneToolTip>Alle erforderlichen Bibliotheken und Dateien werden in ausführbare Datei enthalten werden. Ansonsten, wird ein ZIP-Archiv erstellt werden.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Lizenzschlussel einschlie?en</IncludeLicenseKey>
+    <IncludeLicenseKeyToolTip>Der Lizenzschlüssel aus dem Account des derzeit autorisierten Benutzers wird ins Projekt integriert werden.</IncludeLicenseKeyToolTip>
     <IncludeLocalization>Lokalisierung einschlie?en</IncludeLocalization>
+    <IncludeLocalizationToolTip>Die ausgewählte Lokalisierung wird ins Projekt kopiert und verbindet werden.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Den Bericht als verpackter String in den Code einschlie?en</IncludeReportPackedStringToCode>
+    <IncludeReportPackedStringToCodeToolTip>Der Bericht wird als Base64-Zeichenfolge direkt im Projekt-Code gespeichert werden. Es erlaubt Ihnen, zusätzliche Dateien loszuwerden.</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>UI-Thema einschlie?en</IncludeUITheme>
+    <IncludeUIThemeToolTip>Das ausgewählte Benutzer-Schnittstelle-Thema wird in den Komponenten-Einstellungen gesetzt werden.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Typ von Framework:</JavaScriptFramework>
     <LicenseKeyTypeFile>Datei</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
@@ -298,16 +310,23 @@
     <LoadReportStream>Strom</LoadReportStream>
     <LoadReportString>String</LoadReportString>
     <ParametersFromReport>Einen Wert aus dem Bericht verwenden</ParametersFromReport>
+    <ParametersFromReportToolTip>Die Parameter-Werte, die in der Berichtsvorlage gesetzt sind, werden verwendet werden.</ParametersFromReportToolTip>
     <ParametersReplace>Einen Wert aus dem Code ersetzen</ParametersReplace>
     <ParametersReplacePhpInfo>Der Parameter wird aus dem Berichtswörterbuch entfernt und kann nur in der SQL-Abfrage verwendet werden.</ParametersReplacePhpInfo>
+    <ParametersReplaceToolTip>Es wird angeboten werden, die Werte von Berichts-Parametern aus dem Code zu bearbeiten.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Anfrage vom Benutzer</ParametersRequestFromUser>
+    <ParametersRequestFromUserToolTip>Die Berichts-Parameter wird vom Benutzer, wenn er den Bericht im Viewer-Fenster ansieht, angefragt werden.</ParametersRequestFromUserToolTip>
     <Publish>Veröffentlichen</Publish>
     <PublishType>Veroffentlichungstyp des Berichts:</PublishType>
     <PublishTypeProject>Projekt</PublishTypeProject>
+    <PublishTypeProjectToolTip>Ein ZIP-Archiv wird mit dem fertigen Projekt und allen erforderlichen Dateien für weitere Kompilation und Ausführen erstellt werden.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Standalone</PublishTypeStandalone>
+    <PublishTypeStandaloneToolTip>Eine schnon kompilierte Applikation für Berichts-Anzeige wird erstellt werden.</PublishTypeStandaloneToolTip>
     <ReadMore>Mehr lesen</ReadMore>
     <RegDataOnlyForPreview>Nur fur Berichtsvorschau verwenden</RegDataOnlyForPreview>
+    <RegDataOnlyForPreviewToolTip>Die Daten werden zum Bericht im Moment der Vorschau verbindet werden.</RegDataOnlyForPreviewToolTip>
     <RegDataSynchronize>Worterbuch des Berichts synchronisieren</RegDataSynchronize>
+    <RegDataSynchronizeToolTip>Nach der Verbindung von Daten zum Bericht wird der Datenwörterbuch - Datenquellen, Spalten und ihre Typen, Datenverknüpfungen - synchronisiert werden.</RegDataSynchronizeToolTip>
     <ReplaceConnectionString>Verbindungszeichenfolge ersetzen</ReplaceConnectionString>
     <ReplacePathToData>Pfad zu Daten ersetzen</ReplacePathToData>
     <ReportAction>Was machen mit dem Bericht:</ReportAction>
@@ -323,9 +342,13 @@
     <TrialVersion>Testversion</TrialVersion>
     <Use>Verwenden</Use>
     <UseCompilationCache>Kompilationszwischenspeichern verwenden</UseCompilationCache>
+    <UseCompilationCacheToolTip>Der gerenderte Bericht wird im Temporärverzeichnis gespeichert werden. Es erlaubt den Rendern-Prozess zu beschleunigen und die Speichernutzung zu verringern.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Komprimierte Scripts verwenden</UseCompressedScripts>
+    <UseCompressedScriptsToolTip>Verpackte Skripte werden statt gewönlicher Skripte verwendet werden. Es erlaubt ihre Größe zu verringern, aber fordert einige Zeit für Entpacken während des Ausführens.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Die letzte Version der Bibliotheken verwenden</UseLatestVersion>
+    <UseLatestVersionToolTip>Bei der Verbindung von Bibliotheken und Skripten wird die letzte verfügbare offizielle Version der Software anstatt der aktuell installierter Version verwendet werden.</UseLatestVersionToolTip>
     <UseWpfDesignerV2>Designer V2 verwenden</UseWpfDesignerV2>
+    <UseWpfDesignerV2ToolTip>Der aktualisierte WPF-Berichtsdesigner wird verwendet werden. Er hat neue Schnittstelle, erhöhte Geschwindigkeit und andere Optimierungen.</UseWpfDesignerV2ToolTip>
   </Publish>
   <ReportComparer>
     <Change>Ändern</Change>
@@ -1176,6 +1199,13 @@
     <ValueDataColumnEnd>Name einer Spalte mit dem Endwert.</ValueDataColumnEnd>
     <ValueEnd>Ausdruck für den Endwert. Beispiel: {Auftragswert}</ValueEnd>
   </StiGanttSeries>
+  <StiGaugeElement>
+    <Font>Schriftart.</Font>
+    <ForeColor>Vordergrundfarbe.</ForeColor>
+    <Series>Messgerät-Serien.</Series>
+    <Style>Messgerät-Stil.</Style>
+    <Title>Messgerät-Titel.</Title>
+  </StiGaugeElement>
   <StiGlareBrush>
     <Angle>Der Winkel für den Gradientenverlauf, gemessen im Uhrzeigerzeigersinn von der X-Achse aus.</Angle>
     <EndColor>Endfarbe eines Gradienten.</EndColor>
