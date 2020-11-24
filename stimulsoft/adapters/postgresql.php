@@ -62,6 +62,7 @@ class StiPostgreSqlAdapter {
 				case "user":
 				case "userid":
 				case "user id":
+				case "username":
 					$info->userId = $value;
 					break;
 						
