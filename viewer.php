@@ -6,9 +6,11 @@ require_once 'stimulsoft/helper.php';
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Stimulsoft Reports.PHP - JS Viewer</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<title>Stimulsoft Reports.PHP - Viewer</title>
+	<style>html, body { font-family: sans-serif; }</style>
 
-	<!-- Office2013 style -->
+	<!-- Office2013 White-Teal style -->
 	<link href="css/stimulsoft.viewer.office2013.whiteteal.css" rel="stylesheet">
 
 	<!-- Stimulsoft Reports.JS -->
@@ -20,53 +22,96 @@ require_once 'stimulsoft/helper.php';
 	<!-- Stimulsoft JS Viewer -->
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 	
-	<?php 
-		$options = StiHelper::createOptions();
-		$options->handler = "handler.php";
-		$options->timeout = 30;
-		StiHelper::initialize($options);
+	<?php
+		// Add JavaScript helpers and init options to work with the PHP server
+		// You can change the handler file and timeout if required
+		StiHelper::init('handler.php', 30);
 	?>
+	
 	<script type="text/javascript">
-		Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
-		
+		// Create and set options.
+		// More options can be found in the documentation at the link:
+		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_settings.htm
 		var options = new Stimulsoft.Viewer.StiViewerOptions();
-		options.appearance.fullScreenMode = true;
 		options.toolbar.showSendEmailButton = true;
+		options.toolbar.displayMode = Stimulsoft.Viewer.StiToolbarDisplayMode.Separated;
+		options.appearance.fullScreenMode = true;
+		options.appearance.scrollbarsMode = true;
+		options.height = "600px"; // Height for non-fullscreen mode
 		
+		// Create Viewer component.
+		// A description of the parameters can be found in the documentation at the link:
+		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_showing_reports.htm
 		var viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);
 		
-		// Process SQL data source
+		// Optional Viewer events for fine tuning. You can uncomment and change any event or all of them, if necessary.
+		// In this case, the built-in handler will be overridden by the selected event.
+		// You can read and, if necessary, change the parameters in the 'event' argument before PHP handler.
+		
+		// All events and their details can be found in the documentation at the link:
+		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_viewer_events.htm
+		
+		/*
+		
+		// Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
 		viewer.onBeginProcessData = function (event, callback) {
+			
+			// Create a default PHP handler
 			<?php StiHelper::createHandler(); ?>
 		}
 		
-		// Manage export settings on the server side
+		*/
+		/*
+		
+		// Manage export settings and, if necessary, transfer them to the server and manage there
 		viewer.onBeginExportReport = function (args) {
-			<?php //StiHelper::createHandler(); ?>
-			//args.fileName = "MyReportName";
+			
+			// Create a default PHP handler, if necessary
+			<?php StiHelper::createHandler(); ?>
+			
+			// Manage export settings
+			// args.fileName = "MyReportName";
 		}
+		
+		*/
+		/*
 		
 		// Process exported report file on the server side
-		/*viewer.onEndExportReport = function (event) {
-			event.preventDefault = true; // Prevent client default event handler (save the exported report as a file)
+		viewer.onEndExportReport = function (event) {
+			
+			// Prevent built-in handler (save the exported report as a file)
+			event.preventDefault = true;
+			
+			// Create a default PHP handler
 			<?php StiHelper::createHandler(); ?>
-		}*/
+		}
+		
+		*/
+		
+		/*
 		
 		// Send exported report to Email
 		viewer.onEmailReport = function (event) {
+			
+			// Create a default PHP handler
 			<?php StiHelper::createHandler(); ?>
 		}
 		
-		// Load and show report
+		*/
+		
+		// Create a report and load a template from an MRT file:
 		var report = new Stimulsoft.Report.StiReport();
 		report.loadFile("reports/SimpleList.mrt");
+		
+		// Assigning a report to the Viewer:
 		viewer.report = report;
 		
+		// After loading the HTML page, display the visual part of the Viewer in the specified container.
 		function onLoad() {
 			viewer.renderHtml("viewerContent");
 		}
 	</script>
-	</head>
+</head>
 <body onload="onLoad();">
 	<div id="viewerContent"></div>
 </body>

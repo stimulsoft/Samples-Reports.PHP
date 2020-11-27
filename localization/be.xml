@@ -149,6 +149,7 @@
     <AddFilter>&amp;Дадаць фільтр</AddFilter>
     <AddSeries>Дадаць шэраг</AddSeries>
     <AddStrip>Дадаць паласу</AddStrip>
+    <AddTrendLine>Дадаць лінію трэнду</AddTrendLine>
     <Area>Вобласць</Area>
     <Axes>Восі</Axes>
     <AxisReverse>Перавярнуць</AxisReverse>
@@ -2217,7 +2218,7 @@
     <menuFileReportNew>Ств&amp;арыць справаздачу...</menuFileReportNew>
     <menuFileReportOpen>&amp;Адкрыць справаздачу...</menuFileReportOpen>
     <menuFileReportOpenFromGoogleDocs>Адкрыць справаздачу з Google Docs ...</menuFileReportOpenFromGoogleDocs>
-    <menuFileReportPreview>Прагляд...</menuFileReportPreview>
+    <menuFileReportPreview>Прагляд</menuFileReportPreview>
     <menuFileReportSave>&amp;Захаваць справаздачу</menuFileReportSave>
     <menuFileReportSaveAs>Захаваць справаздачу як...</menuFileReportSaveAs>
     <menuFileReportSaveAsToGoogleDocs>Захаваць справаздачу як у Google Docs ...</menuFileReportSaveAsToGoogleDocs>
@@ -3524,6 +3525,7 @@
     <AlternatingCellForeColor>Колер тэксту ячэйкі, якая чаргуецца</AlternatingCellForeColor>
     <AlternatingDataColor>Колер дадзеных, якiя чаргуюцца</AlternatingDataColor>
     <AlternatingDataForeground>Колер тэксту дадзеных, якiя чаргуюцца</AlternatingDataForeground>
+    <Always>Заўсёды</Always>
     <Anchor>Anchor</Anchor>
     <Angle>Вугал</Angle>
     <Antialiasing>Згладжванне</Antialiasing>
@@ -3664,6 +3666,7 @@
     <Create>Стварэнне</Create>
     <CreateFieldOnDoubleClick>Ствараць поле пры Падвойнай Пстрычцы</CreateFieldOnDoubleClick>
     <CreateLabel>Стварыць подпіс</CreateLabel>
+    <CrossFiltering>Крос-фільтрацыя</CrossFiltering>
     <Culture>Культура</Culture>
     <CustomFonts>Карыстацкія шрыфты</CustomFonts>
     <CustomFormat>Фармат па выбары</CustomFormat>
@@ -4282,6 +4285,7 @@
     <SortingEnabled>Сартаванне ўключана</SortingEnabled>
     <SortType>Тып сартавання</SortType>
     <Space>Прабел</Space>
+    <SpaceRatio>Міжзнакавы інтэрвал</SpaceRatio>
     <Spacing>Адлегласць</Spacing>
     <SqlCommand>SQL запыт</SqlCommand>
     <StartAngle>Пачатковы вугал</StartAngle>
@@ -4387,6 +4391,7 @@
     <UnlimitedBreakable>Раздзіраць неабмежаваны</UnlimitedBreakable>
     <UnlimitedHeight>Неабмежаваная вышыня</UnlimitedHeight>
     <UnlimitedWidth>Неабмежаваная шырыня</UnlimitedWidth>
+    <UpperMarks>Верхнія пазнакі</UpperMarks>
     <UseAliases>Выкарыстоўваць псеўданімы</UseAliases>
     <UseExternalReport>Выкарыстаць навакольную справаздачу</UseExternalReport>
     <UseParentStyles>Выкар. стылі уладара</UseParentStyles>
@@ -4636,7 +4641,7 @@
     <RangeCurrentPage>Вылучаная</RangeCurrentPage>
     <RangeInfo>Увядзіце нумары або дыяпазоны старонак, падзеленыя коскамі. Напрыклад: 1, 3, 5-12</RangeInfo>
     <RangePage>Старонкі</RangePage>
-    <RangePages>нумары</RangePages>
+    <RangePages>Нумары</RangePages>
     <ReportChecker>Праверка справаздач</ReportChecker>
     <ReportRenderingMessages>Паведамленні справаздачы.</ReportRenderingMessages>
     <RestartDesigner>Вам неабходна перазапусціць дызайнер справаздач.</RestartDesigner>

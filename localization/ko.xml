@@ -154,6 +154,7 @@
     <AxisReverse>역</AxisReverse>
     <AxisX>축 X</AxisX>
     <AxisY>축 Y</AxisY>
+    <BoxAndWhisker>봉차트</BoxAndWhisker>
     <Bubble>버블</Bubble>
     <Candlestick>캔들</Candlestick>
     <ChartConditionsCollectionForm>조건</ChartConditionsCollectionForm>
@@ -625,6 +626,7 @@
     <StiSubReport>하위 보고서</StiSubReport>
     <StiSystemText>시스템 텍스트</StiSystemText>
     <StiTable>테이블</StiTable>
+    <StiTableOfContents>목차</StiTableOfContents>
     <StiText>텍스트</StiText>
     <StiTextInCells>셀의 텍스트</StiTextInCells>
     <StiTreeView>트리보기</StiTreeView>
@@ -1202,6 +1204,7 @@
     <ClientSecret>클라이언트 암호</ClientSecret>
     <ConnectionString>연결 문자열 :</ConnectionString>
     <DashboardConnections>대시보드 연결</DashboardConnections>
+    <DatabaseSecret>데이터베이스 비밀번호</DatabaseSecret>
     <DB2Edit>IBM DB2 연결 편집</DB2Edit>
     <DB2New>새로운 IBM DB2 연결</DB2New>
     <EditConnection>{0} 연결 편집</EditConnection>
@@ -1211,6 +1214,8 @@
     <FirstRowIsHeader>첫 줄은 헤더입니다</FirstRowIsHeader>
     <GetAuthorizationCode>인증코드 받기</GetAuthorizationCode>
     <GetTokens>토큰 받기</GetTokens>
+    <GisEdit>GIS 데이터 편집</GisEdit>
+    <GisNew>신규 GIS 데이터</GisNew>
     <ImportData>데이터 가져 오기</ImportData>
     <InformixEdit>Informix 연결 편집</InformixEdit>
     <InformixNew>새로운 Informix 연결</InformixNew>
@@ -1229,6 +1234,7 @@
     <OracleODPEdit>Oracle ODP.NET 연결 편집</OracleODPEdit>
     <OracleODPNew>새로운 Oracle ODP.NET 연결</OracleODPNew>
     <PathData>XML 데이터 경로 :</PathData>
+    <PathGisData>GIS 경로 데이터:</PathGisData>
     <PathJsonData>JSON 데이터 경로 :</PathJsonData>
     <PathSchema>XSD 스키마 경로 :</PathSchema>
     <PathToData>데이터 경로 :</PathToData>
@@ -2521,6 +2527,7 @@
     <CrossTabCategory>크로스 탭</CrossTabCategory>
     <DashboardCategory>대시보드</DashboardCategory>
     <DataCategory>데이터</DataCategory>
+    <DataCells>데이터 셀</DataCells>
     <DatePickerCategory>날자 선택기</DatePickerCategory>
     <DescriptionCategory>설명</DescriptionCategory>
     <DesignCategory>디자인</DesignCategory>
@@ -3763,6 +3770,7 @@
     <HyperlinkDataColumn>하이퍼 링크 데이터 열</HyperlinkDataColumn>
     <Icon>아이콘</Icon>
     <IconAlignment>아이콘 정렬</IconAlignment>
+    <IconColor>아이콘 색상</IconColor>
     <IconSet>아이콘 세트</IconSet>
     <IconSetCondition>아이콘 세트 조건</IconSetCondition>
     <Idents>들여 쓰기</Idents>
@@ -4131,11 +4139,13 @@
     <ShowEdgeValues>에지 값을 표시한다</ShowEdgeValues>
     <ShowImageBehind>뒤에 이미지를 표시</ShowImageBehind>
     <ShowInLegend>범례</ShowInLegend>
+    <ShowInnerPoints>내부 포인터 표시</ShowInnerPoints>
     <ShowInPercent>%로 표시</ShowInPercent>
     <ShowLabels>라벨 표시</ShowLabels>
     <ShowLabelText>라벨 텍스트를 보기</ShowLabelText>
     <ShowLegend>전설보기</ShowLegend>
     <ShowMarker>쇼 마커</ShowMarker>
+    <ShowMeanMarkers>평균 마커 표시</ShowMeanMarkers>
     <ShowNulls>널값 보기</ShowNulls>
     <ShowOthers>밖에도 표시</ShowOthers>
     <ShowPercents>백분율을 표시</ShowPercents>

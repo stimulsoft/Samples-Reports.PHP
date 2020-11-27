@@ -6,11 +6,13 @@ require_once 'stimulsoft/helper.php';
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Stimulsoft Reports.PHP - JS Designer</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<title>Stimulsoft Reports.PHP - Designer</title>
+	<style>html, body { font-family: sans-serif; }</style>
 
-	<!-- Office2013 style -->
+	<!-- Office2013 White-Teal style -->
 	<link href="css/stimulsoft.viewer.office2013.whiteteal.css" rel="stylesheet">
-	<link href="css/stimulsoft.designer.office2013.lightgrayteal.css" rel="stylesheet">
+	<link href="css/stimulsoft.designer.office2013.whiteteal.css" rel="stylesheet">
 
 	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
@@ -22,41 +24,65 @@ require_once 'stimulsoft/helper.php';
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 	<script src="scripts/stimulsoft.designer.js" type="text/javascript"></script>
 	
-	<?php 
-		$options = StiHelper::createOptions();
-		$options->handler = "handler.php";
-		$options->timeout = 30;
-		StiHelper::initialize($options);
+	<?php
+		// Add JavaScript helpers and init options to work with the PHP server
+		// You can change the handler file and timeout if required
+		StiHelper::init('handler.php', 30);
 	?>
+	
 	<script type="text/javascript">
-		Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
-		
+		// Create and set options.
+		// More options can be found in the documentation at the link:
+		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_designer_settings.htm
 		var options = new Stimulsoft.Designer.StiDesignerOptions();
 		options.appearance.fullScreenMode = true;
-		options.toolbar.showSendEmailButton = true;
 		
+		// Create Designer component.
+		// A description of the parameters can be found in the documentation at the link:
+		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_designer_add_designer.htm
 		var designer = new Stimulsoft.Designer.StiDesigner(options, "StiDesigner", false);
 		
-		// Process SQL data source
+		// Optional Designer events for fine tuning. You can uncomment and change any event or all of them, if necessary.
+		// In this case, the built-in handler will be overridden by the selected event.
+		// You can read and, if necessary, change the parameters in the 'event' argument before PHP handler.
+		
+		// All events and their details can be found in the documentation at the link:
+		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_designer_designer_events.htm
+		
+		/*
+		
+		// Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
 		designer.onBeginProcessData = function (event, callback) {
+			
+			// Create a default PHP handler
 			<?php StiHelper::createHandler(); ?>
 		}
 		
-		// Save report template on the server side
+		*/
+		/*
+		
+		// Save report template on the server side.
 		designer.onSaveReport = function (event) {
+			
+			// Create a default PHP handler
 			<?php StiHelper::createHandler(); ?>
 		}
 		
-		// Load and design report
+		*/
+		
+		// Create a report and load a template from an MRT file:
 		var report = new Stimulsoft.Report.StiReport();
 		report.loadFile("reports/SimpleList.mrt");
+		
+		// Assigning a report to the Designer:
 		designer.report = report;
 		
+		// After loading the HTML page, display the visual part of the Designer in the specified container.
 		function onLoad() {
 			designer.renderHtml("designerContent");
 		}
 	</script>
-	</head>
+</head>
 <body onload="onLoad();">
 	<div id="designerContent"></div>
 </body>

@@ -69,15 +69,33 @@ class StiHandler {
 		return $result.$query;
 	}
 	
-//--- Events
+	private function addAddress($param, $settings, $mail) {
+		$arr = $settings->$param;
+		
+		if ($arr != null && count($arr) > 0) {
+			if ($param == 'cc') $mail->clearCCs();
+			else $mail->clearBCCs();
+			
+			foreach ($arr as $value) {
+				$name = mb_strpos($value, ' ') > 0 ? mb_substr($value, mb_strpos($value, ' ')) : '';
+				$address = strlen($name) > 0 ? mb_substr($value, 0, mb_strpos($value, ' ')) : $value;
+				
+				if ($param == 'cc') $mail->addCC($address, $name);
+				else $mail->addBCC($address, $name);
+			}
+		}
+	}
+	
+	
+// Events
 
 	public $onBeginProcessData = null;
 	private function invokeBeginProcessData($request) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->database = $request->database;
-		$args->connectionString = isset($request->connectionString) ? base64_decode(str_rot13($request->connectionString)) : null;
-		$args->queryString = isset($request->queryString) ? base64_decode(str_rot13($request->queryString)) : null;
+		$args->connectionString = isset($request->connectionString) ? $request->connectionString : null;
+		$args->queryString = isset($request->queryString) ? $request->queryString : null;
 		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
 		$args->connection = isset($request->connection) ? $request->connection : null;
 		if (isset($request->queryString)) $args->parameters = $this->getQueryParameters($request->queryString);
@@ -211,6 +229,10 @@ class StiHandler {
 				$mail->Password = $settings->password;
 			}
 			
+			// Fill CC and BCC
+			$this->addAddress('cc', $settings, $mail);
+			$this->addAddress('bcc', $settings, $mail);
+			
 			$mail->Send();
 		}
 		catch (phpmailerException $e) {
@@ -235,9 +257,11 @@ class StiHandler {
 		return $this->checkEventResult($this->onDesignReport, $args);
 	}
 	
-//--- Methods
+	
+// Methods
 	
 	public function registerErrorHandlers() {
+		error_reporting(0);
 		set_error_handler("stiErrorHandler");
 		register_shutdown_function("stiShutdownFunction");
 	}
@@ -249,7 +273,7 @@ class StiHandler {
 	}
 	
 	
-//--- Private methods
+// Private methods
 	
 	private function createConnection($args) {
 		switch ($args->database) {
@@ -345,7 +369,7 @@ class StiHandler {
 }
 
 
-//---------- Helper ----------//
+// JavaScript helper
 
 
 class StiHelper {
@@ -359,101 +383,105 @@ class StiHelper {
 	
 	public static function initialize($options) {
 		if (!isset($options)) $options = StiHelper::createOptions();
-?>
-	<script type="text/javascript">
-		StiHelper.prototype.process = function (args, callback) {
-			if (args) {
-				if (args.event == 'BeginProcessData') {
-					args.preventDefault = true;
-					if (args.database == 'XML' || args.database == 'JSON' || args.database == 'Excel')
-						return callback(null);
-					if (args.database == 'Data from DataSet, DataTables')
-						return callback(args);
-				}
-				var command = {};
-				for (var p in args) {
-					if (p == 'report' && args.report != null) command.report = JSON.parse(args.report.saveToJsonString());
-					else if (p == 'settings' && args.settings != null) command.settings = args.settings;
-					else if (p == 'data') command.data = Stimulsoft.System.Convert.toBase64String(args.data);
-					else if (p == 'connectionString' || p == 'queryString') command[p] = jsHelper.getStringValue(args[p]);
-					else command[p] = args[p];
-				}
-				
-				var isNullOrEmpty = function (value) {
-					return value == null || value === '' || value === undefined;
-				}
-				var json = JSON.stringify(command);
-				if (!callback) callback = function (message) {
-					if (Stimulsoft.System.StiError.errorMessageForm && !isNullOrEmpty(message)) {
-						var obj = JSON.parse(message);
-						if (!obj.success || !isNullOrEmpty(obj.notice)) {
-							var message = isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
-							Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
-						}
+		StiHelper::init($options->handler, $options->timeout);
+	}
+	
+	public static function init($handler, $timeout) {?>
+<script type="text/javascript">
+	StiHelper.prototype.process = function (args, callback) {
+		if (args) {
+			if (args.event == 'BeginProcessData') {
+				args.preventDefault = true;
+				if (args.database == 'XML' || args.database == 'JSON' || args.database == 'Excel')
+					return callback(null);
+				if (args.database == 'Data from DataSet, DataTables')
+					return callback(args);
+			}
+			var command = {};
+			for (var p in args) {
+				if (p == 'report' && args.report != null) command.report = JSON.parse(args.report.saveToJsonString());
+				else if (p == 'settings' && args.settings != null) command.settings = args.settings;
+				else if (p == 'data') command.data = Stimulsoft.System.Convert.toBase64String(args.data);
+				else command[p] = args[p];
+			}
+			
+			var isNullOrEmpty = function (value) {
+				return value == null || value === '' || value === undefined;
+			}
+			var sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.getStringCommand(command);
+			if (!callback) callback = function (message) {
+				if (Stimulsoft.System.StiError.errorMessageForm && !isNullOrEmpty(message)) {
+					var obj = JSON.parse(message);
+					if (!obj.success || !isNullOrEmpty(obj.notice)) {
+						var message = isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
+						Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
 					}
 				}
-				jsHelper.send(json, callback);
 			}
+			jsHelper.send(sendText, callback);
 		}
-		
-		StiHelper.prototype.send = function (json, callback) {
-			try {
-				var request = new XMLHttpRequest();
-				request.open('post', this.url, true);
-				request.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-				request.setRequestHeader('Cache-Control', 'max-age=0');
-				request.setRequestHeader('Pragma', 'no-cache');
-				request.timeout = this.timeout * 1000;
-				request.onload = function () {
-					if (request.status == 200) {
-						var responseText = request.responseText;
-						request.abort();
-						callback(responseText);
-					}
-					else {
-						Stimulsoft.System.StiError.showError('[' + request.status + '] ' + request.statusText, false);
-					}
-				};
-				request.onerror = function (e) {
-					var errorMessage = 'Connect to remote error: [' + request.status + '] ' + request.statusText;
-					Stimulsoft.System.StiError.showError(errorMessage, false);
-				};
-				request.send(json);
-			}
-			catch (e) {
-				var errorMessage = 'Connect to remote error: ' + e.message;
+	}
+	
+	StiHelper.prototype.send = function (json, callback) {
+		try {
+			var request = new XMLHttpRequest();
+			request.open('post', this.url, true);
+			request.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+			request.setRequestHeader('Cache-Control', 'max-age=0');
+			request.setRequestHeader('Pragma', 'no-cache');
+			request.timeout = this.timeout * 1000;
+			request.onload = function () {
+				if (request.status == 200) {
+					var responseText = request.responseText;
+					request.abort();
+					callback(responseText);
+				}
+				else {
+					Stimulsoft.System.StiError.showError('[' + request.status + '] ' + request.statusText, false);
+				}
+			};
+			request.onerror = function (e) {
+				var errorMessage = 'Connect to remote error: [' + request.status + '] ' + request.statusText;
 				Stimulsoft.System.StiError.showError(errorMessage, false);
-				request.abort();
-			}
-		};
+			};
+			request.send(json);
+		}
+		catch (e) {
+			var errorMessage = 'Connect to remote error: ' + e.message;
+			Stimulsoft.System.StiError.showError(errorMessage, false);
+			request.abort();
+		}
+	};
+	
+	StiHelper.prototype.getUrlVars = function (json, callback) {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+			function (m, key, value) {
+				vars[key] = decodeURI(value);
+		});
+		return vars;
+	}
+	
+	function StiHelper(url, timeout) {
+		this.url = url;
+		this.timeout = timeout;
 		
-		StiHelper.prototype.getStringValue = function (value) {
-			return Stimulsoft.System.Convert.toBase64String(value).replace(/[a-zA-Z]/g, function (c) {
-				return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
-			});
-		};
-		
-		StiHelper.prototype.getUrlVars = function (json, callback) {
-			var vars = {};
-			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-				function (m, key, value) {
-					vars[key] = decodeURI(value);
-			});
-			return vars;
+		if (Stimulsoft && Stimulsoft.StiOptions) {
+			Stimulsoft.StiOptions.WebServer.url = url;
+			Stimulsoft.StiOptions.WebServer.timeout = timeout;
 		}
 		
-		function StiHelper(url, timeout) {
-			this.url = url;
-			this.timeout = timeout;
+		if (Stimulsoft && Stimulsoft.Base) {
+			Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
 		}
-		
-		jsHelper = new StiHelper('<?php echo $options->handler; ?>', <?php echo $options->timeout; ?>);
+	}
+	
+	jsHelper = new StiHelper('<?php echo $handler; ?>', <?php echo $timeout; ?>);
 </script>
 <?php
 	}
 	
 	public static function createHandler() {
-?>jsHelper.process(arguments[0], arguments[1]);
-<?php
+		?>jsHelper.process(arguments[0], arguments[1]);<?php
 	}
 }

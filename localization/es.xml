@@ -154,6 +154,7 @@
     <AxisReverse>Invertir</AxisReverse>
     <AxisX>Eje X</AxisX>
     <AxisY>Eje Y</AxisY>
+    <BoxAndWhisker>Caja y bigote</BoxAndWhisker>
     <Bubble>Burbuja</Bubble>
     <Candlestick>Vela</Candlestick>
     <ChartConditionsCollectionForm>Condiciones</ChartConditionsCollectionForm>
@@ -626,6 +627,7 @@
     <StiSubReport>Subinforme</StiSubReport>
     <StiSystemText>Texto de Sistema</StiSystemText>
     <StiTable>Tabla</StiTable>
+    <StiTableOfContents>Tabla de Contenidos</StiTableOfContents>
     <StiText>Texto</StiText>
     <StiTextInCells>Texto en Celdas</StiTextInCells>
     <StiTreeView>Vista de árbol</StiTreeView>
@@ -1204,6 +1206,7 @@
     <ClientSecret>Secreto del cliente</ClientSecret>
     <ConnectionString>Cadena de Conexión</ConnectionString>
     <DashboardConnections>Conexiones de Consola</DashboardConnections>
+    <DatabaseSecret>Secreto de la base de datos</DatabaseSecret>
     <DB2Edit>Editar Conexión IBM DB2</DB2Edit>
     <DB2New>Nueva Conexión IBM DB2</DB2New>
     <EditConnection>Editar Conexión {0}</EditConnection>
@@ -1213,6 +1216,8 @@
     <FirstRowIsHeader>La Primera Fila es una Cabecera</FirstRowIsHeader>
     <GetAuthorizationCode>Obtener el código de autorización</GetAuthorizationCode>
     <GetTokens>Obtener tokens</GetTokens>
+    <GisEdit>Editar datos GIS</GisEdit>
+    <GisNew>Nuevos datos GIS</GisNew>
     <ImportData>Importar Datos</ImportData>
     <InformixEdit>Editar Conexión Informix</InformixEdit>
     <InformixNew>Nueva Conexión Informix</InformixNew>
@@ -1231,6 +1236,7 @@
     <OracleODPEdit>Editar Conexión Oracle ODP.NET</OracleODPEdit>
     <OracleODPNew>Nueva Conexión Oracle ODP.NET</OracleODPNew>
     <PathData>Camino XML</PathData>
+    <PathGisData>Camino a datos Gis:</PathGisData>
     <PathJsonData>Camino a Datos JSON:</PathJsonData>
     <PathSchema>Camino XSD Schema</PathSchema>
     <PathToData>Camino a Datos:</PathToData>
@@ -2528,6 +2534,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <CrossTabCategory>Lengüeta Cruzada</CrossTabCategory>
     <DashboardCategory>Tablero</DashboardCategory>
     <DataCategory>Datos</DataCategory>
+    <DataCells>Celdas de datos</DataCells>
     <DatePickerCategory>Selector de fechas</DatePickerCategory>
     <DescriptionCategory>Descripción</DescriptionCategory>
     <DesignCategory>Diseñar</DesignCategory>
@@ -3786,6 +3793,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <HyperlinkDataColumn>Columna de Hipervínculos</HyperlinkDataColumn>
     <Icon>Ícono</Icon>
     <IconAlignment>Alineación de iconos</IconAlignment>
+    <IconColor>Color del ícono</IconColor>
     <IconSet>Conjunto de Íconos</IconSet>
     <IconSetCondition>Condición de Conjunto de Íconos</IconSetCondition>
     <Idents>Sangrías</Idents>
@@ -4155,11 +4163,13 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <ShowEdgeValues>Mostrar Diálogo</ShowEdgeValues>
     <ShowImageBehind>Mostrar Imagen Detrás</ShowImageBehind>
     <ShowInLegend>Mostrar en Leyenda</ShowInLegend>
+    <ShowInnerPoints>Mostrar puntos internos</ShowInnerPoints>
     <ShowInPercent>Mostrar en Porcentaje</ShowInPercent>
     <ShowLabels>Mostrar Etiquetas</ShowLabels>
     <ShowLabelText>Mostrar Texto de Etiquetas</ShowLabelText>
     <ShowLegend>Mostrar Leyenda</ShowLegend>
     <ShowMarker>Mostrar Marcador</ShowMarker>
+    <ShowMeanMarkers>Mostrar promedios de marcadores</ShowMeanMarkers>
     <ShowNulls>Mostrar Nulos</ShowNulls>
     <ShowOnZeroValues>Mostrar con Valores Cero</ShowOnZeroValues>
     <ShowOthers>Mostrar 'Otros'</ShowOthers>

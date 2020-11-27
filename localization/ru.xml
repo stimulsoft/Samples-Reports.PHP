@@ -149,6 +149,7 @@
     <AddFilter>&amp;Добавить фильтр</AddFilter>
     <AddSeries>Добавить ряд</AddSeries>
     <AddStrip>Добавить полосу</AddStrip>
+    <AddTrendLine>Добавить линию тренда</AddTrendLine>
     <Area>Область</Area>
     <Axes>Оси</Axes>
     <AxisReverse>Перевернуть</AxisReverse>
@@ -2212,7 +2213,7 @@
     <menuFileReportNew>Созд&amp;ать отчет...</menuFileReportNew>
     <menuFileReportOpen>&amp;Открыть отчет...</menuFileReportOpen>
     <menuFileReportOpenFromGoogleDocs>Открыть отчет из Google Docs...</menuFileReportOpenFromGoogleDocs>
-    <menuFileReportPreview>Пред&amp;варительный просмотр...</menuFileReportPreview>
+    <menuFileReportPreview>Просмотр</menuFileReportPreview>
     <menuFileReportSave>&amp;Сохранить отчет</menuFileReportSave>
     <menuFileReportSaveAs>Со&amp;хранить отчет как...</menuFileReportSaveAs>
     <menuFileReportSaveAsToGoogleDocs>Сохранить отчет как в Google Docs...</menuFileReportSaveAsToGoogleDocs>
@@ -3492,6 +3493,7 @@
     <AlternatingCellForeColor>Цвет текста чередующейся ячейки</AlternatingCellForeColor>
     <AlternatingDataColor>Цвет чередующихся данных</AlternatingDataColor>
     <AlternatingDataForeground>Цвет текста чередующихся данных</AlternatingDataForeground>
+    <Always>Всегда</Always>
     <Anchor>Привязка</Anchor>
     <Angle>Угол</Angle>
     <Antialiasing>Сглаживание</Antialiasing>
@@ -3632,6 +3634,7 @@
     <Create>Создание</Create>
     <CreateFieldOnDoubleClick>Создавать поле при Двойном Щелчке</CreateFieldOnDoubleClick>
     <CreateLabel>Создавать подпись</CreateLabel>
+    <CrossFiltering>Кросс-фильтрация</CrossFiltering>
     <Culture>Культура</Culture>
     <CustomFonts>Пользовательские шрифты</CustomFonts>
     <CustomFormat>Формат по выбору</CustomFormat>
@@ -4246,6 +4249,7 @@
     <SortingEnabled>Сортировка включена</SortingEnabled>
     <SortType>Тип сортировки</SortType>
     <Space>Пробел</Space>
+    <SpaceRatio>Межсимвольный интервал</SpaceRatio>
     <Spacing>Расстояние</Spacing>
     <SqlCommand>SQL запрос</SqlCommand>
     <StartAngle>Начальный угол</StartAngle>
@@ -4351,6 +4355,7 @@
     <UnlimitedBreakable>Разрывать неограниченный</UnlimitedBreakable>
     <UnlimitedHeight>Неограниченная высота</UnlimitedHeight>
     <UnlimitedWidth>Неограниченная ширина</UnlimitedWidth>
+    <UpperMarks>Верхние метки</UpperMarks>
     <UseAliases>Использовать псевдонимы</UseAliases>
     <UseExternalReport>Использовать внешний отчет</UseExternalReport>
     <UseParentStyles>Исп. стили владельца</UseParentStyles>
@@ -4577,6 +4582,7 @@
     <LabelPixels>Пиксели:</LabelPixels>
     <LabelQueryTimeout>Время ожидания запроса:</LabelQueryTimeout>
     <LabelSystemVariable>Системные переменные:</LabelSystemVariable>
+    <LabelTableOfContentsHint>Пожалуйста, отметьте те компоненты, которые должны формировать содержание. Один компонент – один уровень заголовка.</LabelTableOfContentsHint>
     <LabelTotals>Итоги:</LabelTotals>
     <LabelType>Тип:</LabelType>
     <LabelUserName>Имя пользователя:</LabelUserName>
@@ -4600,7 +4606,7 @@
     <RangeCurrentPage>Текущая</RangeCurrentPage>
     <RangeInfo>Введите номера или диапазоны страниц, разделенные запятыми. Например: 1, 3, 5-12</RangeInfo>
     <RangePage>Страницы</RangePage>
-    <RangePages>номера</RangePages>
+    <RangePages>Номера</RangePages>
     <ReportChecker>Проверка отчетов</ReportChecker>
     <ReportRenderingMessages>Сообщения отчета</ReportRenderingMessages>
     <RestartDesigner>Вам необходимо перезапустить дизайнер отчетов.</RestartDesigner>

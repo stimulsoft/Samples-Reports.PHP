@@ -144,11 +144,13 @@
     <Yes>&amp;Yes</Yes>
   </Buttons>
   <Chart>
+    <AddTrendLine>Add Trend Line</AddTrendLine>
     <AddCondition>&amp;Add Condition</AddCondition>
     <AddConstantLine>Add Constant Line</AddConstantLine>
     <AddFilter>&amp;Add Filter</AddFilter>
     <AddSeries>&amp;Add Series</AddSeries>
     <AddStrip>Add Strip</AddStrip>
+    <AddTrendLine>Add Trend Line</AddTrendLine>
     <Area>Area</Area>
     <Axes>Axes</Axes>
     <AxisReverse>Reverse</AxisReverse>
@@ -899,6 +901,7 @@
     <NoServices>Services are not found in '{0}'</NoServices>
     <NotAssign>Data Source is not specified.</NotAssign>
     <NotCorrectFormat>Input string was not in a correct format.</NotCorrectFormat>
+    <OneTableOfContentsAllowed>Only one 'Table of Contents' component can be used in a report at the same time!</OneTableOfContentsAllowed>
     <PrimaryColumnAction>Unable to apply this action to the primary column of the '{0}'.</PrimaryColumnAction>
     <RelationsNotFound>Relations not found.</RelationsNotFound>
     <ReportCannotBeSaveDueToErrors>Report cannot be saved due to errors!</ReportCannotBeSaveDueToErrors>
@@ -1566,7 +1569,7 @@
     <CreateStyleCollection>Create Style Collection</CreateStyleCollection>
     <CreateStyleOnBase>Create a style based on another style</CreateStyleOnBase>
     <Duplicate>Duplicate Style</Duplicate>
-    <EditColors>[Edit Colors]</EditColors>
+    <EditColors>Edit Colors</EditColors>
     <FromStyle>From Style</FromStyle>
     <GetStyle>Get Style from Selected Components</GetStyle>
     <MoreStyles>More Styles</MoreStyles>
@@ -2574,6 +2577,7 @@
     <Size>Size</Size>
     <SubReportCategory>Sub-Report</SubReportCategory>
     <TableCategory>Table</TableCategory>
+    <TableOfContents>Table of Contents</TableOfContents>
     <TextAdditionalCategory>Text Additional</TextAdditionalCategory>
     <TextCategory>Text</TextCategory>
     <TitleCategory>Title</TitleCategory>
@@ -3436,6 +3440,7 @@
     <AlternatingCellForeColor>Alternating Cell Fore Color</AlternatingCellForeColor>
     <AlternatingDataColor>Alternating Data Color</AlternatingDataColor>
     <AlternatingDataForeground>Alternating Data Foreground</AlternatingDataForeground>
+    <Always>Always</Always>
     <Anchor>Anchor</Anchor>
     <Angle>Angle</Angle>
     <Antialiasing>Antialiasing</Antialiasing>
@@ -3575,6 +3580,7 @@
     <Create>Create</Create>
     <CreateFieldOnDoubleClick>Create Field on Double Click</CreateFieldOnDoubleClick>
     <CreateLabel>Create Label</CreateLabel>
+    <CrossFiltering>Cross-Filtering</CrossFiltering>
     <Culture>Culture</Culture>
     <CustomFonts>Custom Fonts</CustomFonts>
     <CustomFormat>Custom Format</CustomFormat>
@@ -3675,7 +3681,7 @@
     <Filter>Filter</Filter>
     <FilterElements>Filter Elements</FilterElements>
     <FilterEngine>Filter Engine</FilterEngine>
-    <FilterMode>Filters Operation</FilterMode>
+    <FilterMode>Filter Mode</FilterMode>
     <FilterOn>Filter On</FilterOn>
     <Filters>Filters</Filters>
     <FirstTabOffset>First Tab Offset</FirstTabOffset>
@@ -3746,6 +3752,7 @@
     <HeaderRowsCount>Header Rows Count</HeaderRowsCount>
     <Headers>Headers</Headers>
     <HeaderText>Header Text</HeaderText>
+    <Heading>Heading</Heading>
     <HeatmapColors>Heatmap Colors</HeatmapColors>
     <Height>Height</Height>
     <HideSeriesWithEmptyTitle>Hide Series with Empty Title</HideSeriesWithEmptyTitle>
@@ -4184,7 +4191,7 @@
     <SortingEnabled>Sorting Enabled</SortingEnabled>
     <SortType>Sort Type</SortType>
     <Space>Space</Space>
-	<SpaceRatio>Space Ratio</SpaceRatio>
+    <SpaceRatio>Space Ratio</SpaceRatio>
     <Spacing>Spacing</Spacing>
     <SqlCommand>Sql Command</SqlCommand>
     <StartAngle>Start Angle</StartAngle>
@@ -4291,7 +4298,7 @@
     <UnlimitedHeight>Unlimited Height</UnlimitedHeight>
     <UnlimitedWidth>Unlimited Width</UnlimitedWidth>
     <UpperMarks>Upper Marks</UpperMarks>
-	<UseAliases>Use Aliases</UseAliases>
+    <UseAliases>Use Aliases</UseAliases>
     <UseExternalReport>Use External Report</UseExternalReport>
     <UseParentStyles>Use Parent Styles</UseParentStyles>
     <UseRangeColor>Use Range Color</UseRangeColor>
@@ -4475,7 +4482,7 @@
     <CreatingReport>Creating Report</CreatingReport>
     <CrossBands>Cross</CrossBands>
     <Dialogs>Dialogs</Dialogs>
-    <EditStyles>[Edit Styles]</EditStyles>
+    <EditStyles>Edit Styles</EditStyles>
     <Enhancements>Enhancements</Enhancements>
     <Errors>Errors</Errors>
     <EventsTab>Events Tab</EventsTab>
@@ -4516,6 +4523,7 @@
     <LabelPixels>Pixels:</LabelPixels>
     <LabelQueryTimeout>Query Timeout:</LabelQueryTimeout>
     <LabelSystemVariable>System Variable:</LabelSystemVariable>
+    <LabelTableOfContentsHint>Please, check the components which should form the table of contents. One component is equal to one heading level.</LabelTableOfContentsHint>
     <LabelTotals>Totals</LabelTotals>
     <LabelType>Type:</LabelType>
     <LabelUserName>User Name:</LabelUserName>

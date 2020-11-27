@@ -149,6 +149,7 @@
     <AddFilter>&amp;Filter hinzufügen</AddFilter>
     <AddSeries>Reihen hinzufügen</AddSeries>
     <AddStrip>Streifen hinzufügen</AddStrip>
+    <AddTrendLine>Trendlinie hinzufügen</AddTrendLine>
     <Area>Fläche</Area>
     <Axes>Axen</Axes>
     <AxisReverse>Vertauschen</AxisReverse>
@@ -3494,6 +3495,7 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <AlternatingCellForeColor>Vordergrundfarbe abwechselnder Zelle</AlternatingCellForeColor>
     <AlternatingDataColor>Farbe abwechselnder Daten</AlternatingDataColor>
     <AlternatingDataForeground>Vordergrund abwechselnder Daten</AlternatingDataForeground>
+    <Always>Immer</Always>
     <Anchor>Anker</Anchor>
     <Angle>Winkel</Angle>
     <Antialiasing>Antialiasing</Antialiasing>
@@ -3634,6 +3636,7 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <Create>Erstellen</Create>
     <CreateFieldOnDoubleClick>Feld durch Doppelklick erstellen</CreateFieldOnDoubleClick>
     <CreateLabel>Beschriftung erstellen</CreateLabel>
+    <CrossFiltering>Kreuzfilterung</CrossFiltering>
     <Culture>Kultur</Culture>
     <CustomFonts> Eigene Schriftarten</CustomFonts>
     <CustomFormat>Benutzerdefiniertes Format</CustomFormat>
@@ -4247,6 +4250,7 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <SortingEnabled>Sortierung aktivieren</SortingEnabled>
     <SortType>Sortier-Typ</SortType>
     <Space>Leerraum</Space>
+    <SpaceRatio>Leerraum</SpaceRatio>
     <Spacing>Abstand</Spacing>
     <SqlCommand>SQL-Abfrage</SqlCommand>
     <StartAngle>Anfangswinkel</StartAngle>
@@ -4352,6 +4356,7 @@ Sie enthält den Link zur Bestätigung Ihrer Registrierung. Um Ihre Registrierun
     <UnlimitedBreakable>Unbegrenzte können unterbrochen werden</UnlimitedBreakable>
     <UnlimitedHeight>Unbegrenzte Höhe</UnlimitedHeight>
     <UnlimitedWidth>Unbegrenzte Breite</UnlimitedWidth>
+    <UpperMarks>Obere Zeichen</UpperMarks>
     <UseAliases>Aliase benutzen</UseAliases>
     <UseExternalReport>Aus Datei laden</UseExternalReport>
     <UseParentStyles>Elternstile verwenden</UseParentStyles>

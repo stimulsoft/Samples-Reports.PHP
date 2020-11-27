@@ -98,10 +98,10 @@
     <StiDataSourcesForImageCheckShort>Several data sources are set</StiDataSourcesForImageCheckShort>
     <StiEventsAtInterpretationCheckLong>The script in the '{0}' event in the '{1}' component doesn't work in the interpretation mode.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>Events in Interpretation</StiEventsAtInterpretationCheckShort>
-    <StiFilterCircularDependencyElementCheckLong>The circular dependency of the filter is found at the element '{0}'. Please check the 'Parent Key' property of the {0} 'element!</StiFilterCircularDependencyElementCheckLong>
-    <StiFilterCircularDependencyElementCheckShort>Circular filter dependency</StiFilterCircularDependencyElementCheckShort>
     <StiExpressionElementCheckLong>The expression '{0}' in the '{1}' component works incorrectly. The following message was received from the parser: '{2}'.</StiExpressionElementCheckLong>
     <StiExpressionElementCheckShort>An expression works incorrectly!</StiExpressionElementCheckShort>
+    <StiFilterCircularDependencyElementCheckLong>The circular dependency of the filter is found at the element '{0}'. Please check the 'Parent Key' property of the {0} 'element!</StiFilterCircularDependencyElementCheckLong>
+    <StiFilterCircularDependencyElementCheckShort>Circular filter dependency</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>A filter value of '{0}' is not specified. This filter can't be processed.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>A filter Value is not specified</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>The font '{0}' specified for the component '{1}' is not found.</StiFontMissingCheckLong>
@@ -213,6 +213,7 @@
   </CheckGlobal>
   <CheckLicense>
     <StiLicenseTrialCheckLong>You are using the trial version of Stimulsoft Reports and Dashboards. To use the software in production you should purchase a license.</StiLicenseTrialCheckLong>
+    <StiValidSubscriptioRequiredCheckLong>Valid Subscription Required. Please update your subscription to use the fully functional version of Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>Lost points are found on the '{0}' page: {1}. Points are invisible and used in the following primitives: vertical line, rectangle and rounded rectangle. If the point does not match to any components then it can be deleted.</StiLostPointsOnPageCheckLong>
@@ -312,8 +313,8 @@
     <ParametersFromReport>Use Value from Report</ParametersFromReport>
     <ParametersFromReportToolTip>The values ​​of the parameters set in the report template will be used.</ParametersFromReportToolTip>
     <ParametersReplace>Replace Value from {0}Code</ParametersReplace>
-    <ParametersReplaceToolTip>You will be offered to change the values ​​of the report parameters from the code.</ParametersReplaceToolTip>
     <ParametersReplacePhpInfo>The parameter will be removed from the report dictionary and can be used only in the SQL query.</ParametersReplacePhpInfo>
+    <ParametersReplaceToolTip>You will be offered to change the values ​​of the report parameters from the code.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Request from User</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>The report parameter will be requested from the user when viewing the report in the viewer window.</ParametersRequestFromUserToolTip>
     <Publish>Publish</Publish>
@@ -884,6 +885,7 @@
     <ComponentStyle>A style of a component.</ComponentStyle>
     <Conditions>A collection of the conditions.</Conditions>
     <CountData>The count of rows for virtual data.</CountData>
+    <CrossFiltering>Gets or sets a value which controls applying cross-filters from the current page to that element.</CrossFiltering>
     <DataRelation>Link that is used for master-detail reports rendering.</DataRelation>
     <DataSource>Data source that is used for getting data.</DataSource>
     <DockStyle>A type of the component docking.</DockStyle>
@@ -934,7 +936,7 @@
     <LineStyle>Constant line style.</LineStyle>
     <LineWidth>Constant line width.</LineWidth>
     <Orientation>Horizontal or vertical orientation of constant line.</Orientation>
-    <Position>A text position at contant line.</Position>
+    <Position>A text position at constant line.</Position>
     <ShowBehind>A value indicates that constant lines will be shown behind chart series or in front of chart series.</ShowBehind>
     <ShowInLegend>Constant lines in chart legend.</ShowInLegend>
     <Text>A constant line text.</Text>

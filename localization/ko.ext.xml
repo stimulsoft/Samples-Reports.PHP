@@ -261,29 +261,42 @@
     <Cancel>취소</Cancel>
     <Close>닫기</Close>
     <ConnectionsFromReport>보고서에서 연결을 사용하는</ConnectionsFromReport>
+    <ConnectionsFromReportToolTip>리포트 템플릿에 저장된 연결은 수정없이 사용됩니다.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>코드에서 데이터를 등록</ConnectionsRegData>
+    <ConnectionsRegDataToolTip>XML이나 JSON 데이터 형식 또는 가능하면 비즈니스 개체 형태의 코드에서 데이터를 연결하도록 제안됩니다.</ConnectionsRegDataToolTip>
     <ConnectionsReplace>연결 문자열을 대체하는</ConnectionsReplace>
+    <ConnectionsReplaceToolTip>유형(파일 경로, 데이터베이스 연결 문자열)에 따라 코드에서 연결을 변경하라는 메시지가 표시됩니다.</ConnectionsReplaceToolTip>
     <Copy>복사</Copy>
     <CopyingLibraries>프로젝트 파일의 복사...</CopyingLibraries>
     <DeployReportPlatform>플랫폼에 보고서 배포 :</DeployReportPlatform>
     <DownloadingLibraries>라이브러리 다운로드...</DownloadingLibraries>
+    <EmbedAllDataToResources>보고서에는 선택한 플랫폼에서 지원되지 않는 데이터 연결이 포함되어 있습니다. 보고서에 사용 가능한 데이터를 리소스로 포함 하시겠습니까? 이 경우 모든 연결이 XML리소스로 대체됩니다.</EmbedAllDataToResources>
+    <EmbedAllDataToResourcesToolTip>A모든 데이터가로드되고 리포트 템플릿에 리소스로 추가됩니다. 이를 통해 데이터베이스를 쿼리하지 않고도 보고서를 볼 수 있습니다.</EmbedAllDataToResourcesToolTip>
     <ExportFormat>보고서를 내보낼 :</ExportFormat>
     <ExportFormatData>데이터</ExportFormatData>
     <ExportFormatDataType>데이터 형식 :</ExportFormatDataType>
     <ExportFormatImage>이미지</ExportFormatImage>
     <ExportFormatImageType>이미지 유형 :</ExportFormatImageType>
     <FullScreenViewer>전체 브라우저 창에 뷰어보기</FullScreenViewer>
+    <FullScreenViewerToolTip>리포트가있는 뷰어는 브라우저 창의 사용 가능한 전체 공간에 표시됩니다.</FullScreenViewerToolTip>
     <GetLibrariesFrom>{0}에서 Stimulsoft 라이브러리를 얻을</GetLibrariesFrom>
+    <GetLibrariesFromToolTip>필요한 모든 라이브러리와 스크립트는 저장소에서 연결됩니다. 그렇지 않으면 프로젝트에 복사되어 직접 연결됩니다.</GetLibrariesFromToolTip>
     <GroupAddons>추가</GroupAddons>
     <GroupConnections>데이터 연결</GroupConnections>
     <GroupParameters>보고서 매개 변수</GroupParameters>
     <HideOptions>옵션 숨기기</HideOptions>
     <IncludeFonts>글꼴을 포함</IncludeFonts>
+    <IncludeFontsToolTip>리포트 구성 요소의 크기를 올바르게 계산하는 데 필요한 글꼴이 복사되어 프로젝트에 연결됩니다.</IncludeFontsToolTip>
     <IncludeLibrariesToStandalone>Stimulsoft 라이브러리를 실행 파일에 포함</IncludeLibrariesToStandalone>
+    <IncludeLibrariesToStandaloneToolTip>필요한 모든 라이브러리와 파일이 실행 파일에 포함됩니다. 그렇지 않으면 ZIP 아카이브가 생성됩니다.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>라이센스 키를 포함</IncludeLicenseKey>
+    <IncludeLicenseKeyToolTip>현재 승인된 사용자 계정의 라이선스키가 프로젝트에 통합됩니다.</IncludeLicenseKeyToolTip>
     <IncludeLocalization>현지화를 포함</IncludeLocalization>
+    <IncludeLocalizationToolTip>선택한 현지화가 복사되고 프로젝트에 연결됩니다.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>코드에 Packed String으로 보고서를 포함</IncludeReportPackedStringToCode>
+    <IncludeReportPackedStringToCodeToolTip>보고서는 프로젝트 코드에서 바로 Base64 문자열로 저장됩니다. 이렇게하면 추가 파일을 제거 할 수 있습니다.</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>UI 테마를 포함</IncludeUITheme>
+    <IncludeUIThemeToolTip>선택한 사용자 인터페이스 테마는 구성 요소 설정에서 설정됩니다.</IncludeUIThemeToolTip>
     <JavaScriptFramework>프레임 워크 유형 :</JavaScriptFramework>
     <LicenseKeyTypeFile>파일</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
@@ -297,16 +310,23 @@
     <LoadReportStream>스트림</LoadReportStream>
     <LoadReportString>String</LoadReportString>
     <ParametersFromReport>보고서의 값을 사용하는</ParametersFromReport>
+    <ParametersFromReportToolTip>리포트 템플릿에 설정된 매개 변수의 값이 사용됩니다.</ParametersFromReportToolTip>
     <ParametersReplace>{0} 코드 값을 대체하는</ParametersReplace>
     <ParametersReplacePhpInfo>매개 변수는 보고서 사전에서 삭제 된 SQL 쿼리에서만 사용할 수 있습니다.</ParametersReplacePhpInfo>
+    <ParametersReplaceToolTip>코드에서 리포트 매개 변수의 값을 변경하라는 메시지가 표시됩니다.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>사용자의 요청</ParametersRequestFromUser>
+    <ParametersRequestFromUserToolTip>뷰어 창에서 리포트를 볼 때 사용자에게 리포트 매개 변수가 요청됩니다.</ParametersRequestFromUserToolTip>
     <Publish>Publish</Publish>
     <PublishType>보고서 게시 유형 :</PublishType>
     <PublishTypeProject>프로젝트</PublishTypeProject>
+    <PublishTypeProjectToolTip>ZIP 아카이브는 완료된 프로젝트와 추가 컴파일 및 실행에 필요한 모든 파일로 생성될 것입니다.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>독립형</PublishTypeStandalone>
+    <PublishTypeStandaloneToolTip>리포트를 보기 위해 이미 컴파일된 응용프로그램이 작성될 것입니다.</PublishTypeStandaloneToolTip>
     <ReadMore>자세히보기</ReadMore>
     <RegDataOnlyForPreview>보고서 미리보기 전용으로 사용</RegDataOnlyForPreview>
+    <RegDataOnlyForPreviewToolTip>데이터는 미리보기 순간에만 리포트에 연결됩니다.</RegDataOnlyForPreviewToolTip>
     <RegDataSynchronize>보고서 사전 동기화</RegDataSynchronize>
+    <RegDataSynchronizeToolTip>데이터를 리포트에 연결한 후 데이터 사전(데이터 소스, 열 및 유형, 데이터 링크)이 동기화됩니다.</RegDataSynchronizeToolTip>
     <ReplaceConnectionString>대체 연결 문자열</ReplaceConnectionString>
     <ReplacePathToData>데이터 경로를 대체</ReplacePathToData>
     <ReportAction>보고서의 처리 :</ReportAction>
@@ -322,9 +342,13 @@
     <TrialVersion>평가판</TrialVersion>
     <Use>Use</Use>
     <UseCompilationCache>컴파일 캐시를 사용</UseCompilationCache>
+    <UseCompilationCacheToolTip>렌더링된 리포트는 렌더링 속도를 높이고 메모리 사용량을 줄일 수 있는 임시 디렉토리에 저장될 것입니다.</UseCompilationCacheToolTip>
     <UseCompressedScripts>압축 스크립트를 사용</UseCompressedScripts>
+    <UseCompressedScriptsToolTip>일반 스크립트 대신 압축 된 스크립트가 사용됩니다. 이렇게하면 크기를 줄일 수 있지만 실행할 때 압축을 푸는 데 시간이 걸립니다.</UseCompressedScriptsToolTip>
     <UseLatestVersion>최신 버전의 라이브러리를 사용</UseLatestVersion>
+    <UseLatestVersionToolTip>라이브러리와 스크립트를 연결할 때 현재 설치된 버전 대신 사용 가능한 최신 공식 버전의 제품이 사용됩니다.</UseLatestVersionToolTip>
     <UseWpfDesignerV2>Designer V2를 사용</UseWpfDesignerV2>
+    <UseWpfDesignerV2ToolTip>업데이트 된 WPF 보고서 디자이너가 사용됩니다. 새로운 UI, 향상된 속도 및 기타 최적화 기능이 있습니다.</UseWpfDesignerV2ToolTip>
   </Publish>
   <ReportComparer>
     <Change>변경</Change>
@@ -1175,6 +1199,13 @@
     <ValueDataColumnEnd>종료 값을 포함하는 열 이름</ValueDataColumnEnd>
     <ValueEnd>종료 값의 표현식입니다. 예:{Order.Value}</ValueEnd>
   </StiGanttSeries>
+  <StiGaugeElement>
+    <Font>글꼴.</Font>
+    <ForeColor>전경 색상.</ForeColor>
+    <Series>게이지 시리즈.</Series>
+    <Style>게이지 스타일.</Style>
+    <Title>게이지 제목.</Title>
+  </StiGaugeElement>
   <StiGlareBrush>
     <Angle>그레디언트의 방향 선 x 축에서 시계 방향으로 측정 한 각도</Angle>
     <EndColor>그라데이션의 끝 색</EndColor>

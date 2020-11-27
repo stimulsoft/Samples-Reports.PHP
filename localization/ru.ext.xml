@@ -213,6 +213,7 @@
   </CheckGlobal>
   <CheckLicense>
     <StiLicenseTrialCheckLong>Вы используете пробную версию продукта. Для полноценного использования Вам необходимо приобрести лицензию.</StiLicenseTrialCheckLong>
+    <StiValidSubscriptioRequiredCheckLong>Требуется активная подписка. Обновите подписку, чтобы использовать весь функционал Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>На странице '{0}' найдены потерянные точки: {1}. Точки невидимы на странице и используются в следующих графических примитивах: вертикальная линия, прямоугольник и закругленный прямоугольник. Если точка не сопоставлена ни с одним компонентом, то ее можно удалить.</StiLostPointsOnPageCheckLong>
@@ -884,6 +885,7 @@
     <ComponentStyle>Стиль компонента.</ComponentStyle>
     <Conditions>Коллекция условий.</Conditions>
     <CountData>Число строк для виртуальных данных.</CountData>
+    <CrossFiltering>Значение, которое управляет использованием или не использованием кросс-фильтров текущей страницы для этого элемента.</CrossFiltering>
     <DataRelation>Ссылка, которая используется для построения master-detail отчетов.</DataRelation>
     <DataSource>Источник данных, который используется для получения данных.</DataSource>
     <DockStyle>Тип стыковки компонента.</DockStyle>

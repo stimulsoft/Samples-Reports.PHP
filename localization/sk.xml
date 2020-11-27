@@ -154,6 +154,7 @@
     <AxisReverse>Prevrátiť</AxisReverse>
     <AxisX>Os X</AxisX>
     <AxisY>Os Y</AxisY>
+    <BoxAndWhisker>Škatuľový</BoxAndWhisker>
     <Bubble>Bublinkový</Bubble>
     <Candlestick>Sviečkový</Candlestick>
     <ChartConditionsCollectionForm>Podmienky</ChartConditionsCollectionForm>
@@ -626,6 +627,7 @@
     <StiSubReport>Podzostava</StiSubReport>
     <StiSystemText>Systémový text</StiSystemText>
     <StiTable>Tabuľka</StiTable>
+    <StiTableOfContents>Obsah</StiTableOfContents>
     <StiText>Text</StiText>
     <StiTextInCells>Text v bunkách</StiTextInCells>
     <StiTreeView>Strom</StiTreeView>
@@ -1204,6 +1206,7 @@
     <ClientSecret>Hodnota kľúča klienta</ClientSecret>
     <ConnectionString>Pripájací reťazec:</ConnectionString>
     <DashboardConnections>Spojenia riadiaceho panela</DashboardConnections>
+    <DatabaseSecret>Databázový kľúč</DatabaseSecret>
     <DB2Edit>Edit IBM DB2 pripojenie</DB2Edit>
     <DB2New>New IBM DB2 pripojenie</DB2New>
     <EditConnection>Edituj {0} pripojenie</EditConnection>
@@ -1213,6 +1216,8 @@
     <FirstRowIsHeader>Prvý riadok je hlavička</FirstRowIsHeader>
     <GetAuthorizationCode>Zadajte autorizačný kód</GetAuthorizationCode>
     <GetTokens>Zadajte tokeny</GetTokens>
+    <GisEdit>Editovať GIS dáta</GisEdit>
+    <GisNew>Nové GIS dáta</GisNew>
     <ImportData>Importuj dáta</ImportData>
     <InformixEdit>Upraviť Informix pripojenie</InformixEdit>
     <InformixNew>Nové Informix pripojenie</InformixNew>
@@ -1231,6 +1236,7 @@
     <OracleODPEdit>Edituj Oracle ODP.NET pripojenie</OracleODPEdit>
     <OracleODPNew>Nové Oracle ODP.NET pripojenie</OracleODPNew>
     <PathData>Cesta k XML dátam:</PathData>
+    <PathGisData>Cesta ku GIS dátam:</PathGisData>
     <PathJsonData>Nové JSON dáta:</PathJsonData>
     <PathSchema>Cesta k XSD schéme:</PathSchema>
     <PathToData>Cesta k JSON dátam:</PathToData>
@@ -2529,6 +2535,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <CrossTabCategory>Krížová tabuľka</CrossTabCategory>
     <DashboardCategory>Riadiaci panel</DashboardCategory>
     <DataCategory>Dáta</DataCategory>
+    <DataCells>Dáta</DataCells>
     <DatePickerCategory>Dátum</DatePickerCategory>
     <DescriptionCategory>Popis</DescriptionCategory>
     <DesignCategory>Dizajn</DesignCategory>
@@ -3793,6 +3800,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <HyperlinkDataColumn>Dátový stĺpec - hyperlinka</HyperlinkDataColumn>
     <Icon>Ikona</Icon>
     <IconAlignment>Zarovnanie ikony</IconAlignment>
+    <IconColor>Farba ikony</IconColor>
     <IconSet>Súbor ikon</IconSet>
     <IconSetCondition>Podmienka pre súbor ikon</IconSetCondition>
     <Idents>Identifikátory</Idents>
@@ -4164,11 +4172,13 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <ShowEdgeValues>Ukáž hraničné hodnoty</ShowEdgeValues>
     <ShowImageBehind>Zobraziť pozadie obrázku</ShowImageBehind>
     <ShowInLegend>Zobraziť v legende</ShowInLegend>
+    <ShowInnerPoints>Ukázať vnútorné body</ShowInnerPoints>
     <ShowInPercent>Ukáž v percentách</ShowInPercent>
     <ShowLabels>Ukáž popisy</ShowLabels>
     <ShowLabelText>Zobraziť text štítku</ShowLabelText>
     <ShowLegend>Ukáž legendu</ShowLegend>
     <ShowMarker>Zobraziť značku</ShowMarker>
+    <ShowMeanMarkers>Ukázať hlavné značky</ShowMeanMarkers>
     <ShowNulls>Ukázať nulové hodnoty</ShowNulls>
     <ShowOnZeroValues>Ukáž nulové hodnoty</ShowOnZeroValues>
     <ShowOthers>Ukáž ďalšie</ShowOthers>
