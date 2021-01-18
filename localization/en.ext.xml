@@ -852,6 +852,11 @@
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode93ExtBarCodeType>
+  <StiColumnSize>
+    <MaxWidth>Gets or sets a maximum width of the table column.</MaxWidth>
+    <MinWidth>Gets or sets a minimum width of the table column.</MinWidth>
+    <Width>Gets or sets the specified width for the table column. The width will be calculated automatically by the table element if a value equal to zero.</Width>
+  </StiColumnSize>
   <StiComboBoxControl>
     <DropDownStyle>A value specifying the style.</DropDownStyle>
     <DropDownWidth>Width of the of the drop-down portion.</DropDownWidth>
@@ -924,6 +929,7 @@
     <TextBrush>A brush to draw text.</TextBrush>
     <ToolTip>An expression to fill the component ToolTip.</ToolTip>
     <Top>Top position of the component.</Top>
+    <TotalLabel>Gets or sets a value that is displayed as a label for a total.</TotalLabel>
     <UseParentStyles>A value indicates that this component must use styles from the parent component.</UseParentStyles>
     <VertAlignment>The vertical alignment of an object.</VertAlignment>
     <Width>Width of the component.</Width>
@@ -1890,6 +1896,9 @@
     <Style>Table style.</Style>
     <Title>Table title.</Title>
   </StiTableElement>
+  <StiTableOfContents>
+    <RightToLeft>Gets or sets horizontal output direction.</RightToLeft>
+  </StiTableOfContents>
   <StiText>
     <AllowHtmlTags>A value indicates that this component allows HTML tags in a text.</AllowHtmlTags>
     <Angle>An angle of a text rotation.</Angle>

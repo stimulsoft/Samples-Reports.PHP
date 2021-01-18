@@ -144,7 +144,6 @@
     <Yes>&amp;Yes</Yes>
   </Buttons>
   <Chart>
-    <AddTrendLine>Add Trend Line</AddTrendLine>
     <AddCondition>&amp;Add Condition</AddCondition>
     <AddConstantLine>Add Constant Line</AddConstantLine>
     <AddFilter>&amp;Add Filter</AddFilter>
@@ -405,6 +404,7 @@
     <HyperlinkHavePassword>Have password</HyperlinkHavePassword>
     <HyperlinkRegisterAccount>Register FREE account</HyperlinkRegisterAccount>
     <InstallSamples>Install Samples</InstallSamples>
+    <Invite>Invite</Invite>
     <LabelAddCloudFolder>Connect your Stimulsoft Cloud folder with reports and dashboards.</LabelAddCloudFolder>
     <LabelAddFolder>Add your local folder with reports and dashboards.</LabelAddFolder>
     <labelCollectionName>Collection Name:</labelCollectionName>
@@ -420,6 +420,7 @@
     <LabelForeground>Foreground:</LabelForeground>
     <LabelFromReport>From Report</LabelFromReport>
     <LabelFromReportCode>From Report (define in code)</LabelFromReportCode>
+    <LabelInviteUser>Invite new users to your team. Send invitations to their emails.</LabelInviteUser>
     <LabelLastLogin>Last Log In:</LabelLastLogin>
     <LabelLastTime>Last Time:</LabelLastTime>
     <LabelModified>Modified:</LabelModified>
@@ -438,6 +439,7 @@
     <LicenseInformation>License Information</LicenseInformation>
     <LicenseKey>License Key</LicenseKey>
     <Login>Log In</Login>
+    <MyTeam>My Team</MyTeam>
     <NofM>{0}: {1} of {2}</NofM>
     <Open>Open</Open>
     <OpenFile>Open File</OpenFile>
@@ -482,6 +484,7 @@
     <TabItemEmbedCode>Embed Code</TabItemEmbedCode>
     <TabItemQRCode>QR Code</TabItemQRCode>
     <TabItemShare>Link to Share</TabItemShare>
+    <Team>Team</Team>
     <TermsOfUse>Terms</TermsOfUse>
     <TextActivated>Activated</TextActivated>
     <TextActivationDate>Activation Date</TextActivationDate>
@@ -1202,13 +1205,14 @@
   </FormCrossTabDesigner>
   <FormDatabaseEdit>
     <AccessToken>Access token</AccessToken>
-    <AuthorizationCode>Authorization Code</AuthorizationCode>
-    <ClientId>Client Id</ClientId>
+    <AuthorizationCode>Authorization Code</AuthorizationCode>    
+	<ClientId>Client Id</ClientId>
     <ClientSecret>Client Secret</ClientSecret>
     <ConnectionString>Connection String:</ConnectionString>
     <DashboardConnections>Dashboard Connections</DashboardConnections>
     <DatabaseSecret>Database Secret</DatabaseSecret>
-    <DB2Edit>Edit IBM DB2 Connection</DB2Edit>
+    <DatasetId>Dataset Id</DatasetId>
+	<DB2Edit>Edit IBM DB2 Connection</DB2Edit>
     <DB2New>New IBM DB2 Connection</DB2New>
     <EditConnection>Edit {0} Connection</EditConnection>
     <Favorites>Favorites</Favorites>
@@ -1245,6 +1249,7 @@
     <PostgreSQLEdit>Edit PostgreSQL Connection</PostgreSQLEdit>
     <PostgreSQLNew>New PostgreSQL Connection</PostgreSQLNew>
     <PromptUserNameAndPassword>Prompt User Name and Password</PromptUserNameAndPassword>
+	<ProjectId>Project Id</ProjectId>
     <RecentConnections>Recent</RecentConnections>
     <RedirectUrl>Redirect URL</RedirectUrl>
     <RefreshAccessToken>Refresh access token</RefreshAccessToken>
@@ -1252,6 +1257,7 @@
     <RelationDirection>Relation Direction:</RelationDirection>
     <ReportConnections>Report Connections</ReportConnections>
     <SelectData>Select Data</SelectData>
+	<ServiceAccountKeyFile>Service Account Key File</ServiceAccountKeyFile>
     <SpreadsheetId>Spreadsheet Id</SpreadsheetId>
     <SqlCeEdit>Edit SQLServerCE Connection</SqlCeEdit>
     <SqlCeNew>New SQLServerCE Connection</SqlCeNew>
@@ -2275,7 +2281,7 @@
       Registration completed successfully!
 
       The Email was sent to "{0}".
-      It contains a link to confirm your registration. To complete the registration please follow the link from the email you received.
+      It contains a link to confirm your registration. To complete the registration please follow the link from the Email you received.
     </TextRegistrationSuccessfully>
     <ThisFieldIsNotSpecified>This Field is Not Specified!</ThisFieldIsNotSpecified>
     <ThisFunctionEmbedsAllReportDataToTheReport>This function embeds all report data to the report resources and makes your report standalone. Be careful! All your data settings will be changed and can't be restored.Please, make a backup copy of your report firstly.{0}Are you sure?</ThisFunctionEmbedsAllReportDataToTheReport>
@@ -2321,8 +2327,9 @@
     <AuthTokenIsNotCorrect>Token is not correct!</AuthTokenIsNotCorrect>
     <AuthUserHasLoggedOut>You have logged out!</AuthUserHasLoggedOut>
     <AuthUserNameAlreadyExists>The username (Email) is already in use!</AuthUserNameAlreadyExists>
+    <AuthUserNameEmailIsBlocked>This Email address cannot be used!</AuthUserNameEmailIsBlocked>
     <AuthUserNameIsNotSpecified>The username (Email) is not specified!</AuthUserNameIsNotSpecified>
-    <AuthUserNameNotAssociatedWithYourAccount>Username (email) {0} is not associated with your {1} account!</AuthUserNameNotAssociatedWithYourAccount>
+    <AuthUserNameNotAssociatedWithYourAccount>Username (Email) {0} is not associated with your {1} account!</AuthUserNameNotAssociatedWithYourAccount>
     <AuthUserNameOrPasswordIsNotCorrect>The username (Email) or password is incorrect!</AuthUserNameOrPasswordIsNotCorrect>
     <AuthUserNameShouldLookLikeAnEmailAddress>The username should be similar to the Email address!</AuthUserNameShouldLookLikeAnEmailAddress>
     <AuthWorkspaceNameAlreadyInUse>The workspace name is already in use!</AuthWorkspaceNameAlreadyInUse>
@@ -3717,6 +3724,7 @@
     <ForeColor>Fore Color</ForeColor>
     <Format>Format</Format>
     <From>From</From>
+    <FrozenColumns>Frozen Columns</FrozenColumns>
     <FullConvertExpression>Full Convert Expression</FullConvertExpression>
     <Function>Function</Function>
     <Functions>Functions</Functions>
@@ -3775,6 +3783,7 @@
     <HtmlTags>HTML Tags</HtmlTags>
     <Hyperlink>Hyperlink</Hyperlink>
     <HyperlinkDataColumn>Hyperlink Data Column</HyperlinkDataColumn>
+    <HyperlinkPattern>Hyperlink Pattern</HyperlinkPattern>
     <Icon>Icon</Icon>
     <IconAlignment>Icon Alignment</IconAlignment>
     <IconColor>Icon Color</IconColor>
@@ -4144,6 +4153,7 @@
     <ShowBubble>Show Bubble</ShowBubble>
     <ShowDialog>Show Dialog</ShowDialog>
     <ShowEdgeValues>Show Edge Values</ShowEdgeValues>
+    <ShowHyperlink>Show Hyperlink</ShowHyperlink>
     <ShowImageBehind>Show Image Behind</ShowImageBehind>
     <ShowInLegend>Show in Legend</ShowInLegend>
     <ShowInnerPoints>Show Inner Points</ShowInnerPoints>
@@ -4279,6 +4289,7 @@
     <TopN>Top N</TopN>
     <TopSide>Top Side</TopSide>
     <Total>Total</Total>
+    <TotalLabel>Total Label</TotalLabel>
     <Totals>Totals</Totals>
     <TrackColor>Track Color</TrackColor>
     <TransparentColor>Transparent Color</TransparentColor>

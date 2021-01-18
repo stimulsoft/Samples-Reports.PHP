@@ -437,6 +437,7 @@
     <LicenseInformation>Информация о лицензии</LicenseInformation>
     <LicenseKey>Лицензионный ключ</LicenseKey>
     <Login>Войти</Login>
+    <MyTeam>Моя команда</MyTeam>
     <NofM>{0}: {1} из {2}</NofM>
     <Open>Открыть</Open>
     <OpenFile>Открыть файл</OpenFile>
@@ -481,6 +482,7 @@
     <TabItemEmbedCode>Код встраивания</TabItemEmbedCode>
     <TabItemQRCode>QR код</TabItemQRCode>
     <TabItemShare>Ссылка</TabItemShare>
+    <Team>Команда</Team>
     <TermsOfService>Условия использования Stimulsoft</TermsOfService>
     <TermsOfUse>правилами</TermsOfUse>
     <TextActivated>Активирована</TextActivated>
@@ -901,6 +903,7 @@
     <NoServices>Сервисы не найдены в '{0}'</NoServices>
     <NotAssign>Источник данных не указан.</NotAssign>
     <NotCorrectFormat>Входная строка в неверном формате.</NotCorrectFormat>
+    <OneTableOfContentsAllowed>Только один компонент 'Оглавление' может использоваться в отчете одновременно!</OneTableOfContentsAllowed>
     <PrimaryColumnAction>Не удается применить это действие к ключевому столбцу '{0}'.</PrimaryColumnAction>
     <RelationsNotFound>Связи не найдены.</RelationsNotFound>
     <ReportCannotBeSaveDueToErrors>Отчет с ошибками не может быть сохранен!</ReportCannotBeSaveDueToErrors>
@@ -2334,6 +2337,7 @@
     <AuthUserHasLoggedOut>Вы вышли из системы!</AuthUserHasLoggedOut>
     <AuthUserNameAlreadyExist>Указанное имя пользователя уже используется!</AuthUserNameAlreadyExist>
     <AuthUserNameAlreadyExists>Имя пользователя (Email) уже используется!</AuthUserNameAlreadyExists>
+    <AuthUserNameEmailIsBlocked>Использование данного почтового ящика невозможно!</AuthUserNameEmailIsBlocked>
     <AuthUserNameIsNotSpecified>Имя пользователя (Email) не указано!</AuthUserNameIsNotSpecified>
     <AuthUserNameNotAssociatedWithYourAccount>Имя пользователя (Email) {0} не связано с вашей учетной записью {1}!</AuthUserNameNotAssociatedWithYourAccount>
     <AuthUserNameNotSpecified>Имя пользователя не указано!</AuthUserNameNotSpecified>
@@ -2627,6 +2631,7 @@
     <Size>Размер</Size>
     <SubReportCategory>Суб-отчеты</SubReportCategory>
     <TableCategory>Таблица</TableCategory>
+    <TableOfContents>Оглавление</TableOfContents>
     <TextAdditionalCategory>Текст, дополнительные</TextAdditionalCategory>
     <TextCategory>Текст</TextCategory>
     <TitleCategory>Заголовок</TitleCategory>
@@ -3772,6 +3777,7 @@
     <ForeColor>Цвет текста</ForeColor>
     <Format>Формат</Format>
     <From>С</From>
+    <FrozenColumns>Зафиксированные колонки</FrozenColumns>
     <FullConvertExpression>Полностью конвертировать выражение</FullConvertExpression>
     <Function>Функция</Function>
     <Functions>Функции</Functions>
@@ -3807,6 +3813,7 @@
     <HeaderRowsCount>Количество строк заголовка</HeaderRowsCount>
     <Headers>Заголовки</Headers>
     <HeaderText>Текст заголовка</HeaderText>
+    <Heading>Заголовок</Heading>
     <HeatmapColors>Цвета температурной карты</HeatmapColors>
     <Height>Высота</Height>
     <HideSeriesWithEmptyTitle>Прятать ряды с пустыми заголовками</HideSeriesWithEmptyTitle>
@@ -3829,6 +3836,7 @@
     <HtmlTags>HTML-теги</HtmlTags>
     <Hyperlink>Гиперссылка</Hyperlink>
     <HyperlinkDataColumn>Колонка данных гиперссылок</HyperlinkDataColumn>
+    <HyperlinkPattern>Шаблон гиперссылки</HyperlinkPattern>
     <Icon>Значок</Icon>
     <IconAlignment>Выравнивание значка</IconAlignment>
     <IconColor>Цвет значка</IconColor>
@@ -4200,6 +4208,7 @@
     <ShowBubble>Показывать пузырьки</ShowBubble>
     <ShowDialog>Показывать диалог</ShowDialog>
     <ShowEdgeValues>Показывать крайние значения</ShowEdgeValues>
+    <ShowHyperlink>Показывать гиперссылку</ShowHyperlink>
     <ShowImageBehind>Показывать изображения за</ShowImageBehind>
     <ShowInLegend>Показывать в легенде</ShowInLegend>
     <ShowInnerPoints>Показать точки выбросов</ShowInnerPoints>
@@ -4337,6 +4346,7 @@
     <TopN>Лучшие значения</TopN>
     <TopSide>Верхняя сторона</TopSide>
     <Total>Итог</Total>
+    <TotalLabel>Подпись итога</TotalLabel>
     <Totals>Итоги</Totals>
     <TrackColor>Цвет трэка</TrackColor>
     <TransparentColor>Цвет прозрачности</TransparentColor>

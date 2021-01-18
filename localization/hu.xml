@@ -149,6 +149,7 @@
     <AddFilter>&amp;Szűrés hozzáadás</AddFilter>
     <AddSeries>&amp;Sorozat hozzáadás</AddSeries>
     <AddStrip>Szalag hozzáadás</AddStrip>
+    <AddTrendLine>Trendvonal felvétele</AddTrendLine>
     <Area>Terület</Area>
     <Axes>Tengelyek</Axes>
     <AxisReverse>Reverse</AxisReverse>
@@ -436,6 +437,7 @@
     <LicenseInformation>Licenc információ</LicenseInformation>
     <LicenseKey>Licenckulcs</LicenseKey>
     <Login>Bejelentkezés</Login>
+    <MyTeam>Csapatom</MyTeam>
     <NofM>{0}: {1} of {2}</NofM>
     <Open>Megnyit</Open>
     <OpenFile>Fájl megnyitás</OpenFile>
@@ -480,6 +482,7 @@
     <TabItemEmbedCode>Kód beágyazása</TabItemEmbedCode>
     <TabItemQRCode>QR kód</TabItemQRCode>
     <TabItemShare>Hiperhivatkozás megosztáshoz</TabItemShare>
+    <Team>Csapat</Team>
     <TermsOfUse>Felhasználási Feltételeket</TermsOfUse>
     <TextActivated>Aktivált</TextActivated>
     <TextActivationDate>Aktiválási dátum</TextActivationDate>
@@ -901,6 +904,7 @@
     <NoServices>Szolgáltatás nem található'{0}'</NoServices>
     <NotAssign>Adatforrás nincs meghatározva.</NotAssign>
     <NotCorrectFormat>Bemeneti szöveg formátuma nem megfelelő.</NotCorrectFormat>
+    <OneTableOfContentsAllowed>Csak egy 'Tartalomjegyzék' komponens használható fel egyszerre egy jelentésen belül!</OneTableOfContentsAllowed>
     <PrimaryColumnAction>Nem sikerült végrehajtani ezt az eljárást a(z) '{0}' elsődleges oszlopára.</PrimaryColumnAction>
     <RelationsNotFound>Reláció nem található.</RelationsNotFound>
     <ReportCannotBeSaveDueToErrors>Reportot nem lehet menteni hibák miatt!</ReportCannotBeSaveDueToErrors>
@@ -2326,6 +2330,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <AuthTokenIsNotCorrect>A token nem megfelelő!</AuthTokenIsNotCorrect>
     <AuthUserHasLoggedOut>Kijelentkezett!</AuthUserHasLoggedOut>
     <AuthUserNameAlreadyExists>A felhasználónév (Email) már használatban van!</AuthUserNameAlreadyExists>
+    <AuthUserNameEmailIsBlocked>Ez az email cím nem használható!</AuthUserNameEmailIsBlocked>
     <AuthUserNameIsNotSpecified>A felhasználónév (Email) nincs megadva!</AuthUserNameIsNotSpecified>
     <AuthUserNameNotAssociatedWithYourAccount>Felhasználónév (email) {0} nincs társítva a(z) {1} fiókjával!</AuthUserNameNotAssociatedWithYourAccount>
     <AuthUserNameOrPasswordIsNotCorrect>Helytelen felhasználónév (Email) vagy jelszó!</AuthUserNameOrPasswordIsNotCorrect>
@@ -2582,6 +2587,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <Size>Méret</Size>
     <SubReportCategory>Beágyazott jelentés</SubReportCategory>
     <TableCategory>Táblázat</TableCategory>
+    <TableOfContents>Tartalomjegyzék</TableOfContents>
     <TextAdditionalCategory>Szöveg további</TextAdditionalCategory>
     <TextCategory>Szöveg</TextCategory>
     <TitleCategory>Cím</TitleCategory>
@@ -3459,6 +3465,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <AlternatingCellForeColor>Változó cella betűszín</AlternatingCellForeColor>
     <AlternatingDataColor>Változó adat szín</AlternatingDataColor>
     <AlternatingDataForeground>Változó adat előtér</AlternatingDataForeground>
+    <Always>Mindig</Always>
     <Anchor>Horgony</Anchor>
     <Angle>Elforgatás</Angle>
     <Antialiasing>Antialiasing</Antialiasing>
@@ -3599,6 +3606,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <Create>Készít</Create>
     <CreateFieldOnDoubleClick>Mező beilleszt dupla klikkre</CreateFieldOnDoubleClick>
     <CreateLabel>Cimke készítés</CreateLabel>
+    <CrossFiltering>Keresztszűrés</CrossFiltering>
     <Culture>Kultúra</Culture>
     <CustomFonts>Egyedi betűtípus</CustomFonts>
     <CustomFormat>Egyéni formátum</CustomFormat>
@@ -3735,6 +3743,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <ForeColor>Szín</ForeColor>
     <Format>Formátum</Format>
     <From>tól</From>
+    <FrozenColumns>Rögzített oszlopok</FrozenColumns>
     <FullConvertExpression>Teljesen konvertált kifejezés</FullConvertExpression>
     <Function>Funkció</Function>
     <Functions>Funkciók</Functions>
@@ -3770,6 +3779,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <HeaderRowsCount>Fejlécsorok száma</HeaderRowsCount>
     <Headers>Fejléc</Headers>
     <HeaderText>Fejléc szöveg</HeaderText>
+    <Heading>Fejléc</Heading>
     <HeatmapColors>Hőtérkép szín</HeatmapColors>
     <Height>Magasság</Height>
     <HideSeriesWithEmptyTitle>Üres című szériák rejtése</HideSeriesWithEmptyTitle>
@@ -4210,6 +4220,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <SortingEnabled>Rendezés engedélyez</SortingEnabled>
     <SortType>Rendezés típusa</SortType>
     <Space>Szóköz</Space>
+    <SpaceRatio>Térarány</SpaceRatio>
     <Spacing>Köz</Spacing>
     <SqlCommand>SQL utasítás</SqlCommand>
     <StartAngle>Induló forgatás</StartAngle>
@@ -4297,6 +4308,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <TopN>Top N</TopN>
     <TopSide>Fenti oldal</TopSide>
     <Total>Totál</Total>
+    <TotalLabel>Teljes címke</TotalLabel>
     <Totals>Totálok</Totals>
     <TrackColor>Nyom színe</TrackColor>
     <TransparentColor>Átlátszó szín</TransparentColor>
@@ -4315,6 +4327,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <UnlimitedBreakable>Unlimited Breakable</UnlimitedBreakable>
     <UnlimitedHeight>Végtelen magasság</UnlimitedHeight>
     <UnlimitedWidth>Végtelen szélesség</UnlimitedWidth>
+    <UpperMarks>Felső jelek</UpperMarks>
     <UseAliases>Aliaszokat használ</UseAliases>
     <UseExternalReport>Külső reportot használ</UseExternalReport>
     <UseParentStyles>Szülő stílust használja</UseParentStyles>
@@ -4541,6 +4554,7 @@ Egy hiperhivatkozást tartalmaz a regisztráció megerősítéséhez. A regisztr
     <LabelPixels>Képpont:</LabelPixels>
     <LabelQueryTimeout>Lekérdezés időtúllépés:</LabelQueryTimeout>
     <LabelSystemVariable>Rendszer változó:</LabelSystemVariable>
+    <LabelTableOfContentsHint>Kérjük, ellenőrizze a komponenseket, amelyek alkotják a tartalomjegyzéket! Egy komponens egy fejlécszinttel egyenlő.</LabelTableOfContentsHint>
     <LabelTotals>Összesen</LabelTotals>
     <LabelType>Típus:</LabelType>
     <LabelUserName>Felhasználó név:</LabelUserName>

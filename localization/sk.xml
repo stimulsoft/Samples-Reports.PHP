@@ -149,6 +149,7 @@
     <AddFilter>&amp;Pridať filter</AddFilter>
     <AddSeries>&amp;Pridať rad</AddSeries>
     <AddStrip>Pridať pruh</AddStrip>
+    <AddTrendLine>Pridať čiaru trendu</AddTrendLine>
     <Area>Oblasť</Area>
     <Axes>Osi</Axes>
     <AxisReverse>Prevrátiť</AxisReverse>
@@ -436,6 +437,7 @@
     <LicenseInformation>Informácie o licencii</LicenseInformation>
     <LicenseKey>Licenčný kľúč</LicenseKey>
     <Login>Login</Login>
+    <MyTeam>Môj tím</MyTeam>
     <NofM>{0}: {1} z {2}</NofM>
     <Open>Otvoriť</Open>
     <OpenFile>Otvoriť súbor</OpenFile>
@@ -480,6 +482,7 @@
     <TabItemEmbedCode>Vložený kód</TabItemEmbedCode>
     <TabItemQRCode>QR kód</TabItemQRCode>
     <TabItemShare>Zdieľať</TabItemShare>
+    <Team>Tím</Team>
     <TermsOfUse>Podmienky</TermsOfUse>
     <TextActivated>Aktivovať</TextActivated>
     <TextActivationDate>Dátum aktivácie</TextActivationDate>
@@ -900,6 +903,7 @@
     <NoServices>Služby nenájdené v '{0}'</NoServices>
     <NotAssign>Dátový zdroj nie je špecifikovaný.</NotAssign>
     <NotCorrectFormat>Vstupný reťazec nebol v správnom formáte.</NotCorrectFormat>
+    <OneTableOfContentsAllowed>Iba jedna komponenta 'Obsah' môže byť použitá v zostave!</OneTableOfContentsAllowed>
     <PrimaryColumnAction>Akciu nie je možné aplikovať na primárny stĺpec '{0}'.</PrimaryColumnAction>
     <RelationsNotFound>Závislosti nenájdené.</RelationsNotFound>
     <ReportCannotBeSaveDueToErrors>Zostava nemôže byť uložená z dôvodu výskytu chýb!</ReportCannotBeSaveDueToErrors>
@@ -2326,6 +2330,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <AuthTokenIsNotCorrect>Token nie je správny!</AuthTokenIsNotCorrect>
     <AuthUserHasLoggedOut>Odhlásili ste sa!</AuthUserHasLoggedOut>
     <AuthUserNameAlreadyExists>Užívateľ s daným menom (e-mail) je už existuje!</AuthUserNameAlreadyExists>
+    <AuthUserNameEmailIsBlocked>Táto e-mailová adresa nemôže byť použitá!</AuthUserNameEmailIsBlocked>
     <AuthUserNameIsNotSpecified>Užívateľ s daným menom (e-mail) nie je zadaný!</AuthUserNameIsNotSpecified>
     <AuthUserNameNotAssociatedWithYourAccount>Používateľské meno (e-mail) {0} nie je priradené k vášmu {1} účtu!</AuthUserNameNotAssociatedWithYourAccount>
     <AuthUserNameOrPasswordIsNotCorrect>Užívateľ s daným menom (e-mail) alebo heslo je nesprávny!</AuthUserNameOrPasswordIsNotCorrect>
@@ -2582,6 +2587,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <Size>Veľkosť</Size>
     <SubReportCategory>Podzostava</SubReportCategory>
     <TableCategory>Tabuľka</TableCategory>
+    <TableOfContents>Obsah</TableOfContents>
     <TextAdditionalCategory>Ďalší text</TextAdditionalCategory>
     <TextCategory>Text</TextCategory>
     <TitleCategory>Titulok</TitleCategory>
@@ -3465,6 +3471,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <AlternatingCellForeColor>Alternatívna farba popredia bunky</AlternatingCellForeColor>
     <AlternatingDataColor>Alternatívna farba dát</AlternatingDataColor>
     <AlternatingDataForeground>Alternatívna farba popredia dát</AlternatingDataForeground>
+    <Always>Vždy</Always>
     <Anchor>Kotva</Anchor>
     <Angle>Uhol</Angle>
     <Antialiasing>Vyhladzovanie</Antialiasing>
@@ -3605,6 +3612,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <Create>Vytvoriť</Create>
     <CreateFieldOnDoubleClick>Vytvoriť pole pri dvojitom kliknutí</CreateFieldOnDoubleClick>
     <CreateLabel>Vytvoriť označenie</CreateLabel>
+    <CrossFiltering>Krížová filtrácia</CrossFiltering>
     <Culture>Kultúra</Culture>
     <CustomFonts>Užívateľské fonty</CustomFonts>
     <CustomFormat>Užívateľský formát</CustomFormat>
@@ -3741,6 +3749,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <ForeColor>Farba</ForeColor>
     <Format>Formát</Format>
     <From>Od</From>
+    <FrozenColumns>Ukotvené stĺpce</FrozenColumns>
     <FullConvertExpression>Úplná konverzia výrazu</FullConvertExpression>
     <Function>Funkcia</Function>
     <Functions>Funkcie</Functions>
@@ -3776,6 +3785,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <HeaderRowsCount>Záhlavie - počet riadkov</HeaderRowsCount>
     <Headers>Záhlavia</Headers>
     <HeaderText>Text hlavičky</HeaderText>
+    <Heading>Nadpis</Heading>
     <HeatmapColors>Farby teplotnej mapy</HeatmapColors>
     <Height>Výška</Height>
     <HideSeriesWithEmptyTitle>Skryť rady s prázdnym názvom</HideSeriesWithEmptyTitle>
@@ -4218,6 +4228,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <SortingEnabled>Triedenie povolené</SortingEnabled>
     <SortType>Typ triedenia</SortType>
     <Space>Medzera</Space>
+    <SpaceRatio>Pomer</SpaceRatio>
     <Spacing>Rozstup</Spacing>
     <SqlCommand>SQL príkaz</SqlCommand>
     <StartAngle>Počiatočný uhol</StartAngle>
@@ -4305,6 +4316,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <TopN>Vrchých n</TopN>
     <TopSide>Vrchná strana</TopSide>
     <Total>Súhrn</Total>
+    <TotalLabel>Celkom</TotalLabel>
     <Totals>Súhrny</Totals>
     <TrackColor>Farba stopy</TrackColor>
     <TransparentColor>Farba priehľadnosti</TransparentColor>
@@ -4323,6 +4335,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <UnlimitedBreakable>Neobmedzená porušitelnosť</UnlimitedBreakable>
     <UnlimitedHeight>Neobmedzená výška</UnlimitedHeight>
     <UnlimitedWidth>Neobmedzená šírka</UnlimitedWidth>
+    <UpperMarks>Horné značky</UpperMarks>
     <UseAliases>Použiť aliasy</UseAliases>
     <UseExternalReport>Použiť externú zostavu</UseExternalReport>
     <UseParentStyles>Používať rodičovské štýly</UseParentStyles>
@@ -4550,6 +4563,7 @@ Obsahuje odkaz pre potvrdenie registrácie. Na dokončenie registrácie kliknite
     <LabelPixels>Body:</LabelPixels>
     <LabelQueryTimeout>Časový limit na vykonanie dopytu:</LabelQueryTimeout>
     <LabelSystemVariable>Systémová premenná:</LabelSystemVariable>
+    <LabelTableOfContentsHint>Skontrolujte prosím komponenty, ktoré by mali tvoriť obsah. Jeden komponent sa rovná jednej úrovni nadpisu.</LabelTableOfContentsHint>
     <LabelTotals>Súhrny</LabelTotals>
     <LabelType>Typ:</LabelType>
     <LabelUserName>Užívateľ:</LabelUserName>

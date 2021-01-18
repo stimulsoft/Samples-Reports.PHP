@@ -149,6 +149,7 @@
     <AddFilter>&amp;Añadir Filtro</AddFilter>
     <AddSeries>&amp;Añadir Series</AddSeries>
     <AddStrip>Añadir Franja</AddStrip>
+    <AddTrendLine>Agregar línea de tendencia</AddTrendLine>
     <Area>Área</Area>
     <Axes>Ejes</Axes>
     <AxisReverse>Invertir</AxisReverse>
@@ -436,6 +437,7 @@
     <LicenseInformation>Información de licencia</LicenseInformation>
     <LicenseKey>Clave de licencia</LicenseKey>
     <Login>Log In</Login>
+    <MyTeam>Mi equipo</MyTeam>
     <NofM>{0}: {1} de {2}</NofM>
     <Open>Abrir</Open>
     <OpenFile>Abrir Fichero</OpenFile>
@@ -480,6 +482,7 @@
     <TabItemEmbedCode>Embeber Código</TabItemEmbedCode>
     <TabItemQRCode>Código QR</TabItemQRCode>
     <TabItemShare>Enlace a Compartir</TabItemShare>
+    <Team>Equipo</Team>
     <TermsOfUse>Condiciones</TermsOfUse>
     <TextActivated>Activado</TextActivated>
     <TextActivationDate>Fecha activación</TextActivationDate>
@@ -900,6 +903,7 @@
     <NoServices>Servicios no encontrados en '{0}'</NoServices>
     <NotAssign>Fuente de datos no especificada.</NotAssign>
     <NotCorrectFormat>La cadena de entrada no tiene el formato correcto.</NotCorrectFormat>
+    <OneTableOfContentsAllowed>¡Solo se puede usar un componente de 'Tabla de contenido' en un informe a la vez!</OneTableOfContentsAllowed>
     <PrimaryColumnAction>No se puede aplicar esta acción a la columna principal de '{0}'.</PrimaryColumnAction>
     <RelationsNotFound>Relación no encontrada.</RelationsNotFound>
     <ReportCannotBeSaveDueToErrors>¡No se puede guardar el informe debido a unos errores!</ReportCannotBeSaveDueToErrors>
@@ -2325,6 +2329,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <AuthTokenIsNotCorrect>¡El Token no es correcto!</AuthTokenIsNotCorrect>
     <AuthUserHasLoggedOut>¡Ha cerrado la sesión!</AuthUserHasLoggedOut>
     <AuthUserNameAlreadyExists>¡El nombre de usuario (correo electrónico) ya está en uso!</AuthUserNameAlreadyExists>
+    <AuthUserNameEmailIsBlocked>¡Esta dirección de correo electrónico no se puede utilizar!</AuthUserNameEmailIsBlocked>
     <AuthUserNameIsNotSpecified>¡No se especificado un nombre de usuario (correo electrónico)!</AuthUserNameIsNotSpecified>
     <AuthUserNameNotAssociatedWithYourAccount>¡El nombre de usuario (correo electrónico) {0} no está asociado con su cuenta {1}!</AuthUserNameNotAssociatedWithYourAccount>
     <AuthUserNameOrPasswordIsNotCorrect>¡El nombre de usuario (correo electrónico) o la contraseña es incorrecta!</AuthUserNameOrPasswordIsNotCorrect>
@@ -2581,6 +2586,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <Size>Tamaño</Size>
     <SubReportCategory>Sub-Informe</SubReportCategory>
     <TableCategory>Tabla</TableCategory>
+    <TableOfContents>Tabla de contenido</TableOfContents>
     <TextAdditionalCategory>Texto Adicional</TextAdditionalCategory>
     <TextCategory>Texto</TextCategory>
     <TitleCategory>Título</TitleCategory>
@@ -3458,6 +3464,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <AlternatingCellForeColor>Color de primer plano de celda alternante</AlternatingCellForeColor>
     <AlternatingDataColor>Color de datos alternos</AlternatingDataColor>
     <AlternatingDataForeground>Datos alternativos en primer plano</AlternatingDataForeground>
+    <Always>Siempre</Always>
     <Anchor>Ancla</Anchor>
     <Angle>Ángulo</Angle>
     <Antialiasing>Antialiasing</Antialiasing>
@@ -3598,6 +3605,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <Create>Crear</Create>
     <CreateFieldOnDoubleClick>Crear Campo con Doble-Clic</CreateFieldOnDoubleClick>
     <CreateLabel>Crear Etiqueta</CreateLabel>
+    <CrossFiltering>Filtrado cruzado</CrossFiltering>
     <Culture>Cultura</Culture>
     <CustomFonts>Fuentes personalizados</CustomFonts>
     <CustomFormat>Formato Personalizado</CustomFormat>
@@ -3734,6 +3742,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <ForeColor>Color Primer Plano</ForeColor>
     <Format>Formato</Format>
     <From>Desde</From>
+    <FrozenColumns>Columnas congeladas</FrozenColumns>
     <FullConvertExpression>Conversión Expresión Total</FullConvertExpression>
     <Function>Función</Function>
     <Functions>Funciones</Functions>
@@ -3769,6 +3778,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <HeaderRowsCount>Número Filas en Cabecera</HeaderRowsCount>
     <Headers>Cabeceras</Headers>
     <HeaderText>Texto del Cabeceras</HeaderText>
+    <Heading>Cabecera</Heading>
     <HeatmapColors>Colores de mapa de calor</HeatmapColors>
     <Height>Altura</Height>
     <HideSeriesWithEmptyTitle>Ocultar Series sin Títulos</HideSeriesWithEmptyTitle>
@@ -4209,6 +4219,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <SortingEnabled>Ordenación Habilitada</SortingEnabled>
     <SortType>Tipo de Ordenación</SortType>
     <Space>Espacio</Space>
+    <SpaceRatio>Ratio espacial</SpaceRatio>
     <Spacing>Espaciado</Spacing>
     <SqlCommand>Comando SQL</SqlCommand>
     <StartAngle>Ángulo de Inicio</StartAngle>
@@ -4296,6 +4307,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <TopN>Primeros N</TopN>
     <TopSide>Borde Superior</TopSide>
     <Total>Total</Total>
+    <TotalLabel>Etiqueta total</TotalLabel>
     <Totals>Totales</Totals>
     <TrackColor>Color de la pista</TrackColor>
     <TransparentColor>Color Transparente</TransparentColor>
@@ -4314,6 +4326,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <UnlimitedBreakable>Salto Ilimitado</UnlimitedBreakable>
     <UnlimitedHeight>Altura Ilimitada</UnlimitedHeight>
     <UnlimitedWidth>Anchura Ilimitada</UnlimitedWidth>
+    <UpperMarks>Marcas superiores</UpperMarks>
     <UseAliases>Usar Alias</UseAliases>
     <UseExternalReport>Usar Informe Externo</UseExternalReport>
     <UseParentStyles>Usar Estilos Heredados</UseParentStyles>
@@ -4541,6 +4554,7 @@ Contiene un enlace para confirmar su registro. Para completar el registro, por f
     <LabelPixels>Pixels:</LabelPixels>
     <LabelQueryTimeout>Tiempo Máximo de Consulta:</LabelQueryTimeout>
     <LabelSystemVariable>Variable del Sistema:</LabelSystemVariable>
+    <LabelTableOfContentsHint>Por favor, compruebe los componentes que deben formar la tabla de contenido. Un componente es igual a un nivel de título.</LabelTableOfContentsHint>
     <LabelTotals>Totales</LabelTotals>
     <LabelType>Tipo:</LabelType>
     <LabelUserName>Usuario:</LabelUserName>

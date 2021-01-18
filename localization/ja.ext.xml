@@ -98,6 +98,8 @@
     <StiDataSourcesForImageCheckShort>いくつかのデータソースが設定されています。</StiDataSourcesForImageCheckShort>
     <StiEventsAtInterpretationCheckLong>'{1}'コンポーネントの '{0}'イベントのスクリプトは、解析モードでは機能しません。</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>解析イベント</StiEventsAtInterpretationCheckShort>
+    <StiExpressionElementCheckLong>'{1}'コンポーネントの式 '{0}'は正しく機能しません。 次のメッセージがパーサーから受信されました： '{2}'</StiExpressionElementCheckLong>
+    <StiExpressionElementCheckShort>式が正しく機能しません！</StiExpressionElementCheckShort>
     <StiFilterCircularDependencyElementCheckLong>フィルターの循環依存関係が、要素 '{0}'で見つかりました。 {0}要素の「親キー」プロパティを確認してください。</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>円形フィルターの依存関係</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>'{0}'のフィルター値が指定されていません。 このフィルターは処理できません。</StiFilterValueCheckLong>
@@ -259,29 +261,42 @@
     <Cancel>キャンセル</Cancel>
     <Close>閉じる</Close>
     <ConnectionsFromReport>レポートからの接続を使用する</ConnectionsFromReport>
+    <ConnectionsFromReportToolTip>レポートテンプレートに保存された接続は、変更なしで使用されます。</ConnectionsFromReportToolTip>
     <ConnectionsRegData>コードからデータを登録する</ConnectionsRegData>
+    <ConnectionsRegDataToolTip>XMLまたはJSONデータの形式で、または可能であればビジネスオブジェクトの形式で、コードからデータを接続するように求められます。</ConnectionsRegDataToolTip>
     <ConnectionsReplace>接続文字列を置換する</ConnectionsReplace>
+    <ConnectionsReplaceToolTip>ファイルパス、データベース接続文字列などのタイプに応じて、コードから接続を変更するように求められます。</ConnectionsReplaceToolTip>
     <Copy>コピー</Copy>
     <CopyingLibraries>プロジェクトファイルのコピー... </CopyingLibraries>
     <DeployReportPlatform>プラットフォームへのレポートのデプロイ：</DeployReportPlatform>
     <DownloadingLibraries>ライブラリのダウンロード... </DownloadingLibraries>
+    <EmbedAllDataToResources>レポートには、選択したプラットフォームでサポートされていないデータ接続が含まれています。 利用可能なデータをリソースとしてレポートに埋め込みますか？ この場合、すべての接続はXMLリソースに置き換えられます。</EmbedAllDataToResources>
+    <EmbedAllDataToResourcesToolTip>すべてのデータが読み込まれ、リソースとしてレポートテンプレートに追加されます。 これにより、データベースにクエリを実行しなくてもレポートを表示できます。</EmbedAllDataToResourcesToolTip>
     <ExportFormat>レポートのエクスポート先：</ExportFormat>
     <ExportFormatData>データ</ExportFormatData>
     <ExportFormatDataType>データ型：</ExportFormatDataType>
     <ExportFormatImage>イメージ</ExportFormatImage>
     <ExportFormatImageType>イメージタイプ：</ExportFormatImageType>
     <FullScreenViewer>フルブラウザウィンドウにビューアを表示する</FullScreenViewer>
+    <FullScreenViewerToolTip>レポートのあるビューアは、ブラウザウィンドウの使用可能なスペース全体に表示されます。</FullScreenViewerToolTip>
     <GetLibrariesFrom>{0}からStimulsoftライブラリを取得する</GetLibrariesFrom>
+    <GetLibrariesFromToolTip>必要なすべてのライブラリとスクリプトは、リポジトリから接続されます。 それ以外の場合は、プロジェクトにコピーされ、直接接続されます。</GetLibrariesFromToolTip>
     <GroupAddons>アドオン</GroupAddons>
     <GroupConnections>データ接続</GroupConnections>
     <GroupParameters>レポートパラメータ</GroupParameters>
     <HideOptions>オプションを隠す</HideOptions>
     <IncludeFonts>フォントを含める</IncludeFonts>
+    <IncludeFontsToolTip>レポートコンポーネントのサイズを正しく計算するために必要なフォントがコピーされ、プロジェクトに接続されます。</IncludeFontsToolTip>
     <IncludeLibrariesToStandalone>Stimulsoftライブラリを実行可能ファイルに含める</IncludeLibrariesToStandalone>
+    <IncludeLibrariesToStandaloneToolTip>必要なすべてのライブラリとファイルが実行可能ファイルに含まれます。 それ以外の場合は、ZIPアーカイブが作成されます。</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>ライセンスキーを含める</IncludeLicenseKey>
+    <IncludeLicenseKeyToolTip>現在許可されているユーザーのアカウントのライセンスキーがプロジェクトに統合されます。</IncludeLicenseKeyToolTip>
     <IncludeLocalization>ローカライゼーションを含める</IncludeLocalization>
+    <IncludeLocalizationToolTip>選択したローカリゼーションがコピーされ、プロジェクトに接続されます。</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>コードにPacked Stringとしてレポートを含める</IncludeReportPackedStringToCode>
+    <IncludeReportPackedStringToCodeToolTip>レポートは、プロジェクトコードにBase64文字列として保存されます。 これにより、追加のファイルを取り除くことができます。</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>UIテーマを含める</IncludeUITheme>
+    <IncludeUIThemeToolTip>選択したユーザーインターフェースのテーマは、コンポーネントの設定でセットされます。</IncludeUIThemeToolTip>
     <JavaScriptFramework>フレームワークタイプ：</JavaScriptFramework>
     <LicenseKeyTypeFile>ファイル</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String </LicenseKeyTypeString>
@@ -295,16 +310,23 @@
     <LoadReportStream>ストリーム</LoadReportStream>
     <LoadReportString>String </LoadReportString>
     <ParametersFromReport>レポートの値を使用する</ParametersFromReport>
+    <ParametersFromReportToolTip>レポートテンプレートで設定されたパラメータの値が使用されます。</ParametersFromReportToolTip>
     <ParametersReplace>{0}コードの値を置換する</ParametersReplace>
     <ParametersReplacePhpInfo>パラメータはレポート辞書から削除され、SQLクエリでのみ使用できます。</ParametersReplacePhpInfo>
+    <ParametersReplaceToolTip>コードからレポートパラメータの値を変更するように求められます。</ParametersReplaceToolTip>
     <ParametersRequestFromUser>ユーザーからのリクエスト</ParametersRequestFromUser>
+    <ParametersRequestFromUserToolTip>レポートパラメータは、ビューアウィンドウでレポートを表示するときにユーザーから要求されます。</ParametersRequestFromUserToolTip>
     <Publish>Publish </Publish>
     <PublishType>レポートのパブリッシュタイプ：</PublishType>
     <PublishTypeProject>プロジェクト</PublishTypeProject>
+    <PublishTypeProjectToolTip>完成したプロジェクトと、さらにコンパイルして起動するために必要なすべてのファイルを使用して、ZIPアーカイブが作成されます。</PublishTypeProjectToolTip>
     <PublishTypeStandalone>スタンドアロン</PublishTypeStandalone>
+    <PublishTypeStandaloneToolTip>レポートを表示するためのコンパイル済みのアプリケーションが作成されます。</PublishTypeStandaloneToolTip>
     <ReadMore>続きを読む</ReadMore>
     <RegDataOnlyForPreview>レポートプレビュー専用に使用</RegDataOnlyForPreview>
+    <RegDataOnlyForPreviewToolTip>データは、プレビューの時点でのみレポートに接続されます。</RegDataOnlyForPreviewToolTip>
     <RegDataSynchronize>レポート辞書の同期化</RegDataSynchronize>
+    <RegDataSynchronizeToolTip>データをレポートに接続した後、データディクショナリが同期されます。- データソース・列とそのタイプ・データリンク</RegDataSynchronizeToolTip>
     <ReplaceConnectionString>置換接続文字列</ReplaceConnectionString>
     <ReplacePathToData>データをパスに置き換える</ReplacePathToData>
     <ReportAction>レポートの処理：</ReportAction>
@@ -320,9 +342,13 @@
     <TrialVersion>試用版</TrialVersion>
     <Use>Use </Use>
     <UseCompilationCache>コンパイルキャッシュを使用する</UseCompilationCache>
+    <UseCompilationCacheToolTip>レンダリングされたレポートは一時ディレクトリに保存されます。これにより、レンダリングを高速化し、メモリ使用量を減らすことができます。</UseCompilationCacheToolTip>
     <UseCompressedScripts>圧縮スクリプトを使用する</UseCompressedScripts>
+    <UseCompressedScriptsToolTip>通常のスクリプトの代わりに、パックされたスクリプトが使用されます。 これにより、サイズを小さくすることができますが、実行時に解凍するのに時間がかかります。</UseCompressedScriptsToolTip>
     <UseLatestVersion>ライブラリの最新バージョンを使用</UseLatestVersion>
+    <UseLatestVersionToolTip>ライブラリとスクリプトを接続する場合、現在インストールされているバージョンの代わりに、製品の最新の公式バージョンが使用されます。</UseLatestVersionToolTip>
     <UseWpfDesignerV2>Designer V2を使用する</UseWpfDesignerV2>
+    <UseWpfDesignerV2ToolTip>更新されたWPFレポートデザイナーが使用されます。 新しいUI、速度の向上、その他の最適化が含まれます。</UseWpfDesignerV2ToolTip>
   </Publish>
   <ReportComparer>
     <Change>変更</Change>
@@ -1093,6 +1119,7 @@
   <StiDynamicBand>
     <BreakIfLessThan>ページ上の空き領域の割合（パーセント単位）を、新しいページまたは新しい列の作成に予約する必要があることを示す値。値は0〜100の範囲で設定する必要があります。値が100の場合は、いずれの場合も新しいページまたは新しい列が作成されます。このプロパティは、NewPageBefore、NewPageAfter、NewColumnBefore、NewColumnAfterプロパティと共に使用されます。</BreakIfLessThan>
     <NewColumnAfter>このプロパティの値がtrueの場合、バンドの出力後に新しい列が生成されます。</NewColumnAfter>
+    <NewColumnBefore>このプロパティの値がtrueの場合、バンドを出力する前に、新しい列が生成されます。</NewColumnBefore>
     <NewPageAfter>このプロパティの値がtrueの場合、バンドの出力後に新しいページが生成</NewPageAfter>
     <NewPageBefore>このプロパティの値がtrueの場合、バンドの出力前に新しいページが生成　次のページでバンドの出力を続けます。</NewPageBefore>
     <PrintAtBottom>フッターがページの下部に印刷されていることを示す値</PrintAtBottom>
@@ -1177,6 +1204,13 @@
     <ValueDataColumnEnd>終了値を含む列の名前</ValueDataColumnEnd>
     <ValueEnd>終了値の式。例：{Order.Value} </ValueEnd>
   </StiGanttSeries>
+  <StiGaugeElement>
+    <Font>フォント</Font>
+    <ForeColor>フォアカラー</ForeColor>
+    <Series>ゲージシリーズ</Series>
+    <Style>ゲージスタイル</Style>
+    <Title>ゲージタイトル</Title>
+  </StiGaugeElement>
   <StiGlareBrush>
     <Angle>グラジエントの方向線のx軸から時計回りに測った角度</Angle>
     <EndColor>グラデーションの終了色</EndColor>

@@ -213,6 +213,7 @@
   </CheckGlobal>
   <CheckLicense>
     <StiLicenseTrialCheckLong>Stimulsoft Reports 및 대시보드의 평가판을 사용하고 있습니다. 운영 중인 소프트웨어를 사용하려면 라이센스를 구입해야 합니다.</StiLicenseTrialCheckLong>
+    <StiValidSubscriptioRequiredCheckLong>유효한 구독이 필요합니다. 사용 중인 제품을 업데이트하여 전체 버전의 Stimulsoft Designer를 사용하십시오.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>'{0}'페이지에서 잃어버린 점이 발견 : '{1}'점은 불가하며 다음의 원시적으로 사용됩니다 : 수직선 사각형 및 둥근 사각형. 포인트가 어떤 구성 요소와 일치하지 않는 경우는 그 점을 제거 할 수 있습니다.</StiLostPointsOnPageCheckLong>
@@ -851,6 +852,11 @@
     <Module>바코드의 가장 세세한 요소의 너비를 가져 오거나 설정합니다.</Module>
     <Ratio>WideToNarrow 비율을 나타내는 값을 가져 오거나 설정합니다.</Ratio>
   </StiCode93ExtBarCodeType>
+  <StiColumnSize>
+    <MaxWidth>테이블 열의 최대 너비를 가져오거나 설정합니다.</MaxWidth>
+    <MinWidth>테이블 열의 최소 너비를 가져오거나 설정합니다.</MinWidth>
+    <Width>테이블 열에 대해 지정된 너비를 가져오거나 설정합니다. 너비는 값이 0이면 테이블 요소에 의해 자동으로 계산됩니다.</Width>
+  </StiColumnSize>
   <StiComboBoxControl>
     <DropDownStyle>스타일을 지정하는 값.</DropDownStyle>
     <DropDownWidth>드롭 다운 부분의 폭</DropDownWidth>
@@ -884,6 +890,7 @@
     <ComponentStyle>구성 요소의 스타일</ComponentStyle>
     <Conditions>조건 집계</Conditions>
     <CountData>가상 데이터의 행수</CountData>
+    <CrossFiltering>현재 페이지에서 해당 요소로 교차 필터 적용을 제어하는 값을 가져오거나 설정합니다.</CrossFiltering>
     <DataRelation>마스터 세부 보고서의 렌더링에 사용되는 링크</DataRelation>
     <DataSource>데이터를 검색하는 데 사용되는 데이터 소스</DataSource>
     <DockStyle>구성 요소 도킹 유형</DockStyle>
@@ -922,6 +929,7 @@
     <TextBrush>텍스트를 그리는 브러시</TextBrush>
     <ToolTip>구성 요소 ToolTip를 채우는 식</ToolTip>
     <Top>구성 요소의 상단 위치</Top>
+    <TotalLabel>합계의 라벨로 표시되는 값을 가져오거나 설정합니다.</TotalLabel>
     <UseParentStyles>이 구성 요소가 부모 요소의 스타일을 사용할 필요가있는 것을 나타내는 값</UseParentStyles>
     <VertAlignment>객체의 수직 정렬</VertAlignment>
     <Width>구성 요소의 폭</Width>
@@ -1888,6 +1896,9 @@
     <Style>테이블 스타일.</Style>
     <Title>테이블 제목.</Title>
   </StiTableElement>
+  <StiTableOfContents>
+    <RightToLeft>수평 출력 방향을 가져오거나 설정합니다.</RightToLeft>
+  </StiTableOfContents>
   <StiText>
     <AllowHtmlTags>이 구성 요소가 텍스트의 HTML 태그를 허용하는 것을 나타내는 값</AllowHtmlTags>
     <Angle>텍스트 회전 각도</Angle>

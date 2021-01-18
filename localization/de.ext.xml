@@ -213,6 +213,7 @@
   </CheckGlobal>
   <CheckLicense>
     <StiLicenseTrialCheckLong>Sie verwenden die Testversion von Stimulsoft Reports and Dashboards. Um die Software für die Produktion zu verwenden, kaufen Sie die Lizenz ein.</StiLicenseTrialCheckLong>
+    <StiValidSubscriptioRequiredCheckLong>Valid Subscription Required. Please update your subscription to use the fully functional version of Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>Nicht zugeordnete Punkte wurden auf Seite '{0}'gefunden: {1}. Punkte sind unsichtbar und in folgenden einfachen Figuren benutzt: senkrechte Linien, Rechteck und abgerundete Rechtecke. Wenn der Punkt nicht zu irgendeiner Komponente passt, kann er gelöscht werden.</StiLostPointsOnPageCheckLong>
@@ -851,6 +852,11 @@
     <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
     <Ratio>Liest oder setzt den Wert, der das WideToNarrow-Verhältnis zeigt.</Ratio>
   </StiCode93ExtBarCodeType>
+  <StiColumnSize>
+    <MaxWidth>Gets or sets a maximum width of the table column.</MaxWidth>
+    <MinWidth>Gets or sets a minimum width of the table column.</MinWidth>
+    <Width>Gets or sets the specified width for the table column. The width will be calculated automatically by the table element if a value equal to zero.</Width>
+  </StiColumnSize>
   <StiComboBoxControl>
     <DropDownStyle>Wert zur Spezifizierung der Art.</DropDownStyle>
     <DropDownWidth>Breite des angezeigten Dropdown-Bereichs.</DropDownWidth>
@@ -884,6 +890,7 @@
     <ComponentStyle>Komponentenart.</ComponentStyle>
     <Conditions>Eine Liste von Bedingungen.</Conditions>
     <CountData>Zeilenzähler für virtuelle Daten.</CountData>
+    <CrossFiltering>Gets or sets a value which controls applying cross-filters from the current page to that element.</CrossFiltering>
     <DataRelation>Eine Verbindung zur Ausführung von Master-Detail Reports.</DataRelation>
     <DataSource>Datenquelle, die benutzt wird, um Daten zu erhalten.</DataSource>
     <DockStyle>Arten des Komponenten-Andockens.</DockStyle>
@@ -922,6 +929,7 @@
     <TextBrush>Pinsel, um einen Text zu zeichnen.</TextBrush>
     <ToolTip>Ausdruck, um eine ToolTip-Komponente zu füllen.</ToolTip>
     <Top>Obere Position der Komponenten.</Top>
+    <TotalLabel>Gets or sets a value that is displayed as a label for a total.</TotalLabel>
     <UseParentStyles>Wert, der anzeigt, dass diese Komponente Grundstrukturen einer übergeordneten Komponente benutzen muss.</UseParentStyles>
     <VertAlignment>Vertikale Ausrichtung eines Objektes.</VertAlignment>
     <Width>Breite der Komponenten.</Width>
@@ -1888,6 +1896,9 @@
     <Style>Tabellenart.</Style>
     <Title>Tabellentitel.</Title>
   </StiTableElement>
+  <StiTableOfContents>
+    <RightToLeft>Gets or sets horizontal output direction.</RightToLeft>
+  </StiTableOfContents>
   <StiText>
     <AllowHtmlTags>Wert, der anzeigt, ob die Komponente HTM-Tags zulässt.</AllowHtmlTags>
     <Angle>Winkel der Textrotation.</Angle>
