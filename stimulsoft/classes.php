@@ -26,9 +26,11 @@ class StiDatabaseType {
 	const PostgreSQL = "PostgreSQL";
 	const Firebird = "Firebird";
 	const Oracle = "Oracle";
+	const ODBC = "ODBC";
 }
 
 class StiEventType {
+	const PrepareVariables = "PrepareVariables";
 	const ExecuteQuery = "ExecuteQuery";
 	const BeginProcessData = "BeginProcessData";
 	//const EndProcessData = "EndProcessData";
@@ -95,6 +97,9 @@ class StiRequest {
 		if (isset($obj->fileName)) $this->fileName = $obj->fileName;
 		if (isset($obj->format)) $this->format = $obj->format;
 		if (isset($obj->settings)) $this->settings = $obj->settings;
+		if (isset($obj->variables)) $this->variables = $obj->variables;
+		if (isset($obj->parameters)) $this->parameters = $obj->parameters;
+		if (isset($obj->escapeQueryParameters)) $this->escapeQueryParameters = $obj->escapeQueryParameters;
 		if (isset($obj->report)) {
 			$this->report = $obj->report;
 			if (defined('JSON_UNESCAPED_SLASHES'))

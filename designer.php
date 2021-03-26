@@ -11,8 +11,8 @@ require_once 'stimulsoft/helper.php';
 	<style>html, body { font-family: sans-serif; }</style>
 
 	<!-- Office2013 White-Teal style -->
-	<link href="css/stimulsoft.viewer.office2013.whiteteal.css" rel="stylesheet">
-	<link href="css/stimulsoft.designer.office2013.whiteteal.css" rel="stylesheet">
+	<link href="css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
+	<link href="css/stimulsoft.designer.office2013.whiteblue.css" rel="stylesheet">
 
 	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
@@ -44,28 +44,30 @@ require_once 'stimulsoft/helper.php';
 		
 		// Optional Designer events for fine tuning. You can uncomment and change any event or all of them, if necessary.
 		// In this case, the built-in handler will be overridden by the selected event.
-		// You can read and, if necessary, change the parameters in the 'event' argument before PHP handler.
+		// You can read and, if necessary, change the parameters in the args before server-side handler.
 		
 		// All events and their details can be found in the documentation at the link:
 		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_designer_designer_events.htm
 		
+		
 		/*
 		
 		// Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
-		designer.onBeginProcessData = function (event, callback) {
+		designer.onBeginProcessData = function (args, callback) {
 			
-			// Create a default PHP handler
-			<?php StiHelper::createHandler(); ?>
+			// Call the server-side handler
+			jsHelper.process(args, callback);
 		}
 		
 		*/
+		
 		/*
 		
 		// Save report template on the server side.
-		designer.onSaveReport = function (event) {
+		designer.onSaveReport = function (args) {
 			
-			// Create a default PHP handler
-			<?php StiHelper::createHandler(); ?>
+			// Call the server-side handler
+			jsHelper.process(args, callback);
 		}
 		
 		*/

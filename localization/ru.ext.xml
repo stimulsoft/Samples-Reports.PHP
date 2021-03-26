@@ -71,6 +71,7 @@
     <StiCanGrowGrowToHeightComponentInContainerShort>Возможно некорректное отображение компонентов</StiCanGrowGrowToHeightComponentInContainerShort>
     <StiCanGrowWordWrapTextAndWysiwygCheckLong>При значение свойства TextQuality равном Standard или Typographic отображение текста в превью, при разных масштабах и при печати может отличаться, из-за ошибок округления библиотеки GDI+.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>Возможен некорректный перенос текста</StiCanGrowWordWrapTextAndWysiwygCheckShort>
+    <StiChartSeriesValueCheckLong>Свойство Значение указано для ряда из диаграммы "{0}", но для диаграммы не задано свойство источника данных.</StiChartSeriesValueCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckLong>У компонента '{0}' cуммарная ширина колонок больше его собственной ширины. Это может привести к некорректному построению отчета. Также возможны проблемы с экспортом отчета в другие форматы.</StiColumnsWidthGreaterContainerWidthCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckShort>Суммарная ширина колонок больше ширины компонента</StiColumnsWidthGreaterContainerWidthCheckShort>
     <StiColumnsWidthGreaterPageWidthCheckLong>У страницы '{0}' cуммарная ширина колонок больше ее собственной ширины. Это может привести к некорректному построению отчета. Также возможны проблемы с экспортом отчета в другие форматы.</StiColumnsWidthGreaterPageWidthCheckLong>
@@ -2037,6 +2038,7 @@
   <Universal>
     <AllowApplyStyle>Значение определяет, что будет использоваться стиль диаграммы.</AllowApplyStyle>
     <Key>Ключ, который будет использоваться в переменных, когда пользователь при помощи интерфейса выбрал значение элемента.</Key>
+    <Label>Метка, которое будет отображаться вместо ключа в интерфейсе работы с параметрами.</Label>
     <Value>Значение, которое будет отображаться вместо ключа в интерфейсе работы с параметрами.</Value>
   </Universal>
 </Localization>

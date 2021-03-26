@@ -11,7 +11,7 @@ require_once 'stimulsoft/helper.php';
 	<style>html, body { font-family: sans-serif; }</style>
 
 	<!-- Office2013 White-Teal style -->
-	<link href="css/stimulsoft.viewer.office2013.whiteteal.css" rel="stylesheet">
+	<link href="css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
 
 	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
@@ -46,44 +46,58 @@ require_once 'stimulsoft/helper.php';
 		
 		// Optional Viewer events for fine tuning. You can uncomment and change any event or all of them, if necessary.
 		// In this case, the built-in handler will be overridden by the selected event.
-		// You can read and, if necessary, change the parameters in the 'event' argument before PHP handler.
+		// You can read and, if necessary, change the parameters in the args before server-side handler.
 		
 		// All events and their details can be found in the documentation at the link:
 		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_viewer_events.htm
 		
+		
 		/*
 		
-		// Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
-		viewer.onBeginProcessData = function (event, callback) {
+		// Process report variables before rendering.
+		viewer.onPrepareVariables = function (args, callback) {
 			
-			// Create a default PHP handler
-			<?php StiHelper::createHandler(); ?>
+			// Call the server-side handler
+			jsHelper.process(args, callback);
 		}
 		
 		*/
+		
+		/*
+		
+		// Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
+		viewer.onBeginProcessData = function (args, callback) {
+			
+			// Call the server-side handler
+			jsHelper.process(args, callback);
+		}
+		
+		*/
+		
 		/*
 		
 		// Manage export settings and, if necessary, transfer them to the server and manage there
 		viewer.onBeginExportReport = function (args) {
 			
-			// Create a default PHP handler, if necessary
-			<?php StiHelper::createHandler(); ?>
+			// Call the server-side handler
+			jsHelper.process(args);
 			
 			// Manage export settings
 			// args.fileName = "MyReportName";
 		}
 		
 		*/
+		
 		/*
 		
 		// Process exported report file on the server side
-		viewer.onEndExportReport = function (event) {
+		viewer.onEndExportReport = function (args) {
 			
 			// Prevent built-in handler (save the exported report as a file)
-			event.preventDefault = true;
+			args.preventDefault = true;
 			
-			// Create a default PHP handler
-			<?php StiHelper::createHandler(); ?>
+			// Call the server-side handler
+			jsHelper.process(args);
 		}
 		
 		*/
@@ -91,10 +105,10 @@ require_once 'stimulsoft/helper.php';
 		/*
 		
 		// Send exported report to Email
-		viewer.onEmailReport = function (event) {
+		viewer.onEmailReport = function (args) {
 			
-			// Create a default PHP handler
-			<?php StiHelper::createHandler(); ?>
+			// Call the server-side handler
+			jsHelper.process(args);
 		}
 		
 		*/

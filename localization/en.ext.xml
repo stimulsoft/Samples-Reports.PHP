@@ -71,6 +71,7 @@
     <StiCanGrowGrowToHeightComponentInContainerShort>It is possible an incorrect showing of components</StiCanGrowGrowToHeightComponentInContainerShort>
     <StiCanGrowWordWrapTextAndWysiwygCheckLong>When the TextQuality property is set to Standard or Typographic. Text preview, in different zoom modes and when printing may differ due to errors of rounding of the GDI+ library.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>Possibly there will be the incorrect text wrap</StiCanGrowWordWrapTextAndWysiwygCheckShort>
+    <StiChartSeriesValueCheckLong>The Value property is specified for series from the chart "{0}" but the chart does not have the Data Source property set.</StiChartSeriesValueCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckLong>The total column width is greater then the width of the '{0}' component. This may cause to incorrect report rendering. Also it may cause some problems with exporting a report to other formats.</StiColumnsWidthGreaterContainerWidthCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckShort>The total column width is greater then the component width</StiColumnsWidthGreaterContainerWidthCheckShort>
     <StiColumnsWidthGreaterPageWidthCheckLong>The total width of columns of the '{0}' page is greater than the page width. This may cause to incorrect report rendering. Also it may cause some problems with exporting a report to other formats.</StiColumnsWidthGreaterPageWidthCheckLong>
@@ -2036,5 +2037,6 @@
     <AllowApplyStyle>A value indicates that chart style will be used.</AllowApplyStyle>
     <Key>A Key which will be used in variables when user select associated with it Value in GUI.</Key>
     <Value>A Value which will be displayed instead of the Key value in GUI.</Value>
+    <Label>A Label which will be displayed instead of Key in GUI.</Label>
   </Universal>
 </Localization>

@@ -13,40 +13,57 @@ $handler = new StiHandler();
 $handler->registerErrorHandlers();
 
 
-$handler->onBeginProcessData = function ($event) {
+$handler->onPrepareVariables = function ($args) {
+	// You can change the values of the variables used in the report.
+	// The new values will be passed to the report generator.
+	/*
+	$args->variables['VariableString']->value = 'Value from Server-Side';
+	$args->variables['VariableDateTime']->value = '2020-01-31 22:00:00';
 	
+	$args->variables['VariableStringRange']->value->from = 'Aaa';
+	$args->variables['VariableStringRange']->value->to = 'Zzz';
+	
+	$args->variables['VariableStringList']->value[0] = "Test";
+	$args->variables['VariableStringList']->value = ["1", "2", "2"];
+	
+	$args->variables['NewVariable'] = ['value' => 'New Value'];
+	*/
+	
+	return StiResult::success();
+};
+
+$handler->onBeginProcessData = function ($args) {
 	// Current database type: 'XML', 'JSON', 'MySQL', 'MS SQL', 'PostgreSQL', 'Firebird', 'Oracle'
-	$database = $event->database;
+	$database = $args->database;
 	// Current connection name
-	$connection = $event->connection;
+	$connection = $args->connection;
 	// Current data source name
-	$dataSource = $event->dataSource;
+	$dataSource = $args->dataSource;
 	// Connection string for the current data source
-	$connectionString = $event->connectionString;
+	$connectionString = $args->connectionString;
 	// SQL query string for the current data source
-	$queryString = $event->queryString;
+	$queryString = $args->queryString;
 	
 	
 	// You can change the connection string
 	/*
 	if ($connection == "MyConnectionName")
-		$event->connectionString = "Server=localhost;Database=test;Port=3306;";
+		$args->connectionString = "Server=localhost;Database=test;Port=3306;";
 	*/
-	
 	
 	// You can change the SQL query
 	/*
 	if ($dataSource == "MyDataSource")
-		$event->queryString = "SELECT * FROM MyTable";
+		$args->queryString = "SELECT * FROM MyTable";
 	*/
 	
 	
-	// You can replace the SQL query parameters with the required values
-	// For example: SELECT * FROM {Variable1} WHERE Id={Variable2}
-	// If the report contains a variable with this name, its value will be used instead of the specified value
+	// You can change the SQL query parameters with the required values
+	// For example: SELECT * FROM @Parameter1 WHERE Id = @Parameter2 AND Date > @Parameter3
 	/*
-	$event->parameters["Variable1"] = "TableName";
-	$event->parameters["Variable2"] = 10;
+	$args->parameters["Parameter1"]->value = "TableName";
+	$args->parameters["Parameter2"]->value = 10;
+	$args->parameters["Parameter3"]->value = "2019-01-20";
 	*/
 	
 	
@@ -58,24 +75,30 @@ $handler->onBeginProcessData = function ($event) {
 	//return StiResult::error("A message about some connection error.");
 };
 
-$handler->onPrintReport = function ($event) {
-	$fileName = $event->fileName; // Report file name
+$handler->onPrintReport = function ($args) {
+	$fileName = $args->fileName; // Report file name
 	
 	return StiResult::success();
 };
 
-$handler->onBeginExportReport = function ($event) {
-	$format = $event->format; // Export format
-	$settings = $event->settings; // Export settions
-	$fileName = $event->fileName; // Report file name
+$handler->onBeginExportReport = function ($args) {
+	// Export format
+	$format = $args->format;
+	// Export settions
+	$settings = $args->settings;
+	// Report file name
+	$fileName = $args->fileName;
 	
 	return StiResult::success();
 };
 
-$handler->onEndExportReport = function ($event) {
-	$format = $event->format; // Export format
-	$data = $event->data; // Base64 export data
-	$fileName = $event->fileName; // Report file name
+$handler->onEndExportReport = function ($args) {
+	// Export format
+	$format = $args->format;
+	// Base64 export data
+	$data = $args->data;
+	// Report file name
+	$fileName = $args->fileName;
 	
 	// By default, the exported file is saved to the 'reports' folder.
 	// You can change this behavior if required.
@@ -86,38 +109,43 @@ $handler->onEndExportReport = function ($event) {
 	//return StiResult::error("An error occurred while exporting the report.");
 };
 
-$handler->onEmailReport = function ($event) {
-	
+$handler->onEmailReport = function ($args) {
 	// These parameters will be used when sending the report by email. You must set the correct values.
-	$event->settings->from = "******@gmail.com";
-	$event->settings->host = "smtp.gmail.com";
-	$event->settings->login = "******";
-	$event->settings->password = "******";
+	$args->settings->from = "******@gmail.com";
+	$args->settings->host = "smtp.gmail.com";
+	$args->settings->login = "******";
+	$args->settings->password = "******";
 	
 	// These parameters are optional.
-	//$event->settings->name = "John Smith";
-	//$event->settings->port = 465;
-	//$event->settings->cc[] = "copy1@gmail.com";
-	//$event->settings->bcc[] = "copy2@gmail.com";
-	//$event->settings->bcc[] = "copy3@gmail.com John Smith";
+	//$args->settings->name = "John Smith";
+	//$args->settings->port = 465;
+	//$args->settings->cc[] = "copy1@gmail.com";
+	//$args->settings->bcc[] = "copy2@gmail.com";
+	//$args->settings->bcc[] = "copy3@gmail.com John Smith";
 	
 	return StiResult::success("Email sent successfully.");
 };
 
-$handler->onDesignReport = function ($event) {
+$handler->onDesignReport = function ($args) {
 	return StiResult::success();
 };
 
-$handler->onCreateReport = function ($event) {
-	$fileName = $event->fileName;
-	return StiResult::success();
-};
-
-$handler->onSaveReport = function ($event) {
-	$report = $event->report; // Report object
-	$reportJson = $event->reportJson; // Report in JSON format
-	$fileName = $event->fileName; // Report file name
+$handler->onCreateReport = function ($args) {
+	// File name of the new report
+	$fileName = $args->fileName;
 	
+	return StiResult::success();
+};
+
+$handler->onSaveReport = function ($args) {
+	// Report object
+	$report = $args->report;
+	// Report in JSON format
+	$reportJson = $args->reportJson;
+	// Report file name
+	$fileName = $args->fileName;
+	
+	// For example, you can save a report to the 'reports' folder on the server-side.
 	file_put_contents('reports/'.$fileName.".mrt", $reportJson);
 	
 	//return StiResult::success();
@@ -125,7 +153,8 @@ $handler->onSaveReport = function ($event) {
 	//return StiResult::error("Save Report ERROR. Message from server side.");
 };
 
-$handler->onSaveAsReport = function ($event) {
+$handler->onSaveAsReport = function ($args) {
+	// The event works the same as 'onSaveReport'
 	return StiResult::success();
 };
 

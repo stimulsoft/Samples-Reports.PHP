@@ -71,6 +71,7 @@
     <StiCanGrowGrowToHeightComponentInContainerShort>Möglicherweise werden Komponenten fehlerhaft angezeigt.</StiCanGrowGrowToHeightComponentInContainerShort>
     <StiCanGrowWordWrapTextAndWysiwygCheckLong>Wenn die Eigenschaft 'Textqualität' auf Standard oder Typografisch gesetzt ist: Text Vorschau, in verschiedenen Zoom-Modi and beim Drucken kann differieren gemäß Rundungsfehlern der GDI+ - Bibliothek.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>Möglicherweise gibt es einen fehlerhaften Textumbruch</StiCanGrowWordWrapTextAndWysiwygCheckShort>
+    <StiChartSeriesValueCheckLong>Die Eigenschaft Wert ist für Reihe aus dem Diagramm "{0}" angegeben, aber für den Diagramm wird nicht die Eigenschaft der Datenquelle eingestellt.</StiChartSeriesValueCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckLong>Die gesamte Spaltenbreite ist größer als die Breite der Komponente '{0}'. Dies kann zu einer fehlerhaften Ausführung des Reports führen. Ebenfalls können Probleme beim Export des Reports in andere Formate auftreten.</StiColumnsWidthGreaterContainerWidthCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckShort>Die gesamte Spaltenbreite ist größer als die Komponentenbreite</StiColumnsWidthGreaterContainerWidthCheckShort>
     <StiColumnsWidthGreaterPageWidthCheckLong>Die gesamte Spaltenbreite ist größer als die Breite der Seite '{0}'. Dies kann zu einer fehlerhaften Ausführung des Reports führen. Ebenfalls können Probleme beim Export des Reports in andere Formate auftreten.</StiColumnsWidthGreaterPageWidthCheckLong>
@@ -315,7 +316,7 @@
     <ParametersReplace>Einen Wert aus dem Code ersetzen</ParametersReplace>
     <ParametersReplacePhpInfo>Der Parameter wird aus dem Berichtswörterbuch entfernt und kann nur in der SQL-Abfrage verwendet werden.</ParametersReplacePhpInfo>
     <ParametersReplaceToolTip>Es wird angeboten werden, die Werte von Berichts-Parametern aus dem Code zu bearbeiten.</ParametersReplaceToolTip>
-    <ParametersRequestFromUser>Anfrage vom Benutzer</ParametersRequestFromUser>
+    <ParametersRequestFromUser>Benutzeranfrage</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>Die Berichts-Parameter wird vom Benutzer, wenn er den Bericht im Viewer-Fenster ansieht, angefragt werden.</ParametersRequestFromUserToolTip>
     <Publish>Veröffentlichen</Publish>
     <PublishType>Veroffentlichungstyp des Berichts:</PublishType>
@@ -2035,6 +2036,7 @@
   <Universal>
     <AllowApplyStyle>Wert, der angibt, dass die Diagrammart benutzt wird.</AllowApplyStyle>
     <Key>Der Schlüsselwert, welcher in Variablen verwendet wird, wenn der Benutzer eine Auswahl über den Wert vornimmt.</Key>
+    <Label>Eine Beschriftung, die anstatt des Schlüssels in GUI angezeigt wird.</Label>
     <Value>Der Wert, der in der Anwendung anstelle des Schlüsselwertes dargestellt wird.</Value>
   </Universal>
 </Localization>

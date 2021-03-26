@@ -5,6 +5,7 @@ require_once 'adapters/mssql.php';
 require_once 'adapters/firebird.php';
 require_once 'adapters/postgresql.php';
 require_once 'adapters/oracle.php';
+require_once 'adapters/odbc.php';
 
 if (substr(PHP_VERSION, 0, 1) == '5') {
 	require_once 'phpmailer/v5/class.phpmailer.php';
@@ -39,31 +40,49 @@ class StiHandler {
 		if (!isset($result)) $result = StiResult::success();
 		if ($result === true) return StiResult::success();
 		if ($result === false) return StiResult::error();
-		if (gettype($result) == "string") return StiResult::error($result);
+		if (gettype($result) == 'string') return StiResult::error($result);
 		if (isset($args)) $result->object = $args;
 		return $result;
 	}
 	
-	private function getQueryParameters($query) {
-		$result = array();
-		while (strpos($query, "{") !== false) {
-			$query = substr($query, strpos($query, "{") + 1);
-			$parameterName = substr($query, 0, strpos($query, "}"));
-			$result[$parameterName] = null;
-		}
+	private function applyQueryParameters($query, $parameters, $escape) {
+		$result = '';
 		
-		return $result;
-	}
-	
-	private function applyQueryParameters($query, $values) {
-		$result = "";
-		while (strpos($query, "{") !== false) {
-			$result .= substr($query, 0, strpos($query, "{"));
-			$query = substr($query, strpos($query, "{") + 1);
-			$parameterName = substr($query, 0, strpos($query, "}"));
-			if (isset($values) && isset($values[$parameterName]) && !is_null($values[$parameterName])) $result .= strval($values[$parameterName]);
-			else $result .= "{".$parameterName."}";
-			$query = substr($query, strpos($query, "}") + 1);
+		while (mb_strpos($query, '@') !== false) {
+			$result .= mb_substr($query, 0, mb_strpos($query, '@'));
+			$query = mb_substr($query, mb_strpos($query, '@') + 1);
+			
+			$parameterName = '';
+			while (strlen($query) > 0) {
+				$char = mb_substr($query, 0, 1);
+				if (!preg_match('/[a-zA-Z0-9_-]/', $char)) break;
+				
+				$parameterName .= $char;
+				$query = mb_substr($query, 1);
+			}
+			
+			$replaced = false;
+			foreach ($parameters as $key => $item) {
+				if (strtolower($key) == strtolower($parameterName)) {
+					switch ($item->typeGroup) {
+						case 'number':
+							$result .= $item->value;
+							break;
+							
+						case 'datetime':
+							$result .= "'".$item->value."'";
+							break;
+							
+						default:
+							$result .= "'".($escape ? addcslashes($item->value, "\\\"'") : $item->value)."'";
+							break;
+					}
+					
+					$replaced = true;
+				}
+			}
+			
+			if (!$replaced) $result .= '@'.$parameterName;
 		}
 		
 		return $result.$query;
@@ -89,6 +108,53 @@ class StiHandler {
 	
 // Events
 
+	public $onPrepareVariables = null;
+	private function invokePrepareVariables($request) {
+		$args = new stdClass();
+		$args->sender = $request->sender;
+		
+		$args->variables = array();
+		if (isset($request->variables)) {
+			foreach ($request->variables as $item) {
+				$request->variables[$item->name] = $item;
+				$variableObject = new stdClass();
+				$variableObject->value = $item->value;
+				$variableObject->type = $item->type;
+				
+				if (substr($item->type, -5) === 'Range') {
+					$variableObject->value = new stdClass();
+					$variableObject->value->from = $item->value->from;
+					$variableObject->value->to = $item->value->to;
+				}
+				
+				$args->variables[$item->name] = $variableObject;
+			}
+		}
+		
+		$result = $this->checkEventResult($this->onPrepareVariables, $args);
+		
+		if (isset($result->object)) {
+			$variables = array();
+			foreach ($result->object->variables as $key => $item) {
+				// Send only changed or new values
+				if (!array_key_exists($key, $request->variables) || 
+					$item->value != $request->variables[$key]->value || 
+					substr($item->type, -5) === 'Range' && (
+						$item->value->from != $request->variables[$key]->value->from || 
+						$item->value->to != $request->variables[$key]->value->to)
+				) {
+					if (!is_object($item)) $item = (object)$item;
+					$item->name = $key;
+					array_push($variables, $item);
+				}
+			}
+			
+			$result->variables = $variables;
+		}
+		
+		return $result;
+	}
+
 	public $onBeginProcessData = null;
 	private function invokeBeginProcessData($request) {
 		$args = new stdClass();
@@ -98,10 +164,18 @@ class StiHandler {
 		$args->queryString = isset($request->queryString) ? $request->queryString : null;
 		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
 		$args->connection = isset($request->connection) ? $request->connection : null;
-		if (isset($request->queryString)) $args->parameters = $this->getQueryParameters($request->queryString);
+		if (isset($request->queryString) && isset($request->parameters)) {
+			$args->parameters = array();
+			foreach ($request->parameters as $item) {
+				$args->parameters[$item->name] = $item;
+				unset($item->name);
+			}
+		}
 		
 		$result = $this->checkEventResult($this->onBeginProcessData, $args);
-		if (isset($result->object->queryString) && isset($args->parameters)) $result->object->queryString = $this->applyQueryParameters($result->object->queryString, $args->parameters);
+		if (isset($result->object->queryString) && isset($args->parameters) && count($args->parameters) > 0)
+			$result->object->queryString = $this->applyQueryParameters($result->object->queryString, $args->parameters, $request->escapeQueryParameters);
+		
 		return $result;
 	}
 	
@@ -282,6 +356,7 @@ class StiHandler {
 			case StiDatabaseType::Firebird: $connection = new StiFirebirdAdapter(); break;
 			case StiDatabaseType::PostgreSQL: $connection = new StiPostgreSqlAdapter(); break;
 			case StiDatabaseType::Oracle: $connection = new StiOracleAdapter(); break;
+			case StiDatabaseType::ODBC: $connection = new StiOdbcAdapter(); break;
 		}
 		
 		if (isset($connection)) {
@@ -311,6 +386,9 @@ class StiHandler {
 					if (!$result->success) return $result;
 					if (isset($result->object) && isset($result->object->result)) return $result->object->result;
 					return $result;
+					
+				case StiEventType::PrepareVariables:
+					return $this->invokePrepareVariables($request);
 					
 				case StiEventType::CreateReport:
 					return $this->invokeCreateReport($request);
@@ -399,21 +477,22 @@ class StiHelper {
 			}
 			var command = {};
 			for (var p in args) {
-				if (p == 'report' && args.report != null) command.report = JSON.parse(args.report.saveToJsonString());
-				else if (p == 'settings' && args.settings != null) command.settings = args.settings;
+				if (p == 'report') {
+					if (args.report && (args.event == 'SaveReport' || args.event == 'SaveAsReport'))
+						command.report = JSON.parse(args.report.saveToJsonString());
+				}
+				else if (p == 'settings' && args.settings) command.settings = args.settings;
 				else if (p == 'data') command.data = Stimulsoft.System.Convert.toBase64String(args.data);
+				else if (p == 'variables') command[p] = this.getVariables(args[p]);
 				else command[p] = args[p];
 			}
 			
-			var isNullOrEmpty = function (value) {
-				return value == null || value === '' || value === undefined;
-			}
 			var sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.getStringCommand(command);
 			if (!callback) callback = function (message) {
-				if (Stimulsoft.System.StiError.errorMessageForm && !isNullOrEmpty(message)) {
+				if (Stimulsoft.System.StiError.errorMessageForm && !this.isNullOrEmpty(message)) {
 					var obj = JSON.parse(message);
-					if (!obj.success || !isNullOrEmpty(obj.notice)) {
-						var message = isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
+					if (!obj.success || !this.isNullOrEmpty(obj.notice)) {
+						var message = this.isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
 						Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
 					}
 				}
@@ -453,13 +532,19 @@ class StiHelper {
 		}
 	};
 	
-	StiHelper.prototype.getUrlVars = function (json, callback) {
-		var vars = {};
-		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-			function (m, key, value) {
-				vars[key] = decodeURI(value);
-		});
-		return vars;
+	StiHelper.prototype.isNullOrEmpty = function (value) {
+		return value == null || value === '' || value === undefined;
+	}
+	
+	StiHelper.prototype.getVariables = function (variables) {
+		if (variables) {
+			for (var variable of variables) {
+				if (variable.type == 'DateTime' && variable.value != null)
+					variable.value = variable.value.toString('YYYY-MM-DD HH:mm:SS');
+			}
+		}
+		
+		return variables;
 	}
 	
 	function StiHelper(url, timeout) {
