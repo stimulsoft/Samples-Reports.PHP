@@ -58,7 +58,7 @@ require_once 'stimulsoft/helper.php';
 		viewer.onPrepareVariables = function (args, callback) {
 			
 			// Call the server-side handler
-			jsHelper.process(args, callback);
+			Stimulsoft.Helper.process(args, callback);
 		}
 		
 		*/
@@ -69,7 +69,7 @@ require_once 'stimulsoft/helper.php';
 		viewer.onBeginProcessData = function (args, callback) {
 			
 			// Call the server-side handler
-			jsHelper.process(args, callback);
+			Stimulsoft.Helper.process(args, callback);
 		}
 		
 		*/
@@ -77,10 +77,10 @@ require_once 'stimulsoft/helper.php';
 		/*
 		
 		// Manage export settings and, if necessary, transfer them to the server and manage there
-		viewer.onBeginExportReport = function (args) {
+		viewer.onBeginExportReport = function (args, callback) {
 			
 			// Call the server-side handler
-			jsHelper.process(args);
+			Stimulsoft.Helper.process(args, callback);
 			
 			// Manage export settings
 			// args.fileName = "MyReportName";
@@ -97,7 +97,7 @@ require_once 'stimulsoft/helper.php';
 			args.preventDefault = true;
 			
 			// Call the server-side handler
-			jsHelper.process(args);
+			Stimulsoft.Helper.process(args);
 		}
 		
 		*/
@@ -108,7 +108,7 @@ require_once 'stimulsoft/helper.php';
 		viewer.onEmailReport = function (args) {
 			
 			// Call the server-side handler
-			jsHelper.process(args);
+			Stimulsoft.Helper.process(args);
 		}
 		
 		*/

@@ -56,7 +56,7 @@ require_once 'stimulsoft/helper.php';
 		designer.onBeginProcessData = function (args, callback) {
 			
 			// Call the server-side handler
-			jsHelper.process(args, callback);
+			Stimulsoft.Helper.process(args, callback);
 		}
 		
 		*/
@@ -64,10 +64,10 @@ require_once 'stimulsoft/helper.php';
 		/*
 		
 		// Save report template on the server side.
-		designer.onSaveReport = function (args) {
+		designer.onSaveReport = function (args, callback) {
 			
 			// Call the server-side handler
-			jsHelper.process(args, callback);
+			Stimulsoft.Helper.process(args, callback);
 		}
 		
 		*/

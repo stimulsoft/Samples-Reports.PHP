@@ -21,14 +21,14 @@ else {
 }
 
 function stiErrorHandler($errNo, $errStr, $errFile, $errLine) {
-	$result = StiResult::error("[".$errNo."] ".$errStr." (".$errFile.", Line ".$errLine.")");
+	$result = StiResult::error("[$errNo] $errStr ($errFile, Line $errLine)");
 	StiResponse::json($result);
 }
 
 function stiShutdownFunction() {
 	$err = error_get_last();
-	if ($err != null && (($err["type"] & E_COMPILE_ERROR) || ($err["type"] & E_ERROR) || ($err["type"] & E_CORE_ERROR) || ($err["type"] & E_RECOVERABLE_ERROR))) {
-		$result = StiResult::error("[".$err["type"]."] ".$err["message"]." (".$err["file"].", Line ".$err["line"].")");
+	if ($err != null && (($err['type'] & E_COMPILE_ERROR) || ($err['type'] & E_ERROR) || ($err['type'] & E_CORE_ERROR) || ($err['type'] & E_RECOVERABLE_ERROR))) {
+		$result = StiResult::error("[{$err['type']}] {$err['message']} ({$err['file']}, Line {$err['line']})");
 		StiResponse::json($result);
 	}
 }
@@ -159,6 +159,7 @@ class StiHandler {
 	private function invokeBeginProcessData($request) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
+		$args->command = $request->command;
 		$args->database = $request->database;
 		$args->connectionString = isset($request->connectionString) ? $request->connectionString : null;
 		$args->queryString = isset($request->queryString) ? $request->queryString : null;
@@ -183,6 +184,10 @@ class StiHandler {
 	private function invokeEndProcessData($request, $result) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
+		$args->command = $request->command;
+		$args->database = $request->database;
+		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
+		$args->connection = isset($request->connection) ? $request->connection : null;
 		$args->result = $result;
 		return $this->checkEventResult($this->onEndProcessData, $args);
 	}
@@ -226,6 +231,7 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->fileName = $request->fileName;
+		$args->printAction = $request->printAction;
 		return $this->checkEventResult($this->onPrintReport, $args);
 	}
 	
@@ -233,10 +239,17 @@ class StiHandler {
 	private function invokeBeginExportReport($request) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
-		$args->settings = $request->settings;
+		$args->action = $request->action;
 		$args->format = $request->format;
+		$args->formatName = $request->formatName;
+		$args->settings = $request->settings;
 		$args->fileName = $request->fileName;
-		return $this->checkEventResult($this->onBeginExportReport, $args);
+		
+		$result = $this->checkEventResult($this->onBeginExportReport, $args);
+		$result->fileName = $args->fileName;
+		$result->settings = $args->settings;
+		
+		return $result;
 	}
 	
 	public $onEndExportReport = null;
@@ -244,7 +257,9 @@ class StiHandler {
 		$args = new stdClass();
 		$args->sender = $request->sender;
 		$args->format = $request->format;
+		$args->formatName = $request->formatName;
 		$args->fileName = $request->fileName;
+		$args->fileExtension = $this->getFileExtension($request->format);
 		$args->data = $request->data;
 		return $this->checkEventResult($this->onEndExportReport, $args);
 	}
@@ -261,6 +276,7 @@ class StiHandler {
 		$args->sender = $request->sender;
 		$args->settings = $settings;
 		$args->format = $request->format;
+		$args->formatName = $request->formatName;
 		$args->fileName = $request->fileName;
 		$args->data = base64_decode($request->data);
 		
@@ -323,21 +339,13 @@ class StiHandler {
 		return $result;
 	}
 	
-	public $onDesignReport = null;
-	private function invokeDesignReport($request) {
-		$args = new stdClass();
-		$args->sender = $request->sender;
-		$args->fileName = $request->fileName;
-		return $this->checkEventResult($this->onDesignReport, $args);
-	}
-	
 	
 // Methods
 	
 	public function registerErrorHandlers() {
 		error_reporting(0);
-		set_error_handler("stiErrorHandler");
-		register_shutdown_function("stiShutdownFunction");
+		set_error_handler('stiErrorHandler');
+		register_shutdown_function('stiShutdownFunction');
 	}
 	
 	public function process($response = true) {
@@ -373,15 +381,23 @@ class StiHandler {
 		if ($result->success) {
 			switch ($request->event) {
 				case StiEventType::BeginProcessData:
-				case StiEventType::ExecuteQuery:
 					$result = $this->invokeBeginProcessData($request);
 					if (!$result->success) return $result;
 					$queryString = $result->object->queryString;
 					$result = $this->createConnection($result->object);
 					if (!$result->success) return $result;
 					$connection = $result->object;
-					if (isset($queryString)) $result = $connection->execute($queryString);
-					else $result = $connection->test();
+					
+					switch ($request->command) {
+						case StiCommand::TestConnection:
+							$result = $connection->test();
+							break;
+							
+						case StiCommand::ExecuteQuery:
+							$result = $connection->execute($queryString);
+							break;
+					}
+					
 					$result = $this->invokeEndProcessData($request, $result);
 					if (!$result->success) return $result;
 					if (isset($result->object) && isset($result->object->result)) return $result->object->result;
@@ -413,9 +429,6 @@ class StiHandler {
 						
 				case StiEventType::EmailReport:
 					return $this->invokeEmailReport($request);
-					
-				case StiEventType::DesignReport;
-					return $this->invokeDesignReport($request);
 			}
 			
 			$result = StiResult::error("Unknown event [".$request->event."]");
@@ -426,12 +439,11 @@ class StiHandler {
 	
 	private function getFileExtension($format) {
 		switch ($format) {
-			case StiExportFormat::Html:
-			case StiExportFormat::Html5:
-				return "html";
-				
 			case StiExportFormat::Pdf:
 				return "pdf";
+				
+			case StiExportFormat::Text:
+				return "txt";
 				
 			case StiExportFormat::Excel2007:
 				return "xlsx";
@@ -441,14 +453,33 @@ class StiHandler {
 				
 			case StiExportFormat::Csv:
 				return "csv";
+				
+			case StiExportFormat::ImageSvg:
+				return "svg";
+				
+			case StiExportFormat::Html:
+			case StiExportFormat::Html5:
+				return "html";
+				
+			case StiExportFormat::Ods:
+				return "ods";
+				
+			case StiExportFormat::Odt:
+				return "odt";
+				
+			case StiExportFormat::Ppt2007:
+				return "pptx";
+				
+			case StiExportFormat::Document:
+				return "mdc";
 		}
-		return "";
+		
+		return $format;
 	}
 }
 
 
 // JavaScript helper
-
 
 class StiHelper {
 	public static function createOptions() {
@@ -468,13 +499,16 @@ class StiHelper {
 <script type="text/javascript">
 	StiHelper.prototype.process = function (args, callback) {
 		if (args) {
-			if (args.event == 'BeginProcessData') {
+			if (callback)
 				args.preventDefault = true;
+			
+			if (args.event == 'BeginProcessData') {
 				if (args.database == 'XML' || args.database == 'JSON' || args.database == 'Excel')
 					return callback(null);
 				if (args.database == 'Data from DataSet, DataTables')
 					return callback(args);
 			}
+			
 			var command = {};
 			for (var p in args) {
 				if (p == 'report') {
@@ -488,16 +522,13 @@ class StiHelper {
 			}
 			
 			var sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.getStringCommand(command);
-			if (!callback) callback = function (message) {
-				if (Stimulsoft.System.StiError.errorMessageForm && !this.isNullOrEmpty(message)) {
-					var obj = JSON.parse(message);
-					if (!obj.success || !this.isNullOrEmpty(obj.notice)) {
-						var message = this.isNullOrEmpty(obj.notice) ? 'There was some error' : obj.notice;
-						Stimulsoft.System.StiError.errorMessageForm.show(message, obj.success);
-					}
+			if (!callback) callback = function (args) {
+				if (!args.success || !Stimulsoft.System.StiString.isNullOrEmpty(args.notice)) {
+					var message = Stimulsoft.System.StiString.isNullOrEmpty(args.notice) ? 'There was some error' : args.notice;
+					Stimulsoft.System.StiError.showError(message, true, args.success);
 				}
 			}
-			jsHelper.send(sendText, callback);
+			Stimulsoft.Helper.send(sendText, callback);
 		}
 	}
 	
@@ -513,21 +544,28 @@ class StiHelper {
 				if (request.status == 200) {
 					var responseText = request.responseText;
 					request.abort();
-					callback(responseText);
+					
+					try {
+						var args = JSON.parse(responseText);
+						callback(args);
+					}
+					catch (e) {
+						Stimulsoft.System.StiError.showError(e.message);
+					}
 				}
 				else {
-					Stimulsoft.System.StiError.showError('[' + request.status + '] ' + request.statusText, false);
+					Stimulsoft.System.StiError.showError('Server response error: [' + request.status + '] ' + request.statusText);
 				}
 			};
 			request.onerror = function (e) {
 				var errorMessage = 'Connect to remote error: [' + request.status + '] ' + request.statusText;
-				Stimulsoft.System.StiError.showError(errorMessage, false);
+				Stimulsoft.System.StiError.showError(errorMessage);
 			};
 			request.send(json);
 		}
 		catch (e) {
 			var errorMessage = 'Connect to remote error: ' + e.message;
-			Stimulsoft.System.StiError.showError(errorMessage, false);
+			Stimulsoft.System.StiError.showError(errorMessage);
 			request.abort();
 		}
 	};
@@ -560,13 +598,15 @@ class StiHelper {
 			Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
 		}
 	}
-	
-	jsHelper = new StiHelper('<?php echo $handler; ?>', <?php echo $timeout; ?>);
+
+	Stimulsoft = Stimulsoft || {};
+	Stimulsoft.Helper = new StiHelper('<?php echo $handler; ?>', <?php echo $timeout; ?>);
+	jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;
 </script>
 <?php
 	}
 	
 	public static function createHandler() {
-		?>jsHelper.process(arguments[0], arguments[1]);<?php
+		?>Stimulsoft.Helper.process(arguments[0], arguments[1]);<?php
 	}
 }

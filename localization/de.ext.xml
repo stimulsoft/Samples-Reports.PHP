@@ -236,6 +236,8 @@
     <StiDuplicatedNameCheckShort>Die Komponenten mit dem gleichen Namen sind gefunden</StiDuplicatedNameCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>'{0}' Beziehungen wurden im Report gefunden. Sie haben gleiche Werte ('{1}') in 'Name in der Datenquelle' . Alle Werte in 'Name in der Datenquelle' sollten eindeutig im Bereich einer Beziehung einer Datenbank sein! Es ist notwendig, diese Felder in den Beziehungen zu korrigieren.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplikate in Beziehungen</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
+    <StiDuplicatedReportName2CheckLong>Der Berichtsname '{0}' ist gleich wie der Datenuellenname.</StiDuplicatedReportName2CheckLong>
+    <StiDuplicatedReportNameCheckLong>Der Berichtsname '{0}' ist gleich wie der Komponentennname</StiDuplicatedReportNameCheckLong>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core-Engine kann nicht diesen Bericht im Kompilation-Modus rendern. Wechseln Sie den Bericht in Interpretation-Modus.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>Dieser Bericht ist im Kompilation-Modus</StiNetCoreCompilationModeCheckShort>
   </CheckReport>

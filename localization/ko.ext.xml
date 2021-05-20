@@ -71,6 +71,7 @@
     <StiCanGrowGrowToHeightComponentInContainerShort>구성 요소의 표시가 정확하지 않을 수 있습니다.</StiCanGrowGrowToHeightComponentInContainerShort>
     <StiCanGrowWordWrapTextAndWysiwygCheckLong>TextQuality 속성이 Standard 또는 Typographic로 설정되어있는 경우. 텍스트 미리 다른 줌 모드 및 GDI + 라이브러리의 반올림 오류에 대한 인쇄가 다를 수 있습니다.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>잘못된 텍스트 랩이있을 수 있습니다</StiCanGrowWordWrapTextAndWysiwygCheckShort>
+    <StiChartSeriesValueCheckLong>Value 속성은 차트 "{0}"의 시리즈에 대해 지정되었지만 차트에 데이터 원본 속성 세트가 없습니다.</StiChartSeriesValueCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckLong>총 열 너비는 '{0}'구성 요소의 폭보다 커집니다. 이렇게하면 보고서의 렌더링이 제대로 작동하지 않을 수 있습니다. 또한 보고서를 다른 형식으로 내보낼 때 몇 가지 문제가 발생할 수 있습니다.</StiColumnsWidthGreaterContainerWidthCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckShort>총 열 너비는 구성 요소의 폭보다 커집니다.</StiColumnsWidthGreaterContainerWidthCheckShort>
     <StiColumnsWidthGreaterPageWidthCheckLong>'{0}'페이지에 열의 합계 폭이 페이지 너비보다 커지고 있습니다. 이렇게하면 보고서의 렌더링이 제대로 작동하지 않을 수 있습니다. 또한 보고서를 다른 형식으로 내보낼 때 몇 가지 문제가 발생할 수 있습니다.</StiColumnsWidthGreaterPageWidthCheckLong>
@@ -235,6 +236,8 @@
     <StiDuplicatedNameCheckShort>중복 된 이름의 구성 요소가 발견</StiDuplicatedNameCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>보고서에 '{0}'관계가 있습니다. 그들은 NameInSource 동등한 ( '{1}') 값을 가지고 있습니다. NameInSource의 모든 하나의 관계에서 하나의 데이터베이스 범위에서 고유해야합니다. 이러한 관계 필드를 수정해야합니다.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>릴레이션에서 중복됩니다.</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
+    <StiDuplicatedReportName2CheckLong>보고서 이름 '{0}'은(는) 데이터소스 이름과 동일합니다.</StiDuplicatedReportName2CheckLong>
+    <StiDuplicatedReportNameCheckLong>보고서 이름 '{0}'은(는) 구성 요소 이름과 동일합니다.</StiDuplicatedReportNameCheckLong>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core 엔진이 컴파일 모드에서 이 보고서를 렌더링 할 수 없습니다. 보고서를 해석 모드로 변경하십시오.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>이 보고서는 편집 모드입니다.</StiNetCoreCompilationModeCheckShort>
   </CheckReport>
@@ -2035,6 +2038,7 @@
   <Universal>
     <AllowApplyStyle>값은 차트 스타일이 사용되는 것을 나타내는 값</AllowApplyStyle>
     <Key>변수를 GUI에서 선택한 때 변수에 사용되는 키</Key>
+    <Label>GUI에서 키 대신 표시되는 레이블.</Label>
     <Value>GUI의 키 값 대신 표시된 값</Value>
   </Universal>
 </Localization>

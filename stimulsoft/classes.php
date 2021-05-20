@@ -19,8 +19,6 @@ class StiSender {
 }
 
 class StiDatabaseType {
-	const XML = "XML";
-	const JSON = "JSON";
 	const MySQL = "MySQL";
 	const MSSQL = "MS SQL";
 	const PostgreSQL = "PostgreSQL";
@@ -31,9 +29,7 @@ class StiDatabaseType {
 
 class StiEventType {
 	const PrepareVariables = "PrepareVariables";
-	const ExecuteQuery = "ExecuteQuery";
 	const BeginProcessData = "BeginProcessData";
-	//const EndProcessData = "EndProcessData";
 	const CreateReport = "CreateReport";
 	const OpenReport = "OpenReport";
 	const SaveReport = "SaveReport";
@@ -42,32 +38,36 @@ class StiEventType {
 	const BeginExportReport = "BeginExportReport";
 	const EndExportReport = "EndExportReport";
 	const EmailReport = "EmailReport";
-	const DesignReport = "DesignReport";
+}
+
+class StiCommand {
+	const TestConnection = "TestConnection";
+	const ExecuteQuery = "ExecuteQuery";
 }
 
 class StiExportFormat {
-	const Html = "Html";
-	const Html5 = "Html5";
-	const Pdf = "Pdf";
-	const Excel2007 = "Excel2007";
-	const Word2007 = "Word2007";
-	const Csv = "Csv";
+	const Pdf = 1;
+	const Text = 11;
+	const Excel2007 = 14;
+	const Word2007 = 15;
+	const Csv = 17;
+	const ImageSvg = 28;
+	const Html = 32;
+	const Ods = 33;
+	const Odt = 34;
+	const Ppt2007 = 35;
+	const Html5 = 36;
+	const Document = 1000;
+}
+
+class StiExportAction {
+	const ExportReport = 1;
+	const SendEmail = 2;
 }
 
 class StiRequest {
 	public $sender = null;
 	public $event = null;
-	public $connectionString = null;
-	public $queryString = null;
-	public $database = null;
-	public $dataSource = null;
-	public $connection = null;
-	public $timeout = null;
-	public $data = null;
-	public $fileName = null;
-	public $format = null;
-	public $settings = null;
-	public $report = null;
 
 	public function parse() {
 		$input = file_get_contents('php://input');
@@ -84,22 +84,18 @@ class StiRequest {
 			return StiResult::error($message);
 		}
 		
-		if (isset($obj->sender)) $this->sender = $obj->sender;
-		if (isset($obj->command)) $this->event = $obj->command;
-		if (isset($obj->event)) $this->event = $obj->event;
-		if (isset($obj->connectionString)) $this->connectionString = $obj->connectionString;
-		if (isset($obj->queryString)) $this->queryString = $obj->queryString;
-		if (isset($obj->database)) $this->database = $obj->database;
-		if (isset($obj->dataSource)) $this->dataSource = $obj->dataSource;
-		if (isset($obj->connection)) $this->connection = $obj->connection;
-		if (isset($obj->timeout)) $this->timeout = $obj->timeout;
-		if (isset($obj->data)) $this->data = $obj->data;
-		if (isset($obj->fileName)) $this->fileName = $obj->fileName;
-		if (isset($obj->format)) $this->format = $obj->format;
-		if (isset($obj->settings)) $this->settings = $obj->settings;
-		if (isset($obj->variables)) $this->variables = $obj->variables;
-		if (isset($obj->parameters)) $this->parameters = $obj->parameters;
-		if (isset($obj->escapeQueryParameters)) $this->escapeQueryParameters = $obj->escapeQueryParameters;
+		$parameterNames = array(
+			'sender', 'event', 'command', 'connectionString', 'queryString', 'database', 'dataSource', 'connection', 'timeout', 'data',
+			'fileName', 'action', 'printAction', 'format', 'formatName', 'settings', 'variables', 'parameters', 'escapeQueryParameters'
+		);
+		
+		foreach ($parameterNames as $name) {
+			if (isset($obj->{$name})) $this->{$name} = $obj->{$name};
+		}
+		
+		if (!isset($obj->event) && isset($obj->command) && ($obj->command == StiCommand::TestConnection || StiCommand::ExecuteQuery))
+			$this->event = StiEventType::BeginProcessData;
+		
 		if (isset($obj->report)) {
 			$this->report = $obj->report;
 			if (defined('JSON_UNESCAPED_SLASHES'))
@@ -120,8 +116,7 @@ class StiRequest {
 class StiResponse {
 	public static function json($result, $exit = true) {
 		unset($result->object);
-		if (defined('JSON_UNESCAPED_SLASHES')) echo json_encode($result, JSON_UNESCAPED_SLASHES);
-		else echo json_encode($result);
+		echo defined('JSON_UNESCAPED_SLASHES') ? json_encode($result, JSON_UNESCAPED_SLASHES) : json_encode($result);
 		if ($exit) exit;
 	}
 }
@@ -189,62 +184,4 @@ class StiEmailSettings {
 	
 	// The array of 'bcc' addresses.
 	public $bcc = array();
-}
-
-class StiDatabaseEventArgs {
-	public $sender = null;
-	public $database = null;
-	public $connectionInfo = null;
-	public $queryString = null;
-
-	function __construct($sender, $database, $connectionInfo, $queryString = null) {
-		$this->sender = $sender;
-		$this->database = $database;
-		$this->connectionInfo = $connectionInfo;
-		$this->queryString = $queryString;
-	}
-}
-
-class StiReportEventArgs {
-	public $sender = null;
-	public $report = null;
-
-	function __construct($sender, $report = null) {
-		$this->sender = $sender;
-		$this->report = $report;
-	}
-}
-
-class StiExportReportEventArgs {
-	public $sender = null;
-	public $settings = null;
-	public $format = null;
-	public $fileName = null;
-	public $data = null;
-
-	function __construct($settings, $format, $fileName, $data = null) {
-		$this->settings = $settings;
-		$this->format = $format;
-		$this->fileName = $fileName;
-		$this->data = $data;
-	}
-}
-
-class StiSaveReportEventArgs {
-	public $sender = null;
-	public $report = null;
-	public $fileName = null;
-
-	function __construct($report, $fileName) {
-		$this->report = $report;
-		$this->fileName = $fileName;
-	}
-}
-
-class StiDesignReportEventArgs {
-	public $fileName = null;
-
-	function __construct($fileName) {
-		$this->fileName = $fileName;
-	}
 }

@@ -234,6 +234,8 @@
     <StiDuplicatedName2CheckLong>There are several data sources with the '{0}' name.</StiDuplicatedName2CheckLong>
     <StiDuplicatedNameCheckLong>There are several components with the '{0}' name.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>The components with duplicate names are found</StiDuplicatedNameCheckShort>
+    <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
+    <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>The '{0}' relations are found in the report. They have equal ('{1}') values in the NameInSource. All values in the NameInSource should be unique in the range of one relation to one database! It is necessary to correct these fields of relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicates in relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine cannot render this report in the compilation mode. Change the report to the interpretation mode.</StiNetCoreCompilationModeCheckLong>
@@ -937,7 +939,7 @@
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>A value that control antialiasing drawing mode.</Antialiasing>
-    <AxisValue>Axis value through what the constant line is drawn.</AxisValue>
+    <AxisValue>Axis value through what the constant line is drawn.. Sample: 1, yyyy.MM.dd</AxisValue>
     <Font>A font that is used for drawing constant line text.</Font>
     <LineColor>A color which will be used for drawing constant line.</LineColor>
     <LineStyle>Constant line style.</LineStyle>

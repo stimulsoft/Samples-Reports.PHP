@@ -31,10 +31,10 @@ require_once 'stimulsoft/helper.php';
 			/*
 		
 			// Process SQL data sources. It can be used if it is necessary to correct the parameters of the data request.
-			viewer.onBeginProcessData = function (event, callback) {
+			report.onBeginProcessData = function (args, callback) {
 				
-				// Create a default PHP handler
-				<?php StiHelper::createHandler(); ?>
+				// Call the server-side handler
+				Stimulsoft.Helper.process(args, callback);
 			}
 			
 			*/
