@@ -1,0 +1,18 @@
+{
+  "name": "stimulsoft/reports",
+  "description": "A report designer and generator from Stimulsoft that outputs to multiple formats",
+  "keywords": ["report", "reporting", "generator", "designer", "pdf", "excel", "word", "csv", "html", "ods", "odt", "powerpoint"],
+  "homepage": "https://www.stimulsoft.com",
+  "autoload": {
+     "psr-4": {
+       "Stimulsoft\\": "src"
+     }
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "require": {
+    "php": ">=5.3",
+    "phpmailer/phpmailer": "^v5.2|^6.4"
+  }
+}
