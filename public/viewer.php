@@ -32,12 +32,15 @@ require_once 'autoloader.php';
 		// Create and set options.
 		// More options can be found in the documentation at the link:
 		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_viewer_settings.htm
-		var options = new Stimulsoft.Viewer.StiViewerOptions();
-		options.toolbar.showSendEmailButton = true;
-		options.toolbar.displayMode = Stimulsoft.Viewer.StiToolbarDisplayMode.Separated;
-		options.appearance.fullScreenMode = true;
-		options.appearance.scrollbarsMode = true;
-		options.height = "600px"; // Height for non-fullscreen mode
+		<?php
+		$options = new \Stimulsoft\Viewer\StiViewerOptions('options');
+		$options->toolbar->showSendEmailButton = true;
+//		$options->toolbar->displayMode = Stimulsoft.Viewer.StiToolbarDisplayMode.Separated;
+		$options->appearance->fullScreenMode = true;
+		$options->appearance->scrollbarsMode = true;
+		$options->height = '600px'; // Height for non-fullscreen mode
+		echo $options;
+		?>
 
 		// Create Viewer component.
 		// A description of the parameters can be found in the documentation at the link:

@@ -34,8 +34,12 @@ require_once 'autoloader.php';
 		// Create and set options.
 		// More options can be found in the documentation at the link:
 		// https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_designer_settings.htm
-		var options = new Stimulsoft.Designer.StiDesignerOptions();
-		options.appearance.fullScreenMode = true;
+<?php
+		$options = new \Stimulsoft\Designer\StiDesignerOptions('options');
+		$options->appearance->fullScreenMode = true;
+		$options->height = '1000px';
+		echo $options;
+?>
 
 		// Create Designer component.
 		// A description of the parameters can be found in the documentation at the link:

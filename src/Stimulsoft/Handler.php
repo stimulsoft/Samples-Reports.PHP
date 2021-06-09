@@ -36,7 +36,7 @@ class Handler
 	 *
 	 * @param \Stimulsoft\EmailSettings $settings that will be used for PHPMailer.  Can be queried or changed as needed in child class.
 	 *
-	 * @return \PHPMailer(true)|\PHPMailer\PHPMailer\PHPMailer
+	 * @return \Stimulsoft\Interfaces\Mailer
 	 */
 	public function getMailer(\Stimulsoft\EmailSettings $settings)
 	{
@@ -276,10 +276,10 @@ class Handler
 		$args->sender = $request->sender;
 		$args->command = $request->command;
 		$args->database = $request->database;
-		$args->connectionString = $request->connectionString ?? null;
-		$args->queryString = $request->queryString ?? null;
-		$args->dataSource = $request->dataSource ?? null;
-		$args->connection = $request->connection ?? null;
+		$args->connectionString = isset($request->connectionString) ? $request->connectionString : null;
+		$args->queryString = isset($request->queryString) ? $request->queryString : null;
+		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
+		$args->connection = isset($request->connection) ? $request->connection : null;
 
 		if (isset($request->queryString, $request->parameters)) {
 			$args->parameters = array();
@@ -305,8 +305,8 @@ class Handler
 		$args->sender = $request->sender;
 		$args->command = $request->command;
 		$args->database = $request->database;
-		$args->dataSource = $request->dataSource ?? null;
-		$args->connection = $request->connection ?? null;
+		$args->dataSource = isset($request->dataSource) ? $request->dataSource : null;
+		$args->connection = isset($request->connection) ? $request->connection : null;
 		$args->result = $result;
 
 		return $this->checkEventResult($this->onEndProcessData, $args);
@@ -461,11 +461,9 @@ class Handler
 			$this->addAddress('bcc', $settings, $mail);
 
 			$mail->Send();
-		} catch (phpmailerException $e) {
+		} catch (\phpmailerException $e) {
 			$error = \strip_tags($e->errorMessage());
-
-			return \Stimulsoft\Result::error($error);
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			$error = \strip_tags($e->getMessage());
 		}
 

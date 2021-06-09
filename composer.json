@@ -5,11 +5,13 @@
   "homepage": "https://www.stimulsoft.com",
   "autoload": {
      "psr-4": {
-       "Stimulsoft\\": "src"
+       "Stimulsoft\\": "src\\Stimulsoft"
      }
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "vanilla/garden-cli": "^1.0|^2.0|^3.1",
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^6.0|^7.0|^8.0|^9.5"
   },
   "require": {
     "php": ">=5.3",

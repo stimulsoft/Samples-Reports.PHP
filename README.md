@@ -6,10 +6,10 @@
 This repository has website project with some report examples.
 
 # Running samples
-Samples folder contains all application files, including the 'index.php' file. So all files from this folder are required to be copied on your PHP server (using ftp or http access interface - depending on your hosting provider). Then, in your browser, you can go to the following address: 
+The /public folder contains all application files, including the 'index.php' file. So all files from this folder are required to be copied on your PHP server (using ftp or http access interface - depending on your hosting provider). Then, in your browser, you can go to the following address:
 http://you_domain_name/index.php
 
-If you use the PHP server installed on local developers computer: 
+If you use the PHP server installed on local developers computer:
 http://localhost/index.php
 
 # About Stimulsoft Reports.PHP

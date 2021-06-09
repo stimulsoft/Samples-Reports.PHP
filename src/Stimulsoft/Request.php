@@ -51,7 +51,7 @@ class Request
 			} else {
 				// for PHP 5.3
 				$this->reportJson = \str_replace('\/', '/', \json_encode($this->report));
-				$this->reportJson = \preg_replace_callback('/\\\\u(\w{4})/', static function($matches) {
+				$this->reportJson = \preg_replace_callback('/\\\\u(\w{4})/', function($matches) {
 					return \html_entity_decode('&#x' . $matches[1] . ';', ENT_COMPAT, 'UTF-8');
 				}, $this->reportJson);
 			}

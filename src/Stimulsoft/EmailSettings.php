@@ -34,6 +34,9 @@ class EmailSettings
 	// The secure connection prefix - ssl or tls
 	public $secure = 'ssl';
 
+	// Mailer (sendmail, qmail, smtp, mail, etc)
+	public $mailer = 'smtp';
+
 	// Login (Username or Email) */
 	public $login = null;
 

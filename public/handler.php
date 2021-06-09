@@ -12,7 +12,7 @@ require_once 'autoloader.php';
 $handler = new \Stimulsoft\Handler();
 $handler->registerErrorHandlers();
 
-$handler->onPrepareVariables = static function($args) {
+$handler->onPrepareVariables = function($args) {
 	// You can change the values of the variables used in the report.
 	// The new values will be passed to the report generator.
 	/*
@@ -31,7 +31,7 @@ $handler->onPrepareVariables = static function($args) {
 	return \Stimulsoft\Result::success();
 };
 
-$handler->onBeginProcessData = static function($args) {
+$handler->onBeginProcessData = function($args) {
 	// Current database type: 'XML', 'JSON', 'MySQL', 'MS SQL', 'PostgreSQL', 'Firebird', 'Oracle'
 	$database = $args->database;
 	// Current connection name
@@ -76,13 +76,13 @@ $handler->onBeginProcessData = static function($args) {
 	//return \Stimulsoft\Result::error('A message about some connection error.');
 };
 
-$handler->onPrintReport = static function($args) {
+$handler->onPrintReport = function($args) {
 	$fileName = $args->fileName; // Report file name
 
 	return \Stimulsoft\Result::success();
 };
 
-$handler->onBeginExportReport = static function($args) {
+$handler->onBeginExportReport = function($args) {
 	// Export format
 	$format = $args->format;
 	// Export settions
@@ -93,7 +93,7 @@ $handler->onBeginExportReport = static function($args) {
 	return \Stimulsoft\Result::success();
 };
 
-$handler->onEndExportReport = static function($args) {
+$handler->onEndExportReport = function($args) {
 	// Export format
 	$format = $args->format;
 	// Base64 export data
@@ -112,7 +112,7 @@ $handler->onEndExportReport = static function($args) {
 	//return \Stimulsoft\Result::error('An error occurred while exporting the report.');
 };
 
-$handler->onEmailReport = static function($args) {
+$handler->onEmailReport = function($args) {
 	// These parameters will be used when sending the report by email. You must set the correct values.
 	$args->settings->from = '******@gmail.com';
 	$args->settings->host = 'smtp.gmail.com';
@@ -129,18 +129,18 @@ $handler->onEmailReport = static function($args) {
 	return \Stimulsoft\Result::success('Email sent successfully.');
 };
 
-$handler->onDesignReport = static function($args) {
+$handler->onDesignReport = function($args) {
 	return \Stimulsoft\Result::success();
 };
 
-$handler->onCreateReport = static function($args) {
+$handler->onCreateReport = function($args) {
 	// File name of the new report
 	$fileName = $args->fileName;
 
 	return \Stimulsoft\Result::success();
 };
 
-$handler->onSaveReport = static function($args) {
+$handler->onSaveReport = function($args) {
 	// Report object
 	$report = $args->report;
 	// Report in JSON format
@@ -156,7 +156,7 @@ $handler->onSaveReport = static function($args) {
 	//return \Stimulsoft\Result::error('Save Report ERROR. Message from server side.');
 };
 
-$handler->onSaveAsReport = static function($args) {
+$handler->onSaveAsReport = function($args) {
 	// The event works the same as 'onSaveReport'
 	return \Stimulsoft\Result::success();
 };
