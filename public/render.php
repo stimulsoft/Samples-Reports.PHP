@@ -16,7 +16,7 @@ require_once 'autoloader.php';
 	<?php
 		// Add JavaScript helpers and init options to work with the PHP server
 		// You can change the handler file and timeout if required
-		echo \Stimulsoft\Helper::init('handler.php', 30);
+		\Stimulsoft\Helper::init('handler.php', 30);
 	?>
 
 	<script type="text/javascript">
