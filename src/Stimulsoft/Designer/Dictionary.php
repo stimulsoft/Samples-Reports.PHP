@@ -4,6 +4,15 @@ namespace Stimulsoft\Designer;
 
 class Dictionary extends \Stimulsoft\OptionsBase
 {
+	// permission constants, | together
+	const PERMISSION_NONE = 0;
+	const PERMISSION_CREATE = 1;
+	const PERMISSION_DELETE = 2;
+	const PERMISSION_MODIFY = 4;
+	const PERMISSION_VIEW = 8;
+	const PERMISSION_MODIFYVIEW = 12;
+	const PERMISSION_ALL = 15;
+
 	protected static $validFields = array(
 		'businessObjectsPermissions' => 'integer',
 		'dataColumnsPermissions' => 'integer',

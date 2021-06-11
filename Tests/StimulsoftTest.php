@@ -18,6 +18,21 @@ class StimulsoftTest extends \PHPUnit\Framework\TestCase
 		$options->height = 1000;
 		}
 
+	public function testBadEnum()
+		{
+		$options = new \Stimulsoft\Designer\StiDesignerOptions('options');
+		$this->expectException(\Exception::class);
+		$options->viewerOptions->toolbar->alignment = 'fred';
+		}
+
+	public function testEnum()
+		{
+		$options = new \Stimulsoft\Designer\StiDesignerOptions('options');
+		$this->assertEquals(3, $options->viewerOptions->toolbar->alignment);
+		$options->viewerOptions->toolbar->alignment = 'Right';
+		$this->assertEquals(2, $options->viewerOptions->toolbar->alignment);
+		}
+
 	public function testDefaults()
 		{
 		$options = new \Stimulsoft\Designer\StiDesignerOptions('options');

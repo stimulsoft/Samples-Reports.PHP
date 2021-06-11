@@ -9,10 +9,10 @@ class Appearance extends \Stimulsoft\OptionsBase
 		'_zoom' => 'integer',
 		'allowChangeWindowTitle' => 'boolean',
 		'allowWordWrapTextEditors' => 'boolean',
-		'datePickerFirstDayOfWeek' => 'integer',
-		'defaultUnit' => 'integer',
+		'datePickerFirstDayOfWeek' => array('Auto', 'Monday', 'Sunday'),
+		'defaultUnit' => array('Centimeters', 'HundredthsOfInch', 'Inches', 'Millimeters'),
 		'fullScreenMode' => 'boolean',
-		'interfaceType' => 'integer',
+		'interfaceType' => array('Auto', 'Mouse', 'Touch'),
 		'maximizeAfterCreating' => 'boolean',
 		'propertiesGridPosition' => 'integer',
 		'showAnimation' => 'boolean',
@@ -24,8 +24,8 @@ class Appearance extends \Stimulsoft\OptionsBase
 		'showTooltips' => 'boolean',
 		'showTooltipsHelp' => 'boolean',
 		'undoMaxLevel' => 'integer',
-		'wizardTypeRunningAfterLoad' => 'integer',
-	);
+		'wizardTypeRunningAfterLoad' => array('None','StandardReport','MasterDetailReport','LabelReport','InvoicesReport','OrdersReport','QuotationReport')
+		);
 
 	protected static $defaults = array(
 		'_showLocalization' => -1,

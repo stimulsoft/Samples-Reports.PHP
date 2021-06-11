@@ -40,7 +40,7 @@ abstract class OptionsBase
 		}
 
 		foreach (static::$validFields as $field => $type) {
-			if (! isset(self::$scalars[$type])) {
+			if (! is_array($type) && ! isset(self::$scalars[$type])) {
 				if (isset($this->myDefaults[$field]) && \is_array($this->myDefaults[$field])) {
 					$this->data[$field] = new $type($this->myDefaults[$field], true);
 				} else {
@@ -101,8 +101,10 @@ abstract class OptionsBase
 		}
 
 		if (\is_array($expectedType)) {
-			if (! \in_array($value, $expectedType)) {
+			if (false === ($index = \array_search($value, $expectedType)) || empty($value)) {
 				throw new \Exception("{$field} is {$value} but must be one of " . \implode(', ', $expectedType) . ' for ' . get_class($this));
+			} else {
+				$value = $index;
 			}
 		} elseif ($expectedType != $type) {
 			throw new \Exception("{$field} is of type {$type} but should be type {$expectedType} for " . get_class($this));
