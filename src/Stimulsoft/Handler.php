@@ -7,27 +7,27 @@ class Handler
 
 	// Events
 
-	public $onPrepareVariables = null;
+	public $onBeginExportReport = null;
 
 	public $onBeginProcessData = null;
 
-	public $onEndProcessData = null;
-
 	public $onCreateReport = null;
 
-	public $onOpenReport = null;
-
-	public $onSaveReport = null;
-
-	public $onSaveAsReport = null;
-
-	public $onPrintReport = null;
-
-	public $onBeginExportReport = null;
+	public $onEmailReport = null;
 
 	public $onEndExportReport = null;
 
-	public $onEmailReport = null;
+	public $onEndProcessData = null;
+
+	public $onOpenReport = null;
+
+	public $onPrepareVariables = null;
+
+	public $onPrintReport = null;
+
+	public $onSaveAsReport = null;
+
+	public $onSaveReport = null;
 
 	private $phpMailer = null;
 
