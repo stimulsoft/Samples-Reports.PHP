@@ -94,22 +94,22 @@ class Handler
 	/**
 	 * Create the database connection. Override to return a custom Adapter
 	 *
-	 * @param \Stimulsoft\Request $request fully populated with parse already called
+	 * @param \Stimulsoft\Result $result fully populated with parse already called
 	 *
 	 * @return \Stimulsoft\Result
 	 */
-	public function getDataAdapter(\Stimulsoft\Request $request)
+	public function getDataAdapter(\Stimulsoft\Result $result)
 	{
-		$class = __NAMESPACE__ . '\\Adapter\\' . \str_replace(' ', '', $request->database);
+		$class = __NAMESPACE__ . '\\Adapter\\' . \str_replace(' ', '', $result->object->database);
 
 		if (\class_exists($class)) {
 			$dataAdapter = new $class();
-			$dataAdapter->parse($request->connectionString);
+			$dataAdapter->parse($result->object->connectionString);
 
 			return \Stimulsoft\Result::success(null, $dataAdapter);
 		}
 
-		return \Stimulsoft\Result::error('Unknown database type [' . $request->database . ']');
+		return \Stimulsoft\Result::error('Unknown database type [' . $request->object->database . ']');
 	}
 
 	private function checkEventResult($event, $args)
@@ -497,7 +497,7 @@ class Handler
 						return $result;
 					}
 					$queryString = $result->object->queryString;
-					$result = $this->getDataAdapter($request);
+					$result = $this->getDataAdapter($result);
 
 					if (! $result->success) {
 						return $result;
