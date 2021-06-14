@@ -32,6 +32,36 @@ class Handler
 	private $phpMailer = null;
 
 	/**
+	 * Return the JavaScript needed to call the server side functions set in this class
+	 *
+	 * All events and their details can be found in the documentation at:
+	 * @link https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_js_web_designer_designer_events.htm
+	 *
+	 * @param string $variableName the name of the JavaScript variable to set
+	 *
+	 * @return string of JavaScript needed to set the server side callbacks
+	 */
+	public function getServerFunctionsJavaScript($variableName)
+		{
+		$js = '';
+		$reflection = new \ReflectionClass($this);
+		foreach ($reflection->getProperties(\ReflectionProperty::IS_PUBLIC) as $property)
+			{
+			$name = $property->getName();
+			if (0 === strpos($name, 'on'))
+				{
+				if ('onEndProcessData' != $name && null !== $this->$name)
+					{
+					$js .= "\n" . $variableName . '.' . $name . ' = function (args, callback) {args.preventDefault = true;
+						Stimulsoft.Helper.process(args, callback);}' . "\n";
+					}
+				}
+			}
+
+		return $js;
+		}
+
+	/**
 	 * getMailer returns the mailer instance to use. Override to change behavior or modify settings.
 	 *
 	 * @param \Stimulsoft\EmailSettings $settings that will be used for PHPMailer.  Can be queried or changed as needed in child class.
