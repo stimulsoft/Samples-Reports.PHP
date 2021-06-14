@@ -4,23 +4,25 @@ namespace Stimulsoft;
 
 class EventType
 {
-	const PrepareVariables = 'PrepareVariables';
+	const BeginExportReport = 'BeginExportReport';
 
 	const BeginProcessData = 'BeginProcessData';
 
 	const CreateReport = 'CreateReport';
 
-	const OpenReport = 'OpenReport';
-
-	const SaveReport = 'SaveReport';
-
-	const SaveAsReport = 'SaveAsReport';
-
-	const PrintReport = 'PrintReport';
-
-	const BeginExportReport = 'BeginExportReport';
+	const EmailReport = 'EmailReport';
 
 	const EndExportReport = 'EndExportReport';
 
-	const EmailReport = 'EmailReport';
+	const EndProcessData = 'EndProcessData';
+
+	const OpenReport = 'OpenReport';
+
+	const PrepareVariables = 'PrepareVariables';
+
+	const PrintReport = 'PrintReport';
+
+	const SaveAsReport = 'SaveAsReport';
+
+	const SaveReport = 'SaveReport';
 }
