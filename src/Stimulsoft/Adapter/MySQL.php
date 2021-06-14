@@ -231,6 +231,7 @@ class MySQL extends \Stimulsoft\SQLAdapter
 		if ($this->info->isPdo) {
 			try {
 				$this->link = new \PDO($this->info->dsn, $this->info->userId, $this->info->password);
+				$this->link->query('use ' . $this->info->database);
 			} catch (\PDOException $e) {
 				$code = $e->getCode();
 				$message = $e->getMessage();
@@ -250,6 +251,8 @@ class MySQL extends \Stimulsoft\SQLAdapter
 		if (! $this->link->set_charset($this->info->charset)) {
 			return $this->getLastErrorResult();
 		}
+
+		$this->link->query('use ' . $this->info->database);
 
 		return \Stimulsoft\Result::success();
 	}
