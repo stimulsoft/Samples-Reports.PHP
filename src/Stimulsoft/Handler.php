@@ -541,7 +541,7 @@ class Handler
 					return $this->invokeSaveReport($request);
 
 				case \Stimulsoft\EventType::SaveAsReport:
-					return $this->invokeSaveReport($request);
+					return $this->invokeSaveAsReport($request);
 
 				case \Stimulsoft\EventType::PrintReport:
 					return $this->invokePrintReport($request);
