@@ -110,12 +110,20 @@ class Handler
 		\register_shutdown_function(array($this, 'shutdownFunction'));
 	}
 
-	public function process($response = true)
+	/**
+	 * Perform the requested action
+	 *
+	 * @param bool $response if true, will return JSON string
+	 * @param bool $exit if true, will echo JSON string and exit
+	 *
+	 * @return \Stimulsoft\Result if $response is false, otherwise JSON String
+	 */
+	public function process($response = true, $exit = true)
 	{
 		$result = $this->innerProcess();
 
 		if ($response) {
-			$result = \Stimulsoft\Response::json($result);
+			$result = \Stimulsoft\Response::json($result, $exit);
 		}
 
 		return $result;
@@ -142,12 +150,22 @@ class Handler
 		return \Stimulsoft\Result::error('Unknown database type [' . $request->object->database . ']');
 	}
 
-	private function checkEventResult($event, $args)
+	/**
+	 * Execute the passed closure passing it the arguments
+	 *
+	 * @param \Closure $event closure to run.  Closure can return bool, string (error message) or \Stimulsoft\Result
+	 * @param stdclass $args passed to closure
+	 *
+	 * @return \Stimulsoft\Result
+	 */
+	private function checkEventResult(\Closure $event, $args)
 	{
+		// call the closure
 		if (isset($event)) {
 			$result = $event($args);
 		}
 
+		// default to success if no closure
 		if (! isset($result)) {
 			$result = \Stimulsoft\Result::success();
 		}
@@ -544,6 +562,9 @@ class Handler
 							$result = $connection->execute($queryString);
 
 							break;
+					}
+					if (! $result->success) {
+						return $result;
 					}
 
 					$result = $this->invokeEndProcessData($request, $result);
