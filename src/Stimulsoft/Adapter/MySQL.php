@@ -125,11 +125,18 @@ class MySQL extends \Stimulsoft\SQLAdapter
 		$result = $this->connect();
 
 		if ($result->success) {
-			$query = $this->link->query($queryString);
-
-			if (! $query) {
-				return $this->getLastErrorResult();
-			}
+			try
+				{
+				$query = $this->link->query($queryString);
+				}
+			catch (\Throwable $e)
+				{
+				return $this->getLastPDOErrorResult($e);
+				}
+			catch (\Exception $e)
+				{
+				return $this->getLastPDOErrorResult($e);
+				}
 
 			$result->types = array();
 			$result->columns = array();
@@ -199,44 +206,50 @@ class MySQL extends \Stimulsoft\SQLAdapter
 		return $result;
 	}
 
+	/**
+	 * Return a PDO error from caught excepton
+	 *
+	 * @return \Stimulsoft\Result
+	 */
+	private function getLastPDOErrorResult($e)
+		{
+		$code = $e->getCode();
+		$message = $e->getMessage();
+
+		return \Stimulsoft\Result::error("[{$code}] {$message}");
+		}
+
 	private function getLastErrorResult()
-	{
+		{
 		$code = 0;
 		$message = 'Unknown';
 
-		if ($this->info->isPdo) {
-			$info = $this->link->errorInfo();
-			$code = $info[0];
+		$code = $this->link->errno;
 
-			if (\count($info) >= 3) {
-				$message = $info[2];
+		if ($this->link->error)
+			{
+			$message = $this->link->error;
 			}
-		} else {
-			$code = $this->link->errno;
 
-			if ($this->link->error) {
-				$message = $this->link->error;
-			}
-		}
-
-		if (0 == $code) {
+		if (0 == $code)
+			{
 			return \Stimulsoft\Result::error($message);
-		}
+			}
 
 		return \Stimulsoft\Result::error("[{$code}] {$message}");
-	}
+		}
 
 	private function connect()
 	{
 		if ($this->info->isPdo) {
 			try {
 				$this->link = new \PDO($this->info->dsn, $this->info->userId, $this->info->password);
+				$this->link->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 				$this->link->query('use ' . $this->info->database);
-			} catch (\PDOException $e) {
-				$code = $e->getCode();
-				$message = $e->getMessage();
-
-				return \Stimulsoft\Result::error("[{$code}] {$message}");
+			} catch (\Throwable $e) {
+				return $this->getLastPDOErrorResult($e);
+			} catch (\Exception $e) {
+				return $this->getLastPDOErrorResult($e);
 			}
 
 			return \Stimulsoft\Result::success();
