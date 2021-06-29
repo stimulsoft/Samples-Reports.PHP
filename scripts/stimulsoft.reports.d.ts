@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2021.3.1
-Build date: 2021.05.14
+Version: 2021.3.4
+Build date: 2021.06.24
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 declare namespace Stimulsoft.System {
@@ -2826,7 +2826,7 @@ declare namespace Stimulsoft.System.Drawing {
         get isNamedColor(): boolean;
         equals(color: Color): boolean;
         toString(): string;
-        static fromArgb(alpha: number, red: any, green?: number, blue?: number): Color;
+        static fromArgb(alpha: number, red?: any, green?: number, blue?: number): Color;
         toArgb(): number;
         getHashCode(): number;
     }
@@ -3083,6 +3083,7 @@ declare namespace Stimulsoft.System.Drawing {
         set location(value: Point);
         get size(): Size;
         set size(value: Size);
+        toString(): string;
         constructor(x?: number, y?: number, width?: number, height?: number);
     }
 }
@@ -4323,6 +4324,7 @@ declare namespace Stimulsoft.Base.Localization {
                 Loading: string;
                 Message: string;
                 Minutes: string;
+                Days: string;
                 MonthApril: string;
                 MonthAugust: string;
                 MonthDecember: string;
@@ -4427,6 +4429,7 @@ declare namespace Stimulsoft.Base.Localization {
                 ShowMore: string;
                 ShowSpecific: string;
                 Submit: string;
+                SwitchTo: string;
                 Test: string;
                 Up: string;
                 Upgrade: string;
@@ -4663,7 +4666,7 @@ declare namespace Stimulsoft.Base.Localization {
                 ButtonResendEmail: string;
                 ButtonResetPassword: string;
                 ButtonRun: string;
-                ButtonShedule: string;
+                ButtonScheduler: string;
                 ButtonShare: string;
                 ButtonSignUp: string;
                 ButtonSignUpWith: string;
@@ -4792,6 +4795,7 @@ declare namespace Stimulsoft.Base.Localization {
                 TextItemsWorkspace: string;
                 TextLastName: string;
                 TextModify: string;
+                TextNewsLetters: string;
                 TextNoFavoriteFiles: string;
                 TextNoFiles: string;
                 TextNoNotifications: string;
@@ -4862,7 +4866,80 @@ declare namespace Stimulsoft.Base.Localization {
                 WizardPublicShareDescription: string;
                 WizardRegisteredShare: string;
                 WizardRegisteredShareDescription: string;
+                WizardTeamShare: string;
+                WizardTeamShareDescription: string;
                 WizardXmlDescription: string;
+            };
+            Scheduler: {
+                Schedulers: string;
+                Schedule: string;
+                Scheduler: string;
+                NoSchedulers: string;
+                PleaseSelectSchedulerType: string;
+                NewScheduler: string;
+                EditScheduler: string;
+                NewAction: string;
+                ActionRunReport: string;
+                TextPressPlusIconAddNewAction: string;
+                SmtpSettings: string;
+                NoShedulers: string;
+                SenderEmail: string;
+                Host: string;
+                Logs: string;
+                NoLogs: string;
+                EnableSSL: string;
+                AdvancedSettings: string;
+                WizardOnce: string;
+                WizardOnceDescription: string;
+                WizardHourly: string;
+                WizardHourlyDescription: string;
+                WizardDaily: string;
+                WizardDailyDescription: string;
+                WizardWeekly: string;
+                WizardWeeklyDescription: string;
+                WizardMonthly: string;
+                WizardMonthlyDescription: string;
+                RepeatTaskEvery: string;
+                ForADuractionOf: string;
+                StopAllRunningTasksAtEndOfRepetitionDuraction: string;
+                DelayTaskForUpToRandomDelay: string;
+                StopTasksIfItRunsLongerThan: string;
+                Expire: string;
+                LabelRunAtTime: string;
+                LabelRunEvery: string;
+                LabelRunAtDay: string;
+                RadioButtonDay: string;
+                DayDayX: string;
+                DayLast: string;
+                DayAll: string;
+                DayNone: string;
+                RadioButtonOn: string;
+                NumberOfDayFirst: string;
+                NumberOfDaySecond: string;
+                NumberOfDayThird: string;
+                NumberOfDayFourth: string;
+                NumberOfDayLast: string;
+                NumberOfDayAll: string;
+                NumberOfDayNone: string;
+                DaysOfWeekAll: string;
+                DaysOfWeekNone: string;
+                MonthAll: string;
+                MonthNone: string;
+                LabelRunAtMonth: string;
+                LabelDaysOfWeek: string;
+                TextDragDropReportHere: string;
+                ToolTipSetParameters: string;
+                GetFolder: string;
+                TextDragDropDestinationHere: string;
+                LabelResultName: string;
+                CheckBoxOverwriteIfExists: string;
+                LabelTo: string;
+                LabelSubject: string;
+                LabelMessage: string;
+                GroupBoxFiles: string;
+                MessagePropertyNotSet: string;
+                MessageInvalidName: string;
+                MessageInvalidTaskName: string;
             };
             Components: {
                 StiBarCode: string;
@@ -5109,6 +5186,7 @@ declare namespace Stimulsoft.Base.Localization {
                 RetrievingColumns: string;
                 SavingConfiguration: string;
                 SavingReport: string;
+                Saving: string;
                 TestConnection: string;
                 TextNotFound: string;
             };
@@ -5763,6 +5841,7 @@ declare namespace Stimulsoft.Base.Localization {
                 BlankForm: string;
                 BlankReport: string;
                 Default: string;
+                DefaultScriptMode: string;
                 Drawing: string;
                 DrawMarkersWhenMoving: string;
                 EditAfterInsert: string;
@@ -6841,6 +6920,7 @@ declare namespace Stimulsoft.Base.Localization {
                 BarCodeAdditionalCategory: string;
                 BarCodeCategory: string;
                 BehaviorCategory: string;
+                ButtonCategory: string;
                 CapNeedle: string;
                 CellCategory: string;
                 ChartAdditionalCategory: string;
@@ -6910,6 +6990,14 @@ declare namespace Stimulsoft.Base.Localization {
                 TreeViewBoxCategory: string;
                 TreeViewCategory: string;
                 TrendLineCategory: string;
+                TickMarkMajorCategory: string;
+                TickMarkMinorCategory: string;
+                TickLabelMajorCategory: string;
+                TickLabelMinorCategory: string;
+                LinearScaleBarCategory: string;
+                LinearScaleCategory: string;
+                RadialScaleBarCategory: string;
+                NeedleCategory: string;
                 ValueCategory: string;
                 ValueCloseCategory: string;
                 ValueEndCategory: string;
@@ -7239,6 +7327,10 @@ declare namespace Stimulsoft.Base.Localization {
                 StiDesignerSpecificationBeginner: string;
                 StiDesignerSpecificationBICreator: string;
                 StiDesignerSpecificationDeveloper: string;
+                StiDirectionBottomToTop: string;
+                StiDirectionLeftToRight: string;
+                StiDirectionRightToLeft: string;
+                StiDirectionTopToBottom: string;
                 StiDisplayNameTypeFull: string;
                 StiDisplayNameTypeNone: string;
                 StiDisplayNameTypeShort: string;
@@ -7410,6 +7502,7 @@ declare namespace Stimulsoft.Base.Localization {
                 StiNestedFactorNormal: string;
                 StiNumberOfPassDoublePass: string;
                 StiNumberOfPassSinglePass: string;
+                StiOnlineMapHeatmapColorGradientTypeAddRange: string;
                 StiOnlineMapHeatmapColorGradientTypeBlackAquaWhite: string;
                 StiOnlineMapHeatmapColorGradientTypeBlueRed: string;
                 StiOnlineMapHeatmapColorGradientTypeColorSpectrum: string;
@@ -7581,8 +7674,18 @@ declare namespace Stimulsoft.Base.Localization {
                 StiTextQualityStandard: string;
                 StiTextQualityTypographic: string;
                 StiTextQualityWysiwyg: string;
+                StiTimeDateStepNone: string;
+                StiTimeDateStepSecond: string;
+                StiTimeDateStepMinute: string;
+                StiTimeDateStepHour: string;
+                StiTimeDateStepDay: string;
+                StiTimeDateStepMonth: string;
+                StiTimeDateStepYear: string;
                 StiTitlePositionInside: string;
                 StiTitlePositionOutside: string;
+                StiTopNModeNone: string;
+                StiTopNModeTop: string;
+                StiTopNModeBottom: string;
                 StiTypeModeList: string;
                 StiTypeModeNullableValue: string;
                 StiTypeModeRange: string;
@@ -7624,8 +7727,12 @@ declare namespace Stimulsoft.Base.Localization {
                 EnterEvent: string;
                 ExportedEvent: string;
                 ExportingEvent: string;
+                FillParametersEvent: string;
                 GetArgumentEvent: string;
+                GetBarCodeEvent: string;
                 GetBookmarkEvent: string;
+                GetPointerEvent: string;
+                GetCheckedEvent: string;
                 GetCollapsedEvent: string;
                 GetCrossValueEvent: string;
                 GetCutPieListEvent: string;
@@ -7810,6 +7917,7 @@ declare namespace Stimulsoft.Base.Localization {
                 BarCodeType: string;
                 BasicStyleColor: string;
                 Blend: string;
+                Blocks: string;
                 Bold: string;
                 Bookmark: string;
                 Border: string;
@@ -7923,6 +8031,7 @@ declare namespace Stimulsoft.Base.Localization {
                 DataAdapters: string;
                 DataBarCondition: string;
                 DataBindings: string;
+                DataCells: string;
                 DataColor: string;
                 DataColumn: string;
                 DataColumns: string;
@@ -7999,6 +8108,7 @@ declare namespace Stimulsoft.Base.Localization {
                 ErrorCorrectionLevel: string;
                 ErrorsCorrectionLevel: string;
                 EvenStyle: string;
+                ExceedMargins: string;
                 ExcelSheet: string;
                 ExcelValue: string;
                 Exponential: string;
@@ -8073,6 +8183,7 @@ declare namespace Stimulsoft.Base.Localization {
                 GrowToHeight: string;
                 Heatmap: string;
                 HeatmapWithGroup: string;
+                Header: string;
                 HeaderBackColor: string;
                 HeaderCanBreak: string;
                 HeaderCanGrow: string;
@@ -8201,8 +8312,10 @@ declare namespace Stimulsoft.Base.Localization {
                 LinearBarEmptyBrush: string;
                 LineColor: string;
                 LineColorNegative: string;
+                LineLength: string;
                 LineLimit: string;
                 LineMarker: string;
+                LinearScaleBrush: string;
                 LinesOfUnderline: string;
                 LineSpacing: string;
                 LineStyle: string;
@@ -8499,6 +8612,7 @@ declare namespace Stimulsoft.Base.Localization {
                 ShowNulls: string;
                 ShowOthers: string;
                 ShowPercents: string;
+                ShowTotalSummary: string;
                 ShowQuietZoneIndicator: string;
                 ShowQuietZones: string;
                 ShowScrollBar: string;
@@ -8579,6 +8693,7 @@ declare namespace Stimulsoft.Base.Localization {
                 SystemVariables: string;
                 Table: string;
                 Tag: string;
+                TargetColor: string;
                 TagDataColumn: string;
                 TagValue: string;
                 Target: string;
@@ -8721,6 +8836,9 @@ declare namespace Stimulsoft.Base.Localization {
                 Window: string;
                 WindowFrame: string;
                 WindowText: string;
+            };
+            PromptForm: {
+                CacheLoginData: string;
             };
             QueryBuilder: {
                 AddObject: string;
@@ -9420,7 +9538,6 @@ declare namespace Stimulsoft {
         static creationDate: string;
         static created: System.DateTime;
         static versionInfo: string;
-        static copyright: string;
         static platform(): string;
     }
 }
@@ -23989,6 +24106,7 @@ declare namespace Stimulsoft.Report.Engine.StiParser {
     import StiComponent = Stimulsoft.Report.Components.StiComponent;
     class StiParser_Lexer extends StiParser_Check {
         protected position: number;
+        protected useAliases: boolean;
         protected inputExpression: string;
         protected hashAliases: Hashtable;
         protected tokenPos: number;
@@ -24122,6 +24240,7 @@ declare namespace Stimulsoft.Report.Engine {
         globalizedNameExt: string;
         ignoreGlobalizedName: boolean;
         constants: Hashtable;
+        useAliases: boolean;
     }
 }
 declare namespace Stimulsoft.Report.Engine.StiParser {
@@ -24178,7 +24297,7 @@ declare namespace Stimulsoft.Report.Engine.StiParser {
         static parseTextValue(inputExpression: string, component: StiComponent, sender?: any, REFstoreToPrint?: any, executeIfStoreToPrint?: boolean, returnAsmList?: boolean, parser?: StiParser): any;
         private parseToAsm;
         private static checkForStoreToPrint;
-        static checkExpression(inputExpression: string, component: StiComponent): StiParserException;
+        static checkExpression(inputExpression: string, component: StiComponent, useAliases?: boolean): StiParserException;
         static checkForDataBandsUsedInPageTotals(stiText: StiText, report?: StiReport): void;
         static prepareReportVariables(report: StiReport): void;
         static prepareVariableValue(varr: StiVariable, report: StiReport, textBox?: StiText, fillItems?: boolean): any;
@@ -25503,6 +25622,7 @@ declare namespace StiOptions {
         useExtendedStyle: boolean;
         printLayoutOptimization: boolean;
         useComponentStyleName: boolean;
+        exportComponentsFromPageMargins: boolean;
     }
     class ExportExcel {
         AllowExportDateTime: boolean;
@@ -38996,6 +39116,7 @@ declare namespace Stimulsoft.Report.Dictionary {
     import StiDatabase = Stimulsoft.Report.Dictionary.StiDatabase;
     import StiJson = Stimulsoft.Base.StiJson;
     class StiXmlDatabase extends StiFileDatabase implements IStiJsonReportObject {
+        private adonetErrorMessage;
         createNew(): StiDatabase;
         saveToJsonObject(mode: StiJsonSaveMode): StiJson;
         loadFromJsonObject(jObject: StiJson): void;
@@ -40096,6 +40217,7 @@ declare namespace Stimulsoft.Report.Engine {
         prepare(masterComp: StiComponent): void;
         internalRenderAsync(masterComp: StiComponent): Promise<StiComponent>;
         internalRender(masterComp: StiComponent): StiComponent;
+        static tryToDecimal(value: any): number;
     }
 }
 declare namespace Stimulsoft.Report.Engine {
@@ -41592,6 +41714,9 @@ declare namespace Stimulsoft.Report.Maps {
         private _countData;
         get countData(): number;
         set countData(value: number);
+        private _pushPins;
+        get pushPins(): string;
+        set pushPins(value: string);
         first(): void;
         prior(): void;
         next(): void;
@@ -41984,6 +42109,7 @@ declare namespace Stimulsoft.Report.Export {
         private pointerToTag;
         chartData: Hashtable;
         hashBookmarkGuid: Hashtable;
+        private hiToPt;
         renderStyles: boolean;
         styles: StiCellStyle[];
         insertInteractionParameters: boolean;
@@ -42549,7 +42675,7 @@ declare namespace Stimulsoft.Report.Export {
         private static wrongUrlSymbols;
         htmlExportSettings: StiHtmlExportSettings;
         static stringToUrl(input: string): string;
-        renderControl(writer: StiHtmlTextWriter): void;
+        renderControl(writer: StiHtmlTextWriter, addPageBreaks: boolean): void;
         private writeTableBegin;
         private writeTableEnd;
         constructor();
@@ -44595,6 +44721,7 @@ declare namespace Stimulsoft.Report.Export {
         static regexCheckFloat1: RegExp;
         private checkForNumber;
         private prepareMatrix;
+        private getParentBandName;
         private convertAllowHtmlTagsToExcelString;
         private convertTextToExcelString;
         private writeDrawingRels;
@@ -45280,6 +45407,7 @@ declare namespace Stimulsoft.Report.Export {
         private static fontCorrectValue;
         private static boldFontStrokeWidthValue;
         private static italicAngleTanValue;
+        private static charCode07;
         static renderText(pp: StiPdfData): void;
         private static isWordWrapSymbol;
         private static getTabsSize;
@@ -63340,14 +63468,6 @@ declare namespace Stimulsoft.Dashboard.Helpers {
     }
 }
 declare namespace Stimulsoft.Dashboard.Helpers {
-    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
-    class StiElementLocationKey {
-        rectKey: Rectangle;
-        countKey: number;
-        constructor(rectKey: Rectangle, countKey: number);
-    }
-}
-declare namespace Stimulsoft.Dashboard.Helpers {
     import XmlTextWriter = Stimulsoft.System.Xml.XmlTextWriter;
     import StiSvgData = Stimulsoft.Report.Export.StiSvgData;
     import IStiGaugeVisualSvgHelper = Stimulsoft.Report.Dashboard.Visuals.IStiGaugeVisualSvgHelper;
@@ -65256,6 +65376,38 @@ declare namespace Stimulsoft.Report.Check {
             "@language": string;
             "@description": string;
             "@cultureName": string;
+            StiGaugeStyle: {
+                Brush: string;
+                BorderColor: string;
+                TargetColor: string;
+                ForeColor: string;
+                BorderWidth: string;
+                TickMarkMajorBrush: string;
+                TickMarkMajorBorder: string;
+                TickMarkMajorBorderWidth: string;
+                TickMarkMinorBrush: string;
+                TickMarkMinorBorder: string;
+                TickMarkMinorBorderWidth: string;
+                TickLabelMajorTextBrush: string;
+                TickLabelMajorFont: string;
+                TickLabelMinorTextBrush: string;
+                TickLabelMinorFont: string;
+                MarkerBrush: string;
+                LinearBarBrush: string;
+                LinearScaleBrush: string;
+                LinearBarBorderBrush: string;
+                LinearBarEmptyBrush: string;
+                LinearBarEmptyBorderBrush: string;
+                RadialBarBrush: string;
+                RadialBarBorderBrush: string;
+                RadialBarEmptyBrush: string;
+                RadialBarEmptyBorderBrush: string;
+                NeedleBrush: string;
+                NeedleBorderBrush: string;
+                NeedleBorderWidth: string;
+                NeedleCapBrush: string;
+                NeedleCapBorderBrush: string;
+            };
             CheckActions: {
                 ApplyEngineV2Long: string;
                 Change: string;
@@ -66145,6 +66297,7 @@ declare namespace Stimulsoft.Report.Check {
                 CanShrink: string;
                 CellDockStyle: string;
                 CellType: string;
+                CheckedChangedEvent: string;
                 ClickEvent: string;
                 ComponentStyle: string;
                 Conditions: string;
@@ -66156,6 +66309,7 @@ declare namespace Stimulsoft.Report.Check {
                 DoubleClickEvent: string;
                 Editable: string;
                 Enabled: string;
+                ExceedMargins: string;
                 FilterMode: string;
                 FilterOn: string;
                 Filters: string;
@@ -66745,6 +66899,7 @@ declare namespace Stimulsoft.Report.Check {
                 EndRenderEvent: string;
                 ExcelSheet: string;
                 GetExcelSheetEvent: string;
+                Icon: string;
                 LargeHeight: string;
                 LargeHeightFactor: string;
                 Margins: string;
@@ -66885,6 +67040,8 @@ declare namespace Stimulsoft.Report.Check {
                 ReportAuthor: string;
                 ReportCacheMode: string;
                 ReportDescription: string;
+                ReportIcon: string;
+                ReportImage: string;
                 ReportName: string;
                 ReportUnit: string;
                 RequestParameters: string;

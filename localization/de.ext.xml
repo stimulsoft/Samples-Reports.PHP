@@ -318,7 +318,7 @@
     <ParametersReplace>Einen Wert aus dem Code ersetzen</ParametersReplace>
     <ParametersReplacePhpInfo>Der Parameter wird aus dem Berichtswörterbuch entfernt und kann nur in der SQL-Abfrage verwendet werden.</ParametersReplacePhpInfo>
     <ParametersReplaceToolTip>Es wird angeboten werden, die Werte von Berichts-Parametern aus dem Code zu bearbeiten.</ParametersReplaceToolTip>
-    <ParametersRequestFromUser>Benutzeranfrage</ParametersRequestFromUser>
+    <ParametersRequestFromUser>Anfrage vom Benutzer</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>Die Berichts-Parameter wird vom Benutzer, wenn er den Bericht im Viewer-Fenster ansieht, angefragt werden.</ParametersRequestFromUserToolTip>
     <Publish>Veröffentlichen</Publish>
     <PublishType>Veroffentlichungstyp des Berichts:</PublishType>

@@ -135,8 +135,9 @@ $handler->onDesignReport = function ($args) {
 };
 
 $handler->onCreateReport = function ($args) {
-	// File name of the new report
-	$fileName = $args->fileName;
+	// New report object
+	$report = $args->report;
+	//$args->report = file_get_contents('reports/SimpleList.mrt');
 	
 	return StiResult::success();
 };

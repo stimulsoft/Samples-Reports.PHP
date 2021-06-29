@@ -85,8 +85,9 @@ class StiRequest {
 		}
 		
 		$parameterNames = array(
-			'sender', 'event', 'command', 'connectionString', 'queryString', 'database', 'dataSource', 'connection', 'timeout', 'data',
-			'fileName', 'action', 'printAction', 'format', 'formatName', 'settings', 'variables', 'parameters', 'escapeQueryParameters'
+			'sender', 'event', 'command', 'connectionString', 'queryString', 'database', 'dataSource', 'connection',
+			'timeout', 'data', 'fileName', 'action', 'printAction', 'format', 'formatName', 'settings', 'variables',
+			'parameters', 'escapeQueryParameters', 'isWizardUsed'
 		);
 		
 		foreach ($parameterNames as $name) {

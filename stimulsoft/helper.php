@@ -196,7 +196,13 @@ class StiHandler {
 	private function invokeCreateReport($request) {
 		$args = new stdClass();
 		$args->sender = $request->sender;
-		return $this->checkEventResult($this->onCreateReport, $args);
+		$args->report = $request->report;
+		$args->isWizardUsed = $request->isWizardUsed;
+		
+		$result = $this->checkEventResult($this->onCreateReport, $args);
+		$result->report = $args->report;
+		
+		return $result;
 	}
 	
 	public $onOpenReport = null;
@@ -512,7 +518,7 @@ class StiHelper {
 			var command = {};
 			for (var p in args) {
 				if (p == 'report') {
-					if (args.report && (args.event == 'SaveReport' || args.event == 'SaveAsReport'))
+					if (args.report && (args.event == 'CreateReport' || args.event == 'SaveReport' || args.event == 'SaveAsReport'))
 						command.report = JSON.parse(args.report.saveToJsonString());
 				}
 				else if (p == 'settings' && args.settings) command.settings = args.settings;
@@ -547,6 +553,12 @@ class StiHelper {
 					
 					try {
 						var args = JSON.parse(responseText);
+						if (args.report) {
+							var json = args.report;
+							args.report = new Stimulsoft.Report.StiReport();
+							args.report.load(json);
+						}
+						
 						callback(args);
 					}
 					catch (e) {

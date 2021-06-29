@@ -1,5 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Localization language="English" description="English" cultureName="en">
+  <StiGaugeStyle>
+    <Brush>Gets or sets a brush to fill the style.</Brush>
+    <BorderColor>Gets or sets border color.</BorderColor>
+    <TargetColor>Gets or sets target color.</TargetColor>
+    <ForeColor>Gets or sets a brush to draw the text.</ForeColor>
+    <BorderWidth>A border size.</BorderWidth>
+    <TickMarkMajorBrush>Gets or sets a brush to fill the TickMarkMajor.</TickMarkMajorBrush>
+    <TickMarkMajorBorder>Gets or sets a border of the TickMarkMajor.</TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>A border size.</TickMarkMajorBorderWidth>
+    <TickMarkMinorBrush>Gets or sets a brush to fill the TickMarkMinor.</TickMarkMinorBrush>
+    <TickMarkMinorBorder>Gets or sets a border of the TickMarkMinor.</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>A border size.</TickMarkMinorBorderWidth>
+    <TickLabelMajorTextBrush>Gets or sets a brush to draw the text.</TickLabelMajorTextBrush>
+    <TickLabelMajorFont>Gets or sets a font for drawing TickLabelMajor.</TickLabelMajorFont>
+    <TickLabelMinorTextBrush>Gets or sets a brush to draw the text.</TickLabelMinorTextBrush>
+    <TickLabelMinorFont>Gets or sets a font for drawing TickLabelMinor.</TickLabelMinorFont>
+    <MarkerBrush>Gets or sets a brush marker.</MarkerBrush>
+    <LinearBarBrush>Gets or sets a brush LinearBar.</LinearBarBrush>
+    <LinearScaleBrush>Gets or sets a brush LinearScale.</LinearScaleBrush>
+    <LinearBarBorderBrush>Gets or sets a border of the LinearBar.</LinearBarBorderBrush>
+    <LinearBarEmptyBrush>Gets or sets a empty brush LinearBar.</LinearBarEmptyBrush>
+    <LinearBarEmptyBorderBrush>Gets or sets a empty border of the LinearBar.</LinearBarEmptyBorderBrush>
+    <RadialBarBrush>Gets or sets a brush RadialBar.</RadialBarBrush>
+    <RadialBarBorderBrush>Gets or sets a border of the RadialBar.</RadialBarBorderBrush>
+    <RadialBarEmptyBrush>Gets or sets a empty brush RadialBar.</RadialBarEmptyBrush>
+    <RadialBarEmptyBorderBrush>Gets or sets a empty border of the RadialBar.</RadialBarEmptyBorderBrush>
+    <NeedleBrush>Gets or sets a brush Needle.</NeedleBrush>
+    <NeedleBorderBrush>Gets or sets a border of the Needle.</NeedleBorderBrush>
+    <NeedleBorderWidth>A border size.</NeedleBorderWidth>
+    <NeedleCapBrush>Gets or sets a brush to fill the cap.</NeedleCapBrush>
+    <NeedleCapBorderBrush>Gets or sets a border of the cap.</NeedleCapBorderBrush>
+  </StiGaugeStyle>
   <CheckActions>
     <ApplyEngineV2Long>Set the EngineVersion property of a page to EngineV2 to get access to all reporting tool features.</ApplyEngineV2Long>
     <Change>Change</Change>
@@ -889,6 +921,7 @@
     <CanShrink>A value indicates that this object can shrink.</CanShrink>
     <CellDockStyle>A type of the cell docking.</CellDockStyle>
     <CellType>A type of the cell content.</CellType>
+	<CheckedChangedEvent>Occurs when the Checked state is changed.</CheckedChangedEvent>
     <ClickEvent>Occurs when a user clicks the component in the window of the viewer.</ClickEvent>
     <ComponentStyle>A style of a component.</ComponentStyle>
     <Conditions>A collection of the conditions.</Conditions>
@@ -900,6 +933,7 @@
     <DoubleClickEvent>Occurs when a user double clicks the component in the report viewer.</DoubleClickEvent>
     <Editable>A value indicates that a component can be edited in the window of viewer.</Editable>
     <Enabled>A value that indicates will this component be available or not.</Enabled>
+	<ExceedMargins>Gets or sets a value to exceed margins of the component background.</ExceedMargins>
     <FilterMode>A logical operation of combining filters for the current band.</FilterMode>
     <FilterOn>A value that indicates, that filter is turned on.</FilterOn>
     <Filters>A collection of the data filters.</Filters>
@@ -939,7 +973,7 @@
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>A value that control antialiasing drawing mode.</Antialiasing>
-    <AxisValue>Axis value through what the constant line is drawn.. Sample: 1, yyyy.MM.dd</AxisValue>
+    <AxisValue>Axis value through what the constant line is drawn. Sample: 1, yyyy.MM.dd</AxisValue>
     <Font>A font that is used for drawing constant line text.</Font>
     <LineColor>A color which will be used for drawing constant line.</LineColor>
     <LineStyle>Constant line style.</LineStyle>
@@ -1489,6 +1523,7 @@
     <EndRenderEvent>Occurs when a page render ends.</EndRenderEvent>
     <ExcelSheet>An expression that is used for generation name of excel sheet.</ExcelSheet>
     <GetExcelSheetEvent>Occurs when the ExcelSheet is calculated.</GetExcelSheetEvent>
+    <Icon>A page icon.</Icon>
     <LargeHeight>A value indicates that this page has large height in the designer.</LargeHeight>
     <LargeHeightFactor>Large height factor for the LargeHeight property of this page.</LargeHeightFactor>
     <Margins>Page margins.</Margins>
@@ -1629,6 +1664,8 @@
     <ReportAuthor>A report author.</ReportAuthor>
     <ReportCacheMode>A value that indicates how the report engine uses the report cache.</ReportCacheMode>
     <ReportDescription>A report description.</ReportDescription>
+    <ReportIcon>A report icon.</ReportIcon>
+    <ReportImage>A report image.</ReportImage>
     <ReportName>A report name.</ReportName>
     <ReportUnit>The current unit of the report.</ReportUnit>
     <RequestParameters>Gets or sets value which indicates whether to request parameters from a user before report rendering or render a report with the default value of parameters.</RequestParameters>
