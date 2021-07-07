@@ -4,149 +4,154 @@ namespace Stimulsoft\Adapter;
 
 class ODBC extends \Stimulsoft\SQLAdapter
 {
-	private $info = null;
-
-	private $link = null;
-
-	public function parse($connectionString)
-	{
-		$connectionString = \trim($connectionString);
-
+	/**
+	 * Construct the connection with appropriate defaults
+	 *
+	 * @param string $connectionString
+	 */
+	public function __construct($connectionString)
+		{
 		$info = new \stdClass();
 		$info->dsn = '';
 		$info->userId = '';
 		$info->password = '';
 
-		$parameters = \explode(';', $connectionString);
-
-		foreach ($parameters as $parameter) {
-			$pos = \mb_strpos($parameter, '=');
-			$name = \mb_strtolower(\trim(\mb_substr($parameter, 0, $pos)));
-			$value = \trim(\mb_substr($parameter, $pos + 1));
-
-			switch ($name) {
-				case 'uid':
-				case 'user':
-				case 'username':
-				case 'userid':
-				case 'user id':
-					$info->userId = $value;
-
-					break;
-
-				case 'pwd':
-				case 'password':
-					$info->password = $value;
-
-					break;
-
-				default:
-					$info->dsn .= $parameter . ';';
-
-					break;
-			}
+		parent::parse($connectionString, $info);
 		}
 
-		if (\mb_strlen($info->dsn) > 0 && ';' == \mb_substr($info->dsn, \mb_strlen($info->dsn) - 1)) {
-			$info->dsn = \mb_substr($info->dsn, 0, \mb_strlen($info->dsn) - 1);
-		}
-
-		$this->info = $info;
-	}
-
-	public function test()
-	{
-		$result = $this->connect();
-
-		if ($result->success) {
-			$this->disconnect();
-		}
-
-		return $result;
-	}
-
+	/**
+	 * @inheritDoc
+	 */
 	public function execute($queryString)
-	{
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::execute($queryString);
+			}
+
 		$result = $this->connect();
 
-		if ($result->success) {
-			$query = \odbc_exec($this->link, $queryString);
-
-			if (! $query) {
-				return $this->getLastErrorResult();
+		if (! $result->success)
+			{
+			return $result;
 			}
 
-			$result->types = array();
-			$result->columns = array();
-			$result->rows = array();
+		$query = \odbc_exec($this->link, $queryString);
 
-			$result->count = \odbc_num_fields($query);
-
-			for ($i = 1; $i <= $result->count; $i++) {
-				$type = \odbc_field_type($query, $i);
-				$result->types[] = $this->parseType($type);
-				$result->columns[] = \odbc_field_name($query, $i);
+		if (! $query)
+			{
+			return $this->getLastErrorResult();
 			}
 
-			while (\odbc_fetch_row($query)) {
-				$row = array();
+		$result->types = array();
+		$result->columns = array();
+		$result->rows = array();
 
-				for ($i = 1; $i <= $result->count; $i++) {
-					$type = $result->types[$i - 1];
-					$value = \odbc_result($query, $i);
+		$result->count = \odbc_num_fields($query);
 
-					if ('array' == $type) {
-						$row[] = \base64_encode($value);
-					} elseif ('datetime' == $type) {
-						$row[] = \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($value));
-					} else {
-						$row[] = $value;
-					}
+		for ($i = 1; $i <= $result->count; $i++)
+			{
+			$type = \odbc_field_type($query, $i);
+			$result->types[] = $this->parseType($type);
+			$result->columns[] = \odbc_field_name($query, $i);
+			}
+
+		while (\odbc_fetch_row($query))
+			{
+			$row = array();
+
+			for ($i = 1; $i <= $result->count; $i++)
+				{
+				$type = $result->types[$i - 1];
+				$value = \odbc_result($query, $i);
+				$row[] = $this->getValue($value, $type);
 				}
 
-				$result->rows[] = $row;
-			}
-
-			\odbc_free_result($query);
-			$this->disconnect();
+			$result->rows[] = $row;
 		}
 
-		return $result;
-	}
+		\odbc_free_result($query);
+		$this->disconnect();
 
-	private function getLastErrorResult($result)
-	{
+		return $result;
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getPDOType()
+		{
+		return 'odbc';
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getLastErrorResult()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::getLastErrorResult();
+			}
+
 		$code = \odbc_error($result);
 		$message = \odbc_errormsg($result);
 
-		if (0 == $code) {
+		if (0 == $code)
+			{
 			return \Stimulsoft\Result::error($message);
-		}
+			}
 
 		return \Stimulsoft\Result::error("[{$code}] {$message}");
-	}
+		}
 
-	private function connect()
-	{
+	/**
+	 * @inheritDoc
+	 */
+	protected function connect()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::connect();
+			}
+
+		if (! \function_exists('odbc_connect'))
+			{
+			return \Stimulsoft\Result::error('ODBC driver not found. Please configure your PHP server to work with ODBC.');
+			}
+
 		$this->link = \odbc_connect($this->info->dsn, $this->info->userId, $this->info->password);
 
-		if (! $this->link) {
+		if (! $this->link)
+			{
 			return $this->getLastErrorResult(null);
-		}
+			}
 
 		return \Stimulsoft\Result::success();
-	}
-
-	private function disconnect()
-	{
-		if (! $this->link) {
-			return;
 		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function disconnect()
+		{
+		if (! $this->link)
+			{
+			return;
+			}
+
+		if ($this->info->isPdo)
+			{
+			parent::disconnect();
+
+			return;
+			}
+
 		\odbc_close($this->link);
 		$this->link = null;
-	}
+		}
 
-	private function parseType($type)
+	protected function parseType($type)
 	{
 		$type = \strtolower($type);
 

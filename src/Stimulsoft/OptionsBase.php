@@ -40,7 +40,7 @@ abstract class OptionsBase
 		}
 
 		foreach (static::$validFields as $field => $type) {
-			if (! is_array($type) && ! isset(self::$scalars[$type])) {
+			if (! \is_array($type) && ! isset(self::$scalars[$type])) {
 				if (isset($this->myDefaults[$field]) && \is_array($this->myDefaults[$field])) {
 					$this->data[$field] = new $type($this->myDefaults[$field], true);
 				} else {

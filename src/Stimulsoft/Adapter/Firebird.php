@@ -4,16 +4,14 @@ namespace Stimulsoft\Adapter;
 
 class Firebird extends \Stimulsoft\SQLAdapter
 {
-	private $info = null;
-
-	private $link = null;
-
-	public function parse($connectionString)
-	{
-		$connectionString = \trim($connectionString);
-
+	/**
+	 * Construct the connection with appropriate defaults
+	 *
+	 * @param string $connectionString
+	 */
+	public function __construct($connectionString)
+		{
 		$info = new \stdClass();
-		$info->isPdo = false !== \mb_strpos($connectionString, 'firebird:');
 		$info->dsn = '';
 		$info->host = '';
 		$info->port = 3050;
@@ -22,285 +20,201 @@ class Firebird extends \Stimulsoft\SQLAdapter
 		$info->password = '';
 		$info->charset = 'UTF8';
 
-		$parameters = \explode(';', $connectionString);
-
-		foreach ($parameters as $parameter) {
-			if (\mb_strpos($parameter, '=') < 1) {
-				if ($info->isPdo) {
-					$info->dsn .= $parameter . ';';
-				}
-
-				continue;
-			}
-
-			$pos = \mb_strpos($parameter, '=');
-			$name = \mb_strtolower(\trim(\mb_substr($parameter, 0, $pos)));
-			$value = \trim(\mb_substr($parameter, $pos + 1));
-
-			switch ($name) {
-				case 'server':
-				case 'host':
-				case 'location':
-				case 'datasource':
-				case 'data source':
-					$info->host = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'port':
-					$info->port = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'database':
-				case 'dbname':
-					$info->database = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'uid':
-				case 'user':
-				case 'username':
-				case 'userid':
-				case 'user id':
-					$info->userId = $value;
-
-					break;
-
-				case 'pwd':
-				case 'password':
-					$info->password = $value;
-
-					break;
-
-				case 'charset':
-					$info->charset = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				default:
-					if ($info->isPdo && \mb_strlen($parameter) > 0) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-			}
+		parent::parse($connectionString, $info);
 		}
 
-		if (\mb_strlen($info->dsn) > 0 && ';' == \mb_substr($info->dsn, \mb_strlen($info->dsn) - 1)) {
-			$info->dsn = \mb_substr($info->dsn, 0, \mb_strlen($info->dsn) - 1);
-		}
-
-		$this->info = $info;
-	}
-
-	public function test()
-	{
-		$result = $this->connect();
-
-		if ($result->success) {
-			$this->disconnect();
-		}
-
-		return $result;
-	}
-
+	/**
+	 * @inheritDoc
+	 */
 	public function execute($queryString)
-	{
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::execute($queryString);
+			}
+
 		$result = $this->connect();
 
-		if ($result->success) {
-			$query = $this->info->isPdo ? $this->link->query($queryString) : \ibase_query($this->link, $queryString);
-
-			if (! $query) {
-				return $this->getLastErrorResult();
+		if (! $result->success)
+			{
+			return $result;
 			}
 
-			$result->types = array();
-			$result->columns = array();
-			$result->rows = array();
+		$query = \ibase_query($this->link, $queryString);
 
-			if ($this->info->isPdo) {
-				$result->count = $query->columnCount();
-
-				// PDO Firebird driver does not support getColumnMeta()
-				// The type is determined by the first value
-
-				while ($rowItem = $query->fetch()) {
-					$index = 0;
-					$row = array();
-
-					foreach ($rowItem as $key => $value) {
-						if (\is_string($key)) {
-							$index++;
-
-							if (\count($result->columns) < $index) {
-								$result->columns[] = $key;
-							}
-
-							if (\count($result->types) < $index) {
-								$result->types[] = $this->detectType($value);
-							}
-							$type = $result->types[$index - 1];
-
-							if ('array' == $type) {
-								$row[] = \base64_encode($value);
-							} elseif ('datetime' == $type) {
-								$row[] = \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($value));
-							} else {
-								$row[] = $value;
-							}
-						}
-					}
-
-					$result->rows[] = $row;
-				}
-			} else {
-				$result->count = \ibase_num_fields($query);
-
-				for ($i = 0; $i < $result->count; $i++) {
-					$meta = \ibase_field_info($query, $i);
-					$result->columns[] = $meta['name'];
-					$result->types[] = $this->parseType($meta['type']);
-				}
-
-				while ($rowItem = \ibase_fetch_assoc($query, IBASE_TEXT)) {
-					$row = array();
-
-					foreach ($rowItem as $key => $value) {
-						$type = \count($result->types) >= \count($row) + 1 ? $result->types[\count($row)] : 'string';
-
-						if ('array' == $type) {
-							$row[] = \base64_encode($value);
-						} elseif ('datetime' == $type) {
-							$row[] = \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($value));
-						} elseif ('string' == $type) {
-							$row[] = \utf8_encode($value);
-						} else {
-							$row[] = $value;
-						}
-					}
-					$result->rows[] = $row;
-				}
+		if (! $query)
+			{
+			return $this->getLastErrorResult();
 			}
 
-			$this->disconnect();
-		}
+		$result->types = array();
+		$result->columns = array();
+		$result->rows = array();
+
+		$result->count = \ibase_num_fields($query);
+
+		for ($i = 0; $i < $result->count; $i++)
+			{
+			$meta = \ibase_field_info($query, $i);
+			$result->columns[] = $meta['name'];
+			$result->types[] = $this->parseType($meta['type']);
+			}
+
+		while ($rowItem = \ibase_fetch_assoc($query, IBASE_TEXT))
+			{
+			$row = array();
+
+			foreach ($rowItem as $key => $value)
+				{
+				$type = \count($result->types) >= \count($row) + 1 ? $result->types[\count($row)] : 'string';
+				$row[] = $this->getValue($value, $type);
+				}
+			$result->rows[] = $row;
+			}
+
+		$this->disconnect();
 
 		return $result;
-	}
-
-	private function getLastErrorResult()
-	{
-		$code = 0;
-		$message = 'Unknown';
-
-		if ($this->info->isPdo) {
-			$info = $this->link->errorInfo();
-			$code = $info[0];
-
-			if (\count($info) >= 3) {
-				$message = $info[2];
-			}
-		} else {
-			$code = \ibase_errcode();
-			$error = \ibase_errmsg();
-
-			if ($error) {
-				$message = $error;
-			}
 		}
 
-		if (0 == $code) {
+	/**
+	 * @inheritDoc
+	 */
+	protected function getPDOType()
+		{
+		return 'firebird';
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getLastErrorResult()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::getLastErrorResult();
+			}
+
+		$message = 'Unknown Firebird SQL error';
+
+		$code = \ibase_errcode();
+		$error = \ibase_errmsg();
+
+		if ($error)
+			{
+			$message = $error;
+			}
+
+		if (0 == $code)
+			{
 			return \Stimulsoft\Result::error($message);
-		}
+			}
 
 		return \Stimulsoft\Result::error("[{$code}] {$message}");
 	}
 
-	private function connect()
-	{
-		if ($this->info->isPdo) {
-			try {
-				$this->link = new PDO($this->info->dsn, $this->info->userId, $this->info->password);
-			} catch (PDOException $e) {
-				$code = $e->getCode();
-				$message = $e->getMessage();
-
-				return \Stimulsoft\Result::error("[{$code}] {$message}");
+	/**
+	 * @inheritDoc
+	 */
+	protected function connect()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::connect();
 			}
 
-			return \Stimulsoft\Result::success();
-		}
-
-		if (! \function_exists('ibase_connect')) {
+		if (! \function_exists('ibase_connect'))
+			{
 			return \Stimulsoft\Result::error('Firebird driver not found. Please configure your PHP server to work with Firebird.');
-		}
+			}
 
 		$this->link = \ibase_connect($this->info->host . '/' . $this->info->port . ':' . $this->info->database, $this->info->userId, $this->info->password, $this->info->charset);
 
-		if (! $this->link) {
+		if (! $this->link)
+			{
 			return $this->getLastErrorResult();
-		}
-
-		return \Stimulsoft\Result::success();
-	}
-
-	private function disconnect()
-	{
-		if (! $this->link) {
-			return;
-		}
-
-		if (! $this->info->isPdo) {
-			\ibase_close($this->link);
-		}
-		$this->link = null;
-	}
-
-	private function detectType($value)
-	{
-		if (\preg_match('~[^\x20-\x7E\t\r\n]~', $value) > 0) {
-			return 'array';
-		}
-
-		if (\is_numeric($value)) {
-			if (false !== \strpos($value, '.')) {
-				return 'number';
 			}
 
+		return \Stimulsoft\Result::success();
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function disconnect()
+		{
+		if (! $this->link)
+			{
+			return;
+			}
+
+		if ($this->info->isPdo)
+			{
+			parent::disconnect();
+
+			return;
+			}
+
+		\ibase_close($this->link);
+		$this->link = null;
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function detectType($value)
+		{
+		if (\preg_match('~[^\x20-\x7E\t\r\n]~', $value) > 0)
+			{
+			return 'array';
+			}
+
+		if (\is_numeric($value))
+			{
+			if (false !== \strpos($value, '.'))
+				{
+				return 'number';
+				}
+
 			return 'int';
-		}
+			}
 
-		if (false !== DateTime::createFromFormat('Y-m-d H:i:s', $value) || false !== DateTime::createFromFormat('Y-m-d', $value) || false !== DateTime::createFromFormat('H:i:s', $value)) {
+		if (false !== DateTime::createFromFormat('Y-m-d H:i:s', $value) || false !== DateTime::createFromFormat('Y-m-d', $value) || false !== DateTime::createFromFormat('H:i:s', $value))
+			{
 			return 'datetime';
-		}
+			}
 
-		if (\is_string($value)) {
+		if (\is_string($value))
+			{
 			return 'string';
-		}
+			}
 
 		return 'array';
-	}
+		}
 
-	private function parseType($type)
-	{
+	/**
+	 * @inheritDoc
+	 */
+	protected function getValue($value, $type)
+		{
+		if ('array' == $type)
+			{
+			return \base64_encode($value);
+			}
+		elseif ('datetime' == $type)
+			{
+			return \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($value));
+			}
+		elseif ('string' == $type)
+			{
+			return \utf8_encode($value);
+			}
+
+		return $value;
+		}
+
+	protected function parseType($type)
+		{
 		switch ($type) {
 			case 'SMALLINT':
 			case 'INTEGER':
@@ -327,5 +241,5 @@ class Firebird extends \Stimulsoft\SQLAdapter
 		}
 
 		return 'string';
+		}
 	}
-}

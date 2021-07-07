@@ -24,8 +24,8 @@ class Appearance extends \Stimulsoft\OptionsBase
 		'showTooltips' => 'boolean',
 		'showTooltipsHelp' => 'boolean',
 		'undoMaxLevel' => 'integer',
-		'wizardTypeRunningAfterLoad' => array('None','StandardReport','MasterDetailReport','LabelReport','InvoicesReport','OrdersReport','QuotationReport')
-		);
+		'wizardTypeRunningAfterLoad' => array('None', 'StandardReport', 'MasterDetailReport', 'LabelReport', 'InvoicesReport', 'OrdersReport', 'QuotationReport')
+	);
 
 	protected static $defaults = array(
 		'_showLocalization' => -1,

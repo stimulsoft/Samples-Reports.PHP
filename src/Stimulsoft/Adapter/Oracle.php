@@ -4,16 +4,14 @@ namespace Stimulsoft\Adapter;
 
 class Oracle extends \Stimulsoft\SQLAdapter
 {
-	private $info = null;
-
-	private $link = null;
-
-	public function parse($connectionString)
-	{
-		$connectionString = \trim($connectionString);
-
+	/**
+	 * Construct the connection with appropriate defaults
+	 *
+	 * @param string $connectionString
+	 */
+	public function __construct($connectionString)
+		{
 		$info = new \stdClass();
-		$info->isPdo = false !== \mb_strpos($connectionString, 'oci:');
 		$info->dsn = '';
 		$info->database = '';
 		$info->userId = '';
@@ -21,292 +19,197 @@ class Oracle extends \Stimulsoft\SQLAdapter
 		$info->charset = 'AL32UTF8';
 		$info->privilege = '';
 
-		$parameters = \explode(';', $connectionString);
-
-		foreach ($parameters as $parameter) {
-			if (\mb_strpos($parameter, '=') < 1) {
-				if ($info->isPdo) {
-					$info->dsn .= $parameter . ';';
-				}
-
-				continue;
-			}
-
-			$pos = \mb_strpos($parameter, '=');
-			$name = \mb_strtolower(\trim(\mb_substr($parameter, 0, $pos)));
-			$value = \trim(\mb_substr($parameter, $pos + 1));
-
-			switch ($name) {
-				case 'database':
-				case 'data source':
-				case 'dbname':
-					$info->database = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'uid':
-				case 'user':
-				case 'user id':
-					$info->userId = $value;
-
-					break;
-
-				case 'pwd':
-				case 'password':
-					$info->password = $value;
-
-					break;
-
-				case 'charset':
-					$info->charset = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'dba privilege':
-				case 'privilege':
-					$value = \strtolower($value);
-					$info->privilege = OCI_DEFAULT;
-
-					if ('sysoper' == $value || 'oci_sysoper' == $value) {
-						$info->privilege = OCI_SYSOPER;
-					}
-
-					if ('sysdba' == $value || 'oci_sysdba' == $value) {
-						$info->privilege = OCI_SYSDBA;
-					}
-
-					break;
-
-				default:
-					if ($info->isPdo && \mb_strlen($parameter) > 0) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-			}
+		parent::parse($connectionString, $info);
 		}
 
-		if (\mb_strlen($info->dsn) > 0 && ';' == \mb_substr($info->dsn, \mb_strlen($info->dsn) - 1)) {
-			$info->dsn = \mb_substr($info->dsn, 0, \mb_strlen($info->dsn) - 1);
-		}
-
-		$this->info = $info;
-	}
-
-	public function test()
-	{
-		$result = $this->connect();
-
-		if ($result->success) {
-			$this->disconnect();
-		}
-
-		return $result;
-	}
-
+	/**
+	 * @inheritDoc
+	 */
 	public function execute($queryString)
-	{
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::execute($queryString);
+			}
+
 		$result = $this->connect();
 
-		if ($result->success) {
-			$query = $this->info->isPdo ? $this->link->query($queryString) : \oci_parse($this->link, $queryString);
-
-			if (! $query || ! $this->info->isPdo && ! \oci_execute($query)) {
-				return $this->getLastErrorResult();
+		if (! $result->success)
+			{
+			return $result;
 			}
 
-			$result->types = array();
-			$result->columns = array();
-			$result->rows = array();
+		$query = \oci_parse($this->link, $queryString);
 
-			if ($this->info->isPdo) {
-				$result->count = $query->columnCount();
-
-				// PDO Oracle driver does not support getColumnMeta()
-				// The type is determined by the first value
-
-				while ($rowItem = $query->fetch()) {
-					$index = 0;
-					$row = array();
-
-					foreach ($rowItem as $key => $value) {
-						if (\is_string($key)) {
-							$index++;
-
-							if (\count($result->columns) < $index) {
-								$result->columns[] = $key;
-							}
-
-							if (\count($result->types) < $index) {
-								$result->types[] = $this->detectType($value);
-							}
-							$type = $result->types[$index - 1];
-
-							if ('array' == $type) {
-								$row[] = \base64_encode($value);
-							} elseif ('datetime' == $type) {
-								$row[] = \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($value));
-							} else {
-								$row[] = $value;
-							}
-						}
-					}
-
-					$result->rows[] = $row;
-				}
-			} else {
-				$result->count = \oci_num_fields($query);
-
-				for ($i = 1; $i <= $result->count; $i++) {
-					$name = \oci_field_name($query, $i);
-					$result->columns[] = $name;
-
-					$type = \oci_field_type($query, $i);
-					$result->types[] = $this->parseType($type);
-				}
-
-				while ($rowItem = \oci_fetch_assoc($query)) {
-					$row = array();
-
-					foreach ($rowItem as $key => $value) {
-						if (\count($result->columns) < \count($rowItem)) {
-							$result->columns[] = $key;
-						}
-						$type = $result->types[\count($row)];
-
-						if ('array' == $type) {
-							$row[] = \base64_encode($value);
-						} elseif ('datetime' == $type) {
-							$row[] = \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($value));
-						} else {
-							$row[] = $value;
-						}
-					}
-					$result->rows[] = $row;
-				}
+		if (! $query || ! \oci_execute($query))
+			{
+			return $this->getLastErrorResult();
 			}
 
-			$this->disconnect();
-		}
+		$result->types = array();
+		$result->columns = array();
+		$result->rows = array();
+
+		$result->count = \oci_num_fields($query);
+
+		for ($i = 1; $i <= $result->count; $i++)
+			{
+			$name = \oci_field_name($query, $i);
+			$result->columns[] = $name;
+
+			$type = \oci_field_type($query, $i);
+			$result->types[] = $this->parseType($type);
+			}
+
+		while ($rowItem = \oci_fetch_assoc($query))
+			{
+			$row = array();
+
+			foreach ($rowItem as $key => $value)
+				{
+				$type = $result->types[\count($row)];
+				$row[] = $this->getValue($value, $type);
+				}
+			$result->rows[] = $row;
+			}
+
+		$this->disconnect();
 
 		return $result;
 	}
 
-	private function getLastErrorResult()
-	{
+	/**
+	 * @inheritDoc
+	 */
+	protected function getPDOType()
+		{
+		return 'oci';
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getLastErrorResult()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::getLastErrorResult();
+			}
+
 		$code = 0;
-		$message = 'Unknown';
+		$message = 'Unknown Oracle error';
 
-		if ($this->info->isPdo) {
-			$info = $this->link->errorInfo();
-			$code = $info[0];
+		$error = \oci_error();
 
-			if (\count($info) >= 3) {
-				$message = $info[2];
-			}
-		} else {
-			$error = \oci_error();
-
-			if (false !== $error) {
-				$code = $error['code'];
-				$error = $error['message'];
+		if (false !== $error)
+			{
+			$code = $error['code'];
+			$error = $error['message'];
 			}
 
-			$code = \ibase_errcode();
-			$error = \ibase_errmsg();
-
-			if ($error) {
-				$message = $error;
+		if ($error)
+			{
+			$message = $error;
 			}
-		}
 
-		if (0 == $code) {
+		if (0 == $code)
+			{
 			return \Stimulsoft\Result::error($message);
-		}
+			}
 
 		return \Stimulsoft\Result::error("[{$code}] {$message}");
-	}
+		}
 
-	private function connect()
-	{
-		if ($this->info->isPdo) {
-			try {
-				$this->link = new PDO($this->info->dsn, $this->info->userId, $this->info->password);
-			} catch (PDOException $e) {
-				$code = $e->getCode();
-				$message = $e->getMessage();
-
-				return \Stimulsoft\Result::error("[{$code}] {$message}");
+	/**
+	 * @inheritDoc
+	 */
+	protected function connect()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::connect();
 			}
 
-			return \Stimulsoft\Result::success();
-		}
-
-		if (! \function_exists('oci_connect')) {
+		if (! \function_exists('oci_connect'))
+			{
 			return \Stimulsoft\Result::error('Oracle driver not found. Please configure your PHP server to work with Oracle.');
-		}
+			}
 
-		if ('' == $this->info->privilege) {
+		if ('' == $this->info->privilege)
+			{
 			$this->link = \oci_connect($this->info->userId, $this->info->password, $this->info->database, $this->info->charset);
-		} else {
+			}
+		else
+			{
 			$this->link = \oci_pconnect($this->info->userId, $this->info->password, $this->info->database, $this->info->charset, $this->info->privilege);
-		}
+			}
 
-		if (! $this->link) {
+		if (! $this->link)
+			{
 			return $this->getLastErrorResult();
-		}
+			}
 
 		return \Stimulsoft\Result::success();
-	}
+		}
 
-	private function disconnect()
-	{
-		if (! $this->link) {
+	/**
+	 * @inheritDoc
+	 */
+	protected function disconnect()
+		{
+		if (! $this->link)
+			{
 			return;
-		}
-
-		if (! $this->info->isPdo) {
-			\oci_close($this->link);
-		}
-		$this->link = null;
-	}
-
-	private function detectType($value)
-	{
-		if (\preg_match('~[^\x20-\x7E\t\r\n]~', $value) > 0) {
-			return 'array';
-		}
-
-		if (\is_numeric($value)) {
-			if (false !== \strpos($value, '.')) {
-				return 'number';
 			}
 
+		if ($this->info->isPdo)
+			{
+			parent::disconnect();
+
+			return;
+			}
+
+		\oci_close($this->link);
+		$this->link = null;
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function detectType($value)
+		{
+		if (\preg_match('~[^\x20-\x7E\t\r\n]~', $value) > 0)
+			{
+			return 'array';
+			}
+
+		if (\is_numeric($value))
+			{
+			if (false !== \strpos($value, '.'))
+				{
+				return 'number';
+				}
+
 			return 'int';
-		}
+			}
 
-		if (false !== DateTime::createFromFormat('Y-M-d', $value)) {
+		if (false !== DateTime::createFromFormat('Y-M-d', $value))
+			{
 			return 'datetime';
-		}
+			}
 
-		if (\is_string($value)) {
+		if (\is_string($value))
+			{
 			return 'string';
-		}
+			}
 
 		return 'array';
-	}
+		}
 
-	private function parseType($type)
-	{
-		switch ($type) {
+	protected function parseType($type)
+		{
+		switch ($type)
+			{
 			case 'SMALLINT':
 			case 'INTEGER':
 			case 'BIGINT':
@@ -334,8 +237,8 @@ class Oracle extends \Stimulsoft\SQLAdapter
 			case 100:
 			case 101:
 				return 'array';
-		}
+			}
 
 		return 'string';
+		}
 	}
-}

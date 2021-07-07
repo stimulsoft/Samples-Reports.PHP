@@ -9,7 +9,7 @@ class Appearance extends \Stimulsoft\OptionsBase
 		'backgroundColor' => 'Stimulsoft\\Viewer\\Color',
 		'bookmarksPrint' => 'boolean',
 		'bookmarksTreeWidth' => 'integer',
-		'chartRenderType' =>  array('', 2 => 'Vector', 3 => 'AnimatedVector'),
+		'chartRenderType' => array('', 2 => 'Vector', 3 => 'AnimatedVector'),
 		'combineReportPages' => 'boolean',
 		'datePickerFirstDayOfWeek' => array('Auto', 'Monday', 'Sunday'),
 		'datePickerIncludeCurrentDayForRanges' => 'boolean',

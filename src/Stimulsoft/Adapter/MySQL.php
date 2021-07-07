@@ -4,16 +4,15 @@ namespace Stimulsoft\Adapter;
 
 class MySQL extends \Stimulsoft\SQLAdapter
 {
-	private $info = null;
-
-	private $link = null;
-
-	public function parse($connectionString)
-	{
-		$connectionString = \trim($connectionString);
-
+	/**
+	 * Construct the connection with appropriate defaults
+	 *
+	 * @param string $connectionString
+	 */
+	public function __construct($connectionString)
+		{
+		// set defaults
 		$info = new \stdClass();
-		$info->isPdo = false !== \mb_strpos($connectionString, 'mysql:');
 		$info->dsn = '';
 		$info->host = '';
 		$info->port = 3306;
@@ -22,207 +21,86 @@ class MySQL extends \Stimulsoft\SQLAdapter
 		$info->password = '';
 		$info->charset = 'utf8';
 
-		$parameters = \explode(';', $connectionString);
-
-		foreach ($parameters as $parameter) {
-			if (\mb_strpos($parameter, '=') < 1) {
-				if ($info->isPdo) {
-					$info->dsn .= $parameter . ';';
-				}
-
-				continue;
-			}
-
-			$pos = \mb_strpos($parameter, '=');
-			$name = \mb_strtolower(\trim(\mb_substr($parameter, 0, $pos)));
-			$value = \trim(\mb_substr($parameter, $pos + 1));
-
-			switch ($name) {
-				case 'server':
-				case 'host':
-				case 'location':
-					$info->host = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'port':
-					$info->port = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'database':
-				case 'data source':
-				case 'dbname':
-					$info->database = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				case 'uid':
-				case 'user':
-				case 'username':
-				case 'userid':
-				case 'user id':
-					$info->userId = $value;
-
-					break;
-
-				case 'pwd':
-				case 'password':
-					$info->password = $value;
-
-					break;
-
-				case 'charset':
-					$info->charset = $value;
-
-					if ($info->isPdo) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-
-				default:
-					if ($info->isPdo && \mb_strlen($parameter) > 0) {
-						$info->dsn .= $parameter . ';';
-					}
-
-					break;
-			}
+		parent::parse($connectionString, $info);
 		}
-
-		if (\mb_strlen($info->dsn) > 0 && ';' == \mb_substr($info->dsn, \mb_strlen($info->dsn) - 1)) {
-			$info->dsn = \mb_substr($info->dsn, 0, \mb_strlen($info->dsn) - 1);
-		}
-
-		$this->info = $info;
-	}
-
-	public function test()
-	{
-		$result = $this->connect();
-
-		if ($result->success) {
-			$this->disconnect();
-		}
-
-		return $result;
-	}
-
-	public function execute($queryString)
-	{
-		$result = $this->connect();
-
-		if ($result->success) {
-			try
-				{
-				$query = $this->link->query($queryString);
-				}
-			catch (\Throwable $e)
-				{
-				return $this->getLastPDOErrorResult($e);
-				}
-			catch (\Exception $e)
-				{
-				return $this->getLastPDOErrorResult($e);
-				}
-
-			$result->types = array();
-			$result->columns = array();
-			$result->rows = array();
-
-			if ($this->info->isPdo) {
-				$result->count = $query->columnCount();
-
-				for ($i = 0; $i < $result->count; $i++) {
-					$meta = $query->getColumnMeta($i);
-					$result->columns[] = $meta['name'];
-					$result->types[] = $this->parseType($meta);
-				}
-
-				while ($rowItem = $query->fetch()) {
-					$row = array();
-
-					for ($i = 0; $i < $result->count; $i++) {
-						$type = \count($result->types) >= $i + 1 ? $result->types[$i] : 'string';
-
-						if ('array' == $type) {
-							$row[] = \base64_encode($rowItem[$i]);
-						} elseif ('datetime' == $type) {
-							$row[] = \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($rowItem[$i]));
-						} else {
-							$row[] = $rowItem[$i];
-						}
-					}
-					$result->rows[] = $row;
-				}
-			} else {
-				$result->count = $query->field_count;
-
-				while ($meta = $query->fetch_field()) {
-					$result->columns[] = $meta->name;
-					$result->types[] = $this->parseType($meta);
-				}
-
-				if ($query->num_rows > 0) {
-					$isColumnsEmpty = 0 == \count($result->columns);
-
-					while ($rowItem = $query->fetch_assoc()) {
-						$row = array();
-
-						foreach ($rowItem as $key => $value) {
-							if ($isColumnsEmpty && \count($result->columns) < \count($rowItem)) {
-								$result->columns[] = $key;
-							}
-							$type = \count($result->types) >= \count($row) + 1 ? $result->types[\count($row)] : 'string';
-
-							if ('array' == $type) {
-								$row[] = \base64_encode($value);
-							} elseif ('datetime' == $type) {
-								$row[] = \gmdate("Y-m-d\TH:i:s.v\Z", \strtotime($value));
-							} else {
-								$row[] = $value;
-							}
-						}
-						$result->rows[] = $row;
-					}
-				}
-			}
-
-			$this->disconnect();
-		}
-
-		return $result;
-	}
 
 	/**
-	 * Return a PDO error from caught excepton
-	 *
-	 * @return \Stimulsoft\Result
+	 * @inheritDoc
 	 */
-	private function getLastPDOErrorResult($e)
+	public function execute($queryString)
 		{
-		$code = $e->getCode();
-		$message = $e->getMessage();
+		if ($this->info->isPdo)
+			{
+			return parent::execute($queryString);
+			}
 
-		return \Stimulsoft\Result::error("[{$code}] {$message}");
+		$result = $this->connect();
+
+		if (! $result->success)
+			{
+			return $result;
+			}
+
+		$query = $this->link->query($queryString);
+
+		$result->types = array();
+		$result->columns = array();
+		$result->rows = array();
+
+		$result->count = $query->field_count;
+
+		while ($meta = $query->fetch_field())
+			{
+			$result->columns[] = $meta->name;
+			$result->types[] = $this->parseType($meta);
+			}
+
+		if ($query->num_rows > 0)
+			{
+			$isColumnsEmpty = 0 == \count($result->columns);
+
+			while ($rowItem = $query->fetch_assoc())
+				{
+				$row = array();
+
+				foreach ($rowItem as $key => $value)
+					{
+					if ($isColumnsEmpty && \count($result->columns) < \count($rowItem))
+						{
+						$result->columns[] = $key;
+						}
+					$type = \count($result->types) >= \count($row) + 1 ? $result->types[\count($row)] : 'string';
+					$row[] = $this->getValue($value, $type);
+					}
+				$result->rows[] = $row;
+				}
+			}
+
+		$this->disconnect();
+
+		return $result;
 		}
 
-	private function getLastErrorResult()
+	/**
+	 * @inheritDoc
+	 */
+	protected function getPDOType()
 		{
+		return 'mysql';
+		}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getLastErrorResult()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::getLastErrorResult();
+			}
+
 		$code = 0;
-		$message = 'Unknown';
+		$message = 'Unknown MySQL error';
 
 		$code = $this->link->errno;
 
@@ -239,45 +117,58 @@ class MySQL extends \Stimulsoft\SQLAdapter
 		return \Stimulsoft\Result::error("[{$code}] {$message}");
 		}
 
-	private function connect()
-	{
-		if ($this->info->isPdo) {
-			try {
-				$this->link = new \PDO($this->info->dsn, $this->info->userId, $this->info->password);
-				$this->link->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-				$this->link->query('use ' . $this->info->database);
-			} catch (\Throwable $e) {
-				return $this->getLastPDOErrorResult($e);
-			} catch (\Exception $e) {
-				return $this->getLastPDOErrorResult($e);
+	/**
+	 * @inheritDoc
+	 */
+	protected function connect()
+		{
+		if ($this->info->isPdo)
+			{
+			return parent::connect();
 			}
-
-			return \Stimulsoft\Result::success();
-		}
 
 		$this->link = new \mysqli($this->info->host, $this->info->userId, $this->info->password, $this->info->database, $this->info->port);
 
-		if ($this->link->connect_error) {
+		if ($this->link->connect_error)
+			{
 			return \Stimulsoft\Result::error("[{$this->link->connect_errno}] {$this->link->connect_error}");
-		}
+			}
 
-		if (! $this->link->set_charset($this->info->charset)) {
+		if (! $this->link->set_charset($this->info->charset))
+			{
 			return $this->getLastErrorResult();
-		}
+			}
 
 		$this->link->query('use ' . $this->info->database);
 
 		return \Stimulsoft\Result::success();
-	}
+		}
 
-	private function disconnect()
-	{
+	/**
+	 * @inheritDoc
+	 */
+	protected function disconnect()
+		{
+		if (! $this->link)
+			{
+			return;
+			}
+
+		if ($this->info->isPdo)
+			{
+			parent::disconnect();
+
+			return;
+			}
+
+		$this->link->close();
 		$this->link = null;
-	}
+		}
 
 	private function getStringType($type)
 	{
-		switch ($type) {
+		switch ($type)
+			{
 			case 1:
 				return 'tiny';
 
@@ -309,12 +200,12 @@ class MySQL extends \Stimulsoft\SQLAdapter
 			case 254:
 			case 255:
 				return 'blob';
-		}
+			}
 
 		return 'string';
 	}
 
-	private function parseType($meta)
+	protected function parseType($meta)
 	{
 		$type = 'string';
 		$binary = false;

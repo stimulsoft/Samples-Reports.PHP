@@ -19,6 +19,7 @@ class Response
 
 		if ($exit) {
 			echo $json;
+
 			exit;
 		}
 

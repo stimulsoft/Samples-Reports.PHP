@@ -11,7 +11,8 @@
   "require-dev": {
     "vanilla/garden-cli": "^1.0|^2.0|^3.1",
     "roave/security-advisories": "dev-latest",
-    "phpunit/phpunit": "^6.0|^7.0|^8.0|^9.5"
+    "phpunit/phpunit": "^6.0|^7.0|^8.0|^9.5",
+    "phpfui/phpunit-syntax-coverage": "^1.0"
   },
   "require": {
     "php": ">=5.3",

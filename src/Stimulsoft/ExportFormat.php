@@ -43,7 +43,7 @@ class ExportFormat
 	 */
 	public static function getFormatExtensions()
 		{
-		return [
+		return array(
 			'Pdf' => 'pdf',
 			'Text' => 'txt',
 			'Excel2007' => 'xlsx',
@@ -56,7 +56,6 @@ class ExportFormat
 			'Ppt2007' => 'pptx',
 			'Html5' => 'html',
 			'Document' => 'doc'
-			];
+			);
 		}
-
 	}

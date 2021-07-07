@@ -45,12 +45,14 @@ class Handler
 		{
 		$js = '';
 		$reflection = new \ReflectionClass($this);
+
 		foreach ($reflection->getProperties(\ReflectionProperty::IS_PUBLIC) as $property)
 			{
 			$name = $property->getName();
-			if (0 === strpos($name, 'on'))
+
+			if (0 === \strpos($name, 'on'))
 				{
-				if ('onEndProcessData' != $name && null !== $this->$name)
+				if ('onEndProcessData' != $name && null !== $this->{$name})
 					{
 					$js .= "\n" . $variableName . '.' . $name . ' = function (args, callback) {args.preventDefault = true;
 						Stimulsoft.Helper.process(args, callback);}' . "\n";
@@ -141,8 +143,7 @@ class Handler
 		$class = __NAMESPACE__ . '\\Adapter\\' . \str_replace(' ', '', $result->object->database);
 
 		if (\class_exists($class)) {
-			$dataAdapter = new $class();
-			$dataAdapter->parse($result->object->connectionString);
+			$dataAdapter = new $class($result->object->connectionString);
 
 			return \Stimulsoft\Result::success(null, $dataAdapter);
 		}
@@ -563,6 +564,7 @@ class Handler
 
 							break;
 					}
+
 					if (! $result->success) {
 						return $result;
 					}

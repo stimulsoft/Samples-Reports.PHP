@@ -12,7 +12,9 @@ namespace Stimulsoft;
 class Helper
 {
 	private $handlerUrl = '';
+
 	private $licenseUrl = '';
+
 	private $timeout = 30;
 
 	/**

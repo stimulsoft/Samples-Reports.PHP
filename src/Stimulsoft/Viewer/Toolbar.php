@@ -6,7 +6,7 @@ class Toolbar extends \Stimulsoft\OptionsBase
 {
 	protected static $validFields = array(
 		'_zoom' => array('', -1 => 'PageWidth', -2 => 'PageHeight'),
-		'alignment' => array('Left','Center','Right','Default'),
+		'alignment' => array('Left', 'Center', 'Right', 'Default'),
 		'autoHide' => 'boolean',
 		'backgroundColor' => 'Stimulsoft\\Viewer\\Color',
 		'borderColor' => 'Stimulsoft\\Viewer\\Color',
@@ -16,7 +16,7 @@ class Toolbar extends \Stimulsoft\OptionsBase
 		'menuAnimation' => 'boolean',
 		'multiPageHeightCount' => 'integer',
 		'multiPageWidthCount' => 'integer',
-		'printDestination' => array('Default','Pdf','Direct','WithPreview'),
+		'printDestination' => array('Default', 'Pdf', 'Direct', 'WithPreview'),
 		'showAboutButton' => 'boolean',
 		'showBookmarksButton' => 'boolean',
 		'showButtonCaptions' => 'boolean',
@@ -27,7 +27,7 @@ class Toolbar extends \Stimulsoft\OptionsBase
 		'showFirstPageButton' => 'boolean',
 		'showFullScreenButton' => 'boolean',
 		'showLastPageButton' => 'boolean',
-		'showMenuMode' => array('Click','Hover'),
+		'showMenuMode' => array('Click', 'Hover'),
 		'showNextPageButton' => 'boolean',
 		'showOpenButton' => 'boolean',
 		'showParametersButton' => 'boolean',
@@ -40,7 +40,7 @@ class Toolbar extends \Stimulsoft\OptionsBase
 		'showSendEmailButton' => 'boolean',
 		'showViewModeButton' => 'boolean',
 		'showZoomButton' => 'boolean',
-		'viewMode' => array('SinglePage','Continuous','MultiplePages','OnePage','WholeReport','MultiPage'),
+		'viewMode' => array('SinglePage', 'Continuous', 'MultiplePages', 'OnePage', 'WholeReport', 'MultiPage'),
 		'visible' => 'boolean',
 	);
 
