@@ -8,6 +8,11 @@
        "Stimulsoft\\": "src\\Stimulsoft"
      }
   },
+	"autoload-dev": {
+		 "psr-4": {
+			 "Tests\\": "Tests"
+		 }
+	},
   "require-dev": {
     "vanilla/garden-cli": "^1.0|^2.0|^3.1",
     "roave/security-advisories": "dev-latest",
