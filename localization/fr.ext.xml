@@ -701,21 +701,93 @@
     <Title>Paramètres du titre.</Title>
     <VertSpacing>Espace vertical entre la bordure du graphique et le graphique.</VertSpacing>
   </StiChart>
+  <StiChartArea>
+    <ColorEach>Une valeur indiquant que chaque série est dessinée avec sa propre couleur.</ColorEach>
+    <GridLinesHor>Lignes de grille horizontales sur l'axe de gauche.</GridLinesHor>
+    <GridLinesVert>Lignes de grille sur l'axe vertical.</GridLinesVert>
+    <InterlacingHor>Paramètres d'entrelacement sur l'axe horizontal.</InterlacingHor>
+    <InterlacingVert>Paramètres d'entrelacement sur l'axe vertical.</InterlacingVert>
+    <ReverseHor>Une valeur indiquant que toutes les valeurs sur l'axe horizontal sont inversées.</ReverseHor>
+    <ReverseVert>Une valeur indiquant que toutes les valeurs sur l'axe vertical sont inversées.</ReverseVert>
+    <XAxis>Paramètres de l'axe X.</XAxis>
+    <XTopAxis>Paramètres de l'axe X du haut.</XTopAxis>
+    <YAxis>Paramètres de l'axe Y.</YAxis>
+    <YRightAxis>Paramètres de l'axe Y de droite.</YRightAxis>
+  </StiChartArea>
+  <StiChartAxis>
+    <Visible>Visibilité de l'axe.</Visible>
+  </StiChartAxis>
+  <StiChartAxisLabels>
+    <Angle>Un angle de rotation de l'étiquette.</Angle>
+    <Color>Couleur de dessin des étiquettes.</Color>
+    <Font>Police de dessin des étiquettes.</Font>
+    <Placement>Mode de positionnement des étiquettes sur l'axe.</Placement>
+    <Step>Une valeur indiquant à quel pas les étiquettes seront affichées sur l'axe.</Step>
+    <TextAfter>Une chaîne qui sera ajoutée après l'argument.</TextAfter>
+    <TextAlignment>Alignement du texte de l'étiquette.</TextAlignment>
+    <TextBefore>Une chaîne qui sera ajoutée avant l'argument.</TextBefore>
+  </StiChartAxisLabels>
+  <StiChartAxisRange>
+    <Auto>Une valeur indiquant que les valeurs minimum et maximum seront calculées automatiquement.</Auto>
+    <Maximum>Valeur maximum de la plage de l'axe.</Maximum>
+    <Minimum>Valeur minimum de la plage de l'axe.</Minimum>
+  </StiChartAxisRange>
+  <StiChartAxisTitle>
+    <Alignment>alignement du texte du titre.</Alignment>
+    <Color>Couleur de dessin des titres.</Color>
+    <Font>Police de dessin des titres.</Font>
+    <Position>Position du texte du titre.</Position>
+    <Text>Texte du titre.</Text>
+    <Visible>Visibilité du titre.</Visible>
+  </StiChartAxisTitle>
   <StiChartElement>
+    <Area>Surface du graphique.</Area>
     <Arguments>Arguments du graphique.</Arguments>
     <CloseValues>Fermer les valeurs du graphique.</CloseValues>
     <ColorEach />
+    <ConstantLines>Paramètres des lignes constantes.</ConstantLines>
     <EndValues>Valeurs de fin du graphique.</EndValues>
     <Group />
     <HighValues>Valeurs hautes du graphique.</HighValues>
+    <Labels>Liste des étiquettes des séries.</Labels>
+    <Legend>Paramètres de la légende.</Legend>
     <LowValues>Valeurs basses du graphique.</LowValues>
     <Series>Graphique en séries.</Series>
     <Style>Style du graphique.</Style>
     <TextFormat>Format du texte.</TextFormat>
     <Title>Titre du graphique.</Title>
+    <TrendLines>Paramètres de ligne de tendance.</TrendLines>
     <Values>Valeurs du graphique.</Values>
     <Weights>Poid des valeurs du graphique.</Weights>
   </StiChartElement>
+  <StiChartGridLines>
+    <Color>Couleur des lignes majeures.</Color>
+  </StiChartGridLines>
+  <StiChartInterlacing>
+    <Visible>Visibilité des barres d'entrelacement.</Visible>
+  </StiChartInterlacing>
+  <StiChartLabels>
+    <AutoRotate>Valeur activant ou désactivant la rotation automatique des libellés des séries.</AutoRotate>
+    <Font>Police des libellés des séries.</Font>
+    <ForeColor>Couleur de dessin des étiquettes.</ForeColor>
+    <TextAfter>Texte affiché après le libellé.</TextAfter>
+    <TextBefore>Texte affiché avant le libellé.</TextBefore>
+  </StiChartLabels>
+  <StiChartLegend>
+    <Columns>Nombre de colonnes.</Columns>
+    <Direction>Sens pour le dessin de séries dans la légende.</Direction>
+    <HorAlignment>alignement horizontal de la légende.</HorAlignment>
+    <VertAlignment>alignement vertical de la légende.</VertAlignment>
+    <Visible>Visibilité de la légende.</Visible>
+  </StiChartLegend>
+  <StiChartLegendLabels>
+    <Color>Couleur des étiquettes.</Color>
+    <Font>Police des titres des séries.</Font>
+  </StiChartLegendLabels>
+  <StiChartLegendTitle>
+    <Color>Couleur du titre de al légende.</Color>
+    <Font>Police du titre de la légende.</Font>
+  </StiChartLegendTitle>
   <StiChartTable>
     <Font>Police de la table du graphique.</Font>
     <GridLineColor>Couleur des lignes de grille.</GridLineColor>
@@ -1271,6 +1343,9 @@
     <MasterKeyDataColumn>colonne contenant la clé de données maître.</MasterKeyDataColumn>
     <ParentValue>Colonne contenant la valeur parent qui identifie la ligne parent.</ParentValue>
   </StiHierarchicalBand>
+  <StiHorChartGridLines>
+    <Visible>Visibilité des lignes majeures.</Visible>
+  </StiHorChartGridLines>
   <StiImage>
     <DataColumn>Nom de la colonne contenant l'image.</DataColumn>
     <File>Chemin du fichier contenant l'image.</File>
@@ -1950,6 +2025,9 @@
     <Description>Description de la variable.</Description>
     <Name>Nom de la variable.</Name>
   </StiVariable>
+  <StiVertChartGridLines>
+    <Visible>Visibilité des lignes majeures.</Visible>
+  </StiVertChartGridLines>
   <StiView>
     <AspectRatio>Une valeur indiquant que l'image conservera son ratio.</AspectRatio>
     <MultipleFactor>Valeur à multiplier par la taille de l'image</MultipleFactor>
@@ -1983,6 +2061,20 @@
   <StiXAxis>
     <DateTimeStep>Paramètres du pas de temps.</DateTimeStep>
   </StiXAxis>
+  <StiXChartAxis>
+    <ShowEdgeValues>Une valeur indiquant que le premier et le dernier argument seront toujours affichés.</ShowEdgeValues>
+    <StartFromZero>Une valeur indiquant que tous les arguments seront affichés à partir de zéro.</StartFromZero>
+    <Title>Paramètres du titre de l'axe.</Title>
+  </StiXChartAxis>
+  <StiXChartAxisTitle>
+    <Direction>Sens du texte du titre.</Direction>
+  </StiXChartAxisTitle>
+  <StiYChartAxis>
+    <StartFromZero>Une valeur indiquant que tous les arguments seront affichés à partir de zéro.</StartFromZero>
+  </StiYChartAxis>
+  <StiYChartAxisTitle>
+    <Direction>Sens du texte du titre.</Direction>
+  </StiYChartAxisTitle>
   <StiZipCode>
     <Code>Expression pour remplir le code d'un code postal.</Code>
     <ForeColor>Couleur du texte.</ForeColor>

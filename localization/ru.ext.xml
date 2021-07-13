@@ -1,37 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Localization language="Russian" description="Русский" cultureName="ru">
-  <StiGaugeStyle>
-    <Brush>Кисть заливки стиля.</Brush>
-    <BorderColor>Цвет бордюра.</BorderColor>
-    <TargetColor>Цвет метки.</TargetColor>
-    <ForeColor>Цвет для отрисовки текста.</ForeColor>
-    <BorderWidth>Размер границы.</BorderWidth>
-    <TickMarkMajorBrush>Кисть заливки TickMarkMajor.</TickMarkMajorBrush>
-    <TickMarkMajorBorder>Кисть границы TickMarkMajor.</TickMarkMajorBorder>
-    <TickMarkMajorBorderWidth>Размер границы TickMarkMajor.</TickMarkMajorBorderWidth>
-    <TickMarkMinorBrush>Кисть заливки TickMarkMinor.</TickMarkMinorBrush>
-    <TickMarkMinorBorder>Кисть границы TickMarkMinor.</TickMarkMinorBorder>
-    <TickMarkMinorBorderWidth>Размер границы TickMarkMinor.</TickMarkMinorBorderWidth>
-    <TickLabelMajorTextBrush>Цвет для отрисовки текста TickLabelMajor.</TickLabelMajorTextBrush>
-    <TickLabelMajorFont>Шрифт для отрисовки TickLabelMajor.</TickLabelMajorFont>
-    <TickLabelMinorTextBrush>Цвет для отрисовки текста TickLabelMinor.</TickLabelMinorTextBrush>
-    <TickLabelMinorFont>Шрифт для отрисовки TickLabelMinor.</TickLabelMinorFont>
-    <MarkerBrush>Кисть заливки маркера.</MarkerBrush>
-    <LinearBarBrush>Кисть заливки LinearBar.</LinearBarBrush>
-    <LinearScaleBrush>Кисть заливки LinearScale.</LinearScaleBrush>
-    <LinearBarBorderBrush>Кисть границы LinearBar.</LinearBarBorderBrush>
-    <LinearBarEmptyBrush>Кисть пустой заливки LinearScale.</LinearBarEmptyBrush>
-    <LinearBarEmptyBorderBrush>Кисть пустой границы LinearBar.</LinearBarEmptyBorderBrush>
-    <RadialBarBrush>Кисть заливки RadialBar.</RadialBarBrush>
-    <RadialBarBorderBrush>Кисть границы RadialBar.</RadialBarBorderBrush>
-    <RadialBarEmptyBrush>Кисть пустой заливки RadialBar.</RadialBarEmptyBrush>
-    <RadialBarEmptyBorderBrush>Кисть пустой границы RadialBar.</RadialBarEmptyBorderBrush>
-    <NeedleBrush>Кисть заливки иглы.</NeedleBrush>
-    <NeedleBorderBrush>Кисть границы иглы.</NeedleBorderBrush>
-    <NeedleBorderWidth>Размер границы иглы.</NeedleBorderWidth>
-    <NeedleCapBrush>Кисть заливки шапки иглы.</NeedleCapBrush>
-    <NeedleCapBorderBrush>Кисть границы шапки иглы.</NeedleCapBorderBrush>
-  </StiGaugeStyle>
   <CheckActions>
     <ApplyEngineV2Long>Задать значение свойства EngineVersion равное EngineV2, чтобы получить доступ ко всем возможностям генератора отчета.</ApplyEngineV2Long>
     <Change>Изменить</Change>
@@ -761,21 +729,93 @@
     <Title>Настройки заголовка диаграммы.</Title>
     <VertSpacing>Вертикальное пространство между границей диаграммы и диаграммой.</VertSpacing>
   </StiChart>
+  <StiChartArea>
+    <ColorEach>Значение определяет, что каждый ряд отрисован по своему собственному цвету.</ColorEach>
+    <GridLinesHor>Горизонтальные линии сетки по левой оси.</GridLinesHor>
+    <GridLinesVert>Линии сетки на вертикальной оси.</GridLinesVert>
+    <InterlacingHor>Настройки чередующихся полос на горизонтальной оси.</InterlacingHor>
+    <InterlacingVert>Настройки чередующихся полос на вертикальной оси.</InterlacingVert>
+    <ReverseHor>Значение определяет, что все значения на горизонтальной оси являются обратными.</ReverseHor>
+    <ReverseVert>Значение определяет, что все значения на вертикальной оси являются обратными.</ReverseVert>
+    <XAxis>Настройки оси X.</XAxis>
+    <XTopAxis>Настройки верхней оси X.</XTopAxis>
+    <YAxis>Настройки оси Y.</YAxis>
+    <YRightAxis>Настройки правой оси Y.</YRightAxis>
+  </StiChartArea>
+  <StiChartAxis>
+    <Visible>Видимость оси.</Visible>
+  </StiChartAxis>
+  <StiChartAxisLabels>
+    <Angle>Угол поворота подписей.</Angle>
+    <Color>Цвет отрисовки подписей.</Color>
+    <Font>Шрифт для отрисовки, который будет использоваться для отрисовки подписи оси.</Font>
+    <Placement>Режим расположения подписей на оси.</Placement>
+    <Step>Значение, которое определяет с каким шагом будут отображаться метки по оси.</Step>
+    <TextAfter>Строка, которая будет выведена после представлением строки аргумента.</TextAfter>
+    <TextAlignment>Выравнивание текста подписи.</TextAlignment>
+    <TextBefore>Строка, которая будет выведена перед представлением строки аргумента.</TextBefore>
+  </StiChartAxisLabels>
+  <StiChartAxisRange>
+    <Auto>Значение определяет, что минимальные и максимальные значения будут рассчитаны автоматически.</Auto>
+    <Maximum>Максимальное значение диапазона оси.</Maximum>
+    <Minimum>Минимальное значение диапазона оси.</Minimum>
+  </StiChartAxisRange>
+  <StiChartAxisTitle>
+    <Alignment>Выравнивание текста заголовка.</Alignment>
+    <Color>Цвет, который будет использоваться для отрисовки заголовка.</Color>
+    <Font>Шрифт для отрисовки заголовка оси.</Font>
+    <Position>Позиция текста заголовка.</Position>
+    <Text>Текст заголовка.</Text>
+    <Visible>Видимость заголовка.</Visible>
+  </StiChartAxisTitle>
   <StiChartElement>
+    <Area>Область диаграммы.</Area>
     <Arguments>Аргументы диаграммы.</Arguments>
     <CloseValues>Закрывающие значения диаграммы.</CloseValues>
     <ColorEach>Значение определяет, что каждый элемент ряда отрисован по своему собственному цвету.</ColorEach>
+    <ConstantLines>Настройки постоянных линий диаграммы.</ConstantLines>
     <EndValues>Конечные значения диаграммы.</EndValues>
     <Group />
     <HighValues>Максимальные значения диаграммы.</HighValues>
+    <Labels>Заголовки рядов.</Labels>
+    <Legend>Настройки легенды.</Legend>
     <LowValues>Минимальные значения диаграммы.</LowValues>
     <Series>Ряды диаграммы.</Series>
     <Style>Стиль диаграммы.</Style>
     <TextFormat>Формат текста.</TextFormat>
     <Title>Заголовок диаграммы.</Title>
+    <TrendLines>Настройки тренд линии.</TrendLines>
     <Values>Значения диаграммы.</Values>
     <Weights>Весовые значения диаграммы.</Weights>
   </StiChartElement>
+  <StiChartGridLines>
+    <Color>Цвет для отрисовки основных линий сетки.</Color>
+  </StiChartGridLines>
+  <StiChartInterlacing>
+    <Visible>Видимость перемежающихся полос.</Visible>
+  </StiChartInterlacing>
+  <StiChartLabels>
+    <AutoRotate>Значение, которое включает/выключает режим автоповорота отрисовки заголовков рядов.</AutoRotate>
+    <Font>Шрифт, который будет использоваться для отрисовки заголовков рядов.</Font>
+    <ForeColor>Цвет отрисовки подписей.</ForeColor>
+    <TextAfter>Текст, который будет показан после текста подписи.</TextAfter>
+    <TextBefore>Текст, который будет показан перед текстом подписи.</TextBefore>
+  </StiChartLabels>
+  <StiChartLegend>
+    <Columns>Количество колонок.</Columns>
+    <Direction>Направление, используемое для отрисовки рядов в легенде.</Direction>
+    <HorAlignment>Горизонтальное выравнивание положения легенды.</HorAlignment>
+    <VertAlignment>Вертикальное выравнивание положения легенды.</VertAlignment>
+    <Visible>Видимость легенды диаграммы.</Visible>
+  </StiChartLegend>
+  <StiChartLegendLabels>
+    <Color>Цвет подписей.</Color>
+    <Font>Шрифт, используемый для отрисовки заголовка рядов в легенде диаграммы.</Font>
+  </StiChartLegendLabels>
+  <StiChartLegendTitle>
+    <Color>Цвет заголовка легенды.</Color>
+    <Font>Шрифт заголовка легенды диаграммы.</Font>
+  </StiChartLegendTitle>
   <StiChartTable>
     <Font>Шрифт таблицы диаграммы.</Font>
     <GridLineColor>Цвет линий сетки.</GridLineColor>
@@ -921,7 +961,7 @@
     <CanShrink>Значение определяет, что данный объект может сжиматься.</CanShrink>
     <CellDockStyle>Тип стыковки ячейки.</CellDockStyle>
     <CellType>Тип содержимого ячейки.</CellType>
-	<CheckedChangedEvent>Срабатывает, когда состояние Checked компонента изменяется.</CheckedChangedEvent>
+    <CheckedChangedEvent>Срабатывает, когда состояние Checked компонента изменяется.</CheckedChangedEvent>
     <ClickEvent>Срабатывает, когда пользователь нажимает на компонент в окне предварительного просмотра.</ClickEvent>
     <ComponentStyle>Стиль компонента.</ComponentStyle>
     <Conditions>Коллекция условий.</Conditions>
@@ -933,7 +973,7 @@
     <DoubleClickEvent>Срабатывает, когда пользователь двойным щелчком нажимает на компонент в окне предварительного просмотра.</DoubleClickEvent>
     <Editable>Значение, которое указывает, что компонент можно редактировать в окне вьювера.</Editable>
     <Enabled>Значение, которое указывает, будет ли компонент доступен.</Enabled>
-	<ExceedMargins>Значение, которое управляет расширением фона компонента за его границы.</ExceedMargins>
+    <ExceedMargins>Значение, которое управляет расширением фона компонента за его границы.</ExceedMargins>
     <FilterMode>Логическая операция сочетания фильтров для текущего бэнда.</FilterMode>
     <FilterOn>Значение указывает, что фильтр включен.</FilterOn>
     <Filters>Коллекция фильтров данных.</Filters>
@@ -1251,6 +1291,38 @@
     <Style>Стиль измерительного прибора.</Style>
     <Title>Заголовок измерительного прибора.</Title>
   </StiGaugeElement>
+  <StiGaugeStyle>
+    <BorderColor>Цвет бордюра.</BorderColor>
+    <BorderWidth>Размер границы.</BorderWidth>
+    <Brush>Кисть заливки стиля.</Brush>
+    <ForeColor>Цвет для отрисовки текста.</ForeColor>
+    <LinearBarBorderBrush>Кисть границы LinearBar.</LinearBarBorderBrush>
+    <LinearBarBrush>Кисть заливки LinearBar.</LinearBarBrush>
+    <LinearBarEmptyBorderBrush>Кисть пустой границы LinearBar.</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>Кисть пустой заливки LinearScale.</LinearBarEmptyBrush>
+    <LinearScaleBrush>Кисть заливки LinearScale.</LinearScaleBrush>
+    <MarkerBrush>Кисть заливки маркера.</MarkerBrush>
+    <NeedleBorderBrush>Кисть границы иглы.</NeedleBorderBrush>
+    <NeedleBorderWidth>Размер границы иглы.</NeedleBorderWidth>
+    <NeedleBrush>Кисть заливки иглы.</NeedleBrush>
+    <NeedleCapBorderBrush>Кисть границы шапки иглы.</NeedleCapBorderBrush>
+    <NeedleCapBrush>Кисть заливки шапки иглы.</NeedleCapBrush>
+    <RadialBarBorderBrush>Кисть границы RadialBar.</RadialBarBorderBrush>
+    <RadialBarBrush>Кисть заливки RadialBar.</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>Кисть пустой границы RadialBar.</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>Кисть пустой заливки RadialBar.</RadialBarEmptyBrush>
+    <TargetColor>Цвет метки.</TargetColor>
+    <TickLabelMajorFont>Шрифт для отрисовки TickLabelMajor.</TickLabelMajorFont>
+    <TickLabelMajorTextBrush>Цвет для отрисовки текста TickLabelMajor.</TickLabelMajorTextBrush>
+    <TickLabelMinorFont>Шрифт для отрисовки TickLabelMinor.</TickLabelMinorFont>
+    <TickLabelMinorTextBrush>Цвет для отрисовки текста TickLabelMinor.</TickLabelMinorTextBrush>
+    <TickMarkMajorBorder>Кисть границы TickMarkMajor.</TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>Размер границы TickMarkMajor.</TickMarkMajorBorderWidth>
+    <TickMarkMajorBrush>Кисть заливки TickMarkMajor.</TickMarkMajorBrush>
+    <TickMarkMinorBorder>Кисть границы TickMarkMinor.</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>Размер границы TickMarkMinor.</TickMarkMinorBorderWidth>
+    <TickMarkMinorBrush>Кисть заливки TickMarkMinor.</TickMarkMinorBrush>
+  </StiGaugeStyle>
   <StiGlareBrush>
     <Angle>Угол, который измеряется в градусах по часовой стрелке от оси x.</Angle>
     <EndColor>Конечный цвет градиента.</EndColor>
@@ -1347,6 +1419,9 @@
     <MasterKeyDataColumn>Колонка, которая содержит data master key.</MasterKeyDataColumn>
     <ParentValue>Колонка, которая содержит значение, которое определяет родительские строки.</ParentValue>
   </StiHierarchicalBand>
+  <StiHorChartGridLines>
+    <Visible>Видимость основных линий сетки.</Visible>
+  </StiHorChartGridLines>
   <StiImage>
     <DataColumn>Имя колонки, которая содержит изображение.</DataColumn>
     <File>Путь в файлу, который содержит изображение.</File>
@@ -2034,6 +2109,9 @@
     <Description>Описание переменной.</Description>
     <Name>Наименование переменной.</Name>
   </StiVariable>
+  <StiVertChartGridLines>
+    <Visible>Видимость основных линий сетки.</Visible>
+  </StiVertChartGridLines>
   <StiView>
     <AspectRatio>Значение определяет, что изображение сохранит свои пропорции.</AspectRatio>
     <MultipleFactor>Значение для умножения на размер изображения.</MultipleFactor>
@@ -2067,6 +2145,20 @@
   <StiXAxis>
     <DateTimeStep>Настройки временного шага.</DateTimeStep>
   </StiXAxis>
+  <StiXChartAxis>
+    <ShowEdgeValues>Значение определяет, что первый и последний аргумент на оси будут показаны в любой случае.</ShowEdgeValues>
+    <StartFromZero>Значение определяет, что все аргументы будут показаны от нуля.</StartFromZero>
+    <Title>Настройки заголовка оси.</Title>
+  </StiXChartAxis>
+  <StiXChartAxisTitle>
+    <Direction>Направление отрисовки текста.</Direction>
+  </StiXChartAxisTitle>
+  <StiYChartAxis>
+    <StartFromZero>Значение определяет, что все аргументы будут показаны от нуля.</StartFromZero>
+  </StiYChartAxis>
+  <StiYChartAxisTitle>
+    <Direction>Направление отрисовки текста.</Direction>
+  </StiYChartAxisTitle>
   <StiZipCode>
     <Code>Выражение для заливки кода штрих-кода.</Code>
     <ForeColor>Возвращает или задает основной цвет элемента управления.</ForeColor>

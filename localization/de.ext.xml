@@ -729,21 +729,93 @@
     <Title>Einrichtung des Diagrammtitels.</Title>
     <VertSpacing>Vertikaler Zwischenraum zwischen dem Diagramm und seiner Umrahmung.</VertSpacing>
   </StiChart>
+  <StiChartArea>
+    <ColorEach>Wert, der anzeigt, dass jede Reihe in ihrer eigenen Farbe dargestellt wird.</ColorEach>
+    <GridLinesHor>Horizontale Gitterlinien auf der linken Achse.</GridLinesHor>
+    <GridLinesVert>Gitterlinien auf der vertikalen Achse.</GridLinesVert>
+    <InterlacingHor>Interlacing-Einrichtung auf der horizontalen Achse.</InterlacingHor>
+    <InterlacingVert>Interlacing-Einrichtung auf der vertikalen Achse.</InterlacingVert>
+    <ReverseHor>Wert, der angibt, dass alle Werte auf der horizontalen Achse umgedreht werden.</ReverseHor>
+    <ReverseVert>Wert, der angibt, dass alle Werte auf der vertikalen Achse umgedreht werden.</ReverseVert>
+    <XAxis>Einrichtung der X-Achse.</XAxis>
+    <XTopAxis>Einrichtung der oberen X-Achse.</XTopAxis>
+    <YAxis>Einrichtung der Y-Achse.</YAxis>
+    <YRightAxis>Einrichtung der rechten Y-Achse.</YRightAxis>
+  </StiChartArea>
+  <StiChartAxis>
+    <Visible>Sichtbarkeit der Achsen.</Visible>
+  </StiChartAxis>
+  <StiChartAxisLabels>
+    <Angle>Winkel für die Drehung der Bezeichnung.</Angle>
+    <Color>Farbe für die Bezeichnungs-Darstellung.</Color>
+    <Font>Zeichensatz, der für die Achsenbezeichnung benutzt wird.</Font>
+    <Placement>Modus für die Plazierung der Bezeichnung auf der Achse.</Placement>
+    <Step>Wert, der angibt, in welchen Schritten die Bezeichnungen auf der Achse angezeigt werden.</Step>
+    <TextAfter>Ein Zeichenfolge, der nach der Darstellung des Argumenten-Zeichensatzes abgefragt wird.</TextAfter>
+    <TextAlignment>Ausrichtung des Bezeichnungstextes.</TextAlignment>
+    <TextBefore>Ein Zeichenfolge, der vor der Darstellung des Argumenten-Zeichensatzes abgefragt wird.</TextBefore>
+  </StiChartAxisLabels>
+  <StiChartAxisRange>
+    <Auto>Wert, der anzeigt, dass Minimum und Maximum automatisch berechnet werden.</Auto>
+    <Maximum>Maximum des Achsenbereichs.</Maximum>
+    <Minimum>Minimum des Achsenbereichs.</Minimum>
+  </StiChartAxisRange>
+  <StiChartAxisTitle>
+    <Alignment>Ausrichtung des Titeltextes.</Alignment>
+    <Color>Farbe für die Titeldarstellung.</Color>
+    <Font>Zeichensatz, der für die Achsentitel-Darstellung benutzt wird.</Font>
+    <Position>Die Position des Texttitels.</Position>
+    <Text>Titeltext.</Text>
+    <Visible>Sichtbarkeit des Titels.</Visible>
+  </StiChartAxisTitle>
   <StiChartElement>
+    <Area>Diagrammbereich.</Area>
     <Arguments>Argumente des Diagramms.</Arguments>
     <CloseValues>Schlusswerte des Diagramms.</CloseValues>
     <ColorEach />
+    <ConstantLines>Einrichtung fester Linien des Diagramms.</ConstantLines>
     <EndValues>Endwerte des Diagramms.</EndValues>
     <Group />
     <HighValues>Höchstwerte des Diagramms.</HighValues>
+    <Labels>Reihenbezeichnung.</Labels>
+    <Legend>Einrichtung der Legende.</Legend>
     <LowValues>Tiefstwerte des Diagramms.</LowValues>
     <Series>Diagrammserien.</Series>
     <Style>Die Art des Diagramms.</Style>
     <TextFormat>Das Textformat.</TextFormat>
     <Title>Diagrammtitel.</Title>
+    <TrendLines>Die Einstellungen der Trendlinie.</TrendLines>
     <Values>Diagrammwerte.</Values>
     <Weights>Gewichtswerte des Diagramms.</Weights>
   </StiChartElement>
+  <StiChartGridLines>
+    <Color>Farbe für die Darstellung der großen Gitterlinien.</Color>
+  </StiChartGridLines>
+  <StiChartInterlacing>
+    <Visible>Sichtbarkeit der Interlacing-Bar.</Visible>
+  </StiChartInterlacing>
+  <StiChartLabels>
+    <AutoRotate>Wert, der automatische Drehung von Reihenbezeichnungen aktiviert oder deaktiviert.</AutoRotate>
+    <Font>Zeichensatz zur Ausgabe von Reihenbezeichnungen.</Font>
+    <ForeColor>Farbe für die Bezeichnungs-Darstellung.</ForeColor>
+    <TextAfter>Text nach dem Bezeichnungstext.</TextAfter>
+    <TextBefore>Text vor dem Bezeichnungstext.</TextBefore>
+  </StiChartLabels>
+  <StiChartLegend>
+    <Columns>Spaltenanzahl.</Columns>
+    <Direction>Richtung, die für die Richtung der Reihen in der Legende benutzt wird.</Direction>
+    <HorAlignment>Horizonale Ausrichtung für die Legendenplazierung.</HorAlignment>
+    <VertAlignment>Vertikale Ausrichtung der Legendenplazierung.</VertAlignment>
+    <Visible>Sichtbarkeit der Diagramm-Legende.</Visible>
+  </StiChartLegend>
+  <StiChartLegendLabels>
+    <Color>Farbe der Bezeichnung.</Color>
+    <Font>Zeichensatz, der für die Reihentitel benutzt wird, die in die Diagramm-Legende einbezogen werden.</Font>
+  </StiChartLegendLabels>
+  <StiChartLegendTitle>
+    <Color>Titelfarbe für die Legende.</Color>
+    <Font>Titel-Zeichensatz für die Diagramm-Legende.</Font>
+  </StiChartLegendTitle>
   <StiChartTable>
     <Font>Die Farbe der Diagrammtabelle.</Font>
     <GridLineColor>Eine Farbe der Rasterlinien.</GridLineColor>
@@ -1313,6 +1385,9 @@
     <MasterKeyDataColumn>Spalte die den Hauptschlüssel enthält.</MasterKeyDataColumn>
     <ParentValue>Spalte, die den übergeordneten Wert enthält, der die zugehörige Reihe bestimmt.</ParentValue>
   </StiHierarchicalBand>
+  <StiHorChartGridLines>
+    <Visible>Sichtbarkeit der großen Gitterlinien.</Visible>
+  </StiHorChartGridLines>
   <StiImage>
     <DataColumn>Datenspalte, die das Bild enthält.</DataColumn>
     <File>Dateipfad zum Bild.</File>
@@ -1995,6 +2070,9 @@
     <Description>Die Beschreibung der Variable.</Description>
     <Name>Der Name der Varible.</Name>
   </StiVariable>
+  <StiVertChartGridLines>
+    <Visible>Sichtbarkeit der großen Gitterlinien.</Visible>
+  </StiVertChartGridLines>
   <StiView>
     <AspectRatio>Wert, der angibt, ob das Bild sein Seitenverhältnis sichert.</AspectRatio>
     <MultipleFactor>Multplikationsfaktor für die Bildgröße.</MultipleFactor>
@@ -2028,6 +2106,20 @@
   <StiXAxis>
     <DateTimeStep>Die Einstellungen des Zeitschrittes.</DateTimeStep>
   </StiXAxis>
+  <StiXChartAxis>
+    <ShowEdgeValues>Wert, der angibt, dass das erste und letzte Argument in jedem Fall angezeigt werden.</ShowEdgeValues>
+    <StartFromZero>Wert, der anzeigt, dass alle Werte vom Nullpunkt aus angezeigt werden.</StartFromZero>
+    <Title>Einrichtung des Achsentitels.</Title>
+  </StiXChartAxis>
+  <StiXChartAxisTitle>
+    <Direction>Wert, der die Richtung angibt, in welche der Achsentitel geschrieben werden.</Direction>
+  </StiXChartAxisTitle>
+  <StiYChartAxis>
+    <StartFromZero>Wert, der anzeigt, dass alle Werte vom Nullpunkt aus angezeigt werden.</StartFromZero>
+  </StiYChartAxis>
+  <StiYChartAxisTitle>
+    <Direction>Wert, der die Richtung angibt, in welche der Achsentitel geschrieben werden.</Direction>
+  </StiYChartAxisTitle>
   <StiZipCode>
     <Code>Ausdruck zur Vergabe eines Kennzeichens einer PLZ.</Code>
     <ForeColor>Vordergrundfarbe.</ForeColor>

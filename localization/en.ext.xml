@@ -1,37 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Localization language="English" description="English" cultureName="en">
-  <StiGaugeStyle>
-    <Brush>Gets or sets a brush to fill the style.</Brush>
-    <BorderColor>Gets or sets border color.</BorderColor>
-    <TargetColor>Gets or sets target color.</TargetColor>
-    <ForeColor>Gets or sets a brush to draw the text.</ForeColor>
-    <BorderWidth>A border size.</BorderWidth>
-    <TickMarkMajorBrush>Gets or sets a brush to fill the TickMarkMajor.</TickMarkMajorBrush>
-    <TickMarkMajorBorder>Gets or sets a border of the TickMarkMajor.</TickMarkMajorBorder>
-    <TickMarkMajorBorderWidth>A border size.</TickMarkMajorBorderWidth>
-    <TickMarkMinorBrush>Gets or sets a brush to fill the TickMarkMinor.</TickMarkMinorBrush>
-    <TickMarkMinorBorder>Gets or sets a border of the TickMarkMinor.</TickMarkMinorBorder>
-    <TickMarkMinorBorderWidth>A border size.</TickMarkMinorBorderWidth>
-    <TickLabelMajorTextBrush>Gets or sets a brush to draw the text.</TickLabelMajorTextBrush>
-    <TickLabelMajorFont>Gets or sets a font for drawing TickLabelMajor.</TickLabelMajorFont>
-    <TickLabelMinorTextBrush>Gets or sets a brush to draw the text.</TickLabelMinorTextBrush>
-    <TickLabelMinorFont>Gets or sets a font for drawing TickLabelMinor.</TickLabelMinorFont>
-    <MarkerBrush>Gets or sets a brush marker.</MarkerBrush>
-    <LinearBarBrush>Gets or sets a brush LinearBar.</LinearBarBrush>
-    <LinearScaleBrush>Gets or sets a brush LinearScale.</LinearScaleBrush>
-    <LinearBarBorderBrush>Gets or sets a border of the LinearBar.</LinearBarBorderBrush>
-    <LinearBarEmptyBrush>Gets or sets a empty brush LinearBar.</LinearBarEmptyBrush>
-    <LinearBarEmptyBorderBrush>Gets or sets a empty border of the LinearBar.</LinearBarEmptyBorderBrush>
-    <RadialBarBrush>Gets or sets a brush RadialBar.</RadialBarBrush>
-    <RadialBarBorderBrush>Gets or sets a border of the RadialBar.</RadialBarBorderBrush>
-    <RadialBarEmptyBrush>Gets or sets a empty brush RadialBar.</RadialBarEmptyBrush>
-    <RadialBarEmptyBorderBrush>Gets or sets a empty border of the RadialBar.</RadialBarEmptyBorderBrush>
-    <NeedleBrush>Gets or sets a brush Needle.</NeedleBrush>
-    <NeedleBorderBrush>Gets or sets a border of the Needle.</NeedleBorderBrush>
-    <NeedleBorderWidth>A border size.</NeedleBorderWidth>
-    <NeedleCapBrush>Gets or sets a brush to fill the cap.</NeedleCapBrush>
-    <NeedleCapBorderBrush>Gets or sets a border of the cap.</NeedleCapBorderBrush>
-  </StiGaugeStyle>
   <CheckActions>
     <ApplyEngineV2Long>Set the EngineVersion property of a page to EngineV2 to get access to all reporting tool features.</ApplyEngineV2Long>
     <Change>Change</Change>
@@ -190,8 +158,8 @@
     <StiSystemTextObsoleteCheckShort>The component is obsolete</StiSystemTextObsoleteCheckShort>
     <StiTextColorEqualToBackColorCheckLong>Possible reason is that the values of the TextBrush and Brush properties of the '{0}' component were set incorrectly. The text will not be visible.</StiTextColorEqualToBackColorCheckLong>
     <StiTextColorEqualToBackColorCheckShort>The TextBrush property is equal to the Brush property</StiTextColorEqualToBackColorCheckShort>
-    <StiTextTextFormatCheckLong>The selected format for the '{0}' component is not specified.</StiTextTextFormatCheckLong>
-    <StiTextTextFormatCheckShort>The format is not specified.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatCheckLong>Selected text format for the '{0}' component can`t be applied, because the result of the expression is text string.</StiTextTextFormatCheckLong>
+    <StiTextTextFormatCheckShort>The format can`t be applied.</StiTextTextFormatCheckShort>
     <StiTotalPageCountDoublePassCheckLong>The TotalPageCount, TotalPageCountThrough system variables in scripts and conditions provide incorrect results when one pass. It is required to set the NumberOfPass property to DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>Undefined '{0}' component is found in the report. The reporting tool cannot identify this component. Maybe this is a custom component. The report cannot be rendered!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Undefined component</StiUndefinedComponentCheckShort>
@@ -266,10 +234,10 @@
     <StiDuplicatedName2CheckLong>There are several data sources with the '{0}' name.</StiDuplicatedName2CheckLong>
     <StiDuplicatedNameCheckLong>There are several components with the '{0}' name.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>The components with duplicate names are found</StiDuplicatedNameCheckShort>
-    <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
-    <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>The '{0}' relations are found in the report. They have equal ('{1}') values in the NameInSource. All values in the NameInSource should be unique in the range of one relation to one database! It is necessary to correct these fields of relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicates in relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
+    <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>
+    <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine cannot render this report in the compilation mode. Change the report to the interpretation mode.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>This report is in the compilation mode</StiNetCoreCompilationModeCheckShort>
   </CheckReport>
@@ -761,21 +729,97 @@
     <Title>Chart title settings.</Title>
     <VertSpacing>Vertical space between border of the chart and the chart.</VertSpacing>
   </StiChart>
+  <StiChartArea>
+    <ColorEach>A value indicates that each series is drawn by its own colour.</ColorEach>
+    <GridLinesHor>Horizontal grid lines on left axis.</GridLinesHor>
+    <GridLinesVert>Grid lines on vertical axis.</GridLinesVert>
+    <InterlacingHor>Interlacing settings on horizontal axis.</InterlacingHor>
+    <InterlacingVert>Interlacing settings on vertical axis.</InterlacingVert>
+    <ReverseHor>A value that indicate that all values on horizontal axis is reverse.</ReverseHor>
+    <ReverseVert>A value that indicate that all values on vertical axis is reverse.</ReverseVert>
+    <XAxis>Settings of XAxis.</XAxis>
+    <XTopAxis>Settings of XTopAxis.</XTopAxis>
+    <YAxis>Settings of YAxis.</YAxis>
+    <YRightAxis>Settings of YRightAxis.</YRightAxis>
+  </StiChartArea>
+  <StiChartAxis>
+    <Visible>Visibility of axis.</Visible>
+  </StiChartAxis>
+  <StiChartAxisLabels>
+    <Angle>An angle of label rotation.</Angle>
+    <Color>A color of labels drawing.</Color>
+    <Font>a font which will be used for axis label drawing.</Font>
+    <Placement>A mode of labels placement on axis.</Placement>
+    <Step>A value which indicates with what steps do labels be shown on axis.</Step>
+    <TextAfter>A string which will be output after argument string representation.</TextAfter>
+    <TextAlignment>A label text alignment.</TextAlignment>
+    <TextBefore>A string which will be output before argument string representation.</TextBefore>
+  </StiChartAxisLabels>
+  <StiChartAxisRange>
+    <Auto>A value indicates that minimum and maximum values will be calculated automatically.</Auto>
+    <Maximum>Maximum value of axis range.</Maximum>
+    <Minimum>Minimum value of axis range.</Minimum>
+  </StiChartAxisRange>
+  <StiChartAxisTitle>
+    <Alignment>A title text alignment.</Alignment>
+    <Color>A color which will be used for title drawing.</Color>
+    <Font>A font which will be used for axis title drawing.</Font>
+    <Position>A title text position.</Position>
+    <Text>A title text.</Text>
+    <Visible>Title visibility.</Visible>
+  </StiChartAxisTitle>
   <StiChartElement>
+    <Area>An area of the chart.</Area>
     <Arguments>Chart arguments.</Arguments>
     <CloseValues>Close values of a chart.</CloseValues>
     <ColorEach />
+    <ConstantLines>Constant lines settings of the chart.</ConstantLines>
     <EndValues>End values of a chart.</EndValues>
     <Group />
     <HighValues>High values of a chart.</HighValues>
+    <Labels>Series labels.</Labels>
+    <Legend>Legend settings.</Legend>
     <LowValues>Low values of a chart.</LowValues>
     <Series>Chart series.</Series>
     <Style>A style of a chart.</Style>
     <TextFormat>The text format.</TextFormat>
     <Title>Chart title.</Title>
+    <TrendLines>Trend line settings.</TrendLines>
     <Values>Chart values.</Values>
     <Weights>Weight values of a chart.</Weights>
   </StiChartElement>
+  <StiChartGridLines>
+    <Color>Color which will be used for drawing major grid lines.</Color>
+  </StiChartGridLines>
+  <StiChartInterlacing>
+    <Color>Color which will be used for drawing interlaced bars.</Color>
+    <Visible>Visibility of interlaced bars.</Visible>
+  </StiChartInterlacing>
+  <StiChartLabels>
+    <AutoRotate>A value that enables or disables auto rotate mode drawing of series labels.</AutoRotate>
+    <Font>A font that will be used to draw series labels.</Font>
+    <ForeColor>A color of labels drawing.</ForeColor>
+    <Position>A position of the labels.</Position>
+    <Style>A style of the labels.</Style>
+    <TextAfter>A text that will be shown after label text.</TextAfter>
+    <TextBefore>A text that will be shown before label text.</TextBefore>
+  </StiChartLabels>
+  <StiChartLegend>
+    <Columns>Amount of columns.</Columns>
+    <Direction>Direction which used for series drawing in legend.</Direction>
+    <HorAlignment>Horizontal alignment of legend placement.</HorAlignment>
+    <VertAlignment>Vertical alignment of legend placement.</VertAlignment>
+    <Visible>Visibility of chart legend.</Visible>
+  </StiChartLegend>
+  <StiChartLegendLabels>
+    <Color>A color of the labels.</Color>
+    <Font>A font which used for series title drawing in chart legend.</Font>
+  </StiChartLegendLabels>
+  <StiChartLegendTitle>
+    <Color>Title color of legend.</Color>
+    <Font>A title font of the chart legend.</Font>
+    <Text>The title text of legend.</Text>
+  </StiChartLegendTitle>
   <StiChartTable>
     <Font>Font of the chart table.</Font>
     <GridLineColor>A color of the grid lines.</GridLineColor>
@@ -783,6 +827,8 @@
     <GridLinesVert>Visibility of grid lines vertical.</GridLinesVert>
     <GridOutline>Visibility of grid outline</GridOutline>
     <MarkerVisible>Visibility of markers.</MarkerVisible>
+    <NegativeSeriesColors>A list of colors which will be used for drawing series with negative values.</NegativeSeriesColors>
+    <SeriesColors>A list of colors which will be used for drawing series.</SeriesColors>
     <Visible>Visibility of chart table.</Visible>
   </StiChartTable>
   <StiChartTitle>
@@ -921,7 +967,7 @@
     <CanShrink>A value indicates that this object can shrink.</CanShrink>
     <CellDockStyle>A type of the cell docking.</CellDockStyle>
     <CellType>A type of the cell content.</CellType>
-	<CheckedChangedEvent>Occurs when the Checked state is changed.</CheckedChangedEvent>
+    <CheckedChangedEvent>Occurs when the Checked state is changed.</CheckedChangedEvent>
     <ClickEvent>Occurs when a user clicks the component in the window of the viewer.</ClickEvent>
     <ComponentStyle>A style of a component.</ComponentStyle>
     <Conditions>A collection of the conditions.</Conditions>
@@ -933,7 +979,7 @@
     <DoubleClickEvent>Occurs when a user double clicks the component in the report viewer.</DoubleClickEvent>
     <Editable>A value indicates that a component can be edited in the window of viewer.</Editable>
     <Enabled>A value that indicates will this component be available or not.</Enabled>
-	<ExceedMargins>Gets or sets a value to exceed margins of the component background.</ExceedMargins>
+    <ExceedMargins>Gets or sets a value to exceed margins of the component background.</ExceedMargins>
     <FilterMode>A logical operation of combining filters for the current band.</FilterMode>
     <FilterOn>A value that indicates, that filter is turned on.</FilterOn>
     <Filters>A collection of the data filters.</Filters>
@@ -1251,6 +1297,38 @@
     <Style>Gauge Style.</Style>
     <Title>Gauge Title.</Title>
   </StiGaugeElement>
+  <StiGaugeStyle>
+    <BorderColor>Gets or sets border color.</BorderColor>
+    <BorderWidth>A border size.</BorderWidth>
+    <Brush>Gets or sets a brush to fill the style.</Brush>
+    <ForeColor>Gets or sets a brush to draw the text.</ForeColor>
+    <LinearBarBorderBrush>Gets or sets a border of the LinearBar.</LinearBarBorderBrush>
+    <LinearBarBrush>Gets or sets a brush LinearBar.</LinearBarBrush>
+    <LinearBarEmptyBorderBrush>Gets or sets a empty border of the LinearBar.</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>Gets or sets a empty brush LinearBar.</LinearBarEmptyBrush>
+    <LinearScaleBrush>Gets or sets a brush LinearScale.</LinearScaleBrush>
+    <MarkerBrush>Gets or sets a brush marker.</MarkerBrush>
+    <NeedleBorderBrush>Gets or sets a border of the Needle.</NeedleBorderBrush>
+    <NeedleBorderWidth>A border size.</NeedleBorderWidth>
+    <NeedleBrush>Gets or sets a brush Needle.</NeedleBrush>
+    <NeedleCapBorderBrush>Gets or sets a border of the cap.</NeedleCapBorderBrush>
+    <NeedleCapBrush>Gets or sets a brush to fill the cap.</NeedleCapBrush>
+    <RadialBarBorderBrush>Gets or sets a border of the RadialBar.</RadialBarBorderBrush>
+    <RadialBarBrush>Gets or sets a brush RadialBar.</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>Gets or sets a empty border of the RadialBar.</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>Gets or sets a empty brush RadialBar.</RadialBarEmptyBrush>
+    <TargetColor>Gets or sets target color.</TargetColor>
+    <TickLabelMajorFont>Gets or sets a font for drawing TickLabelMajor.</TickLabelMajorFont>
+    <TickLabelMajorTextBrush>Gets or sets a brush to draw the text.</TickLabelMajorTextBrush>
+    <TickLabelMinorFont>Gets or sets a font for drawing TickLabelMinor.</TickLabelMinorFont>
+    <TickLabelMinorTextBrush>Gets or sets a brush to draw the text.</TickLabelMinorTextBrush>
+    <TickMarkMajorBorder>Gets or sets a border of the TickMarkMajor.</TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>A border size.</TickMarkMajorBorderWidth>
+    <TickMarkMajorBrush>Gets or sets a brush to fill the TickMarkMajor.</TickMarkMajorBrush>
+    <TickMarkMinorBorder>Gets or sets a border of the TickMarkMinor.</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>A border size.</TickMarkMinorBorderWidth>
+    <TickMarkMinorBrush>Gets or sets a brush to fill the TickMarkMinor.</TickMarkMinorBrush>
+  </StiGaugeStyle>
   <StiGlareBrush>
     <Angle>The angle, measured in degrees clockwise from the x-axis, of the gradient's orientation line.</Angle>
     <EndColor>The end color for the gradient.</EndColor>
@@ -1347,6 +1425,9 @@
     <MasterKeyDataColumn>A column that contains data master key.</MasterKeyDataColumn>
     <ParentValue>A column that contains parent value which identifies parent rows.</ParentValue>
   </StiHierarchicalBand>
+  <StiHorChartGridLines>
+    <Visible>Visibility of major grid lines.</Visible>
+  </StiHorChartGridLines>
   <StiImage>
     <DataColumn>A name of the column that contains an image.</DataColumn>
     <File>The path to the file that contains an image.</File>
@@ -2032,6 +2113,9 @@
     <Description>A description of the variable.</Description>
     <Name>A name of the variable.</Name>
   </StiVariable>
+  <StiVertChartGridLines>
+    <Visible>Visibility of major grid lines.</Visible>
+  </StiVertChartGridLines>
   <StiView>
     <AspectRatio>A value indicates that an image will save its aspect ratio.</AspectRatio>
     <MultipleFactor>A value to multiply by it an image size.</MultipleFactor>
@@ -2065,6 +2149,20 @@
   <StiXAxis>
     <DateTimeStep>Date time step settings.</DateTimeStep>
   </StiXAxis>
+  <StiXChartAxis>
+    <ShowEdgeValues>A value indicates that first and last arguments on axis will be shown anyway.</ShowEdgeValues>
+    <StartFromZero>A value indicates that all arguments will be shows from zero.</StartFromZero>
+    <Title>Axis title settings.</Title>
+  </StiXChartAxis>
+  <StiXChartAxisTitle>
+    <Direction>A text direction for axis title drawing.</Direction>
+  </StiXChartAxisTitle>
+  <StiYChartAxis>
+    <StartFromZero>A value indicates that all arguments will be shows from zero.</StartFromZero>
+  </StiYChartAxis>
+  <StiYChartAxisTitle>
+    <Direction>A text direction for axis title drawing.</Direction>
+  </StiYChartAxisTitle>
   <StiZipCode>
     <Code>An expression to fill a code of zip code.</Code>
     <ForeColor>A fore color.</ForeColor>
@@ -2075,7 +2173,7 @@
   <Universal>
     <AllowApplyStyle>A value indicates that chart style will be used.</AllowApplyStyle>
     <Key>A Key which will be used in variables when user select associated with it Value in GUI.</Key>
-    <Value>A Value which will be displayed instead of the Key value in GUI.</Value>
     <Label>A Label which will be displayed instead of Key in GUI.</Label>
+    <Value>A Value which will be displayed instead of the Key value in GUI.</Value>
   </Universal>
 </Localization>

@@ -729,21 +729,93 @@
     <Title>차트 제목 설정</Title>
     <VertSpacing>그래프의 경계와 그래프 사이의 수직 간격</VertSpacing>
   </StiChart>
+  <StiChartArea>
+    <ColorEach>각 계열이 자신의 색으로 표현되는 것을 나타내는 값</ColorEach>
+    <GridLinesHor>왼쪽 축의 수평 눈금 선</GridLinesHor>
+    <GridLinesVert>수직 눈금 선</GridLinesVert>
+    <InterlacingHor>수평축의 인터레이스 설정</InterlacingHor>
+    <InterlacingVert>수직축의 인터레이스 설정</InterlacingVert>
+    <ReverseHor>수평축의 모든 값이 반대임을 나타내는 값</ReverseHor>
+    <ReverseVert>세로축의 모든 값이 반대임을 나타내는 값</ReverseVert>
+    <XAxis>XAxis 설정</XAxis>
+    <XTopAxis>XTopAxis 설정</XTopAxis>
+    <YAxis>YAxis 설정</YAxis>
+    <YRightAxis>YRightAxis 설정</YRightAxis>
+  </StiChartArea>
+  <StiChartAxis>
+    <Visible>축 표시</Visible>
+  </StiChartAxis>
+  <StiChartAxisLabels>
+    <Angle>라벨의 회전 각도</Angle>
+    <Color>라벨 그리기 색상</Color>
+    <Font>축 레이블 그리기에 사용되는 글꼴</Font>
+    <Placement>축에 레이블을 배치 모드</Placement>
+    <Step>어떤 단계에서 축 레이블을 표시할지 여부를 나타내는 값</Step>
+    <TextAfter>인수의 캐릭터 라인 표현 후 출력되는 문자열</TextAfter>
+    <TextAlignment>레이블 텍스트 정렬</TextAlignment>
+    <TextBefore>인수 문자열 표현 앞에 출력되는 문자열</TextBefore>
+  </StiChartAxisLabels>
+  <StiChartAxisRange>
+    <Auto>최소값과 최대 값이 자동으로 계산되는 것을 나타내는 값</Auto>
+    <Maximum>축 범위의 최대 값</Maximum>
+    <Minimum>축 범위의 최소값</Minimum>
+  </StiChartAxisRange>
+  <StiChartAxisTitle>
+    <Alignment>제목 텍스트 정렬</Alignment>
+    <Color>제목 그리는 데 사용되는 색</Color>
+    <Font>축 제목을 그리는 데 사용되는 글꼴</Font>
+    <Position>제목 텍스트의 위치</Position>
+    <Text>제목 텍스트</Text>
+    <Visible>제목 표시.</Visible>
+  </StiChartAxisTitle>
   <StiChartElement>
+    <Area>차트 영역</Area>
     <Arguments>차트 인수.</Arguments>
     <CloseValues>차트의 닫기 값.</CloseValues>
     <ColorEach />
+    <ConstantLines>그래프의 상수 행 설정</ConstantLines>
     <EndValues>차트의 끝 값.</EndValues>
     <Group />
     <HighValues>차트의 높은 값.</HighValues>
+    <Labels>시리즈의 레이블</Labels>
+    <Legend>범례 설정</Legend>
     <LowValues>차트의 낮은 값.</LowValues>
     <Series>차트 시리즈.</Series>
     <Style>차트 스타일.</Style>
     <TextFormat>텍스트 형식.</TextFormat>
     <Title>차트 제목.</Title>
+    <TrendLines>트렌드 라인 설정</TrendLines>
     <Values>차트 값.</Values>
     <Weights>차트의 가중치.</Weights>
   </StiChartElement>
+  <StiChartGridLines>
+    <Color>메이저 눈금 선을 그리는 데 사용되는 색</Color>
+  </StiChartGridLines>
+  <StiChartInterlacing>
+    <Visible>인터레이스 바의 표시</Visible>
+  </StiChartInterlacing>
+  <StiChartLabels>
+    <AutoRotate>시리즈 레이블 자동 회전 모드 렌더링을 활성화하거나 비활성화 할 값</AutoRotate>
+    <Font>시리즈 레이블을 렌더링하는 데 사용되는 글꼴</Font>
+    <ForeColor>라벨 그리기 색상</ForeColor>
+    <TextAfter>레이블 텍스트 뒤에 표시되는 텍스트</TextAfter>
+    <TextBefore>레이블 텍스트 앞에 표시되는 텍스트</TextBefore>
+  </StiChartLabels>
+  <StiChartLegend>
+    <Columns>열의 양</Columns>
+    <Direction>범례 연속 그리는 데 사용 된 방향</Direction>
+    <HorAlignment>범례 배치의 수평 정렬</HorAlignment>
+    <VertAlignment>범례 배치의 수직 정렬</VertAlignment>
+    <Visible>차트 범례 표시</Visible>
+  </StiChartLegend>
+  <StiChartLegendLabels>
+    <Color>라벨 색상</Color>
+    <Font>차트 범례에서 시리즈 타이틀을 그리는 데 사용 된 글꼴</Font>
+  </StiChartLegendLabels>
+  <StiChartLegendTitle>
+    <Color>범례 제목 색상</Color>
+    <Font>차트의 범례 제목 글꼴</Font>
+  </StiChartLegendTitle>
   <StiChartTable>
     <Font>그래프 표 글꼴</Font>
     <GridLineColor>눈금 선 색상</GridLineColor>
@@ -1313,6 +1385,9 @@
     <MasterKeyDataColumn>데이터 마스터 키를 포함하는 열</MasterKeyDataColumn>
     <ParentValue>부모 행을 식별하는 부모 값을 포함하는 열</ParentValue>
   </StiHierarchicalBand>
+  <StiHorChartGridLines>
+    <Visible>주요 그리드 선의 표시</Visible>
+  </StiHorChartGridLines>
   <StiImage>
     <DataColumn>이미지가 포함 된 열 이름</DataColumn>
     <File>이미지를 포함하는 파일의 경로</File>
@@ -1995,6 +2070,9 @@
     <Description>변수 설명</Description>
     <Name>변수의 이름</Name>
   </StiVariable>
+  <StiVertChartGridLines>
+    <Visible>주요 그리드 선의 표시</Visible>
+  </StiVertChartGridLines>
   <StiView>
     <AspectRatio>이미지가 화면 비율을 저장할 수를 나타내는 값</AspectRatio>
     <MultipleFactor>이미지 크기를 곱한 값</MultipleFactor>
@@ -2028,6 +2106,20 @@
   <StiXAxis>
     <DateTimeStep>날짜 시간 단계 설정</DateTimeStep>
   </StiXAxis>
+  <StiXChartAxis>
+    <ShowEdgeValues>축의 첫 번째와 마지막 인수가 어쨌든 나타날 수를 나타내는 값</ShowEdgeValues>
+    <StartFromZero>모든 인수가 제로에서의 공연이 될 것을 나타내는 값</StartFromZero>
+    <Title>축 제목 설정</Title>
+  </StiXChartAxis>
+  <StiXChartAxisTitle>
+    <Direction>축 제목 그리기 텍스트 방향</Direction>
+  </StiXChartAxisTitle>
+  <StiYChartAxis>
+    <StartFromZero>모든 인수가 제로에서의 공연이 될 것을 나타내는 값</StartFromZero>
+  </StiYChartAxis>
+  <StiYChartAxisTitle>
+    <Direction>축 제목 그리기 텍스트 방향</Direction>
+  </StiYChartAxisTitle>
   <StiZipCode>
     <Code>우편 번호 코드를 기입 식</Code>
     <ForeColor>전경</ForeColor>

@@ -565,6 +565,58 @@
     <Title>Diagram titel inställningar.</Title>
     <VertSpacing>Vertikalt utrymme mellan kanten på diagrammet och tabellen.</VertSpacing>
   </StiChart>
+  <StiChartAxis>
+    <Visible>Synlighet axel.</Visible>
+  </StiChartAxis>
+  <StiChartAxisLabels>
+    <Angle>En vinkel på etiketten rotation.</Angle>
+    <Color>En färg av etiketter ritning.</Color>
+    <Font>Ett teckensnitt som ska användas för axeletikett ritning.</Font>
+    <Placement>Ett läge av etiketter placering på axeln.</Placement>
+    <Step>Ett värde som anger med vilka steg som behöver etiketter visas på axeln.</Step>
+    <TextAfter>En sträng som matas ut efter argument strängrepresentation.</TextAfter>
+    <TextAlignment>En etikett textjustering.</TextAlignment>
+    <TextBefore>En sträng som kommer att sändas ut före argument strängrepresentation.</TextBefore>
+  </StiChartAxisLabels>
+  <StiChartAxisRange>
+    <Auto>Ett värde som visar att min-och maxvärden kommer att beräknas automatiskt.</Auto>
+    <Maximum>Största värde för axelområdet.</Maximum>
+    <Minimum>Minsta värde på axelområde.</Minimum>
+  </StiChartAxisRange>
+  <StiChartAxisTitle>
+    <Alignment>En titel textjustering.</Alignment>
+    <Color>En färg som kommer att användas för titel ritning.</Color>
+    <Font>Ett teckensnitt som ska användas för axelrubrik ritning.</Font>
+    <Text>En titel text.</Text>
+  </StiChartAxisTitle>
+  <StiChartGridLines>
+    <Color>Färg som ska användas för att rita stora rutnätslinjer.</Color>
+  </StiChartGridLines>
+  <StiChartInterlacing>
+    <Visible>Synlighet flätade barer.</Visible>
+  </StiChartInterlacing>
+  <StiChartLabels>
+    <AutoRotate>Ett värde som aktiverar eller avaktiverar automatisk roteläge ritning av serieetiketter.</AutoRotate>
+    <Font>Ett teckensnitt som ska användas för att rita serieetiketter.</Font>
+    <ForeColor>En färg av etiketter ritning.</ForeColor>
+    <TextAfter>En text som kommer att visas efter etikettens text.</TextAfter>
+    <TextBefore>En text som visas före etikett text.</TextBefore>
+  </StiChartLabels>
+  <StiChartLegend>
+    <Columns>Antal kolumner.</Columns>
+    <Direction>Riktning som används för serie ritning i legend.</Direction>
+    <HorAlignment>Vågrät justering av legenden placering.</HorAlignment>
+    <VertAlignment>Lodrät justering av legenden placering.</VertAlignment>
+    <Visible>Synlighet diagramförklaring.</Visible>
+  </StiChartLegend>
+  <StiChartLegendLabels>
+    <Color>En färg på etiketterna.</Color>
+    <Font>Ett teckensnitt som används för serie titel ritning i diagramförklaringen.</Font>
+  </StiChartLegendLabels>
+  <StiChartLegendTitle>
+    <Color>Titel färg legend.</Color>
+    <Font>En titel teckensnitt i diagramförklaringen.</Font>
+  </StiChartLegendTitle>
   <StiChartTable>
     <Font>Font av kartbordet.</Font>
     <GridLineColor>En färg på stödlinjerna.</GridLineColor>
@@ -1560,6 +1612,20 @@
   <StiXAxis>
     <DateTimeStep>Datum tidssteg inställningar.</DateTimeStep>
   </StiXAxis>
+  <StiXChartAxis>
+    <ShowEdgeValues>Ett värde som visar att första och sista argument i axeln kommer att visas i alla fall.</ShowEdgeValues>
+    <StartFromZero>Ett värde som visar att alla argument kommer att föreställningar från noll.</StartFromZero>
+    <Title>Inställningar Axis titel.</Title>
+  </StiXChartAxis>
+  <StiXChartAxisTitle>
+    <Direction>En textriktning för axelrubrik ritning.</Direction>
+  </StiXChartAxisTitle>
+  <StiYChartAxis>
+    <StartFromZero>Ett värde som visar att alla argument kommer att föreställningar från noll.</StartFromZero>
+  </StiYChartAxis>
+  <StiYChartAxisTitle>
+    <Direction>En textriktning för axelrubrik ritning.</Direction>
+  </StiYChartAxisTitle>
   <StiZipCode>
     <Code>Ett uttryck för att fylla en kod för postnummer.</Code>
     <ForeColor>En förgrunden färg.</ForeColor>

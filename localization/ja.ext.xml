@@ -71,6 +71,7 @@
     <StiCanGrowGrowToHeightComponentInContainerShort>コンポーネントの表示が正しくない可能性があります。</StiCanGrowGrowToHeightComponentInContainerShort>
     <StiCanGrowWordWrapTextAndWysiwygCheckLong>TextQualityプロパティがStandardまたはTypographicに設定されている場合。テキストプレビュー、異なるズームモード、およびGDI +ライブラリの丸め誤差のため印刷が異なる場合があります。</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>不正なテキストラップがある可能性があります</StiCanGrowWordWrapTextAndWysiwygCheckShort>
+    <StiChartSeriesValueCheckLong>Valueプロパティは、チャート "{0}"からシリーズに指定されていますが、チャートにはデータソースプロパティが設定されていません。</StiChartSeriesValueCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckLong>合計列幅は、'{0}'コンポーネントの幅より大きくなります。これにより、レポートのレンダリングが正しく行われないことがあります。また、レポートを他の形式にエクスポートする際にいくつか問題が発生する可能性があります。</StiColumnsWidthGreaterContainerWidthCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckShort>合計列幅は、コンポーネントの幅より大きくなります。</StiColumnsWidthGreaterContainerWidthCheckShort>
     <StiColumnsWidthGreaterPageWidthCheckLong>'{0}'ページの列の合計幅がページ幅より大きくなっています。これにより、レポートのレンダリングが正しく行われないことがあります。また、レポートを他の形式にエクスポートする際にいくつかの問題が発生する可能性があります。</StiColumnsWidthGreaterPageWidthCheckLong>
@@ -213,6 +214,7 @@
   </CheckGlobal>
   <CheckLicense>
     <StiLicenseTrialCheckLong>Stimulsoft Reports と Dashboardsの試用版を使用しています。 本番環境でソフトウェアを使用するには、ライセンスを購入する必要があります。</StiLicenseTrialCheckLong>
+    <StiValidSubscriptioRequiredCheckLong>有効なサブスクリプションが必要です。 Stimulsoft Designerの完全に機能するバージョンを使用するには、サブスクリプションを更新してください。</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>'{0}'ページで失われたポイントが見つかりました：'{1}'点は不可視であり、以下のプリミティブで使用されます：垂直線、矩形、および丸みのある矩形。ポイントがどのコンポーネントにも一致しない場合は、そのポイントを削除することができます。</StiLostPointsOnPageCheckLong>
@@ -234,6 +236,8 @@
     <StiDuplicatedNameCheckShort>重複する名前のコンポーネントが見つかりました</StiDuplicatedNameCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>レポートに'{0}'リレーションがあります。彼らはNameInSourceの等しい（ '{1}'）値を持っています。 NameInSource内のすべての1つの関係から1つのデータベースの範囲で一意である必要があります。これらのリレーションフィールドを修正する必要があります。</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>リレーションで重複します。</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
+    <StiDuplicatedReportName2CheckLong>レポート名 '{0}'はデータソース名と同じです。</StiDuplicatedReportName2CheckLong>
+    <StiDuplicatedReportNameCheckLong>レポート名 '{0}'はコンポーネント名と同じです。</StiDuplicatedReportNameCheckLong>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Coreエンジンは、このレポートをコンパイルモードでレンダリングできません。 レポートを解釈モードに変更します。</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>このレポートはコンパイルモードです</StiNetCoreCompilationModeCheckShort>
   </CheckReport>
@@ -726,21 +730,93 @@
     <Title>チャートのタイトル設定</Title>
     <VertSpacing>グラフの境界線とグラフの間の垂直方向の間隔</VertSpacing>
   </StiChart>
+  <StiChartArea>
+    <ColorEach>各系列が独自の色で描画されることを示す値</ColorEach>
+    <GridLinesHor>左軸の水平グリッド線</GridLinesHor>
+    <GridLinesVert>垂直軸のグリッド線</GridLinesVert>
+    <InterlacingHor>水平軸のインターレース設定</InterlacingHor>
+    <InterlacingVert>縦軸のインターレース設定</InterlacingVert>
+    <ReverseHor>水平軸のすべての値が逆であることを示す値</ReverseHor>
+    <ReverseVert>縦軸のすべての値が逆であることを示す値</ReverseVert>
+    <XAxis>XAxisの設定</XAxis>
+    <XTopAxis>XTopAxisの設定</XTopAxis>
+    <YAxis>YAxisの設定</YAxis>
+    <YRightAxis>YRightAxisの設定</YRightAxis>
+  </StiChartArea>
+  <StiChartAxis>
+    <Visible>軸の可視性</Visible>
+  </StiChartAxis>
+  <StiChartAxisLabels>
+    <Angle>ラベルの回転角度</Angle>
+    <Color>ラベル描画の色</Color>
+    <Font>軸ラベル描画に使用されるフォント</Font>
+    <Placement>軸にラベルを配置するモード</Placement>
+    <Step>どのステップで軸にラベルを表示するかを示す値</Step>
+    <TextAfter>引数の文字列表現の後に出力される文字列</TextAfter>
+    <TextAlignment>ラベルテキストの配置</TextAlignment>
+    <TextBefore>引数文字列表現の前に出力される文字列</TextBefore>
+  </StiChartAxisLabels>
+  <StiChartAxisRange>
+    <Auto>最小値と最大値が自動的に計算されることを示す値</Auto>
+    <Maximum>軸範囲の最大値</Maximum>
+    <Minimum>軸範囲の最小値</Minimum>
+  </StiChartAxisRange>
+  <StiChartAxisTitle>
+    <Alignment>タイトルテキストの配置</Alignment>
+    <Color>タイトル描画に使用される色</Color>
+    <Font>軸のタイトルの描画に使用されるフォント</Font>
+    <Position>タイトルテキストの位置</Position>
+    <Text>タイトルテキスト</Text>
+    <Visible>タイトルの可視性</Visible>
+  </StiChartAxisTitle>
   <StiChartElement>
+    <Area>チャートのエリア</Area>
     <Arguments>チャートの引数</Arguments>
     <CloseValues>チャートの値を閉じます。</CloseValues>
     <ColorEach />
+    <ConstantLines>グラフの定数行の設定</ConstantLines>
     <EndValues>チャートの終了値</EndValues>
     <Group />
     <HighValues>チャートの最高値</HighValues>
+    <Labels>シリーズのラベル</Labels>
+    <Legend>凡例の設定</Legend>
     <LowValues>チャートの最低値</LowValues>
     <Series>チャートシリーズ</Series>
     <Style>チャートのスタイル</Style>
     <TextFormat>テキスト形式</TextFormat>
     <Title>チャートのタイトル</Title>
+    <TrendLines>トレンドラインの設定</TrendLines>
     <Values>チャート値</Values>
     <Weights>チャートの重み値</Weights>
   </StiChartElement>
+  <StiChartGridLines>
+    <Color>メジャーグリッド線の描画に使用される色</Color>
+  </StiChartGridLines>
+  <StiChartInterlacing>
+    <Visible>インターレースバーの可視性</Visible>
+  </StiChartInterlacing>
+  <StiChartLabels>
+    <AutoRotate>シリーズラベルの自動回転モード描画を有効または無効にする値</AutoRotate>
+    <Font>シリーズラベルを描画するために使用されるフォント</Font>
+    <ForeColor>ラベル描画の色</ForeColor>
+    <TextAfter>ラベルテキストの後に表示されるテキスト</TextAfter>
+    <TextBefore>ラベルテキストの前に表示されるテキスト</TextBefore>
+  </StiChartLabels>
+  <StiChartLegend>
+    <Columns>列の量</Columns>
+    <Direction>凡例の連続描画に使用された方向</Direction>
+    <HorAlignment>凡例配置の水平方向の整列</HorAlignment>
+    <VertAlignment>凡例配置の垂直方向の配置</VertAlignment>
+    <Visible>グラフの凡例の可視性</Visible>
+  </StiChartLegend>
+  <StiChartLegendLabels>
+    <Color>ラベルの色</Color>
+    <Font>グラフの凡例でシリーズタイトルの描画に使用されたフォント</Font>
+  </StiChartLegendLabels>
+  <StiChartLegendTitle>
+    <Color>凡例のタイトルカラー</Color>
+    <Font>チャートの凡例のタイトルフォント</Font>
+  </StiChartLegendTitle>
   <StiChartTable>
     <Font>グラフ表のフォント</Font>
     <GridLineColor>グリッド線の色</GridLineColor>
@@ -853,6 +929,11 @@
     <Module>バーコードの最も細かい要素の幅を取得または設定します。</Module>
     <Ratio>WideToNarrow比を示す値を取得または設定します。</Ratio>
   </StiCode93ExtBarCodeType>
+  <StiColumnSize>
+    <MaxWidth>テーブル列の最大幅を取得または設定します。</MaxWidth>
+    <MinWidth>テーブル列の最小幅を取得または設定します。</MinWidth>
+    <Width>テーブル列に指定された幅を取得または設定します。 値がゼロに等しい場合、幅はテーブル要素によって自動的に計算されます。</Width>
+  </StiColumnSize>
   <StiComboBoxControl>
     <DropDownStyle>スタイルを指定する値。</DropDownStyle>
     <DropDownWidth>ドロップダウン部分の幅</DropDownWidth>
@@ -886,6 +967,7 @@
     <ComponentStyle>コンポーネントのスタイル</ComponentStyle>
     <Conditions>条件の集計</Conditions>
     <CountData>仮想データの行数</CountData>
+    <CrossFiltering>現在のページからその要素へのクロスフィルターの適用を制御する値を取得または設定します。</CrossFiltering>
     <DataRelation>マスター詳細レポートのレンダリングに使用されるリンク</DataRelation>
     <DataSource>データを取得するために使用されるデータソース</DataSource>
     <DockStyle>コンポーネントドッキングのタイプ</DockStyle>
@@ -924,6 +1006,7 @@
     <TextBrush>テキストを描画するブラシ</TextBrush>
     <ToolTip>コンポーネントのToolTipを塗りつぶす式</ToolTip>
     <Top>コンポーネントの上部位置</Top>
+    <TotalLabel>合計のラベルとして表示される値を取得または設定します。</TotalLabel>
     <UseParentStyles>このコンポーネントが親コンポーネントのスタイルを使用する必要があることを示す値</UseParentStyles>
     <VertAlignment>オブジェクトの垂直方向の配置</VertAlignment>
     <Width>コンポーネントの幅</Width>
@@ -1307,6 +1390,9 @@
     <MasterKeyDataColumn>データマスターキーを含む列</MasterKeyDataColumn>
     <ParentValue>親行を識別する親値を含む列</ParentValue>
   </StiHierarchicalBand>
+  <StiHorChartGridLines>
+    <Visible>主要なグリッド線の可視性</Visible>
+  </StiHorChartGridLines>
   <StiImage>
     <DataColumn>イメージを含む列の名前</DataColumn>
     <File>画像を含むファイルへのパス</File>
@@ -1893,6 +1979,9 @@
     <Style>テーブルスタイル。</Style>
     <Title>テーブルのタイトル</Title>
   </StiTableElement>
+  <StiTableOfContents>
+    <RightToLeft>水平出力方向を取得または設定します。</RightToLeft>
+  </StiTableOfContents>
   <StiText>
     <AllowHtmlTags>このコンポーネントがテキスト内のHTMLタグを許可することを示す値</AllowHtmlTags>
     <Angle>テキスト回転の角度</Angle>
@@ -1986,6 +2075,9 @@
     <Description>変数の説明</Description>
     <Name>変数の名前</Name>
   </StiVariable>
+  <StiVertChartGridLines>
+    <Visible>主要なグリッド線の可視性</Visible>
+  </StiVertChartGridLines>
   <StiView>
     <AspectRatio>画像がアスペクト比を保存することを示す値</AspectRatio>
     <MultipleFactor>画像サイズを乗算する値</MultipleFactor>
@@ -2019,6 +2111,20 @@
   <StiXAxis>
     <DateTimeStep>日付タイムステップ設定</DateTimeStep>
   </StiXAxis>
+  <StiXChartAxis>
+    <ShowEdgeValues>軸の最初と最後の引数がとにかく表示されることを示す値</ShowEdgeValues>
+    <StartFromZero>すべての引数がゼロからのショーになることを示す値</StartFromZero>
+    <Title>軸のタイトル設定</Title>
+  </StiXChartAxis>
+  <StiXChartAxisTitle>
+    <Direction>軸タイトル描画のテキスト方向</Direction>
+  </StiXChartAxisTitle>
+  <StiYChartAxis>
+    <StartFromZero>すべての引数がゼロからのショーになることを示す値</StartFromZero>
+  </StiYChartAxis>
+  <StiYChartAxisTitle>
+    <Direction>軸タイトル描画のテキスト方向</Direction>
+  </StiYChartAxisTitle>
   <StiZipCode>
     <Code>郵便番号のコードを記入する式</Code>
     <ForeColor>前景色</ForeColor>
@@ -2029,6 +2135,7 @@
   <Universal>
     <AllowApplyStyle>値はチャートスタイルが使用されることを示す値</AllowApplyStyle>
     <Key>変数をGUIで選択したときに変数で使用されるキー</Key>
+    <Label>GUIでキーの代わりに表示されるラベル。</Label>
     <Value>GUIのキー値の代わりに表示される値</Value>
   </Universal>
 </Localization>
