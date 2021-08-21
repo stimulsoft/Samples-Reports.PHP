@@ -161,11 +161,15 @@ class StiMsSqlAdapter {
 			case -7:
 				return 'bit';
 			
-			case -155:
-			case -154:
 			case 91:
 			case 93:
 				return 'datetime';
+				
+			case -155:
+				return 'datetimeoffset';
+				
+			case -154:
+				return 'time';
 			
 			case -152:
 			case -11:
@@ -236,10 +240,14 @@ class StiMsSqlAdapter {
 			case 'date':
 			case 'datetime':
 			case 'datetime2':
-			case 'datetimeoffset':
 			case 'smalldatetime':
-			case 'time':
 				return 'datetime';
+			
+			case 'datetimeoffset':
+				return 'datetimeoffset';
+			
+			case 'time':
+				return 'time';
 			
 			case 'binary':
 			case 'image':
@@ -256,6 +264,26 @@ class StiMsSqlAdapter {
 		$result = $this->connect();
 		if ($result->success) $this->disconnect();
 		return $result;
+	}
+	
+	public function getValue($type, $value) {
+		switch ($type) {
+			case 'array':
+				return base64_encode($value);
+			
+			case 'datetime':
+				return date("Y-m-d\TH:i:s.v", strtotime($value));
+				
+			case 'datetimeoffset':
+				$offset = substr($value, strpos($value, '+'));
+				$value = substr($value, 0, strpos($value, '+'));
+				return date("Y-m-d\TH:i:s.v", strtotime($value)).$offset;
+			
+			case 'time':
+				return date("H:i:s.v", strtotime($value));
+		}
+		
+		return $value;
 	}
 	
 	public function execute($queryString) {
@@ -288,10 +316,7 @@ class StiMsSqlAdapter {
 					$row = array();
 					for ($i = 0; $i < $result->count; $i++) {
 						$type = count($result->types) >= $i + 1 ? $result->types[$i] : 'string';
-						
-						if ($type == 'array') $row[] = base64_encode($rowItem[$i]);
-						else if ($type == 'datetime') $row[] = gmdate("Y-m-d\TH:i:s.v\Z", strtotime($rowItem[$i]));
-						else $row[] = $rowItem[$i];
+						$row[] = $this->getValue($type, $rowItem[$i]);
 					}
 					$result->rows[] = $row;
 				}
@@ -310,10 +335,7 @@ class StiMsSqlAdapter {
 					foreach ($rowItem as $key => $value) {
 						if ($isColumnsEmpty && count($result->columns) < count($rowItem)) $result->columns[] = $key;
 						$type = count($result->types) >= count($row) + 1 ? $result->types[count($row)] : 'string';
-						
-						if ($type == 'array') $row[] = base64_encode($value);
-						else if ($type == 'datetime') $row[] = gmdate("Y-m-d\TH:i:s.v\Z", strtotime($value));
-						else $row[] = $value;
+						$row[] = $this->getValue($type, $value);
 					}
 					$result->rows[] = $row;
 				}

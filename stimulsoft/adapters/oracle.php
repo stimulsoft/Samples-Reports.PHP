@@ -186,6 +186,19 @@ class StiOracleAdapter {
 		return 'string';
 	}
 	
+	public function getValue($type, $value) {
+		switch ($type) {
+			case 'array':
+				return base64_encode($value);
+			
+			case 'datetime':
+				$timestamp = DateTime::createFromFormat("d#M#y H#i#s*A", $value);
+				return $timestamp !== false ? $timestamp->format("Y-m-d\TH:i:s.v") : date("Y-m-d\TH:i:s.v", strtotime($value));
+		}
+		
+		return $value;
+	}
+	
 	public function execute($queryString) {
 		$result = $this->connect();
 		if ($result->success) {
@@ -213,10 +226,7 @@ class StiOracleAdapter {
 							if (count($result->columns) < $index) $result->columns[] = $key;
 							if (count($result->types) < $index) $result->types[] = $this->detectType($value);
 							$type = $result->types[$index - 1];
-							
-							if ($type == 'array') $row[] = base64_encode($value);
-							else if ($type == 'datetime') $row[] = gmdate("Y-m-d\TH:i:s.v\Z", strtotime($value));
-							else $row[] = $value;
+							$row[] = $this->getValue($type, $value);
 						}
 					}
 					
@@ -239,10 +249,7 @@ class StiOracleAdapter {
 					foreach ($rowItem as $key => $value) {
 						if (count($result->columns) < count($rowItem)) $result->columns[] = $key;
 						$type = $result->types[count($row)];
-						
-						if ($type == 'array') $row[] = base64_encode($value);
-						else if ($type == 'datetime') $row[] = gmdate("Y-m-d\TH:i:s.v\Z", strtotime($value));
-						else $row[] = $value;
+						$row[] = $this->getValue($type, $value);
 					}
 					$result->rows[] = $row;
 				}
