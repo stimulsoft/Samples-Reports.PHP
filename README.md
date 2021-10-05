@@ -1,4 +1,4 @@
-# PHP-JavaScript for Stimulsoft Reports.PHP
+# PHP JavaScript samples for Stimulsoft Reports.PHP
 
 #### This repository contains the source code of the examples of usage Stimulsoft Reports.PHP reporting tool in the PHP applications, using HTML/PHP code and JavaScript components.
 
