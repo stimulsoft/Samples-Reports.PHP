@@ -34,6 +34,7 @@ function stiShutdownFunction() {
 }
 
 class StiHandler {
+	private $version = '2021.4.1';
 	
 	private function checkEventResult($event, $args) {
 		if (isset($event)) $result = $event($args);
@@ -363,19 +364,19 @@ class StiHandler {
 	
 // Private methods
 	
-	private function createConnection($args) {
+	private function getDataAdapter($args) {
 		switch ($args->database) {
-			case StiDatabaseType::MySQL: $connection = new StiMySqlAdapter(); break;
-			case StiDatabaseType::MSSQL: $connection = new StiMsSqlAdapter(); break;
-			case StiDatabaseType::Firebird: $connection = new StiFirebirdAdapter(); break;
-			case StiDatabaseType::PostgreSQL: $connection = new StiPostgreSqlAdapter(); break;
-			case StiDatabaseType::Oracle: $connection = new StiOracleAdapter(); break;
-			case StiDatabaseType::ODBC: $connection = new StiOdbcAdapter(); break;
+			case StiDatabaseType::MySQL: $dataAdapter = new StiMySqlAdapter(); break;
+			case StiDatabaseType::MSSQL: $dataAdapter = new StiMsSqlAdapter(); break;
+			case StiDatabaseType::Firebird: $dataAdapter = new StiFirebirdAdapter(); break;
+			case StiDatabaseType::PostgreSQL: $dataAdapter = new StiPostgreSqlAdapter(); break;
+			case StiDatabaseType::Oracle: $dataAdapter = new StiOracleAdapter(); break;
+			case StiDatabaseType::ODBC: $dataAdapter = new StiOdbcAdapter(); break;
 		}
 		
-		if (isset($connection)) {
-			$connection->parse($args->connectionString);
-			return StiResult::success(null, $connection);
+		if (isset($dataAdapter)) {
+			$dataAdapter->parse($args->connectionString);
+			return StiResult::success(null, $dataAdapter);
 		}
 		
 		return StiResult::error("Unknown database type [".$args->database."]");
@@ -390,23 +391,34 @@ class StiHandler {
 					$result = $this->invokeBeginProcessData($request);
 					if (!$result->success) return $result;
 					$queryString = $result->object->queryString;
-					$result = $this->createConnection($result->object);
+					$result = $this->getDataAdapter($result->object);
+					$result->handlerVersion = $this->version;
 					if (!$result->success) return $result;
-					$connection = $result->object;
 					
+					$dataAdapter = $result->object;
 					switch ($request->command) {
 						case StiCommand::TestConnection:
-							$result = $connection->test();
+							$result = $dataAdapter->test();
 							break;
 							
 						case StiCommand::ExecuteQuery:
-							$result = $connection->execute($queryString);
+							$result = $dataAdapter->execute($queryString);
 							break;
 					}
 					
 					$result = $this->invokeEndProcessData($request, $result);
+					$result->handlerVersion = $this->version;
+					$result->adapterVersion = $dataAdapter->version;
+					$result->checkVersion = $dataAdapter->checkVersion;
 					if (!$result->success) return $result;
-					if (isset($result->object) && isset($result->object->result)) return $result->object->result;
+					
+					if (isset($result->object) && isset($result->object->result)) {
+						$result = $result->object->result;
+						$result->handlerVersion = $this->version;
+						$result->adapterVersion = $dataAdapter->version;
+						$result->checkVersion = $dataAdapter->checkVersion;
+					}
+					
 					return $result;
 					
 				case StiEventType::PrepareVariables:

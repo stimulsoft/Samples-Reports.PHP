@@ -281,6 +281,8 @@
     <ExportFormatDataType>Тип данных:</ExportFormatDataType>
     <ExportFormatImage>Изображение</ExportFormatImage>
     <ExportFormatImageType>Тип изображения:</ExportFormatImageType>
+    <FrameworkType>Тип фреймворка</FrameworkType>
+    <FrameworkVersion>Версия фреймворка</FrameworkVersion>
     <FullScreenViewer>Отобразить вьювер на все окно Web-браузера</FullScreenViewer>
     <FullScreenViewerToolTip>Вьювер с отчётом будут отображены на всём доступном пространстве окна браузера.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Подключить библиотеки Stimulsoft из {0}</GetLibrariesFrom>
@@ -792,12 +794,15 @@
     <Color>Цвет для отрисовки основных линий сетки.</Color>
   </StiChartGridLines>
   <StiChartInterlacing>
+    <Color>Цвет, который используется для заливки горизонтального и вертикального чередования.</Color>
     <Visible>Видимость перемежающихся полос.</Visible>
   </StiChartInterlacing>
   <StiChartLabels>
     <AutoRotate>Значение, которое включает/выключает режим автоповорота отрисовки заголовков рядов.</AutoRotate>
     <Font>Шрифт, который будет использоваться для отрисовки заголовков рядов.</Font>
     <ForeColor>Цвет отрисовки подписей.</ForeColor>
+    <Position>Позиция заголовков.</Position>
+    <Style>Стиль заголовков.</Style>
     <TextAfter>Текст, который будет показан после текста подписи.</TextAfter>
     <TextBefore>Текст, который будет показан перед текстом подписи.</TextBefore>
   </StiChartLabels>
@@ -815,6 +820,7 @@
   <StiChartLegendTitle>
     <Color>Цвет заголовка легенды.</Color>
     <Font>Шрифт заголовка легенды диаграммы.</Font>
+    <Text>Текст заголовка легенды.</Text>
   </StiChartLegendTitle>
   <StiChartTable>
     <Font>Шрифт таблицы диаграммы.</Font>
@@ -823,6 +829,8 @@
     <GridLinesVert>Видмость вертикальных линий таблицы.</GridLinesVert>
     <GridOutline>Видимость контура.</GridOutline>
     <MarkerVisible>Видимость маркеров.</MarkerVisible>
+    <NegativeSeriesColors>Список цетов для отображения негативных значений рядов.</NegativeSeriesColors>
+    <SeriesColors>Список цетов для отображения значений рядов.</SeriesColors>
     <Visible>Видимость таблицы диаграммы.</Visible>
   </StiChartTable>
   <StiChartTitle>

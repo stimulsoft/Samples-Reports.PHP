@@ -1,5 +1,8 @@
 <?php
 class StiMySqlAdapter {
+	public $version = '2021.4.1';
+	public $checkVersion = true;
+	
 	private $info = null;
 	private $link = null;
 	

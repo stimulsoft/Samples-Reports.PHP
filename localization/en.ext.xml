@@ -281,6 +281,8 @@
     <ExportFormatDataType>Data Type:</ExportFormatDataType>
     <ExportFormatImage>Image</ExportFormatImage>
     <ExportFormatImageType>Image Type:</ExportFormatImageType>
+    <FrameworkType>Framework Type</FrameworkType>
+    <FrameworkVersion>Framework Version</FrameworkVersion>
     <FullScreenViewer>Display the Viewer in Full Browser Window</FullScreenViewer>
     <FullScreenViewerToolTip>The viewer with the report will be displayed in the entire available space of the browser window.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Get Stimulsoft Libraries from {0}</GetLibrariesFrom>
@@ -1032,6 +1034,12 @@
     <TitleVisible>Visibility of constant lines title.</TitleVisible>
     <Visible>Visibility of constant line.</Visible>
   </StiConstantLines>
+  <StiCornerRadius>
+    <BottomLeft>The value that specifies the radius of the bottom-left corner.</BottomLeft>
+    <BottomRight>The value that specifies the radius of the bottom-right corner.</BottomRight>
+    <TopLeft>The value that specifies the radius of the top-left corner.</TopLeft>
+    <TopRight>The value that specifies the radius of the top-right corner.</TopRight>
+  </StiCornerRadius>
   <StiCrossDataBand>
     <MaxWidth>Maximal width of a band.</MaxWidth>
     <MinWidth>Minimal width of a band.</MinWidth>
@@ -1244,7 +1252,7 @@
   <StiElement>
     <BackColor>A back color for the element.</BackColor>
     <Margin>Element margin.</Margin>
-    <Padding>Element margin.</Padding>
+    <Padding>Element padding.</Padding>
   </StiElement>
   <StiEmptyBand>
     <BeginRenderEvent>Occurs when band begin render.</BeginRenderEvent>
@@ -1733,12 +1741,16 @@
     <ConvertNulls>A value that shows whether it is necessary to convert null or DBNull.</ConvertNulls>
     <EndRenderEvent>Occurs when the report rendering is finished.</EndRenderEvent>
     <EngineVersion>The current report engine.</EngineVersion>
+    <ExportingEvent>Occurs when report starts exporting.</ExportingEvent>
+	  <ExportedEvent>Occurs when report ends exporting.</ExportedEvent>
     <GlobalizationStrings>A collection which consists of globalization strings.</GlobalizationStrings>
     <NumberOfPass>Number of passes which the report generator makes while report rendering.</NumberOfPass>
     <ParametersOrientation>A value which indicates parameters panel orientation.</ParametersOrientation>
     <PreviewMode>The preview mode of a report.</PreviewMode>
     <PreviewSettings>Controls which will be shown in the Preview Window.</PreviewSettings>
     <PrinterSettings>Printer settings.</PrinterSettings>
+    <PrintingEvent>Occurs when report starts printing.</PrintingEvent>
+	  <PrintedEvent>Occurs when report ends printing.</PrintedEvent>
     <ReferencedAssemblies>An array of referenced assemblies.</ReferencedAssemblies>
     <RenderingEvent>Occurs when a page is rendered.</RenderingEvent>
     <ReportAlias>A report alias.</ReportAlias>

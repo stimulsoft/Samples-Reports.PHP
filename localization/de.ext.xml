@@ -792,12 +792,15 @@
     <Color>Farbe für die Darstellung der großen Gitterlinien.</Color>
   </StiChartGridLines>
   <StiChartInterlacing>
+    <Color>Die Farbe, die für Zeichnung von wechselnden Balken verwendet wird.</Color>
     <Visible>Sichtbarkeit der Interlacing-Bar.</Visible>
   </StiChartInterlacing>
   <StiChartLabels>
     <AutoRotate>Wert, der automatische Drehung von Reihenbezeichnungen aktiviert oder deaktiviert.</AutoRotate>
     <Font>Zeichensatz zur Ausgabe von Reihenbezeichnungen.</Font>
     <ForeColor>Farbe für die Bezeichnungs-Darstellung.</ForeColor>
+    <Position>Die Position der Beschriftung.</Position>
+    <Style>Der Stil der Beschriftung.</Style>
     <TextAfter>Text nach dem Bezeichnungstext.</TextAfter>
     <TextBefore>Text vor dem Bezeichnungstext.</TextBefore>
   </StiChartLabels>
@@ -815,6 +818,7 @@
   <StiChartLegendTitle>
     <Color>Titelfarbe für die Legende.</Color>
     <Font>Titel-Zeichensatz für die Diagramm-Legende.</Font>
+    <Text>Der Text der Legende-Titel.</Text>
   </StiChartLegendTitle>
   <StiChartTable>
     <Font>Die Farbe der Diagrammtabelle.</Font>
@@ -823,6 +827,8 @@
     <GridLinesVert>Die Sichtbarkeit der vertikalen Tabellenlinien.</GridLinesVert>
     <GridOutline>Die Sichtbarkeit des Rasterumrisses</GridOutline>
     <MarkerVisible>Die Sichtbarkeit des Markers.</MarkerVisible>
+    <NegativeSeriesColors>Die Liste von Farben, die für Zeichnung von Serien mit negativen Werten verwendet wird.</NegativeSeriesColors>
+    <SeriesColors>Die Liste von Farben, die für Zeichnung von Serien verwendet wird.</SeriesColors>
     <Visible>Die Sichtbarkeit der Diagrammtabelle.</Visible>
   </StiChartTable>
   <StiChartTitle>
@@ -961,6 +967,7 @@
     <CanShrink>Wert, der anzeigt, dass das Objekt schrumpfen kann.</CanShrink>
     <CellDockStyle>Andock-Stil einer Zelle.</CellDockStyle>
     <CellType>Typ des Zelleninhalts.</CellType>
+    <CheckedChangedEvent>Erfolgt, wenn der Checked-Zustand verändert wird.</CheckedChangedEvent>
     <ClickEvent>Tritt auf, wenn ein Benutzer die Komponente im Viewer-Fenster anklickt.</ClickEvent>
     <ComponentStyle>Komponentenart.</ComponentStyle>
     <Conditions>Eine Liste von Bedingungen.</Conditions>
@@ -972,6 +979,7 @@
     <DoubleClickEvent>Tritt auf, beim Doppelklick des Benutzers im Report-Viewer einer Komponente.</DoubleClickEvent>
     <Editable>Wert, der anzeigt, dass eine Komponente im Fenster des Viewers geändert werden kann.</Editable>
     <Enabled>Wert, der angibt, ob die Komponente aktiviert ist.</Enabled>
+    <ExceedMargins>Liest oder setzt einen Wert für Ränder-Überschreiten vom Komponente-Hintergrund.</ExceedMargins>
     <FilterMode>Filter Modus.</FilterMode>
     <FilterOn>Wert, der anzeigt, dass der Filter aktiviert ist.</FilterOn>
     <Filters>Liste von Datenfiltern.</Filters>
@@ -1289,6 +1297,38 @@
     <Style>Messgerät-Stil.</Style>
     <Title>Messgerät-Titel.</Title>
   </StiGaugeElement>
+  <StiGaugeStyle>
+    <BorderColor>Liest oder setzt die Randfarbe.</BorderColor>
+    <BorderWidth>Randgröße.</BorderWidth>
+    <Brush>Liest oder setzt einen Pinsel für Füllung vom Stil.</Brush>
+    <ForeColor>Liest oder setzt einen Pinsel für Zeichnung vom Text.</ForeColor>
+    <LinearBarBorderBrush>Liest oder setzt einen Rand für LinearBar.</LinearBarBorderBrush>
+    <LinearBarBrush>Liest oder setzt einen Pinsel für LinearBar.</LinearBarBrush>
+    <LinearBarEmptyBorderBrush>Liest oder setzt einen leeren Rand für LinearBar.</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>Liest oder setzt einen leeren Pinsel LinearBar.</LinearBarEmptyBrush>
+    <LinearScaleBrush>Liest oder setzt einen Pinsel LinearScale.</LinearScaleBrush>
+    <MarkerBrush>Liest oder setzt eine Pinsel für Marker.</MarkerBrush>
+    <NeedleBorderBrush>Liest oder setzt einen Rand für Nadel.</NeedleBorderBrush>
+    <NeedleBorderWidth>Die Randgröße.</NeedleBorderWidth>
+    <NeedleBrush>Liest oder setzt einen Pinsel für Nadel.</NeedleBrush>
+    <NeedleCapBorderBrush>Liest oder setzt einen Rand für Kappe.</NeedleCapBorderBrush>
+    <NeedleCapBrush>Liest oder setzt einen Pinsel für Füllung von Kappe.</NeedleCapBrush>
+    <RadialBarBorderBrush>Liest oder setzt einen Rand für RadialBar.</RadialBarBorderBrush>
+    <RadialBarBrush>Liest oder setzt einen Pinsel für RadialBar.</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>Liest oder setzt einen leeren Rand für RadialBar.</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>Liest oder setzt einen leeren Pinsel für RadialBar.</RadialBarEmptyBrush>
+    <TargetColor>Liest oder setzt Zielfarbe.</TargetColor>
+    <TickLabelMajorFont>Liest oder setzt die Farbe für Zeichnung von TickLabelMajor.</TickLabelMajorFont>
+    <TickLabelMajorTextBrush>Liest oder setzt einen Pinsel für Zeichnung vom Text.</TickLabelMajorTextBrush>
+    <TickLabelMinorFont>Liest oder setzt die Farbe für Zeichnung von TickLabelMinor.</TickLabelMinorFont>
+    <TickLabelMinorTextBrush>Liest oder setzt einen Pinsel für Zeichnung vom Text.</TickLabelMinorTextBrush>
+    <TickMarkMajorBorder>Liest oder setzt einen Rand von TickMarkMajor.</TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>Die Randgröße.</TickMarkMajorBorderWidth>
+    <TickMarkMajorBrush>Liest oder setzt einen Pinsel für Füllung von TickMarkMajor.</TickMarkMajorBrush>
+    <TickMarkMinorBorder>Liest oder setzt einen Rand von TickMarkMinor.</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>Die Randgröße.</TickMarkMinorBorderWidth>
+    <TickMarkMinorBrush>Liest oder setzt einen Pinsel für Füllung von TickMarkMinor.</TickMarkMinorBrush>
+  </StiGaugeStyle>
   <StiGlareBrush>
     <Angle>Der Winkel für den Gradientenverlauf, gemessen im Uhrzeigerzeigersinn von der X-Achse aus.</Angle>
     <EndColor>Endfarbe eines Gradienten.</EndColor>
@@ -1564,6 +1604,7 @@
     <EndRenderEvent>Auftreten bei der Ausführung am Ende einer Seite.</EndRenderEvent>
     <ExcelSheet>Ausdruck, der den Namen einere Excel-Tabelle festlegt.</ExcelSheet>
     <GetExcelSheetEvent>Tritt auf, wenn das Excel-Datenblatt berechnet wird.</GetExcelSheetEvent>
+    <Icon>Seite-Symbol.</Icon>
     <LargeHeight>Wert, der die Überlänge im Designer anzeigt.</LargeHeight>
     <LargeHeightFactor>Überlängenfaktor für die Eigenschaft 'Überlänge' dieser Seite.</LargeHeightFactor>
     <Margins>Seitenbegrenzung.</Margins>
@@ -1704,6 +1745,8 @@
     <ReportAuthor>Report-Autor.</ReportAuthor>
     <ReportCacheMode>Wert, der anzeigt, ob es notwendig ist, die gesamten Daten für einen Report in einem Dataset zwischenzuspeichen.</ReportCacheMode>
     <ReportDescription>Reportbeschreibung.</ReportDescription>
+    <ReportIcon>Bericht-Symbol.</ReportIcon>
+    <ReportImage>Bericht-Bild.</ReportImage>
     <ReportName>Reportname.</ReportName>
     <ReportUnit>Akueller Report.</ReportUnit>
     <RequestParameters>Lesen oder setzen eines Wertes, der anzeigt, ob vor der Ausführung des Reports Parameter vom Benutzer anzuforderen sind oder ob die Reportausführung mit Standardwerten erfolgt.</RequestParameters>

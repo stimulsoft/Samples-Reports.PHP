@@ -1,5 +1,8 @@
 <?php
 class StiMsSqlAdapter {
+	public $version = '2021.4.1';
+	public $checkVersion = true;
+	
 	private $info = null;
 	private $link = null;
 	
@@ -45,7 +48,8 @@ class StiMsSqlAdapter {
 		if ($this->info->isMicrosoft) {
 			if (!function_exists('sqlsrv_connect'))
 				return StiResult::error('MS SQL driver not found. Please configure your PHP server to work with MS SQL.');
-				
+			
+			sqlsrv_configure('WarningsReturnAsErrors', 0);
 			$this->link = sqlsrv_connect(
 					$this->info->host, 
 					array(
@@ -56,6 +60,7 @@ class StiMsSqlAdapter {
 						'ReturnDatesAsStrings' => true,
 						'CharacterSet' => $this->info->charset
 					));
+			
 			if (!$this->link)
 				return $this->getLastErrorResult();
 				
@@ -330,7 +335,7 @@ class StiMsSqlAdapter {
 				}
 				
 				$isColumnsEmpty = count($result->columns) == 0;
-				while ($rowItem = $this->info->isMicrosoft ? sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC) : mssql_fetch_assoc($query)) {
+				while ($rowItem = $this->info->isMicrosoft ? sqlsrv_fetch_array($query, $isColumnsEmpty ? SQLSRV_FETCH_ASSOC : SQLSRV_FETCH_NUMERIC) : mssql_fetch_assoc($query)) {
 					$row = array();
 					foreach ($rowItem as $key => $value) {
 						if ($isColumnsEmpty && count($result->columns) < count($rowItem)) $result->columns[] = $key;

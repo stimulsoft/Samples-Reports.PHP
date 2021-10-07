@@ -792,12 +792,15 @@
     <Color>메이저 눈금 선을 그리는 데 사용되는 색</Color>
   </StiChartGridLines>
   <StiChartInterlacing>
+    <Color>인터레이스 바를 그리는 데 사용할 색상입니다.</Color>
     <Visible>인터레이스 바의 표시</Visible>
   </StiChartInterlacing>
   <StiChartLabels>
     <AutoRotate>시리즈 레이블 자동 회전 모드 렌더링을 활성화하거나 비활성화 할 값</AutoRotate>
     <Font>시리즈 레이블을 렌더링하는 데 사용되는 글꼴</Font>
     <ForeColor>라벨 그리기 색상</ForeColor>
+    <Position>라벨의 위치입니다.</Position>
+    <Style>라벨의 스타일입니다.</Style>
     <TextAfter>레이블 텍스트 뒤에 표시되는 텍스트</TextAfter>
     <TextBefore>레이블 텍스트 앞에 표시되는 텍스트</TextBefore>
   </StiChartLabels>
@@ -815,6 +818,7 @@
   <StiChartLegendTitle>
     <Color>범례 제목 색상</Color>
     <Font>차트의 범례 제목 글꼴</Font>
+    <Text>범례의 제목 텍스트입니다.</Text>
   </StiChartLegendTitle>
   <StiChartTable>
     <Font>그래프 표 글꼴</Font>
@@ -823,6 +827,8 @@
     <GridLinesVert>세로 눈금 선 표시</GridLinesVert>
     <GridOutline>그리드 개요 표시</GridOutline>
     <MarkerVisible>마커의 표시</MarkerVisible>
+    <NegativeSeriesColors>음수 값으로 시리즈를 그리는 데 사용할 색상 목록입니다.</NegativeSeriesColors>
+    <SeriesColors>시리즈를 그리는 데 사용할 색상 목록입니다.</SeriesColors>
     <Visible>그래프 표 표시</Visible>
   </StiChartTable>
   <StiChartTitle>
@@ -961,6 +967,7 @@
     <CanShrink>이 개체를 축소 할 수 있음을 나타내는 값</CanShrink>
     <CellDockStyle>셀 도킹의 유형</CellDockStyle>
     <CellType>셀 내용의 유형</CellType>
+    <CheckedChangedEvent>Checked 상태가 변경되면 발생합니다.</CheckedChangedEvent>
     <ClickEvent>사용자가 뷰어 창에서 구성 요소를 클릭 할 때 발생</ClickEvent>
     <ComponentStyle>구성 요소의 스타일</ComponentStyle>
     <Conditions>조건 집계</Conditions>
@@ -972,6 +979,7 @@
     <DoubleClickEvent>사용자가 보고서 뷰어 컴포넌트를 더블 클릭했을 때 발생</DoubleClickEvent>
     <Editable>뷰어 창에서 구성 요소를 편집 할 수있는 것을 나타내는 값</Editable>
     <Enabled>이 구성 요소를 사용할 수 있는지 여부를 나타내는 값</Enabled>
+    <ExceedMargins>구성 요소 배경의 여백을 초과하는 값을 가져오거나 설정합니다.</ExceedMargins>
     <FilterMode>필터 모드</FilterMode>
     <FilterOn>필터가 켜져 있는지를 나타내는 값</FilterOn>
     <Filters>데이터 필터 컬렉션</Filters>
@@ -1289,6 +1297,38 @@
     <Style>게이지 스타일.</Style>
     <Title>게이지 제목.</Title>
   </StiGaugeElement>
+  <StiGaugeStyle>
+    <BorderColor>테두리 색상을 가져오거나 설정합니다.</BorderColor>
+    <BorderWidth>테두리 크기입니다.</BorderWidth>
+    <Brush>스타일을 채울 브러시를 가져오거나 설정합니다.</Brush>
+    <ForeColor>텍스트를 그릴 브러시를 가져오거나 설정합니다.</ForeColor>
+    <LinearBarBorderBrush>LinearBar의 테두리를 가져오거나 설정합니다.</LinearBarBorderBrush>
+    <LinearBarBrush>브러시 LinearBar를 가져오거나 설정합니다.</LinearBarBrush>
+    <LinearBarEmptyBorderBrush>LinearBar의 빈 테두리를 가져오거나 설정합니다.</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>빈 브러시 LinearBar를 가져오거나 설정합니다.</LinearBarEmptyBrush>
+    <LinearScaleBrush>브러시 LinearScale을 가져오거나 설정합니다.</LinearScaleBrush>
+    <MarkerBrush>브러시 마커를 가져오거나 설정합니다.</MarkerBrush>
+    <NeedleBorderBrush>Needle의 테두리를 가져오거나 설정합니다.</NeedleBorderBrush>
+    <NeedleBorderWidth>테두리 크기입니다.</NeedleBorderWidth>
+    <NeedleBrush>브러시 Needle을 가져오거나 설정합니다.</NeedleBrush>
+    <NeedleCapBorderBrush>테두리 연결모양을 가져오거나 설정합니다.</NeedleCapBorderBrush>
+    <NeedleCapBrush>연결모양을 채울 브러시를 가져오거나 설정합니다.</NeedleCapBrush>
+    <RadialBarBorderBrush>RadialBar의 테두리를 가져오거나 설정합니다.</RadialBarBorderBrush>
+    <RadialBarBrush>브러시 RadialBar를 가져오거나 설정합니다.</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>RadialBar의 빈 테두리를 가져오거나 설정합니다.</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>빈 브러시 RadialBar를 가져오거나 설정합니다.</RadialBarEmptyBrush>
+    <TargetColor>대상 색상을 가져오거나 설정합니다.</TargetColor>
+    <TickLabelMajorFont>TickLabelMajor를 그리기 위한 글꼴을 가져오거나 설정합니다.</TickLabelMajorFont>
+    <TickLabelMajorTextBrush>텍스트를 그릴 브러시를 가져오거나 설정합니다.</TickLabelMajorTextBrush>
+    <TickLabelMinorFont>TickLabelMinor를 그리기 위한 글꼴을 가져오거나 설정합니다</TickLabelMinorFont>
+    <TickLabelMinorTextBrush>텍스트를 그릴 브러시를 가져오거나 설정합니다.</TickLabelMinorTextBrush>
+    <TickMarkMajorBorder>TickMarkMajor의 테두리를 가져오거나 설정합니다.</TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>테두리 크기입니다.</TickMarkMajorBorderWidth>
+    <TickMarkMajorBrush>TickMarkMajor를 채울 브러시를 가져오거나 설정합니다.</TickMarkMajorBrush>
+    <TickMarkMinorBorder>TickMarkMinor의 테두리를 가져오거나 설정합니다.</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>테두리 크기입니다.</TickMarkMinorBorderWidth>
+    <TickMarkMinorBrush>TickMarkMinor를 채울 브러시를 가져오거나 설정합니다.</TickMarkMinorBrush>
+  </StiGaugeStyle>
   <StiGlareBrush>
     <Angle>그레디언트의 방향 선 x 축에서 시계 방향으로 측정 한 각도</Angle>
     <EndColor>그라데이션의 끝 색</EndColor>
@@ -1564,6 +1604,7 @@
     <EndRenderEvent>페이지의 렌더링이 완료되면 발생</EndRenderEvent>
     <ExcelSheet>Excel 시트의 생성 이름에 사용되는 식</ExcelSheet>
     <GetExcelSheetEvent>ExcelSheet가 계산 될 때 발생</GetExcelSheetEvent>
+    <Icon>페이지 아이콘입니다.</Icon>
     <LargeHeight>이 페이지의 높이가 디자이너에서 큰 수를 나타내는 값</LargeHeight>
     <LargeHeightFactor>이 페이지의 LargeHeight 속성의 큰 높이 계수</LargeHeightFactor>
     <Margins>페이지의 여백</Margins>
@@ -1704,6 +1745,8 @@
     <ReportAuthor>보고서 작성자</ReportAuthor>
     <ReportCacheMode>보고서 엔진이 보고서 캐시를 어떻게 사용 하는지를 나타내는 값</ReportCacheMode>
     <ReportDescription>보고서 설명</ReportDescription>
+    <ReportIcon>보고서 아이콘입니다.</ReportIcon>
+    <ReportImage>보고서 이미지입니다.</ReportImage>
     <ReportName>보고서 이름</ReportName>
     <ReportUnit>보고서의 현재 단위</ReportUnit>
     <RequestParameters>사용자가 보고서를 렌더링하기 전에 매개 변수를 요구하거나 기본값 매개 변수를 사용하여 보고서를 렌더링할지 여부를 나타내는 값을 가져 오거나 설정합니다.</RequestParameters>
