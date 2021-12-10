@@ -281,6 +281,8 @@
     <ExportFormatDataType>데이터 형식 :</ExportFormatDataType>
     <ExportFormatImage>이미지</ExportFormatImage>
     <ExportFormatImageType>이미지 유형 :</ExportFormatImageType>
+    <FrameworkType>프레임워크 종류</FrameworkType>
+    <FrameworkVersion>프레임워크 버전</FrameworkVersion>
     <FullScreenViewer>전체 브라우저 창에 뷰어보기</FullScreenViewer>
     <FullScreenViewerToolTip>리포트가있는 뷰어는 브라우저 창의 사용 가능한 전체 공간에 표시됩니다.</FullScreenViewerToolTip>
     <GetLibrariesFrom>{0}에서 Stimulsoft 라이브러리를 얻을</GetLibrariesFrom>
@@ -957,6 +959,7 @@
     <AfterPrintEvent>구성 요소 인쇄 후 발생</AfterPrintEvent>
     <Alias>요소 이름 대신 표시되는 텍스트입니다. 텍스트가 표시되지 않는 경우, 이름이 표시됩니다.</Alias>
     <Anchor>구성 요소의 위치를 ​​부모 요소의 크기에 연결 모드를 나타내는 값을 가져 오거나 설정합니다.</Anchor>
+    <BackColor>구성 요소의 배경색입니다.</BackColor>
     <BeforePrintEvent>구성 요소를 인쇄하기 전에 발생</BeforePrintEvent>
     <Bookmark>요소를 포함 식 Bookmark</Bookmark>
     <Border>구성 요소의 프레임</Border>
@@ -967,14 +970,20 @@
     <CanShrink>이 개체를 축소 할 수 있음을 나타내는 값</CanShrink>
     <CellDockStyle>셀 도킹의 유형</CellDockStyle>
     <CellType>셀 내용의 유형</CellType>
+    <CheckAlignment>구성 요소 내부의 검사 위치를 결정합니다.</CheckAlignment>
+    <CheckBrush>구성 요소의 체크 브러시입니다.</CheckBrush>
+    <Checked>구성 요소가 선택 상태인지 여부를 나타냅니다.</Checked>
     <CheckedChangedEvent>Checked 상태가 변경되면 발생합니다.</CheckedChangedEvent>
+    <CheckSize>구성 요소의 크기를 확인합니다.</CheckSize>
     <ClickEvent>사용자가 뷰어 창에서 구성 요소를 클릭 할 때 발생</ClickEvent>
     <ComponentStyle>구성 요소의 스타일</ComponentStyle>
     <Conditions>조건 집계</Conditions>
+    <CornerRadius>코드의 라운드 값을 나타냅니다.</CornerRadius>
     <CountData>가상 데이터의 행수</CountData>
     <CrossFiltering>현재 페이지에서 해당 요소로 교차 필터 적용을 제어하는 값을 가져오거나 설정합니다.</CrossFiltering>
     <DataRelation>마스터 세부 보고서의 렌더링에 사용되는 링크</DataRelation>
     <DataSource>데이터를 검색하는 데 사용되는 데이터 소스</DataSource>
+    <Disabled>구성 요소의 비대화형 상태입니다.</Disabled>
     <DockStyle>구성 요소 도킹 유형</DockStyle>
     <DoubleClickEvent>사용자가 보고서 뷰어 컴포넌트를 더블 클릭했을 때 발생</DoubleClickEvent>
     <Editable>뷰어 창에서 구성 요소를 편집 할 수있는 것을 나타내는 값</Editable>
@@ -984,6 +993,8 @@
     <FilterOn>필터가 켜져 있는지를 나타내는 값</FilterOn>
     <Filters>데이터 필터 컬렉션</Filters>
     <FixedWidth>셀이 고정 폭을 가지는 것을 나타내는 값</FixedWidth>
+    <Font>컨트롤에서 텍스트를 표시하는 데 사용되는 글꼴입니다.</Font>
+    <ForeColor>텍스트를 표시하는 데 사용되는 이 구성 요소의 전경색입니다.</ForeColor>
     <GetBookmarkEvent>구성 요소의 북마크를 얻을 때 발생</GetBookmarkEvent>
     <GetDrillDownReportEvent>드릴 다운 작업 보고서를받을 필요가있는 경우에 발생</GetDrillDownReportEvent>
     <GetHyperlinkEvent>구성 요소의 하이퍼 링크를받을 때 발생</GetHyperlinkEvent>
@@ -992,30 +1003,47 @@
     <GrowToHeight>이 구성 요소의 높이가 컨테이너의 바닥을 향해 증감을 나타내는 값</GrowToHeight>
     <Height>구성 요소의 높이</Height>
     <HorAlignment>수평 배치</HorAlignment>
+    <Hover>사용자가 구성요소 위에 커서를 놓았을 때의 호버 상태입니다.</Hover>
     <Hyperlink>구성 요소의 하이퍼 링크를 충족 식</Hyperlink>
+    <Icon>구성 요소에 사용되는 아이콘입니다.</Icon>
+    <IconAlignment>구성 요소에 표시될 아이콘의 정렬값입니다.</IconAlignment>
+    <IconBrush>구성 요소의 아이콘 브러시입니다.</IconBrush>
+    <IconSet>구성 요소에서 사용되는 아이콘 집합입니다.</IconSet>
     <Interaction>이 구성 요소의 상호 작용 옵션</Interaction>
     <Left>구성 요소의 왼쪽 위치</Left>
     <Linked>컨테이너에 객체 스냅이 켜져 있는지를 나타내는 값</Linked>
     <Locked>이동이 잠겨 있는지를 나타내는 값</Locked>
+    <Margin>이 구성 요소와 다른 구성 요소의 여백 사이의 마진을 지정합니다.</Margin>
     <MasterComponent>마스터 구성 요소</MasterComponent>
     <MaxSize>최대 크기</MaxSize>
     <MinSize>최소 크기</MinSize>
     <MouseEnterEvent>사용자가 보고서 뷰어 구성 요소의 영역에 마우스를 놓을 때 발생</MouseEnterEvent>
     <MouseLeaveEvent>사용자가 보고서 뷰어 구성 요소의 영역에서 마우스를 놓을 때 발생</MouseLeaveEvent>
     <Name>요소 이름</Name>
+    <Padding>구성요소의 내부 간격을 지정합니다.</Padding>
+    <Pressed>사용자가 구성 요소를 눌렀을 때의 눌린 상태입니다.</Pressed>
     <Printable>구성 요소를 인쇄 할 수 있는지 여부를 나타내는 값</Printable>
     <PrintOn>요소를 모든 페이지에 인쇄할지 여부를 나타내는 값</PrintOn>
     <Restrictions>구성 요소의 제한을 나타내는 값</Restrictions>
+    <Shadow>구성 요소의 그림자 설정입니다.</Shadow>
+    <ShapeType>구성 요소의 형태를 그리는 데 사용되는 모양을 나타냅니다.</ShapeType>
     <ShiftMode>구성 요소의 이동 모드를 나타내는 값</ShiftMode>
     <Sort>정렬 규칙을 기술하는 캐릭터 라인의 배열</Sort>
+    <Stretch>할당된 공간을 채우기 위해 구성 요소의 크기를 조정하는 방법을 설명합니다.</Stretch>
     <Tag>구성 요소 태그를 충족 식</Tag>
+    <Text>텍스트는 구성 요소와 관련되어 있습니다.</Text>
     <TextBrush>텍스트를 그리는 브러시</TextBrush>
+    <ThreeStates>컨트롤이 두 개 또는 세 개의 상태를 지원함을 나타냅니다.</ThreeStates>
     <ToolTip>구성 요소 ToolTip를 채우는 식</ToolTip>
     <Top>구성 요소의 상단 위치</Top>
     <TotalLabel>합계의 라벨로 표시되는 값을 가져오거나 설정합니다.</TotalLabel>
+    <Type>해당 구성 요소 동작의 유형을 설명합니다.</Type>
     <UseParentStyles>이 구성 요소가 부모 요소의 스타일을 사용할 필요가있는 것을 나타내는 값</UseParentStyles>
     <VertAlignment>객체의 수직 정렬</VertAlignment>
+    <VisualStates>구성 요소의 다양한 시각적 상태를 관리합니다.</VisualStates>
+    <Watermark>구성 요소에 사용된 워터마크입니다.</Watermark>
     <Width>구성 요소의 폭</Width>
+    <WordWrap>여러 줄 텍스트가 단어를 줄바꿈할지 여부를 나타냅니다.</WordWrap>
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>앤티 그리기 모드를 제어하는 ​​값</Antialiasing>
@@ -1032,6 +1060,12 @@
     <TitleVisible>상수 행의 표시</TitleVisible>
     <Visible>상수 행의 표시</Visible>
   </StiConstantLines>
+  <StiCornerRadius>
+    <BottomLeft>왼쪽 아래 모서리의 반지름을 지정하는 값입니다.</BottomLeft>
+    <BottomRight>오른쪽 아래 모서리의 반지름을 지정하는 값입니다.</BottomRight>
+    <TopLeft>왼쪽 상단 모서리의 반지름을 지정하는 값입니다.</TopLeft>
+    <TopRight>오른쪽 상단 모서리의 반지름을 지정하는 값입니다.</TopRight>
+  </StiCornerRadius>
   <StiCrossDataBand>
     <MaxWidth>밴드 최대폭</MaxWidth>
     <MinWidth>밴드의 최소 폭</MinWidth>
@@ -1733,12 +1767,16 @@
     <ConvertNulls>null 또는 DBNull을 변환 할 필요가 있는지 여부를 나타내는 값</ConvertNulls>
     <EndRenderEvent>보고서 렌더링이 완료되면 발생</EndRenderEvent>
     <EngineVersion>현재보고 엔진</EngineVersion>
+    <ExportedEvent>보고서 내보내기가 종료될 때 발생합니다.</ExportedEvent>
+    <ExportingEvent>보고서 내보내기가 시작될 때 발생합니다.</ExportingEvent>
     <GlobalizationStrings>국제화 문자열로 구성된 컬렉션</GlobalizationStrings>
     <NumberOfPass>보고서 생성시 보고서 생성기를 만들 경로의 수</NumberOfPass>
     <ParametersOrientation>매개 변수 패널 방향을 나타내는 값</ParametersOrientation>
     <PreviewMode>보고서 미리보기 모드</PreviewMode>
     <PreviewSettings>미리보기 창에 표시되는 컨트롤</PreviewSettings>
+    <PrintedEvent>보고서 인쇄가 종료될 때 발생합니다.</PrintedEvent>
     <PrinterSettings>프린터 설정</PrinterSettings>
+    <PrintingEvent>보고서가 인쇄를 시작할 때 발생합니다.</PrintingEvent>
     <ReferencedAssemblies>참조되는 어셈블리의 배열</ReferencedAssemblies>
     <RenderingEvent>페이지가 렌더링 될 때 발생</RenderingEvent>
     <ReportAlias>보고서 별칭</ReportAlias>

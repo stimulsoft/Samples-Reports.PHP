@@ -281,6 +281,8 @@
     <ExportFormatDataType>Datentyp:</ExportFormatDataType>
     <ExportFormatImage>Bild</ExportFormatImage>
     <ExportFormatImageType>Bildtyp:</ExportFormatImageType>
+    <FrameworkType>Framework-Typ</FrameworkType>
+    <FrameworkVersion>Framework-Version</FrameworkVersion>
     <FullScreenViewer>Den Viewer im vollen Browserfenster  anzeigen</FullScreenViewer>
     <FullScreenViewerToolTip>Der Viewer mit dem Bericht wird auf dem ganzen verfügbaren Bereich des Browser-Fensters angezeigt werden.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Stimulsoft Sammlungen aus {0} erhalten</GetLibrariesFrom>
@@ -957,6 +959,7 @@
     <AfterPrintEvent>Tritt auf nach der Ausgabe der Komponente.</AfterPrintEvent>
     <Alias>Ein Text wird an Stelle eines Komponenten-Namens angezeigt. Wenn der Text nicht angegeben wird, wird der Name angezeigt.</Alias>
     <Anchor>Liest oder setzt den Wert, der den Modus der Verknüpfung der Komponentenposition zur übergeordneten Komponentengröße anzeigt.</Anchor>
+    <BackColor>Die Hintergrundfarbe der Komponente.</BackColor>
     <BeforePrintEvent>Tritt auf vor der Ausgabe der Komponente.</BeforePrintEvent>
     <Bookmark>Ausdruck, um eine Bookmark-Komponente zu füllen.</Bookmark>
     <Border>Rahmen einer Komponente.</Border>
@@ -967,14 +970,20 @@
     <CanShrink>Wert, der anzeigt, dass das Objekt schrumpfen kann.</CanShrink>
     <CellDockStyle>Andock-Stil einer Zelle.</CellDockStyle>
     <CellType>Typ des Zelleninhalts.</CellType>
+    <CheckAlignment>Bestimmt die Lage des Kontrollkästchens  der Komponente innerhalb der Komponente.</CheckAlignment>
+    <CheckBrush>Der Kontrollkästchen-Pinsel der Komponente.</CheckBrush>
+    <Checked>Gibt an, ob die Komponente im aktivierten Zustand ist.</Checked>
     <CheckedChangedEvent>Erfolgt, wenn der Checked-Zustand verändert wird.</CheckedChangedEvent>
+    <CheckSize>Die Kontrollkästchen-Größe der Komponente.</CheckSize>
     <ClickEvent>Tritt auf, wenn ein Benutzer die Komponente im Viewer-Fenster anklickt.</ClickEvent>
     <ComponentStyle>Komponentenart.</ComponentStyle>
     <Conditions>Eine Liste von Bedingungen.</Conditions>
+    <CornerRadius>Stellt den Wert dar, bis dem die Ecken abgerundet sind.</CornerRadius>
     <CountData>Zeilenzähler für virtuelle Daten.</CountData>
     <CrossFiltering>Gets or sets a value which controls applying cross-filters from the current page to that element.</CrossFiltering>
     <DataRelation>Eine Verbindung zur Ausführung von Master-Detail Reports.</DataRelation>
     <DataSource>Datenquelle, die benutzt wird, um Daten zu erhalten.</DataSource>
+    <Disabled>Der nicht-interaktiver Zustand der Komponente.</Disabled>
     <DockStyle>Arten des Komponenten-Andockens.</DockStyle>
     <DoubleClickEvent>Tritt auf, beim Doppelklick des Benutzers im Report-Viewer einer Komponente.</DoubleClickEvent>
     <Editable>Wert, der anzeigt, dass eine Komponente im Fenster des Viewers geändert werden kann.</Editable>
@@ -984,6 +993,8 @@
     <FilterOn>Wert, der anzeigt, dass der Filter aktiviert ist.</FilterOn>
     <Filters>Liste von Datenfiltern.</Filters>
     <FixedWidth>Wert, der die feste Breite einer Komponente festlegt.</FixedWidth>
+    <Font>Die Schriftart, die für die Anzeige vom Text im Steuerlement verwendet wird.</Font>
+    <ForeColor>Die Fordergrundfarbe dieser Komponente, die für Anzeige vom Text verwendet ist.</ForeColor>
     <GetBookmarkEvent>Tritt auf bei Verfügbarkeit einesBookmarks einer Komponente.</GetBookmarkEvent>
     <GetDrillDownReportEvent>Tritt auf, bei der Berichtsanforderung für eine Drill-Down Operation.</GetDrillDownReportEvent>
     <GetHyperlinkEvent>Tritt auf, bei Verfügbarkeit eines Hyperlinks einer Komponente.</GetHyperlinkEvent>
@@ -992,30 +1003,47 @@
     <GrowToHeight>Wert, der angibt, dass die Höhe dieser Komponente zunimmt/abnimmt bezogen auf den unteren Rand des Containers.</GrowToHeight>
     <Height>Höhe der Komponenten.</Height>
     <HorAlignment>Horizontale Ausrichtung.</HorAlignment>
+    <Hover>Der Zustand, bei dem der Benutzer den Mauszeiger auf die Komponente platziert hat.</Hover>
     <Hyperlink>Ausdruck, um eine Hyperlink-Komponente zu füllen.</Hyperlink>
+    <Icon>Das für die Komponente verwendende Symbol.</Icon>
+    <IconAlignment>Ausrichtung vom Symbol, das auf der Komponente angezeigt wird.</IconAlignment>
+    <IconBrush>Der Symbol-Pinsel der Komponente.</IconBrush>
+    <IconSet>Das für die Komponente verwendende Symbol.</IconSet>
     <Interaction>Behandlung dieser Komponente.</Interaction>
     <Left>Linke Stelle der Komponenten.</Left>
     <Linked>Wert, der angibt, ob die Komponente fix mit dem übergeordneten Container verknüpft wird.</Linked>
     <Locked>Wert, der anzeigt, dass das Verschieben nicht möglich ist.</Locked>
+    <Margin>Legt den Raum zwischen dieser Komponente und den Rändern der anderen Komponente fest.</Margin>
     <MasterComponent>Master-Komponente.</MasterComponent>
     <MaxSize>Maximale Größe.</MaxSize>
     <MinSize>Minimale Größe.</MinSize>
     <MouseEnterEvent>Tritt auf, wenn der Benutzer mit der Maus in der Komponente des Report-Viewers arbeitet.</MouseEnterEvent>
     <MouseLeaveEvent>Tritt auf, wenn der Benutzer mit der Maus den Bereich der Komponente im Report-Viewer verlässt.</MouseLeaveEvent>
     <Name>Name der Komponente.</Name>
+    <Padding>Legt den inneren Abstand der Komponente fest.</Padding>
+    <Pressed>Der Zustand, bei dem der Benutzer auf Komponente gedrückt hat.</Pressed>
     <Printable>Wert, der anzeigt, ob eine Komponente ausgegeben werden kann.</Printable>
     <PrintOn>Wert, der anzeigt, auf welchen Seiten die Komponente angezeigt wird.</PrintOn>
     <Restrictions>Wert, der die Begrenzung einer Komponente angibt.</Restrictions>
+    <Shadow>Schatten-Einstellungen der Komponente.</Shadow>
+    <ShapeType>Gibt an, welche geometrische Form für Zeichnen von Form der Komponente verwendet wird.</ShapeType>
     <ShiftMode>Wert, der den Shift-Modus einer Komponenten anzeigt.</ShiftMode>
     <Sort>Eine String-Tabelle zur Beschreibung von Sortierregeln.</Sort>
+    <Stretch>Beschreibt, wie die Größe der Komponente ändert, um vorgesehenen Raum auszufüllen.</Stretch>
     <Tag>Ausdruck, um eine Tag-Komponente zu füllen.</Tag>
+    <Text>Der mit der Komponente verbundene Text.</Text>
     <TextBrush>Pinsel, um einen Text zu zeichnen.</TextBrush>
+    <ThreeStates>Gibt an, das das Steuerelement 2 oder 3 Zustände unterstützt.</ThreeStates>
     <ToolTip>Ausdruck, um eine ToolTip-Komponente zu füllen.</ToolTip>
     <Top>Obere Position der Komponenten.</Top>
     <TotalLabel>Gets or sets a value that is displayed as a label for a total.</TotalLabel>
+    <Type>Beschreibt die Benehmen-Typen dieser Komponente.</Type>
     <UseParentStyles>Wert, der anzeigt, dass diese Komponente Grundstrukturen einer übergeordneten Komponente benutzen muss.</UseParentStyles>
     <VertAlignment>Vertikale Ausrichtung eines Objektes.</VertAlignment>
+    <VisualStates>Steuert verschiedene visuelle Zustände der Komponente.</VisualStates>
+    <Watermark>Das für diese Komponente verwendende Wasserzeichen.</Watermark>
     <Width>Breite der Komponenten.</Width>
+    <WordWrap>Gibt an, ob die Worten im mehrzeiligen Text umgebrochen werden.</WordWrap>
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>Wert, der die Glättung des Darstellungsmodus steuert.</Antialiasing>
@@ -1032,6 +1060,12 @@
     <TitleVisible>Sichtbarkeit des Titels einer festen Linie.</TitleVisible>
     <Visible>Sichtbarkeit einer der festen Linie.</Visible>
   </StiConstantLines>
+  <StiCornerRadius>
+    <BottomLeft>Der Wert, der den Radius der unteren linken Ecke bestimmt.</BottomLeft>
+    <BottomRight>Der Wert, der den Radius der unteren rechten Ecke bestimmt.</BottomRight>
+    <TopLeft>Der Wert, der den Radius der oberen linken Ecke bestimmt.</TopLeft>
+    <TopRight>Der Wert, der den Radius der oberen rechten Ecke bestimmt.</TopRight>
+  </StiCornerRadius>
   <StiCrossDataBand>
     <MaxWidth>Maximale Breite eines Bandes.</MaxWidth>
     <MinWidth>Minimale Breite eines Bandes.</MinWidth>
@@ -1733,12 +1767,16 @@
     <ConvertNulls>Wert, der anzeigt, ob es notwendig, Null oder DBNull zu konvertieren.</ConvertNulls>
     <EndRenderEvent>Tritt auf, wenn die Reportausführung beendet ist.</EndRenderEvent>
     <EngineVersion>Aktuelle Report-Engine.</EngineVersion>
+    <ExportedEvent>Erfolgt bei der Beendung vom Bericht-Export.</ExportedEvent>
+    <ExportingEvent>Erfolgt bei dem Anfang vom Bericht-Export.</ExportingEvent>
     <GlobalizationStrings>Eine Sammlung von globalen Zeichenfolgen.</GlobalizationStrings>
     <NumberOfPass>Anzahl der der Durchläufe des Reportgenerators während der Reportaufbereitung.</NumberOfPass>
     <ParametersOrientation>Wert, der angibt, wie das Panel mit den Parameter-Eingabefeldern ausgerichtet wird.</ParametersOrientation>
     <PreviewMode>Vorschaumodus eines Bereichts.</PreviewMode>
     <PreviewSettings>Steuerelemente, die im Vorschaufenster gezeigt werden.</PreviewSettings>
+    <PrintedEvent>Erfolgt bei der Beendung vom Bericht-Drucken.</PrintedEvent>
     <PrinterSettings>Ausgabe-Einrichtung.</PrinterSettings>
+    <PrintingEvent>Erfolgt bei dem Anfang vom Bericht-Drucken.</PrintingEvent>
     <ReferencedAssemblies>Array für untereinander verbundene Assemblies.</ReferencedAssemblies>
     <RenderingEvent>Tritt auf, wenn die Seite ausgeführt wird.</RenderingEvent>
     <ReportAlias>Report-Alias.</ReportAlias>

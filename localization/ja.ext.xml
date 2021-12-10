@@ -793,12 +793,15 @@
     <Color>メジャーグリッド線の描画に使用される色</Color>
   </StiChartGridLines>
   <StiChartInterlacing>
+    <Color>Color which will be used for drawing interlaced bars.</Color>
     <Visible>インターレースバーの可視性</Visible>
   </StiChartInterlacing>
   <StiChartLabels>
     <AutoRotate>シリーズラベルの自動回転モード描画を有効または無効にする値</AutoRotate>
     <Font>シリーズラベルを描画するために使用されるフォント</Font>
     <ForeColor>ラベル描画の色</ForeColor>
+    <Position>ラベルの位置</Position>
+    <Style>ラベルのスタイル。</Style>
     <TextAfter>ラベルテキストの後に表示されるテキスト</TextAfter>
     <TextBefore>ラベルテキストの前に表示されるテキスト</TextBefore>
   </StiChartLabels>
@@ -816,6 +819,7 @@
   <StiChartLegendTitle>
     <Color>凡例のタイトルカラー</Color>
     <Font>チャートの凡例のタイトルフォント</Font>
+    <Text>凡例のタイトルテキスト</Text>
   </StiChartLegendTitle>
   <StiChartTable>
     <Font>グラフ表のフォント</Font>
@@ -824,6 +828,8 @@
     <GridLinesVert>垂直グリッド線の可視性</GridLinesVert>
     <GridOutline>グリッドアウトラインの可視性</GridOutline>
     <MarkerVisible>マーカーの可視性</MarkerVisible>
+    <NegativeSeriesColors>負の値の描画シリーズに使用される色のリスト</NegativeSeriesColors>
+    <SeriesColors>描画シリーズに使用される色のリスト</SeriesColors>
     <Visible>グラフ表の可視性</Visible>
   </StiChartTable>
   <StiChartTitle>
@@ -963,6 +969,7 @@
     <CanShrink>このオブジェクトが縮小できることを示す値</CanShrink>
     <CellDockStyle>セルドッキングのタイプ</CellDockStyle>
     <CellType>セルコンテンツのタイプ</CellType>
+    <CheckedChangedEvent>チェック状態が変更されたときに発生します。</CheckedChangedEvent>
     <ClickEvent>ユーザーがビューアのウィンドウでコンポーネントをクリックすると発生</ClickEvent>
     <ComponentStyle>コンポーネントのスタイル</ComponentStyle>
     <Conditions>条件の集計</Conditions>
@@ -974,6 +981,7 @@
     <DoubleClickEvent>ユーザーがレポートビューアでコンポーネントをダブルクリックしたときに発生</DoubleClickEvent>
     <Editable>ビューアのウィンドウでコンポーネントを編集できることを示す値</Editable>
     <Enabled>このコンポーネントが使用可能かどうかを示す値</Enabled>
+    <ExceedMargins>コンポーネントの背景のマージンを超える値を取得または設定します。</ExceedMargins>
     <FilterMode>フィルタモード</FilterMode>
     <FilterOn>フィルタがオンになっていることを示す値</FilterOn>
     <Filters>データフィルタのコレクション</Filters>
@@ -1294,6 +1302,38 @@
     <Style>ゲージスタイル</Style>
     <Title>ゲージタイトル</Title>
   </StiGaugeElement>
+  <StiGaugeStyle>
+    <BorderColor>境界線の色を取得または設定します。</BorderColor>
+    <BorderWidth>ボーダーサイズ</BorderWidth>
+    <Brush>スタイルを塗りつぶすブラシを取得または設定します。</Brush>
+    <ForeColor>テキストを描画するためのブラシを取得または設定します。</ForeColor>
+    <LinearBarBorderBrush>LinearBarの境界線を取得または設定します。</LinearBarBorderBrush>
+    <LinearBarBrush>ブラシLinearBarを取得または設定します。</LinearBarBrush>
+    <LinearBarEmptyBorderBrush>LinearBarの空の境界線を取得または設定します。</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>空のブラシLinearBarを取得または設定します。</LinearBarEmptyBrush>
+    <LinearScaleBrush>ブラシLinearScaleを取得または設定します。</LinearScaleBrush>
+    <MarkerBrush>ブラシマーカーを取得または設定します。</MarkerBrush>
+    <NeedleBorderBrush>針の境界線を取得または設定します。</NeedleBorderBrush>
+    <NeedleBorderWidth>ボーダーサイズ</NeedleBorderWidth>
+    <NeedleBrush>ブラシニードルを取得または設定します。</NeedleBrush>
+    <NeedleCapBorderBrush>キャップの境界線を取得または設定します。</NeedleCapBorderBrush>
+    <NeedleCapBrush>キャップを埋めるためのブラシを取得または設定します。</NeedleCapBrush>
+    <RadialBarBorderBrush>RadialBarの境界線を取得または設定します。</RadialBarBorderBrush>
+    <RadialBarBrush>ブラシRadialBarを取得または設定します。</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>RadialBarの空の境界線を取得または設定します。</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>空のブラシRadialBarを取得または設定します。</RadialBarEmptyBrush>
+    <TargetColor>ターゲットカラーを取得または設定します。</TargetColor>
+    <TickLabelMajorFont>TickLabelMajorを描画するためのフォントを取得または設定します。</TickLabelMajorFont>
+    <TickLabelMajorTextBrush>テキストを描画するためのブラシを取得または設定します。</TickLabelMajorTextBrush>
+    <TickLabelMinorFont>TickLabelMinorを描画するためのフォントを取得または設定します。</TickLabelMinorFont>
+    <TickLabelMinorTextBrush>テキストを描画するためのブラシを取得または設定します。</TickLabelMinorTextBrush>
+    <TickMarkMajorBorder>TickMarkMajorの境界線を取得または設定します。</TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>ボーダーサイズ</TickMarkMajorBorderWidth>
+    <TickMarkMajorBrush>TickMarkMajorを埋めるためのブラシを取得または設定します。</TickMarkMajorBrush>
+    <TickMarkMinorBorder>TickMarkMinorの境界線を取得または設定します。</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>ボーダーサイズ</TickMarkMinorBorderWidth>
+    <TickMarkMinorBrush>TickMarkMinorを埋めるためのブラシを取得または設定します。</TickMarkMinorBrush>
+  </StiGaugeStyle>
   <StiGlareBrush>
     <Angle>グラジエントの方向線のx軸から時計回りに測った角度</Angle>
     <EndColor>グラデーションの終了色</EndColor>
@@ -1569,6 +1609,7 @@
     <EndRenderEvent>ページのレンダリングが終了したときに発生</EndRenderEvent>
     <ExcelSheet>Excelシートの生成名に使用される式</ExcelSheet>
     <GetExcelSheetEvent>ExcelSheetが計算されると発生</GetExcelSheetEvent>
+    <Icon>ページアイコン</Icon>
     <LargeHeight>このページの高さがデザイナーで大きいことを示す値</LargeHeight>
     <LargeHeightFactor>このページのLargeHeightプロパティの大きな高さ係数</LargeHeightFactor>
     <Margins>ページの余白</Margins>
@@ -1709,6 +1750,8 @@
     <ReportAuthor>レポート作成者</ReportAuthor>
     <ReportCacheMode>レポートエンジンがレポートキャッシュをどのように使用するかを示す値</ReportCacheMode>
     <ReportDescription>レポートの説明</ReportDescription>
+    <ReportIcon>レポートアイコン</ReportIcon>
+    <ReportImage>レポート画像</ReportImage>
     <ReportName>レポート名</ReportName>
     <ReportUnit>レポートの現在の単位</ReportUnit>
     <RequestParameters>ユーザーがレポートをレンダリングする前にパラメータを要求するか、デフォルト値のパラメータを使用してレポートをレンダリングするかを示す値を取得または設定します。</RequestParameters>

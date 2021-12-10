@@ -231,9 +231,11 @@
     <StiCompilationErrorCheck3Long>The error of compilation is found in the '{1}' event of the '{2}' component:</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>The error of compilation is found in the '{0}' report:</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>The error of compilation</StiCompilationErrorCheckShort>
+    <StiDuplicatedName3CheckLong>There are several data sources with the name '{0}' which differ in case.</StiDuplicatedName3CheckLong>
     <StiDuplicatedName2CheckLong>There are several data sources with the '{0}' name.</StiDuplicatedName2CheckLong>
     <StiDuplicatedNameCheckLong>There are several components with the '{0}' name.</StiDuplicatedNameCheckLong>
-    <StiDuplicatedNameCheckShort>The components with duplicate names are found</StiDuplicatedNameCheckShort>
+    <StiDuplicatedNameCheckShort>The components with duplicate names are found</StiDuplicatedNameCheckShort>    
+	  <StiDuplicatedNameInSourceCheckShort>Duplicates in the data source</StiDuplicatedNameInSourceCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>The '{0}' relations are found in the report. They have equal ('{1}') values in the NameInSource. All values in the NameInSource should be unique in the range of one relation to one database! It is necessary to correct these fields of relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicates in relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>

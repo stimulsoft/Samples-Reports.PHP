@@ -959,6 +959,7 @@
     <AfterPrintEvent>Срабатывает после печати компонента.</AfterPrintEvent>
     <Alias>Текст, который будет показан вместо имени компонента. Если текст не определен, то отображается имя.</Alias>
     <Anchor>Режим привязки положения компонента к размерам родительского компонента.</Anchor>
+    <BackColor>Цвет фона компонента.</BackColor>
     <BeforePrintEvent>Срабатывает перед печатью компонента.</BeforePrintEvent>
     <Bookmark>Выражение для заполнения закладки компонента.</Bookmark>
     <Border>Границы компонента.</Border>
@@ -969,14 +970,20 @@
     <CanShrink>Значение определяет, что данный объект может сжиматься.</CanShrink>
     <CellDockStyle>Тип стыковки ячейки.</CellDockStyle>
     <CellType>Тип содержимого ячейки.</CellType>
+    <CheckAlignment>Определяет расположение флажка внутри компонента.</CheckAlignment>
+    <CheckBrush>Кисть флажка компонента.</CheckBrush>
+    <Checked>Указывает, находится ли компонент в отмеченном состоянии.</Checked>
     <CheckedChangedEvent>Срабатывает, когда состояние Checked компонента изменяется.</CheckedChangedEvent>
+    <CheckSize>Размер флажка компонента.</CheckSize>
     <ClickEvent>Срабатывает, когда пользователь нажимает на компонент в окне предварительного просмотра.</ClickEvent>
     <ComponentStyle>Стиль компонента.</ComponentStyle>
     <Conditions>Коллекция условий.</Conditions>
+    <CornerRadius>Представляет значение, до которого закруглены углы.</CornerRadius>
     <CountData>Число строк для виртуальных данных.</CountData>
     <CrossFiltering>Значение, которое управляет использованием или не использованием кросс-фильтров текущей страницы для этого элемента.</CrossFiltering>
     <DataRelation>Ссылка, которая используется для построения master-detail отчетов.</DataRelation>
     <DataSource>Источник данных, который используется для получения данных.</DataSource>
+    <Disabled>Неинтерактивное состояние компонента.</Disabled>
     <DockStyle>Тип стыковки компонента.</DockStyle>
     <DoubleClickEvent>Срабатывает, когда пользователь двойным щелчком нажимает на компонент в окне предварительного просмотра.</DoubleClickEvent>
     <Editable>Значение, которое указывает, что компонент можно редактировать в окне вьювера.</Editable>
@@ -986,6 +993,8 @@
     <FilterOn>Значение указывает, что фильтр включен.</FilterOn>
     <Filters>Коллекция фильтров данных.</Filters>
     <FixedWidth>Значение, которое определяет, что ячейка имеет фиксированную ширину.</FixedWidth>
+    <Font>Шрифт, используемый для отображения текста в элементе управления.</Font>
+    <ForeColor>Цвет текста, который используется в этом компоненте.</ForeColor>
     <GetBookmarkEvent>Срабатывает при получении Bookmark для компонента.</GetBookmarkEvent>
     <GetDrillDownReportEvent>Срабатывает, когда требуется получить отчет для операции Drill-Down.</GetDrillDownReportEvent>
     <GetHyperlinkEvent>Срабатывает при получении Hyperlink для компонента.</GetHyperlinkEvent>
@@ -994,30 +1003,47 @@
     <GrowToHeight>Значение определяет, что высота данного компонента увеличивается/уменьшается книзу контейнера.</GrowToHeight>
     <Height>Высота компонента.</Height>
     <HorAlignment>Горизонтальное выравнивание объекта.</HorAlignment>
+    <Hover>Состояние, при котором пользователь навел курсор на компонент.</Hover>
     <Hyperlink>Выражение для заполнения гиперлинка компонента.</Hyperlink>
+    <Icon>Значок используемый для компонента.</Icon>
+    <IconAlignment>Выравнивание значка, который будет отображаться на компоненте.</IconAlignment>
+    <IconBrush>Кисть значка компонента.</IconBrush>
+    <IconSet>Набор значков используемых для компонента.</IconSet>
     <Interaction>Параметры взаимодействия данного компонента.</Interaction>
     <Left>Левая позиция компонента.</Left>
     <Linked>Значение, которое указывает, что привязка объекта к контейнеру включена.</Linked>
     <Locked>Значение, которое указывает, что перемещение компонента блокировано.</Locked>
+    <Margin>Задает расстояние между этим компонентом и границами другого компонента.</Margin>
     <MasterComponent>Мастер-компонент.</MasterComponent>
     <MaxSize>Максимальный размер.</MaxSize>
     <MinSize>Минимальный размер.</MinSize>
     <MouseEnterEvent>Срабатывает, когда пользователь наводит мышью на область компонента в окне предварительного просмотра.</MouseEnterEvent>
     <MouseLeaveEvent>Срабатывает, когда пользователь выводит мышь из области компонента в окне предварительного просмотра.</MouseLeaveEvent>
     <Name>Наименование компонента.</Name>
+    <Padding>Задает внутренний интервал компонента.</Padding>
+    <Pressed>Состояние, при котором пользователь нажал на компонент.</Pressed>
     <Printable>Значение определяет, будет ли компонент напечатан.</Printable>
     <PrintOn>Значение определяет, на каких страницах должен быть напечатан компонент.</PrintOn>
     <Restrictions>Значение определяет ограничения компонента.</Restrictions>
+    <Shadow>Настройки тени компонента.</Shadow>
+    <ShapeType>Указывает, какая геометрия используется для отрисовки формы компонента.</ShapeType>
     <ShiftMode>Значение определяет режим смены компонента.</ShiftMode>
     <Sort>Массив строк, который описывает правила сортировки.</Sort>
+    <Stretch>Описывает, как изменяется размер компонента, чтобы заполнить выделенное ему пространство.</Stretch>
     <Tag>Выражение для заполнения тега компонента.</Tag>
+    <Text>Текст связанный с компонентом.</Text>
     <TextBrush>Кисть для рисования текста.</TextBrush>
+    <ThreeStates>Указывает, что элемент управления поддерживает два или три состояния.</ThreeStates>
     <ToolTip>Выражение для заполнения подсказки компонента.</ToolTip>
     <Top>Верхняя позиция компонента.</Top>
     <TotalLabel>Значение, которое будет отображаться как подпись для итога.</TotalLabel>
+    <Type>Описывает тип поведения этого компонента.</Type>
     <UseParentStyles>Значение определяет, что данный компонент должен использовать стили из родительского компонента.</UseParentStyles>
     <VertAlignment>Вертикальное выравнивание объекта.</VertAlignment>
+    <VisualStates>Управляет различными визуальными состояниями компонента.</VisualStates>
+    <Watermark>Водяной знак используемый для компонента.</Watermark>
     <Width>Ширина компонента.</Width>
+    <WordWrap>Указывает, что переносятся слова или нет в многострочном тексте.</WordWrap>
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>Значение, которое управляет режимом сглаженного рисования линии.</Antialiasing>
@@ -1034,6 +1060,12 @@
     <TitleVisible>Видимость заголовка постоянной линии.</TitleVisible>
     <Visible>Видимость постоянной линии.</Visible>
   </StiConstantLines>
+  <StiCornerRadius>
+    <BottomLeft>Значение, определяющее радиус нижнего левого угла.</BottomLeft>
+    <BottomRight>Значение, определяющее радиус нижнего правого угла.</BottomRight>
+    <TopLeft>Значение, определяющее радиус верхнего левого угла.</TopLeft>
+    <TopRight>Значение, определяющее радиус верхнего правого угла.</TopRight>
+  </StiCornerRadius>
   <StiCrossDataBand>
     <MaxWidth>Максимальная ширина бенда.</MaxWidth>
     <MinWidth>Минимальная ширина бенда.</MinWidth>
@@ -1736,12 +1768,16 @@
     <ConvertNulls>Значение опеределяет, необходимо ли конвертировать null или DBNull.</ConvertNulls>
     <EndRenderEvent>Возникает, при окончании построения отчета.</EndRenderEvent>
     <EngineVersion>Текущее ядро генератора отчетов.</EngineVersion>
+    <ExportedEvent>Происходит при завершении экспорта отчета.</ExportedEvent>
+    <ExportingEvent>Происходит при начале экспорта отчета.</ExportingEvent>
     <GlobalizationStrings>Коллекция, которая содержит GlobalizationStrings.</GlobalizationStrings>
     <NumberOfPass>Количество проходов, которые генератор отчетов делает при построении отчета.</NumberOfPass>
     <ParametersOrientation>Ориентация панели параметров во вьювере отчетов.</ParametersOrientation>
     <PreviewMode>Режим просмотра отчета.</PreviewMode>
     <PreviewSettings>Элементы управления, которые будут отображены в окне предварительного просмотра.</PreviewSettings>
+    <PrintedEvent>Происходит при завершении печати отчета.</PrintedEvent>
     <PrinterSettings>Настройки печати.</PrinterSettings>
+    <PrintingEvent>Происходит в начале печати отчета.</PrintingEvent>
     <ReferencedAssemblies>Массив Referenced Assemblies.</ReferencedAssemblies>
     <RenderingEvent>Возникает, когда страница построена.</RenderingEvent>
     <ReportAlias>Псевдоним отчета.</ReportAlias>
