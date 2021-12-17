@@ -17,15 +17,12 @@ require_once 'stimulsoft/helper.php';
 	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
 	
-	<!-- Stimulsoft Dashboards.JS -->
-	<script src="scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
-	
 	<!-- Stimulsoft JS Viewer (for preview tab) and Stimulsoft JS Designer -->
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 	<script src="scripts/stimulsoft.designer.js" type="text/javascript"></script>
 	
 	<!-- Stimulsoft Blockly editor for JS Designer -->
-    <script src="scripts/stimulsoft.blockly.js" type="text/javascript"></script>
+    <script src="scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
 	
 	<?php
 		// Add JavaScript helpers and init options to work with the PHP server
