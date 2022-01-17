@@ -234,8 +234,8 @@
     <StiDuplicatedName3CheckLong>There are several data sources with the name '{0}' which differ in case.</StiDuplicatedName3CheckLong>
     <StiDuplicatedName2CheckLong>There are several data sources with the '{0}' name.</StiDuplicatedName2CheckLong>
     <StiDuplicatedNameCheckLong>There are several components with the '{0}' name.</StiDuplicatedNameCheckLong>
-    <StiDuplicatedNameCheckShort>The components with duplicate names are found</StiDuplicatedNameCheckShort>    
-	  <StiDuplicatedNameInSourceCheckShort>Duplicates in the data source</StiDuplicatedNameInSourceCheckShort>
+    <StiDuplicatedNameCheckShort>The components with duplicate names are found</StiDuplicatedNameCheckShort>
+    <StiDuplicatedNameInSourceCheckShort>Duplicates in the data source</StiDuplicatedNameInSourceCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>The '{0}' relations are found in the report. They have equal ('{1}') values in the NameInSource. All values in the NameInSource should be unique in the range of one relation to one database! It is necessary to correct these fields of relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicates in relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>
@@ -266,6 +266,8 @@
     <AddNewConnection>Add New Connection</AddNewConnection>
     <Cancel>Cancel</Cancel>
     <Close>Close</Close>
+    <ChangeExportSettings>Change export settings</ChangeExportSettings>
+    <ChangeExportSettingsToolTip>The code for creating the settings class of the selected export format will be added. In the project, you can change the export settings.</ChangeExportSettingsToolTip>
     <ConnectionsFromReport>Use Connection from Report</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>Connections saved in the report template will be used without any modifications.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Register Data from Code</ConnectionsRegData>

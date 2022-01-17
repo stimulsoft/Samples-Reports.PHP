@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2022.1.2
-Build date: 2021.12.15
+Version: 2022.1.4
+Build date: 2022.01.14
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 export namespace Stimulsoft.System {
@@ -2586,12 +2586,12 @@ export namespace Stimulsoft.System.Drawing {
 export namespace Stimulsoft.System.Drawing.Drawing2D {
     import Point = Stimulsoft.System.Drawing.Point;
     class Matrix {
-        a: number;
-        c: number;
-        b: number;
-        d: number;
-        tx: number;
-        ty: number;
+        private a;
+        private c;
+        private b;
+        private d;
+        private tx;
+        private ty;
         get elements(): number[];
         constructor(...arg: any[]);
         private setValues;
@@ -7225,11 +7225,11 @@ export namespace Stimulsoft.Base.Map {
     let IStiMapKeyHelper: System.Interface<IStiMapKeyHelper>;
     interface IStiMapKeyHelper {
         getMapIdents(key: string): List<string>;
-        getIsoAlpha2FromName(country: string, mapId: string): string;
-        getIsoAlpha3FromName(country: string, mapId: string): string;
-        getNameFromIsoAlpha2(alpha3: string, mapId: string): string;
-        getNameFromIsoAlpha3(alpha3: string, mapId: string): string;
-        normalizeName(name: string, mapId: string, report: IStiReport): string;
+        getIsoAlpha2FromName(country: string, mapId: string, lang: string): string;
+        getIsoAlpha3FromName(country: string, mapId: string, lang: string): string;
+        getNameFromIsoAlpha2(alpha3: string, mapId: string, lang: string): string;
+        getNameFromIsoAlpha3(alpha3: string, mapId: string, lang: string): string;
+        normalizeName(name: string, mapId: string, lang: string, report: IStiReport): string;
     }
 }
 export namespace Stimulsoft.Base.Meta {
@@ -7260,7 +7260,7 @@ export namespace Stimulsoft.Base.Meta {
     class StiBoolMeta extends StiMeta<boolean> {
         defaultValue: boolean;
         saveToJsonObject(jObject: StiJson, obj: any): void;
-        constructor(originalName: string, jsName?: string, defaultValue?: boolean);
+        constructor(originalName: string | string[], jsName?: string, defaultValue?: boolean);
     }
 }
 export namespace Stimulsoft.Base.Meta {
@@ -7305,7 +7305,7 @@ export namespace Stimulsoft.Base.Meta {
     import StiJson = Stimulsoft.Base.StiJson;
     class StiExpressionMeta extends StiMeta {
         saveToJsonObject(jObject: StiJson, obj: any, mode: StiJsonSaveMode): void;
-        constructor(originalName: string, jsName?: string);
+        constructor(originalName: string | string[], jsName?: string);
     }
 }
 export namespace Stimulsoft.Base.Meta {
@@ -7340,13 +7340,13 @@ export namespace Stimulsoft.Base.Meta {
     class StiNumberMeta extends StiMeta<number> {
         defaultValue: number;
         saveToJsonObject(jObject: StiJson, obj: any): void;
-        constructor(originalName: string, jsName?: string, defaultValue?: number);
+        constructor(originalName: string | string[], jsName?: string, defaultValue?: number);
     }
 }
 export namespace Stimulsoft.Base.Meta {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     class StiObjectMeta extends StiMeta<IStiJsonReportObject> {
-        constructor(originalName: string, jsName?: string);
+        constructor(originalName: string | string[], jsName?: string);
     }
 }
 export namespace Stimulsoft.Base.Meta {
@@ -8454,16 +8454,16 @@ export namespace Stimulsoft.Data.Functions {
         private static iso2Cache;
         static getMapIdents(key: string): List<string>;
         static getIso2ConvertedValues(name: string): List<string>;
-        static iso2(name: string, mapId?: string): string;
-        static iso2Object(value: any, mapId?: string): any;
-        static iso2ToName(alpha2: string, mapId?: string): string;
-        static iso2ToNameObject(value: any, mapId?: string): any;
-        static iso3(name: string, mapId?: string): string;
-        static iso3Object(value: any, mapId?: string): any;
-        static iso3ToName(alpha3: string, mapId?: string): string;
-        static iso3ToNameObject(value: any, mapId?: string): any;
-        static normalizeName(alpha3: string, mapId?: string): string;
-        static normalizeNameObject(value: any, mapId?: string): any;
+        static iso2(name: string, mapId: string, lang: string): string;
+        static iso2Object(value: any, mapId: string, lang: string): any;
+        static iso2ToName(alpha2: string, mapId: string, lang: string): string;
+        static iso2ToNameObject(value: any, mapId: string, lang: string): any;
+        static iso3(name: string, mapId: string, lang: string): string;
+        static iso3Object(value: any, mapId: string, lang: string): any;
+        static iso3ToName(alpha3: string, mapId: string, lang: string): string;
+        static iso3ToNameObject(value: any, mapId: string, lang: string): any;
+        static normalizeName(alpha3: string, mapId: string, lang: string): string;
+        static normalizeNameObject(value: any, mapId: string, lang: string): any;
         private static toProperCaseCache;
         private static toLowerCaseCache;
         private static toUpperCaseCache;
@@ -14117,7 +14117,6 @@ export namespace Stimulsoft.Report.Components {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import Image = Stimulsoft.System.Drawing.Image;
     import StiGetExcelValueEvent = Stimulsoft.Report.Events.StiGetExcelValueEvent;
-    import XmlNode = Stimulsoft.System.Xml.XmlNode;
     import IStiEditable = Stimulsoft.Report.Components.IStiEditable;
     import Font = Stimulsoft.System.Drawing.Font;
     import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
@@ -14134,7 +14133,6 @@ export namespace Stimulsoft.Report.Components {
         private static ImplementsStiText;
         implements(): any[];
         meta(): StiMeta[];
-        parseTextFromXml(xmlNode: XmlNode): void;
         get componentId(): StiComponentId;
         indicator: StiIndicator;
         getImage(REFzoom: any, format?: StiExportFormat): Image;
@@ -19622,9 +19620,7 @@ export namespace Stimulsoft.Report {
         preparedExportImages: Hashtable<StiComponent, Image>;
         modifiedVariables: Hashtable;
         metaTags: StiMetaTagCollection;
-        private _reportVersion;
-        get reportVersion(): string;
-        set reportVersion(value: string);
+        reportVersion: string;
         engine: StiEngine;
         private _reportRenderingMessages;
         get reportRenderingMessages(): string[];
@@ -28951,6 +28947,7 @@ export namespace Stimulsoft.Report.Dashboard {
         showBubble: boolean;
         shortValue: boolean;
         showName: StiDisplayNameType;
+        language: string;
         getMapData(): List<StiMapData>;
         createNextMeter(cell: IStiAppDataCell): any;
         addKeyMeter2(cell: IStiAppDataCell): any;
@@ -29106,6 +29103,7 @@ export namespace Stimulsoft.Report.Dashboard {
     }
 }
 export namespace Stimulsoft.Report.Dashboard {
+    import StiTextSizeMode = Stimulsoft.Report.Dashboard.StiTextSizeMode;
     import IStiBackColor = Stimulsoft.Report.Components.IStiBackColor;
     import IStiForeColor = Stimulsoft.Report.Components.IStiForeColor;
     import IStiHorAlignment = Stimulsoft.Report.Components.IStiHorAlignment;
@@ -29115,6 +29113,7 @@ export namespace Stimulsoft.Report.Dashboard {
     interface IStiTitle extends IStiFont, IStiHorAlignment, IStiForeColor, IStiBackColor {
         text: string;
         visible: boolean;
+        sizeMode: StiTextSizeMode;
     }
 }
 export namespace Stimulsoft.Report.Dashboard {
@@ -29704,97 +29703,101 @@ export namespace Stimulsoft.Report.Maps {
         Europe = 11,
         EuropeWithRussia = 12,
         France = 13,
-        Germany = 14,
-        Italy = 15,
-        Netherlands = 16,
-        Russia = 17,
-        UK = 18,
-        UKCountries = 19,
-        USAAndCanada = 20,
-        NorthAmerica = 21,
-        SouthAmerica = 22,
-        USA = 23,
-        Albania = 24,
-        Andorra = 25,
-        Argentina = 26,
-        ArgentinaFD = 27,
-        Afghanistan = 28,
-        Armenia = 29,
-        Azerbaijan = 30,
-        Belarus = 31,
-        Belgium = 32,
-        Bolivia = 33,
-        BosniaAndHerzegovina = 34,
-        Bulgaria = 35,
-        Chile = 36,
-        Colombia = 37,
-        Croatia = 38,
-        Cyprus = 39,
-        CzechRepublic = 40,
-        Denmark = 41,
-        Ecuador = 42,
-        Estonia = 43,
-        FalklandIslands = 44,
-        Finland = 45,
-        Georgia = 46,
-        Greece = 47,
-        Guyana = 48,
-        Hungary = 49,
-        Iceland = 50,
-        India = 51,
-        Indonesia = 52,
-        Ireland = 53,
-        Israel = 54,
-        Japan = 55,
-        Kazakhstan = 56,
-        Latvia = 57,
-        Liechtenstein = 58,
-        Lithuania = 59,
-        Luxembourg = 60,
-        Macedonia = 61,
-        Malaysia = 62,
-        Malta = 63,
-        Mexico = 64,
-        Moldova = 65,
-        Monaco = 66,
-        Montenegro = 67,
-        NewZealand = 68,
-        Norway = 69,
-        Oceania = 70,
-        Paraguay = 71,
-        Peru = 72,
-        Philippines = 73,
-        Poland = 74,
-        Portugal = 75,
-        Romania = 76,
-        SanMarino = 77,
-        SaudiArabia = 78,
-        Serbia = 79,
-        Slovakia = 80,
-        Slovenia = 81,
-        SouthAfrica = 82,
-        SouthKorea = 83,
-        Spain = 84,
-        Suriname = 85,
-        Sweden = 86,
-        Switzerland = 87,
-        Thailand = 88,
-        Turkey = 89,
-        Ukraine = 90,
-        Uruguay = 91,
-        Vatican = 92,
-        Venezuela = 93,
-        Vietnam = 94,
-        MiddleEast = 95,
-        Oman = 96,
-        Qatar = 97,
-        Benelux = 98,
-        Scandinavia = 99,
-        FranceDepartments = 100,
-        France18Regions = 101,
-        CentralAfricanRepublic = 102,
-        Asia = 103,
-        SoutheastAsia = 104
+        France_FR = 14,
+        Germany = 15,
+        Germany_DE = 16,
+        Italy = 17,
+        Italy_IT = 18,
+        Netherlands = 19,
+        Russia = 20,
+        Russia_RU = 21,
+        UK = 22,
+        UKCountries = 23,
+        USAAndCanada = 24,
+        NorthAmerica = 25,
+        SouthAmerica = 26,
+        USA = 27,
+        Albania = 28,
+        Andorra = 29,
+        Argentina = 30,
+        ArgentinaFD = 31,
+        Afghanistan = 32,
+        Armenia = 33,
+        Azerbaijan = 34,
+        Belarus = 35,
+        Belgium = 36,
+        Bolivia = 37,
+        BosniaAndHerzegovina = 38,
+        Bulgaria = 39,
+        Chile = 40,
+        Colombia = 41,
+        Croatia = 42,
+        Cyprus = 43,
+        CzechRepublic = 44,
+        Denmark = 45,
+        Ecuador = 46,
+        Estonia = 47,
+        FalklandIslands = 48,
+        Finland = 49,
+        Georgia = 50,
+        Greece = 51,
+        Guyana = 52,
+        Hungary = 53,
+        Iceland = 54,
+        India = 55,
+        Indonesia = 56,
+        Ireland = 57,
+        Israel = 58,
+        Japan = 59,
+        Kazakhstan = 60,
+        Latvia = 61,
+        Liechtenstein = 62,
+        Lithuania = 63,
+        Luxembourg = 64,
+        Macedonia = 65,
+        Malaysia = 66,
+        Malta = 67,
+        Mexico = 68,
+        Moldova = 69,
+        Monaco = 70,
+        Montenegro = 71,
+        NewZealand = 72,
+        Norway = 73,
+        Oceania = 74,
+        Paraguay = 75,
+        Peru = 76,
+        Philippines = 77,
+        Poland = 78,
+        Portugal = 79,
+        Romania = 80,
+        SanMarino = 81,
+        SaudiArabia = 82,
+        Serbia = 83,
+        Slovakia = 84,
+        Slovenia = 85,
+        SouthAfrica = 86,
+        SouthKorea = 87,
+        Spain = 88,
+        Suriname = 89,
+        Sweden = 90,
+        Switzerland = 91,
+        Thailand = 92,
+        Turkey = 93,
+        Ukraine = 94,
+        Uruguay = 95,
+        Vatican = 96,
+        Venezuela = 97,
+        Vietnam = 98,
+        MiddleEast = 99,
+        Oman = 100,
+        Qatar = 101,
+        Benelux = 102,
+        Scandinavia = 103,
+        FranceDepartments = 104,
+        France18Regions = 105,
+        CentralAfricanRepublic = 106,
+        Asia = 107,
+        SoutheastAsia = 108
     }
     enum StiMapStyleIdent {
         Style21 = 0,
@@ -32722,6 +32725,7 @@ export namespace Stimulsoft.Report.Dictionary {
     import StiPromise = Stimulsoft.System.StiPromise;
     class StiSqlSource extends StiDataTableSource implements IStiJsonReportObject {
         meta(): StiMeta[];
+        clone(): StiSqlSource;
         allowExpressions: boolean;
         type: StiSqlSourceType;
         commandTimeout: number;
@@ -32741,6 +32745,7 @@ export namespace Stimulsoft.Report.Dictionary {
     import StiMeta = Stimulsoft.Base.Meta.StiMeta;
     class StiCustomSource extends StiSqlSource {
         meta(): StiMeta[];
+        clone(): StiCustomSource;
         serviceName: string;
         static registerCustomSource(serviceName: string): void;
         getDataAdapter(): StiDataAdapterService;
@@ -35940,7 +35945,7 @@ export namespace Stimulsoft.Report.Maps {
         static isEU(id: StiMapID): boolean;
         static isOceania(id: StiMapID): boolean;
         static isAsia(id: StiMapID): boolean;
-        static getStates(report: StiReport, id: StiMapID): string[];
+        static getStates(report: StiReport, id: StiMapID, lang: string): string[];
         static getMapSample(): StiMap;
         static getColors(): Color[];
         static prepareIsoCode(text: string): string;
@@ -36060,6 +36065,7 @@ export namespace Stimulsoft.Report.Maps {
         showValue: boolean;
         shortValue: boolean;
         displayNameType: StiDisplayNameType;
+        language: string;
         mapIdent: string;
         mapType: StiMapType;
         private isMapDataChanged;
@@ -36081,7 +36087,7 @@ export namespace Stimulsoft.Report.Maps {
         get isHashDataEmpty(): boolean;
         createNew(): StiComponent;
         private _hashData;
-        static getDefaultMapData(report: StiReport, mapIdent: string): List<StiMapData>;
+        static getDefaultMapData(report: StiReport, mapIdent: string, lang: string): List<StiMapData>;
         getMapData(): List<StiMapData>;
         getCurrentStyleColors(): Color[];
         static getStyleColors(style: StiMapStyleIdent): Color[];
@@ -36382,6 +36388,7 @@ export namespace Stimulsoft.Report.Export {
         chartData: Hashtable;
         hashBookmarkGuid: Hashtable;
         private hiToPt;
+        private pxToPt;
         renderStyles: boolean;
         styles: StiCellStyle[];
         insertInteractionParameters: boolean;
@@ -36411,8 +36418,7 @@ export namespace Stimulsoft.Report.Export {
         private renderBorder2;
         renderBorder3(cell: StiHtmlTableCell, border: StiBorderSide, side: string, borderRadius?: number): void;
         private renderPosition;
-        private getHeight;
-        private getWidth;
+        private getSizeStrings;
         private renderImage;
         private renderImage2;
         private renderImage3;
@@ -37571,13 +37577,13 @@ export namespace Stimulsoft.Report.Helpers {
     class StiMapKeyHelper implements IStiMapKeyHelper {
         getMapIdents(key: string): List<string>;
         private static getMapIdents2;
-        getNameFromIsoAlpha2(alpha2: string, mapId?: string, report?: StiReport): string;
-        getNameFromIsoAlpha3(alpha3: string, mapId?: string, report?: StiReport): string;
-        normalizeName(name: string, mapId?: string, report?: IStiReport): string;
-        getIsoAlpha2FromName(name: string, mapId?: string, report?: StiReport): string;
-        getIsoAlpha3FromName(name: string, mapId?: string, report?: StiReport): string;
-        convertMapKeysToIsoAlpha2(mapKeys: List<string>, mapId: string, report?: StiReport): List<string>;
-        getMapKeysFromNames(values: List<any>, mapId: string, report?: StiReport): List<string>;
+        getNameFromIsoAlpha2(alpha2: string, mapId: string, lang: string, report?: StiReport): string;
+        getNameFromIsoAlpha3(alpha3: string, mapId: string, lang: string, report?: StiReport): string;
+        normalizeName(name: string, mapId: string, lang: string, report?: IStiReport): string;
+        getIsoAlpha2FromName(name: string, mapId: string, lang: string, report?: StiReport): string;
+        getIsoAlpha3FromName(name: string, mapId: string, lang: string, report?: StiReport): string;
+        convertMapKeysToIsoAlpha2(mapKeys: List<string>, mapId: string, lang: string, report?: StiReport): List<string>;
+        getMapKeysFromNames(values: List<any>, mapId: string, lang: string, report?: StiReport): List<string>;
         private getMapKeyFromName;
         static simplify(key: string): string;
     }
@@ -37660,8 +37666,9 @@ export namespace Stimulsoft.Report.Maps {
     class StiMapLoader {
         private static hashMaps;
         static deleteAllCustomMaps(): void;
-        static loadResource(report: StiReport, resourceName: string): StiMapSvgContainer;
-        static getGeomsObject(report: StiReport, resourceName: string): StiMapGeomsContainer;
+        private static finalResourceNmae;
+        static loadResource(report: StiReport, resourceName: string, lang: string): StiMapSvgContainer;
+        static getGeomsObject(report: StiReport, resourceName: string, lang: string): StiMapGeomsContainer;
         private static createGeom;
         static parsePath(text: string): StiMapGeom[];
     }
@@ -37669,10 +37676,10 @@ export namespace Stimulsoft.Report.Maps {
 export namespace Stimulsoft.Report.Helpers {
     import StiMapSvg = Stimulsoft.Report.Maps.StiMapSvg;
     class StiMapResourceHelper {
-        static getSvgBlockFromIsoAlpha2(alpha2: string, mapId?: string, report?: StiReport): StiMapSvg;
-        static getSvgBlockFromName(name: string, mapId?: string, report?: StiReport): StiMapSvg;
-        static getIsoAlpha2FromName(name: string, mapId?: string, report?: StiReport): string;
-        static getIsoAlpha3FromName(name: string, mapId?: string, report?: StiReport): string;
+        static getSvgBlockFromIsoAlpha2(alpha2: string, mapId: string, lang: string, report?: StiReport): StiMapSvg;
+        static getSvgBlockFromName(name: string, mapId: string, lang: string, report?: StiReport): StiMapSvg;
+        static getIsoAlpha2FromName(name: string, mapId: string, lang: string, report?: StiReport): string;
+        static getIsoAlpha3FromName(name: string, mapId: string, lang: string, report?: StiReport): string;
         private static getResource;
         private static decodeAlpha;
     }
@@ -42722,6 +42729,7 @@ export namespace Stimulsoft.Report.Chart {
         private seriesBrush;
         private borderColor;
         private series;
+        private area;
         colorCount: number;
         startAngle: number;
         sweepAngle: number;
@@ -42733,10 +42741,15 @@ export namespace Stimulsoft.Report.Chart {
         colorIndex: number;
         textPosition: PointF;
         interaction: StiSeriesInteractionData;
+        startSideExists: boolean;
+        endSideExists: boolean;
         drawLabels(areaGeom: StiAreaGeom, context: StiContext): void;
         drawTopPieSliceGeom(areaGeom: StiAreaGeom): void;
         drawBottomPieSliceGeom(areaGeom: StiAreaGeom): void;
         drawSides(areaGeom: StiAreaGeom): void;
+        split(splitAngle: number): StiPie3dSlice[];
+        initTextPosition(areaGeom: StiAreaGeom): void;
+        private getNewModified;
         constructor(area: IStiArea, value: number, argumentText: string, tag: string, index: number, series: IStiPie3dSeries, rectPieSlilce: Rectangle, pieHeight: number, startAngle: number, sweepAngle: number, seriesBrush: StiBrush, borderColor: Color, colorIndex: number, colorCount: number);
     }
 }
@@ -45006,6 +45019,8 @@ export namespace Stimulsoft.Report.Chart {
         m_startSide: StiPie3dQuadrilateral;
         m_endSide: StiPie3dQuadrilateral;
         count: number;
+        startSideExists: boolean;
+        endSideExists: boolean;
         get StartAngle(): number;
         get EndAngle(): number;
         get Interaction(): StiSeriesInteractionData;
@@ -45030,7 +45045,7 @@ export namespace Stimulsoft.Report.Chart {
         protected peripheralPoint(xCenter: number, yCenter: number, semiMajor: number, semiMinor: number, angleDegrees: number): Point;
         protected transformAngle(angle: number): number;
         private getAnimation;
-        constructor(pie3DSlice: StiPie3dSlice, areaGeom: StiAreaGeom, value: number, index: number, count: number, series: IStiPie3dSeries, clientRectangle: Rectangle, borderColor: Color, brush: StiBrush, startAngle: number, sweepAngle: number, pieHeight: number);
+        constructor(pie3DSlice: StiPie3dSlice, areaGeom: StiAreaGeom, value: number, index: number, count: number, series: IStiPie3dSeries, clientRectangle: Rectangle, borderColor: Color, brush: StiBrush, startAngle: number, sweepAngle: number, pieHeight: number, startSideExists: boolean, endSideExists: boolean);
     }
 }
 export namespace Stimulsoft.Report.Chart {
@@ -52166,6 +52181,11 @@ export namespace Stimulsoft.Report.Maps {
     }
 }
 export namespace Stimulsoft.Report.Maps {
+    class StiMapResourcesFrance_FR {
+        static France_FR: string;
+    }
+}
+export namespace Stimulsoft.Report.Maps {
     class StiMapResourcesGeorgia {
         static Georgia: string;
     }
@@ -52173,6 +52193,11 @@ export namespace Stimulsoft.Report.Maps {
 export namespace Stimulsoft.Report.Maps {
     class StiMapResourcesGermany {
         static Germany: string;
+    }
+}
+export namespace Stimulsoft.Report.Maps {
+    class StiMapResourcesGermany_DE {
+        static Germany_DE: string;
     }
 }
 export namespace Stimulsoft.Report.Maps {
@@ -52218,6 +52243,11 @@ export namespace Stimulsoft.Report.Maps {
 export namespace Stimulsoft.Report.Maps {
     class StiMapResourcesItaly {
         static Italy: string;
+    }
+}
+export namespace Stimulsoft.Report.Maps {
+    class StiMapResourcesItaly_IT {
+        static Italy_IT: string;
     }
 }
 export namespace Stimulsoft.Report.Maps {
@@ -52358,6 +52388,11 @@ export namespace Stimulsoft.Report.Maps {
 export namespace Stimulsoft.Report.Maps {
     class StiMapResourcesRussia {
         static Russia: string;
+    }
+}
+export namespace Stimulsoft.Report.Maps {
+    class StiMapResourcesRussia_RU {
+        static Russia_RU: string;
     }
 }
 export namespace Stimulsoft.Report.Maps {
@@ -56916,6 +56951,7 @@ export namespace Stimulsoft.Dashboard.Components.RegionMap {
         get dashboardInteraction(): IStiDashboardInteraction;
         set dashboardInteraction(value: IStiDashboardInteraction);
         get shouldSerializeDashboardInteraction(): boolean;
+        language: string;
         mapIdent: string;
         dataFrom: StiMapSource;
         mapData: string;
@@ -58585,6 +58621,18 @@ export namespace Stimulsoft.Dashboard.Export.Tools {
         private renderSingleGaugeTitleFromIteration;
     }
 }
+export namespace Stimulsoft.Dashboard.Export.Tools {
+    import IStiElement = Stimulsoft.Report.Dashboard.IStiElement;
+    import StiDashboardExportSettings = Stimulsoft.Dashboard.Export.Settings.StiDashboardExportSettings;
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
+    import StiPanel = Stimulsoft.Report.Components.StiPanel;
+    class StiImageElementExportTool extends StiElementExportTool {
+        render(element: IStiElement, destination: StiPanel, rect: Rectangle, settings: StiDashboardExportSettings): Promise<void>;
+        protected renderContent(element: IStiElement, destination: StiPanel, rect: Rectangle): Promise<void>;
+        private calculateHorAlignmentPosition;
+        private calculateVertAlignmentPosition;
+    }
+}
 export namespace Stimulsoft.Dashboard.Export {
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
     import List = Stimulsoft.System.Collections.List;
@@ -59013,6 +59061,7 @@ export namespace Stimulsoft.Viewer.Helpers.Dashboards {
     }
 }
 export namespace Stimulsoft.Viewer {
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import KeyObjectType = Stimulsoft.System.KeyObjectType;
     import StiPromise = Stimulsoft.System.StiPromise;
     import StiRangeBand = Stimulsoft.Viewer.Helpers.Dashboards.StiRangeBand;
@@ -59050,6 +59099,7 @@ export namespace Stimulsoft.Viewer {
         private static getBookmarkPointers;
         static getReportPreviewSettings(report: StiReport): KeyObjectType;
         static getPagesCount(report: StiReport, originalPageNumber: number, combineReportPages: boolean): number;
+        static brushToStr(brush: StiBrush): string;
         static isMixedReport(report: StiReport): boolean;
     }
     class StiBookmarkTreeNode {
@@ -61281,6 +61331,7 @@ export namespace Stimulsoft.Designer {
         static embedAllDataToResources(report: StiReport, param: Hashtable, callbackResult: Hashtable): Promise<void>;
         static testODataConnection(report: StiReport, param: any, callbackResult: any): void;
         static duplicateDictionaryElement(report: StiReport, param: any, callbackResult: any): void;
+        static setDictionaryElementProperty(report: StiReport, param: any, callbackResult: any): void;
     }
 }
 export namespace Stimulsoft.Designer.Dashboards {
@@ -61458,10 +61509,11 @@ export namespace Stimulsoft.Designer.Dashboards {
         private setProperty;
         private static removeTagsFromText;
         static checkFontProperties(textElement: IStiTextElement): void;
-        static setFontProperties(textElement: IStiTextElement, fontProperties: any): void;
+        static setFontProperties(textElement: IStiTextElement, fontAttrs: any): void;
         static getFontProperty(textElement: IStiTextElement): Font;
         static getHorAlignmentProperty(textElement: IStiTextElement): StiTextHorAlignment;
-        static getTextColorProperty(textElement: IStiTextElement): string;
+        private static getColorFromText;
+        static getForeColorsProperty(textElement: IStiTextElement): any[];
         static createTextElementFromDictionary(report: StiReport, param: any, callbackResult: any): void;
         constructor(textElement: IStiTextElement);
     }
@@ -62204,6 +62256,8 @@ export namespace Stimulsoft.Designer {
     import StiMap = Stimulsoft.Report.Maps.StiMap;
     class StiMapHelper {
         static getMapProperties(map: StiMap): any;
+        private static getLangOriginalName;
+        static getMapLanguages(mapIdent: string): any[];
         static setMapProperties(report: StiReport, param: any, callbackResult: any): void;
         static updateMapData(report: StiReport, param: any, callbackResult: any): void;
         static getMapDataForJS(map: StiMap): any[];
@@ -62250,7 +62304,6 @@ export namespace Stimulsoft.Designer {
         private static checkItem;
         private static checkActionItem;
         private static getActions;
-        private static removeCheck;
         private static getChecksJSCollection;
         private static updateCurrentReport;
         private static createImage;
