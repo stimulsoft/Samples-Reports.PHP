@@ -326,6 +326,7 @@
     <ParametersReplaceToolTip>You will be offered to change the values ​​of the report parameters from the code.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Request from User</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>The report parameter will be requested from the user when viewing the report in the viewer window.</ParametersRequestFromUserToolTip>
+    <ProjectType>Project Type:</ProjectType>
     <Publish>Publish</Publish>
     <PublishType>Report Publish Type:</PublishType>
     <PublishTypeProject>Project</PublishTypeProject>
@@ -357,6 +358,8 @@
     <UseCompressedScriptsToolTip>Packed scripts will be used instead of regular ones. This allows you to reduce their size, but it takes some time to unpack when running.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Use the latest version of libraries</UseLatestVersion>
     <UseLatestVersionToolTip>When connecting libraries and scripts, the latest available official version of the product will be used instead of the currently installed version.</UseLatestVersionToolTip>
+    <UseRenderedReport>Use Rendered Report</UseRenderedReport>
+    <UseRenderedReportToolTip>The report will be built and saved in document format. You will no longer need a data connection to view the report, but any interactivity and report parameters will not be available.</UseRenderedReportToolTip>
     <UseWpfDesignerV2>Use the Designer V2</UseWpfDesignerV2>
     <UseWpfDesignerV2ToolTip>The updated WPF report designer will be used. It has a new UI, increased speed, and other optimizations.</UseWpfDesignerV2ToolTip>
   </Publish>

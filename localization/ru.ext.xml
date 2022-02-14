@@ -324,6 +324,7 @@
     <ParametersReplaceToolTip>Будет предложен вариант изменения значений параметров отчёта из кода.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Запрашивать у пользователя</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>Параметр отчёта будет запрошен у пользователя в момент просмотра отчёта в окне вьювера.</ParametersRequestFromUserToolTip>
+    <ProjectType>Тип проекта:</ProjectType>
     <Publish>Опубликовать</Publish>
     <PublishType>Тип развертывания:</PublishType>
     <PublishTypeProject>Проект</PublishTypeProject>
@@ -355,6 +356,8 @@
     <UseCompressedScriptsToolTip>Будут использованы упакованные скрипты вместо обычных. Это позволяет уменьшить их размер, однако требует некоторое время на из распаковку в момент запуска.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Использовать последнюю версию библиотек</UseLatestVersion>
     <UseLatestVersionToolTip>При подключении библиотек и скриптов будет использоваться последний доступный официальный релиз продукта вместо текущей установленной версии.</UseLatestVersionToolTip>
+	<UseRenderedReport>Использовать построенный отчет</UseRenderedReport>
+	<UseRenderedReportToolTip>Отчет будет предварительно построен и сохранен в формате документа. Для просмотра отчета подключение к данным больше не потребуется, но не будут доступны любая интерактивность и параметры отчета.</UseRenderedReportToolTip>
     <UseWpfDesignerV2>Использовать дизайнер V2</UseWpfDesignerV2>
     <UseWpfDesignerV2ToolTip>Будет использован обновлённый WPF дизайнер отчётов, который имеет новый интерфейс, повышенную скорость работы и другие оптимизации.</UseWpfDesignerV2ToolTip>
   </Publish>

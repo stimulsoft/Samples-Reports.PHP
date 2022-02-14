@@ -4491,6 +4491,7 @@
     <Width>Width</Width>
     <WindowState>Window State</WindowState>
     <WordWrap>Word Wrap</WordWrap>
+	<WrapLine>Wrap Line</WrapLine>
     <Wrap>Wrap</Wrap>
     <WrapGap>WrapGap</WrapGap>
     <XAxis>X Axis</XAxis>
