@@ -232,8 +232,10 @@
     <StiCompilationErrorCheckLong>컴파일 오류가 '{0}'보고서에 발견 :</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>컴파일 오류</StiCompilationErrorCheckShort>
     <StiDuplicatedName2CheckLong>'{0}'라는 데이터 소스가 몇 가지 있습니다.</StiDuplicatedName2CheckLong>
+    <StiDuplicatedName3CheckLong>이름이 '{0}'인 데이터 소스가 여러 개 있지만 대소문자가 다릅니다.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>'{0}'라는 구성 요소가 몇 가지 있습니다.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>중복 된 이름의 구성 요소가 발견</StiDuplicatedNameCheckShort>
+    <StiDuplicatedNameInSourceCheckShort>데이터 소스에서 중복됩니다</StiDuplicatedNameInSourceCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>보고서에 '{0}'관계가 있습니다. 그들은 NameInSource 동등한 ( '{1}') 값을 가지고 있습니다. NameInSource의 모든 하나의 관계에서 하나의 데이터베이스 범위에서 고유해야합니다. 이러한 관계 필드를 수정해야합니다.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>릴레이션에서 중복됩니다.</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>보고서 이름 '{0}'은(는) 데이터소스 이름과 동일합니다.</StiDuplicatedReportName2CheckLong>
@@ -263,6 +265,8 @@
     <ActionShow>보기</ActionShow>
     <AddNewConnection>새 연결 추가</AddNewConnection>
     <Cancel>취소</Cancel>
+    <ChangeExportSettings>내보내기 설정 변경</ChangeExportSettings>
+    <ChangeExportSettingsToolTip>선택한 내보내기 형식의 설정 클래스를 만들기 위한 코드가 추가됩니다. 프로젝트에서 내보내기 설정을 변경할 수 있습니다.</ChangeExportSettingsToolTip>
     <Close>닫기</Close>
     <ConnectionsFromReport>보고서에서 연결을 사용하는</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>리포트 템플릿에 저장된 연결은 수정없이 사용됩니다.</ConnectionsFromReportToolTip>
@@ -272,6 +276,7 @@
     <ConnectionsReplaceToolTip>유형(파일 경로, 데이터베이스 연결 문자열)에 따라 코드에서 연결을 변경하라는 메시지가 표시됩니다.</ConnectionsReplaceToolTip>
     <Copy>복사</Copy>
     <CopyingLibraries>프로젝트 파일의 복사...</CopyingLibraries>
+    <DataAdapterPlatform>데이터 어댑터 플랫폼</DataAdapterPlatform>
     <DeployReportPlatform>플랫폼에 보고서 배포 :</DeployReportPlatform>
     <DownloadingLibraries>라이브러리 다운로드...</DownloadingLibraries>
     <EmbedAllDataToResources>보고서에는 선택한 플랫폼에서 지원되지 않는 데이터 연결이 포함되어 있습니다. 보고서에 사용 가능한 데이터를 리소스로 포함 하시겠습니까? 이 경우 모든 연결이 XML리소스로 대체됩니다.</EmbedAllDataToResources>
@@ -322,6 +327,7 @@
     <ParametersReplaceToolTip>코드에서 리포트 매개 변수의 값을 변경하라는 메시지가 표시됩니다.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>사용자의 요청</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>뷰어 창에서 리포트를 볼 때 사용자에게 리포트 매개 변수가 요청됩니다.</ParametersRequestFromUserToolTip>
+    <ProjectType>프로젝트 유형:</ProjectType>
     <Publish>Publish</Publish>
     <PublishType>보고서 게시 유형 :</PublishType>
     <PublishTypeProject>프로젝트</PublishTypeProject>
@@ -353,6 +359,8 @@
     <UseCompressedScriptsToolTip>일반 스크립트 대신 압축 된 스크립트가 사용됩니다. 이렇게하면 크기를 줄일 수 있지만 실행할 때 압축을 푸는 데 시간이 걸립니다.</UseCompressedScriptsToolTip>
     <UseLatestVersion>최신 버전의 라이브러리를 사용</UseLatestVersion>
     <UseLatestVersionToolTip>라이브러리와 스크립트를 연결할 때 현재 설치된 버전 대신 사용 가능한 최신 공식 버전의 제품이 사용됩니다.</UseLatestVersionToolTip>
+    <UseRenderedReport>렌더링된 보고서 사용</UseRenderedReport>
+    <UseRenderedReportToolTip>보고서가 작성되어 문서 형식으로 저장됩니다. 리포트를 표시하기 위해 데이터 연결이 더 이상 필요하지 않지만 대화형 및 보고서 매개 변수를 사용할 수 없습니다.</UseRenderedReportToolTip>
     <UseWpfDesignerV2>Designer V2를 사용</UseWpfDesignerV2>
     <UseWpfDesignerV2ToolTip>업데이트 된 WPF 보고서 디자이너가 사용됩니다. 새로운 UI, 향상된 속도 및 기타 최적화 기능이 있습니다.</UseWpfDesignerV2ToolTip>
   </Publish>

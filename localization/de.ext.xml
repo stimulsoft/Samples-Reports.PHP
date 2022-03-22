@@ -232,8 +232,10 @@
     <StiCompilationErrorCheckLong>Ein Umwandlungsfehler wurde im Report '{0}' gefunden.</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Umwandlungsfehler</StiCompilationErrorCheckShort>
     <StiDuplicatedName2CheckLong>Die Datenquellen mit dem gleichen Namen '{0}' sind gefunden.</StiDuplicatedName2CheckLong>
+    <StiDuplicatedName3CheckLong>Es gibt einige Datenquellen mit dem Namen '{0}' mit dem unterschiedlichen Register.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>Die Komponenten mit dem gleichen Namen '{0}' sind gefunden.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>Die Komponenten mit dem gleichen Namen sind gefunden</StiDuplicatedNameCheckShort>
+    <StiDuplicatedNameInSourceCheckShort>Duplikate in Datenquellen</StiDuplicatedNameInSourceCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>'{0}' Beziehungen wurden im Report gefunden. Sie haben gleiche Werte ('{1}') in 'Name in der Datenquelle' . Alle Werte in 'Name in der Datenquelle' sollten eindeutig im Bereich einer Beziehung einer Datenbank sein! Es ist notwendig, diese Felder in den Beziehungen zu korrigieren.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplikate in Beziehungen</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Der Berichtsname '{0}' ist gleich wie der Datenuellenname.</StiDuplicatedReportName2CheckLong>
@@ -263,6 +265,8 @@
     <ActionShow>Anzeigen</ActionShow>
     <AddNewConnection>Neue Verbindung hinzufügen</AddNewConnection>
     <Cancel>Abbrechen</Cancel>
+    <ChangeExportSettings>Export-Einstellungen ändern</ChangeExportSettings>
+    <ChangeExportSettingsToolTip>Der Code für Erstellen von Klasse des ausgewählten Export-Formates wird hinzugefügt werden. Im Projekt können Sie Export-Einstellung ändern.</ChangeExportSettingsToolTip>
     <Close>Schlie?en</Close>
     <ConnectionsFromReport>Verbindung aus dem Bericht verwenden</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>In der Berichtsvorlage gespeicherte Verbindungen werden ohne irgendwelche Änderungen verwendet werden.</ConnectionsFromReportToolTip>
@@ -272,6 +276,7 @@
     <ConnectionsReplaceToolTip>Es wird angeboten werden, die Verbindung aus dem Code abhängig vom seinen Typen - Weg zur Datei, Verbindungszeichenfolge zur Datenbank, ändern.</ConnectionsReplaceToolTip>
     <Copy>Kopieren</Copy>
     <CopyingLibraries>Projektdateien werden kopiert...</CopyingLibraries>
+    <DataAdapterPlatform>Datenadapter-Plattform</DataAdapterPlatform>
     <DeployReportPlatform>Den Bericht in die Plattform bereitstellen:</DeployReportPlatform>
     <DownloadingLibraries>Bibliotheken werden heruntergeladen...</DownloadingLibraries>
     <EmbedAllDataToResources>Der Bericht enthält die Verbindungen mit Daten, die in ausgewählter Plattform nicht unterstützt werden. Möchten Sie die verfügbaren Daten als Ressourcen in den Bericht einbetten? In diesem Fall werden alle Verbindungen durch XML-Ressourcen erstetzt werden.</EmbedAllDataToResources>
@@ -322,6 +327,7 @@
     <ParametersReplaceToolTip>Es wird angeboten werden, die Werte von Berichts-Parametern aus dem Code zu bearbeiten.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Anfrage vom Benutzer</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>Die Berichts-Parameter wird vom Benutzer, wenn er den Bericht im Viewer-Fenster ansieht, angefragt werden.</ParametersRequestFromUserToolTip>
+    <ProjectType>Projekt-Typ:</ProjectType>
     <Publish>Veröffentlichen</Publish>
     <PublishType>Veroffentlichungstyp des Berichts:</PublishType>
     <PublishTypeProject>Projekt</PublishTypeProject>
@@ -353,6 +359,8 @@
     <UseCompressedScriptsToolTip>Verpackte Skripte werden statt gewönlicher Skripte verwendet werden. Es erlaubt ihre Größe zu verringern, aber fordert einige Zeit für Entpacken während des Ausführens.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Die letzte Version der Bibliotheken verwenden</UseLatestVersion>
     <UseLatestVersionToolTip>Bei der Verbindung von Bibliotheken und Skripten wird die letzte verfügbare offizielle Version der Software anstatt der aktuell installierter Version verwendet werden.</UseLatestVersionToolTip>
+    <UseRenderedReport>Gerenderten Bericht verwenden</UseRenderedReport>
+    <UseRenderedReportToolTip>Der Bericht wird erstellt und ins Dokument-Format gespeichert werden. Sie brauchen mehr keine Daten-Verbindung, um den Bericht anzusehen, aber jede Interaktivität und Berichts-Parameter wird unverfügbar sein.</UseRenderedReportToolTip>
     <UseWpfDesignerV2>Designer V2 verwenden</UseWpfDesignerV2>
     <UseWpfDesignerV2ToolTip>Der aktualisierte WPF-Berichtsdesigner wird verwendet werden. Er hat neue Schnittstelle, erhöhte Geschwindigkeit und andere Optimierungen.</UseWpfDesignerV2ToolTip>
   </Publish>

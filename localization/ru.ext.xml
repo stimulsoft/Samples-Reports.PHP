@@ -232,8 +232,10 @@
     <StiCompilationErrorCheckLong>В отчете '{0}' выявлена ошибка компиляции:'</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Ошибка компиляции</StiCompilationErrorCheckShort>
     <StiDuplicatedName2CheckLong>Найдены источники данных с одинаковым именем '{0}'. Компиляция отчета невозможна.</StiDuplicatedName2CheckLong>
+    <StiDuplicatedName3CheckLong>Существует несколько источников данных с именем '{0}', различающихся регистром.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>Найдены компоненты с одинаковым именем '{0}'. Компиляция отчета невозможна.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>Найдены компоненты с одинаковым именем</StiDuplicatedNameCheckShort>
+    <StiDuplicatedNameInSourceCheckShort>Дубликаты в источнике данных</StiDuplicatedNameInSourceCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>В отчете найдены связи '{0}', которые имеют одинаковые значения ('{1}') в поле Наименование в источнике (NameInSource). Все значения в поле Наименование в источнике (NameInSource) должны быть уникальными в пределах одного соединения, к одной базе данных! Необходимо скорректировать эти поля у связей.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Дубликаты в связях</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Имя отчёта '{0}' совпадает с именем источника данных.</StiDuplicatedReportName2CheckLong>
@@ -263,9 +265,9 @@
     <ActionShow>Отобразить</ActionShow>
     <AddNewConnection>Добавить новое соединение</AddNewConnection>
     <Cancel>Отмена</Cancel>
-    <Close>Закрыть</Close>
     <ChangeExportSettings>Изменить настройки экспорта</ChangeExportSettings>
     <ChangeExportSettingsToolTip>Будет добавлен код создания класса настроек выбранного формата экспорта. В проекте вы сможете изменить настройки экспорта.</ChangeExportSettingsToolTip>
+    <Close>Закрыть</Close>
     <ConnectionsFromReport>Использовать заданное в отчете подключение</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>Будут использованы сохранённые в шаблоне отчёта подключения без каких-либо изменений.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Подключить данные из кода</ConnectionsRegData>
@@ -274,6 +276,7 @@
     <ConnectionsReplaceToolTip>Будет предложен вариант изменения подключения из кода в зависимости от его типа - путь к файлу, строка подключения к базе данных.</ConnectionsReplaceToolTip>
     <Copy>Копировать</Copy>
     <CopyingLibraries>Копирование файлов проекта...</CopyingLibraries>
+    <DataAdapterPlatform>Платформа для адаптеров данных</DataAdapterPlatform>
     <DeployReportPlatform>Платформа для развертывания отчета:</DeployReportPlatform>
     <DownloadingLibraries>Загрузка библиотек...</DownloadingLibraries>
     <EmbedAllDataToResources>Отчёт содержит соединения с данными, которые не поддерживаются в выбранной платформе. Хотите встроить доступные данные в отчёт в виде ресурсов? В этом случае, все соединения будут заменены на XML ресурсы.</EmbedAllDataToResources>
@@ -356,8 +359,8 @@
     <UseCompressedScriptsToolTip>Будут использованы упакованные скрипты вместо обычных. Это позволяет уменьшить их размер, однако требует некоторое время на из распаковку в момент запуска.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Использовать последнюю версию библиотек</UseLatestVersion>
     <UseLatestVersionToolTip>При подключении библиотек и скриптов будет использоваться последний доступный официальный релиз продукта вместо текущей установленной версии.</UseLatestVersionToolTip>
-	<UseRenderedReport>Использовать построенный отчет</UseRenderedReport>
-	<UseRenderedReportToolTip>Отчет будет предварительно построен и сохранен в формате документа. Для просмотра отчета подключение к данным больше не потребуется, но не будут доступны любая интерактивность и параметры отчета.</UseRenderedReportToolTip>
+    <UseRenderedReport>Использовать построенный отчет</UseRenderedReport>
+    <UseRenderedReportToolTip>Отчет будет предварительно построен и сохранен в формате документа. Для просмотра отчета подключение к данным больше не потребуется, но не будут доступны любая интерактивность и параметры отчета.</UseRenderedReportToolTip>
     <UseWpfDesignerV2>Использовать дизайнер V2</UseWpfDesignerV2>
     <UseWpfDesignerV2ToolTip>Будет использован обновлённый WPF дизайнер отчётов, который имеет новый интерфейс, повышенную скорость работы и другие оптимизации.</UseWpfDesignerV2ToolTip>
   </Publish>

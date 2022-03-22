@@ -232,8 +232,10 @@
     <StiCompilationErrorCheckLong>コンパイルエラーが '{0}'レポートに見つかりました：</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>コンパイルエラー</StiCompilationErrorCheckShort>
     <StiDuplicatedName2CheckLong>'{0}'という名前のデータソースがいくつかあります。</StiDuplicatedName2CheckLong>
+    <StiDuplicatedName3CheckLong>大文字と小文字が異なる「{0}」という名前のデータソースがいくつかあります。</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>'{0}'という名前のコンポーネントがいくつかあります。</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>重複する名前のコンポーネントが見つかりました</StiDuplicatedNameCheckShort>
+    <StiDuplicatedNameInSourceCheckShort>データソースで重複</StiDuplicatedNameInSourceCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>レポートに'{0}'リレーションがあります。彼らはNameInSourceの等しい（ '{1}'）値を持っています。 NameInSource内のすべての1つの関係から1つのデータベースの範囲で一意である必要があります。これらのリレーションフィールドを修正する必要があります。</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>リレーションで重複します。</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>レポート名 '{0}'はデータソース名と同じです。</StiDuplicatedReportName2CheckLong>
@@ -263,6 +265,8 @@
     <ActionShow>表示</ActionShow>
     <AddNewConnection>新しい接続を追加する</AddNewConnection>
     <Cancel>キャンセル</Cancel>
+    <ChangeExportSettings>エクスポート設定を変更する</ChangeExportSettings>
+    <ChangeExportSettingsToolTip>選択したエクスポート形式の設定クラスを作成するためのコードが追加されます。 プロジェクトでは、エクスポート設定を変更できます。</ChangeExportSettingsToolTip>
     <Close>閉じる</Close>
     <ConnectionsFromReport>レポートからの接続を使用する</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>レポートテンプレートに保存された接続は、変更なしで使用されます。</ConnectionsFromReportToolTip>
@@ -272,6 +276,7 @@
     <ConnectionsReplaceToolTip>ファイルパス、データベース接続文字列などのタイプに応じて、コードから接続を変更するように求められます。</ConnectionsReplaceToolTip>
     <Copy>コピー</Copy>
     <CopyingLibraries>プロジェクトファイルのコピー... </CopyingLibraries>
+    <DataAdapterPlatform>データアダプタプラットフォーム</DataAdapterPlatform>
     <DeployReportPlatform>プラットフォームへのレポートのデプロイ：</DeployReportPlatform>
     <DownloadingLibraries>ライブラリのダウンロード... </DownloadingLibraries>
     <EmbedAllDataToResources>レポートには、選択したプラットフォームでサポートされていないデータ接続が含まれています。 利用可能なデータをリソースとしてレポートに埋め込みますか？ この場合、すべての接続はXMLリソースに置き換えられます。</EmbedAllDataToResources>
@@ -281,6 +286,8 @@
     <ExportFormatDataType>データ型：</ExportFormatDataType>
     <ExportFormatImage>イメージ</ExportFormatImage>
     <ExportFormatImageType>イメージタイプ：</ExportFormatImageType>
+    <FrameworkType>フレームワークタイプ</FrameworkType>
+    <FrameworkVersion>フレームワークバージョン</FrameworkVersion>
     <FullScreenViewer>フルブラウザウィンドウにビューアを表示する</FullScreenViewer>
     <FullScreenViewerToolTip>レポートのあるビューアは、ブラウザウィンドウの使用可能なスペース全体に表示されます。</FullScreenViewerToolTip>
     <GetLibrariesFrom>{0}からStimulsoftライブラリを取得する</GetLibrariesFrom>
@@ -320,6 +327,7 @@
     <ParametersReplaceToolTip>コードからレポートパラメータの値を変更するように求められます。</ParametersReplaceToolTip>
     <ParametersRequestFromUser>ユーザーからのリクエスト</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>レポートパラメータは、ビューアウィンドウでレポートを表示するときにユーザーから要求されます。</ParametersRequestFromUserToolTip>
+    <ProjectType>プロジェクトタイプ：</ProjectType>
     <Publish>Publish </Publish>
     <PublishType>レポートのパブリッシュタイプ：</PublishType>
     <PublishTypeProject>プロジェクト</PublishTypeProject>
@@ -351,6 +359,8 @@
     <UseCompressedScriptsToolTip>通常のスクリプトの代わりに、パックされたスクリプトが使用されます。 これにより、サイズを小さくすることができますが、実行時に解凍するのに時間がかかります。</UseCompressedScriptsToolTip>
     <UseLatestVersion>ライブラリの最新バージョンを使用</UseLatestVersion>
     <UseLatestVersionToolTip>ライブラリとスクリプトを接続する場合、現在インストールされているバージョンの代わりに、製品の最新の公式バージョンが使用されます。</UseLatestVersionToolTip>
+    <UseRenderedReport>レンダリングされたレポートを使用する</UseRenderedReport>
+    <UseRenderedReportToolTip>レポートは作成され、ドキュメント形式で保存されます。 レポートを表示するためにデータ接続は不要になりますが、対話型とレポートパラメータは使用できなくなります。</UseRenderedReportToolTip>
     <UseWpfDesignerV2>Designer V2を使用する</UseWpfDesignerV2>
     <UseWpfDesignerV2ToolTip>更新されたWPFレポートデザイナーが使用されます。 新しいUI、速度の向上、その他の最適化が含まれます。</UseWpfDesignerV2ToolTip>
   </Publish>
@@ -959,6 +969,7 @@
     <AfterPrintEvent>コンポーネント印刷後に発生</AfterPrintEvent>
     <Alias>コンポーネント名の代わりに表示されるテキスト。テキストが表示されていない場合、名前が表示されます。</Alias>
     <Anchor>コンポーネントの位置を親コンポーネントのサイズにリンクするモードを示す値を取得または設定します。</Anchor>
+    <BackColor>コンポーネントの背景色。</BackColor>
     <BeforePrintEvent>コンポーネントを印刷する前に発生</BeforePrintEvent>
     <Bookmark>コンポーネントを埋め込む式Bookmark</Bookmark>
     <Border>コンポーネントのフレーム</Border>
@@ -969,14 +980,20 @@
     <CanShrink>このオブジェクトが縮小できることを示す値</CanShrink>
     <CellDockStyle>セルドッキングのタイプ</CellDockStyle>
     <CellType>セルコンテンツのタイプ</CellType>
+    <CheckAlignment>コンポーネント内のチェックの場所を決定します。</CheckAlignment>
+    <CheckBrush>コンポーネントのチェックブラシ。</CheckBrush>
+    <Checked>コンポーネントがチェック状態にあるかどうかを示します。</Checked>
     <CheckedChangedEvent>チェック状態が変更されたときに発生します。</CheckedChangedEvent>
+    <CheckSize>コンポーネントのサイズを確認します。</CheckSize>
     <ClickEvent>ユーザーがビューアのウィンドウでコンポーネントをクリックすると発生</ClickEvent>
     <ComponentStyle>コンポーネントのスタイル</ComponentStyle>
     <Conditions>条件の集計</Conditions>
+    <CornerRadius>角丸の値を表示します。</CornerRadius>
     <CountData>仮想データの行数</CountData>
     <CrossFiltering>現在のページからその要素へのクロスフィルターの適用を制御する値を取得または設定します。</CrossFiltering>
     <DataRelation>マスター詳細レポートのレンダリングに使用されるリンク</DataRelation>
     <DataSource>データを取得するために使用されるデータソース</DataSource>
+    <Disabled>コンポーネントの非対話状態。</Disabled>
     <DockStyle>コンポーネントドッキングのタイプ</DockStyle>
     <DoubleClickEvent>ユーザーがレポートビューアでコンポーネントをダブルクリックしたときに発生</DoubleClickEvent>
     <Editable>ビューアのウィンドウでコンポーネントを編集できることを示す値</Editable>
@@ -986,6 +1003,8 @@
     <FilterOn>フィルタがオンになっていることを示す値</FilterOn>
     <Filters>データフィルタのコレクション</Filters>
     <FixedWidth>セルが固定幅を持つことを示す値</FixedWidth>
+    <Font>コントロール内のテキストを表示するために使用されるフォント。</Font>
+    <ForeColor>テキストを表示するために使用される、このコンポーネントの前景色。</ForeColor>
     <GetBookmarkEvent>コンポーネントのブックマークを取得するときに発生</GetBookmarkEvent>
     <GetDrillDownReportEvent>ドリルダウン操作のレポートを取得する必要がある場合に発生</GetDrillDownReportEvent>
     <GetHyperlinkEvent>コンポーネントのハイパーリンクを取得するときに発生</GetHyperlinkEvent>
@@ -994,30 +1013,47 @@
     <GrowToHeight>このコンポーネントの高さがコンテナの底部に向かって増減することを示す値</GrowToHeight>
     <Height>コンポーネントの高さ</Height>
     <HorAlignment>水平方向の配置</HorAlignment>
+    <Hover>ユーザーがコンポーネントの上にカーソルを置いたときのホバー状態。</Hover>
     <Hyperlink>コンポーネントのハイパーリンクを満たす式</Hyperlink>
+    <Icon>コンポーネントに使用されるアイコン。</Icon>
+    <IconAlignment>コンポーネントに表示されるアイコンの配置。</IconAlignment>
+    <IconBrush>コンポーネントのアイコンブラシ。</IconBrush>
+    <IconSet>コンポーネントで使用されるアイコンのセット。</IconSet>
     <Interaction>このコンポーネントの対話オプション</Interaction>
     <Left>コンポーネントの左位置</Left>
     <Linked>コンテナへのオブジェクトスナップがオンになっていることを示す値</Linked>
     <Locked>移動がロックされていることを示す値</Locked>
+    <Margin>このコンポーネントと別のコンポーネントのマージンの間のスペースを指定します。</Margin>
     <MasterComponent>マスターコンポーネント</MasterComponent>
     <MaxSize>最大サイズ</MaxSize>
     <MinSize>最小サイズ</MinSize>
     <MouseEnterEvent>ユーザーがレポートビューアのコンポーネントの領域にマウスを置いたときに発生</MouseEnterEvent>
     <MouseLeaveEvent>ユーザーがレポートビューアのコンポーネントの領域からマウスを離したときに発生</MouseLeaveEvent>
     <Name>コンポーネント名</Name>
+    <Padding>コンポーネントの内部間隔を指定します。</Padding>
+    <Pressed>ユーザーがコンポーネントを押したときの押された状態。</Pressed>
     <Printable>コンポーネントが印刷可能かどうかを示す値</Printable>
     <PrintOn>コンポーネントをどのページに印刷するかを示す値</PrintOn>
     <Restrictions>コンポーネントの制限を示す値</Restrictions>
+    <Shadow>コンポーネントのシャドウ設定。</Shadow>
+    <ShapeType>コンポーネントの形状を描画するために使用される形状を示します。</ShapeType>
     <ShiftMode>コンポーネントのシフトモードを示す値</ShiftMode>
     <Sort>ソートの規則を記述する文字列の配列</Sort>
+    <Stretch>割り当てられたスペースを埋めるためにコンポーネントのサイズを変更する方法について説明します。</Stretch>
     <Tag>コンポーネントタグを満たす式</Tag>
+    <Text>テキストはコンポーネントに関連付けられています。</Text>
     <TextBrush>テキストを描画するブラシ</TextBrush>
+    <ThreeStates>コントロールが2つまたは3つの状態をサポートすることを示します。</ThreeStates>
     <ToolTip>コンポーネントのToolTipを塗りつぶす式</ToolTip>
     <Top>コンポーネントの上部位置</Top>
     <TotalLabel>合計のラベルとして表示される値を取得または設定します。</TotalLabel>
+    <Type>そのコンポーネントの動作のタイプを説明します。</Type>
     <UseParentStyles>このコンポーネントが親コンポーネントのスタイルを使用する必要があることを示す値</UseParentStyles>
     <VertAlignment>オブジェクトの垂直方向の配置</VertAlignment>
+    <VisualStates>コンポーネントのさまざまな視覚的状態を管理します。</VisualStates>
+    <Watermark>コンポーネントに使用される透かし。</Watermark>
     <Width>コンポーネントの幅</Width>
+    <WordWrap>複数行のテキストが単語を折り返すかどうかを示します。</WordWrap>
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>アンチエイリアス描画モードを制御する値</Antialiasing>
@@ -1034,6 +1070,12 @@
     <TitleVisible>定数行の可視性</TitleVisible>
     <Visible>定数行の可視性</Visible>
   </StiConstantLines>
+  <StiCornerRadius>
+    <BottomLeft>左下隅の半径を指定する値。</BottomLeft>
+    <BottomRight>右下隅の半径を指定する値。</BottomRight>
+    <TopLeft>左上隅の半径を指定する値。</TopLeft>
+    <TopRight>右上隅の半径を指定する値。</TopRight>
+  </StiCornerRadius>
   <StiCrossDataBand>
     <MaxWidth>バンドの最大幅</MaxWidth>
     <MinWidth>バンドの最小幅</MinWidth>
@@ -1738,12 +1780,16 @@
     <ConvertNulls>nullまたはDBNullを変換する必要があるかどうかを示す値</ConvertNulls>
     <EndRenderEvent>レポートのレンダリングが完了したときに発生</EndRenderEvent>
     <EngineVersion>現在のレポートエンジン</EngineVersion>
+    <ExportedEvent>レポートのエクスポートが終了したときに発生します。</ExportedEvent>
+    <ExportingEvent>レポートがエクスポートを開始したときに発生します。</ExportingEvent>
     <GlobalizationStrings>グローバリゼーション文字列で構成されるコレクション</GlobalizationStrings>
     <NumberOfPass>レポート生成時にレポートジェネレータが作成するパスの数</NumberOfPass>
     <ParametersOrientation>パラメータのパネル方向を示す値</ParametersOrientation>
     <PreviewMode>レポートのプレビューモード</PreviewMode>
     <PreviewSettings>プレビューウィンドウに表示されるコントロール</PreviewSettings>
+    <PrintedEvent>レポートの印刷が終了したときに発生します。</PrintedEvent>
     <PrinterSettings>プリンタ設定</PrinterSettings>
+    <PrintingEvent>レポートの印刷が開始されたときに発生します。</PrintingEvent>
     <ReferencedAssemblies>参照されるアセンブリの配列</ReferencedAssemblies>
     <RenderingEvent>ページがレンダリングされたときに発生</RenderingEvent>
     <ReportAlias>レポートエイリアス</ReportAlias>
