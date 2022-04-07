@@ -1,6 +1,6 @@
 <?php
 
-$version = '2022.2.2';
+$version = '2022.2.3';
 
 
 // Error handlers
