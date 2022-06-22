@@ -38,6 +38,8 @@
     <StiGenerateNewNamePageActionLong>페이지의 새 이름을 생성합니다.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>관계의 새 이름을 생성합니다.</StiGenerateNewNameRelationActionLong>
     <StiGrowToHeightOverlappingLong>구성 요소 GrowToHeight 속성 값을 false로 설정합니다.</StiGrowToHeightOverlappingLong>
+    <StiInsufficientTextHeightForOneLineLong>구성요소의 높이는 적어도 한 줄의 텍스트 높이 또는 보고서 그리드의 다음 셀까지 증가합니다.</StiInsufficientTextHeightForOneLineLong>
+    <StiInsufficientTextHeightForOneLineShort>높이 고정</StiInsufficientTextHeightForOneLineShort>
     <StiLargeHeightAtPageActionLong>편리한 구성 요소보기 및 편집을 위해 페이지 LargeHeight 속성이 true로 설정됩니다.</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>MinRowsInColumns 속성을 제로로 설정합니다.</StiMinRowsInColumnsActionLong>
     <StiMoveComponentToPageAreaActionLong>요소는 페이지에 완전히 배치되도록 배치됩니다. 이 경우 페이지 필드는 고려되지 않습니다.</StiMoveComponentToPageAreaActionLong>
@@ -114,6 +116,8 @@
     <StiGroupHeaderNotEqualToGroupFooterShort>일부 구성 요소는 렌더링되지 않습니다.</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGrowToHeightOverlappingLong>'{0}'구성 요소의 GrowToHeight 속성이 true로 설정되어 있습니다. 보고서를 렌더링 할 때이 구성 요소는 하나 이상의 기본 구성 요소와 겹치는 수 있습니다.</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>구성 요소를 오버랩시킬 수 있습니다.</StiGrowToHeightOverlappingShort>
+    <StiInsufficientTextHeightForOneLineCheckLong>텍스트 구성 요소 {0}의 높이가 텍스트 한 줄에 대해 너무 작습니다. 이로 인해 일부 형식으로 내보내거나 웹에서 인쇄하는 데 문제가 발생할 수 있습니다. 높이를 높이거나 CanGrow 속성을 true로 설정하는 것이 좋습니다.</StiInsufficientTextHeightForOneLineCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>한 줄에 대한 높이가 부족합니다.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough 시스템 변수는 1 회 통과하면 잘못된 결과를 반환합니다. NumberOfPass 속성을 DoublePass로 설정해야합니다.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>더블 패스가 필요한 시스템 변수는 보고서</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>IsFirstPass의 올바른 작업을 위해, IsSecondPass 함수는 보고서의 렌더링 더블패스이 필요합니다. 보고서 NumberOfPass 속성을 DoublePass로 설정하는 것을 잊었다 수 있습니다.</StiIsFirstPassIsSecondPassCheckLong>
@@ -231,6 +235,8 @@
     <StiCompilationErrorCheck3Long>컴파일 오류는 '{2}'구성 요소 '{1}'이벤트에서 발견 :</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>컴파일 오류가 '{0}'보고서에 발견 :</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>컴파일 오류</StiCompilationErrorCheckShort>
+    <StiDataSourceLoopingCheckLong>데이터 밴드 '{0}'과(와) 하위 데이터 밴드 '{1}'이 동일한 데이터 소스 '{2}'를 사용합니다. 루프를 방지하기 위해 하위 데이터 밴드는 표시되지 않습니다..</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckShort>데이터 반복이 가능합니다.</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>'{0}'라는 데이터 소스가 몇 가지 있습니다.</StiDuplicatedName2CheckLong>
     <StiDuplicatedName3CheckLong>이름이 '{0}'인 데이터 소스가 여러 개 있지만 대소문자가 다릅니다.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>'{0}'라는 구성 요소가 몇 가지 있습니다.</StiDuplicatedNameCheckLong>
@@ -722,6 +728,9 @@
     <Style>모자 스타일</Style>
     <Width>캡의 폭</Width>
   </StiCap>
+  <StiCardsStyle>
+    <LineColor>속성은 카드의 테두리를 그리는 데 사용할 색상을 정의합니다.</LineColor>
+  </StiCardsStyle>
   <StiChart>
     <Area>차트 영역</Area>
     <ChartType>차트 유형</ChartType>
@@ -830,6 +839,17 @@
     <Font>차트의 범례 제목 글꼴</Font>
     <Text>범례의 제목 텍스트입니다.</Text>
   </StiChartLegendTitle>
+  <StiChartStyle>
+    <ChartAreaShowShadow>영역 그림자가 표시될지 여부를 정의하는 속성입니다.</ChartAreaShowShadow>
+    <MarkerVisible>마커가 표시될지 여부를 정의하는 속성입니다.</MarkerVisible>
+    <SeriesBorderThickness>속성은 계열 테두리 너비를 정의합니다.</SeriesBorderThickness>
+    <SeriesLabelsLineColor>속성은 계열 레이블의 선 색상을 정의합니다.</SeriesLabelsLineColor>
+    <SeriesLighting>속성은 파이 조명이 표시되는지 여부를 정의합니다.</SeriesLighting>
+    <SeriesShowBorder>속성은 계열 테두리가 표시되는지 여부를 정의합니다.</SeriesShowBorder>
+    <SeriesShowShadow>속성은 시리즈 그림자가 표시되는지 여부를 정의합니다.</SeriesShowShadow>
+    <TrendLineColor>속성은 추세선의 색상을 정의합니다.</TrendLineColor>
+    <TrendLineShowShadow>속성은 추세선 그림자가 표시되는지 여부를 정의합니다.</TrendLineShowShadow>
+  </StiChartStyle>
   <StiChartTable>
     <Font>그래프 표 글꼴</Font>
     <GridLineColor>눈금 선 색상</GridLineColor>
@@ -1123,6 +1143,25 @@
     <Wrap>크로스 탭을 하나의 라인에 출력하는 것을 나타내는 값. 동시에 폭에 들어 가지 않는 것은 모든 출력됩니다. 이 속성을 사용하려면 크로스 탭이 배치 된 밴드의 CanBreak 속성을 활성화해야합니다 (밴드에 배치되는 경우).</Wrap>
     <WrapGap>랩 된 크로스 탭의 두 부분 사이의 공간. 이 속성은 Wrap 속성과 함께 사용됩니다.</WrapGap>
   </StiCrossTab>
+  <StiCrossTabStyle>
+    <AlternatingCellBackColor>속성은 짝수 행의 배경을 채우는 데 사용할 색상을 정의합니다.</AlternatingCellBackColor>
+    <AlternatingCellForeColor>속성은 짝수 행의 값을 그리는 데 사용할 색상을 정의합니다.</AlternatingCellForeColor>
+    <CellBackColor>속성은 셀의 배경을 채우는 데 사용할 색상을 정의합니다.</CellBackColor>
+    <CellForeColor>속성은 셀의 값을 그리는 데 사용할 색상을 정의합니다.</CellForeColor>
+    <ColumnHeaderBackColor>속성은 열 머리글 셀의 배경을 채우는 데 사용할 색상을 정의합니다.</ColumnHeaderBackColor>
+    <ColumnHeaderForeColor>속성은 열 머리글 셀의 텍스트를 그리는 데 사용할 색상을 정의합니다.</ColumnHeaderForeColor>
+    <HotColumnHeaderBackColor>속성은 커서가 열 머리글 셀 위에 있을 때 열 머리글 셀의 배경을 채우는 데 사용할 색상을 정의합니다.</HotColumnHeaderBackColor>
+    <HotRowHeaderBackColor>속성은 커서가 행 머리글 셀 위에 있을 때 행 머리글 셀의 배경을 채우는 데 사용할 색상을 정의합니다.</HotRowHeaderBackColor>
+    <LineColor>속성은 셀 테두리를 그리는 데 사용할 색상을 정의합니다..</LineColor>
+    <RowHeaderBackColor>속성은 행 머리글 셀의 배경을 채우는 데 사용할 색상을 정의합니다.</RowHeaderBackColor>
+    <RowHeaderForeColor>속성은 행 머리글 셀의 텍스트를 그리는 데 사용할 색상을 정의합니다.</RowHeaderForeColor>
+    <SelectedCellBackColor>속성은 선택한 셀의 배경을 채우는 데 사용할 색상을 정의합니다.</SelectedCellBackColor>
+    <SelectedCellForeColor>속성은 선택한 셀의 값을 그리는 데 사용할 색상을 정의합니다.</SelectedCellForeColor>
+    <TotalCellColumnBackColor>속성은 전체 셀 열의 배경을 채우는 데 사용할 색상을 정의합니다.</TotalCellColumnBackColor>
+    <TotalCellColumnForeColor>속성은 전체 셀 열의 값을 그리는 데 사용할 색상을 정의합니다.</TotalCellColumnForeColor>
+    <TotalCellRowBackColor>속성은 전체 셀 행의 배경을 채우는 데 사용할 색상을 정의합니다.</TotalCellRowBackColor>
+    <TotalCellRowForeColor>속성은 전체 셀 행의 값을 그리는 데 사용할 색상을 정의합니다.</TotalCellRowForeColor>
+  </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>밴드가 렌더 시작시 발생</BeginRenderEvent>
     <CalcInvisible>집계를 계산할 때 눈에 보이지 않는 데이터 밴드를 고려할 것을 의미합니다.</CalcInvisible>
@@ -1459,6 +1498,16 @@
     <PrintIfEmpty>데이터가 존재하지 않는 경우 헤더를 나타내는 값</PrintIfEmpty>
     <PrintOnAllPages>구성 요소가 모든 페이지에 인쇄되어있는 것을 나타내는 값</PrintOnAllPages>
   </StiHeaderBand>
+  <StiHeatmapStyleData>
+    <Color>이 속성은 최대값을 포함하는 지도 개체를 채우는 데 사용할 색상을 정의합니다.</Color>
+    <Mode>속성은 히트맵의 색상 컬렉션을 형성하는 데 사용할 모드를 정의합니다.</Mode>
+    <ZeroColor>이 속성은 0 값을 포함하는 지도 개체를 채우는 데 사용할 색상을 정의합니다.</ZeroColor>
+  </StiHeatmapStyleData>
+  <StiHeatmapWithGroupStyleData>
+    <Colors>이 속성을 사용하면 색상 컬렉션을 만들 수 있습니다. 컬렉션의 각 색상은 특정 그룹의 기본 색상으로 사용됩니다.</Colors>
+    <Mode>속성은 히트맵의 색상 컬렉션을 형성하는 데 사용할 모드를 정의합니다.</Mode>
+    <ZeroColor>이 속성은 0 값을 포함하는 지도 개체를 채우는 데 사용할 색상을 정의합니다.</ZeroColor>
+  </StiHeatmapWithGroupStyleData>
   <StiHierarchicalBand>
     <Footers>계층 밴드의 바닥 글 목록</Footers>
     <Headers>계층 밴드의 헤더 목록</Headers>
@@ -1482,6 +1531,12 @@
     <ImageURL>구성 요소 이미지 URL을 기입 식</ImageURL>
     <ProcessingDuplicates>보고서 엔진이 중복 된 이미지를 어떻게 처리 하는지를 나타내는 값</ProcessingDuplicates>
   </StiImage>
+  <StiIndicatorStyle>
+    <GlyphColor>속성은 아이콘을 그리는 데 사용할 색상을 정의합니다.</GlyphColor>
+    <HotBackColor>속성은 커서를 가리킬 때 표시기 배경을 채우는 데 사용할 색상을 정의합니다.</HotBackColor>
+    <NegativeColor>속성은 0보다 작을 때 변형 값에 사용할 색상을 정의합니다.</NegativeColor>
+    <PositiveColor>속성은 0보다 클 때 변형 값에 사용할 색상을 정의합니다.</PositiveColor>
+  </StiIndicatorStyle>
   <StiInteraction>
     <AllowSeries>Series에서 드릴 다운 작업을 수행 할 수 있는지 여부를 나타내는 값</AllowSeries>
     <AllowSeriesElements>Series Elements에서 드릴 다운 작업을 수행 할 수 있는지 여부를 나타내는 값</AllowSeriesElements>
@@ -1598,6 +1653,20 @@
     <KeysBinding>키의 데이터 바인딩</KeysBinding>
     <SelectedKeyBinding>선택한 키의 데이터 바인딩</SelectedKeyBinding>
   </StiLookUpBoxControl>
+  <StiMapStyle>
+    <BackColor>속성은 지도 배경을 채우는 데 사용할 색상을 정의합니다.</BackColor>
+    <BorderColor>속성은 지도 지리적 개체의 테두리를 그리는 데 사용할 색상을 정의합니다.</BorderColor>
+    <BorderSize>속성은 지도 지리적 개체에 사용할 테두리 너비를 정의합니다.</BorderSize>
+    <BubbleBackColor>속성은 지도 거품을 채우는 데 사용할 색상을 정의합니다.</BubbleBackColor>
+    <BubbleBorderColor>속성은 지도 버블의 테두리를 그리는 데 사용할 색상을 정의합니다.</BubbleBorderColor>
+    <Colors>이 속성을 사용하면 각 모드에서 색상을 지정할 때 지도의 지리적 개체를 채우는 데 사용할 색상 세트를 만들 수 있습니다.</Colors>
+    <DefaultColor>이 속성은 기본적으로 지도 유형이 개인을 제외한 모든 유형으로 설정된 경우 지도 지리적 개체를 채우는 데 사용되는 색상을 정의합니다.</DefaultColor>
+    <Heatmap>속성 집합은 히트맵에 사용할 설정을 정의합니다.</Heatmap>
+    <HeatmapWithGroup>속성 집합은 그룹이 있는 히트맵에 사용할 설정을 정의합니다.</HeatmapWithGroup>
+    <IndividualColor>속성은 지도의 지리적 개체를 채우는 데 사용할 색상을 정의합니다.</IndividualColor>
+    <LabelForeground>속성은 지도 지리적 개체의 레이블을 그리는 데 사용할 색상을 정의합니다.</LabelForeground>
+    <LabelShadowForeground>속성은 지도 지리적 개체의 레이블 그림자를 그리는 데 사용할 색상을 정의합니다.</LabelShadowForeground>
+  </StiMapStyle>
   <StiMargin>
     <Bottom>값은 요소의 하단 모서리에서 여백을 설정합니다..</Bottom>
     <Left>값은 요소의 왼쪽 모서리에서 여백을 설정합니다..</Left>
@@ -1730,6 +1799,11 @@
     <PrinterName>보고서 인쇄에 사용되는 프린터의 이름</PrinterName>
     <ShowDialog>인쇄 대화 상자가 표시되는지 여부를 나타내는 값</ShowDialog>
   </StiPrinterSettings>
+  <StiProgressStyle>
+    <BandColor>속성은 진행률 값의 영역 그래픽을 채우는 데 사용할 색상을 정의합니다.</BandColor>
+    <SeriesColors>이 속성을 사용하면 진행 시리즈를 그리기 위한 색상 세트를 만들 수 있습니다.</SeriesColors>
+    <TrackColor>속성은 진행률 트랙을 채우는 데 사용할 색상을 정의합니다.</TrackColor>
+  </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>오류 수정 수준을 가져 오거나 설정</ErrorCorrectionLevel>
     <Height>바코드의 높이를 설정</Height>
@@ -2066,6 +2140,20 @@
   <StiTableOfContents>
     <RightToLeft>수평 출력 방향을 가져오거나 설정합니다.</RightToLeft>
   </StiTableOfContents>
+  <StiTableStyle>
+    <AlternatingDataColor>속성은 교대 행의 배경을 채우는 데 사용할 색상을 정의합니다.</AlternatingDataColor>
+    <AlternatingDataForeground>속성은 교대로 행에 값을 그리는 데 사용할 색상을 정의합니다.</AlternatingDataForeground>
+    <DataColor>속성은 행의 배경을 채우는 데 사용할 색상을 정의합니다.</DataColor>
+    <DataForeground>속성은 행에 값을 그리는 데 사용할 색상을 정의합니다.</DataForeground>
+    <FooterColor>속성은 바닥글 행의 배경을 채우는 데 사용할 색상을 정의합니다.</FooterColor>
+    <FooterForeground>속성은 바닥글 행에 값을 그리는 데 사용할 색상을 정의합니다.</FooterForeground>
+    <GridColor>속성은 셀 테두리를 그리는 데 사용할 색상을 정의합니다.</GridColor>
+    <HeaderColor>속성은 셀 테두리를 그리는 데 사용할 색상을 정의합니다.</HeaderColor>
+    <HeaderForeground>속성은 헤더 행의 값을 그리는 데 사용할 색상을 정의합니다.</HeaderForeground>
+    <HotHeaderColor>속성은 커서가 머리글 행 위에 놓일 때 머리글 행의 배경을 채우는 데 사용할 색상을 정의합니다.</HotHeaderColor>
+    <SelectedDataColor>속성은 선택한 셀의 배경을 채우는 데 사용할 색상을 정의합니다.</SelectedDataColor>
+    <SelectedDataForeground>속성은 선택한 셀에 값을 그리는 데 사용할 색상을 정의합니다.</SelectedDataForeground>
+  </StiTableStyle>
   <StiText>
     <AllowHtmlTags>이 구성 요소가 텍스트의 HTML 태그를 허용하는 것을 나타내는 값</AllowHtmlTags>
     <Angle>텍스트 회전 각도</Angle>
@@ -2094,6 +2182,9 @@
     <TextBinding>텍스트 데이터 바인딩</TextBinding>
     <WordWrap>여러 줄의 텍스트 상자 컨트롤이 필요한 단어를 다음 줄의 처음으로 자동으로 바뀌는 지 여부를 나타내는 값</WordWrap>
   </StiTextBoxControl>
+  <StiTextElement>
+    <SizeMode>구성 요소 영역의 텍스트 출력이 텍스트 크기에 따라 달라지는 방식을 지정합니다.</SizeMode>
+  </StiTextElement>
   <StiTextInCells>
     <CellHeight>셀의 높이</CellHeight>
     <CellWidth>셀의 폭</CellWidth>

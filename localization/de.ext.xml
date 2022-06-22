@@ -38,6 +38,8 @@
     <StiGenerateNewNamePageActionLong>Neuen Namen für die Seite vergeben.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Neuen Namen für die Beziehung vergeben.</StiGenerateNewNameRelationActionLong>
     <StiGrowToHeightOverlappingLong>Den Wert der Eigenschaft 'In die Höhe wachsen' einer Komponente auf wahr setzen.</StiGrowToHeightOverlappingLong>
+    <StiInsufficientTextHeightForOneLineLong>Die Höhe der Komponente wird mindestens bis der Höhe einer Textzeile oder nächster Zeile des Bericht-Rasters vergrößern.</StiInsufficientTextHeightForOneLineLong>
+    <StiInsufficientTextHeightForOneLineShort>Die Höhe festlegen</StiInsufficientTextHeightForOneLineShort>
     <StiLargeHeightAtPageActionLong>Für das bequeme Ansehen und Ändern einer Komponente wird die Eigenschaft 'Überlänge' der Seite auf wahr gesetzt.</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>Die minimale Seitenanzahl pro Spalte auf 0 setzen.</StiMinRowsInColumnsActionLong>
     <StiMoveComponentToPageAreaActionLong>Die Komponente wurde so angeordnet, dass sie ganz auf der Seite Platz findet. In diesem Fall werden die Seiten-Felder nicht berücksichtigt.</StiMoveComponentToPageAreaActionLong>
@@ -114,6 +116,8 @@
     <StiGroupHeaderNotEqualToGroupFooterShort>Einige Komponenten werden im Report nicht dargestellt</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGrowToHeightOverlappingLong>Die Eigenschaft 'In die Höhe wachsen' der Komponente '{0}' ist auf wahr gesetzt. Beim Ausführen des Reports kann diese Komponente eine oder mehrere unterhalb angeordneten Komponenten überlappen. </StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>Es ist möglich, Komponenten zu überlappen.</StiGrowToHeightOverlappingShort>
+    <StiInsufficientTextHeightForOneLineCheckLong>Die Höhe der Textkomponente {0} ist zu klein, sogar für eine Textzeile. Das kann die Probleme beim Export in einige Formate, und auch beim Drucken in Web, verursachen. Wir empfehlen die Höhe zu vergrößern oder die Eigenschaft CanGrow auf Ja zu setzen.</StiInsufficientTextHeightForOneLineCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>Unzureichende Höhe für eine Zeile.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>Die Systemvariablen IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough ergeben fehlerhafte Ergebnisse bei nur einem Durchlaufs. Es ist notwendig, die Eigenschaft 'Anzahl der Durchläufe' auf doppelten Durchlauf zu setzen.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>Systemvariable, die einen doppelten urchlauf erfordern, werden in diesem Report benutzt</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>Für die korrekte Durchführung der Funktionen IsFirstPass, IsSecondPass ist ein doppelter Durchlauf bei der Ausführung des Reports erforderlich. Möglicherlicherweise haben Sie vergessen, die Eigenschaft 'Anzahl der Durchläufe' für den Report auf doppelten Durchlauf zu setzen.</StiIsFirstPassIsSecondPassCheckLong>
@@ -231,6 +235,8 @@
     <StiCompilationErrorCheck3Long>Der Kompilierungsfehler wurde im Ereignis '{1}' der Komponente '{2}' gefunden:</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>Ein Umwandlungsfehler wurde im Report '{0}' gefunden.</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Umwandlungsfehler</StiCompilationErrorCheckShort>
+    <StiDataSourceLoopingCheckLong>Datenband '{0}' und untergeordnetes Datenband '{1}' verwenden gleiche Datenquelle '{2}'. Um die Schleife zu vermeiden, wird das untergeordnete Datenband nicht angezeigt werden.</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckShort>Datenschleife ist möglich.</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>Die Datenquellen mit dem gleichen Namen '{0}' sind gefunden.</StiDuplicatedName2CheckLong>
     <StiDuplicatedName3CheckLong>Es gibt einige Datenquellen mit dem Namen '{0}' mit dem unterschiedlichen Register.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>Die Komponenten mit dem gleichen Namen '{0}' sind gefunden.</StiDuplicatedNameCheckLong>
@@ -722,6 +728,9 @@
     <Style>Art des Rahmenaufsatzes.</Style>
     <Width>Rahmenaufsatz.</Width>
   </StiCap>
+  <StiCardsStyle>
+    <LineColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Kacheln-Rändern verwendet wird, fest.</LineColor>
+  </StiCardsStyle>
   <StiChart>
     <Area>Diagrammbereich.</Area>
     <ChartType>Diagrammtyp.</ChartType>
@@ -830,6 +839,17 @@
     <Font>Titel-Zeichensatz für die Diagramm-Legende.</Font>
     <Text>Der Text der Legende-Titel.</Text>
   </StiChartLegendTitle>
+  <StiChartStyle>
+    <ChartAreaShowShadow>Die Eigenschaft legt, ob der Gebiet-Schatten angezeigt wird, fest.</ChartAreaShowShadow>
+    <MarkerVisible>Die Eigenschaft legt, ob der Marker angezeigt wird, fest.</MarkerVisible>
+    <SeriesBorderThickness>Die Eigenschaft legt die Breite der Reihenränder fest.</SeriesBorderThickness>
+    <SeriesLabelsLineColor>Die Eigenschaft legt die Linienfarbe der Reihenbeschriftungen fest.</SeriesLabelsLineColor>
+    <SeriesLighting>Die Eigenschaft legt, ob die Beleuchtung für Kreisdiagramm angezeigt wird, fest.</SeriesLighting>
+    <SeriesShowBorder>Die Eigenschaft legt, ob die Reihenränder angezeigt werden, fest.</SeriesShowBorder>
+    <SeriesShowShadow>Die Eigenschaft legt, ob der Reihenschatten angezeigt wird, fest.</SeriesShowShadow>
+    <TrendLineColor>Die Eigenschaft legt die Farbe der Trendlinie fest.</TrendLineColor>
+    <TrendLineShowShadow>Die Eigenschaft legt, ob der Trendlinie-Schatten angezeigt wird, fest.</TrendLineShowShadow>
+  </StiChartStyle>
   <StiChartTable>
     <Font>Die Farbe der Diagrammtabelle.</Font>
     <GridLineColor>Eine Farbe der Rasterlinien.</GridLineColor>
@@ -1123,6 +1143,25 @@
     <Wrap>Wert, der anzeigt, dass die Kreuztabelle in einer Spalte auszugeben ist. Sollte eine Ausgabe nicht hineinpassen, wird sie unterhalb ausgegeben. Um diese Eigenschaft zu benutzen, ist es notwendig, die Eigenschaft 'Kann unterbrochen werden' desjenigen Bandes zu aktivieren, auf dem die Kreuztabelle enthalten ist (soweit sie auf dem Band vorhanden ist).</Wrap>
     <WrapGap>Zweischenraum zwischen beiden Teilen einer umgebrochenen Kreuztabelle. Die Eigenschaft wird gemeinsam mit der Umbruchs-Eigenschaft benutzt.</WrapGap>
   </StiCrossTab>
+  <StiCrossTabStyle>
+    <AlternatingCellBackColor>Die Eigenschaft legt die Farbe für Füllung vom Hintergrund der geraden Reihen fest.</AlternatingCellBackColor>
+    <AlternatingCellForeColor>Die Eigenschaft legt die Farbe, die für Zeichnung von Werten in geraden Reihen verwendet wird, fest.</AlternatingCellForeColor>
+    <CellBackColor>Die Eigenschaft legt die Farbe, die für Füllung vom Hintergrund der Zelle verwendet wird, fest.</CellBackColor>
+    <CellForeColor>Die Eigenschaft legt die Farbe, die für Zeichnung von Werten in den Zellen verwendet wird, fest.</CellForeColor>
+    <ColumnHeaderBackColor>Die Eigenschaft legt die Farbe, die für Füllung vom Hintergrund in den Zellen der Spaltenköpfe verwendet wird, fest.</ColumnHeaderBackColor>
+    <ColumnHeaderForeColor>Die Eigenschaft legt die Farbe, die für Zeichnung des Textes in den Zellen der Spaltenköpfe verwendet wird, fest.</ColumnHeaderForeColor>
+    <HotColumnHeaderBackColor>Die Eigenschaft legt die Farbe, die für Füllung vom Hintergrund in den Zellen der Spaltenköpfe verwendet wird, wenn der Mauszeiger sich darüber befindet, fest.</HotColumnHeaderBackColor>
+    <HotRowHeaderBackColor>Die Eigenschaft legt die Farbe, die für Füllung vom Hintergrund in den Zellen der Reihenköpfe verwendet wird, wenn der Mauszeiger sich darüber befindet, fest.</HotRowHeaderBackColor>
+    <LineColor>Die Eigenschaft legt die Farbe, die für Zeichnung von Zellenrändern verwendet wird, fest.</LineColor>
+    <RowHeaderBackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund in den Zellen der Reihenköpfe verwendet wird, fest.</RowHeaderBackColor>
+    <RowHeaderForeColor>Die Eigenschaft legt die Farbe, die für die Zeichnung vom Text in den Zellen der Reihenköpfe verwendet wird, fest.</RowHeaderForeColor>
+    <SelectedCellBackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund in den ausgewählten Zellen verwendet wird, fest.</SelectedCellBackColor>
+    <SelectedCellForeColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Werten in den ausgewählten Zellen verwendet wird, fest.</SelectedCellForeColor>
+    <TotalCellColumnBackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund in den Gesamtzellen der Spalte verwendet wird, fest.</TotalCellColumnBackColor>
+    <TotalCellColumnForeColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Werten in den Gesamtzellen der Spalte verwendet wird, fest.</TotalCellColumnForeColor>
+    <TotalCellRowBackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund in den Gesamtzellen der Reihe verwendet wird, fest.</TotalCellRowBackColor>
+    <TotalCellRowForeColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Werten in den Gesamtzellen der Reihe verwendet wird, fest.</TotalCellRowForeColor>
+  </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>Tritt auf, wenn das Aufbereiten des Bandes beginnt.</BeginRenderEvent>
     <CalcInvisible>Wert, der anzeigt, dass, wenn Aggregationen bei der Berechnung erfolgen, es notwenig ist, die nicht sichtbaren Datenbänder in die Betrachtung mit zu berücksichtigen.</CalcInvisible>
@@ -1459,6 +1498,16 @@
     <PrintIfEmpty>Wert, der anzeigt, dass der Kopf ausgegeben wird, wenn keine Daten vorhanden sind.</PrintIfEmpty>
     <PrintOnAllPages>Wert, derzeigt, dass die Komponente auf allen Seiten ausgegeben wird.</PrintOnAllPages>
   </StiHeaderBand>
+  <StiHeatmapStyleData>
+    <Color>Die Eigenschaft legt die Farbe, die für die Füllung vom geographischen Objekt der Karte mit dem maximalen Wert verwendet wird, fest.</Color>
+    <Mode>Die Eigenschaft legt den Modus, der für die Formierung von Farbkollektion des Heatmaps verwendet wird, fest.</Mode>
+    <ZeroColor>Diese Eigenschaft legt die Farbe, die für die Füllung vom geographischen Objekt der Karte mit dem Nullwert verwendet wird, fest.</ZeroColor>
+  </StiHeatmapStyleData>
+  <StiHeatmapWithGroupStyleData>
+    <Colors>Die Eigenschaft erlaubt die Farbkollektion zu erstellen. Jede Farbe der Kollektion wird als Primärfarbe bestimmter Gruppe verwendet werden.</Colors>
+    <Mode>Die Eigenschaft legt den Modus, der für die Formierung von Farbkollektion des Heatmaps verwendet wird, fest.</Mode>
+    <ZeroColor>Diese Eigenschaft legt die Farbe, die für die Füllung vom geographischen Objekt der Karte mit dem Nullwert verwendet wird, fest.</ZeroColor>
+  </StiHeatmapWithGroupStyleData>
   <StiHierarchicalBand>
     <Footers>Auflistung von Fußzeilen für das hierarchische Band.</Footers>
     <Headers>Auflistung von Kopfzeilen für das hierarchische Band.</Headers>
@@ -1482,6 +1531,12 @@
     <ImageURL>Ausdruck, um ein Bild-Komponente in einer URL zu füllen.</ImageURL>
     <ProcessingDuplicates>Wert, der angibt, wie sich der Reportgenerator bei doppelten Bildern verhält.</ProcessingDuplicates>
   </StiImage>
+  <StiIndicatorStyle>
+    <GlyphColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Symbolen verwendet wird, fest.</GlyphColor>
+    <HotBackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Indikator-Hintergrund, wenn der Mauszeiger sich darüber befindet, verwendet wird, fest.</HotBackColor>
+    <NegativeColor>Die Eigenschaft legt die Farbe, die für den Variation-Wert, der kleiner als Null ist, verwendet wird, fest.</NegativeColor>
+    <PositiveColor>Die Eigenschaft legt die Farbe, die für den Variation-Wert, der größer als Null ist, verwendet wird, fest.</PositiveColor>
+  </StiIndicatorStyle>
   <StiInteraction>
     <AllowSeries>Wert, der angibt, ob die Drill-Down Operation für Reihen ausgeführt werden kann.</AllowSeries>
     <AllowSeriesElements>Wert, der angibt, ob die Drill-Down Operation für Reihenelemente ausgeführt werden kann.</AllowSeriesElements>
@@ -1598,6 +1653,20 @@
     <KeysBinding>Datenbindungen für die Schlüssel.</KeysBinding>
     <SelectedKeyBinding>Datenbindungen für die ausgewählten Schlüssel.</SelectedKeyBinding>
   </StiLookUpBoxControl>
+  <StiMapStyle>
+    <BackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Karte-Hintergrund verwendet wird, fest.</BackColor>
+    <BorderColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Rändern der geographischen Objekte der Karte verwendet wird, fest.</BorderColor>
+    <BorderSize>Die Eigenschaft legt die Ränder-Breite der geographischen Objekte der Karte fest.</BorderSize>
+    <BubbleBackColor>Die Eigenschaft legt die Farbe, die für die Füllung von Karte-Blasen verwendet wird, fest.</BubbleBackColor>
+    <BubbleBorderColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Rändern der Karte-Blasen verwendet wird, fest.</BubbleBorderColor>
+    <Colors>Die Eigenschaft erlaubt einen Farbsatz zu erstellen, der für die Füllung vom geographischen Objekt der Karte, wenn der Modus Jede färben aktiviert ist, verwendet wird, fest.</Colors>
+    <DefaultColor>Die Eigenschaft legt, welche standardmäßige Farbe für die Füllung von geographischen Objekten der Karte, wenn der Kartetyp als jeden Typen, außer individuellen, einstellt ist, verwendet wird, fest.</DefaultColor>
+    <Heatmap>Die Eigenschaften legen die Einstellungen, die für Heatmap verwendet werden, fest.</Heatmap>
+    <HeatmapWithGroup>Die Eigenschaften legen die Einstellungen, die für Heatmap mit der Gruppe verwendet werden, fest.</HeatmapWithGroup>
+    <IndividualColor>Die Eigenschaft legt die Farbe, die für die Füllung von geographischen Objekten der Karte verwendet wird, fest.</IndividualColor>
+    <LabelForeground>Die Eigenschaft legt die Farbe, die für die Zeichnung von Beschriftungen für geographische Objekte der Karte verwendet wird, fest.</LabelForeground>
+    <LabelShadowForeground>Die Eigenschaft legt die Farbe, die für die Zeichnung von Schatten der Beschriftungen für geographische Objekte der Karte verwendet wird, fest.</LabelShadowForeground>
+  </StiMapStyle>
   <StiMargin>
     <Bottom>Der Wert stellt einen Innenabstand von der Unterkante des Elementes ein.</Bottom>
     <Left>Der Wert stellt einen Innenabstand von der linken Kante des Elementes ein.</Left>
@@ -1730,6 +1799,11 @@
     <PrinterName>Name der Ausgabeeinheit, der für den Bericht benutzt wird.</PrinterName>
     <ShowDialog>Wert, der angibt, ob der Ausgabedialog angezeigt wird.</ShowDialog>
   </StiPrinterSettings>
+  <StiProgressStyle>
+    <BandColor>Die Eigenschaft legt die Farbe, die für die Füllung von geographischen Objekten des Fortschritt-Wertes verwendet wird, fest.</BandColor>
+    <SeriesColors>Die Eigenschaft erlaubt einen Farbsatz, der für die Reihen des Elementes verwendet wird, zu erstellen.</SeriesColors>
+    <TrackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Fortschritt-Indikator verwendet wird, fest.</TrackColor>
+  </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Liest oder setzt die Fehlerkorrektur-Stufe.</ErrorCorrectionLevel>
     <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
@@ -2066,6 +2140,20 @@
   <StiTableOfContents>
     <RightToLeft>Gets or sets horizontal output direction.</RightToLeft>
   </StiTableOfContents>
+  <StiTableStyle>
+    <AlternatingDataColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund der abwechselnden Zeilen verwendet wird, fest.</AlternatingDataColor>
+    <AlternatingDataForeground>Die Eigenschaft legt die Farbe, die für die Zeichnung von Werten in den abwechselnden Zeilen verwendet wird, fest.</AlternatingDataForeground>
+    <DataColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund der Zeilen verwendet wird, fest.</DataColor>
+    <DataForeground>Die Eigenschaft legt die Farbe, die für die Zeichnung von Werten in den abwechselnden Zeilen verwendet wird, fest.</DataForeground>
+    <FooterColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund der Fußzeile verwendet wird, fest.</FooterColor>
+    <FooterForeground>Die Eigenschaft legt die Farbe, die für die Zeichnung von Werten in den Fußzeilen verwendet wird, fest.</FooterForeground>
+    <GridColor>Die Eigenschaft legt die Farbe, die für die Zeichnung von Zellen-Ränder verwendet wird, fest.</GridColor>
+    <HeaderColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund der Kopfzeile verwendet wird, fest.</HeaderColor>
+    <HeaderForeground>Die Eigenschaft legt die Farbe, die für die Zeichnung von Werten in den Fußzeilen verwendet wird, fest.</HeaderForeground>
+    <HotHeaderColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund der Kopfzeile, wenn der Mauszeiger sich darüber befindet, verwendet wird, fest.</HotHeaderColor>
+    <SelectedDataColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Hintergrund der ausgewählte Zelle verwendet wird, fest.</SelectedDataColor>
+    <SelectedDataForeground>TDie Eigenschaft legt die Farbe, die für die Zeichnung von Werten in der ausgewählte Zelle verwendet wird, fest.</SelectedDataForeground>
+  </StiTableStyle>
   <StiText>
     <AllowHtmlTags>Wert, der anzeigt, ob die Komponente HTM-Tags zulässt.</AllowHtmlTags>
     <Angle>Winkel der Textrotation.</Angle>
@@ -2094,6 +2182,9 @@
     <TextBinding>Datenbindungen für den Text.</TextBinding>
     <WordWrap>Wert, der anzeigt, ob des Mehrzeilentextbox-Steuerelement einen Wortumbruch automatisch zu Beginn einer neuen Zeile durchführt.</WordWrap>
   </StiTextBoxControl>
+  <StiTextElement>
+    <SizeMode>Gibt an, wie die Ausgabe vom Text im Komponente-Bereich von der Textgröße abhängt.</SizeMode>
+  </StiTextElement>
   <StiTextInCells>
     <CellHeight>Zellenhöhe.</CellHeight>
     <CellWidth>Zellenbreite.</CellWidth>

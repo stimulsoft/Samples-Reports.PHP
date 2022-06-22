@@ -38,6 +38,8 @@
     <StiGenerateNewNamePageActionLong>Сгенерировать новое имя для страницы.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Сгенерировать новое имя для связи.</StiGenerateNewNameRelationActionLong>
     <StiGrowToHeightOverlappingLong>Задать у компонента значение свойства GrowToHeight равное false.</StiGrowToHeightOverlappingLong>
+    <StiInsufficientTextHeightForOneLineLong>Высота компонента увеличится как минимум до высоты одной строки текста или до следующей ячейки сетки отчета.</StiInsufficientTextHeightForOneLineLong>
+    <StiInsufficientTextHeightForOneLineShort>Исправить высоту</StiInsufficientTextHeightForOneLineShort>
     <StiLargeHeightAtPageActionLong>У страницы будет задано значение свойства LargeHeight равное true, для удобного просмотра и редактирования компонентов.</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>Задать значение свойства MinRowsInColumns равное нулю.</StiMinRowsInColumnsActionLong>
     <StiMoveComponentToPageAreaActionLong>Компонент будет размещен так, чтобы он полностью находился на странице. В данном случае поля страницы не учитываются.</StiMoveComponentToPageAreaActionLong>
@@ -114,6 +116,8 @@
     <StiGroupHeaderNotEqualToGroupFooterShort>Некоторые компоненты не будет построены</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGrowToHeightOverlappingLong>У компонента '{0}' значение свойства GrowToHeight равно true. При построении отчета этот компонент может перекрыть один или несколько нижележащих компонентов.</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>Возможно перекрытие компонентов</StiGrowToHeightOverlappingShort>
+    <StiInsufficientTextHeightForOneLineCheckLong>Высота текстового компонента {0} слишком мала даже для одной строки текста. Это может вызвать проблемы с экспортом в некоторые форматы, а также с печатью в Web. Рекомендуется увеличить высоту или установить свойство Может расти в значение Да.</StiInsufficientTextHeightForOneLineCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>Недостаточно высоты для одной строки.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>Системные переменные IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough при одном проходе выдают некорректные результаты. Требуется задать значение свойства NumberOfPass равное DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>В отчете используются системные переменные, которые требуют два прохода</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>Для корректной работы функций IsFirstPass, IsSecondPass требуется построение отчета в два прохода. Возможно вы забыли задать у отчета значение свойства NumberOfPass равное DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
@@ -231,6 +235,8 @@
     <StiCompilationErrorCheck3Long>Выявлена ошибка компиляции в событии '{1}' компонента '{2}':</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>В отчете '{0}' выявлена ошибка компиляции:'</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Ошибка компиляции</StiCompilationErrorCheckShort>
+    <StiDataSourceLoopingCheckLong>Бэнд Данные '{0}' и подчиненный бэнд Данные '{1}' используют один и тот же источник данных '{2}'. Во избежание зацикливанния, подчиненный бэнд Данные не будет отображаться.</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckShort>Возможно зацикливание данных.</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>Найдены источники данных с одинаковым именем '{0}'. Компиляция отчета невозможна.</StiDuplicatedName2CheckLong>
     <StiDuplicatedName3CheckLong>Существует несколько источников данных с именем '{0}', различающихся регистром.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>Найдены компоненты с одинаковым именем '{0}'. Компиляция отчета невозможна.</StiDuplicatedNameCheckLong>
@@ -722,6 +728,9 @@
     <Style>Стиль стрелки.</Style>
     <Width>Ширина стрелки.</Width>
   </StiCap>
+  <StiCardsStyle>
+    <LineColor>Свойство определяет цвет, который будет использоваться для отрисовки границ карточек.</LineColor>
+  </StiCardsStyle>
   <StiChart>
     <Area>Область диаграммы.</Area>
     <ChartType>Тип диаграммы.</ChartType>
@@ -830,6 +839,17 @@
     <Font>Шрифт заголовка легенды диаграммы.</Font>
     <Text>Текст заголовка легенды.</Text>
   </StiChartLegendTitle>
+  <StiChartStyle>
+    <ChartAreaShowShadow>Свойство определяет будет ли отображаться тень области или нет.</ChartAreaShowShadow>
+    <MarkerVisible>Свойство определяет будет ли отображаться маркер или нет.</MarkerVisible>
+    <SeriesBorderThickness>Свойство определяет толщину границы рядов.</SeriesBorderThickness>
+    <SeriesLabelsLineColor>Свойство определяет цвет, который будет использоваться для заголовков рядов.</SeriesLabelsLineColor>
+    <SeriesLighting>Свойство определяет будет ли отображаться подсветка круговой диаграммы или нет.</SeriesLighting>
+    <SeriesShowBorder>Свойство определяет будут ли отображаться границы рядов или нет.</SeriesShowBorder>
+    <SeriesShowShadow>Свойство определяет будет ли отображаться тень рядов или нет.</SeriesShowShadow>
+    <TrendLineColor>Свойство определяет цвет, который будет использоваться для линии тренда.</TrendLineColor>
+    <TrendLineShowShadow>Свойство определяет будет ли отображаться тень линии тренда или нет.</TrendLineShowShadow>
+  </StiChartStyle>
   <StiChartTable>
     <Font>Шрифт таблицы диаграммы.</Font>
     <GridLineColor>Цвет линий сетки.</GridLineColor>
@@ -1123,6 +1143,25 @@
     <Wrap>Значение определяет, что кросс-таб должен выводиться в одной колонке. В то же время, все, что не подходит по ширине выводится ниже. Для использования данного свойства необходимо включить свойство CanBreak для бенда, на котором находится кросс-таб (если он находится на бенде).</Wrap>
     <WrapGap>Пространство между двумя частями перенесенного кросс-таба. Свойство используется вместе со свойством Wrap.</WrapGap>
   </StiCrossTab>
+  <StiCrossTabStyle>
+    <AlternatingCellBackColor>Свойство определяет цвет, который будет использоваться для фона четных строк.</AlternatingCellBackColor>
+    <AlternatingCellForeColor>Свойство определяет цвет, который будет использоваться для значений четных строк.</AlternatingCellForeColor>
+    <CellBackColor>Свойство определяет цвет, который будет использоваться для фона ячеек.</CellBackColor>
+    <CellForeColor>Свойство определяет цвет, который будет использоваться для значений ячеек.</CellForeColor>
+    <ColumnHeaderBackColor>Свойство определяет цвет, который будет использоваться для фона в ячейках заголовков колонок.</ColumnHeaderBackColor>
+    <ColumnHeaderForeColor>Свойство определяет цвет, который будет использоваться для текста в ячейках заголовков колонок.</ColumnHeaderForeColor>
+    <HotColumnHeaderBackColor>Свойство определяет цвет, который будет использоваться для фона в ячейках заголовков колонок при наведении курсора.</HotColumnHeaderBackColor>
+    <HotRowHeaderBackColor>Свойство определяет цвет, который будет использоваться для фона в ячейках заголовков строк при наведении курсора.</HotRowHeaderBackColor>
+    <LineColor>Свойство определяет цвет, который будет использоваться для отрисовки границ ячеек.</LineColor>
+    <RowHeaderBackColor>Свойство определяет цвет, который будет использоваться для фона в ячейках заголовков строк.</RowHeaderBackColor>
+    <RowHeaderForeColor>Свойство определяет цвет, который будет использоваться для текста в ячейках заголовков строк.</RowHeaderForeColor>
+    <SelectedCellBackColor>Свойство определяет цвет, который будет использоваться для фона в выделенных ячейках.</SelectedCellBackColor>
+    <SelectedCellForeColor>Свойство определяет цвет, который будет использоваться для значений в выделенных ячейках.</SelectedCellForeColor>
+    <TotalCellColumnBackColor>Свойство определяет цвет, который будет использоваться для фона в итоговых ячейках колонок.</TotalCellColumnBackColor>
+    <TotalCellColumnForeColor>Свойство определяет цвет, который будет использоваться для значений в итоговых ячейках колонок.</TotalCellColumnForeColor>
+    <TotalCellRowBackColor>Свойство определяет цвет, который будет использоваться для фона в итоговых ячейках строк.</TotalCellRowBackColor>
+    <TotalCellRowForeColor>Свойство определяет цвет, который будет использоваться для значений в итоговых ячейках строк.</TotalCellRowForeColor>
+  </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>Возникает при начале построения бенда.</BeginRenderEvent>
     <CalcInvisible>Значение определяет, что, при расчете агрегированных функций, необходимо учитывать невидимые бенды данных.</CalcInvisible>
@@ -1459,6 +1498,16 @@
     <PrintIfEmpty>Значение определяет, что заголовок печатается, если данные отстутствуют.</PrintIfEmpty>
     <PrintOnAllPages>Значение определяет, что компонент печатается на всех страницах.</PrintOnAllPages>
   </StiHeaderBand>
+  <StiHeatmapStyleData>
+    <Color>Свойство определяет цвет, который будет использоваться для заполнения фона географического объекта карты с максимальным значением.</Color>
+    <Mode>Свойство определяет режим, который будет использоваться для формирования коллекции цветов тепловой карты.</Mode>
+    <ZeroColor>Свойство определяет цвет, который будет использоваться для заполнения фона географического объекта карты с нулевым значением.</ZeroColor>
+  </StiHeatmapStyleData>
+  <StiHeatmapWithGroupStyleData>
+    <Colors>Свойство позволяет создавать коллекцию цветов. Каждый цвет коллекции будет использоваться в качестве основного цвета определенной группы.</Colors>
+    <Mode>Свойство определяет режим, который будет использоваться для формирования коллекции цветов тепловой карты.</Mode>
+    <ZeroColor>Это свойство определяет цвет, который будет использоваться для заполнения фона географического объекта карты с нулевым значением.</ZeroColor>
+  </StiHeatmapWithGroupStyleData>
   <StiHierarchicalBand>
     <Footers>Список итогов для иерархического бенда.</Footers>
     <Headers>Список заголовков для иерархического бенда.</Headers>
@@ -1482,6 +1531,12 @@
     <ImageURL>Выражение для заполнения URL компонента изображение.</ImageURL>
     <ProcessingDuplicates>Значение определяет, как ядро отчета обрабатывает дублированные изображения.</ProcessingDuplicates>
   </StiImage>
+  <StiIndicatorStyle>
+    <GlyphColor>Свойство определяет цвет, который будет использоваться для отрисовки значка.</GlyphColor>
+    <HotBackColor>Свойство определяет цвет, который будет использоваться для фона элемента при наведении курсора.</HotBackColor>
+    <NegativeColor>Свойство определяет цвет, который будет использоваться для значения отклонения, которое меньше нуля.</NegativeColor>
+    <PositiveColor>Свойство определяет цвет, который будет использоваться для значения отклонения, которое больше нуля.</PositiveColor>
+  </StiIndicatorStyle>
   <StiInteraction>
     <AllowSeries>Значение определяет, что операция Drill-Down может быть выполнена для рядов.</AllowSeries>
     <AllowSeriesElements>Значение определяет, что операция Drill-Down может быть выполнена для отдельных элементов рядов.</AllowSeriesElements>
@@ -1598,6 +1653,20 @@
     <KeysBinding>Привязка данных для ключей.</KeysBinding>
     <SelectedKeyBinding>Привязка данных для выбранного ключа.</SelectedKeyBinding>
   </StiLookUpBoxControl>
+  <StiMapStyle>
+    <BackColor>Свойство определяет цвет, который будет использоваться для заполнения фона карты.</BackColor>
+    <BorderColor>Свойство определяет цвет, который будет использоваться для отрисовки границ географических объектов карты.</BorderColor>
+    <BorderSize>Свойство определяет толщину границ географических объектов карты.</BorderSize>
+    <BubbleBackColor>Свойство определяет цвет, который будет использоваться для заполнения фона пузырей на карте.</BubbleBackColor>
+    <BubbleBorderColor>Свойство определяет цвет, который будет использоваться для отрисовки границ пузырей на карте.</BubbleBorderColor>
+    <Colors>Свойство позволяет создать коллекцию цветов, которая будет использоваться для формирования уникального оттенка географического объекта, когда включен режим Цвет для каждого.</Colors>
+    <DefaultColor>Свойство определяет, какой цвет по умолчанию будет использоваться для заливки географических объектов карты, когда тип карты определен как любой тип, кроме индивидуального.</DefaultColor>
+    <Heatmap>Группа свойств определяет настройки, которые будут использоваться для тепловой карты.</Heatmap>
+    <HeatmapWithGroup>Группа свойств определяет настройки, которые будут использоваться для тепловой карты с группировкой.</HeatmapWithGroup>
+    <IndividualColor>Свойство определяет цвет, который будет использоваться для заполнения фона географических объектов карты.</IndividualColor>
+    <LabelForeground>Свойство определяет цвет, который будет использоваться для отрисовки подписей географических объектов карты.</LabelForeground>
+    <LabelShadowForeground>Свойство определяет цвет, который будет использоваться для отрисовки тени подписей географических объектов карты.</LabelShadowForeground>
+  </StiMapStyle>
   <StiMargin>
     <Bottom>Значение задает отступ от нижнего края элемента.</Bottom>
     <Left>Значение задает отступ от левого края элемента.</Left>
@@ -1730,6 +1799,11 @@
     <PrinterName>Имя принтера, который будет использоваться для печати отчета.</PrinterName>
     <ShowDialog>Значение определяет, будет ли показан диалог печати.</ShowDialog>
   </StiPrinterSettings>
+  <StiProgressStyle>
+    <BandColor>Свойство определяет цвет, который будет использоваться для заливки графической области значения прогресса.</BandColor>
+    <SeriesColors>Свойство позволяет создать набор цветов, которые будут применяться для рядов элемента.</SeriesColors>
+    <TrackColor>Свойство определяет цвет, который будет использоваться для заливки индикатора выполнения.</TrackColor>
+  </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Получает или задает уровень исправления ошибок.</ErrorCorrectionLevel>
     <ErrorsCorrectionLevel>Уровень коррекции ошибок. Чем выше уровень, тем больше информации для восстановления штрихкода добавляется.</ErrorsCorrectionLevel>
@@ -2068,6 +2142,20 @@
   <StiTableOfContents>
     <RightToLeft>Горизонтальное направление вывода.</RightToLeft>
   </StiTableOfContents>
+  <StiTableStyle>
+    <AlternatingDataColor>Свойство определяет цвет, который будет использоваться для заполнения фона альтернативных строк.</AlternatingDataColor>
+    <AlternatingDataForeground>Свойство определяет цвет, который будет использоваться для значений альтернативных строк.</AlternatingDataForeground>
+    <DataColor>Свойство определяет цвет, который будет использоваться для заполнения фона строк.</DataColor>
+    <DataForeground>Свойство определяет цвет, который будет использоваться для значений строк.</DataForeground>
+    <FooterColor>Свойство определяет цвет, который будет использоваться для заполнения фона в итоговой строке.</FooterColor>
+    <FooterForeground>Свойство определяет цвет, который будет использоваться для значений в итоговой строке.</FooterForeground>
+    <GridColor>Свойство определяет цвет, который будет использоваться для отрисовки границ ячеек.</GridColor>
+    <HeaderColor>Свойство определяет цвет, который будет использоваться для заполнения фона в заголовке.</HeaderColor>
+    <HeaderForeground>Свойство определяет цвет, который будет использоваться для значений в заголовке.</HeaderForeground>
+    <HotHeaderColor>Свойство определяет цвет, который будет использоваться для заполнения фона в заголовке при наведении курсора.</HotHeaderColor>
+    <SelectedDataColor>Свойство определяет цвет, который будет использоваться для заполнения фона в выделенной ячейке.</SelectedDataColor>
+    <SelectedDataForeground>Свойство определяет цвет, который будет использоваться для значения в выделенной ячейке.</SelectedDataForeground>
+  </StiTableStyle>
   <StiText>
     <AllowHtmlTags>Значение определяет, что данный компонент разрешает HTML теги в тексте.</AllowHtmlTags>
     <Angle>Угол поворота текста.</Angle>
@@ -2096,6 +2184,9 @@
     <TextBinding>Привязка данных для текста.</TextBinding>
     <WordWrap>Указывает переносит ли, если это необходимо, многострочный элемент управления TextBox слова автоматически на начало следующей строки.</WordWrap>
   </StiTextBoxControl>
+  <StiTextElement>
+    <SizeMode>Определяет, как вывод текста в области компонента зависит от размера текста.</SizeMode>
+  </StiTextElement>
   <StiTextInCells>
     <CellHeight>Высота ячейки.</CellHeight>
     <CellWidth>Ширина ячейки.</CellWidth>

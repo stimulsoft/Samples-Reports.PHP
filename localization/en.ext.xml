@@ -57,6 +57,8 @@
     <StiSwitchWidthAndHeightOfPageActionLong>Rearrange the height and width of the page.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>The size of a component will be increased to the GridSize value of a report. This operation does not guarantee the 100% correct fix!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>Increase size</StiVerySmallSizesOfComponentsShort>
+    <StiInsufficientTextHeightForOneLineLong>The height of the component will increase at least to the height of one line of text or to the next cell of the report grid.</StiInsufficientTextHeightForOneLineLong>
+    <StiInsufficientTextHeightForOneLineShort>Fix height</StiInsufficientTextHeightForOneLineShort>
     <StiWordWrapCanGrowTextDoesNotFitActionLong>Set the value of the CanGrow property of the component to true.</StiWordWrapCanGrowTextDoesNotFitActionLong>
     <Zero>Zero</Zero>
   </CheckActions>
@@ -165,6 +167,8 @@
     <StiUndefinedComponentCheckShort>Undefined component</StiUndefinedComponentCheckShort>
     <StiVerySmallSizesOfComponentsCheckLong>The values of the Width of Height of the '{0}' component are less than the values of the GridSize of the report. Maybe you incorrectly set its size. This may cause problems when exporting to other formats.</StiVerySmallSizesOfComponentsCheckLong>
     <StiVerySmallSizesOfComponentsCheckShort>Very small size of the component</StiVerySmallSizesOfComponentsCheckShort>
+    <StiInsufficientTextHeightForOneLineCheckLong>The height of the text component {0} is too small, even for one line of text. This can cause issues with exporting to some formats, as well as with printing on the Web. It is recommended to increase the height or set the CanGrow property to true.</StiInsufficientTextHeightForOneLineCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient Height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiWidthHeightZeroComponentCheckLongHeight>The height of the '{0}' component is zero. This may cause problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongHeight>
     <StiWidthHeightZeroComponentCheckLongWidth>The width of the '{0}' component is zero. There may be some problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongWidth>
     <StiWidthHeightZeroComponentCheckLongWidthHeight>The height and width of the '{0}' component are equal to 0. There may be some problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongWidthHeight>
@@ -242,6 +246,8 @@
     <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine cannot render this report in the compilation mode. Change the report to the interpretation mode.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>This report is in the compilation mode</StiNetCoreCompilationModeCheckShort>
+    <StiDataSourceLoopingCheckLong>Data band '{0}' and child data band '{1}' use the same data source '{2}'. To avoid looping, the child data band will not be shown.</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckShort>Data looping is possible</StiDataSourceLoopingCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>The '{0}' variable has the wrong default value. It is impossible to initialize the variable with a specified value.</StiVariableInitializationCheckLong>
@@ -722,6 +728,9 @@
     <Style>A cap style.</Style>
     <Width>Width of the cap.</Width>
   </StiCap>
+  <StiCardsStyle>
+    <LineColor>The property defines the color which will be used to draw borders of the cards.</LineColor>
+  </StiCardsStyle>
   <StiChart>
     <Area>An area of the chart.</Area>
     <ChartType>A type of the chart.</ChartType>
@@ -830,6 +839,17 @@
     <Font>A title font of the chart legend.</Font>
     <Text>A title text of legend.</Text>
   </StiChartLegendTitle>
+  <StiChartStyle>
+    <MarkerVisible>The property defines the marker will be displayed or not.</MarkerVisible>
+    <ChartAreaShowShadow>The property defines the area shadow will be displayed or not.</ChartAreaShowShadow>
+    <SeriesBorderThickness>The property defines the series border width.</SeriesBorderThickness>
+    <SeriesLighting>The property defines the pie lighting will be displayed or not.</SeriesLighting>
+    <SeriesShowBorder>The property defines the series border will be displayed or not.</SeriesShowBorder>
+    <SeriesShowShadow>The property defines the series shadow will be displayed or not.</SeriesShowShadow>
+    <SeriesLabelsLineColor>The property defines the line color of series labels.</SeriesLabelsLineColor>
+    <TrendLineColor>The property defines the color of trend line.</TrendLineColor>
+    <TrendLineShowShadow>The property defines the trend line shadow will be displayed or not.</TrendLineShowShadow>
+  </StiChartStyle>
   <StiChartTable>
     <Font>Font of the chart table.</Font>
     <GridLineColor>A color of the grid lines.</GridLineColor>
@@ -1123,6 +1143,25 @@
     <Wrap>A value indicates that the cross-tab is to be output in one column. At the same time, everything that do not fit by the width is output below. For using this property it is necessary to enable the CanBreak property of the band on which the cross-tab is placed (if it is placed on the band).</Wrap>
     <WrapGap>Space between two parts of a wrapped cross-tab. The property is used jointly with the property Wrap.</WrapGap>
   </StiCrossTab>
+  <StiCrossTabStyle>
+    <AlternatingCellBackColor>The property defines the color which will be used to fill the background of the even rows.</AlternatingCellBackColor>
+    <AlternatingCellForeColor>The property defines the color which will be used for drawing of the values in the even rows.</AlternatingCellForeColor>
+    <CellBackColor>The property defines the color which will be used to fill the background of the cells.</CellBackColor>
+    <CellForeColor>The property defines the color which will be used for drawing of the values in the cells.</CellForeColor>
+    <ColumnHeaderBackColor>The property defines the color which will be used to fill the background of the column header cells.</ColumnHeaderBackColor>
+    <ColumnHeaderForeColor>The property defines the color which will be used for drawing of the text in the column header cells.</ColumnHeaderForeColor>
+    <HotColumnHeaderBackColor>The property defines the color which will be used to fill the background of the column header cell when the cursor is hovered on it.</HotColumnHeaderBackColor>
+    <HotRowHeaderBackColor>The property defines the color which will be used to fill the background of the row header cell when the cursor is hovered on it.</HotRowHeaderBackColor>
+    <LineColor>The property defines the color which will be used for drawing cell borders.</LineColor>
+    <RowHeaderBackColor>The property defines the color which will be used to fill the background of the row header cells.</RowHeaderBackColor>
+    <RowHeaderForeColor>The property defines the color which will be used for drawing of the text in the row header cells.</RowHeaderForeColor>
+    <SelectedCellBackColor>The property defines the color which will be used to fill the background of the selected cell.</SelectedCellBackColor>
+    <SelectedCellForeColor>The property defines the color which will be used for drawing of the values in the selected cells.</SelectedCellForeColor>
+    <TotalCellColumnBackColor>The property defines the color which will be used to fill the background of the total cell column.</TotalCellColumnBackColor>
+    <TotalCellColumnForeColor>The property defines the color which will be used for drawing of the values in the total cell column.</TotalCellColumnForeColor>
+    <TotalCellRowBackColor>The property defines the color which will be used to fill the background of the total cell row.</TotalCellRowBackColor>
+    <TotalCellRowForeColor>The property defines the color which will be used for drawing of the values in the total cell row.</TotalCellRowForeColor>
+  </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>Occurs when band begin render.</BeginRenderEvent>
     <CalcInvisible>A value indicates that, when aggregate functions calculation, it is nesessary to take into consideration invisible data bands.</CalcInvisible>
@@ -1291,6 +1330,9 @@
     <RenderingEvent>Occurs when data row rendering.</RenderingEvent>
     <SizeMode>This property allows to indicate how to change the size of the last row on a page.</SizeMode>
   </StiEmptyBand>
+  <StiTextElement>
+    <SizeMode>Specifies how the text output in the component area depends on the text size.</SizeMode>
+  </StiTextElement>
   <StiFIMBarCodeType>
     <AddClearZone>Gets or sets value which indicates will show Clear Zone or no.</AddClearZone>
     <Height>Gets os sets height factor of the bar code.</Height>
@@ -1444,6 +1486,16 @@
     <SummarySortDirection>Gets or sets function of calculating group totals for its sorting by totals.</SummarySortDirection>
     <SummaryType>Gets or sets the sorting direction of grouped data.</SummaryType>
   </StiGroupHeaderBand>
+	<StiHeatmapStyleData>
+		<Color>This property defines the color which will be used to fill the geographic object Map, which contains the max value.</Color>
+		<ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
+		<Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
+	</StiHeatmapStyleData>
+	<StiHeatmapWithGroupStyleData>
+		<Colors>The property allows the creation of a collection of colors. Each color of the collection will be used as the primary color of the specific group.</Colors>
+		<ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
+		<Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
+	</StiHeatmapWithGroupStyleData>
   <StiHatchBrush>
     <BackColor>The color of spaces between the hatch lines drawn by this brush.</BackColor>
     <ForeColor>The color of hatch lines drawn by this brush.</ForeColor>
@@ -1477,6 +1529,12 @@
     <ImageURL>The expression to fill a component image URL.</ImageURL>
     <ProcessingDuplicates>A value that indicates how the report engine processes duplicated images.</ProcessingDuplicates>
   </StiImage>
+  <StiIndicatorStyle>
+    <GlyphColor>The property defines the color which will be used to draw icon.</GlyphColor>
+    <HotBackColor>The property defines the color which will be used to fill indicator background when cursor is hovered.</HotBackColor>
+    <NegativeColor>The property defines the color which will be used for variation value when it is less than zero.</NegativeColor>
+    <PositiveColor>The property defines the color which will be used for variation value when it is more than zero.</PositiveColor>
+  </StiIndicatorStyle>
   <StiInteraction>
     <AllowSeries>A value that indicates whether the Drill-Down operation can be executed for Series.</AllowSeries>
     <AllowSeriesElements>A value that indicates whether the Drill-Down operation can be executed for Series Elements.</AllowSeriesElements>
@@ -1599,6 +1657,20 @@
     <Right>The value sets a margin from the right edge of the element.</Right>
     <Top>The value sets a margin from the top edge of the element.</Top>
   </StiMargin>
+    <StiMapStyle>
+		<Heatmap>The properties set define the settings which will be used for heatmap.</Heatmap>
+		<HeatmapWithGroup>The properties set define the settings which will be used for heatmap with group.</HeatmapWithGroup>
+		<IndividualColor>The property defines the color which will be used to fill the map geographic objects.</IndividualColor>
+		<Colors>The property allows to create colors set which will be used to fill the map geographic objects when color each mode is used.</Colors>
+		<DefaultColor>The property defines the color by default which will be used to fill the map geographic objects when the map type is setted any type except individual.</DefaultColor>
+		<BackColor>The property defines the color which will be used to fill map background.</BackColor>
+		<BorderSize>The property defines the border width which will be used for the map geographic objects.</BorderSize>
+		<BorderColor>The property defines the color which will be used to draw borders of the map geographic objects.</BorderColor>
+		<LabelShadowForeground>The property defines the color which will be used to draw label shadow of the map geographic objects.</LabelShadowForeground>
+		<LabelForeground>The property defines the color which will be used to draw labels of the map geographic objects.</LabelForeground>
+		<BubbleBackColor>The property defines the color which will be used to fill map bubbles.</BubbleBackColor>
+		<BubbleBorderColor>The property defines the color which will be used to draw borders of the map bubbles.</BubbleBorderColor>
+    </StiMapStyle>
   <StiMarker>
     <Angle>A rotation angle of the marker.</Angle>
     <BorderColor>A border color of marker.</BorderColor>
@@ -1724,6 +1796,11 @@
     <PrinterName>A name of printer which will be used for report printing.</PrinterName>
     <ShowDialog>A value indicates that print dialog will be shown or not.</ShowDialog>
   </StiPrinterSettings>
+  <StiProgressStyle>
+    <BandColor>The property defines the color which will be used to fill the area graphics of the progress value.</BandColor>
+    <SeriesColors>The property allows to create color set for drawing the progress series.</SeriesColors>
+    <TrackColor>The property defines the color which will be used to fill the progress track.</TrackColor>
+  </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Gets or sets the error correction level.</ErrorCorrectionLevel>
     <Height>Gets os sets height factor of the bar code.</Height>
@@ -2060,6 +2137,20 @@
   <StiTableOfContents>
     <RightToLeft>Gets or sets horizontal output direction.</RightToLeft>
   </StiTableOfContents>
+  <StiTableStyle>
+    <AlternatingDataColor>The property defines the color which will be used to fill the background of the alternating rows.</AlternatingDataColor>
+    <AlternatingDataForeground>The property defines the color which will be used for drawing the value in the alternating rows.</AlternatingDataForeground>
+    <DataColor>The property defines the color which will be used to fill the background of the rows.</DataColor>
+    <DataForeground>The property defines the color which will be used for drawing the value in the rows.</DataForeground>
+    <FooterColor>The property defines the color which will be used to fill the background of the footer row.</FooterColor>
+    <FooterForeground>The property defines the color which will be used for drawing the values in the footer row.</FooterForeground>
+    <GridColor>The property defines the color which will be used for drawing the cell borders.</GridColor>
+    <HeaderColor>The property defines the color which will be used to fill the background of the header row.</HeaderColor>
+    <HeaderForeground>The property defines the color which will be used for drawing the values in the header row.</HeaderForeground>
+    <HotHeaderColor>The property defines the color which will be used to fill the background of the header row when the cursor is hovered on it.</HotHeaderColor>
+    <SelectedDataColor>The property defines the color which will be used to fill the background of the selected cell.</SelectedDataColor>
+    <SelectedDataForeground>The property defines the color which will be used for drawing the value in the selected cell.</SelectedDataForeground>
+  </StiTableStyle>
   <StiText>
     <AllowHtmlTags>A value indicates that this component allows HTML tags in a text.</AllowHtmlTags>
     <Angle>An angle of a text rotation.</Angle>
