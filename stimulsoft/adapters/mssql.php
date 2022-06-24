@@ -1,6 +1,6 @@
 <?php
 class StiMsSqlAdapter {
-	public $version = '2022.3.1';
+	public $version = '2022.3.2';
 	public $checkVersion = true;
 	
 	private $info = null;
