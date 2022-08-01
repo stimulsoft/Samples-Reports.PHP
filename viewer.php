@@ -16,9 +16,6 @@ require_once 'stimulsoft/helper.php';
 	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
 	
-	<!-- Stimulsoft Dashboards.JS -->
-	<script src="scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
-	
 	<!-- Stimulsoft JS Viewer -->
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 	
