@@ -71,6 +71,7 @@
     <StiCanGrowGrowToHeightComponentInContainerShort>Il est possible que certains composants soient mal affichés</StiCanGrowGrowToHeightComponentInContainerShort>
     <StiCanGrowWordWrapTextAndWysiwygCheckLong>Quand la qualité du texte est définie à Standard ou Typographique, l'aperçu du texte dans différents modes de zoom et l'impression  peuvent différer a cause des erreurs d'arrondi dans GDI+.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>Possibilité de retour à la ligne automatique du texte incorrect</StiCanGrowWordWrapTextAndWysiwygCheckShort>
+    <StiChartSeriesValueCheckLong>La propriété Value est spécifiée pour les séries du graphique "{0}" mais le graphique n'a pas la propriété Data Source définie.</StiChartSeriesValueCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckLong>La largeur total de colonne est plus grande que la largeur du composant '{0}' . Cela peut causer un rendu incorrect du rapport. Cela peut aussi causer des problèmes lors de l'export du rapport vers d'autres formats.</StiColumnsWidthGreaterContainerWidthCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckShort>La largeur total de colonne est plus grande que la largeur du composant</StiColumnsWidthGreaterContainerWidthCheckShort>
     <StiColumnsWidthGreaterPageWidthCheckLong>La largeur total de colonne est plus grande que la largeur de la page '{0}'. Cela peut causer un rendu incorrect du rapport. Cela peut aussi causer des problèmes lors de l'export du rapport vers d'autres formats.</StiColumnsWidthGreaterPageWidthCheckLong>
@@ -213,6 +214,7 @@
   </CheckGlobal>
   <CheckLicense>
     <StiLicenseTrialCheckLong>Vous utilisez la version d'essai de Stimulsoft Rapports et Tableaux de bord. Pour utiliser le logiciel en production, vous devez acheter une licence.</StiLicenseTrialCheckLong>
+    <StiValidSubscriptioRequiredCheckLong>Abonnement valide requis. Veuillez mettre à jour votre abonnement pour utiliser la version entièrement fonctionnelle de Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>Des points perdus ont été trouvés sur la page '{0}' : {1}. Les point sont invisible et sont utilisés par les primitives suivantes: ligne verticale, rectangle et rectangle aux coins arrondis. Si le point ne correspond à aucun composant, il peut être supprimé.</StiLostPointsOnPageCheckLong>
@@ -234,6 +236,8 @@
     <StiDuplicatedNameCheckShort>Des composants ont le même nom</StiDuplicatedNameCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>Les  relations'{0}' ont été trouvées dans le rapport. Elles ont des valeurs égales ('{1}') dans le nom dans la source. Toutes les valeurs dans Nom dans la source devraient être uniques dans une relations d'une base de données! Il est nécessaire de corriger ces champs de ces relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Doublons dans les relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
+    <StiDuplicatedReportName2CheckLong>Le nom du rapport '{0}' est le même que le nom de la source de données.</StiDuplicatedReportName2CheckLong>
+    <StiDuplicatedReportNameCheckLong>Le nom du rapport '{0}' est le même que le nom du composant.</StiDuplicatedReportNameCheckLong>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine ne peut pas faire le rendu de ce rapport dans le mode de compilation. Changez le mode d'interprétation du rapport.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>Ce rapport est en mode compilation</StiNetCoreCompilationModeCheckShort>
   </CheckReport>
@@ -261,29 +265,44 @@
     <Cancel>Annuler</Cancel>
     <Close>Fermer</Close>
     <ConnectionsFromReport>Utiliser la connexion du rapport</ConnectionsFromReport>
+    <ConnectionsFromReportToolTip>Les connexions enregistrées dans le modèle de rapport seront utilisées sans aucune modification.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Enregistrer les données du code</ConnectionsRegData>
+    <ConnectionsRegDataToolTip>Il vous sera proposé de connecter des données issues de code sous forme de données XML ou JSON, ou, si possible, sous forme d'objets métiers.</ConnectionsRegDataToolTip>
     <ConnectionsReplace>Remplacer la chaîne de connexion</ConnectionsReplace>
+    <ConnectionsReplaceToolTip>Il vous sera proposé de modifier la connexion à partir du code, en fonction de son type - chemin du fichier, chaîne de connexion à la base de données.</ConnectionsReplaceToolTip>
     <Copy>Copier</Copy>
     <CopyingLibraries>Copie des fichiers du projet...</CopyingLibraries>
     <DeployReportPlatform>Déployer le rapport vers la plateforme:</DeployReportPlatform>
     <DownloadingLibraries>Téléchargement des librairies...</DownloadingLibraries>
+    <EmbedAllDataToResources>Le rapport contient des connexions de données qui ne sont pas prises en charge sur la plate-forme sélectionnée. Souhaitez-vous intégrer les données disponibles dans le rapport en tant que ressources ? Dans ce cas, toutes les connexions seront remplacées par des ressources XML.</EmbedAllDataToResources>
+    <EmbedAllDataToResourcesToolTip>Toutes les données seront chargées et ajoutées au modèle de rapport en tant que ressources. Cela vous permet de visualiser le rapport sans avoir à interroger la base de données.</EmbedAllDataToResourcesToolTip>
     <ExportFormat>Exporter le rapport vers:</ExportFormat>
     <ExportFormatData>Données</ExportFormatData>
     <ExportFormatDataType>Type de données:</ExportFormatDataType>
     <ExportFormatImage>Image</ExportFormatImage>
     <ExportFormatImageType>Type d'image:</ExportFormatImageType>
+    <FrameworkType>Type de Framework</FrameworkType>
+    <FrameworkVersion>Version du Framework</FrameworkVersion>
     <FullScreenViewer>Afficher l'aperçu dans une fenêtre plein écran</FullScreenViewer>
+    <FullScreenViewerToolTip>La visionneuse avec le rapport sera affichée dans tout l'espace disponible de la fenêtre du navigateur.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Obtenier les bibiliothèques Stimulsoft depuis {0}</GetLibrariesFrom>
+    <GetLibrariesFromToolTip>Toutes les bibliothèques et tous les scripts nécessaires seront connectés à partir du référentiel. Sinon, ils seront copiés dans le projet et connectés directement.</GetLibrariesFromToolTip>
     <GroupAddons>Ajouts</GroupAddons>
     <GroupConnections>Connexions de données</GroupConnections>
     <GroupParameters>Parametres du rapport</GroupParameters>
     <HideOptions>Cacher les options</HideOptions>
     <IncludeFonts>Inclure les polices</IncludeFonts>
+    <IncludeFontsToolTip>Les polices nécessaires au calcul correct des tailles des composants du rapport seront copiées et connectées au projet.</IncludeFontsToolTip>
     <IncludeLibrariesToStandalone>Inclure les bibliothèques Stimulsoft dans le fichier exécutable</IncludeLibrariesToStandalone>
+    <IncludeLibrariesToStandaloneToolTip>Toutes les bibliothèques et tous les fichiers nécessaires seront inclus dans le fichier exécutable. Sinon, une archive ZIP sera créée.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Inclure la clé de licence</IncludeLicenseKey>
+    <IncludeLicenseKeyToolTip>La clé de licence du compte de l'utilisateur actuellement autorisé sera intégrée au projet.</IncludeLicenseKeyToolTip>
     <IncludeLocalization>Inclure la traduction</IncludeLocalization>
+    <IncludeLocalizationToolTip>La localisation sélectionnée sera copiée et connectée au projet.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Inclure le rapport en tant que chaîne dans le code</IncludeReportPackedStringToCode>
+    <IncludeReportPackedStringToCodeToolTip>Le rapport sera enregistré en tant que chaîne Base64 directement dans le code du projet. Cela vous permet de vous débarrasser des fichiers supplémentaires.</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>Inclure le thème UI</IncludeUITheme>
+    <IncludeUIThemeToolTip>Le thème de l'interface utilisateur sélectionné sera défini dans les paramètres du composant.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Type de framework:</JavaScriptFramework>
     <LicenseKeyTypeFile>Fiichier</LicenseKeyTypeFile>
     <LicenseKeyTypeString>Chaîne</LicenseKeyTypeString>
@@ -297,16 +316,23 @@
     <LoadReportStream>Flux</LoadReportStream>
     <LoadReportString>Chaîne</LoadReportString>
     <ParametersFromReport>Utiliser la valeur depuis le raport</ParametersFromReport>
+    <ParametersFromReportToolTip>Les valeurs des paramètres définis dans le modèle de rapport seront utilisées.</ParametersFromReportToolTip>
     <ParametersReplace>Remplacer la valeur depuis le code</ParametersReplace>
     <ParametersReplacePhpInfo>Le paramètre va être supprimé du dictionnaire du rapport et ne peut être utilisé que dans une requête SQL.</ParametersReplacePhpInfo>
+    <ParametersReplaceToolTip>Il vous sera proposé de modifier les valeurs des paramètres du rapport à partir du code.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Demander à l'utilisateur</ParametersRequestFromUser>
+    <ParametersRequestFromUserToolTip>Le paramètre de rapport sera demandé à l'utilisateur lors de la visualisation du rapport dans la fenêtre de visualisation.</ParametersRequestFromUserToolTip>
     <Publish>Publiier</Publish>
     <PublishType>Type de publication du rapport:</PublishType>
     <PublishTypeProject>Projet</PublishTypeProject>
+    <PublishTypeProjectToolTip>Une archive ZIP sera créée avec le projet fini et tous les fichiers nécessaires pour une compilation et un lancement ultérieurs.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Autonome</PublishTypeStandalone>
+    <PublishTypeStandaloneToolTip>Une application déjà compilée pour visualiser le rapport sera créée.</PublishTypeStandaloneToolTip>
     <ReadMore>Lire plus</ReadMore>
     <RegDataOnlyForPreview>Utiliser uniquement pour l'aperçu du rapport</RegDataOnlyForPreview>
+    <RegDataOnlyForPreviewToolTip>Les données seront connectées au rapport uniquement au moment de l'aperçu.</RegDataOnlyForPreviewToolTip>
     <RegDataSynchronize>Synchroniser le dictionnaire du rapport</RegDataSynchronize>
+    <RegDataSynchronizeToolTip>Après avoir connecté les données au rapport, le dictionnaire de données sera synchronisé - sources de données, colonnes et leurs types, liens de données.</RegDataSynchronizeToolTip>
     <ReplaceConnectionString>Remplacer la chaine de connexion</ReplaceConnectionString>
     <ReplacePathToData>Remplacer le chemin de la donnée</ReplacePathToData>
     <ReportAction>Que faire avec le rapport:</ReportAction>
@@ -322,9 +348,13 @@
     <TrialVersion>Version d'essai</TrialVersion>
     <Use>Utiliser</Use>
     <UseCompilationCache>Utiliser le cache de compilation</UseCompilationCache>
+    <UseCompilationCacheToolTip>Le rapport rendu sera enregistré dans un répertoire temporaire, ce qui vous permet d'accélérer son rendu et de réduire l'utilisation de la mémoire.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Utiliser lles scripts compressés</UseCompressedScripts>
+    <UseCompressedScriptsToolTip>Des scripts compressés seront utilisés à la place des scripts normaux. Cela vous permet de réduire leur taille, mais il faut un certain temps pour décompresser lors de l'exécution.</UseCompressedScriptsToolTip>
     <UseLatestVersion>Utiliser la dernière version des librairies</UseLatestVersion>
+    <UseLatestVersionToolTip>Lors de la connexion de bibliothèques et de scripts, la dernière version officielle disponible du produit sera utilisée à la place de la version actuellement installée.</UseLatestVersionToolTip>
     <UseWpfDesignerV2>Utiliser le concepteur V2</UseWpfDesignerV2>
+    <UseWpfDesignerV2ToolTip>Le concepteur de rapport WPF mis à jour sera utilisé. Il a une nouvelle interface utilisateur, une vitesse accrue et d'autres optimisations.</UseWpfDesignerV2ToolTip>
   </Publish>
   <ReportComparer>
     <Change>Modifier</Change>
@@ -764,12 +794,15 @@
     <Color>Couleur des lignes majeures.</Color>
   </StiChartGridLines>
   <StiChartInterlacing>
+    <Color>Couleur qui sera utilisée pour dessiner les barres entrelacées.</Color>
     <Visible>Visibilité des barres d'entrelacement.</Visible>
   </StiChartInterlacing>
   <StiChartLabels>
     <AutoRotate>Valeur activant ou désactivant la rotation automatique des libellés des séries.</AutoRotate>
     <Font>Police des libellés des séries.</Font>
     <ForeColor>Couleur de dessin des étiquettes.</ForeColor>
+    <Position>Une position des étiquettes.</Position>
+    <Style>Un style des étiquettes.</Style>
     <TextAfter>Texte affiché après le libellé.</TextAfter>
     <TextBefore>Texte affiché avant le libellé.</TextBefore>
   </StiChartLabels>
@@ -787,6 +820,7 @@
   <StiChartLegendTitle>
     <Color>Couleur du titre de al légende.</Color>
     <Font>Police du titre de la légende.</Font>
+    <Text>Un titre texte de légende.</Text>
   </StiChartLegendTitle>
   <StiChartTable>
     <Font>Police de la table du graphique.</Font>
@@ -795,6 +829,8 @@
     <GridLinesVert>Visibilité des lignes de grille verticales.</GridLinesVert>
     <GridOutline>Visibilité des contours</GridOutline>
     <MarkerVisible>Visibilité des lignes des marqueurs.</MarkerVisible>
+    <NegativeSeriesColors>Une liste de couleurs qui seront utilisées pour dessiner des séries avec des valeurs négatives.</NegativeSeriesColors>
+    <SeriesColors>Une liste de couleurs qui seront utilisées pour dessiner des séries.</SeriesColors>
     <Visible>Visibilité de la table.</Visible>
   </StiChartTable>
   <StiChartTitle>
@@ -899,6 +935,11 @@
     <Module>Largeur de l'élément le plus fin du code barre.</Module>
     <Ratio>Valeur indiquant le ratio WideToNarrow.</Ratio>
   </StiCode93ExtBarCodeType>
+  <StiColumnSize>
+    <MaxWidth>Obtient ou définit une largeur maximale de la colonne de table.</MaxWidth>
+    <MinWidth>Obtient ou définit une largeur minimale de la colonne de table.</MinWidth>
+    <Width>Obtient ou définit la largeur spécifiée pour la colonne du tableau. La largeur sera calculée automatiquement par l'élément table si une valeur égale à zéro.</Width>
+  </StiColumnSize>
   <StiComboBoxControl>
     <DropDownStyle>Valeur spécifiant le style.</DropDownStyle>
     <DropDownWidth>Largeur de la liste déroulante.</DropDownWidth>
@@ -918,6 +959,7 @@
     <AfterPrintEvent>Se produit après l'impression du composant.</AfterPrintEvent>
     <Alias>Un texte qui sera affiché à la place du nom du composant. Si le texte n'est pas défini, alors le nom sera affiché.</Alias>
     <Anchor>Obtiens ou définit une valeur indiquant le mode d'ancrage de la position du composant par rapport à la taille du composant parent.</Anchor>
+    <BackColor>La couleur d'arrière-plan du composant.</BackColor>
     <BeforePrintEvent>Se produit avant l'impression du composant.</BeforePrintEvent>
     <Bookmark>Une expression pour définir le marque page du composant.</Bookmark>
     <Border>Bordure du composant.</Border>
@@ -928,20 +970,31 @@
     <CanShrink>Une valeur indiquant que cet objet peut se réduire.</CanShrink>
     <CellDockStyle>Type d'ancrage dans une cellule</CellDockStyle>
     <CellType>Type du contenu de cellule.</CellType>
+    <CheckAlignment>Détermine l'emplacement de la vérification à l'intérieur du composant.</CheckAlignment>
+    <CheckBrush>Le pinceau de vérification du composant.</CheckBrush>
+    <Checked>Indique si le composant est dans l'état coché.</Checked>
+    <CheckedChangedEvent>Se produit lorsque l'état coché est modifié.</CheckedChangedEvent>
+    <CheckSize>La taille de vérification du composant.</CheckSize>
     <ClickEvent>Se produit quand l'utilisateur clique sur le composant dans la fenêtre d'aperçu.</ClickEvent>
     <ComponentStyle>Style de composant.</ComponentStyle>
     <Conditions>Collection de conditions.</Conditions>
+    <CornerRadius>Représente la valeur à laquelle les coins sont arrondis.</CornerRadius>
     <CountData>Nombre de lignes pour les données virtuelles.</CountData>
+    <CrossFiltering>Obtient ou définit une valeur qui contrôle l'application de filtres croisés de la page actuelle à cet élément.</CrossFiltering>
     <DataRelation>Relation utilisée pour le rendu des rapports maître-détail.</DataRelation>
     <DataSource>Source de données utilisée pour obtenir les données.</DataSource>
+    <Disabled>L'état non interactif du composant.</Disabled>
     <DockStyle>Type d'ancrage.</DockStyle>
     <DoubleClickEvent>Se produit quand l'utilisateur double clique sur le composant dans la fenêtre d'aperçu.</DoubleClickEvent>
     <Editable>Une valeur indiquant que le composant peut être modifié dans la fenêtre d'aperçu.</Editable>
     <Enabled>Une valeur indiquant que ce composant est actif ou non.</Enabled>
+    <ExceedMargins>Obtient ou définit une valeur pour dépasser les marges de l'arrière-plan du composant.</ExceedMargins>
     <FilterMode>Mode de filtre.</FilterMode>
     <FilterOn>Une valeur indiquant que le filtre est activé.</FilterOn>
     <Filters>collection de filtres de données.</Filters>
     <FixedWidth>Une valeur indiquant que la cellule aura une largeur fixe.</FixedWidth>
+    <Font>La police utilisée pour afficher le texte dans le contrôle.</Font>
+    <ForeColor>La couleur de premier plan de ce composant, qui est utilisée pour afficher le texte.</ForeColor>
     <GetBookmarkEvent>Se produit pour obtenir le marque page du composant.</GetBookmarkEvent>
     <GetDrillDownReportEvent>Se produit quand il est nécessaire d'obtenir un rapport pour l'opération d'analyse.</GetDrillDownReportEvent>
     <GetHyperlinkEvent>Se produit pour obtenir le lien hypertexte du composant.</GetHyperlinkEvent>
@@ -950,29 +1003,47 @@
     <GrowToHeight>Une valeur indiquant que le hauteur de ce composant augmente/réduit jusqu'au bas du conteneur.</GrowToHeight>
     <Height>Hauteur du composant.</Height>
     <HorAlignment>Alignement horizontal.</HorAlignment>
+    <Hover>L'état de survol lorsqu'un utilisateur a placé un curseur au-dessus du composant.</Hover>
     <Hyperlink>Une expression pour définir le lien hypertexte du composant.</Hyperlink>
+    <Icon>L'icône utilisée pour le composant.</Icon>
+    <IconAlignment>L'alignement de l'icône qui sera affichée sur le composant.</IconAlignment>
+    <IconBrush>Le pinceau d'icônes du composant.</IconBrush>
+    <IconSet>L'ensemble des icônes utilisées dans le composant.</IconSet>
     <Interaction>Options d'interaction du composant.</Interaction>
     <Left>Position gauche du composant.</Left>
     <Linked>Une valeur indiquant que le lien au conteneur est activé.</Linked>
     <Locked>Une valeur indiquant que le déplacement est impossible.</Locked>
+    <Margin>Spécifie l'espace entre ce composant et la marge d'un autre composant.</Margin>
     <MasterComponent>Composant maître.</MasterComponent>
     <MaxSize>Taille maximale.</MaxSize>
     <MinSize>Taille minimale.</MinSize>
     <MouseEnterEvent>Se produit quand la souris de l'utilisateur entre dans la surface du composant dans la fenêtre d'aperçu.</MouseEnterEvent>
     <MouseLeaveEvent>Se produit quand la souris de l'utilisateur sort de la surface du composant dans la fenêtre d'aperçu.</MouseLeaveEvent>
     <Name>Nom du composant.</Name>
+    <Padding>Spécifie l'espacement intérieur du composant.</Padding>
+    <Pressed>L'état pressé lorsqu'un utilisateur appuie sur le composant.</Pressed>
     <Printable>Une valeur indiquant si le composant est imprimable ou non.</Printable>
     <PrintOn>Une valeur indiquant sur quelles pages le composant sera imprimé.</PrintOn>
     <Restrictions>Une valeur indiquant les restrictions du composant.</Restrictions>
+    <Shadow>Paramètres d'ombre du composant.</Shadow>
+    <ShapeType>Indique quelle forme est utilisée pour dessiner la forme du composant.</ShapeType>
     <ShiftMode>Une valeur indiquant le mode du décalage du composant.</ShiftMode>
     <Sort>Tableau de chaînes décrivant les règles de tri.</Sort>
+    <Stretch>Décrit comment le composant est redimensionné pour remplir son espace alloué.</Stretch>
     <Tag>Une expression pour définir l'étiquette du composant.</Tag>
+    <Text>Le texte est associé au composant.</Text>
     <TextBrush>Style de remplissage du texte.</TextBrush>
+    <ThreeStates>Indique que le contrôle prend en charge deux ou trois états.</ThreeStates>
     <ToolTip>Une expression pour définir l'infobulle du composant.</ToolTip>
     <Top>Position haute du composant.</Top>
+    <TotalLabel>Obtient ou définit une valeur affichée comme étiquette pour un total.</TotalLabel>
+    <Type>Décrit le type de comportement de ce composant.</Type>
     <UseParentStyles>Une valeur indiquant que ce composant doit utiliser les styles du composant parent.</UseParentStyles>
     <VertAlignment>Alignement vertical.</VertAlignment>
+    <VisualStates>Gère les différents états visuels du composant.</VisualStates>
+    <Watermark>Le filigrane utilisé pour le composant.</Watermark>
     <Width>Largeur du composant.</Width>
+    <WordWrap>Indique que la zone de texte multiline coupe ou non les mots.</WordWrap>
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>Une valeur qui contrôle le mode d'antialiasing.</Antialiasing>
@@ -989,6 +1060,12 @@
     <TitleVisible>Visibilité du titre de la ligne.</TitleVisible>
     <Visible>Visibilité de la ligne.</Visible>
   </StiConstantLines>
+  <StiCornerRadius>
+    <BottomLeft>La valeur qui spécifie le rayon du coin inférieur gauche.</BottomLeft>
+    <BottomRight>La valeur qui spécifie le rayon du coin inférieur droit.</BottomRight>
+    <TopLeft>La valeur qui spécifie le rayon du coin supérieur gauche.</TopLeft>
+    <TopRight>La valeur qui spécifie le rayon du coin supérieur droit.</TopRight>
+  </StiCornerRadius>
   <StiCrossDataBand>
     <MaxWidth>Largeur maximale de la bande.</MaxWidth>
     <MinWidth>Largeur minimale de la bande.</MinWidth>
@@ -1247,6 +1324,45 @@
     <ValueDataColumnEnd>Nom de la colonne contenant la valeur de fin.</ValueDataColumnEnd>
     <ValueEnd>Expression pour la valeur de fin. Exemple: {Order.Value}</ValueEnd>
   </StiGanttSeries>
+  <StiGaugeElement>
+    <Font>Police.</Font>
+    <ForeColor>Couleur de premier plan.</ForeColor>
+    <Series>Gauge Series.</Series>
+    <Style>Gauge Style.</Style>
+    <Title>Gauge Title.</Title>
+  </StiGaugeElement>
+  <StiGaugeStyle>
+    <BorderColor>Obtient ou définit la couleur des bords.</BorderColor>
+    <BorderWidth>Une taille des bords.</BorderWidth>
+    <Brush>Obtient ou définit un pinceau pour remplir le style.</Brush>
+    <ForeColor>Obtient ou définit un pinceau pour dessiner le texte.</ForeColor>
+    <LinearBarBorderBrush>Obtient ou définit un bord du LinearBar.</LinearBarBorderBrush>
+    <LinearBarBrush>Obtient ou définit un pinceau LinearBar.</LinearBarBrush>
+    <LinearBarEmptyBorderBrush>Obtient ou définit une bordure vide du LinearBar.</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>Obtient ou définit un pinceau vide LinearBar.</LinearBarEmptyBrush>
+    <LinearScaleBrush>Obtient ou définit un pinceau LinearScale.</LinearScaleBrush>
+    <MarkerBrush>Obtient ou définit un marqueur de pinceau.</MarkerBrush>
+    <NeedleBorderBrush>Obtient ou définit un bord de l'aiguille.</NeedleBorderBrush>
+    <NeedleBorderWidth>Une taille de bord.</NeedleBorderWidth>
+    <NeedleBrush>Obtient ou définit une aiguille de pinceau.</NeedleBrush>
+    <NeedleCapBorderBrush>Obtient ou définit un bord du cap.</NeedleCapBorderBrush>
+    <NeedleCapBrush>Obtient ou définit un pinceau pour remplir le cap.</NeedleCapBrush>
+    <RadialBarBorderBrush>Obtient ou définit un bord de la RadialBar.</RadialBarBorderBrush>
+    <RadialBarBrush>Obtient ou définit un pinceau RadialBar.</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>Obtient ou définit un bord vide de la RadialBar.</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>Obtient ou définit un pinceau vide RadialBar.</RadialBarEmptyBrush>
+    <TargetColor>Obtient ou définit la couleur cible.</TargetColor>
+    <TickLabelMajorFont>Obtient ou définit une police pour dessiner TickLabelMajor.</TickLabelMajorFont>
+    <TickLabelMajorTextBrush>Obtient ou définit un pinceau pour dessiner le texte.</TickLabelMajorTextBrush>
+    <TickLabelMinorFont>Obtient ou définit une police pour dessiner TickLabelMinor.</TickLabelMinorFont>
+    <TickLabelMinorTextBrush>Obtient ou définit un pinceau pour dessiner le texte.</TickLabelMinorTextBrush>
+    <TickMarkMajorBorder>Obtient ou définit un bord du TickMarkMajor.</TickMarkMajorBorder>
+    <TickMarkMajorBorderWidth>Une taille de bord.</TickMarkMajorBorderWidth>
+    <TickMarkMajorBrush>Obtient ou définit un pinceau pour remplir le TickMarkMajor.</TickMarkMajorBrush>
+    <TickMarkMinorBorder>Obtient ou définit un bord du TickMarkMinor.</TickMarkMinorBorder>
+    <TickMarkMinorBorderWidth>Une taille de bord.</TickMarkMinorBorderWidth>
+    <TickMarkMinorBrush>Obtient ou définit un pinceau pour remplir le TickMarkMinor.</TickMarkMinorBrush>
+  </StiGaugeStyle>
   <StiGlareBrush>
     <Angle>angle en degrés dans le sens des aiguilles d'une montre à partir l'axe X de l'orientation du dégradé.</Angle>
     <EndColor>Couleur de fin du dégradé.</EndColor>
@@ -1522,6 +1638,7 @@
     <EndRenderEvent>Se produit quand la page termine son rendu.</EndRenderEvent>
     <ExcelSheet>Expression utilisé pour générer le nom de la feuille Excel.</ExcelSheet>
     <GetExcelSheetEvent>Se produit quand la Feuille Excel est calculée.</GetExcelSheetEvent>
+    <Icon>Une icône de page.</Icon>
     <LargeHeight>Une valeur indiquant que cette page a une grande hauteur dans l'éditeur.</LargeHeight>
     <LargeHeightFactor>Facteur de grande hauteur pour la propriété Grande Hauteur de cette page.</LargeHeightFactor>
     <Margins>Marges de la page.</Margins>
@@ -1650,18 +1767,24 @@
     <ConvertNulls>Une valeur qui indique si il est nécessaire de convertir les nuls ou DBNull.</ConvertNulls>
     <EndRenderEvent>Se produit quand le rendu du rapport est finit.</EndRenderEvent>
     <EngineVersion>Le moteur d'impression courant.</EngineVersion>
+    <ExportedEvent>Se ​​produit lorsque le rapport termine l'exportation.</ExportedEvent>
+    <ExportingEvent>Se ​​produit lorsque le rapport commence à être exporté.</ExportingEvent>
     <GlobalizationStrings>Liste des chaîne d'internationalisation.</GlobalizationStrings>
     <NumberOfPass>Nombre de passe effectuées par le moteur.</NumberOfPass>
     <ParametersOrientation>Une valeur indiquant les paramètres d'orientation.</ParametersOrientation>
     <PreviewMode>Mode d'aperçu d'un rapport.</PreviewMode>
     <PreviewSettings>Contrôle ce qui sera visible en aperçu.</PreviewSettings>
+    <PrintedEvent>Se ​​produit lorsque le rapport termine l'impression.</PrintedEvent>
     <PrinterSettings>Paramètres d'impression.</PrinterSettings>
+    <PrintingEvent>Se ​​produit lorsque le rapport démarre l'impression.</PrintingEvent>
     <ReferencedAssemblies>Tableau d'assembly référencés.</ReferencedAssemblies>
     <RenderingEvent>Se produit quand une page est rendue.</RenderingEvent>
     <ReportAlias>Alias du rapport.</ReportAlias>
     <ReportAuthor>auteur du rapport.</ReportAuthor>
     <ReportCacheMode>Une valeur indiquant comment le moteur d'impression utilise le cache du rapport.</ReportCacheMode>
     <ReportDescription>Description du rapport.</ReportDescription>
+    <ReportIcon>Une icône de rapport.</ReportIcon>
+    <ReportImage>Une image de rapport.</ReportImage>
     <ReportName>Nom du rapport.</ReportName>
     <ReportUnit>Unité du rapport.</ReportUnit>
     <RequestParameters>Définit ou obtient une valeur qui indique si il faut demander les paramètres à l'utilisateur avant le rendu du rapport effectuer un rendu avec la valeur par défaut des paramètres.</RequestParameters>
@@ -1932,6 +2055,9 @@
     <Style>Table style.</Style>
     <Title>Table title.</Title>
   </StiTableElement>
+  <StiTableOfContents>
+    <RightToLeft>Obtient ou définit la direction de sortie horizontale.</RightToLeft>
+  </StiTableOfContents>
   <StiText>
     <AllowHtmlTags>Une valeur indiquant si ce composant autorise les balises HTML dans le texte.</AllowHtmlTags>
     <Angle>Angle de rotation du texte.</Angle>
@@ -2085,6 +2211,7 @@
   <Universal>
     <AllowApplyStyle>Une valeur qui indique que le style graphique sera utilisé.</AllowApplyStyle>
     <Key>Une clé qui sera utilisée dans les variables quand l'utilisateur sélectionne sa valeur associée dans l'interface graphique.</Key>
+    <Label>Une étiquette qui sera affichée à la place de la clé dans l'interface graphique.</Label>
     <Value>Une valeur qui sera affichée à la place de la clé dans l'interface graphique.</Value>
   </Universal>
 </Localization>

@@ -34,7 +34,7 @@ function stiShutdownFunction() {
 }
 
 class StiHandler {
-	private $version = '2022.3.3';
+	private $version = '2022.3.4';
 	
 	private function checkEventResult($event, $args) {
 		if (isset($event)) $result = $event($args);
@@ -619,7 +619,7 @@ class StiHelper {
 		}
 		
 		if (Stimulsoft && Stimulsoft.Base) {
-			Stimulsoft.Base.StiLicense.loadFromFile("stimulsoft/license.php");
+			Stimulsoft.Base.StiLicense.loadFromFile('/stimulsoft/license.php');
 		}
 	}
 
