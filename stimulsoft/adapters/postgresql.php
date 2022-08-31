@@ -1,6 +1,6 @@
 <?php
 class StiPostgreSqlAdapter {
-	public $version = '2022.3.4';
+	public $version = '2022.3.5';
 	public $checkVersion = true;
 	
 	private $info = null;
