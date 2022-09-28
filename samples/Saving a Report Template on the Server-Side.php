@@ -10,10 +10,6 @@ require_once '../stimulsoft/helper.php';
 	<title>Saving a Report Template on the Server-Side</title>
 	<style>html, body { font-family: sans-serif; }</style>
 
-	<!-- Office2013 White-Blue style -->
-	<link href="../css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
-	<link href="../css/stimulsoft.designer.office2013.whiteblue.css" rel="stylesheet">
-	
 	<!-- Stimulsoft Reports.PHP scripts -->
 	<script src="../scripts/stimulsoft.reports.js" type="text/javascript"></script>
 	<script src="../scripts/stimulsoft.viewer.js" type="text/javascript"></script>

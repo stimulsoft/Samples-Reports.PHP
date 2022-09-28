@@ -38,6 +38,8 @@
     <StiGenerateNewNamePageActionLong>ページの新しい名前を生成します。</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>リレーションの新しい名前を生成します。</StiGenerateNewNameRelationActionLong>
     <StiGrowToHeightOverlappingLong>コンポーネントのGrowToHeightプロパティの値をfalseに設定します。</StiGrowToHeightOverlappingLong>
+    <StiInsufficientTextHeightForOneLineLong>The height of the component will increase at least to the height of one line of text or to the next cell of the report grid.</StiInsufficientTextHeightForOneLineLong>
+    <StiInsufficientTextHeightForOneLineShort>Fix height</StiInsufficientTextHeightForOneLineShort>
     <StiLargeHeightAtPageActionLong>便利なコンポーネントの表示と編集のために、ページのLargeHeightプロパティがtrueに設定されます。</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>MinRowsInColumnsプロパティをゼロに設定します。</StiMinRowsInColumnsActionLong>
     <StiMoveComponentToPageAreaActionLong>コンポーネントは、ページ上に完全に配置されるように配置されます。この場合、ページフィールドは考慮されません。</StiMoveComponentToPageAreaActionLong>
@@ -112,8 +114,12 @@
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>GroupFooterの数が '{0}'コンテナのGroupHeaderの数に対応していません。奇数のコンポーネントはレンダリングされません。</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>GroupFooterの数が '{0}'ページのGroupHeaderの数に対応していません。奇数成分はレンダリングされません。</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>一部のコンポーネントはレンダリングされません。</StiGroupHeaderNotEqualToGroupFooterShort>
+    <StiGroupHeaderSummaryExpressionCheckLong>The SummaryExpression for the group header {0} contains an aggregate function, but this function is set in a separate property. Report generation is not possible.</StiGroupHeaderSummaryExpressionCheckLong>
+    <StiGroupHeaderSummaryExpressionCheckShort>Invalid function in expression</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>'{0}'コンポーネントのGrowToHeightプロパティがtrueに設定されています。レポートをレンダリングするとき、このコンポーネントは1つまたは複数の基本コンポーネントと重なり合うことがあります。</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>コンポーネントをオーバーラップさせることができます。</StiGrowToHeightOverlappingShort>
+    <StiInsufficientTextHeightForOneLineCheckLong>The height of the text component {0} is too small, even for one line of text. This can cause issues with exporting to some formats, as well as with printing on the Web. It is recommended to increase the height or set the CanGrow property to true.</StiInsufficientTextHeightForOneLineCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient Height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>IsFirstPage、IsFirstPageThrough、IsLastPage、IsLastPageThroughシステム変数は、1回通過すると不正な結果を返します。 NumberOfPassプロパティをDoublePassに設定する必要があります。</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>ダブルパスが必要なシステム変数は、レポート</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>IsFirstPassの正しい作業のために、IsSecondPass関数はレポートのレンダリングのダブルパスが必要です。レポートのNumberOfPassプロパティをDoublePassに設定するのを忘れていた可能性があります。</StiIsFirstPassIsSecondPassCheckLong>
@@ -231,6 +237,8 @@
     <StiCompilationErrorCheck3Long>コンパイルエラーは、 '{2}'コンポーネントの '{1}'イベントで見つかりました：</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>コンパイルエラーが '{0}'レポートに見つかりました：</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>コンパイルエラー</StiCompilationErrorCheckShort>
+    <StiDataSourceLoopingCheckLong>Data band '{0}' and child data band '{1}' use the same data source '{2}'. To avoid looping, the child data band will not be shown.</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckShort>Data looping is possible</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>'{0}'という名前のデータソースがいくつかあります。</StiDuplicatedName2CheckLong>
     <StiDuplicatedName3CheckLong>大文字と小文字が異なる「{0}」という名前のデータソースがいくつかあります。</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>'{0}'という名前のコンポーネントがいくつかあります。</StiDuplicatedNameCheckLong>
@@ -723,6 +731,9 @@
     <Style>キャップスタイル</Style>
     <Width>キャップの幅</Width>
   </StiCap>
+  <StiCardsStyle>
+    <LineColor>The property defines the color which will be used to draw borders of the cards.</LineColor>
+  </StiCardsStyle>
   <StiChart>
     <Area>チャートのエリア</Area>
     <ChartType>チャートのタイプ</ChartType>
@@ -831,6 +842,17 @@
     <Font>チャートの凡例のタイトルフォント</Font>
     <Text>凡例のタイトルテキスト</Text>
   </StiChartLegendTitle>
+  <StiChartStyle>
+    <ChartAreaShowShadow>The property defines the area shadow will be displayed or not.</ChartAreaShowShadow>
+    <MarkerVisible>The property defines the marker will be displayed or not.</MarkerVisible>
+    <SeriesBorderThickness>The property defines the series border width.</SeriesBorderThickness>
+    <SeriesLabelsLineColor>The property defines the line color of series labels.</SeriesLabelsLineColor>
+    <SeriesLighting>The property defines the pie lighting will be displayed or not.</SeriesLighting>
+    <SeriesShowBorder>The property defines the series border will be displayed or not.</SeriesShowBorder>
+    <SeriesShowShadow>The property defines the series shadow will be displayed or not.</SeriesShowShadow>
+    <TrendLineColor>The property defines the color of trend line.</TrendLineColor>
+    <TrendLineShowShadow>The property defines the trend line shadow will be displayed or not.</TrendLineShowShadow>
+  </StiChartStyle>
   <StiChartTable>
     <Font>グラフ表のフォント</Font>
     <GridLineColor>グリッド線の色</GridLineColor>
@@ -1125,6 +1147,25 @@
     <Wrap>クロスタブを1つの列に出力することを示す値。同時に、幅に収まらないものはすべて出力されます。このプロパティを使用するには、クロスタブが配置されているバンドのCanBreakプロパティを有効にする必要があります（バンドに配置されている場合）。</Wrap>
     <WrapGap>ラップされたクロスタブの2つの部分の間のスペース。このプロパティはWrapプロパティと共同で使用されます。</WrapGap>
   </StiCrossTab>
+  <StiCrossTabStyle>
+    <AlternatingCellBackColor>The property defines the color which will be used to fill the background of the even rows.</AlternatingCellBackColor>
+    <AlternatingCellForeColor>The property defines the color which will be used for drawing of the values in the even rows.</AlternatingCellForeColor>
+    <CellBackColor>The property defines the color which will be used to fill the background of the cells.</CellBackColor>
+    <CellForeColor>The property defines the color which will be used for drawing of the values in the cells.</CellForeColor>
+    <ColumnHeaderBackColor>The property defines the color which will be used to fill the background of the column header cells.</ColumnHeaderBackColor>
+    <ColumnHeaderForeColor>The property defines the color which will be used for drawing of the text in the column header cells.</ColumnHeaderForeColor>
+    <HotColumnHeaderBackColor>The property defines the color which will be used to fill the background of the column header cell when the cursor is hovered on it.</HotColumnHeaderBackColor>
+    <HotRowHeaderBackColor>The property defines the color which will be used to fill the background of the row header cell when the cursor is hovered on it.</HotRowHeaderBackColor>
+    <LineColor>The property defines the color which will be used for drawing cell borders.</LineColor>
+    <RowHeaderBackColor>The property defines the color which will be used to fill the background of the row header cells.</RowHeaderBackColor>
+    <RowHeaderForeColor>The property defines the color which will be used for drawing of the text in the row header cells.</RowHeaderForeColor>
+    <SelectedCellBackColor>The property defines the color which will be used to fill the background of the selected cell.</SelectedCellBackColor>
+    <SelectedCellForeColor>The property defines the color which will be used for drawing of the values in the selected cells.</SelectedCellForeColor>
+    <TotalCellColumnBackColor>The property defines the color which will be used to fill the background of the total cell column.</TotalCellColumnBackColor>
+    <TotalCellColumnForeColor>The property defines the color which will be used for drawing of the values in the total cell column.</TotalCellColumnForeColor>
+    <TotalCellRowBackColor>The property defines the color which will be used to fill the background of the total cell row.</TotalCellRowBackColor>
+    <TotalCellRowForeColor>The property defines the color which will be used for drawing of the values in the total cell row.</TotalCellRowForeColor>
+  </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>バンドがレンダー開始時に発生</BeginRenderEvent>
     <CalcInvisible>集計関数の計算時に、目に見えないデータバンドを考慮に入れることを意味します。</CalcInvisible>
@@ -1464,6 +1505,16 @@
     <PrintIfEmpty>データが存在しない場合のヘッダーを示す値</PrintIfEmpty>
     <PrintOnAllPages>コンポーネントがすべてのページに印刷されていることを示す値</PrintOnAllPages>
   </StiHeaderBand>
+  <StiHeatmapStyleData>
+    <Color>This property defines the color which will be used to fill the geographic object Map, which contains the max value.</Color>
+    <Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
+    <ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
+  </StiHeatmapStyleData>
+  <StiHeatmapWithGroupStyleData>
+    <Colors>The property allows the creation of a collection of colors. Each color of the collection will be used as the primary color of the specific group.</Colors>
+    <Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
+    <ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
+  </StiHeatmapWithGroupStyleData>
   <StiHierarchicalBand>
     <Footers>階層バンドのフッターのリスト</Footers>
     <Headers>階層バンドのヘッダーのリスト</Headers>
@@ -1487,6 +1538,12 @@
     <ImageURL>コンポーネントイメージURLを埋める式</ImageURL>
     <ProcessingDuplicates>レポートエンジンが重複したイメージをどのように処理するかを示す値</ProcessingDuplicates>
   </StiImage>
+  <StiIndicatorStyle>
+    <GlyphColor>The property defines the color which will be used to draw icon.</GlyphColor>
+    <HotBackColor>The property defines the color which will be used to fill indicator background when cursor is hovered.</HotBackColor>
+    <NegativeColor>The property defines the color which will be used for variation value when it is less than zero.</NegativeColor>
+    <PositiveColor>The property defines the color which will be used for variation value when it is more than zero.</PositiveColor>
+  </StiIndicatorStyle>
   <StiInteraction>
     <AllowSeries>Seriesでドリルダウン操作を実行できるかどうかを示す値</AllowSeries>
     <AllowSeriesElements>Series Elementsでドリルダウン操作を実行できるかどうかを示す値</AllowSeriesElements>
@@ -1603,6 +1660,20 @@
     <KeysBinding>キーのデータバインディング</KeysBinding>
     <SelectedKeyBinding>選択したキーのデータバインディング</SelectedKeyBinding>
   </StiLookUpBoxControl>
+  <StiMapStyle>
+    <BackColor>The property defines the color which will be used to fill map background.</BackColor>
+    <BorderColor>The property defines the color which will be used to draw borders of the map geographic objects.</BorderColor>
+    <BorderSize>The property defines the border width which will be used for the map geographic objects.</BorderSize>
+    <BubbleBackColor>The property defines the color which will be used to fill map bubbles.</BubbleBackColor>
+    <BubbleBorderColor>The property defines the color which will be used to draw borders of the map bubbles.</BubbleBorderColor>
+    <Colors>The property allows to create colors set which will be used to fill the map geographic objects when color each mode is used.</Colors>
+    <DefaultColor>The property defines the color by default which will be used to fill the map geographic objects when the map type is setted any type except individual.</DefaultColor>
+    <Heatmap>The properties set define the settings which will be used for heatmap.</Heatmap>
+    <HeatmapWithGroup>The properties set define the settings which will be used for heatmap with group.</HeatmapWithGroup>
+    <IndividualColor>The property defines the color which will be used to fill the map geographic objects.</IndividualColor>
+    <LabelForeground>The property defines the color which will be used to draw labels of the map geographic objects.</LabelForeground>
+    <LabelShadowForeground>The property defines the color which will be used to draw label shadow of the map geographic objects.</LabelShadowForeground>
+  </StiMapStyle>
   <StiMargin>
     <Bottom>値は、要素の下端からマージンを設定します。</Bottom>
     <Left>値は、要素の左端からマージンを設定します。</Left>
@@ -1735,6 +1806,11 @@
     <PrinterName>レポート印刷に使用されるプリンタの名前</PrinterName>
     <ShowDialog>印刷ダイアログが表示されるかどうかを示す値</ShowDialog>
   </StiPrinterSettings>
+  <StiProgressStyle>
+    <BandColor>The property defines the color which will be used to fill the area graphics of the progress value.</BandColor>
+    <SeriesColors>The property allows to create color set for drawing the progress series.</SeriesColors>
+    <TrackColor>The property defines the color which will be used to fill the progress track.</TrackColor>
+  </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>エラー修正レベルを取得または設定</ErrorCorrectionLevel>
     <Height>バーコードの高さを設定</Height>
@@ -1785,6 +1861,7 @@
     <GlobalizationStrings>グローバリゼーション文字列で構成されるコレクション</GlobalizationStrings>
     <NumberOfPass>レポート生成時にレポートジェネレータが作成するパスの数</NumberOfPass>
     <ParametersOrientation>パラメータのパネル方向を示す値</ParametersOrientation>
+    <ParameterWidth>Gets or sets a width in pixels of a parameter in the viewer. The default value is used if a zero value is specified.</ParameterWidth>
     <PreviewMode>レポートのプレビューモード</PreviewMode>
     <PreviewSettings>プレビューウィンドウに表示されるコントロール</PreviewSettings>
     <PrintedEvent>レポートの印刷が終了したときに発生します。</PrintedEvent>
@@ -2071,6 +2148,20 @@
   <StiTableOfContents>
     <RightToLeft>水平出力方向を取得または設定します。</RightToLeft>
   </StiTableOfContents>
+  <StiTableStyle>
+    <AlternatingDataColor>The property defines the color which will be used to fill the background of the alternating rows.</AlternatingDataColor>
+    <AlternatingDataForeground>The property defines the color which will be used for drawing the value in the alternating rows.</AlternatingDataForeground>
+    <DataColor>The property defines the color which will be used to fill the background of the rows.</DataColor>
+    <DataForeground>The property defines the color which will be used for drawing the value in the rows.</DataForeground>
+    <FooterColor>The property defines the color which will be used to fill the background of the footer row.</FooterColor>
+    <FooterForeground>The property defines the color which will be used for drawing the values in the footer row.</FooterForeground>
+    <GridColor>The property defines the color which will be used for drawing the cell borders.</GridColor>
+    <HeaderColor>The property defines the color which will be used to fill the background of the header row.</HeaderColor>
+    <HeaderForeground>The property defines the color which will be used for drawing the values in the header row.</HeaderForeground>
+    <HotHeaderColor>The property defines the color which will be used to fill the background of the header row when the cursor is hovered on it.</HotHeaderColor>
+    <SelectedDataColor>The property defines the color which will be used to fill the background of the selected cell.</SelectedDataColor>
+    <SelectedDataForeground>The property defines the color which will be used for drawing the value in the selected cell.</SelectedDataForeground>
+  </StiTableStyle>
   <StiText>
     <AllowHtmlTags>このコンポーネントがテキスト内のHTMLタグを許可することを示す値</AllowHtmlTags>
     <Angle>テキスト回転の角度</Angle>
@@ -2099,6 +2190,9 @@
     <TextBinding>テキストのデータバインディング</TextBinding>
     <WordWrap>複数行のテキストボックスコントロールが、必要に応じて単語を次の行の先頭に自動的に折り返すかどうかを示す値</WordWrap>
   </StiTextBoxControl>
+  <StiTextElement>
+    <SizeMode>Specifies how the text output in the component area depends on the text size.</SizeMode>
+  </StiTextElement>
   <StiTextInCells>
     <CellHeight>セルの高さ</CellHeight>
     <CellWidth>セルの幅</CellWidth>

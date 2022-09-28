@@ -10,11 +10,11 @@ require_once 'stimulsoft/helper.php';
 	<title>Stimulsoft Reports.PHP - Viewer</title>
 	<style>html, body { font-family: sans-serif; }</style>
 
-	<!-- Office2013 White-Teal style -->
-	<link href="css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
-
 	<!-- Stimulsoft Reports.JS -->
 	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
+	
+	<!-- Stimulsoft Dashboards.JS -->
+	<script src="scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
 	
 	<!-- Stimulsoft JS Viewer -->
 	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>

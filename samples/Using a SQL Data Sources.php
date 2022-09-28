@@ -10,9 +10,6 @@ require_once '../stimulsoft/helper.php';
 	<title>Using a SQL Data Sources</title>
 	<style>html, body { font-family: sans-serif; }</style>
 
-	<!-- Office2013 White-Blue style -->
-	<link href="../css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
-	
 	<!-- Stimulsoft Reports.PHP scripts -->
 	<script src="../scripts/stimulsoft.reports.js" type="text/javascript"></script>
 	<script src="../scripts/stimulsoft.viewer.js" type="text/javascript"></script>
@@ -26,6 +23,9 @@ require_once '../stimulsoft/helper.php';
 	<script type="text/javascript">
 		var options = new Stimulsoft.Viewer.StiViewerOptions();
 		options.appearance.fullScreenMode = true;
+		options.appearance.scrollbarsMode = true;
+		options.toolbar.displayMode = Stimulsoft.Viewer.StiToolbarDisplayMode.Separated;
+		options.height = "600px"; // Height for non-fullscreen mode
 		
 		var viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);
 		

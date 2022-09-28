@@ -114,6 +114,8 @@
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>В контейнере '{0}' количество GroupFooter не соответствует количеству GroupHeader. Лишние компоненты не будут построены.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>На странице '{0}' количество GroupFooter не соответствует количеству GroupHeader. Лишние компоненты не будут построены.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Некоторые компоненты не будет построены</StiGroupHeaderNotEqualToGroupFooterShort>
+    <StiGroupHeaderSummaryExpressionCheckLong>Выражение суммирования для заголовка группы {0} содержит агрегатную функцию, но эта функция задается в отдельном свойстве. Построение отчета невозможно.</StiGroupHeaderSummaryExpressionCheckLong>
+    <StiGroupHeaderSummaryExpressionCheckShort>Недопустимая функция в выражении</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>У компонента '{0}' значение свойства GrowToHeight равно true. При построении отчета этот компонент может перекрыть один или несколько нижележащих компонентов.</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>Возможно перекрытие компонентов</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>Высота текстового компонента {0} слишком мала даже для одной строки текста. Это может вызвать проблемы с экспортом в некоторые форматы, а также с печатью в Web. Рекомендуется увеличить высоту или установить свойство Может расти в значение Да.</StiInsufficientTextHeightForOneLineCheckLong>
@@ -1855,6 +1857,7 @@
     <GlobalizationStrings>Коллекция, которая содержит GlobalizationStrings.</GlobalizationStrings>
     <NumberOfPass>Количество проходов, которые генератор отчетов делает при построении отчета.</NumberOfPass>
     <ParametersOrientation>Ориентация панели параметров во вьювере отчетов.</ParametersOrientation>
+    <ParameterWidth>Определяет ширину параметра во вьювере в пикселях. Значение по умолчанию используется, если указано нулевое значение.</ParameterWidth>
     <PreviewMode>Режим просмотра отчета.</PreviewMode>
     <PreviewSettings>Элементы управления, которые будут отображены в окне предварительного просмотра.</PreviewSettings>
     <PrintedEvent>Происходит при завершении печати отчета.</PrintedEvent>

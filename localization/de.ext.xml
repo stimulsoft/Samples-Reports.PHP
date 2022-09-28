@@ -114,6 +114,8 @@
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>Die Anzahl der Gruppenfüsse stimmt nicht mit der Anzahl der Gruppenköpfe der Komponente '{0}' überein. Gerade Komponenten werden nicht dargestellt..</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>Die Anzahl der Gruppenfüsse stimmt nicht mit der Anzahl der Gruppenköpfe auf der Seite '{0}' überein. Gerade Komponenten werden nicht dargestellt.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Einige Komponenten werden im Report nicht dargestellt</StiGroupHeaderNotEqualToGroupFooterShort>
+    <StiGroupHeaderSummaryExpressionCheckLong>Der Ausdruck für Zusammenfassung für den Gruppenkopf {0} enthält eine Aggregatfunktion, aber diese Funktion wird in einer separaten Eigenschaft gestellt. Die Berichterstellung ist unmöglich.</StiGroupHeaderSummaryExpressionCheckLong>
+    <StiGroupHeaderSummaryExpressionCheckShort>Ungültige Funktion im Ausdruck.</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>Die Eigenschaft 'In die Höhe wachsen' der Komponente '{0}' ist auf wahr gesetzt. Beim Ausführen des Reports kann diese Komponente eine oder mehrere unterhalb angeordneten Komponenten überlappen. </StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>Es ist möglich, Komponenten zu überlappen.</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>Die Höhe der Textkomponente {0} ist zu klein, sogar für eine Textzeile. Das kann die Probleme beim Export in einige Formate, und auch beim Drucken in Web, verursachen. Wir empfehlen die Höhe zu vergrößern oder die Eigenschaft CanGrow auf Ja zu setzen.</StiInsufficientTextHeightForOneLineCheckLong>
@@ -1854,6 +1856,7 @@
     <GlobalizationStrings>Eine Sammlung von globalen Zeichenfolgen.</GlobalizationStrings>
     <NumberOfPass>Anzahl der der Durchläufe des Reportgenerators während der Reportaufbereitung.</NumberOfPass>
     <ParametersOrientation>Wert, der angibt, wie das Panel mit den Parameter-Eingabefeldern ausgerichtet wird.</ParametersOrientation>
+    <ParameterWidth>Liest oder setzt die Breite in Pixeln des Parameters im Viewer. Der standardmäßiger Wert wird verwendet, wenn der Nullwert angegeben ist.</ParameterWidth>
     <PreviewMode>Vorschaumodus eines Bereichts.</PreviewMode>
     <PreviewSettings>Steuerelemente, die im Vorschaufenster gezeigt werden.</PreviewSettings>
     <PrintedEvent>Erfolgt bei der Beendung vom Bericht-Drucken.</PrintedEvent>

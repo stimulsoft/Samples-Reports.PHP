@@ -38,6 +38,8 @@
     <StiGenerateNewNamePageActionLong>Generate a new name for the page.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Generate a new name for the relation.</StiGenerateNewNameRelationActionLong>
     <StiGrowToHeightOverlappingLong>Set the value of the GrowToHeight property of the component to false.</StiGrowToHeightOverlappingLong>
+    <StiInsufficientTextHeightForOneLineLong>The height of the component will increase at least to the height of one line of text or to the next cell of the report grid.</StiInsufficientTextHeightForOneLineLong>
+    <StiInsufficientTextHeightForOneLineShort>Fix height</StiInsufficientTextHeightForOneLineShort>
     <StiLargeHeightAtPageActionLong>For handy viewing and editing components, the LargeHeight property of the page will be set to true.</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>Set the MinRowsInColumns property to zero.</StiMinRowsInColumnsActionLong>
     <StiMoveComponentToPageAreaActionLong>The component will be placed so that it is entirely placed on the page. In this case the page fields are not taken into consideration.</StiMoveComponentToPageAreaActionLong>
@@ -57,8 +59,6 @@
     <StiSwitchWidthAndHeightOfPageActionLong>Rearrange the height and width of the page.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>The size of a component will be increased to the GridSize value of a report. This operation does not guarantee the 100% correct fix!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>Increase size</StiVerySmallSizesOfComponentsShort>
-    <StiInsufficientTextHeightForOneLineLong>The height of the component will increase at least to the height of one line of text or to the next cell of the report grid.</StiInsufficientTextHeightForOneLineLong>
-    <StiInsufficientTextHeightForOneLineShort>Fix height</StiInsufficientTextHeightForOneLineShort>
     <StiWordWrapCanGrowTextDoesNotFitActionLong>Set the value of the CanGrow property of the component to true.</StiWordWrapCanGrowTextDoesNotFitActionLong>
     <Zero>Zero</Zero>
   </CheckActions>
@@ -114,8 +114,12 @@
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>The number of GroupFooter does not correspond to the number of GroupHeader in the '{0}' container. Odd components will not be rendered.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>The number of GroupFooter does not correspond to the number of GroupHeader on the '{0}' page. Odd components will not be rendered.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Some components will not be rendered</StiGroupHeaderNotEqualToGroupFooterShort>
+    <StiGroupHeaderSummaryExpressionCheckLong>The Summary Expression for the group header {0} contains an aggregate function, but this function is set in a separate property. Report generation is not possible.</StiGroupHeaderSummaryExpressionCheckLong>
+    <StiGroupHeaderSummaryExpressionCheckShort>Invalid function in expression</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>The GrowToHeight property of the '{0}' component is set to true. When rendering a report, this component can overlap one or more underlying components.</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>It is possible to overlap components.</StiGrowToHeightOverlappingShort>
+    <StiInsufficientTextHeightForOneLineCheckLong>The height of the text component {0} is too small, even for one line of text. This can cause issues with exporting to some formats, as well as with printing on the Web. It is recommended to increase the height or set the CanGrow property to true.</StiInsufficientTextHeightForOneLineCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient Height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>The IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough system variables provide incorrect results when one pass. It is required to set the NumberOfPass property to DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>System variables which require double pass are used in the report</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>For correct work of IsFirstPass, IsSecondPass functions double pass of the report rendering is required. maybe you forgot to set the NumberOfPass property of the report to DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
@@ -167,8 +171,6 @@
     <StiUndefinedComponentCheckShort>Undefined component</StiUndefinedComponentCheckShort>
     <StiVerySmallSizesOfComponentsCheckLong>The values of the Width of Height of the '{0}' component are less than the values of the GridSize of the report. Maybe you incorrectly set its size. This may cause problems when exporting to other formats.</StiVerySmallSizesOfComponentsCheckLong>
     <StiVerySmallSizesOfComponentsCheckShort>Very small size of the component</StiVerySmallSizesOfComponentsCheckShort>
-    <StiInsufficientTextHeightForOneLineCheckLong>The height of the text component {0} is too small, even for one line of text. This can cause issues with exporting to some formats, as well as with printing on the Web. It is recommended to increase the height or set the CanGrow property to true.</StiInsufficientTextHeightForOneLineCheckLong>
-    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient Height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiWidthHeightZeroComponentCheckLongHeight>The height of the '{0}' component is zero. This may cause problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongHeight>
     <StiWidthHeightZeroComponentCheckLongWidth>The width of the '{0}' component is zero. There may be some problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongWidth>
     <StiWidthHeightZeroComponentCheckLongWidthHeight>The height and width of the '{0}' component are equal to 0. There may be some problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongWidthHeight>
@@ -235,8 +237,10 @@
     <StiCompilationErrorCheck3Long>The error of compilation is found in the '{1}' event of the '{2}' component:</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>The error of compilation is found in the '{0}' report:</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>The error of compilation</StiCompilationErrorCheckShort>
-    <StiDuplicatedName3CheckLong>There are several data sources with the name '{0}' which differ in case.</StiDuplicatedName3CheckLong>
+    <StiDataSourceLoopingCheckLong>Data band '{0}' and child data band '{1}' use the same data source '{2}'. To avoid looping, the child data band will not be shown.</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckShort>Data looping is possible</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>There are several data sources with the '{0}' name.</StiDuplicatedName2CheckLong>
+    <StiDuplicatedName3CheckLong>There are several data sources with the name '{0}' which differ in case.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>There are several components with the '{0}' name.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>The components with duplicate names are found</StiDuplicatedNameCheckShort>
     <StiDuplicatedNameInSourceCheckShort>Duplicates in the data source</StiDuplicatedNameInSourceCheckShort>
@@ -246,8 +250,6 @@
     <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine cannot render this report in the compilation mode. Change the report to the interpretation mode.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>This report is in the compilation mode</StiNetCoreCompilationModeCheckShort>
-    <StiDataSourceLoopingCheckLong>Data band '{0}' and child data band '{1}' use the same data source '{2}'. To avoid looping, the child data band will not be shown.</StiDataSourceLoopingCheckLong>
-    <StiDataSourceLoopingCheckShort>Data looping is possible</StiDataSourceLoopingCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>The '{0}' variable has the wrong default value. It is impossible to initialize the variable with a specified value.</StiVariableInitializationCheckLong>
@@ -271,9 +273,9 @@
     <ActionShow>Show</ActionShow>
     <AddNewConnection>Add New Connection</AddNewConnection>
     <Cancel>Cancel</Cancel>
-    <Close>Close</Close>
     <ChangeExportSettings>Change export settings</ChangeExportSettings>
     <ChangeExportSettingsToolTip>The code for creating the settings class of the selected export format will be added. In the project, you can change the export settings.</ChangeExportSettingsToolTip>
+    <Close>Close</Close>
     <ConnectionsFromReport>Use Connection from Report</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>Connections saved in the report template will be used without any modifications.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Register Data from Code</ConnectionsRegData>
@@ -840,13 +842,13 @@
     <Text>A title text of legend.</Text>
   </StiChartLegendTitle>
   <StiChartStyle>
-    <MarkerVisible>The property defines the marker will be displayed or not.</MarkerVisible>
     <ChartAreaShowShadow>The property defines the area shadow will be displayed or not.</ChartAreaShowShadow>
+    <MarkerVisible>The property defines the marker will be displayed or not.</MarkerVisible>
     <SeriesBorderThickness>The property defines the series border width.</SeriesBorderThickness>
+    <SeriesLabelsLineColor>The property defines the line color of series labels.</SeriesLabelsLineColor>
     <SeriesLighting>The property defines the pie lighting will be displayed or not.</SeriesLighting>
     <SeriesShowBorder>The property defines the series border will be displayed or not.</SeriesShowBorder>
     <SeriesShowShadow>The property defines the series shadow will be displayed or not.</SeriesShowShadow>
-    <SeriesLabelsLineColor>The property defines the line color of series labels.</SeriesLabelsLineColor>
     <TrendLineColor>The property defines the color of trend line.</TrendLineColor>
     <TrendLineShowShadow>The property defines the trend line shadow will be displayed or not.</TrendLineShowShadow>
   </StiChartStyle>
@@ -1000,13 +1002,13 @@
     <CellType>A type of the cell content.</CellType>
     <CheckAlignment>Determines the location of the check inside the component.</CheckAlignment>
     <CheckBrush>The check brush of the component.</CheckBrush>
-    <CheckSize>The check size of the component.</CheckSize>
     <Checked>Indicates whether the component is in the checked state.</Checked>
     <CheckedChangedEvent>Occurs when the Checked state is changed.</CheckedChangedEvent>
+    <CheckSize>The check size of the component.</CheckSize>
     <ClickEvent>Occurs when a user clicks the component in the window of the viewer.</ClickEvent>
     <ComponentStyle>A style of a component.</ComponentStyle>
-    <CornerRadius>Represents the value to which the corners are rounded.</CornerRadius>
     <Conditions>A collection of the conditions.</Conditions>
+    <CornerRadius>Represents the value to which the corners are rounded.</CornerRadius>
     <CountData>A count of rows for virtual data.</CountData>
     <CrossFiltering>Gets or sets a value which controls applying cross-filters from the current page to that element.</CrossFiltering>
     <DataRelation>Link that is used for master-detail reports rendering.</DataRelation>
@@ -1056,12 +1058,12 @@
     <Shadow>Shadow settings of the component.</Shadow>
     <ShapeType>Indicates which shape is used to draw the form of the component.</ShapeType>
     <ShiftMode>A value that indicates the shift mode of a component.</ShiftMode>
-    <Stretch>Describes how the component is resized to fill its allocated space.</Stretch>
     <Sort>The array of strings that describes rules of sorting.</Sort>
+    <Stretch>Describes how the component is resized to fill its allocated space.</Stretch>
     <Tag>An expression to fill the component tag.</Tag>
     <Text>The text is associated with the component.</Text>
     <TextBrush>The brush of the component, which is used to display text.</TextBrush>
-    <ThreeStates>Indicates that control supports two or three states.</ThreeStates>    
+    <ThreeStates>Indicates that control supports two or three states.</ThreeStates>
     <ToolTip>An expression to fill the component ToolTip.</ToolTip>
     <Top>Top position of the component.</Top>
     <TotalLabel>Gets or sets a value that is displayed as a label for a total.</TotalLabel>
@@ -1330,9 +1332,6 @@
     <RenderingEvent>Occurs when data row rendering.</RenderingEvent>
     <SizeMode>This property allows to indicate how to change the size of the last row on a page.</SizeMode>
   </StiEmptyBand>
-  <StiTextElement>
-    <SizeMode>Specifies how the text output in the component area depends on the text size.</SizeMode>
-  </StiTextElement>
   <StiFIMBarCodeType>
     <AddClearZone>Gets or sets value which indicates will show Clear Zone or no.</AddClearZone>
     <Height>Gets os sets height factor of the bar code.</Height>
@@ -1486,16 +1485,6 @@
     <SummarySortDirection>Gets or sets function of calculating group totals for its sorting by totals.</SummarySortDirection>
     <SummaryType>Gets or sets the sorting direction of grouped data.</SummaryType>
   </StiGroupHeaderBand>
-	<StiHeatmapStyleData>
-		<Color>This property defines the color which will be used to fill the geographic object Map, which contains the max value.</Color>
-		<ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
-		<Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
-	</StiHeatmapStyleData>
-	<StiHeatmapWithGroupStyleData>
-		<Colors>The property allows the creation of a collection of colors. Each color of the collection will be used as the primary color of the specific group.</Colors>
-		<ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
-		<Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
-	</StiHeatmapWithGroupStyleData>
   <StiHatchBrush>
     <BackColor>The color of spaces between the hatch lines drawn by this brush.</BackColor>
     <ForeColor>The color of hatch lines drawn by this brush.</ForeColor>
@@ -1506,6 +1495,16 @@
     <PrintIfEmpty>A value indicates that the header if data not present.</PrintIfEmpty>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>
   </StiHeaderBand>
+  <StiHeatmapStyleData>
+    <Color>This property defines the color which will be used to fill the geographic object Map, which contains the max value.</Color>
+    <Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
+    <ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
+  </StiHeatmapStyleData>
+  <StiHeatmapWithGroupStyleData>
+    <Colors>The property allows the creation of a collection of colors. Each color of the collection will be used as the primary color of the specific group.</Colors>
+    <Mode>The property defines the mode which will be used to form the colors collection of the heatmap.</Mode>
+    <ZeroColor>This property defines the color which will be used to fill the geographic object Map, which contains the zero value.</ZeroColor>
+  </StiHeatmapWithGroupStyleData>
   <StiHierarchicalBand>
     <Footers>A list of footers for the hierarchical band.</Footers>
     <Headers>A list of headers for the hierarchical band.</Headers>
@@ -1651,26 +1650,26 @@
     <KeysBinding>Data bindings for the keys.</KeysBinding>
     <SelectedKeyBinding>Data bindings for the selected key.</SelectedKeyBinding>
   </StiLookUpBoxControl>
+  <StiMapStyle>
+    <BackColor>The property defines the color which will be used to fill map background.</BackColor>
+    <BorderColor>The property defines the color which will be used to draw borders of the map geographic objects.</BorderColor>
+    <BorderSize>The property defines the border width which will be used for the map geographic objects.</BorderSize>
+    <BubbleBackColor>The property defines the color which will be used to fill map bubbles.</BubbleBackColor>
+    <BubbleBorderColor>The property defines the color which will be used to draw borders of the map bubbles.</BubbleBorderColor>
+    <Colors>The property allows to create colors set which will be used to fill the map geographic objects when color each mode is used.</Colors>
+    <DefaultColor>The property defines the color by default which will be used to fill the map geographic objects when the map type is setted any type except individual.</DefaultColor>
+    <Heatmap>The properties set define the settings which will be used for heatmap.</Heatmap>
+    <HeatmapWithGroup>The properties set define the settings which will be used for heatmap with group.</HeatmapWithGroup>
+    <IndividualColor>The property defines the color which will be used to fill the map geographic objects.</IndividualColor>
+    <LabelForeground>The property defines the color which will be used to draw labels of the map geographic objects.</LabelForeground>
+    <LabelShadowForeground>The property defines the color which will be used to draw label shadow of the map geographic objects.</LabelShadowForeground>
+  </StiMapStyle>
   <StiMargin>
     <Bottom>The value sets a margin from the bottom edge of the element.</Bottom>
     <Left>The value sets a margin from the left edge of the element.</Left>
     <Right>The value sets a margin from the right edge of the element.</Right>
     <Top>The value sets a margin from the top edge of the element.</Top>
   </StiMargin>
-    <StiMapStyle>
-		<Heatmap>The properties set define the settings which will be used for heatmap.</Heatmap>
-		<HeatmapWithGroup>The properties set define the settings which will be used for heatmap with group.</HeatmapWithGroup>
-		<IndividualColor>The property defines the color which will be used to fill the map geographic objects.</IndividualColor>
-		<Colors>The property allows to create colors set which will be used to fill the map geographic objects when color each mode is used.</Colors>
-		<DefaultColor>The property defines the color by default which will be used to fill the map geographic objects when the map type is setted any type except individual.</DefaultColor>
-		<BackColor>The property defines the color which will be used to fill map background.</BackColor>
-		<BorderSize>The property defines the border width which will be used for the map geographic objects.</BorderSize>
-		<BorderColor>The property defines the color which will be used to draw borders of the map geographic objects.</BorderColor>
-		<LabelShadowForeground>The property defines the color which will be used to draw label shadow of the map geographic objects.</LabelShadowForeground>
-		<LabelForeground>The property defines the color which will be used to draw labels of the map geographic objects.</LabelForeground>
-		<BubbleBackColor>The property defines the color which will be used to fill map bubbles.</BubbleBackColor>
-		<BubbleBorderColor>The property defines the color which will be used to draw borders of the map bubbles.</BubbleBorderColor>
-    </StiMapStyle>
   <StiMarker>
     <Angle>A rotation angle of the marker.</Angle>
     <BorderColor>A border color of marker.</BorderColor>
@@ -1851,6 +1850,7 @@
     <GlobalizationStrings>A collection which consists of globalization strings.</GlobalizationStrings>
     <NumberOfPass>Number of passes which the report generator makes while report rendering.</NumberOfPass>
     <ParametersOrientation>A value which indicates parameters panel orientation.</ParametersOrientation>
+    <ParameterWidth>Gets or sets a width in pixels of a parameter in the viewer. The default value is used if a zero value is specified.</ParameterWidth>
     <PreviewMode>The preview mode of a report.</PreviewMode>
     <PreviewSettings>Controls which will be shown in the Preview Window.</PreviewSettings>
     <PrintedEvent>Occurs when report ends printing.</PrintedEvent>
@@ -2179,6 +2179,9 @@
     <TextBinding>Data bindings for the text.</TextBinding>
     <WordWrap>Indicates whether a multiline text box control automatically wraps words to the beginning of the next line when necessary.</WordWrap>
   </StiTextBoxControl>
+  <StiTextElement>
+    <SizeMode>Specifies how the text output in the component area depends on the text size.</SizeMode>
+  </StiTextElement>
   <StiTextInCells>
     <CellHeight>Height of the cell.</CellHeight>
     <CellWidth>Width of the cell.</CellWidth>
