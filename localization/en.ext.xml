@@ -56,6 +56,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>Disable properties of the '{0}' component which are not supported in the EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>Disable properties of the component which are not supported in the EngineV1.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>Set the ResetPageNumber property of a page to false.</StiResetPageNumberActionLong>
+    <StiSwitchToParametersVerticalOrientationAction>Switch the value of the 'Parameters Orientation' report property to 'Vertical'.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Rearrange the height and width of the page.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>The size of a component will be increased to the GridSize value of a report. This operation does not guarantee the 100% correct fix!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>Increase size</StiVerySmallSizesOfComponentsShort>
@@ -230,6 +231,8 @@
     <StiOrientationPageCheckShort>Incorrect '{0}' page orientation.</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
+    <StiCategoryRequestFromUserCheckLong>The '{0}' variable's categories can't be shown on the parameters panel of the viewer because it is possible only when the value of the 'ParametersOrientation' report property is set to 'Vertical'.</StiCategoryRequestFromUserCheckLong>
+    <StiCategoryRequestFromUserCheckShort>Showing categories on the parameters panel</StiCategoryRequestFromUserCheckShort>
     <StiCloudCompilationModeCheckLong>Stimulsoft Cloud cannot preview this report in the compilation mode. Change the report to the interpretation mode.</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>This report is in the compilation mode</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>Could not load file or assembly '{0}' or one of its dependencies.</StiCompilationErrorAssemblyCheckLong>
