@@ -1,6 +1,6 @@
 <?php
 class StiMySqlAdapter {
-	public $version = '2022.4.3';
+	public $version = '2022.4.4';
 	public $checkVersion = true;
 	
 	private $info = null;
