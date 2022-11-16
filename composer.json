@@ -1,0 +1,5 @@
+{
+    "require": {
+        "stimulsoft/reports-php": "dev-master"
+    }
+}
