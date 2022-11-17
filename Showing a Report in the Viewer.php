@@ -24,8 +24,8 @@ use Stimulsoft\Viewer\StiViewerOptions;
 
     <?php
     /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm */
-    $helper = new StiJavaScript(StiComponentType::Viewer);
-    $helper->renderHtml();
+    $js = new StiJavaScript(StiComponentType::Viewer);
+    $js->renderHtml();
     ?>
 
     <script type="text/javascript">

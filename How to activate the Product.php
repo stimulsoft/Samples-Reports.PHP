@@ -29,8 +29,8 @@ use Stimulsoft\StiJavaScript;
 
     <?php
     /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_deployment.htm */
-    $helper = new StiJavaScript(StiComponentType::Engine);
-    $helper->renderHtml();
+    $js = new StiJavaScript(StiComponentType::Engine);
+    $js->renderHtml();
     ?>
 
     <script type="text/javascript">

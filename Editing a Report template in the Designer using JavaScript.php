@@ -1,12 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Designer\StiDesignerOptions;
-use Stimulsoft\Enums\StiComponentType;
-use Stimulsoft\Report\StiReport;
 use Stimulsoft\StiHandler;
-use Stimulsoft\StiJavaScript;
 
 ?>
 

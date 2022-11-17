@@ -24,17 +24,17 @@ use Stimulsoft\StiJavaScript;
     
     <?php
     /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_optimazing_scripts_loading.htm */
-    $helper = new StiJavaScript(StiComponentType::Designer);
+    $js = new StiJavaScript(StiComponentType::Designer);
 
-    $helper->options->reports = false;
-    $helper->options->blocklyEditor = false;
-    $helper->options->reportsChart = true;
-    $helper->options->reportsExport = true;
-    $helper->options->reportsImportXlsx = false;
-    $helper->options->reportsMaps = false;
+    $js->options->reports = false;
+    $js->options->blocklyEditor = false;
+    $js->options->reportsChart = true;
+    $js->options->reportsExport = true;
+    $js->options->reportsImportXlsx = false;
+    $js->options->reportsMaps = false;
 
-    $helper->packed = true;
-    $helper->renderHtml();
+    $js->packed = true;
+    $js->renderHtml();
     ?>
 
     <script type="text/javascript">
