@@ -12,10 +12,10 @@ Samples folder contains all application files, including the 'index.php' file. S
 composer require stimulsoft/reports-php
 ```
 
-Finally, in your browser, you can go to the following address: 
+Finally, in your browser, you can go to the following address:  
 http://your-domain-name/index.php
 
-If you are using a PHP server installed on your local development computer: 
+If you are using a PHP server installed on your local development computer:  
 http://localhost/index.php
 
 # About Stimulsoft Reports.PHP
