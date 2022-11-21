@@ -1185,6 +1185,7 @@
     <KeepGroupTogether>A value indicates that the group is to be kept together.</KeepGroupTogether>
     <KeepHeaderTogether>A value indicates that the header is printed with data together.</KeepHeaderTogether>
     <MinRowsInColumn>Minimum number of rows in one column.</MinRowsInColumn>
+    <MultipleInitialization>Initialize the data source for each container and detail section. For example, Filters will be applied for each detail section even if Relation is not assigned.</MultipleInitialization>
     <OddStyle>A value that indicates style of odd lines.</OddStyle>
     <PrintIfDetailEmpty>A value indicates that if detail is empty then the master data must be printed anyway.</PrintIfDetailEmpty>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>

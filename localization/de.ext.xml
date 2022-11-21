@@ -56,6 +56,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>Diejenigen Eigenschaften der Komponente '{0}' deaktivieren, die nicht in der EngineV1 unterstützt werden.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>Diejenigen Eigenschaften der Komponente '{0}' deaktivieren, die nicht in der EngineV2 unterstützt werden.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>Die Eigenschaft 'Seitennummer zurücksetzen' wird auf falsch gesetzt.</StiResetPageNumberActionLong>
+    <StiSwitchToParametersVerticalOrientationAction>Wechseln Sie den Wert der Eigenschaft des Berichtes 'Orientierung-Parameter' auf 'Vertikal'.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Neuanordnung der Höhe und Breite einer Seite.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>Die Größe einer Komponente erreicht den Rasterwert eines Reports. Diese Operation garantiert keine 100%ige korrekte Darstellung!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>Komponente vergrößern</StiVerySmallSizesOfComponentsShort>
@@ -230,6 +231,8 @@
     <StiOrientationPageCheckShort>Fehlerhaftes Seitenformat der Seite '{0}'.</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
+    <StiCategoryRequestFromUserCheckLong>Die Variable-Kategorien '{0}' können nicht auf der Parameter-Leiste des Viewers angezeigt werden, weil es möglich ist, nur wenn die Eigenschaft des Berichtes 'Orientierung-Parameter' auf 'Vertikal' gesetzt ist.</StiCategoryRequestFromUserCheckLong>
+    <StiCategoryRequestFromUserCheckShort>Die Kategorien auf Parameter-Leiste anzeigen</StiCategoryRequestFromUserCheckShort>
     <StiCloudCompilationModeCheckLong>Der Bericht soll in den Interpretation-Modus geandert werden.</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>Dieser Bericht ist im  Kompilierungsmodus</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>Man kann nicht die Datei oder Assemblierung '{0}' oder eine von ihnen abhängige Komponente laden.</StiCompilationErrorAssemblyCheckLong>
@@ -1182,6 +1185,7 @@
     <KeepGroupTogether>Wert, der anzeigt, dass die Gruppe zusammenzuhalten ist.</KeepGroupTogether>
     <KeepHeaderTogether>Wert, der anzeigt, dass der Kopf zusammenzuhalten ist.</KeepHeaderTogether>
     <MinRowsInColumn>Minimale Anzahl Zeilen in einer Spalte.</MinRowsInColumn>
+    <MultipleInitialization>Die Datenquelle für jeden Behälter und Detailabschnitt initialisieren. Zum Beispiel, die Filter werden auf jeden Detailabschnitt übernehmen, sogar wenn der Zusammenhang nicht zugewiesen ist.</MultipleInitialization>
     <OddStyle>Wert, der die Art der geraden Linien anzeigt.</OddStyle>
     <PrintIfDetailEmpty>Wert, der anzeigt, dass die Daten des Hauptbandes ausgegeben werden, obwohl keine Detaildaten vorhanden sind.</PrintIfDetailEmpty>
     <PrintOnAllPages>Wert, der anzeigt, dass die Komponente auf allen Seiten ausgegeben wird.</PrintOnAllPages>

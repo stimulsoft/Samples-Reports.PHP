@@ -56,6 +56,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>EngineV2에서 지원되지 않는 '{0}'구성 요소의 속성을 해제합니다.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>EngineV1에서 지원되지 않는 구성 요소의 속성을 해제합니다.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>페이지의 ResetPageNumber 속성을 false로 설정합니다.</StiResetPageNumberActionLong>
+    <StiSwitchToParametersVerticalOrientationAction>'매개변수 Orientation' 보고서 속성의 값을 '세로'로 전환합니다.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>페이지의 높이와 너비를 변경합니다.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>구성 요소의 크기는 보고서 GridSize 값으로 증가합니다. 이 작업은 100 % 정확한 수정이 보장되는 것은 아닙니다!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>크기 확대</StiVerySmallSizesOfComponentsShort>
@@ -230,6 +231,8 @@
     <StiOrientationPageCheckShort>페이지 방향이 {0}에서 잘못된 것입니다.</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
+    <StiCategoryRequestFromUserCheckLong>'{0}' 변수의 카테고리는 'ParametersOrientation' 보고서 속성의 값이 'Vertical'로 설정된 경우에만 가능하기 때문에 뷰어의 매개변수 패널에 표시할 수 없습니다.</StiCategoryRequestFromUserCheckLong>
+    <StiCategoryRequestFromUserCheckShort>매개 변수 패널에 범주 표시</StiCategoryRequestFromUserCheckShort>
     <StiCloudCompilationModeCheckLong>Stimulsoft Cloud는이 보고서를 컴파일 모드에서 미리 볼 수 없습니다. 보고서를 통역 모드로 변경합니다.</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>이 보고서는 컴파일 모드입니다</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>파일 또는 어셈블리 '{0}'또는 해당 종속성 중 하나를로드 할 수 없습니다.</StiCompilationErrorAssemblyCheckLong>
@@ -1182,6 +1185,7 @@
     <KeepGroupTogether>그룹을 함께 유지하는 것을 나타내는 값</KeepGroupTogether>
     <KeepHeaderTogether>헤더에 데이터가 함께 인쇄되어 있는지를 나타내는 값</KeepHeaderTogether>
     <MinRowsInColumn>1 열의 최소 행수</MinRowsInColumn>
+    <MultipleInitialization>각 컨테이너 및 세부 섹션에 대한 데이터 소스를 초기화합니다. 예를 들어, 관계가 할당되지 않은 경우에도 각 세부 섹션에 필터가 적용됩니다.</MultipleInitialization>
     <OddStyle>홀수 행의 스타일을 나타내는 값</OddStyle>
     <PrintIfDetailEmpty>상세가 비어 있으면 마스터 데이터를 인쇄 할 필요가있는 것을 나타내는 값</PrintIfDetailEmpty>
     <PrintOnAllPages>구성 요소가 모든 페이지에 인쇄되어있는 것을 나타내는 값</PrintOnAllPages>

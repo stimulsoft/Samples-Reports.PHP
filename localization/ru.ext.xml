@@ -56,6 +56,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>Выключить у компонента '{0}' свойства, которые не поддерживаются в EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>Выключить у компонента свойства, которые не поддерживаются в EngineV1.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>Задать у страницы значение свойства ResetPageNumber равное false.</StiResetPageNumberActionLong>
+    <StiSwitchToParametersVerticalOrientationAction>Переключите значение свойства отчета «Расположение параметров» на «Вертикальный».</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Поменять местами ширину и высоту страницы.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>Размер компонента увеличится до значения GridSize отчета. Данное действие не дает 100% гарантию правильного исправления!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>Увеличить размер</StiVerySmallSizesOfComponentsShort>
@@ -230,6 +231,8 @@
     <StiOrientationPageCheckShort>Возможно неверная ориентация страницы '{0}'.</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
+    <StiCategoryRequestFromUserCheckLong>Категории переменных '{0}' не могут отображаться на панели параметров во вьювере, поскольку это возможно только в том случае, если свойство отчета "Расположение параметров" установлено в значение "Вертикальный".</StiCategoryRequestFromUserCheckLong>
+    <StiCategoryRequestFromUserCheckShort>Показывать категории на панели параметров</StiCategoryRequestFromUserCheckShort>
     <StiCloudCompilationModeCheckLong>Stimulsoft Cloud не может построить отчёт в режиме компиляции. Переключите отчёт в режим интерпретации.</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>Отчёт в режиме компиляции</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>Невозможно загрузить файл или сборку '{0}' или один из зависимых от них компонентов.</StiCompilationErrorAssemblyCheckLong>
@@ -1182,6 +1185,7 @@
     <KeepGroupTogether>Значение определяет, что группа должна держаться вместе.</KeepGroupTogether>
     <KeepHeaderTogether>Значение определяет, что заголовок печетается вместе с данными.</KeepHeaderTogether>
     <MinRowsInColumn>Минимальное количество рядов в одной колонке.</MinRowsInColumn>
+    <MultipleInitialization>Инициализирует источник данных для каждого нового контейнера или подчинённой секции. Например, фильтры будут применены к каждой подчинённой секции, даже если для бэнда не заданы связи.</MultipleInitialization>
     <OddStyle>Значение определяет стиль нечетных строк.</OddStyle>
     <PrintIfDetailEmpty>Значение определяет, что если деталь пустая, то мастер данные должны печататься в любому случае.</PrintIfDetailEmpty>
     <PrintOnAllPages>Значение определяет, что компонент печатается на всех страницах.</PrintOnAllPages>

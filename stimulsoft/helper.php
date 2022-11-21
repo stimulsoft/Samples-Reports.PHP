@@ -34,7 +34,7 @@ function stiShutdownFunction() {
 }
 
 class StiHandler {
-	private $version = '2022.4.4';
+	private $version = '2022.4.5';
 	
 	private function checkEventResult($event, $args) {
 		if (isset($event)) $result = $event($args);
