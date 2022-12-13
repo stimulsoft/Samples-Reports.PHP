@@ -18,8 +18,8 @@ use Stimulsoft\StiHandler;
     </style>
 
     <!-- https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm -->
-    <script src="/vendor/stimulsoft/reports-php/public/scripts/stimulsoft.reports.js" type="text/javascript"></script>
-    <script src="/vendor/stimulsoft/reports-php/public/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+    <script src="/vendor/stimulsoft/reports-php/scripts/stimulsoft.reports.js" type="text/javascript"></script>
+    <script src="/vendor/stimulsoft/reports-php/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         <?php
