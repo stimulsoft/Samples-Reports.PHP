@@ -15,7 +15,7 @@ use Stimulsoft\Viewer\StiViewerOptions;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Using SQL Data Sources</title>
+    <title>Using a SQL Data Sources</title>
     <style>
         html, body {
             font-family: sans-serif;
