@@ -1,12 +1,12 @@
 <?php
 require_once 'vendor/autoload.php';
 
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Designer\StiDesignerOptions;
 use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\StiHandler;
 use Stimulsoft\StiJavaScript;
+use Stimulsoft\Viewer\StiViewer;
+use Stimulsoft\Viewer\StiViewerOptions;
 
 ?>
 
@@ -15,7 +15,7 @@ use Stimulsoft\StiJavaScript;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Saving a Report Template on the Server-side</title>
+    <title>Sending an Exported Report to the Server-Side</title>
     <style>
         html, body {
             font-family: sans-serif;
@@ -23,8 +23,8 @@ use Stimulsoft\StiJavaScript;
     </style>
 
     <?php
-    /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
-    $js = new StiJavaScript(StiComponentType::Designer);
+    /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm */
+    $js = new StiJavaScript(StiComponentType::Viewer);
     $js->renderHtml();
     ?>
 
@@ -35,30 +35,30 @@ use Stimulsoft\StiJavaScript;
         //$handler->license->setFile('license.key');
         $handler->renderHtml();
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_settings.htm */
-        $options = new StiDesignerOptions();
+        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_settings.htm */
+        $options = new StiViewerOptions();
         $options->appearance->fullScreenMode = true;
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
-        $designer = new StiDesigner($options);
+        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm */
+        $viewer = new StiViewer($options);
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_saving_report.htm */
-        $designer->onSaveReport = true;
+        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_viewer_export.htm */
+        $viewer->onEndExportReport = true;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_creating_editing_report.htm */
         $report = new StiReport();
         $report->loadFile('reports/SimpleList.mrt');
-        $designer->report = $report;
+        $viewer->report = $report;
         ?>
 
         function onLoad() {
             <?php
-            $designer->renderHtml('designerContent');
+            $viewer->renderHtml('viewerContent');
             ?>
         }
     </script>
 </head>
 <body onload="onLoad();">
-<div id="designerContent"></div>
+<div id="viewerContent"></div>
 </body>
 </html>
