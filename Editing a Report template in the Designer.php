@@ -15,7 +15,7 @@ use Stimulsoft\StiJavaScript;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Editing a Report template in the Designer</title>
+    <title>Editing a Report Template in the Designer</title>
     <style>
         html, body {
             font-family: sans-serif;
