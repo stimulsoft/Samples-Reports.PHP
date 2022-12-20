@@ -44,7 +44,7 @@ use Stimulsoft\StiJavaScript;
     </script>
 </head>
 <body>
-<h1>How to activate the Product</h1>
+<h1>How to Activate the Product</h1>
 <hr/>
 <br/>
 The 30-day trial version of the product does not contain any restrictions, except for the Trial watermark on the report pages, and reminders about using the Trial

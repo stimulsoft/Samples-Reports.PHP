@@ -15,7 +15,7 @@ use Stimulsoft\StiJavaScript;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Editing a Report template in the Designer</title>
+    <title>Saving a Report Template on the Server-side</title>
     <style>
         html, body {
             font-family: sans-serif;
@@ -41,6 +41,9 @@ use Stimulsoft\StiJavaScript;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
         $designer = new StiDesigner($options);
+
+        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_saving_report.htm */
+        $designer->onSaveReport = true;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_creating_editing_report.htm */
         $report = new StiReport();

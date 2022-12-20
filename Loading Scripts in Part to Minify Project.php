@@ -15,16 +15,25 @@ use Stimulsoft\StiJavaScript;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Saving a Report template on the Server-side</title>
+    <title>Loading Scripts in Part to Minify Project</title>
     <style>
         html, body {
             font-family: sans-serif;
         }
     </style>
-
+    
     <?php
-    /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
+    /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_optimazing_scripts_loading.htm */
     $js = new StiJavaScript(StiComponentType::Designer);
+
+    $js->options->reports = false;
+    $js->options->blocklyEditor = false;
+    $js->options->reportsChart = true;
+    $js->options->reportsExport = true;
+    $js->options->reportsImportXlsx = false;
+    $js->options->reportsMaps = false;
+
+    $js->packed = true;
     $js->renderHtml();
     ?>
 
@@ -41,9 +50,6 @@ use Stimulsoft\StiJavaScript;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
         $designer = new StiDesigner($options);
-
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_saving_report.htm */
-        $designer->onSaveReport = true;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_creating_editing_report.htm */
         $report = new StiReport();
