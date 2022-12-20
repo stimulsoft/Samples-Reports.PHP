@@ -15,7 +15,7 @@ use Stimulsoft\Viewer\StiViewerOptions;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Setting Report Variables on the Server-side</title>
+    <title>Setting Report variables on the Server-side</title>
     <style>
         html, body {
             font-family: sans-serif;

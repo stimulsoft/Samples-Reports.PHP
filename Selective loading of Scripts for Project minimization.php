@@ -15,7 +15,7 @@ use Stimulsoft\StiJavaScript;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Loading Scripts in Part to Minify Project</title>
+    <title>Selective loading of Scripts for Project minimization</title>
     <style>
         html, body {
             font-family: sans-serif;
