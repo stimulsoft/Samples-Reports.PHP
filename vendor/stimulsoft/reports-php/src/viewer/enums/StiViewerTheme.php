@@ -1,0 +1,73 @@
+<?php
+
+namespace Stimulsoft\Viewer;
+
+class StiViewerTheme
+{
+    const SimpleGray = 'Stimulsoft.Viewer.StiViewerTheme.SimpleGray';
+    const WindowsXP = 'Stimulsoft.Viewer.StiViewerTheme.WindowsXP';
+    const Windows7 = 'Stimulsoft.Viewer.StiViewerTheme.Windows7';
+    const Office2003 = 'Stimulsoft.Viewer.StiViewerTheme.Office2003';
+    const Office2007Blue = 'Stimulsoft.Viewer.StiViewerTheme.Office2007Blue';
+    const Office2007Black = 'Stimulsoft.Viewer.StiViewerTheme.Office2007Black';
+    const Office2007Silver = 'Stimulsoft.Viewer.StiViewerTheme.Office2007Silver';
+    const Office2010Blue = 'Stimulsoft.Viewer.StiViewerTheme.Office2010Blue';
+    const Office2010Black = 'Stimulsoft.Viewer.StiViewerTheme.Office2010Black';
+    const Office2010Silver = 'Stimulsoft.Viewer.StiViewerTheme.Office2010Silver';
+    const Office2013WhiteBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2013WhiteBlue';
+    const Office2013WhiteCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2013WhiteCarmine';
+    const Office2013WhiteGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2013WhiteGreen';
+    const Office2013WhiteOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2013WhiteOrange';
+    const Office2013WhitePurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2013WhitePurple';
+    const Office2013WhiteTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2013WhiteTeal';
+    const Office2013WhiteViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2013WhiteViolet';
+    const Office2013LightGrayBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2013LightGrayBlue';
+    const Office2013LightGrayCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2013LightGrayCarmine';
+    const Office2013LightGrayGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2013LightGrayGreen';
+    const Office2013LightGrayOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2013LightGrayOrange';
+    const Office2013LightGrayPurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2013LightGrayPurple';
+    const Office2013LightGrayTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2013LightGrayTeal';
+    const Office2013LightGrayViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2013LightGrayViolet';
+    const Office2013DarkGrayBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2013DarkGrayBlue';
+    const Office2013DarkGrayCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2013DarkGrayCarmine';
+    const Office2013DarkGrayGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2013DarkGrayGreen';
+    const Office2013DarkGrayOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2013DarkGrayOrange';
+    const Office2013DarkGrayPurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2013DarkGrayPurple';
+    const Office2013DarkGrayTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2013DarkGrayTeal';
+    const Office2013DarkGrayViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2013DarkGrayViolet';
+    const Office2013VeryDarkGrayBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2013VeryDarkGrayBlue';
+    const Office2013VeryDarkGrayCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2013VeryDarkGrayCarmine';
+    const Office2013VeryDarkGrayGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2013VeryDarkGrayGreen';
+    const Office2013VeryDarkGrayOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2013VeryDarkGrayOrange';
+    const Office2013VeryDarkGrayPurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2013VeryDarkGrayPurple';
+    const Office2013VeryDarkGrayTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2013VeryDarkGrayTeal';
+    const Office2013VeryDarkGrayViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2013VeryDarkGrayViolet';
+    const Office2022WhiteBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteBlue';
+    const Office2022WhiteCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteCarmine';
+    const Office2022WhiteGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteGreen';
+    const Office2022WhiteOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteOrange';
+    const Office2022WhitePurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2022WhitePurple';
+    const Office2022WhiteTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteTeal';
+    const Office2022WhiteViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteViolet';
+    const Office2022LightGrayBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2022LightGrayBlue';
+    const Office2022LightGrayCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2022LightGrayCarmine';
+    const Office2022LightGrayGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2022LightGrayGreen';
+    const Office2022LightGrayOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2022LightGrayOrange';
+    const Office2022LightGrayPurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2022LightGrayPurple';
+    const Office2022LightGrayTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2022LightGrayTeal';
+    const Office2022LightGrayViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2022LightGrayViolet';
+    const Office2022DarkGrayBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2022DarkGrayBlue';
+    const Office2022DarkGrayCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2022DarkGrayCarmine';
+    const Office2022DarkGrayGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2022DarkGrayGreen';
+    const Office2022DarkGrayOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2022DarkGrayOrange';
+    const Office2022DarkGrayPurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2022DarkGrayPurple';
+    const Office2022DarkGrayTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2022DarkGrayTeal';
+    const Office2022DarkGrayViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2022DarkGrayViolet';
+    const Office2022BlackBlue = 'Stimulsoft.Viewer.StiViewerTheme.Office2022BlackBlue';
+    const Office2022BlackCarmine = 'Stimulsoft.Viewer.StiViewerTheme.Office2022BlackCarmine';
+    const Office2022BlackGreen = 'Stimulsoft.Viewer.StiViewerTheme.Office2022BlackGreen';
+    const Office2022BlackOrange = 'Stimulsoft.Viewer.StiViewerTheme.Office2022BlackOrange';
+    const Office2022BlackPurple = 'Stimulsoft.Viewer.StiViewerTheme.Office2022BlackPurple';
+    const Office2022BlackTeal = 'Stimulsoft.Viewer.StiViewerTheme.Office2022BlackTeal';
+    const Office2022BlackViolet = 'Stimulsoft.Viewer.StiViewerTheme.Office2022BlackViolet';
+}

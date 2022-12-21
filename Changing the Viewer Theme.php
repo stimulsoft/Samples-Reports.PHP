@@ -1,17 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
-
-use Stimulsoft\Enums\StiComponentType;
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiHandler;
-use Stimulsoft\StiJavaScript;
-use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
-use Stimulsoft\Viewer\Enums\StiViewerTheme;
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\StiViewerOptions;
-
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,30 +16,30 @@ use Stimulsoft\Viewer\StiViewerOptions;
 
     <?php
     /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm */
-    $js = new StiJavaScript(StiComponentType::Viewer);
+    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Viewer);
     $js->renderHtml();
     ?>
 
     <script type="text/javascript">
         <?php
-        $handler = new StiHandler();
+        $handler = new \Stimulsoft\StiHandler();
         //$handler->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
         //$handler->license->setFile('license.key');
         $handler->renderHtml();
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_settings.htm */
-        $options = new StiViewerOptions();
+        $options = new \Stimulsoft\Viewer\StiViewerOptions();
         $options->appearance->fullScreenMode = true;
         $options->appearance->backgroundColor = 'black';
-        $options->appearance->theme = StiViewerTheme::Office2022BlackGreen;
-        $options->toolbar->displayMode = StiToolbarDisplayMode::Separated;
+        $options->appearance->theme = \Stimulsoft\Viewer\StiViewerTheme::Office2022BlackGreen;
+        $options->toolbar->displayMode = \Stimulsoft\Viewer\StiToolbarDisplayMode::Separated;
         $options->toolbar->showFullScreenButton = false;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm */
-        $viewer = new StiViewer($options);
+        $viewer = new \Stimulsoft\Viewer\StiViewer($options);
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_creating_editing_report.htm */
-        $report = new StiReport();
+        $report = new \Stimulsoft\Report\StiReport();
         $report->loadFile('reports/SimpleList.mrt');
         $viewer->report = $report;
         ?>

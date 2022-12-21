@@ -1,0 +1,7 @@
+/*
+Stimulsoft.Reports.JS
+Version: 2023.1.2
+Build date: 2022.12.14
+License: https://www.stimulsoft.com/en/licensing/reports
+*/
+export * from './stimulsoft.designer';

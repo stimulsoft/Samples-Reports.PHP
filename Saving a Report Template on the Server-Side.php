@@ -1,15 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
-
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Designer\StiDesignerOptions;
-use Stimulsoft\Enums\StiComponentType;
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiHandler;
-use Stimulsoft\StiJavaScript;
-
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,29 +15,29 @@ use Stimulsoft\StiJavaScript;
 
     <?php
     /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
-    $js = new StiJavaScript(StiComponentType::Designer);
+    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Designer);
     $js->renderHtml();
     ?>
 
     <script type="text/javascript">
         <?php
-        $handler = new StiHandler();
+        $handler = new \Stimulsoft\StiHandler();
         //$handler->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
         //$handler->license->setFile('license.key');
         $handler->renderHtml();
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_settings.htm */
-        $options = new StiDesignerOptions();
+        $options = new \Stimulsoft\Designer\StiDesignerOptions();
         $options->appearance->fullScreenMode = true;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
-        $designer = new StiDesigner($options);
+        $designer = new \Stimulsoft\Designer\StiDesigner($options);
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_saving_report.htm */
         $designer->onSaveReport = true;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_creating_editing_report.htm */
-        $report = new StiReport();
+        $report = new \Stimulsoft\Report\StiReport();
         $report->loadFile('reports/SimpleList.mrt');
         $designer->report = $report;
         ?>
