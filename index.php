@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<h1>Stimulsoft Reports.PHP - Quick Start</h1>
+<h2>Stimulsoft Reports.PHP - Quick Start</h2>
 <hr/>
 <ul>
     <li><a href="Changing the Viewer Theme.php">Changing the Viewer Theme</a></li>
@@ -19,9 +19,11 @@
     <li><a href="Editing a Report Template in the Designer using JavaScript.php">Editing a Report Template in the Designer using JavaScript</a></li>
     <li><a href="Exporting a Report from Code.php">Exporting a Report from Code</a></li>
     <li><a href="How to Activate the Product.php">How to Activate the Product</a></li>
-    <li><a href="Rendering a Report from Code.php">Rendering a Report from Code</a></li>
-    <li><a href="Saving a Report Template on the Server-Side.php">Saving a Report Template on the Server-Side</a></li>
     <!--<li><a href="Loading Scripts in Part to Minify Project.php">Loading Scripts in Part to Minify Project</a></li>-->
+    <li><a href="Localizing the Designer.php">Localizing the Designer</a></li>
+    <li><a href="Rendering a Report from Code.php">Rendering a Report from Code</a></li>
+    <li><a href="Registering a Data from Code.php">Registering a Data from Code</a></li>
+    <li><a href="Saving a Report Template on the Server-Side.php">Saving a Report Template on the Server-Side</a></li>
     <li><a href="Sending a Report by Email.php">Sending a Report by Email</a></li>
     <li><a href="Sending an Exported report to the Server-side.php">Sending an Exported Report to the Server-Side</a></li>
     <li><a href="Setting Report variables on the Server-side.php">Setting Report Variables on the Server-Side</a></li>

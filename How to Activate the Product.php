@@ -39,7 +39,7 @@ require_once 'vendor/autoload.php';
     </script>
 </head>
 <body>
-<h1>How to Activate the Product</h1>
+<h2>How to Activate the Product</h2>
 <hr/>
 <br/>
 The 30-day trial version of the product does not contain any restrictions, except for the Trial watermark on the report pages, and reminders about using the Trial
