@@ -31,6 +31,10 @@ require_once 'vendor/autoload.php';
         $options->appearance->fullScreenMode = true;
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_localization.htm */
+        $options->addLocalization("fr.xml");
+        $options->addLocalization("it.xml");
+        $options->addLocalization("pl.xml");
+
         $options->localization = "de.xml";
 
         /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
