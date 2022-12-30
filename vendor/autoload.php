@@ -117,14 +117,14 @@ require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiFirstDayOfWeek
 require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiInterfaceType.php';
 require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiNewReportDictionary.php';
 require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiPropertiesGridPosition.php';
+require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiReportUnitType.php';
 require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiUseAliases.php';
 require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiWizardType.php';
-require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiHtmlExportMode.php';
 require_once 'vendor/stimulsoft/reports-php/src/report/enums/StiRangeType.php';
-require_once 'vendor/stimulsoft/reports-php/src/designer/enums/StiReportUnitType.php';
 require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiChartRenderType.php';
 require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiContentAlignment.php';
 require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiFirstDayOfWeek.php';
+require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiHtmlExportMode.php';
 require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiInterfaceType.php';
 require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiParametersPanelPosition.php';
 require_once 'vendor/stimulsoft/reports-php/src/viewer/enums/StiPrintDestination.php';

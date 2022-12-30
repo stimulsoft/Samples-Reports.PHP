@@ -19,7 +19,7 @@ class StiComponentOptions
             $localization .= '.xml';
 
         if (!preg_match('/[\/\\\]/', $localization))
-            $localization = '/vendor/stimulsoft/reports-php/localization/' . $localization;
+            $localization = 'vendor/stimulsoft/reports-php/localization/' . $localization;
 
         return $localization;
     }
