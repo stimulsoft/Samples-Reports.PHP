@@ -354,6 +354,8 @@
     <ReplacePathToData>Replace Path to the Data</ReplacePathToData>
     <ReportAction>What to do with Report:</ReportAction>
     <ReportErrors>Unfortunately, due to errors, this report cannot be published!</ReportErrors>
+    <SaveExportedPagesToArchive>Save all pages in one ZIP archive</SaveExportedPagesToArchive>
+    <SaveExportedPagesToArchiveToolTip>Each report page will be exported to the selected image format, all pages will be added into one ZIP archive.</SaveExportedPagesToArchiveToolTip>
     <SaveProjectPackage>Save Project Package</SaveProjectPackage>
     <SaveStandalone>Save Standalone</SaveStandalone>
     <SaveStandalonePackage>Save Standalone Package</SaveStandalonePackage>
@@ -761,6 +763,7 @@
     <InterlacingVert>Interlacing settings on vertical axis.</InterlacingVert>
     <ReverseHor>A value that indicate that all values on horizontal axis is reverse.</ReverseHor>
     <ReverseVert>A value that indicate that all values on vertical axis is reverse.</ReverseVert>
+    <SideBySide>Sets the layout mode of the graphic elements of the chart for each argument - side-by-side or along the Z axis.</SideBySide>
     <XAxis>Settings of XAxis.</XAxis>
     <XTopAxis>Settings of XTopAxis.</XTopAxis>
     <YAxis>Settings of YAxis.</YAxis>
@@ -913,6 +916,9 @@
     <Container>A clone container.</Container>
     <ScaleHor>A value indicates that contents of the container will be shrunk or grown.</ScaleHor>
   </StiClone>
+  <StiClusteredColumnArea3D>
+	  <SideBySide>Sets the layout mode of the graphic elements of the chart for each argument - side-by-side or along the Z axis.</SideBySide>
+  </StiClusteredColumnArea3D>
   <StiClusteredColumnSeries>
     <Width>Width factor of one bar series. Value 1 is equal to 100%.</Width>
   </StiClusteredColumnSeries>

@@ -354,6 +354,8 @@
     <ReplacePathToData>Заменить путь к данным</ReplacePathToData>
     <ReportAction>Действие над отчетом:</ReportAction>
     <ReportErrors>К сожалению, этот отчет не может быть опубликован из-за наличия ошибок!</ReportErrors>
+    <SaveExportedPagesToArchive>Сохранить все страницы в одном ZIP-архиве</SaveExportedPagesToArchive>
+    <SaveExportedPagesToArchiveToolTip>Каждая страница отчета будет экспортирована в выбранный формат изображения, все страницы будут добавлены в один ZIP-архив.</SaveExportedPagesToArchiveToolTip>
     <SaveProjectPackage>Сохранить пакет проекта</SaveProjectPackage>
     <SaveStandalone>Сохранить автономный</SaveStandalone>
     <SaveStandalonePackage>Сохранить автономный пакет</SaveStandalonePackage>
@@ -761,6 +763,7 @@
     <InterlacingVert>Настройки чередующихся полос на вертикальной оси.</InterlacingVert>
     <ReverseHor>Значение определяет, что все значения на горизонтальной оси являются обратными.</ReverseHor>
     <ReverseVert>Значение определяет, что все значения на вертикальной оси являются обратными.</ReverseVert>
+    <SideBySide>Устанавливает режим расположения графических элементов диаграммы для каждого аргумента - сторона к стороне или по оси Z.</SideBySide>
     <XAxis>Настройки оси X.</XAxis>
     <XTopAxis>Настройки верхней оси X.</XTopAxis>
     <YAxis>Настройки оси Y.</YAxis>
@@ -913,6 +916,9 @@
     <Container>Клон контейнера.</Container>
     <ScaleHor>Значение определяет, что содержимое контейнера будет сжиматься или расти.</ScaleHor>
   </StiClone>
+  <StiClusteredColumnArea3D>
+    <SideBySide>Устанавливает режим расположения графических элементов диаграммы для каждого аргумента - сторона к стороне или по оси Z.</SideBySide>
+  </StiClusteredColumnArea3D>
   <StiClusteredColumnSeries>
     <Width>Коэффициент ширины одного ряда полосы. Значение 1 равно 100%.</Width>
   </StiClusteredColumnSeries>

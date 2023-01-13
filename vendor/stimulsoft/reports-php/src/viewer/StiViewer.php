@@ -74,13 +74,13 @@ class StiViewer extends StiHtmlComponent
             $result .= $this->getEventHtml('onEndExportReport', true, true);
 
         if ($this->onInteraction)
-            $result .= $this->getEventHtml('onInteraction');
+            $result .= $this->getEventHtml('onInteraction', true, false, false);
 
         if ($this->onEmailReport)
             $result .= $this->getEventHtml('onEmailReport');
 
         if ($this->onDesignReport)
-            $result .= $this->getEventHtml('onDesignReport');
+            $result .= $this->getEventHtml('onDesignReport', false, false, false);
 
         if ($this->report instanceof StiReport) {
             if (!$this->report->isHtmlRendered)
