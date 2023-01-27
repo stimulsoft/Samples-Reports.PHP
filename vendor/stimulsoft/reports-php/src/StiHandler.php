@@ -61,50 +61,6 @@ class StiHandler extends StiDataHandler
         return $result;
     }
 
-    private function applyQueryParameters($query, $parameters, $escape)
-    {
-        $result = '';
-
-        while (mb_strpos($query, '@') !== false) {
-            $result .= mb_substr($query, 0, mb_strpos($query, '@'));
-            $query = mb_substr($query, mb_strpos($query, '@') + 1);
-
-            $parameterName = '';
-            while (strlen($query) > 0) {
-                $char = mb_substr($query, 0, 1);
-                if (!preg_match('/[a-zA-Z0-9_-]/', $char)) break;
-
-                $parameterName .= $char;
-                $query = mb_substr($query, 1);
-            }
-
-            $replaced = false;
-            foreach ($parameters as $key => $item) {
-                if (strtolower($key) == strtolower($parameterName)) {
-                    switch ($item->typeGroup) {
-                        case 'number':
-                            $result .= $item->value;
-                            break;
-
-                        case 'datetime':
-                            $result .= "'" . $item->value . "'";
-                            break;
-
-                        default:
-                            $result .= "'" . ($escape ? addcslashes($item->value, "\\\"'") : $item->value) . "'";
-                            break;
-                    }
-
-                    $replaced = true;
-                }
-            }
-
-            if (!$replaced) $result .= '@' . $parameterName;
-        }
-
-        return $result . $query;
-    }
-
     private function addAddress($param, $settings, $mail)
     {
         $arr = $settings->$param;
@@ -130,20 +86,9 @@ class StiHandler extends StiDataHandler
     {
         $args = new StiDataEventArgs();
         $args->populateVars($request);
+        $args->parameters = $this->getParameters($request);
 
-        if (isset($request->queryString) && isset($request->parameters)) {
-            $args->parameters = array();
-            foreach ($request->parameters as $item) {
-                $args->parameters[$item->name] = $item;
-                unset($item->name);
-            }
-        }
-
-        $result = $this->checkEventResult($this->onBeginProcessData, $args);
-        if (isset($result->object->queryString) && isset($args->parameters) && count($args->parameters) > 0)
-            $result->object->queryString = $this->applyQueryParameters($result->object->queryString, $args->parameters, $request->escapeQueryParameters);
-
-        return $result;
+        return $this->checkEventResult($this->onBeginProcessData, $args);
     }
 
     private function invokeEndProcessData($request, $result)
@@ -353,25 +298,21 @@ class StiHandler extends StiDataHandler
         if ($result->success) {
             switch ($request->event) {
                 case StiEventType::BeginProcessData:
+                    $dataAdapter = StiDataAdapter::getDataAdapter($request->database);
+                    if ($dataAdapter == null) {
+                        $result = StiResult::error("Unknown database type [$request->database]");
+                        break;
+                    }
+
                     $result = $this->invokeBeginProcessData($request);
                     if (!$result->success) break;
+
                     $request->connectionString = $result->object->connectionString;
                     $request->queryString = $result->object->queryString;
-                    $result = StiDataAdapter::getDataAdapterResult($request);
+                    $request->parameters = $result->object->parameters;
+
+                    $result = $this->getDataAdapterResult($dataAdapter, $request);
                     if (!$result->success) break;
-
-                    $dataAdapter = $result->object;
-
-                    /** @var StiDataAdapter $dataAdapter */
-                    switch ($request->command) {
-                        case StiDataCommand::TestConnection:
-                            $result = $dataAdapter->test();
-                            break;
-
-                        case StiDataCommand::ExecuteQuery:
-                            $result = $dataAdapter->execute($request->queryString);
-                            break;
-                    }
 
                     /** @var StiDataResult $result */
                     $result = $this->invokeEndProcessData($request, $result);

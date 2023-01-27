@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiPostgreSqlAdapter extends StiDataAdapter
 {
-    public $version = '2023.1.5';
+    public $version = '2023.1.6';
     public $checkVersion = true;
 
     protected $driverName = 'pgsql';
@@ -165,6 +165,12 @@ class StiPostgreSqlAdapter extends StiDataAdapter
         }
 
         return $value;
+    }
+
+    public function makeQuery($procedure, $parameters)
+    {
+        $paramsString = parent::makeQuery($procedure, $parameters);
+        return "CALL $procedure ($paramsString)";
     }
 
     protected function executeNative($queryString, $result)

@@ -14,7 +14,6 @@ class StiRequest extends StiDataRequest
     public $formatName;
     public $settings;
     public $variables;
-    public $parameters;
     public $escapeQueryParameters;
     public $isWizardUsed;
     public $report;

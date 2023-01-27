@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiOdbcAdapter extends StiDataAdapter
 {
-    public $version = '2023.1.5';
+    public $version = '2023.1.6';
     public $checkVersion = true;
 
     protected function getLastErrorResult()
@@ -148,7 +148,7 @@ class StiOdbcAdapter extends StiDataAdapter
         return $value;
     }
 
-    public function execute($queryString)
+    public function executeQuery($queryString)
     {
         $result = $this->connect();
         if ($result->success) {

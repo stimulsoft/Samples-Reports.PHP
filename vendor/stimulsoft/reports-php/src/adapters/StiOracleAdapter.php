@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiOracleAdapter extends StiDataAdapter
 {
-    public $version = '2023.1.5';
+    public $version = '2023.1.6';
     public $checkVersion = true;
 
     protected $driverName = 'oci';
@@ -154,6 +154,12 @@ class StiOracleAdapter extends StiDataAdapter
         }
 
         return $value;
+    }
+
+    public function makeQuery($procedure, $parameters)
+    {
+        $paramsString = parent::makeQuery($procedure, $parameters);
+        return "SQLEXEC 'CALL $procedure ($paramsString)'";
     }
 
     protected function executeNative($queryString, $result)

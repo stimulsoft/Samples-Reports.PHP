@@ -8,6 +8,7 @@ class StiDataRequest
     public $command;
     public $connectionString;
     public $queryString;
+    public $parameters;
     public $database;
     public $dataSource;
     public $connection;
@@ -54,7 +55,7 @@ class StiDataRequest
         if ($this->command == StiDataCommand::GetSupportedAdapters)
             return StiResult::success(null, $this);
 
-        if ($this->command != StiDataCommand::TestConnection && $this->command != StiDataCommand::ExecuteQuery)
+        if ($this->command != StiDataCommand::TestConnection && $this->command != StiDataCommand::Execute && $this->command != StiDataCommand::ExecuteQuery)
             return StiResult::error('Unknown command [' . $this->command . ']');
 
         return StiResult::success(null, $this);
