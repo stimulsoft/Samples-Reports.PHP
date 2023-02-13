@@ -69,7 +69,7 @@ $handler->onBeginProcessData = function ($args)
     */
 
     // Values for 'SimpleListSQLParameters.mrt' report template.
-    if ($args->dataSource == 'customers') {
+    if ($args->dataSource == 'customers' && count($args->parameters) > 0) {
         $args->parameters['Country']->value = "Germany";
     }
 
