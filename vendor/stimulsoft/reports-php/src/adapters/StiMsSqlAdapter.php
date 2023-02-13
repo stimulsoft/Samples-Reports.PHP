@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiMsSqlAdapter extends StiDataAdapter
 {
-    public $version = '2023.1.6';
+    public $version = '2023.1.7';
     public $checkVersion = true;
 
     protected $driverName = 'sqlsrv';

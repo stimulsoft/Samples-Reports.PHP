@@ -7,6 +7,7 @@ class StiDataResult extends StiResult
     public $types;
     public $columns;
     public $rows;
+    public $count;
 
     public static function success($notice = null, $object = null)
     {

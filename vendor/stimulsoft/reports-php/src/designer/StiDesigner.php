@@ -86,7 +86,7 @@ class StiDesigner extends StiHtmlComponent
             $result .= "$designerProperty.report = {$this->report->id};\n";
         }
 
-        $result .= "$designerProperty.renderHtml(" . (strlen($element) > 0 ? "'$element'" : '') . ");\n";
+        $result .= "$designerProperty.renderHtml(" . (!is_null($element) && strlen($element) > 0 ? "'$element'" : '') . ");\n";
 
         return $result;
     }
@@ -100,6 +100,6 @@ class StiDesigner extends StiHtmlComponent
     public function __construct($options = null, $id = 'StiDesigner')
     {
         $this->options = $options;
-        $this->id = strlen($id) > 0 ? $id : 'StiDesigner';
+        $this->id = !is_null($id) && strlen($id) > 0 ? $id : 'StiDesigner';
     }
 }

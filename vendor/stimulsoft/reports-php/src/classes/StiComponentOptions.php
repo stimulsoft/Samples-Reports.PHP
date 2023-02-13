@@ -12,7 +12,7 @@ class StiComponentOptions
 
     protected function getLocalizationPath($localization)
     {
-        if (strlen($localization) == 0)
+        if (is_null($localization) || strlen($localization) == 0)
             return null;
 
         if (strlen($localization) < 5 || substr($localization, -4) != '.xml')

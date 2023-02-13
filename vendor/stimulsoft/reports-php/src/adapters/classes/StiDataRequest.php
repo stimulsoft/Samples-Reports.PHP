@@ -28,7 +28,7 @@ class StiDataRequest
     {
         $input = file_get_contents('php://input');
 
-        if (strlen($input) > 0 && mb_substr($input, 0, 1) != '{') {
+        if (!is_null($input) && strlen($input) > 0 && mb_substr($input, 0, 1) != '{') {
             $input = base64_decode(str_rot13($input));
             $this->encode = true;
         }

@@ -71,7 +71,7 @@ class StiHandler extends StiDataHandler
 
             foreach ($arr as $value) {
                 $name = mb_strpos($value, ' ') > 0 ? mb_substr($value, mb_strpos($value, ' ')) : '';
-                $address = strlen($name) > 0 ? mb_substr($value, 0, mb_strpos($value, ' ')) : $value;
+                $address = !is_null($name) && strlen($name) > 0 ? mb_substr($value, 0, mb_strpos($value, ' ')) : $value;
 
                 if ($param == 'cc') $mail->addCC($address, $name);
                 else $mail->addBCC($address, $name);

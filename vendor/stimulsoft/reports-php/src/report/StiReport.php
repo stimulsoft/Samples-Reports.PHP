@@ -178,16 +178,16 @@ class StiReport extends StiHtmlComponent
         if ($this->onEndProcessData)
             $result .= $this->getEventHtml('onEndProcessData');
 
-        if (strlen($this->reportFile) > 0)
+        if (!is_null($this->reportFile) && strlen($this->reportFile) > 0)
             $result .= "$this->id.loadFile('$this->reportFile');\n";
 
-        else if (strlen($this->reportString) > 0)
+        else if (!is_null($this->reportString) && strlen($this->reportString) > 0)
             $result .= "$this->id.loadPacked('$this->reportString');\n";
 
-        else if (strlen($this->documentFile) > 0)
+        else if (!is_null($this->documentFile) && strlen($this->documentFile) > 0)
             $result .= "$this->id.loadDocumentFile('$this->documentFile');\n";
 
-        else if (strlen($this->documentString) > 0)
+        else if (!is_null($this->documentString) && strlen($this->documentString) > 0)
             $result .= "$this->id.loadPackedDocument('$this->documentString');\n";
 
         if ($this->onBeforeRender)
@@ -231,6 +231,6 @@ class StiReport extends StiHtmlComponent
 
     public function __construct($id = 'report')
     {
-        $this->id = strlen($id) > 0 ? $id : 'report';
+        $this->id = !is_null($id) && strlen($id) > 0 ? $id : 'report';
     }
 }

@@ -105,7 +105,7 @@ class StiDataAdapter
 
     protected function parseUnknownParameter($parameter, $name, $value)
     {
-        if ($this->driverType == 'PDO' && mb_strlen($parameter) > 0) {
+        if ($this->driverType == 'PDO' && !is_null($parameter) && mb_strlen($parameter) > 0) {
             if (mb_strlen($this->info->dsn) > 0)
                 $this->info->dsn .= ';';
 

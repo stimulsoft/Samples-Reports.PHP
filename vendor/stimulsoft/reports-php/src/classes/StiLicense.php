@@ -32,10 +32,10 @@ class StiLicense
     public function getHtml()
     {
         $result = '';
-        if (strlen($this->licenseKey) > 0)
+        if (!is_null($this->licenseKey) && strlen($this->licenseKey) > 0)
             $result .= "Stimulsoft.Base.StiLicense.Key = '$this->licenseKey';\n";
 
-        else if (strlen($this->licenseFile) > 0)
+        else if (!is_null($this->licenseFile) && strlen($this->licenseFile) > 0)
             $result .= "Stimulsoft.Base.StiLicense.loadFromFile('$this->licenseFile');\n";
 
         $this->isHtmlRendered = true;
