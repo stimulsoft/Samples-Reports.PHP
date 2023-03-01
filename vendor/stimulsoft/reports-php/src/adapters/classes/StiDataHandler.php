@@ -6,12 +6,13 @@ use Stimulsoft\Adapters\StiDataAdapter;
 
 class StiDataHandler
 {
-    public $version = '2023.1.7';
+    public $version = '2023.1.8';
 
     public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
         $result = StiResult::error("[$errNo] $errStr ($errFile, Line $errLine)");
         StiResponse::json($result);
+        exit();
     }
 
     public function stiShutdownFunction()
@@ -20,6 +21,7 @@ class StiDataHandler
         if ($err != null && (($err['type'] & E_COMPILE_ERROR) || ($err['type'] & E_ERROR) || ($err['type'] & E_CORE_ERROR) || ($err['type'] & E_RECOVERABLE_ERROR))) {
             $result = StiResult::error("[{$err['type']}] {$err['message']} ({$err['file']}, Line {$err['line']})");
             StiResponse::json($result);
+            exit();
         }
     }
 
