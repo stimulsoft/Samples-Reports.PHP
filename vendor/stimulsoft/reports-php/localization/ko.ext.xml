@@ -354,6 +354,8 @@
     <ReplacePathToData>데이터 경로를 대체</ReplacePathToData>
     <ReportAction>보고서의 처리 :</ReportAction>
     <ReportErrors>불행히도 오류로 인해이 보고서는 공개 할 수 없습니다!</ReportErrors>
+    <SaveExportedPagesToArchive>모든 페이지를 하나의 ZIP파일로 저장합니다</SaveExportedPagesToArchive>
+    <SaveExportedPagesToArchiveToolTip>각 보고서 페이지가 선택한 이미지 형식으로 내보내지고 모든 페이지가 하나의 ZIP파일에 추가됩니다.</SaveExportedPagesToArchiveToolTip>
     <SaveProjectPackage>프로젝트 패키지를 저장할</SaveProjectPackage>
     <SaveStandalone>독립형 저장</SaveStandalone>
     <SaveStandalonePackage>독립 실행 형 패키지를 저장할</SaveStandalonePackage>
@@ -761,6 +763,7 @@
     <InterlacingVert>수직축의 인터레이스 설정</InterlacingVert>
     <ReverseHor>수평축의 모든 값이 반대임을 나타내는 값</ReverseHor>
     <ReverseVert>세로축의 모든 값이 반대임을 나타내는 값</ReverseVert>
+    <SideBySide>Z 축을 따라 나란히 또는 각 인수에 대한 차트의 그래픽 요소의 레이아웃 모드를 설정합니다.</SideBySide>
     <XAxis>XAxis 설정</XAxis>
     <XTopAxis>XTopAxis 설정</XTopAxis>
     <YAxis>YAxis 설정</YAxis>
@@ -913,6 +916,9 @@
     <Container>복제 컨테이너</Container>
     <ScaleHor>컨테이너의 내용이 축소 또는 확대되는 것을 나타내는 값입니다.</ScaleHor>
   </StiClone>
+  <StiClusteredColumnArea3D>
+    <SideBySide>Z 축을 따라 나란히 또는 각 인수에 대한 차트의 그래픽 요소의 레이아웃 모드를 설정합니다.</SideBySide>
+  </StiClusteredColumnArea3D>
   <StiClusteredColumnSeries>
     <Width>1 소절의 폭의 배수입니다. 값 1은 100 %입니다.</Width>
   </StiClusteredColumnSeries>

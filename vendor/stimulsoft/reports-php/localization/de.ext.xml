@@ -354,6 +354,8 @@
     <ReplacePathToData>Pfad zu Daten ersetzen</ReplacePathToData>
     <ReportAction>Was machen mit dem Bericht:</ReportAction>
     <ReportErrors>Leider, dieser Bericht kann nicht wegen der Fehler veröffentlicht werden!</ReportErrors>
+    <SaveExportedPagesToArchive>Alle Seiten in ein ZIP-Archiv speichern</SaveExportedPagesToArchive>
+    <SaveExportedPagesToArchiveToolTip>Jede Berichtsseite wird ins ausgewählte Bild-Format exportiert, alle Seiten werden in ein ZIP-Archiv hinzugefügt werden.</SaveExportedPagesToArchiveToolTip>
     <SaveProjectPackage>Projekt-Verpackung speichern</SaveProjectPackage>
     <SaveStandalone>Standalone speichern</SaveStandalone>
     <SaveStandalonePackage>Standalone-Verpackung speichern</SaveStandalonePackage>

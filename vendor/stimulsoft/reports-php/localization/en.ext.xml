@@ -917,7 +917,7 @@
     <ScaleHor>A value indicates that contents of the container will be shrunk or grown.</ScaleHor>
   </StiClone>
   <StiClusteredColumnArea3D>
-	  <SideBySide>Sets the layout mode of the graphic elements of the chart for each argument - side-by-side or along the Z axis.</SideBySide>
+    <SideBySide>Sets the layout mode of the graphic elements of the chart for each argument - side-by-side or along the Z axis.</SideBySide>
   </StiClusteredColumnArea3D>
   <StiClusteredColumnSeries>
     <Width>Width factor of one bar series. Value 1 is equal to 100%.</Width>

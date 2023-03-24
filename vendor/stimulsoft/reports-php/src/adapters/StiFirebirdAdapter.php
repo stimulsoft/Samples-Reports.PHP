@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiFirebirdAdapter extends StiDataAdapter
 {
-    public $version = '2023.1.8';
+    public $version = '2023.2.1';
     public $checkVersion = true;
 
     protected $driverName = 'firebird';
@@ -126,7 +126,7 @@ class StiFirebirdAdapter extends StiDataAdapter
                 return $format;
 
             case 'string':
-                return utf8_encode($value);
+                return mb_convert_encoding($value, 'UTF-8', mb_list_encodings());
         }
 
         return $value;
