@@ -6,11 +6,12 @@ use Stimulsoft\Adapters\StiDataAdapter;
 
 class StiDataHandler
 {
-    public $version = '2023.2.1';
+    public $version = '2023.2.2';
 
     public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
         $result = StiResult::error("[$errNo] $errStr ($errFile, Line $errLine)");
+        $result->handlerVersion = $this->version;
         StiResponse::json($result);
         exit();
     }

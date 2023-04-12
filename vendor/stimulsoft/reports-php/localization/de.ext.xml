@@ -272,7 +272,7 @@
   </Font>
   <Publish>
     <ActionDesign>Entwerfen</ActionDesign>
-    <ActionExport>Export</ActionExport>
+    <ActionExport>Exportieren</ActionExport>
     <ActionShow>Anzeigen</ActionShow>
     <AddNewConnection>Neue Verbindung hinzufügen</AddNewConnection>
     <Cancel>Abbrechen</Cancel>
@@ -301,25 +301,25 @@
     <FrameworkVersion>Framework-Version</FrameworkVersion>
     <FullScreenViewer>Den Viewer im vollen Browserfenster  anzeigen</FullScreenViewer>
     <FullScreenViewerToolTip>Der Viewer mit dem Bericht wird auf dem ganzen verfügbaren Bereich des Browser-Fensters angezeigt werden.</FullScreenViewerToolTip>
-    <GetLibrariesFrom>Stimulsoft Sammlungen aus {0} erhalten</GetLibrariesFrom>
+    <GetLibrariesFrom>Stimulsoft-Sammlungen aus {0} erhalten</GetLibrariesFrom>
     <GetLibrariesFromToolTip>Alle erforderlichen Bibliotheken und Skripte werden aus dem Repository verbindet werden. Ansonsten, sie werden ins Projekt kopiert und direkt verbindet werden.</GetLibrariesFromToolTip>
     <GroupAddons>Addons</GroupAddons>
     <GroupConnections>Datenverbindungs</GroupConnections>
     <GroupParameters>Berichtsparameter</GroupParameters>
     <HideOptions>Optionen ausblenden</HideOptions>
-    <IncludeFonts>Schriftarten einschlie?en</IncludeFonts>
+    <IncludeFonts>Schriftarten einschließen</IncludeFonts>
     <IncludeFontsToolTip>Ins Projekt werden die Scriftarten, die für korrekte Berechnung der Komponentengröße des Berichtes erforderlich sind, kopiert und verbindet werden.</IncludeFontsToolTip>
-    <IncludeLibrariesToStandalone>Stimulsoft Sammlungen in die ausfuhrbare Datei einschlie?en</IncludeLibrariesToStandalone>
+    <IncludeLibrariesToStandalone>Stimulsoft-Sammlungen in die ausfuhrbare Datei einschließen</IncludeLibrariesToStandalone>
     <IncludeLibrariesToStandaloneToolTip>Alle erforderlichen Bibliotheken und Dateien werden in ausführbare Datei enthalten werden. Ansonsten, wird ein ZIP-Archiv erstellt werden.</IncludeLibrariesToStandaloneToolTip>
-    <IncludeLicenseKey>Lizenzschlussel einschlie?en</IncludeLicenseKey>
+    <IncludeLicenseKey>Lizenzschlüssel einschließen</IncludeLicenseKey>
     <IncludeLicenseKeyToolTip>Der Lizenzschlüssel aus dem Account des derzeit autorisierten Benutzers wird ins Projekt integriert werden.</IncludeLicenseKeyToolTip>
-    <IncludeLocalization>Lokalisierung einschlie?en</IncludeLocalization>
+    <IncludeLocalization>Lokalisierung einschließen</IncludeLocalization>
     <IncludeLocalizationToolTip>Die ausgewählte Lokalisierung wird ins Projekt kopiert und verbindet werden.</IncludeLocalizationToolTip>
-    <IncludeReportPackedStringToCode>Den Bericht als verpackter String in den Code einschlie?en</IncludeReportPackedStringToCode>
+    <IncludeReportPackedStringToCode>Den Bericht als verpackter String in den Code einschließen</IncludeReportPackedStringToCode>
     <IncludeReportPackedStringToCodeToolTip>Der Bericht wird als Base64-Zeichenfolge direkt im Projekt-Code gespeichert werden. Es erlaubt Ihnen, zusätzliche Dateien loszuwerden.</IncludeReportPackedStringToCodeToolTip>
-    <IncludeUITheme>UI-Thema einschlie?en</IncludeUITheme>
+    <IncludeUITheme>UI-Thema einschließen</IncludeUITheme>
     <IncludeUIThemeToolTip>Das ausgewählte Benutzer-Schnittstelle-Thema wird in den Komponenten-Einstellungen gesetzt werden.</IncludeUIThemeToolTip>
-    <JavaScriptFramework>Typ von Framework:</JavaScriptFramework>
+    <JavaScriptFramework>Framework-Typ:</JavaScriptFramework>
     <LicenseKeyTypeFile>Datei</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
     <LoadReport>Den Bericht laden aus:</LoadReport>
@@ -340,7 +340,7 @@
     <ParametersRequestFromUserToolTip>Die Berichts-Parameter wird vom Benutzer, wenn er den Bericht im Viewer-Fenster ansieht, angefragt werden.</ParametersRequestFromUserToolTip>
     <ProjectType>Projekt-Typ:</ProjectType>
     <Publish>Veröffentlichen</Publish>
-    <PublishType>Veroffentlichungstyp des Berichts:</PublishType>
+    <PublishType>Veröffentlichungstyp des Berichts:</PublishType>
     <PublishTypeProject>Projekt</PublishTypeProject>
     <PublishTypeProjectToolTip>Ein ZIP-Archiv wird mit dem fertigen Projekt und allen erforderlichen Dateien für weitere Kompilation und Ausführen erstellt werden.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Standalone</PublishTypeStandalone>

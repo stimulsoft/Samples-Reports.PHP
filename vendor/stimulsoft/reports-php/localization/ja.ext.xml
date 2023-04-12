@@ -354,6 +354,8 @@
     <ReplacePathToData>データをパスに置き換える</ReplacePathToData>
     <ReportAction>レポートの処理：</ReportAction>
     <ReportErrors>残念ながら、エラーのためこのレポートは公開できません！</ReportErrors>
+    <SaveExportedPagesToArchive>全ページを1つのZIPアーカイブに保存</SaveExportedPagesToArchive>
+    <SaveExportedPagesToArchiveToolTip>各レポートページは、選択した画像フォーマットにエクスポートされ、すべてのページは1つのZIPアーカイブに追加されます。</SaveExportedPagesToArchiveToolTip>
     <SaveProjectPackage>プロジェクトパッケージを保存する</SaveProjectPackage>
     <SaveStandalone>スタンドアロンを保存する</SaveStandalone>
     <SaveStandalonePackage>スタンドアロンパッケージを保存する</SaveStandalonePackage>
@@ -762,6 +764,7 @@
     <InterlacingVert>縦軸のインターレース設定</InterlacingVert>
     <ReverseHor>水平軸のすべての値が逆であることを示す値</ReverseHor>
     <ReverseVert>縦軸のすべての値が逆であることを示す値</ReverseVert>
+    <SideBySide>各引数のチャートのグラフィック要素のレイアウトモード（サイドバイサイドまたはZ軸に沿ったレイアウト）を設定します。</SideBySide>
     <XAxis>XAxisの設定</XAxis>
     <XTopAxis>XTopAxisの設定</XTopAxis>
     <YAxis>YAxisの設定</YAxis>
@@ -915,6 +918,9 @@
     <Container>クローンコンテナ</Container>
     <ScaleHor>コンテナの内容が縮小または拡大されることを示す値です。</ScaleHor>
   </StiClone>
+  <StiClusteredColumnArea3D>
+    <SideBySide>各引数のチャートのグラフィック要素のレイアウトモード（サイドバイサイドまたはZ軸に沿ったレイアウト）を設定します。</SideBySide>
+  </StiClusteredColumnArea3D>
   <StiClusteredColumnSeries>
     <Width>1小節の幅の倍数です。値1は100％です。</Width>
   </StiClusteredColumnSeries>
