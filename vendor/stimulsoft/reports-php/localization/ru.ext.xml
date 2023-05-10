@@ -1184,6 +1184,7 @@
     <EvenStyle>Значение определяет стиль четных строк.</EvenStyle>
     <FilterEngine>Значение определяет, как фильтр данных будет применяться к данным - с использованием вычислений генератора отчетов или при помощи изменения SQL запроса источника данных.</FilterEngine>
     <FilterMode>Режим фильтрации данных.</FilterMode>
+    <GapAfterLastColumn>Свойство разрешает добавлять промежуток после последней колонки.</GapAfterLastColumn>
     <GetCollapsedEvent>Возникает, когда рассчитывается значение Collapsed.</GetCollapsedEvent>
     <KeepChildTogether>Значение определяет, что child-ы должны держаться вместе.</KeepChildTogether>
     <KeepDetailsTogether>Значение определяет, что детали должны держаться вместе с данным DataBand.</KeepDetailsTogether>

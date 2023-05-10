@@ -4,6 +4,8 @@ namespace Stimulsoft;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use Stimulsoft\Adapters\StiDataAdapter;
+use Stimulsoft\Report\StiVariable;
+use Stimulsoft\Report\StiVariableRange;
 
 class StiHandler extends StiDataHandler
 {
@@ -110,6 +112,7 @@ class StiHandler extends StiDataHandler
             foreach ($request->variables as $item) {
                 $request->variables[$item->name] = $item;
                 $variableObject = new StiVariable();
+                $variableObject->name = $item->name;
                 $variableObject->value = $item->value;
                 $variableObject->type = $item->type;
 
@@ -385,6 +388,8 @@ class StiHandler extends StiDataHandler
     /** Get the HTML representation of the component. */
     public function getHtml()
     {
+        $csrf_token = function_exists('csrf_token') ? csrf_token() : null;
+
         $result = /** @lang JavaScript */
             "StiHelper.prototype.process = function (args, callback) {
                 if (args) {
@@ -426,7 +431,8 @@ class StiHandler extends StiDataHandler
                     request.open('post', this.url, true);
                     request.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
                     request.setRequestHeader('Cache-Control', 'max-age=0');
-                    request.setRequestHeader('Pragma', 'no-cache');
+                    request.setRequestHeader('Pragma', 'no-cache');" . ($csrf_token ? "
+                    request.setRequestHeader('X-CSRF-TOKEN', '$csrf_token');" : '') . "
                     request.timeout = this.timeout * 1000;
                     request.onload = function () {
                         if (request.status === 200) {

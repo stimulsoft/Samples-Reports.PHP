@@ -19,6 +19,8 @@ class StiReport extends StiHtmlComponent
     /** The event is invoked after loading data before rendering a report. */
     public $onEndProcessData;
 
+    /** @var StiDictionary Report data dictionary. */
+    public $dictionary;
 
     private $isRenderCalled = false;
     private $isPrintCalled = false;
@@ -190,6 +192,8 @@ class StiReport extends StiHtmlComponent
         else if (!is_null($this->documentString) && strlen($this->documentString) > 0)
             $result .= "$this->id.loadPackedDocument('$this->documentString');\n";
 
+        $result .= $this->dictionary->getHtml();
+
         if ($this->onBeforeRender)
             $result .= $this->getBeforeRenderEventHtml();
 
@@ -232,5 +236,6 @@ class StiReport extends StiHtmlComponent
     public function __construct($id = 'report')
     {
         $this->id = !is_null($id) && strlen($id) > 0 ? $id : 'report';
+        $this->dictionary = new StiDictionary($this);
     }
 }

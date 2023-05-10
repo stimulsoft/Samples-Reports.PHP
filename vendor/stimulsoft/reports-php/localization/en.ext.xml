@@ -1184,6 +1184,7 @@
     <EvenStyle>A value that indicates style of even lines.</EvenStyle>
     <FilterEngine>A value which indicates how a filter will be applied to data - be means of the report generator or by means of changing the SQL query.</FilterEngine>
     <FilterMode>A filter mode.</FilterMode>
+    <GapAfterLastColumn>The property allows to add gap after the last column.</GapAfterLastColumn>
     <GetCollapsedEvent>Occurs when the Collapsed value is calculated.</GetCollapsedEvent>
     <KeepChildTogether>A value indicates that childs are to be kept together.</KeepChildTogether>
     <KeepDetailsTogether>A value indicates that details are to be kept together with this DataBand.</KeepDetailsTogether>
