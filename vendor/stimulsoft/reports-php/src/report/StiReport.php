@@ -25,6 +25,7 @@ class StiReport extends StiHtmlComponent
     private $isRenderCalled = false;
     private $isPrintCalled = false;
     private $isExportCalled = false;
+    private $isOpenAfterExport = false;
 
     private $reportString;
     private $reportFile;
@@ -137,11 +138,12 @@ class StiReport extends StiHtmlComponent
 
     /**
      * Exporting the report to the specified format and saving it as a file on the client side.
-     * @param string $format The type of the export. Is equal to one of the values of the StiExportFormat enumeration.
+     * @param int $format The type of the export. Is equal to one of the values of the StiExportFormat enumeration.
      */
-    public function exportDocument($format)
+    public function exportDocument($format, $openAfterExport = false)
     {
         $this->isExportCalled = true;
+        $this->isOpenAfterExport = $openAfterExport;
         $this->exportFormat = $format;
     }
 
@@ -219,10 +221,13 @@ class StiReport extends StiHtmlComponent
             $exportMimeType = StiExportFormat::getMimeType($this->exportFormat);
             $exportName = StiExportFormat::getFormatName($this->exportFormat);
 
-            $result .= "report.exportDocumentAsync(function (data) {
-                            Stimulsoft.System.StiObject.saveAs(data, '$this->exportFile.$exportFileExt', '$exportMimeType');
-                        }, Stimulsoft.Report.StiExportFormat.$exportName);
-                    ";
+            $result .= "report.exportDocumentAsync(function (data) {\n";
+            $result .= $this->isOpenAfterExport
+                ? "var blob = new Blob([new Uint8Array(data)], { type: '$exportMimeType' });
+                   var fileURL = URL.createObjectURL(blob);
+                   window.open(fileURL);\n"
+                : "Stimulsoft.System.StiObject.saveAs(data, '$this->exportFile.$exportFileExt', '$exportMimeType');\n";
+            $result .= "}, Stimulsoft.Report.StiExportFormat.$exportName);\n";
         }
 
         if ($this->isRenderCalled) {
