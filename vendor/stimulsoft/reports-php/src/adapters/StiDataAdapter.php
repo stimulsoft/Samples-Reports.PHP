@@ -125,6 +125,9 @@ class StiDataAdapter
 
     protected function detectType($value)
     {
+        if (empty($value))
+            return 'string';
+
         if (preg_match('~[^\x20-\x7E\t\r\n]~', $value) > 0)
             return 'array';
 
