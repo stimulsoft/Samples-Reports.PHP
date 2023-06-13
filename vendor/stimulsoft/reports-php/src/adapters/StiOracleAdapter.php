@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiOracleAdapter extends StiDataAdapter
 {
-    public $version = '2023.2.6';
+    public $version = '2023.2.7';
     public $checkVersion = true;
 
     protected $driverName = 'oci';
