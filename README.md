@@ -52,5 +52,5 @@ Stimulsoft Reports.PHP is a report generator intended to create, view, print, an
 * [Product Page](https://www.stimulsoft.com/en/products/reports-php)
 * [Composer Package](https://packagist.org/packages/stimulsoft/reports-php)
 * [Free Download](https://www.stimulsoft.com/en/downloads)
-* [Documentation](https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php.htm)
+* [Documentation](https://www.stimulsoft.com/en/documentation/online/programming-manual/reports_and_dashboards_for_php.htm)
 * [License](LICENSE.md)
