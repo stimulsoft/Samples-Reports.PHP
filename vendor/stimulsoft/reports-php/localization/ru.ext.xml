@@ -289,6 +289,7 @@
     <CopyingLibraries>Копирование файлов проекта...</CopyingLibraries>
     <DataAdapterPlatform>Платформа для адаптеров данных</DataAdapterPlatform>
     <DeployReportPlatform>Платформа для развертывания отчета:</DeployReportPlatform>
+    <DeployFormPlatform>Платформа для развертывания формы:</DeployFormPlatform>
     <DownloadingLibraries>Загрузка библиотек...</DownloadingLibraries>
     <EmbedAllDataToResources>Отчёт содержит соединения с данными, которые не поддерживаются в выбранной платформе. Хотите встроить доступные данные в отчёт в виде ресурсов? В этом случае, все соединения будут заменены на XML ресурсы.</EmbedAllDataToResources>
     <EmbedAllDataToResourcesToolTip>Все данные будут загружены и включены в шаблон отчёта в виде ресурсов. Это позволяет просматривать отчёт без необходимости запросов к базе данных.</EmbedAllDataToResourcesToolTip>
@@ -316,13 +317,16 @@
     <IncludeLocalization>Добавить локализацию</IncludeLocalization>
     <IncludeLocalizationToolTip>В проект будет скопирована и подключена выбранная локализация.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Добавить отчет в код в виде упакованной строки</IncludeReportPackedStringToCode>
+    <IncludeFormPackedStringToCode>Добавить форму в код в виде упакованной строки</IncludeFormPackedStringToCode>
     <IncludeReportPackedStringToCodeToolTip>Отчёт будет сохранён в виде Base64 строки прямо в коде проекта. Это позволяет избавиться от дополнительных файлов.</IncludeReportPackedStringToCodeToolTip>
+    <IncludeFormPackedStringToCodeToolTip>Форма будет сохранена в виде Base64 строки прямо в коде проекта. Это позволяет избавиться от дополнительных файлов.</IncludeFormPackedStringToCodeToolTip>
     <IncludeUITheme>Добавить тему оформления</IncludeUITheme>
     <IncludeUIThemeToolTip>В настройках компонентов будет установлена выбранная тема оформления интерфейса.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Тип фрэймворка:</JavaScriptFramework>
     <LicenseKeyTypeFile>Файл</LicenseKeyTypeFile>
     <LicenseKeyTypeString>Строка</LicenseKeyTypeString>
     <LoadReport>Загружать отчет как:</LoadReport>
+    <LoadForm>Загружать форму как:</LoadForm>
     <LoadReportAssembly>Сборка</LoadReportAssembly>
     <LoadReportByteArray>Байтовый массив</LoadReportByteArray>
     <LoadReportClass>Класс</LoadReportClass>
@@ -340,7 +344,8 @@
     <ParametersRequestFromUserToolTip>Параметр отчёта будет запрошен у пользователя в момент просмотра отчёта в окне вьювера.</ParametersRequestFromUserToolTip>
     <ProjectType>Тип проекта:</ProjectType>
     <Publish>Опубликовать</Publish>
-    <PublishType>Тип развертывания:</PublishType>
+    <PublishType>Тип развертывания отчёта:</PublishType>
+    <PublishTypeForm>Тип развертывания формы:</PublishTypeForm>
     <PublishTypeProject>Проект</PublishTypeProject>
     <PublishTypeProjectToolTip>Будет создан ZIP архив с готовым проектом и всеми необходимыми файлами для дальнейшей компиляции и запуска.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Автономное приложение</PublishTypeStandalone>
@@ -353,6 +358,7 @@
     <ReplaceConnectionString>Заменить строку подключения</ReplaceConnectionString>
     <ReplacePathToData>Заменить путь к данным</ReplacePathToData>
     <ReportAction>Действие над отчетом:</ReportAction>
+    <FormAction>Действие над формой:</FormAction>
     <ReportErrors>К сожалению, этот отчет не может быть опубликован из-за наличия ошибок!</ReportErrors>
     <SaveExportedPagesToArchive>Сохранить все страницы в одном ZIP-архиве</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Каждая страница отчета будет экспортирована в выбранный формат изображения, все страницы будут добавлены в один ZIP-архив.</SaveExportedPagesToArchiveToolTip>

@@ -289,6 +289,7 @@
     <CopyingLibraries>Copying project files...</CopyingLibraries>
     <DataAdapterPlatform>Data Adapter Platform</DataAdapterPlatform>
     <DeployReportPlatform>Deploy Report to Platform:</DeployReportPlatform>
+    <DeployFormPlatform>Deploy Form to Platform:</DeployFormPlatform>
     <DownloadingLibraries>Downloading libraries...</DownloadingLibraries>
     <EmbedAllDataToResources>The report contains data connections that are not supported in the selected platform. Do you want to embed available data in the report as resources? In this case, all connections will be replaced with XML resources.</EmbedAllDataToResources>
     <EmbedAllDataToResourcesToolTip>All data will be loaded and added to the report template as resources. This allows you to view the report without having to query the database.</EmbedAllDataToResourcesToolTip>
@@ -316,13 +317,16 @@
     <IncludeLocalization>Include Localization</IncludeLocalization>
     <IncludeLocalizationToolTip>The selected localization will be copied and connected to the project.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Include Report as Packed String to Code</IncludeReportPackedStringToCode>
+    <IncludeFormPackedStringToCode>Include Form as Packed String to Code</IncludeFormPackedStringToCode>
     <IncludeReportPackedStringToCodeToolTip>The report will be saved as a Base64 string right in the project code. This allows you to get rid of additional files.</IncludeReportPackedStringToCodeToolTip>
+    <IncludeFormPackedStringToCodeToolTip>The form will be saved as a Base64 string right in the project code. This allows you to get rid of additional files.</IncludeFormPackedStringToCodeToolTip>
     <IncludeUITheme>Include UI Theme</IncludeUITheme>
     <IncludeUIThemeToolTip>The selected user interface theme will be set in the component settings.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Framework Type:</JavaScriptFramework>
     <LicenseKeyTypeFile>File</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
     <LoadReport>Load Report from:</LoadReport>
+    <LoadForm>Load Form from:</LoadForm>
     <LoadReportAssembly>Assembly</LoadReportAssembly>
     <LoadReportByteArray>Byte Array</LoadReportByteArray>
     <LoadReportClass>Class</LoadReportClass>
@@ -332,15 +336,16 @@
     <LoadReportStream>Stream</LoadReportStream>
     <LoadReportString>String</LoadReportString>
     <ParametersFromReport>Use Value from Report</ParametersFromReport>
-    <ParametersFromReportToolTip>The values ​​of the parameters set in the report template will be used.</ParametersFromReportToolTip>
+    <ParametersFromReportToolTip>The values of the parameters set in the report template will be used.</ParametersFromReportToolTip>
     <ParametersReplace>Replace Value from {0}Code</ParametersReplace>
     <ParametersReplacePhpInfo>The parameter will be removed from the report dictionary and can be used only in the SQL query.</ParametersReplacePhpInfo>
-    <ParametersReplaceToolTip>You will be offered to change the values ​​of the report parameters from the code.</ParametersReplaceToolTip>
+    <ParametersReplaceToolTip>You will be offered to change the values of the report parameters from the code.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Request from User</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>The report parameter will be requested from the user when viewing the report in the viewer window.</ParametersRequestFromUserToolTip>
     <ProjectType>Project Type:</ProjectType>
     <Publish>Publish</Publish>
     <PublishType>Report Publish Type:</PublishType>
+    <PublishTypeForm>Form Publish Type:</PublishTypeForm>
     <PublishTypeProject>Project</PublishTypeProject>
     <PublishTypeProjectToolTip>A ZIP archive will be created with the finished project and all the necessary files for further compilation and launch.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Standalone</PublishTypeStandalone>
@@ -353,6 +358,7 @@
     <ReplaceConnectionString>Replace Connection String</ReplaceConnectionString>
     <ReplacePathToData>Replace Path to the Data</ReplacePathToData>
     <ReportAction>What to do with Report:</ReportAction>
+    <FormAction>What to do with Form:</FormAction>
     <ReportErrors>Unfortunately, due to errors, this report cannot be published!</ReportErrors>
     <SaveExportedPagesToArchive>Save all pages in one ZIP archive</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Each report page will be exported to the selected image format, all pages will be added into one ZIP archive.</SaveExportedPagesToArchiveToolTip>
@@ -540,7 +546,7 @@
     <Visible>Visibility of axis.</Visible>
   </StiAxis>
   <StiAxisDateTimeStep>
-    <Interpolation>The value indicates that the values ​​will be interpolated.</Interpolation>
+    <Interpolation>The value indicates that the values will be interpolated.</Interpolation>
     <NumberOfValues>The value indicates how many values to display in a time step.</NumberOfValues>
     <Step>The value indicates with what the time step values will be shown.</Step>
   </StiAxisDateTimeStep>
