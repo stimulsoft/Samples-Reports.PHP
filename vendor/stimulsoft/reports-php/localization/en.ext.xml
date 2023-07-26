@@ -288,8 +288,8 @@
     <Copy>Copy</Copy>
     <CopyingLibraries>Copying project files...</CopyingLibraries>
     <DataAdapterPlatform>Data Adapter Platform</DataAdapterPlatform>
-    <DeployReportPlatform>Deploy Report to Platform:</DeployReportPlatform>
     <DeployFormPlatform>Deploy Form to Platform:</DeployFormPlatform>
+    <DeployReportPlatform>Deploy Report to Platform:</DeployReportPlatform>
     <DownloadingLibraries>Downloading libraries...</DownloadingLibraries>
     <EmbedAllDataToResources>The report contains data connections that are not supported in the selected platform. Do you want to embed available data in the report as resources? In this case, all connections will be replaced with XML resources.</EmbedAllDataToResources>
     <EmbedAllDataToResourcesToolTip>All data will be loaded and added to the report template as resources. This allows you to view the report without having to query the database.</EmbedAllDataToResourcesToolTip>
@@ -298,6 +298,7 @@
     <ExportFormatDataType>Data Type:</ExportFormatDataType>
     <ExportFormatImage>Image</ExportFormatImage>
     <ExportFormatImageType>Image Type:</ExportFormatImageType>
+    <FormAction>What to do with Form:</FormAction>
     <FrameworkType>Framework Type</FrameworkType>
     <FrameworkVersion>Framework Version</FrameworkVersion>
     <FullScreenViewer>Display the Viewer in Full Browser Window</FullScreenViewer>
@@ -310,6 +311,8 @@
     <HideOptions>Hide Options</HideOptions>
     <IncludeFonts>Include Fonts</IncludeFonts>
     <IncludeFontsToolTip>The fonts necessary for correct calculation of the sizes of report components will be copied and connected to the project.</IncludeFontsToolTip>
+    <IncludeFormPackedStringToCode>Include Form as Packed String to Code</IncludeFormPackedStringToCode>
+    <IncludeFormPackedStringToCodeToolTip>The form will be saved as a Base64 string right in the project code. This allows you to get rid of additional files.</IncludeFormPackedStringToCodeToolTip>
     <IncludeLibrariesToStandalone>Include Stimulsoft Libraries to the Executable File</IncludeLibrariesToStandalone>
     <IncludeLibrariesToStandaloneToolTip>All necessary libraries and files will be included in the executable file. Otherwise, a ZIP archive will be created.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Include License Key</IncludeLicenseKey>
@@ -317,16 +320,14 @@
     <IncludeLocalization>Include Localization</IncludeLocalization>
     <IncludeLocalizationToolTip>The selected localization will be copied and connected to the project.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Include Report as Packed String to Code</IncludeReportPackedStringToCode>
-    <IncludeFormPackedStringToCode>Include Form as Packed String to Code</IncludeFormPackedStringToCode>
     <IncludeReportPackedStringToCodeToolTip>The report will be saved as a Base64 string right in the project code. This allows you to get rid of additional files.</IncludeReportPackedStringToCodeToolTip>
-    <IncludeFormPackedStringToCodeToolTip>The form will be saved as a Base64 string right in the project code. This allows you to get rid of additional files.</IncludeFormPackedStringToCodeToolTip>
     <IncludeUITheme>Include UI Theme</IncludeUITheme>
     <IncludeUIThemeToolTip>The selected user interface theme will be set in the component settings.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Framework Type:</JavaScriptFramework>
     <LicenseKeyTypeFile>File</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
-    <LoadReport>Load Report from:</LoadReport>
     <LoadForm>Load Form from:</LoadForm>
+    <LoadReport>Load Report from:</LoadReport>
     <LoadReportAssembly>Assembly</LoadReportAssembly>
     <LoadReportByteArray>Byte Array</LoadReportByteArray>
     <LoadReportClass>Class</LoadReportClass>
@@ -358,7 +359,6 @@
     <ReplaceConnectionString>Replace Connection String</ReplaceConnectionString>
     <ReplacePathToData>Replace Path to the Data</ReplacePathToData>
     <ReportAction>What to do with Report:</ReportAction>
-    <FormAction>What to do with Form:</FormAction>
     <ReportErrors>Unfortunately, due to errors, this report cannot be published!</ReportErrors>
     <SaveExportedPagesToArchive>Save all pages in one ZIP archive</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Each report page will be exported to the selected image format, all pages will be added into one ZIP archive.</SaveExportedPagesToArchiveToolTip>
@@ -1028,6 +1028,7 @@
     <CrossFiltering>Gets or sets a value which controls applying cross-filters from the current page to that element.</CrossFiltering>
     <DataRelation>Link that is used for master-detail reports rendering.</DataRelation>
     <DataSource>Data source that is used for getting data.</DataSource>
+    <DecimalDigits>The number of decimal places to use in values.</DecimalDigits>
     <Disabled>The non-interactive state of the component.</Disabled>
     <DockStyle>A type of the component docking.</DockStyle>
     <DoubleClickEvent>Occurs when a user double clicks the component in the report viewer.</DoubleClickEvent>

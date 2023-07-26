@@ -288,6 +288,7 @@
     <Copy>Kopieren</Copy>
     <CopyingLibraries>Projektdateien werden kopiert...</CopyingLibraries>
     <DataAdapterPlatform>Datenadapter-Plattform</DataAdapterPlatform>
+    <DeployFormPlatform>Bereitstellen Formular für die Plattform:</DeployFormPlatform>
     <DeployReportPlatform>Den Bericht in die Plattform bereitstellen:</DeployReportPlatform>
     <DownloadingLibraries>Bibliotheken werden heruntergeladen...</DownloadingLibraries>
     <EmbedAllDataToResources>Der Bericht enthält die Verbindungen mit Daten, die in ausgewählter Plattform nicht unterstützt werden. Möchten Sie die verfügbaren Daten als Ressourcen in den Bericht einbetten? In diesem Fall werden alle Verbindungen durch XML-Ressourcen erstetzt werden.</EmbedAllDataToResources>
@@ -297,6 +298,7 @@
     <ExportFormatDataType>Datentyp:</ExportFormatDataType>
     <ExportFormatImage>Bild</ExportFormatImage>
     <ExportFormatImageType>Bildtyp:</ExportFormatImageType>
+    <FormAction>Was ist mit Formular zu tun:</FormAction>
     <FrameworkType>Framework-Typ</FrameworkType>
     <FrameworkVersion>Framework-Version</FrameworkVersion>
     <FullScreenViewer>Den Viewer im vollen Browserfenster  anzeigen</FullScreenViewer>
@@ -309,6 +311,8 @@
     <HideOptions>Optionen ausblenden</HideOptions>
     <IncludeFonts>Schriftarten einschließen</IncludeFonts>
     <IncludeFontsToolTip>Ins Projekt werden die Scriftarten, die für korrekte Berechnung der Komponentengröße des Berichtes erforderlich sind, kopiert und verbindet werden.</IncludeFontsToolTip>
+    <IncludeFormPackedStringToCode>Formular als gepackte Zeichenfolge in den Code einschließen</IncludeFormPackedStringToCode>
+    <IncludeFormPackedStringToCodeToolTip>Das Formular wird als Base64-Zeichenfolge direkt in dem Projekt-Code gespeicher werden. Es erlaubt Sie, zusätliche Dateien loszuwerden.</IncludeFormPackedStringToCodeToolTip>
     <IncludeLibrariesToStandalone>Stimulsoft-Sammlungen in die ausfuhrbare Datei einschließen</IncludeLibrariesToStandalone>
     <IncludeLibrariesToStandaloneToolTip>Alle erforderlichen Bibliotheken und Dateien werden in ausführbare Datei enthalten werden. Ansonsten, wird ein ZIP-Archiv erstellt werden.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Lizenzschlüssel einschließen</IncludeLicenseKey>
@@ -322,6 +326,7 @@
     <JavaScriptFramework>Framework-Typ:</JavaScriptFramework>
     <LicenseKeyTypeFile>Datei</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
+    <LoadForm>Formular laden aus:</LoadForm>
     <LoadReport>Den Bericht laden aus:</LoadReport>
     <LoadReportAssembly>Assemblierung</LoadReportAssembly>
     <LoadReportByteArray>Byte-Array</LoadReportByteArray>
@@ -341,6 +346,7 @@
     <ProjectType>Projekt-Typ:</ProjectType>
     <Publish>Veröffentlichen</Publish>
     <PublishType>Veröffentlichungstyp des Berichts:</PublishType>
+    <PublishTypeForm>Veröffentlichungstyp des Formulars:</PublishTypeForm>
     <PublishTypeProject>Projekt</PublishTypeProject>
     <PublishTypeProjectToolTip>Ein ZIP-Archiv wird mit dem fertigen Projekt und allen erforderlichen Dateien für weitere Kompilation und Ausführen erstellt werden.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Standalone</PublishTypeStandalone>
@@ -1022,6 +1028,7 @@
     <CrossFiltering>Gets or sets a value which controls applying cross-filters from the current page to that element.</CrossFiltering>
     <DataRelation>Eine Verbindung zur Ausführung von Master-Detail Reports.</DataRelation>
     <DataSource>Datenquelle, die benutzt wird, um Daten zu erhalten.</DataSource>
+    <DecimalDigits>Die Anzahl von Nachkommastellen, die in den Werten verwendet werden.</DecimalDigits>
     <Disabled>Der nicht-interaktiver Zustand der Komponente.</Disabled>
     <DockStyle>Arten des Komponenten-Andockens.</DockStyle>
     <DoubleClickEvent>Tritt auf, beim Doppelklick des Benutzers im Report-Viewer einer Komponente.</DoubleClickEvent>
@@ -1184,6 +1191,7 @@
     <EvenStyle>Wert, der die Art der ungeraden Linien anzeigt.</EvenStyle>
     <FilterEngine>Wert, der angibt, ob der Filter durch die ReportEngine oder durch Anpaßung des SQL-Ausdrucks angewendet wird.</FilterEngine>
     <FilterMode>Filtermodus</FilterMode>
+    <GapAfterLastColumn>Die Eigenschaft erlaubt Sie, den Abstand nach letzter Spalte hinzuzufügen.</GapAfterLastColumn>
     <GetCollapsedEvent>Tritt auf , wenn der abgeschnitteneWert berechnet wird.</GetCollapsedEvent>
     <KeepChildTogether>Wert, der anzeigt, dass untergeordnete Bänder zusammenzuhalten sind.</KeepChildTogether>
     <KeepDetailsTogether>Wert, der anzeigt, dass Details mit dem diesem Datenband zusammenzuhalten sind.</KeepDetailsTogether>

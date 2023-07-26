@@ -288,6 +288,7 @@
     <Copy>コピー</Copy>
     <CopyingLibraries>プロジェクトファイルのコピー... </CopyingLibraries>
     <DataAdapterPlatform>データアダプタプラットフォーム</DataAdapterPlatform>
+    <DeployFormPlatform>フォームをプラットフォームにデプロイする：</DeployFormPlatform>
     <DeployReportPlatform>プラットフォームへのレポートのデプロイ：</DeployReportPlatform>
     <DownloadingLibraries>ライブラリのダウンロード... </DownloadingLibraries>
     <EmbedAllDataToResources>レポートには、選択したプラットフォームでサポートされていないデータ接続が含まれています。 利用可能なデータをリソースとしてレポートに埋め込みますか？ この場合、すべての接続はXMLリソースに置き換えられます。</EmbedAllDataToResources>
@@ -297,6 +298,7 @@
     <ExportFormatDataType>データ型：</ExportFormatDataType>
     <ExportFormatImage>イメージ</ExportFormatImage>
     <ExportFormatImageType>イメージタイプ：</ExportFormatImageType>
+    <FormAction>フォームをどうするか：</FormAction>
     <FrameworkType>フレームワークタイプ</FrameworkType>
     <FrameworkVersion>フレームワークバージョン</FrameworkVersion>
     <FullScreenViewer>フルブラウザウィンドウにビューアを表示する</FullScreenViewer>
@@ -309,6 +311,8 @@
     <HideOptions>オプションを隠す</HideOptions>
     <IncludeFonts>フォントを含める</IncludeFonts>
     <IncludeFontsToolTip>レポートコンポーネントのサイズを正しく計算するために必要なフォントがコピーされ、プロジェクトに接続されます。</IncludeFontsToolTip>
+    <IncludeFormPackedStringToCode>フォームをパックされた文字列としてコードに含める</IncludeFormPackedStringToCode>
+    <IncludeFormPackedStringToCodeToolTip>フォームはBase64文字列としてプロジェクトコード内に保存される。これにより、追加ファイルを取り除くことができます。</IncludeFormPackedStringToCodeToolTip>
     <IncludeLibrariesToStandalone>Stimulsoftライブラリを実行可能ファイルに含める</IncludeLibrariesToStandalone>
     <IncludeLibrariesToStandaloneToolTip>必要なすべてのライブラリとファイルが実行可能ファイルに含まれます。 それ以外の場合は、ZIPアーカイブが作成されます。</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>ライセンスキーを含める</IncludeLicenseKey>
@@ -322,6 +326,7 @@
     <JavaScriptFramework>フレームワークタイプ：</JavaScriptFramework>
     <LicenseKeyTypeFile>ファイル</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String </LicenseKeyTypeString>
+    <LoadForm>フォームを読み込む</LoadForm>
     <LoadReport>からレポートをロードする：</LoadReport>
     <LoadReportAssembly>アセンブリ</LoadReportAssembly>
     <LoadReportByteArray>バイト配列</LoadReportByteArray>
@@ -341,6 +346,7 @@
     <ProjectType>プロジェクトタイプ：</ProjectType>
     <Publish>Publish </Publish>
     <PublishType>レポートのパブリッシュタイプ：</PublishType>
+    <PublishTypeForm>フォーム発行タイプ：</PublishTypeForm>
     <PublishTypeProject>プロジェクト</PublishTypeProject>
     <PublishTypeProjectToolTip>完成したプロジェクトと、さらにコンパイルして起動するために必要なすべてのファイルを使用して、ZIPアーカイブが作成されます。</PublishTypeProjectToolTip>
     <PublishTypeStandalone>スタンドアロン</PublishTypeStandalone>
@@ -1024,6 +1030,7 @@
     <CrossFiltering>現在のページからその要素へのクロスフィルターの適用を制御する値を取得または設定します。</CrossFiltering>
     <DataRelation>マスター詳細レポートのレンダリングに使用されるリンク</DataRelation>
     <DataSource>データを取得するために使用されるデータソース</DataSource>
+    <DecimalDigits>値に使用する小数点以下の桁数。</DecimalDigits>
     <Disabled>コンポーネントの非対話状態。</Disabled>
     <DockStyle>コンポーネントドッキングのタイプ</DockStyle>
     <DoubleClickEvent>ユーザーがレポートビューアでコンポーネントをダブルクリックしたときに発生</DoubleClickEvent>
@@ -1186,6 +1193,7 @@
     <EvenStyle>偶数行のスタイルを示す値</EvenStyle>
     <FilterEngine>フィルタがデータにどのように適用されるかを示す値。レポートジェネレータの手段であるか、SQLクエリを変更するかによって決まります。</FilterEngine>
     <FilterMode>フィルタモード</FilterMode>
+    <GapAfterLastColumn>このプロパティは、最終列の後にギャップを追加することができます。</GapAfterLastColumn>
     <GetCollapsedEvent>折りたたみ値が計算されたときに発生</GetCollapsedEvent>
     <KeepChildTogether>子をまとめて保持することを示す値</KeepChildTogether>
     <KeepDetailsTogether>このDataBandと共に詳細を保持することを示す値</KeepDetailsTogether>

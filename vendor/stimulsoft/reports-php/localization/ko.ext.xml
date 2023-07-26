@@ -288,6 +288,7 @@
     <Copy>복사</Copy>
     <CopyingLibraries>프로젝트 파일의 복사...</CopyingLibraries>
     <DataAdapterPlatform>데이터 어댑터 플랫폼</DataAdapterPlatform>
+    <DeployFormPlatform>폼을 플랫폼에 배포:</DeployFormPlatform>
     <DeployReportPlatform>플랫폼에 보고서 배포 :</DeployReportPlatform>
     <DownloadingLibraries>라이브러리 다운로드...</DownloadingLibraries>
     <EmbedAllDataToResources>보고서에는 선택한 플랫폼에서 지원되지 않는 데이터 연결이 포함되어 있습니다. 보고서에 사용 가능한 데이터를 리소스로 포함 하시겠습니까? 이 경우 모든 연결이 XML리소스로 대체됩니다.</EmbedAllDataToResources>
@@ -297,6 +298,7 @@
     <ExportFormatDataType>데이터 형식 :</ExportFormatDataType>
     <ExportFormatImage>이미지</ExportFormatImage>
     <ExportFormatImageType>이미지 유형 :</ExportFormatImageType>
+    <FormAction>폼으로 수행할 작업:</FormAction>
     <FrameworkType>프레임워크 종류</FrameworkType>
     <FrameworkVersion>프레임워크 버전</FrameworkVersion>
     <FullScreenViewer>전체 브라우저 창에 뷰어보기</FullScreenViewer>
@@ -309,6 +311,8 @@
     <HideOptions>옵션 숨기기</HideOptions>
     <IncludeFonts>글꼴을 포함</IncludeFonts>
     <IncludeFontsToolTip>리포트 구성 요소의 크기를 올바르게 계산하는 데 필요한 글꼴이 복사되어 프로젝트에 연결됩니다.</IncludeFontsToolTip>
+    <IncludeFormPackedStringToCode>코드에 패킹된 문자열로 폼 포함</IncludeFormPackedStringToCode>
+    <IncludeFormPackedStringToCodeToolTip>폼은 프로젝트 코드에 Base64 문자열로 저장됩니다. 이렇게 하면 추가 파일을 제거할 수 있습니다.</IncludeFormPackedStringToCodeToolTip>
     <IncludeLibrariesToStandalone>Stimulsoft 라이브러리를 실행 파일에 포함</IncludeLibrariesToStandalone>
     <IncludeLibrariesToStandaloneToolTip>필요한 모든 라이브러리와 파일이 실행 파일에 포함됩니다. 그렇지 않으면 ZIP 아카이브가 생성됩니다.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>라이센스 키를 포함</IncludeLicenseKey>
@@ -322,6 +326,7 @@
     <JavaScriptFramework>프레임 워크 유형 :</JavaScriptFramework>
     <LicenseKeyTypeFile>파일</LicenseKeyTypeFile>
     <LicenseKeyTypeString>String</LicenseKeyTypeString>
+    <LoadForm>폼 로드:</LoadForm>
     <LoadReport>에서 보고서를로드 :</LoadReport>
     <LoadReportAssembly>어셈블리</LoadReportAssembly>
     <LoadReportByteArray>바이트 배열</LoadReportByteArray>
@@ -341,6 +346,7 @@
     <ProjectType>프로젝트 유형:</ProjectType>
     <Publish>Publish</Publish>
     <PublishType>보고서 게시 유형 :</PublishType>
+    <PublishTypeForm>폼 게시 유형:</PublishTypeForm>
     <PublishTypeProject>프로젝트</PublishTypeProject>
     <PublishTypeProjectToolTip>ZIP 아카이브는 완료된 프로젝트와 추가 컴파일 및 실행에 필요한 모든 파일로 생성될 것입니다.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>독립형</PublishTypeStandalone>
@@ -1022,6 +1028,7 @@
     <CrossFiltering>현재 페이지에서 해당 요소로 교차 필터 적용을 제어하는 값을 가져오거나 설정합니다.</CrossFiltering>
     <DataRelation>마스터 세부 보고서의 렌더링에 사용되는 링크</DataRelation>
     <DataSource>데이터를 검색하는 데 사용되는 데이터 소스</DataSource>
+    <DecimalDigits>값에 사용할 소수 자릿수입니다.</DecimalDigits>
     <Disabled>구성 요소의 비대화형 상태입니다.</Disabled>
     <DockStyle>구성 요소 도킹 유형</DockStyle>
     <DoubleClickEvent>사용자가 보고서 뷰어 컴포넌트를 더블 클릭했을 때 발생</DoubleClickEvent>
@@ -1184,6 +1191,7 @@
     <EvenStyle>짝수 행의 스타일을 나타내는 값</EvenStyle>
     <FilterEngine>필터가 데이터에 어떻게 적용되는지를 나타내는 값. 보고서 생성기 수단인지, SQL 쿼리를 수정할지에 따라 달라집니다.</FilterEngine>
     <FilterMode>필터 모드</FilterMode>
+    <GapAfterLastColumn>속성을 사용하면 마지막 열 뒤에 공백을 추가할 수 있습니다.</GapAfterLastColumn>
     <GetCollapsedEvent>접이식 값이 계산 될 때 발생</GetCollapsedEvent>
     <KeepChildTogether>아이를 함께 유지하는 것을 나타내는 값</KeepChildTogether>
     <KeepDetailsTogether>이 DataBand 함께 세부 사항을 유지하는 것을 나타내는 값</KeepDetailsTogether>
