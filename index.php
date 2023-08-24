@@ -29,7 +29,7 @@
     <li><a href="Setting Report variables on the Server-side.php">Setting Report Variables on the Server-Side</a></li>
     <li><a href="Showing a Report in the Viewer.php">Showing a Report in the Viewer</a></li>
     <li><a href="Showing a Report in the Viewer using JavaScript.php">Showing a Report in the Viewer using JavaScript</a></li>
-    <li><a href="Using a SQL Data Sources.php">Using a SQL Data Sources</a></li>
+    <li><a href="Using SQL Data Sources.php">Using SQL Data Sources</a></li>
     <li><a href="Using Parameters in SQL Query.php">Using Parameters in SQL Query</a></li>
 </ul>
 

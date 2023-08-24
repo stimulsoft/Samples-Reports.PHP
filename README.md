@@ -19,8 +19,8 @@ This repository has website project with a set of examples, each is in a separat
 * [Setting Report Variables on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Setting%20Report%20Variables%20on%20the%20Server-Side.php)
 * [Showing a Report in the Viewer](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Showing%20a%20Report%20in%20the%20Viewer.php)
 * [Showing a Report in the Viewer using JavaScript](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Showing%20a%20Report%20in%20the%20Viewer%20using%20JavaScript.php)
-* [Using a SQL Data Sources](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Using%20a%20SQL%20Data%20Sources.php)
 * [Using Parameters in SQL Query](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Using%20Parameters%20in%20SQL%20Query.php)
+* [Using SQL Data Sources](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Using%20SQL%20Data%20Sources.php)
 
 For all the examples, one event handler has been created with all the necessary events:
 * [handler.php](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/handler.php)
