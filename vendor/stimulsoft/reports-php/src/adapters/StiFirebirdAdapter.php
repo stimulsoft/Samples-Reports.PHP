@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiFirebirdAdapter extends StiDataAdapter
 {
-    public $version = '2023.3.2';
+    public $version = '2023.3.3';
     public $checkVersion = true;
 
     protected $driverName = 'firebird';
