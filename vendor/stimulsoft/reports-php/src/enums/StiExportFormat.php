@@ -24,7 +24,7 @@ class StiExportFormat
             case StiExportFormat::Pdf:
                 return 'pdf';
 
-            case StiExportFormat::Xps;
+            case StiExportFormat::Xps:
                 return 'xps';
 
             case StiExportFormat::Text:
@@ -68,7 +68,7 @@ class StiExportFormat
             case StiExportFormat::Pdf:
                 return 'application/pdf';
 
-            case StiExportFormat::Xps;
+            case StiExportFormat::Xps:
                 return 'application/vnd.ms-xpsdocument';
 
             case StiExportFormat::Text:
