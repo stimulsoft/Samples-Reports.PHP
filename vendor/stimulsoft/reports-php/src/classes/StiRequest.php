@@ -21,7 +21,9 @@ class StiRequest extends StiDataRequest
 
     protected function checkRequestParams($obj)
     {
-        if (!isset($obj->event) && isset($obj->command) && ($obj->command == StiDataCommand::TestConnection || StiDataCommand::ExecuteQuery))
+        if (!isset($obj->event) && isset($obj->command) &&
+                ($obj->command == StiDataCommand::TestConnection || $obj->command == StiDataCommand::RetrieveSchema ||
+                $obj->command == StiDataCommand::Execute || $obj->command == StiDataCommand::ExecuteQuery))
             $this->event = StiEventType::BeginProcessData;
 
         if (isset($obj->report)) {

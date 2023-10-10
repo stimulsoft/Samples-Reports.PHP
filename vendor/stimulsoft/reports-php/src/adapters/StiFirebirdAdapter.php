@@ -7,17 +7,16 @@ use Stimulsoft\StiResult;
 
 class StiFirebirdAdapter extends StiDataAdapter
 {
-    public $version = '2023.3.4';
+    public $version = '2023.4.1';
     public $checkVersion = true;
 
     protected $driverName = 'firebird';
 
-    protected function getLastErrorResult()
+    protected function getLastErrorResult($message = 'An unknown error has occurred.')
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult();
+            return parent::getLastErrorResult($message);
 
-        $message = 'Unknown';
         $code = ibase_errcode();
         $error = ibase_errmsg();
         if ($error) $message = $error;
@@ -33,10 +32,10 @@ class StiFirebirdAdapter extends StiDataAdapter
         if (!function_exists('ibase_connect'))
             return StiResult::error('Firebird driver not found. Please configure your PHP server to work with Firebird.');
 
-        $this->link = ibase_connect(
-            $this->info->host . '/' . $this->info->port . ':' . $this->info->database,
-            $this->info->userId, $this->info->password, $this->info->charset);
-        if (!$this->link)
+        $this->connectionLink = ibase_connect(
+            $this->connectionInfo->host . '/' . $this->connectionInfo->port . ':' . $this->connectionInfo->database,
+            $this->connectionInfo->userId, $this->connectionInfo->password, $this->connectionInfo->charset);
+        if (!$this->connectionLink)
             return $this->getLastErrorResult();
 
         return StiDataResult::success();
@@ -46,9 +45,9 @@ class StiFirebirdAdapter extends StiDataAdapter
     {
         if ($this->driverType == 'PDO')
             parent::disconnect();
-        else if ($this->link) {
-            ibase_close($this->link);
-            $this->link = null;
+        else if ($this->connectionLink) {
+            ibase_close($this->connectionLink);
+            $this->connectionLink = null;
         }
     }
 
@@ -57,8 +56,8 @@ class StiFirebirdAdapter extends StiDataAdapter
         if (parent::parse($connectionString))
             return true;
 
-        $this->info->port = 3050;
-        $this->info->charset = 'UTF8';
+        $this->connectionInfo->port = 3050;
+        $this->connectionInfo->charset = 'UTF8';
 
         $parameterNames = array(
             'host' => ['server', 'host', 'location', 'datasource', 'data source'],
@@ -69,7 +68,7 @@ class StiFirebirdAdapter extends StiDataAdapter
             'charset' => ['charset']
         );
 
-        return $this->parseParameters($connectionString, $parameterNames);
+        return $this->parseParameters($parameterNames);
     }
 
     protected function parseType($meta)
@@ -140,7 +139,7 @@ class StiFirebirdAdapter extends StiDataAdapter
 
     protected function executeNative($queryString, $result)
     {
-        $query = ibase_query($this->link, $queryString);
+        $query = ibase_query($this->connectionLink, $queryString);
         if (!$query)
             return $this->getLastErrorResult();
 

@@ -389,19 +389,21 @@ class StiHandler extends StiDataHandler
     public function getHtml()
     {
         $csrf_token = function_exists('csrf_token') ? csrf_token() : null;
+        $databases = json_encode(StiDatabaseType::getTypes());
 
         $result = /** @lang JavaScript */
             "StiHelper.prototype.process = function (args, callback) {
                 if (args) {
-                    if (callback)
-                        args.preventDefault = true;
-
                     if (args.event === 'BeginProcessData' || args.event === 'EndProcessData') {
-                        if (args.database === 'XML' || args.database === 'JSON' || args.database === 'Excel')
-                            return callback ? callback(null) : null;
-                        if (args.database === 'Data from DataSet, DataTables')
-                            return callback ? callback(args) : null;
+                        let databases = $databases;
+                        if (!databases.includes(args.database))
+                            return null;
+
+                        args.preventDefault = true;
                     }
+
+                    if (callback)
+                        args.async = true;
 
                     let command = {};
                     for (let p in args) {
@@ -414,7 +416,7 @@ class StiHandler extends StiDataHandler
                         else command[p] = args[p];
                     }
 
-                    let sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.getStringCommand(command);
+                    let sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.encodeCommand(command);
                     if (!callback) callback = function (args) {
                         if (!args.success || !Stimulsoft.System.StiString.isNullOrEmpty(args.notice)) {
                             let message = Stimulsoft.System.StiString.isNullOrEmpty(args.notice) ? 'There was some error' : args.notice;
@@ -440,7 +442,7 @@ class StiHandler extends StiDataHandler
                             request.abort();
 
                             try {
-                                let args = JSON.parse(responseText);
+                                let args = Stimulsoft.Report.Dictionary.StiSqlAdapterService.decodeCommandResult(responseText);
                                 if (args.report) {
                                     let json = args.report;
                                     args.report = new Stimulsoft.Report.StiReport();

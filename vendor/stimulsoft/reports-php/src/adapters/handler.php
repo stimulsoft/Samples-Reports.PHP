@@ -15,6 +15,7 @@ require_once 'classes\StiDataHandler.php';
 // Data adapters for supported database types
 require_once 'StiDataAdapter.php';
 require_once 'StiFirebirdAdapter.php';
+require_once 'StiMongoDbAdapter.php';
 require_once 'StiMsSqlAdapter.php';
 require_once 'StiMySqlAdapter.php';
 require_once 'StiOdbcAdapter.php';

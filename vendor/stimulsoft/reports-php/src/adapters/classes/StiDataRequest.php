@@ -52,12 +52,13 @@ class StiDataRequest
         if (isset($obj->command))
             $this->command = $obj->command;
 
-        if ($this->command == StiDataCommand::GetSupportedAdapters)
+        $reflectionClass = new \ReflectionClass('\Stimulsoft\StiDataCommand');
+        $commands = $reflectionClass->getConstants();
+        $values = array_values($commands);
+
+        if (in_array($this->command, $values))
             return StiResult::success(null, $this);
 
-        if ($this->command != StiDataCommand::TestConnection && $this->command != StiDataCommand::Execute && $this->command != StiDataCommand::ExecuteQuery)
-            return StiResult::error('Unknown command [' . $this->command . ']');
-
-        return StiResult::success(null, $this);
+        return StiResult::error('Unknown command [' . $this->command . ']');
     }
 }

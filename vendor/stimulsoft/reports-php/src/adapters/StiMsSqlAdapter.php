@@ -7,18 +7,17 @@ use Stimulsoft\StiResult;
 
 class StiMsSqlAdapter extends StiDataAdapter
 {
-    public $version = '2023.3.4';
+    public $version = '2023.4.1';
     public $checkVersion = true;
 
     protected $driverName = 'sqlsrv';
 
-    protected function getLastErrorResult()
+    protected function getLastErrorResult($message = 'An unknown error has occurred.')
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult();
+            return parent::getLastErrorResult($message);
 
         $code = 0;
-        $message = 'Unknown';
 
         if ($this->driverType == 'Microsoft') {
             if (($errors = sqlsrv_errors()) != null) {
@@ -45,28 +44,28 @@ class StiMsSqlAdapter extends StiDataAdapter
                 return StiResult::error('MS SQL driver not found. Please configure your PHP server to work with MS SQL.');
 
             sqlsrv_configure('WarningsReturnAsErrors', 0);
-            $this->link = sqlsrv_connect(
-                $this->info->host,
+            $this->connectionLink = sqlsrv_connect(
+                $this->connectionInfo->host,
                 array(
-                    'UID' => $this->info->userId,
-                    'PWD' => $this->info->password,
-                    'Database' => $this->info->database,
+                    'UID' => $this->connectionInfo->userId,
+                    'PWD' => $this->connectionInfo->password,
+                    'Database' => $this->connectionInfo->database,
                     'LoginTimeout' => 10,
                     'ReturnDatesAsStrings' => true,
-                    'CharacterSet' => $this->info->charset
+                    'CharacterSet' => $this->connectionInfo->charset
                 ));
 
-            if (!$this->link)
+            if (!$this->connectionLink)
                 return $this->getLastErrorResult();
 
             return StiDataResult::success();
         }
 
-        $this->link = mssql_connect($this->info->host, $this->info->userId, $this->info->password);
-        if (!$this->link)
+        $this->connectionLink = mssql_connect($this->connectionInfo->host, $this->connectionInfo->userId, $this->connectionInfo->password);
+        if (!$this->connectionLink)
             return $this->getLastErrorResult();
 
-        if (!mssql_select_db($this->info->database, $this->link))
+        if (!mssql_select_db($this->connectionInfo->database, $this->connectionLink))
             return $this->getLastErrorResult();
 
         return StiResult::success();
@@ -76,13 +75,13 @@ class StiMsSqlAdapter extends StiDataAdapter
     {
         if ($this->driverType == 'PDO')
             parent::disconnect();
-        else if ($this->link) {
+        else if ($this->connectionLink) {
             if ($this->driverType == 'Microsoft')
-                sqlsrv_close($this->link);
+                sqlsrv_close($this->connectionLink);
             else
-                mssql_close($this->link);
+                mssql_close($this->connectionLink);
 
-            $this->link = null;
+            $this->connectionLink = null;
         }
     }
 
@@ -92,7 +91,7 @@ class StiMsSqlAdapter extends StiDataAdapter
             return true;
 
         $this->driverType = function_exists('mssql_connect') ? 'Native' : 'Microsoft';
-        $this->info->charset = 'UTF-8';
+        $this->connectionInfo->charset = 'UTF-8';
 
         $parameterNames = array(
             'host' => ['server', 'data source'],
@@ -102,7 +101,7 @@ class StiMsSqlAdapter extends StiDataAdapter
             'charset' => ['charset']
         );
 
-        return $this->parseParameters($connectionString, $parameterNames);
+        return $this->parseParameters($parameterNames);
     }
 
     private function getStringType($type)
@@ -261,8 +260,8 @@ class StiMsSqlAdapter extends StiDataAdapter
     protected function executeNative($queryString, $result)
     {
         $query = $this->driverType == 'Microsoft'
-            ? sqlsrv_query($this->link, $queryString)
-            : mssql_query($queryString, $this->link);
+            ? sqlsrv_query($this->connectionLink, $queryString)
+            : mssql_query($queryString, $this->connectionLink);
 
         if (!$query)
             return $this->getLastErrorResult();

@@ -60,6 +60,7 @@ require_once 'vendor/phpmailer/phpmailer/src/SMTP.php';
 require_once 'vendor/stimulsoft/reports-php/src/StiJavaScript.php';
 require_once 'vendor/stimulsoft/reports-php/src/adapters/StiDataAdapter.php';
 require_once 'vendor/stimulsoft/reports-php/src/adapters/StiFirebirdAdapter.php';
+require_once 'vendor/stimulsoft/reports-php/src/adapters/StiMongoDbAdapter.php';
 require_once 'vendor/stimulsoft/reports-php/src/adapters/StiMsSqlAdapter.php';
 require_once 'vendor/stimulsoft/reports-php/src/adapters/StiMySqlAdapter.php';
 require_once 'vendor/stimulsoft/reports-php/src/adapters/StiOdbcAdapter.php';

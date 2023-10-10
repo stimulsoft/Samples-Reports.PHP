@@ -14,13 +14,13 @@ class StiDataAdapter
 
     protected $driverType = 'Native';
     protected $driverName;
-    protected $info;
-    protected $link;
+    protected $connectionString;
+    protected $connectionInfo;
+    protected $connectionLink;
 
-    protected function getLastErrorResult()
+    protected function getLastErrorResult($message = 'An unknown error has occurred.')
     {
-        $message = 'Unknown';
-        $info = $this->link->errorInfo();
+        $info = $this->connectionLink->errorInfo();
         $code = $info[0];
         if (count($info) >= 3)
             $message = $info[2];
@@ -31,7 +31,7 @@ class StiDataAdapter
     protected function connect()
     {
         try {
-            $this->link = new \PDO($this->info->dsn, $this->info->userId, $this->info->password);
+            $this->connectionLink = new \PDO($this->connectionInfo->dsn, $this->connectionInfo->userId, $this->connectionInfo->password);
         }
         catch (\PDOException $e) {
             $code = $e->getCode();
@@ -44,7 +44,7 @@ class StiDataAdapter
 
     protected function disconnect()
     {
-        $this->link = null;
+        $this->connectionLink = null;
     }
 
     public function test()
@@ -56,10 +56,10 @@ class StiDataAdapter
 
     public function parse($connectionString)
     {
-        $this->info = new StiConnectionInfo();
-        $connectionString = trim($connectionString);
+        $this->connectionInfo = new StiConnectionInfo();
+        $this->connectionString = trim($connectionString);
 
-        if (mb_strpos($connectionString, "$this->driverName:") !== false) {
+        if (mb_strpos($this->connectionString, "$this->driverName:") !== false) {
             $this->driverType = 'PDO';
 
             $parameterNames = array(
@@ -67,16 +67,15 @@ class StiDataAdapter
                 'password' => ['pwd', 'password']
             );
 
-            return $this->parseParameters($connectionString, $parameterNames);
+            return $this->parseParameters($parameterNames);
         }
 
         return false;
     }
 
-    protected function parseParameters($connectionString, $parameterNames)
+    protected function parseParameters($parameterNames)
     {
-        $connectionString = trim($connectionString);
-        $parameters = explode(';', $connectionString);
+        $parameters = explode(';', $this->connectionString);
 
         foreach ($parameters as $parameter) {
             $name = '';
@@ -90,7 +89,7 @@ class StiDataAdapter
             $unknown = true;
             foreach ($parameterNames as $key => $names) {
                 if (in_array($name, $names)) {
-                    $this->info->{$key} = $value;
+                    $this->connectionInfo->{$key} = $value;
                     $unknown = false;
                     break;
                 }
@@ -106,10 +105,10 @@ class StiDataAdapter
     protected function parseUnknownParameter($parameter, $name, $value)
     {
         if ($this->driverType == 'PDO' && !is_null($parameter) && mb_strlen($parameter) > 0) {
-            if (mb_strlen($this->info->dsn) > 0)
-                $this->info->dsn .= ';';
+            if (mb_strlen($this->connectionInfo->dsn) > 0)
+                $this->connectionInfo->dsn .= ';';
 
-            $this->info->dsn .= $parameter;
+            $this->connectionInfo->dsn .= $parameter;
         }
     }
 
@@ -181,7 +180,7 @@ class StiDataAdapter
 
     protected function executePDO($queryString, $result)
     {
-        $query = $this->link->query($queryString);
+        $query = $this->connectionLink->query($queryString);
         if (!$query)
             return $this->getLastErrorResult();
 
@@ -207,7 +206,7 @@ class StiDataAdapter
 
     protected function executePDOv2($queryString, $result)
     {
-        $query = $this->link->query($queryString);
+        $query = $this->connectionLink->query($queryString);
         if (!$query)
             return $this->getLastErrorResult();
 
@@ -258,6 +257,9 @@ class StiDataAdapter
 
             case StiDatabaseType::ODBC:
                 return new StiOdbcAdapter();
+
+            case StiDatabaseType::MongoDB:
+                return new StiMongoDbAdapter();
         }
 
         return null;
@@ -309,6 +311,6 @@ class StiDataAdapter
 
     public function __construct()
     {
-        $this->info = new StiConnectionInfo();
+        $this->connectionInfo = new StiConnectionInfo();
     }
 }
