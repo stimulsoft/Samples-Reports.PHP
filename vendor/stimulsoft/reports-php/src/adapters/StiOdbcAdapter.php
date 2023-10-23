@@ -8,7 +8,7 @@ use Stimulsoft\StiResult;
 
 class StiOdbcAdapter extends StiDataAdapter
 {
-    public $version = '2023.4.1';
+    public $version = '2023.4.2';
     public $checkVersion = true;
 
     protected function getLastErrorResult($message = 'An unknown error has occurred.')
