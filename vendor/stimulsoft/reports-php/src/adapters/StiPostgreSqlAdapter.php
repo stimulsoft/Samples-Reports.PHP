@@ -7,7 +7,7 @@ use Stimulsoft\StiResult;
 
 class StiPostgreSqlAdapter extends StiDataAdapter
 {
-    public $version = '2023.4.2';
+    public $version = '2023.4.3';
     public $checkVersion = true;
 
     protected $driverName = 'pgsql';

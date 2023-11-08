@@ -7,7 +7,7 @@ use Stimulsoft\Adapters\StiMongoDbAdapter;
 
 class StiDataHandler
 {
-    public $version = '2023.4.2';
+    public $version = '2023.4.3';
 
     public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
