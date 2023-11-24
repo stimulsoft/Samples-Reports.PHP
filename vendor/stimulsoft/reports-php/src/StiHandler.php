@@ -417,13 +417,12 @@ class StiHandler extends StiDataHandler
                     }
 
                     let sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.encodeCommand(command);
-                    if (!callback) callback = function (args) {
-                        if (!args.success || !Stimulsoft.System.StiString.isNullOrEmpty(args.notice)) {
-                            let message = Stimulsoft.System.StiString.isNullOrEmpty(args.notice) ? 'There was some error' : args.notice;
-                            Stimulsoft.System.StiError.showError(message, true, args.success);
-                        }
+                    let handlerCallback = function (args) {
+                        if (!Stimulsoft.System.StiString.isNullOrEmpty(args.notice))
+                            Stimulsoft.System.StiError.showError(args.notice, true, args.success);
+                        if (callback) callback(args);
                     }
-                    Stimulsoft.Helper.send(sendText, callback);
+                    Stimulsoft.Helper.send(sendText, handlerCallback);
                 }
             }
 
