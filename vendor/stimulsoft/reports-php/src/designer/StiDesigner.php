@@ -68,7 +68,7 @@ class StiDesigner extends StiHtmlComponent
             $result .= $this->getEventHtml('onOpenReport');
 
         if ($this->onSaveReport)
-            $result .= $this->getEventHtml('onSaveReport', true);
+            $result .= $this->getEventHtml('onSaveReport', false, true);
 
         if ($this->onSaveAsReport)
             $result .= $this->getEventHtml('onSaveAsReport', true);
