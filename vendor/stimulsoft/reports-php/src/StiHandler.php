@@ -14,6 +14,7 @@ class StiHandler extends StiDataHandler
     public $encryptData = true;
     public $escapeQueryParameters = true;
     public $passQueryParametersToReport = false;
+    public $checkFileNames = true;
 
     /** The event is invoked before data request, which needed to render a report. */
     public $onBeginProcessData;
@@ -153,7 +154,7 @@ class StiHandler extends StiDataHandler
     private function invokeCreateReport($request)
     {
         $args = new StiReportEventArgs();
-        $args->populateVars($request);
+        $args->populateVars($request, $this->checkFileNames);
 
         $result = $this->checkEventResult($this->onCreateReport, $args);
         $result->report = $args->report;
@@ -171,7 +172,7 @@ class StiHandler extends StiDataHandler
     private function invokeSaveReport($request)
     {
         $args = new StiReportEventArgs();
-        $args->populateVars($request);
+        $args->populateVars($request, $this->checkFileNames);
 
         return $this->checkEventResult($this->onSaveReport, $args);
     }
@@ -179,7 +180,7 @@ class StiHandler extends StiDataHandler
     private function invokeSaveAsReport($request)
     {
         $args = new StiReportEventArgs();
-        $args->populateVars($request);
+        $args->populateVars($request, $this->checkFileNames);
 
         return $this->checkEventResult($this->onSaveAsReport, $args);
     }
@@ -187,7 +188,7 @@ class StiHandler extends StiDataHandler
     private function invokePrintReport($request)
     {
         $args = new StiExportEventArgs();
-        $args->populateVars($request);
+        $args->populateVars($request, $this->checkFileNames);
 
         $args->action = $args->action == null ? StiExportAction::PrintReport : $args->action;
         $args->format = $args->printAction == StiPrintAction::PrintPdf ? StiExportFormat::Pdf : StiExportFormat::Html;
@@ -199,7 +200,7 @@ class StiHandler extends StiDataHandler
     private function invokeBeginExportReport($request)
     {
         $args = new StiExportEventArgs();
-        $args->populateVars($request);
+        $args->populateVars($request, $this->checkFileNames);
         $args->fileExtension = StiExportFormat::getFileExtension($request->format);
 
         $result = $this->checkEventResult($this->onBeginExportReport, $args);
@@ -212,7 +213,7 @@ class StiHandler extends StiDataHandler
     private function invokeEndExportReport($request)
     {
         $args = new StiExportEventArgs();
-        $args->populateVars($request);
+        $args->populateVars($request, $this->checkFileNames);
         $args->action = $args->action == null ? StiExportAction::ExportReport : $args->action;
         $args->fileExtension = StiExportFormat::getFileExtension($request->format);
 
@@ -228,7 +229,7 @@ class StiHandler extends StiDataHandler
         $settings->attachmentName = $request->fileName . '.' . StiExportFormat::getFileExtension($request->format);
 
         $args = new StiExportEventArgs();
-        $args->populateVars($request);
+        $args->populateVars($request, $this->checkFileNames);
         $args->emailSettings = $settings;
 
         $result = $this->checkEventResult($this->onEmailReport, $args);
