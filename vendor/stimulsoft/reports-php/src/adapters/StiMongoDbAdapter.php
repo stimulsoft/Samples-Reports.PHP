@@ -8,7 +8,7 @@ use Stimulsoft\StiResult;
 
 class StiMongoDbAdapter extends StiDataAdapter
 {
-    public $version = '2024.1.4';
+    public $version = '2024.2.1';
     public $checkVersion = true;
 
     protected $driverName = 'mongodb';

@@ -167,6 +167,8 @@
     <StiTextColorEqualToBackColorCheckShort>TextBrush 속성은 Brush 속성</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>'{0}'구성 요소에 대해 선택한 형식이 지정되지 않았습니다.</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>텍스트 형식을 적용 할 수 없습니다</StiTextTextFormatCheckShort>
+    <StiTextTextFormatFieldCheckLong>{0} 구성 요소에 사용된 열이 날짜 유형이 아닙니다. 보고서 속도를 늦추지 않고 올바른 형식을 확인하려면 형식을 일반으로 변경하는 것이 좋습니다.</StiTextTextFormatFieldCheckLong>
+    <StiTextTextFormatFieldCheckShort>선택한 형식이 데이터 열 유형과 호환되지 않습니다.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>스크립트 및 조건 TotalPageCount, TotalPageCountThrough 시스템 변수는 1 회 통과하면 잘못된 결과를 반환합니다. NumberOfPass 속성을 DoublePass로 설정해야합니다.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>정의되지 않은 '{0}'구성 요소가 보고서를 찾았습니다. 보고서 도구는이 구성 요소를 식별 할 수 없습니다. 아마 이것은 사용자 정의 구성 요소입니다. 보고서는 표시되지 않습니다!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>정의되지 않은 구성 요소</StiUndefinedComponentCheckShort>
@@ -1131,6 +1133,7 @@
     <SortDirection>정렬 방향</SortDirection>
     <SortType>정렬 유형</SortType>
     <Summary>값의 집계 유형</Summary>
+    <SummaryForFieldsInExpression>True에서 먼저 식 필드에 대한 요약을 계산한 다음 식을 계산하고 그렇지 않으면 전체 식에 대한 요약을 계산합니다.</SummaryForFieldsInExpression>
     <SummaryValues>제로의 유형과 Null 값의 합계</SummaryValues>
     <UseStyleOfSummaryInColumnTotal>집계 셀 스타일이 열 합계에서 사용되는 것을 나타내는 값</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>요약 셀 스타일이 행의 합계에서 사용되는 것을 나타내는 값</UseStyleOfSummaryInRowTotal>

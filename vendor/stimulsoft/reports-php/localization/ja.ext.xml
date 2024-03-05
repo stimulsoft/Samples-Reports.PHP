@@ -167,6 +167,8 @@
     <StiTextColorEqualToBackColorCheckShort>TextBrushプロパティは、Brushプロパティ</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>式の結果が既にテキスト文字列であるため、コンポーネント '{0}'のテキスト形式を使用できません。</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>テキスト形式を適用できません</StiTextTextFormatCheckShort>
+    <StiTextTextFormatFieldCheckLong>0}コンポーネントで使用されている列は日付型ではありません。レポートの速度を低下させず、正しい書式を確保するために、書式設定を一般に変更することをお勧めします。</StiTextTextFormatFieldCheckLong>
+    <StiTextTextFormatFieldCheckShort>選択された書式はデータ列の型と互換性がありません。</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>スクリプトと条件のTotalPageCount、TotalPageCountThroughシステム変数は、1回通過すると不正な結果を返します。 NumberOfPassプロパティをDoublePassに設定する必要があります。</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>未定義の '{0}'コンポーネントがレポートに見つかりました。レポートツールはこのコンポーネントを識別できません。たぶんこれはカスタムコンポーネントです。レポートは表示されません！</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>未定義のコンポーネント</StiUndefinedComponentCheckShort>
@@ -1133,6 +1135,7 @@
     <SortDirection>ソート方向</SortDirection>
     <SortType>ソートのタイプ</SortType>
     <Summary>値の集計のタイプ</Summary>
+    <SummaryForFieldsInExpression>条件が真であれば、式内のフィールドのサマリーをまず計算し、その後、式を計算します。そうでなければ、式全体のサマリーを計算します。</SummaryForFieldsInExpression>
     <SummaryValues>ゼロのタイプとNull値の合計</SummaryValues>
     <UseStyleOfSummaryInColumnTotal>集計セルのスタイルが列合計で使用されることを示す値</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>要約セルのスタイルが行の合計で使用されることを示す値</UseStyleOfSummaryInRowTotal>

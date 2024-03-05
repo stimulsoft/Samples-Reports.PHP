@@ -167,6 +167,8 @@
     <StiTextColorEqualToBackColorCheckShort>Значение свойства TextBrush равно значению свойства Brush</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>Выбранный для компонента '{0}' текстовый формат не может быть применён, т.к. результат выражения уже является текстовой строкой.</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>Формат не может быть применён.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatFieldCheckLong>Колонка используемая в компоненте {0} имеет тип отличный от даты. Рекомендуем изменить форматирование на Стандарт чтобы избежать замедления работы и ошибок преобразования.</StiTextTextFormatFieldCheckLong>
+    <StiTextTextFormatFieldCheckShort>Тип колонки данных не подходит для выбранного формата.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>Системные переменные TotalPageCount, TotalPageCountThrough в скриптах и условиях при одном проходе выдают некорректные результаты. Требуется задать значение свойства NumberOfPass равное DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>В отчете найден неизвестный компонент '{0}'. Генератор отчетов не может определить тип этого компонента. Возможно, это пользовательский компонент. В текущем состоянии отчет не может быть построен!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Неизвестный компонент</StiUndefinedComponentCheckShort>
@@ -333,6 +335,8 @@
     <LoadReportClass>Класс</LoadReportClass>
     <LoadReportFile>Файл</LoadReportFile>
     <LoadReportHyperlink>Ссылка</LoadReportHyperlink>
+    <LoadReportOnServerSide>Загрузка отчета на стороне сервера</LoadReportOnServerSide>
+    <LoadReportOnServerSideToolTip>Файл отчета будет загружен на стороре сервера и передан компоненту в виде Base64 строки. Это позволяет избежать лишних запросов к серверу.</LoadReportOnServerSideToolTip>
     <LoadReportResource>Ресурс</LoadReportResource>
     <LoadReportStream>Поток</LoadReportStream>
     <LoadReportString>Строка</LoadReportString>
@@ -376,6 +380,8 @@
     <UseCompilationCacheToolTip>Скомпилированный отчёт будет сохранён во временной директории, это позволяет ускорить последующее его построение и сократить использование памяти.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Использовать сжатые скрипты</UseCompressedScripts>
     <UseCompressedScriptsToolTip>Будут использованы упакованные скрипты вместо обычных. Это позволяет уменьшить их размер, однако требует некоторое время на из распаковку в момент запуска.</UseCompressedScriptsToolTip>
+    <UseHtmlTemplate>Использовать HTML шаблон</UseHtmlTemplate>
+    <UseHtmlTemplateToolTip>Использовать HTML шаблон для отображения компонента. Это позволяет размещать другие элементы на странице, и использовать JavaScript события.</UseHtmlTemplateToolTip>
     <UseLatestVersion>Использовать последнюю версию библиотек</UseLatestVersion>
     <UseLatestVersionToolTip>При подключении библиотек и скриптов будет использоваться последний доступный официальный релиз продукта вместо текущей установленной версии.</UseLatestVersionToolTip>
     <UseRenderedReport>Использовать построенный отчет</UseRenderedReport>
@@ -1066,7 +1072,7 @@
     <MouseEnterEvent>Срабатывает, когда пользователь наводит мышью на область компонента в окне предварительного просмотра.</MouseEnterEvent>
     <MouseLeaveEvent>Срабатывает, когда пользователь выводит мышь из области компонента в окне предварительного просмотра.</MouseLeaveEvent>
     <Name>Наименование компонента.</Name>
-    <Padding>Задает внутренний интервал компонента.</Padding>
+    <Padding>Задает внутренний интервал компонента (Слева, Сверху, Справа, Снизу).</Padding>
     <Pressed>Состояние, при котором пользователь нажал на компонент.</Pressed>
     <Printable>Значение определяет, будет ли компонент напечатан.</Printable>
     <PrintOn>Значение определяет, на каких страницах должен быть напечатан компонент.</PrintOn>
@@ -1131,6 +1137,7 @@
     <SortDirection>Направление сортировки.</SortDirection>
     <SortType>Тип сортировки.</SortType>
     <Summary>Тип суммирования значений.</Summary>
+    <SummaryForFieldsInExpression>Если установлено True, то сначала вычисляется сумма для полей в выражении, а затем вычисляется выражение, иначе вычисляется сумма для всего выражения.</SummaryForFieldsInExpression>
     <SummaryValues>Значение, которое определяет, как будут суммироваться нулевые значения.</SummaryValues>
     <UseStyleOfSummaryInColumnTotal>Значение определяет, что стиль итоговой ячейки будет использовать в итоге колонки.</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>Значение определяет, что стиль итоговой ячейки будет использован в итоге ряда.</UseStyleOfSummaryInRowTotal>

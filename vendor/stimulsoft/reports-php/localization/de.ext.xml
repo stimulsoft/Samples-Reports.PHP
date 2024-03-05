@@ -167,6 +167,8 @@
     <StiTextColorEqualToBackColorCheckShort>Die Eigenschaft 'Text-Pinsel' stimmt mit der Eigenschaft 'Pinsel' überein</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>Das ausgewählte Format für '{0}' Komponente ist nicht angegeben.</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>Das Format ist nicht angegeben.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatFieldCheckLong>Die Spalte, die in {0}-Komponente verwendet wird, gehört nicht zum date-Typen. Wir empfehlen die Formatierung auf Allgemein zu ändern, um die Verlangsamung der Arbeit mit dem Bericht zu vermeiden und korrekte Formatierung sicherzustellen.</StiTextTextFormatFieldCheckLong>
+    <StiTextTextFormatFieldCheckShort>Das ausgewählte Format ist nicht mit dem Datenspalte-Typen kompatibel.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>Die Systemvariablen TotalPageCount, TotalPageCountThrough in Scripten und Bedingungen liefern fehlerhafte Ergenisse bei nur einem Durchlauf.Es ist notwendig, die Eigenschaft 'Anzahl der Durchläufe' auf doppelten Durchlauf zu setzen.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>Der Report enthält eine undefinierte Komponente {0}'. Das Reportprogramm kann diese Komponente nicht ermitteln. Möglicherweise ist dies eine kundenspezifische Komponente. Der Report kann nicht ausgeführt werden!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Undefinierte Komponente</StiUndefinedComponentCheckShort>
@@ -1131,6 +1133,7 @@
     <SortDirection>Sortierfolge.</SortDirection>
     <SortType>Sortiertyp.</SortType>
     <Summary>Art der Summenbildung.</Summary>
+    <SummaryForFieldsInExpression>Wenn True, wird zuerst die Summe für Felder im Ausdruck und dann der Ausdruck berechnet, ansonsten wird die Summe für ganzen Ausdruck berechnet.</SummaryForFieldsInExpression>
     <SummaryValues>Art der Summenbildung.</SummaryValues>
     <UseStyleOfSummaryInColumnTotal>Wert, der anzeigt, dass die Art der Zellensummierung für die Spaltensumme verwendet wird.</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>Wert, der anzeigt, dass die Art der Summierung für die Summenzeile verwendet wird.</UseStyleOfSummaryInRowTotal>

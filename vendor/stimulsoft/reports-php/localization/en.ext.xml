@@ -167,6 +167,8 @@
     <StiTextColorEqualToBackColorCheckShort>The TextBrush property is equal to the Brush property</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>Selected text format for the '{0}' component can`t be applied, because the result of the expression is text string.</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>The format can`t be applied.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatFieldCheckLong>The column used in the {0} component is not a date type. Changing the formatting to General is recommended to avoid slowing down the report and to ensure correct formatting.</StiTextTextFormatFieldCheckLong>
+    <StiTextTextFormatFieldCheckShort>The selected format is not compatible with the data column type.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>The TotalPageCount, TotalPageCountThrough system variables in scripts and conditions provide incorrect results when one pass. It is required to set the NumberOfPass property to DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>Undefined '{0}' component is found in the report. The reporting tool cannot identify this component. Maybe this is a custom component. The report cannot be rendered!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Undefined component</StiUndefinedComponentCheckShort>
@@ -333,6 +335,8 @@
     <LoadReportClass>Class</LoadReportClass>
     <LoadReportFile>File</LoadReportFile>
     <LoadReportHyperlink>Hyperlink</LoadReportHyperlink>
+    <LoadReportOnServerSide>Load the Report on the Server Side</LoadReportOnServerSide>
+    <LoadReportOnServerSideToolTip>The report file will be loaded on the server side and transferred to the component as a Base64 string. This avoids unnecessary requests to the server.</LoadReportOnServerSideToolTip>
     <LoadReportResource>Resource</LoadReportResource>
     <LoadReportStream>Stream</LoadReportStream>
     <LoadReportString>String</LoadReportString>
@@ -376,6 +380,8 @@
     <UseCompilationCacheToolTip>The rendered report will be saved in a temporary directory, which allows you to speed up its rendering and reduce memory usage.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Use Compressed Scripts</UseCompressedScripts>
     <UseCompressedScriptsToolTip>Packed scripts will be used instead of regular ones. This allows you to reduce their size, but it takes some time to unpack when running.</UseCompressedScriptsToolTip>
+    <UseHtmlTemplate>Use an HTML template</UseHtmlTemplate>
+    <UseHtmlTemplateToolTip>Use an HTML template to display the component. This allows you to place other elements on the page, and use JavaScript events.</UseHtmlTemplateToolTip>
     <UseLatestVersion>Use the latest version of libraries</UseLatestVersion>
     <UseLatestVersionToolTip>When connecting libraries and scripts, the latest available official version of the product will be used instead of the currently installed version.</UseLatestVersionToolTip>
     <UseRenderedReport>Use Rendered Report</UseRenderedReport>
@@ -1066,7 +1072,7 @@
     <MouseEnterEvent>Occurs when a user enters the mouse into the area of the component in the report viewer.</MouseEnterEvent>
     <MouseLeaveEvent>Occurs when a user leaves the mouse out of the area of the component in the report viewer.</MouseLeaveEvent>
     <Name>Indicates the name which is used to identify the component.</Name>
-    <Padding>Specifies the interior spacing of the component.</Padding>
+    <Padding>Specifies the interior spacing of the component (Left, Top, Right, Bottom).</Padding>
     <Pressed>The pressed state when a user pressed on the component.</Pressed>
     <Printable>A value that indicates whether a component is printable or not.</Printable>
     <PrintOn>A value that indicates on which pages will a component be printed.</PrintOn>
@@ -1131,6 +1137,7 @@
     <SortDirection>The sorting direction.</SortDirection>
     <SortType>A type of sorting.</SortType>
     <Summary>A type of values summation.</Summary>
+    <SummaryForFieldsInExpression>If True first calculate summary for fields in expression, then calculate expression, otherwise calculate summary for whole expression.</SummaryForFieldsInExpression>
     <SummaryValues>A type of zeros and nulls values summation.</SummaryValues>
     <UseStyleOfSummaryInColumnTotal>A value indicates that style of summary cell will be used in column total.</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>A value indicates that style of summary cell will be used in row total.</UseStyleOfSummaryInRowTotal>

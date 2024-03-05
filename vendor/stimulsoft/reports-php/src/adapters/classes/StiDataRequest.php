@@ -29,9 +29,12 @@ class StiDataRequest
         $input = file_get_contents('php://input');
 
         if (!is_null($input) && strlen($input) > 0 && mb_substr($input, 0, 1) != '{') {
-            $input = base64_decode(str_rot13($input));
+            $input = str_rot13($input);
             $this->encode = true;
         }
+        
+        if ($this->encode)
+            $input = base64_decode($input);
 
         $obj = json_decode($input);
         if ($obj == null) {
