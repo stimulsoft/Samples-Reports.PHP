@@ -45,7 +45,7 @@ composer update stimulsoft/reports-php
 * [Laravel Framework](https://github.com/stimulsoft/Samples-Reports.PHP-for-Laravel)
 
 ## About Stimulsoft Reports.PHP
-Stimulsoft Reports.PHP is a report generator intended to create, view, print, and export reports online using client-server technology. The Stimulsoft report generator for PHP is a fast and powerful report engine, rich and intuitive interface, simple integration and deployment process, and an easy and understandable licensing model.
+Stimulsoft Reports.PHP is a report generator intended to create, view, print, and export reports online using client-server technology. The Stimulsoft report generator for PHP is a fast and powerful JavaScript report engine, rich and intuitive interface, simple integration and deployment process in PHP applications, and an easy and understandable licensing model.
 
 ## Useful links
 * [Live Demo](http://demo.stimulsoft.com/#Js)

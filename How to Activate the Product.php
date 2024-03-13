@@ -23,17 +23,24 @@ require_once 'vendor/autoload.php';
     </style>
 
     <?php
-    /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_deployment.htm */
+    // Creating and configuring a JavaScript deployment object for the report generator
     $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Report);
+
+    // Rendering the JavaScript code required for the component to work
     $js->renderHtml();
     ?>
 
     <script type="text/javascript">
         <?php
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_activation.htm */
+        // Creating and configuring an event handler object
+        // By default, the event handler sends all requests to the 'handler.php' file
         $handler = new \Stimulsoft\StiHandler();
-        //$handler->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
-        //$handler->license->setFile('license.key');
+
+        // You can use one of the methods below to register your license key
+        // $handler->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
+        // $handler->license->setFile('license.key');
+
+        // Rendering the JavaScript code necessary for the event handler to work
         $handler->renderHtml();
         ?>
     </script>

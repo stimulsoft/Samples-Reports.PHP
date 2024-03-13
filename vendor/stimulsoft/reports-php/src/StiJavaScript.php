@@ -19,6 +19,7 @@ class StiJavaScript
         if ($this->options->reports)
             $scripts[] = "stimulsoft.reports.$extension";
         else {
+            $scripts[] = "stimulsoft.reports.engine.$extension";
             if ($this->options->reportsChart)
                 $scripts[] = "stimulsoft.reports.chart.$extension";
             if ($this->options->reportsExport)

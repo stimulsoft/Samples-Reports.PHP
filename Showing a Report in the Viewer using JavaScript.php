@@ -13,40 +13,50 @@ require_once 'vendor/autoload.php';
         }
     </style>
 
-    <!-- https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm -->
+    <!-- Adding JavaScript code required for the viewer to work -->
     <script src="vendor/stimulsoft/reports-php/scripts/stimulsoft.reports.js" type="text/javascript"></script>
     <script src="vendor/stimulsoft/reports-php/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         <?php
+        // Creating and configuring an event handler object
+        // By default, the event handler sends all requests to the 'handler.php' file
         $handler = new \Stimulsoft\StiHandler();
+
+        // Rendering the JavaScript code necessary for the event handler to work
         $handler->renderHtml();
         ?>
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_activation.htm */
-        //Stimulsoft.Base.StiLicense.Key = '6vJhGtLLLz2GNviWmUTrhSqnO...';
-        //Stimulsoft.Base.StiLicense.loadFromFile('license.key');
-
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_settings.htm */
+        // Creating and configuring the viewer options object
         let options = new Stimulsoft.Viewer.StiViewerOptions();
         options.appearance.fullScreenMode = true;
         options.appearance.scrollbarsMode = true;
-        options.height = "600px"; // Height for non-fullscreen mode
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_deployment.htm */
+        // Setting the height of the viewer for non-fullscreen mode
+        options.height = "600px";
+
+        // Creating the viewer object with the necessary options
         let viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_connecting_sql_data.htm */
+        // Defining viewer events
+        // This event will be triggered when requesting data for a report
+        // To process the result on the server-side, you need to call the JavaScript event handler in the event
         viewer.onBeginProcessData = function (args, callback) {
             Stimulsoft.Helper.process(args, callback);
         }
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_viewer_showing_reports_and_dashboards.htm */
+        // Creating the report object
         let report = new Stimulsoft.Report.StiReport();
+
+        // Loading a report by URL
         report.loadFile("reports/SimpleList.mrt");
+
+        // Assigning a report object to the viewer
         viewer.report = report;
 
         function onLoad() {
+            // Rendering the necessary JavaScript code and visual HTML part of the viewer
+            // The rendered code will be placed inside the specified HTML element
             viewer.renderHtml("viewerContent");
         }
     </script>

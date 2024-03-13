@@ -14,27 +14,41 @@ require_once 'vendor/autoload.php';
     </style>
 
     <?php
-    /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_deployment.htm */
+    // Creating and configuring a JavaScript deployment object for the report generator
     $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Report);
+
+    // Rendering the JavaScript code required for the component to work
     $js->renderHtml();
     ?>
 
     <script type="text/javascript">
         <?php
+        // Creating and configuring an event handler object
+        // By default, the event handler sends all requests to the 'handler.php' file
         $handler = new \Stimulsoft\StiHandler();
-        //$handler->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
-        //$handler->license->setFile('license.key');
+
+        // Rendering the JavaScript code necessary for the event handler to work
         $handler->renderHtml();
 
-        /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_web_designer_creating_editing_report.htm */
+        // Creating the report object
         $report = new \Stimulsoft\Report\StiReport();
+
+        // Loading a report by URL
+        // This method does not load the report object on the server side, it only generates the necessary JavaScript code
+        // The report will be loaded into a JavaScript object on the client side
         $report->loadFile('reports/SimpleList.mrt');
+
+        // Calling the report build
+        // This method does not render the report on the server side, it only generates the necessary JavaScript code
+        // The report will be rendered using a JavaScript engine on the client side
         $report->render();
         ?>
 
         function exportToPdf() {
             <?php
-            /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_export_from_code.htm */
+            // Calling the report export to the PDF format
+            // This method does not export the report on the server side, it only generates the necessary JavaScript code
+            // The report will be exported using a JavaScript engine on the client side
             $report->exportDocument(\Stimulsoft\StiExportFormat::Pdf);
             $report->renderHtml();
             ?>
@@ -42,7 +56,9 @@ require_once 'vendor/autoload.php';
 
         function exportToExcel() {
             <?php
-            /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_export_from_code.htm */
+            // Calling the report export to the Excel format
+            // This method does not export the report on the server side, it only generates the necessary JavaScript code
+            // The report will be exported using a JavaScript engine on the client side
             $report->exportDocument(\Stimulsoft\StiExportFormat::Excel2007);
             $report->renderHtml();
             ?>
@@ -50,7 +66,9 @@ require_once 'vendor/autoload.php';
 
         function exportToHtml() {
             <?php
-            /** https://www.stimulsoft.com/en/documentation/online/programming-manual/index.html?reports_and_dashboards_for_php_engine_export_from_code.htm */
+            // Calling the report export to the HTML format
+            // This method does not export the report on the server side, it only generates the necessary JavaScript code
+            // The report will be exported using a JavaScript engine on the client side
             $report->exportDocument(\Stimulsoft\StiExportFormat::Html);
             $report->renderHtml();
             ?>
