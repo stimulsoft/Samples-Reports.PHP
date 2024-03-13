@@ -386,6 +386,19 @@ class StiHandler extends StiDataHandler
         return $result;
     }
 
+    private function getUrl()
+    {
+        $url = $this->options->url;
+        if ($this->options->passQueryParameters) {
+            foreach ($_GET as $key => $value) {
+                $url .= strpos($url, '?') > 0 ? '&' : '?';
+                $url .= "$key=" . rawurlencode($value);
+            }
+        }
+
+        return $url;
+    }
+
     /** Get the HTML representation of the component. */
     public function getHtml()
     {
@@ -495,7 +508,7 @@ class StiHandler extends StiDataHandler
             }
 
             Stimulsoft = Stimulsoft || {};
-            Stimulsoft.Helper = new StiHelper('{$this->options->url}', {$this->options->timeout});
+            Stimulsoft.Helper = new StiHelper('{$this->getUrl()}', {$this->options->timeout});
             jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;
             ";
 

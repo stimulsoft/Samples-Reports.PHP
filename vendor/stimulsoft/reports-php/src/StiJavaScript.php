@@ -8,6 +8,7 @@ class StiJavaScript
     public $options;
     public $usePacked = false;
     public $useRelativeUrls = true;
+    public $relativePath = '';
 
     public function getHtml()
     {
@@ -44,7 +45,7 @@ class StiJavaScript
         $result = '';
         foreach ($scripts as $name) {
             $product = strpos($name, 'dashboards') > 0 ? 'dashboards-php' : 'reports-php';
-            $root = $this->useRelativeUrls ? '' : '/';
+            $root = $this->useRelativeUrls ? $relativePath : '/';
             $result .= "<script src=\"{$root}vendor/stimulsoft/$product/scripts/$name\" type=\"text/javascript\"></script>\n";
         }
 
