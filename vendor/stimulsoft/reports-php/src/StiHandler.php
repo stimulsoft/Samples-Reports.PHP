@@ -500,6 +500,7 @@ class StiHandler extends StiDataHandler
             function StiHelper(url, timeout) {
                 this.url = url;
                 this.timeout = timeout;
+                this.frameworkType = 'PHP';
 
                 if (Stimulsoft && Stimulsoft.StiOptions) {
                     Stimulsoft.StiOptions.WebServer.url = url;
@@ -509,6 +510,7 @@ class StiHandler extends StiDataHandler
 
             Stimulsoft = Stimulsoft || {};
             Stimulsoft.Helper = new StiHelper('{$this->getUrl()}', {$this->options->timeout});
+            Stimulsoft.handler = Stimulsoft.Helper; // right name 'Stimulsoft.handler', from Python
             jsHelper = typeof jsHelper !== 'undefined' ? jsHelper : Stimulsoft.Helper;
             ";
 

@@ -1029,7 +1029,7 @@
     <ClickEvent>Occurs when a user clicks the component in the window of the viewer.</ClickEvent>
     <ComponentStyle>A style of a component.</ComponentStyle>
     <Conditions>A collection of the conditions.</Conditions>
-    <CornerRadius>Represents the value to which the corners are rounded.</CornerRadius>
+    <CornerRadius>Represents the value to which the corners are rounded (Top-Left, Top-Right, Bottom-Right, Bottom-Left).</CornerRadius>
     <CountData>A count of rows for virtual data.</CountData>
     <CrossFiltering>Gets or sets a value which controls applying cross-filters from the current page to that element.</CrossFiltering>
     <DataRelation>Link that is used for master-detail reports rendering.</DataRelation>
@@ -1065,7 +1065,7 @@
     <Left>Left position of the component.</Left>
     <Linked>A value indicates that the object snap to the container is turned on.</Linked>
     <Locked>A value indicates that moving is locked.</Locked>
-    <Margin>Specifies space between this component and another component's margin.</Margin>
+    <Margin>Specifies space between this component and another component's margin (Left, Top, Right, Bottom).</Margin>
     <MasterComponent>The master-component.</MasterComponent>
     <MaxSize>Maximal size.</MaxSize>
     <MinSize>Minimal size.</MinSize>
@@ -1740,7 +1740,7 @@
     <Icon>A page icon.</Icon>
     <LargeHeight>A value indicates that this page has large height in the designer.</LargeHeight>
     <LargeHeightFactor>Large height factor for the LargeHeight property of this page.</LargeHeightFactor>
-    <Margins>Page margins.</Margins>
+    <Margins>Page margins (Left, Right, Top, Bottom).</Margins>
     <MirrorMargins>A value which mirrors the margins of a page depending on whether the page is an odd or even.</MirrorMargins>
     <NumberOfCopies>A value of number of copies of the current page.</NumberOfCopies>
     <Orientation>Page orientation.</Orientation>
@@ -1933,7 +1933,7 @@
     <DataUrl>The expression to fill a component RTF text.</DataUrl>
     <DetectUrls>Detection of urls.</DetectUrls>
     <FullConvertExpression>A value indicates that it is necessary to fully convert the expression to the RTF format. Full convertion of expressions slows down the report rendering.</FullConvertExpression>
-    <Margins>Text margins.</Margins>
+    <Margins>Text margins (Left, Right, Top, Bottom).</Margins>
     <WordWrap>Word wrap.</WordWrap>
     <Wysiwyg>A value which indicates that it is necessary to use the Wysiwyg mode of the rendering.</Wysiwyg>
   </StiRichText>
@@ -2185,7 +2185,7 @@
     <Font>A font of component.</Font>
     <GetExcelValueEvent>Occurs when the ExcelValue is calculated.</GetExcelValueEvent>
     <HorAlignment>The text horizontal alignment.</HorAlignment>
-    <Margins>Text margins.</Margins>
+    <Margins>Text margins (Left, Right, Top, Bottom).</Margins>
     <RenderTo>In the property specify the Text component in what the text that is out of the current Text component bound will be continued to be output.</RenderTo>
     <ShrinkFontToFit>A value indicates that this component descreases font size to fit contents of a component.</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>A value that indicates minimum font size for ShrinkFontToFit operation.</ShrinkFontToFitMinimumSize>
