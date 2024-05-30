@@ -335,6 +335,8 @@
     <LoadReportClass>Klasse</LoadReportClass>
     <LoadReportFile>Datei</LoadReportFile>
     <LoadReportHyperlink>Hyperlink</LoadReportHyperlink>
+    <LoadReportOnServerSide>Den Bericht auf der Server-Seite laden</LoadReportOnServerSide>
+    <LoadReportOnServerSideToolTip>Die Berichtsdatei wird auf die Server-Seite geladen und in die Komponente als Base64-Zeichenfolge übertragen werden. Es hilft unnötige Abfragen zum Server vermeiden.</LoadReportOnServerSideToolTip>
     <LoadReportResource>Ressource</LoadReportResource>
     <LoadReportStream>Strom</LoadReportStream>
     <LoadReportString>String</LoadReportString>
@@ -378,6 +380,8 @@
     <UseCompilationCacheToolTip>Der gerenderte Bericht wird im Temporärverzeichnis gespeichert werden. Es erlaubt den Rendern-Prozess zu beschleunigen und die Speichernutzung zu verringern.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Komprimierte Scripts verwenden</UseCompressedScripts>
     <UseCompressedScriptsToolTip>Verpackte Skripte werden statt gewönlicher Skripte verwendet werden. Es erlaubt ihre Größe zu verringern, aber fordert einige Zeit für Entpacken während des Ausführens.</UseCompressedScriptsToolTip>
+    <UseHtmlTemplate>Eine HTML-Vorlage verwenden</UseHtmlTemplate>
+    <UseHtmlTemplateToolTip>Verwenden Sie eine HTML-Vorlage, um die Komponente anzuzeigen. Es ermöglicht andere Elemente auf der Seite zu platzieren und die JavaScript-Ereignisse zu verwenden.</UseHtmlTemplateToolTip>
     <UseLatestVersion>Die letzte Version der Bibliotheken verwenden</UseLatestVersion>
     <UseLatestVersionToolTip>Bei der Verbindung von Bibliotheken und Skripten wird die letzte verfügbare offizielle Version der Software anstatt der aktuell installierter Version verwendet werden.</UseLatestVersionToolTip>
     <UseRenderedReport>Gerenderten Bericht verwenden</UseRenderedReport>
@@ -2268,6 +2272,10 @@
     <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
     <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
+  <StiUserFunction>
+    <StiScriptAtInterpretationCheckLong>Das Skript der Benutzer-Funktion '{0}' funktioniert nicht im Interpretation-Modus.</StiScriptAtInterpretationCheckLong>
+    <StiScriptAtInterpretationCheckShort>Das Skript in der Interpretation</StiScriptAtInterpretationCheckShort>
+  </StiUserFunction>
   <StiVariable>
     <Alias>Der Alias-Name der Variable.</Alias>
     <Category>Die Kategorie, zu welcher die Variable gehört.</Category>

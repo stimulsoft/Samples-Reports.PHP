@@ -2274,6 +2274,10 @@
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
+  <StiUserFunction>
+    <StiScriptAtInterpretationCheckLong>Сценарий пользовательской функции '{0}' не работает в режиме вычисления отчета как Интерпретация.</StiScriptAtInterpretationCheckLong>
+    <StiScriptAtInterpretationCheckShort>Сценарий в Интерпретации</StiScriptAtInterpretationCheckShort>
+  </StiUserFunction>
   <StiVariable>
     <Alias>Псевдоним переменной.</Alias>
     <Category>Категория переменной.</Category>

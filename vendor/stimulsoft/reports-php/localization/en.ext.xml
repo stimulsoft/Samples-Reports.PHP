@@ -2266,6 +2266,10 @@
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
+  <StiUserFunction>
+    <StiScriptAtInterpretationCheckLong>The script in the custom function '{0}' doesn't work in the interpretation mode.</StiScriptAtInterpretationCheckLong>
+    <StiScriptAtInterpretationCheckShort>Script in Interpretation</StiScriptAtInterpretationCheckShort>
+  </StiUserFunction>
   <StiVariable>
     <Alias>An alias of the variable.</Alias>
     <Category>A category of the variable.</Category>
