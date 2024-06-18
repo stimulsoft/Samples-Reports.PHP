@@ -335,6 +335,8 @@
     <LoadReportClass>クラス</LoadReportClass>
     <LoadReportFile>ファイル</LoadReportFile>
     <LoadReportHyperlink>ハイパーリンク</LoadReportHyperlink>
+    <LoadReportOnServerSide>レポートをサーバー側で読み込む</LoadReportOnServerSide>
+    <LoadReportOnServerSideToolTip>レポートファイルはサーバー側で読み込まれ、Base64文字列としてコンポーネントに転送されます。これにより、不必要なサーバーへのリクエストを回避できます。</LoadReportOnServerSideToolTip>
     <LoadReportResource>リソース</LoadReportResource>
     <LoadReportStream>ストリーム</LoadReportStream>
     <LoadReportString>String </LoadReportString>
@@ -378,6 +380,8 @@
     <UseCompilationCacheToolTip>レンダリングされたレポートは一時ディレクトリに保存されます。これにより、レンダリングを高速化し、メモリ使用量を減らすことができます。</UseCompilationCacheToolTip>
     <UseCompressedScripts>圧縮スクリプトを使用する</UseCompressedScripts>
     <UseCompressedScriptsToolTip>通常のスクリプトの代わりに、パックされたスクリプトが使用されます。 これにより、サイズを小さくすることができますが、実行時に解凍するのに時間がかかります。</UseCompressedScriptsToolTip>
+    <UseHtmlTemplate>HTMLテンプレートを使用する</UseHtmlTemplate>
+    <UseHtmlTemplateToolTip>コンポーネントを表示するためにHTMLテンプレートを使用します。これにより、ページに他の要素を配置したり、JavaScriptイベントを使用したりできます。</UseHtmlTemplateToolTip>
     <UseLatestVersion>ライブラリの最新バージョンを使用</UseLatestVersion>
     <UseLatestVersionToolTip>ライブラリとスクリプトを接続する場合、現在インストールされているバージョンの代わりに、製品の最新の公式バージョンが使用されます。</UseLatestVersionToolTip>
     <UseRenderedReport>レンダリングされたレポートを使用する</UseRenderedReport>
@@ -2273,6 +2277,10 @@
     <Module>バーコードの最も細かい要素の幅を取得または設定</Module>
     <ShowQuietZoneIndicator>Quiet Zone IndicatorまたはNoを示す値を取得または設定</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
+  <StiUserFunction>
+    <StiScriptAtInterpretationCheckLong>カスタム関数'{0}' のスクリプトは、解釈モードでは動作しません。</StiScriptAtInterpretationCheckLong>
+    <StiScriptAtInterpretationCheckShort>解釈スクリプト</StiScriptAtInterpretationCheckShort>
+  </StiUserFunction>
   <StiVariable>
     <Alias>変数のエイリアス</Alias>
     <Category>変数のカテゴリ</Category>
