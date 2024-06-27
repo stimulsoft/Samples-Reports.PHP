@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft\Report;
+namespace Stimulsoft\Report\Enums;
 
 class StiVariableType
 {
@@ -58,4 +58,17 @@ class StiVariableType
     const ShortList = 'ShortList';
     const StringList = 'StringList';
     const TimeSpanList = 'TimeSpanList';
+
+
+### Helpers
+
+    public static function isRange($type): bool
+    {
+        return $type !== null && strlen($type) > 5 && substr($type, -5) === 'Range';
+    }
+
+    public static function isList($type): bool
+    {
+        return $type !== null && strlen($type) > 4 && substr($type, -4) === 'List';
+    }
 }

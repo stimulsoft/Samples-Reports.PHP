@@ -1,16 +1,21 @@
 <?php
 
-use Stimulsoft\StiDataHandler;
+use Stimulsoft\StiBaseHandler;
+use Stimulsoft\Events\StiDataEventArgs;
 
 // Event handler classes and functions
 require_once 'enums\StiDatabaseType.php';
 require_once 'enums\StiDataCommand.php';
+require_once 'events\StiEvent.php';
+require_once 'events\StiEventArgs.php';
+require_once 'events\StiDataEventArgs.php';
 require_once 'classes\StiConnectionInfo.php';
-require_once 'classes\StiDataRequest.php';
-require_once 'classes\StiResult.php';
+require_once 'classes\StiBaseRequest.php';
+require_once 'classes\StiBaseResult.php';
 require_once 'classes\StiDataResult.php';
-require_once 'classes\StiResponse.php';
-require_once 'classes\StiDataHandler.php';
+require_once 'classes\StiBaseResponse.php';
+require_once 'classes\StiBaseHandler.php';
+require_once 'classes\StiParameter.php';
 
 // Data adapters for supported database types
 require_once 'StiDataAdapter.php';
@@ -28,5 +33,11 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Engaged-Auth-Token');
 header('Cache-Control: no-cache');
 
-$handler = new StiDataHandler();
+// Processing database connection parameters.
+$onBeginProcessData = function (StiDataEventArgs $args) {
+    
+};
+
+$handler = new StiBaseHandler();
+$handler->onBeginProcessData->append($onBeginProcessData);
 $handler->process();

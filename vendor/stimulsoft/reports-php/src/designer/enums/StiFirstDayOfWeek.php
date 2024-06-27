@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft\Designer;
+namespace Stimulsoft\Designer\Enums;
 
 class StiFirstDayOfWeek
 {

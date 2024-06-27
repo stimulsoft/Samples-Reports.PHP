@@ -1,69 +1,47 @@
 <?php
+
+use Stimulsoft\Events\StiReportEventArgs;
+use Stimulsoft\Report\StiReport;
+use Stimulsoft\Designer\StiDesigner;
+use Stimulsoft\StiResult;
+
 require_once 'vendor/autoload.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Saving a Report Template on the Server-Side</title>
-    <style>
-        html, body {
-            font-family: sans-serif;
-        }
-    </style>
 
-    <?php
-    // Creating and configuring a JavaScript deployment object for the designer
-    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Designer);
+// Creating a designer object
+$designer = new StiDesigner();
 
-    // Rendering the JavaScript code required for the component to work
-    $js->renderHtml();
-    ?>
+// Defining designer events before processing
+// It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string
+// Also it is possible to add several functions of different types using the append() method
+$designer->onSaveReport = function (StiReportEventArgs $args)
+{
+    // Getting the correct file name of the report template
+    $reportFileName = strlen($args->fileName) > 0 ? $args->fileName : 'Report.mrt';
+    if (strlen($reportFileName) < 5 || substr($reportFileName, -4) !== '.mrt')
+        $reportFileName .= '.mrt';
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
+    // Saving the report file in the 'reports' folder on the server-side
+    file_put_contents('reports/' . $reportFileName, $args->getReportJson());
 
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
+    // If required, it is possible to show a message about success or some error
+    return StiResult::getSuccess("Report file saved successfully as '$args->fileName'");
+    //return StiResult::getSuccess();
+    //return StiResult::getError('An error occurred while saving the report file on the server side.');
+};
 
-        // Creating and configuring the designer options object
-        $options = new \Stimulsoft\Designer\StiDesignerOptions();
-        $options->appearance->fullScreenMode = true;
+// Processing the request and, if successful, immediately printing the result
+$designer->process();
 
-        // Creating the designer object with the necessary options
-        $designer = new \Stimulsoft\Designer\StiDesigner($options);
+// Creating a report object
+$report = new StiReport();
 
-        // Defining designer events
-        // If set to true, this event will be passed to the server-side event handler
-        // By default, all server-side events are located in the 'handler.php' file
-        $designer->onSaveReport = true;
+// Loading a report by URL
+// This method does not load the report object on the server side, it only generates the necessary JavaScript code
+// The report will be loaded into a JavaScript object on the client side
+$report->loadFile('reports/SimpleList.mrt');
 
-        // Creating the report object
-        $report = new \Stimulsoft\Report\StiReport();
+// Assigning a report object to the designer
+$designer->report = $report;
 
-        // Loading a report by URL
-        // This method does not load the report object on the server side, it only generates the necessary JavaScript code
-        // The report will be loaded into a JavaScript object on the client side
-        $report->loadFile('reports/SimpleList.mrt');
-
-        // Assigning a report object to the designer
-        $designer->report = $report;
-        ?>
-
-        function onLoad() {
-            <?php
-            // Rendering the necessary JavaScript code and visual HTML part of the designer
-            // The rendered code will be placed inside the specified HTML element
-            $designer->renderHtml('designerContent');
-            ?>
-        }
-    </script>
-</head>
-<body onload="onLoad();">
-<div id="designerContent"></div>
-</body>
-</html>
+// Displaying the visual part of the designer as a prepared HTML page
+$designer->printHtml();

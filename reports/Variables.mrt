@@ -1,273 +1,317 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<StiSerializer version="1.02" type="Net" application="StiReport">
-  <Dictionary Ref="1" type="Dictionary" isKey="true">
-    <BusinessObjects isList="true" count="0" />
-    <Databases isList="true" count="0" />
-    <DataSources isList="true" count="0" />
-    <Relations isList="true" count="0" />
-    <Report isRef="0" />
-    <Resources isList="true" count="0" />
-    <Variables isList="true" count="6">
-      <value>Category,Address,Address,,System.String,_x0022__x0022_,False,False,False,False</value>
-      <value>Category,BirthDay,BirthDay,,System.DateTime,DateTime.Now,False,True,False,False</value>
-      <value>Category,Email,E-mail,,System.String,_x0022__x0022_,False,False,False,False</value>
-      <value>Category,Name,Name,,System.String,_x0022__x0022_,False,False,False,False</value>
-      <value>Category,Sex,Sex,,System.Boolean,true,False,False,False,False</value>
-      <value>Category,Surname,Surname,,System.String,_x0022__x0022_,False,False,False,False</value>
-    </Variables>
-  </Dictionary>
-  <EngineVersion>EngineV2</EngineVersion>
-  <GlobalizationStrings isList="true" count="0" />
-  <Key>78a01f2a81af40eb90d0d10824eeb38d</Key>
-  <MetaTags isList="true" count="0" />
-  <Pages isList="true" count="1">
-    <Page1 Ref="2" type="Page" isKey="true">
-      <Border>None;Black;2;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <Components isList="true" count="13">
-        <Text1 Ref="3" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0.6,2.2,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <HorAlignment>Right</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text1</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>Name</Text>
-          <TextBrush>Black</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text1>
-        <Text2 Ref="4" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0.6,3.6,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <HorAlignment>Right</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text2</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>Surname</Text>
-          <TextBrush>Black</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text2>
-        <Text3 Ref="5" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0.6,5,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <HorAlignment>Right</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text3</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>E-mail</Text>
-          <TextBrush>Black</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text3>
-        <Text5 Ref="6" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0.6,6.4,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <HorAlignment>Right</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text5</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>Address</Text>
-          <TextBrush>Black</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text5>
-        <Text7 Ref="7" type="Text" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
-          <Brush>Transparent</Brush>
-          <ClientRectangle>8.6,2.2,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text7</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>{Name}</Text>
-          <TextBrush>RoyalBlue</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text7>
-        <Text8 Ref="8" type="Text" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
-          <Brush>Transparent</Brush>
-          <ClientRectangle>8.6,3.6,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text8</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>{Surname}</Text>
-          <TextBrush>RoyalBlue</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text8>
-        <Text9 Ref="9" type="Text" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
-          <Brush>Transparent</Brush>
-          <ClientRectangle>8.6,5,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text9</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>{Email}</Text>
-          <TextBrush>RoyalBlue</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text9>
-        <Text11 Ref="10" type="Text" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
-          <Brush>Transparent</Brush>
-          <ClientRectangle>8.6,6.4,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text11</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>{Address}</Text>
-          <TextBrush>RoyalBlue</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text11>
-        <Text13 Ref="11" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>5.42,0.6,8.2,0.8</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,24</Font>
-          <HorAlignment>Center</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text13</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>Variables</Text>
-          <TextBrush>Black</TextBrush>
-        </Text13>
-        <Text4 Ref="12" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0.6,7.8,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <HorAlignment>Right</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text4</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>Sex</Text>
-          <TextBrush>Black</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text4>
-        <Text6 Ref="13" type="Text" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
-          <Brush>Transparent</Brush>
-          <ClientRectangle>8.6,7.8,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text6</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>{Sex}</Text>
-          <TextBrush>RoyalBlue</TextBrush>
-          <TextFormat Ref="14" type="BooleanFormat" isKey="true">
-            <FalseDisplay>Female</FalseDisplay>
-            <NullDisplay> </NullDisplay>
-            <StringFormat />
-            <TrueDisplay>Male</TrueDisplay>
-          </TextFormat>
-          <VertAlignment>Center</VertAlignment>
-        </Text6>
-        <Text10 Ref="15" type="Text" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0.6,9.2,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <HorAlignment>Right</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text10</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>Birth Day</Text>
-          <TextBrush>Black</TextBrush>
-          <VertAlignment>Center</VertAlignment>
-        </Text10>
-        <Text12 Ref="16" type="Text" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
-          <Brush>Transparent</Brush>
-          <ClientRectangle>8.6,9.2,7.6,1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,16,Bold</Font>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text12</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>{BirthDay}</Text>
-          <TextBrush>RoyalBlue</TextBrush>
-          <TextFormat Ref="17" type="DateFormat" isKey="true">
-            <StringFormat>D</StringFormat>
-          </TextFormat>
-          <VertAlignment>Center</VertAlignment>
-        </Text12>
-      </Components>
-      <Conditions isList="true" count="0" />
-      <Guid>7133b1b46bbd4e4c92cfb2d91908c67b</Guid>
-      <Margins>0.99,0.99,0.99,0.99</Margins>
-      <Name>Page1</Name>
-      <PageHeight>29.69</PageHeight>
-      <PageWidth>21.01</PageWidth>
-      <Report isRef="0" />
-    </Page1>
-  </Pages>
-  <ReferencedAssemblies isList="true" count="7">
-    <value>System.Dll</value>
-    <value>System.Drawing.Dll</value>
-    <value>System.Windows.Forms.Dll</value>
-    <value>System.Data.Dll</value>
-    <value>System.Xml.Dll</value>
-    <value>Stimulsoft.Base.Dll</value>
-    <value>Stimulsoft.Report.Dll</value>
-  </ReferencedAssemblies>
-  <ReportAlias>Report</ReportAlias>
-  <ReportAuthor isNull="true" />
-  <ReportChanged>2/14/2022 4:58:09 PM</ReportChanged>
-  <ReportCreated>12/13/2004 12:12:00 AM</ReportCreated>
-  <ReportDescription isNull="true" />
-  <ReportFile>D:\Stimulsoft\Samples\Samples-JS-PHP\reports\Variables.mrt</ReportFile>
-  <ReportGuid>fdecbc6dbd2b423881d73b7df29431be</ReportGuid>
-  <ReportName>Report</ReportName>
-  <ReportUnit>Centimeters</ReportUnit>
-  <ReportVersion>2020.2.1.0</ReportVersion>
-  <Script>using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Data;
-using Stimulsoft.Base.Drawing;
-using Stimulsoft.Report;
-using Stimulsoft.Report.Components;
-
-namespace StiReports
 {
-    
-    public class Report : Stimulsoft.Report.StiReport
-    {
-        
-        public Report()
-        {
-            this.InitializeComponent();
-        }
-        
-        #region StiReport Designer generated code - do not modify
-		#endregion StiReport Designer generated code - do not modify
+  "ReportVersion": "2024.3.1.0",
+  "ReportGuid": "fdecbc6dbd2b423881d73b7df29431be",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportCreated": "/Date(1102893120000+0100)/",
+  "ReportChanged": "/Date(1644854289000+0100)/",
+  "EngineVersion": "EngineV2",
+  "Script": "using System;\r\nusing System.Drawing;\r\nusing System.Windows.Forms;\r\nusing System.Data;\r\nusing Stimulsoft.Base.Drawing;\r\nusing Stimulsoft.Report;\r\nusing Stimulsoft.Report.Components;\r\n\r\nnamespace StiReports\r\n{\r\n    \r\n    public class Report : Stimulsoft.Report.StiReport\r\n    {\r\n        \r\n        public Report()\r\n        {\r\n            this.InitializeComponent();\r\n        }\r\n        \r\n        #region StiReport Designer generated code - do not modify\r\n\t\t#endregion StiReport Designer generated code - do not modify\r\n    }\r\n}\r\n",
+  "ReferencedAssemblies": {
+    "0": "System.Dll",
+    "1": "System.Drawing.Dll",
+    "2": "System.Windows.Forms.Dll",
+    "3": "System.Data.Dll",
+    "4": "System.Xml.Dll",
+    "5": "Stimulsoft.Base.Dll",
+    "6": "Stimulsoft.Report.Dll"
+  },
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Value": "\"\"",
+        "Name": "Address",
+        "Alias": "Address",
+        "Type": "System.String",
+        "Category": "Category"
+      },
+      "1": {
+        "Value": "DateTime.Now",
+        "Name": "BirthDay",
+        "Alias": "BirthDay",
+        "Type": "System.DateTime",
+        "Category": "Category",
+        "InitBy": "Expression"
+      },
+      "2": {
+        "Value": "\"\"",
+        "Name": "Email",
+        "Alias": "E-mail",
+        "Type": "System.String",
+        "Category": "Category"
+      },
+      "3": {
+        "Value": "\"\"",
+        "Name": "Name",
+        "Alias": "Name",
+        "Type": "System.String",
+        "Category": "Category"
+      },
+      "4": {
+        "Value": "true",
+        "Name": "Sex",
+        "Alias": "Sex",
+        "Type": "System.Boolean",
+        "Category": "Category"
+      },
+      "5": {
+        "Value": "\"\"",
+        "Name": "Surname",
+        "Alias": "Surname",
+        "Type": "System.String",
+        "Category": "Category"
+      }
     }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "7133b1b46bbd4e4c92cfb2d91908c67b",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiText",
+          "Name": "Text1",
+          "ClientRectangle": "0.6,2.2,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Name"
+          },
+          "HorAlignment": "Right",
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black"
+        },
+        "1": {
+          "Ident": "StiText",
+          "Name": "Text2",
+          "ClientRectangle": "0.6,3.6,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Surname"
+          },
+          "HorAlignment": "Right",
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black"
+        },
+        "2": {
+          "Ident": "StiText",
+          "Name": "Text3",
+          "ClientRectangle": "0.6,5,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "E-mail"
+          },
+          "HorAlignment": "Right",
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black"
+        },
+        "3": {
+          "Ident": "StiText",
+          "Name": "Text5",
+          "ClientRectangle": "0.6,6.4,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Address"
+          },
+          "HorAlignment": "Right",
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black"
+        },
+        "4": {
+          "Ident": "StiText",
+          "Name": "Text7",
+          "ClientRectangle": "8.6,2.2,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "{Name}"
+          },
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": "All;;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:RoyalBlue"
+        },
+        "5": {
+          "Ident": "StiText",
+          "Name": "Text8",
+          "ClientRectangle": "8.6,3.6,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "{Surname}"
+          },
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": "All;;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:RoyalBlue"
+        },
+        "6": {
+          "Ident": "StiText",
+          "Name": "Text9",
+          "ClientRectangle": "8.6,5,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "{Email}"
+          },
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": "All;;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:RoyalBlue"
+        },
+        "7": {
+          "Ident": "StiText",
+          "Name": "Text11",
+          "ClientRectangle": "8.6,6.4,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "{Address}"
+          },
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": "All;;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:RoyalBlue"
+        },
+        "8": {
+          "Ident": "StiText",
+          "Name": "Text13",
+          "ClientRectangle": "5.42,0.6,8.2,0.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Variables"
+          },
+          "HorAlignment": "Center",
+          "Font": ";24;;",
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black"
+        },
+        "9": {
+          "Ident": "StiText",
+          "Name": "Text4",
+          "ClientRectangle": "0.6,7.8,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Sex"
+          },
+          "HorAlignment": "Right",
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black"
+        },
+        "10": {
+          "Ident": "StiText",
+          "Name": "Text6",
+          "ClientRectangle": "8.6,7.8,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "{Sex}"
+          },
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": "All;;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:RoyalBlue",
+          "TextFormat": {
+            "Ident": "StiBooleanFormatService",
+            "FalseValue": "False",
+            "TrueValue": "True",
+            "FalseDisplay": "Female",
+            "TrueDisplay": "Male",
+            "NullDisplay": " "
+          }
+        },
+        "11": {
+          "Ident": "StiText",
+          "Name": "Text10",
+          "ClientRectangle": "0.6,9.2,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Birth Day"
+          },
+          "HorAlignment": "Right",
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black"
+        },
+        "12": {
+          "Ident": "StiText",
+          "Name": "Text12",
+          "ClientRectangle": "8.6,9.2,7.6,1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "{BirthDay}"
+          },
+          "VertAlignment": "Center",
+          "Font": ";16;Bold;",
+          "Border": "All;;;;;;;solid:Black",
+          "Brush": "solid:",
+          "TextBrush": "solid:RoyalBlue",
+          "TextFormat": {
+            "Ident": "StiDateFormatService",
+            "StringFormat": "D"
+          }
+        }
+      },
+      "PageWidth": 21.01,
+      "PageHeight": 29.69,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 0.99,
+        "Right": 0.99,
+        "Top": 0.99,
+        "Bottom": 0.99
+      }
+    }
+  }
 }
-</Script>
-  <ScriptLanguage>CSharp</ScriptLanguage>
-  <Styles isList="true" count="0" />
-</StiSerializer>

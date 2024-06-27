@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Enums;
 
 class StiComponentType
 {

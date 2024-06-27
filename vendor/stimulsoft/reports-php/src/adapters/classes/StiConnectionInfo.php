@@ -2,6 +2,9 @@
 
 namespace Stimulsoft;
 
+/**
+ * All database connection information taken from the connection string.
+ */
 class StiConnectionInfo
 {
     public $dsn = '';

@@ -2,15 +2,18 @@
 
 namespace Stimulsoft\Report;
 
-use Stimulsoft\StiHtmlComponent;
+use Stimulsoft\StiElement;
 
-class StiDictionary extends StiHtmlComponent
+class StiDictionary extends StiElement
 {
+    /** @var StiReport */
     public $report;
+
+    /** @var array */
     public $variables;
 
-    /** Get the HTML representation of the component. */
-    public function getHtml()
+
+    public function getHtml(): string
     {
         $result = '';
 
@@ -20,12 +23,12 @@ class StiDictionary extends StiHtmlComponent
             $result .= "{$this->report->id}.dictionary.variables.add({$variable->id});\n";
         }
 
-        return $result;
+        return parent::getHtml() . $result;
     }
 
     public function __construct(StiReport $report)
     {
         $this->report = $report;
-        $this->variables = array();
+        $this->variables = [];
     }
 }

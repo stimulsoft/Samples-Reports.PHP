@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2024.3.1
-Build date: 2024.06.13
+Version: 2024.3.2
+Build date: 2024.06.26
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 export namespace Stimulsoft.System {
@@ -7536,6 +7536,8 @@ export namespace Stimulsoft.Base.Drawing {
         isStartTag(tag: StiHtmlTag): boolean;
         isEndTag(tag: StiHtmlTag): boolean;
         getAttribute(name: string): string;
+        getAttributePair(name: string): TagPair;
+        hasAttribute(name: string): boolean;
         equals(tag2: StiHtmlTag2): boolean;
         toString(): string;
         constructor(tag?: StiHtmlTag, state?: StiHtmlTag2State);
@@ -7582,6 +7584,7 @@ export namespace Stimulsoft.Base.Drawing {
         key: string;
         keyBase: string;
         value: string;
+        constructor(key?: string, keyBase?: string, value?: string);
     }
 }
 export namespace Stimulsoft.Base {
@@ -15779,11 +15782,6 @@ export namespace Stimulsoft.Report.Dictionary {
         Asc = 0,
         Desc = 1
     }
-    enum StiAutoSynchronizeMode {
-        None = 0,
-        IfDictionaryEmpty = 1,
-        Always = 2
-    }
     enum StiRestrictionTypes {
         None = 0,
         DenyEdit = 1,
@@ -20412,7 +20410,6 @@ export namespace StiOptions {
     import PaperSizeCollection = Stimulsoft.System.Drawing.Printing.PrinterSettings.PaperSizeCollection;
     import StiTextQuality = Stimulsoft.Report.Components.StiTextQuality;
     import StiNamingRule = Stimulsoft.Report.StiNamingRule;
-    import StiAutoSynchronizeMode = Stimulsoft.Report.Dictionary.StiAutoSynchronizeMode;
     import StiPropertiesProcessingType = Stimulsoft.Report.Dictionary.StiPropertiesProcessingType;
     import StiFieldsProcessingType = Stimulsoft.Report.Dictionary.StiFieldsProcessingType;
     import StiExcelRestrictEditing = Stimulsoft.Report.Export.StiExcelRestrictEditing;
@@ -20577,7 +20574,6 @@ export namespace StiOptions {
         static showOnlyAliasForDataColumn: boolean;
         static showOnlyAliasForDataRelation: boolean;
         static hideRelationExceptions: boolean;
-        static autoSynchronize: StiAutoSynchronizeMode;
         static useAdvancedDataSearch: boolean;
         static showOnlyAliasForComponents: boolean;
         static showOnlyAliasForDataSource: boolean;
@@ -25304,7 +25300,7 @@ export namespace Stimulsoft.Report.Chart {
 }
 export namespace Stimulsoft.Report.Chart {
     let IStiFullStackedAreaSeries: System.Interface<IStiFullStackedAreaSeries>;
-    interface IStiFullStackedAreaSeries extends IStiStackedAreaSeries {
+    interface IStiFullStackedAreaSeries extends IStiStackedAreaSeries, IStiShowNullsSeries {
     }
 }
 export namespace Stimulsoft.Report.Chart {
@@ -25319,7 +25315,7 @@ export namespace Stimulsoft.Report.Chart {
 }
 export namespace Stimulsoft.Report.Chart {
     let IStiFullStackedSplineAreaSeries: System.Interface<IStiFullStackedSplineAreaSeries>;
-    interface IStiFullStackedSplineAreaSeries extends IStiStackedSplineAreaSeries {
+    interface IStiFullStackedSplineAreaSeries extends IStiStackedSplineAreaSeries, IStiShowNullsSeries {
     }
 }
 export namespace Stimulsoft.Report.Chart {
@@ -29384,6 +29380,7 @@ export namespace Stimulsoft.Report.Dashboard {
         removeXValue(index: number): any;
         removeAllXValues(): any;
         createNewXValue(): IStiMeter;
+        fetchAllXValues(): List<IStiMeter>;
         addYValue(cell: IStiAppDataCell): any;
         getYValue2(cell: IStiAppDataCell): IStiMeter;
         getYValue(meter: IStiMeter): IStiMeter;
@@ -29392,6 +29389,7 @@ export namespace Stimulsoft.Report.Dashboard {
         removeYValue(index: number): any;
         removeAllYValues(): any;
         createNewYValue(): IStiMeter;
+        fetchAllYValues(): List<IStiMeter>;
         addArgument(cell: IStiAppDataCell): any;
         getArgument2(cell: IStiAppDataCell): IStiMeter;
         getArgument(meter: IStiMeter): IStiMeter;
@@ -33907,9 +33905,6 @@ export namespace Stimulsoft.Report.Dictionary {
         cachedUserNamesAndPasswords: Hashtable;
         useInternalData: boolean;
         restrictions: StiRestrictions;
-        static get autoSynchronize(): StiAutoSynchronizeMode;
-        static set autoSynchronize(value: StiAutoSynchronizeMode);
-        static doAutoSynchronize(report: StiReport): void;
         cacheDataSet: DataSet;
         report: StiReport;
         dataStore: StiDataCollection;
@@ -38040,8 +38035,8 @@ export namespace Stimulsoft.Report.Export {
     import Image = Stimulsoft.System.Drawing.Image;
     class StiMapSvgHelper {
         static getImage(svgData: StiSvgData, scale?: number): Image;
-        static drawMap(xmlsWriter: XmlTextWriter, map: StiMap, x: number, y: number, width: number, height: number, animated: boolean): void;
-        static render(map: StiMap, xmlsWriter: XmlTextWriter, animated: boolean, sScale: number): void;
+        static drawMap(xmlsWriter: XmlTextWriter, map: StiMap, x: number, y: number, width: number, height: number, animated: boolean, dontConnectToData: boolean): void;
+        static render(map: StiMap, xmlsWriter: XmlTextWriter, animated: boolean, sScale: number, dontConnectToData: boolean): void;
         private static addToolTipStyle;
         private static getPathText;
         private static getPathRect;
@@ -40336,12 +40331,13 @@ export namespace Stimulsoft.Report.Painters {
         noneInfo: NoneInfo;
         hashGroup: any;
         colorsContainer: StiStyleColorsContainer;
-        private _mapData;
-        get mapData(): List<StiMapData>;
-        set mapData(value: List<StiMapData>);
+        private cacheDataColumns;
+        mapData: List<StiMapData>;
         mapStyle: StiMapStyle;
         dataTable: StiDataTable;
+        dontConnectToData: boolean;
         getValues(meter: IStiMeter): List<any>;
+        private getCacheName;
         prepareDataColumns(): void;
         getGeomBrush(data: StiMapData): Brush;
         updateHeatmapWithGroup(): void;
@@ -50403,7 +50399,7 @@ export namespace Stimulsoft.Report.Chart {
 export namespace Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedAreaSeries extends StiStackedAreaSeries implements IStiStackedAreaSeries, IStiStackedBaseLineSeries, IStiSeries, IStiJsonReportObject, IStiFullStackedAreaSeries, IStiStackedLineSeries, ICloneable, IStiAllowApplyBrushNegative {
+    class StiFullStackedAreaSeries extends StiStackedAreaSeries implements IStiFullStackedAreaSeries, IStiStackedAreaSeries, IStiStackedBaseLineSeries, IStiShowNullsSeries, IStiSeries, IStiJsonReportObject, IStiStackedLineSeries, ICloneable, IStiAllowApplyBrushNegative {
         private static implementsStiFullStackedAreaSeries;
         implements(): any[];
         getDefaultAreaType(): Stimulsoft.System.Type;
@@ -50492,7 +50488,7 @@ export namespace Stimulsoft.Report.Chart {
 export namespace Stimulsoft.Report.Chart {
     import IStiJsonReportObject = Stimulsoft.Base.JsonReportObject.IStiJsonReportObject;
     import ICloneable = Stimulsoft.System.ICloneable;
-    class StiFullStackedSplineAreaSeries extends StiStackedSplineAreaSeries implements IStiStackedSplineSeries, IStiFullStackedSplineAreaSeries, IStiStackedBaseLineSeries, IStiStackedSplineAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
+    class StiFullStackedSplineAreaSeries extends StiStackedSplineAreaSeries implements IStiFullStackedSplineAreaSeries, IStiShowNullsSeries, IStiStackedSplineSeries, IStiStackedBaseLineSeries, IStiStackedSplineAreaSeries, IStiJsonReportObject, IStiSeries, ICloneable, IStiAllowApplyBrushNegative {
         private static implementsStiFullStackedSplineAreaSeries;
         implements(): any[];
         getDefaultAreaType(): Stimulsoft.System.Type;
@@ -59564,6 +59560,8 @@ export namespace Stimulsoft.Dashboard.Components.Chart {
         getY(cell: IStiAppDataCell): IStiMeter;
         getX(cell: IStiAppDataCell): IStiMeter;
         fetchAllValues(): List<IStiMeter>;
+        fetchAllXValues(): List<IStiMeter>;
+        fetchAllYValues(): List<IStiMeter>;
         getValueByIndex(index: number): IStiMeter;
         insertValue(index: number, meter: IStiMeter): void;
         removeValue(index: number): void;
@@ -64222,6 +64220,8 @@ export namespace Stimulsoft.Viewer.Helpers.Dashboards {
         private static getSortDirection;
         private static fetchAllArguments;
         private static fetchAllValues;
+        private static fetchAllXValues;
+        private static fetchAllYValues;
         private static getSeries;
         private static getSortBy;
         private static getManualDataTable;
@@ -64572,6 +64572,7 @@ export namespace Stimulsoft.Viewer {
 export namespace Stimulsoft.Viewer {
     class StiCollectionsHelper {
         static getLocalizationItems(): any;
+        static getPaperSizesItems(): any[];
     }
 }
 export namespace Stimulsoft.Viewer {
@@ -67776,7 +67777,6 @@ export namespace Stimulsoft.Designer {
         private getComponent;
         private getReportInfo;
         static applyParamsToReport(report: StiReport, designer: StiDesigner): void;
-        static doAutoSynchronize(report: StiReport, autoSynchronize: string): void;
         static checkAndCorrectDuplicatePageNames(report: StiReport): void;
         static checkEvalEvents(report: StiReport, designer: StiDesigner, callback: (result: boolean) => void): void;
         constructor(report: StiReport);
