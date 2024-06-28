@@ -16,15 +16,6 @@ class StiDesigner extends StiComponent
 
 ### Events
 
-    /** @var StiComponentEvent The event is invoked before rendering a report after preparing report variables. PHP and JavaScript functions are supported. */
-    public $onPrepareVariables;
-
-    /** @var StiComponentEvent The event is invoked before data request, which are needed to render a report. PHP and JavaScript functions are supported. */
-    public $onBeginProcessData;
-
-    /** @var StiComponentEvent The event is invoked after loading data before rendering a report. PHP and JavaScript functions are supported. */
-    public $onEndProcessData;
-
     /** @var StiComponentEvent The event is invoked after creation a new report in the designer. PHP and JavaScript functions are supported. */
     public $onCreateReport;
 
@@ -141,11 +132,6 @@ class StiDesigner extends StiComponent
     {
         parent::updateEvents();
 
-        if ($this->onBeginProcessData === null) $this->onBeginProcessData = true;
-        $this->updateEvent('onBeginProcessData');
-
-        $this->updateEvent('onEndProcessData');
-        $this->updateEvent('onPrepareVariables');
         $this->updateEvent('onCreateReport');
         $this->updateEvent('onOpenReport');
         $this->updateEvent('onOpenedReport');
@@ -171,12 +157,6 @@ class StiDesigner extends StiComponent
         parent::setHandler($handler);
 
         if ($handler != null) {
-            $handler->component = $this;
-
-            $this->updateEvents();
-            $handler->onPrepareVariables = $this->onPrepareVariables;
-            $handler->onBeginProcessData = $this->onBeginProcessData;
-            $handler->onEndProcessData = $this->onEndProcessData;
             $handler->onCreateReport = $this->onCreateReport;
             $handler->onOpenReport = $this->onOpenReport;
             $handler->onOpenedReport = $this->onOpenedReport;
@@ -193,6 +173,7 @@ class StiDesigner extends StiComponent
 
         if ($report != null) {
             $this->updateEvents();
+            $report->onDatabaseConnect = $this->onDatabaseConnect;
             $report->onBeginProcessData = $this->onBeginProcessData;
             $report->onEndProcessData = $this->onEndProcessData;
             $report->onPrepareVariables = $this->onPrepareVariables;

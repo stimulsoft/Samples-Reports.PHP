@@ -50,7 +50,7 @@ $report->render();
             $report->exportDocument(StiExportFormat::Pdf);
 
             // Rendering only the JavaScript code of the report engine
-            $report->renderHtml(StiHtmlMode::Scripts);
+            echo $report->getHtml(StiHtmlMode::Scripts);
             ?>
         }
 
@@ -62,7 +62,7 @@ $report->render();
             $report->exportDocument(StiExportFormat::Excel);
 
             // Rendering only the JavaScript code of the report engine
-            $report->renderHtml(StiHtmlMode::Scripts);
+            echo $report->getHtml(StiHtmlMode::Scripts);
             ?>
         }
 
@@ -74,7 +74,7 @@ $report->render();
             $report->exportDocument(StiExportFormat::Html);
 
             // Rendering only the JavaScript code of the report engine
-            $report->renderHtml(StiHtmlMode::Scripts);
+            echo $report->getHtml(StiHtmlMode::Scripts);
             ?>
         }
     </script>

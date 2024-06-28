@@ -61,7 +61,10 @@ class StiHandler extends StiBaseHandler
     public $checkFileNames = true;
 
 
-### Events: Report / Viewer / Designer
+### Events: Component
+
+    /** @var StiComponentEvent The event is invoked before connecting to the database after all parameters have been received. */
+    public $onDatabaseConnect;
 
     /** @var StiComponentEvent The event is invoked before rendering a report after preparing report variables. PHP and JavaScript functions are supported. */
     public $onPrepareVariables;
@@ -82,7 +85,7 @@ class StiHandler extends StiBaseHandler
     public $onAfterRender;
 
 
-### Events: Viewer / Designer
+### Events: Viewer | Designer
 
     /**
      * @var StiComponentEvent
@@ -201,6 +204,7 @@ class StiHandler extends StiBaseHandler
         class_alias('Stimulsoft\Events\StiVariablesEventArgs', 'Stimulsoft\StiVariablesEventArgs');
     }
 
+
 ### Helpers
 
     protected function createRequest()
@@ -227,6 +231,21 @@ class StiHandler extends StiBaseHandler
         parent::updateEvents();
 
         $this->updateEvent('onPrepareVariables');
+        $this->updateEvent('onBeforeRender');
+        $this->updateEvent('onAfterRender');
+        $this->updateEvent('onOpenReport');
+        $this->updateEvent('onOpenedReport');
+        $this->updateEvent('onPrintReport');
+        $this->updateEvent('onBeginExportReport');
+        $this->updateEvent('onEndExportReport');
+        $this->updateEvent('onInteraction');
+        $this->updateEvent('onEmailReport');
+        $this->updateEvent('onDesignReport');
+        $this->updateEvent('onCreateReport');
+        $this->updateEvent('onSaveReport');
+        $this->updateEvent('onSaveAsReport');
+        $this->updateEvent('onPreviewReport');
+        $this->updateEvent('onExit');
     }
 
     private function getComponent()

@@ -12,6 +12,21 @@ use Stimulsoft\Events\StiEventArgs;
 class StiComponent extends StiElement
 {
 
+### Events
+
+    /** @var StiComponentEvent The event is invoked before connecting to the database after all parameters have been received. */
+    public $onDatabaseConnect;
+
+    /** @var StiComponentEvent The event is invoked before rendering a report after preparing report variables. PHP and JavaScript functions are supported. */
+    public $onPrepareVariables;
+
+    /** @var StiComponentEvent The event is invoked before data request, which needed to render a report. PHP and JavaScript functions are supported. */
+    public $onBeginProcessData;
+
+    /** @var StiComponentEvent The event is invoked after loading data before rendering a report. Python and JavaScript functions are supported. */
+    public $onEndProcessData;
+
+
 ### Fields
 
     /** @var bool */
@@ -46,8 +61,16 @@ class StiComponent extends StiElement
 
     public function setHandler(StiHandler $handler)
     {
-        if ($handler != null)
+        if ($handler != null) {
             $this->handler = $handler;
+            $handler->component = $this;
+
+            $this->updateEvents();
+            $handler->onDatabaseConnect = $this->onDatabaseConnect;
+            $handler->onBeginProcessData = $this->onBeginProcessData;
+            $handler->onEndProcessData = $this->onEndProcessData;
+            $handler->onPrepareVariables = $this->onPrepareVariables;
+        }
     }
 
     protected function updateObjects()
@@ -76,6 +99,12 @@ class StiComponent extends StiElement
 
     protected function updateEvents()
     {
+        if ($this->onBeginProcessData === null) $this->onBeginProcessData = true;
+        $this->updateEvent('onBeginProcessData');
+
+        $this->updateEvent('onEndProcessData');
+        $this->updateEvent('onDatabaseConnect');
+        $this->updateEvent('onPrepareVariables');
     }
 
     protected function updateEvent(string $eventName)
@@ -194,23 +223,14 @@ class StiComponent extends StiElement
 
     /**
      * Outputs the HTML representation of the component or element.
-     * @param StiHtmlMode|int $mode HTML code generation mode.
      * @param string $elementId The ID of the HTML element, inside which the component code will be printed.
      * If not specified, the code will be printed in the current position.
      */
-    public function renderHtml($mode = StiHtmlMode::HtmlScripts, string $elementId = null)
+    public function renderHtml(string $elementId = null)
     {
-        if (StiHandler::$legacyMode) {
-            if (is_string($mode)) {
-                $elementId = $mode;
-                $mode = StiHtmlMode::HtmlScripts;
-            }
-
-            if ($mode == StiHtmlMode::HtmlScripts)
-                $mode = StiHtmlMode::Scripts;
-        }
-
         $this->elementId = $elementId;
+
+        $mode = StiHandler::$legacyMode ? StiHtmlMode::Scripts : StiHtmlMode::HtmlScripts;
         echo $this->getHtml($mode);
     }
 

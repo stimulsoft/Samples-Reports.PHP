@@ -29,16 +29,6 @@ class StiReport extends StiComponent
     /** @var StiComponentEvent The event is invoked called immediately after report rendering. Only JavaScript functions are supported. */
     public $onAfterRender;
 
-    /** @var StiComponentEvent The event is invoked before rendering a report after preparing report variables. PHP and JavaScript functions are supported. */
-    public $onPrepareVariables;
-
-    /** @var StiComponentEvent The event is invoked before data request, which needed to render a report. PHP and JavaScript functions are supported. */
-    public $onBeginProcessData;
-
-    /** @var StiComponentEvent The event is invoked after loading data before rendering a report. Python and JavaScript functions are supported. */
-    public $onEndProcessData;
-
-
 ### Properties
 
     /** @var StiEngineType Gets or sets the report building and export mode - on the client side in a browser window or on the server side using Node.js */
@@ -125,11 +115,6 @@ class StiReport extends StiComponent
     {
         parent::updateEvents();
 
-        if ($this->onBeginProcessData === null) $this->onBeginProcessData = true;
-        $this->updateEvent('onBeginProcessData');
-
-        $this->updateEvent('onEndProcessData');
-        $this->updateEvent('onPrepareVariables');
         $this->updateEvent('onBeforeRender');
         $this->updateEvent('onAfterRender');
     }
@@ -138,17 +123,8 @@ class StiReport extends StiComponent
     {
         parent::setHandler($handler);
 
-        if ($handler != null) {
-            $handler->component = $this;
-
-            if ($this->engine == StiEngineType::ServerNodeJS)
-                $handler->htmlRendered = true;
-
-            $this->updateEvents();
-            $handler->onBeginProcessData = $this->onBeginProcessData;
-            $handler->onEndProcessData = $this->onEndProcessData;
-            $handler->onPrepareVariables = $this->onPrepareVariables;
-        }
+        if ($handler != null && $this->engine == StiEngineType::ServerNodeJS)
+            $handler->htmlRendered = true;
     }
 
 

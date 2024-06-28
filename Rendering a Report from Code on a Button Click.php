@@ -59,7 +59,7 @@ $report->render();
         function renderReport() {
             <?php
             // Rendering only the JavaScript code of the report engine
-            $report->renderHtml(StiHtmlMode::Scripts);
+            echo $report->getHtml(StiHtmlMode::Scripts);
             ?>
         }
     </script>
