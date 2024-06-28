@@ -1,11 +1,11 @@
 <?php
+require_once 'vendor/autoload.php';
 
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
 use Stimulsoft\Viewer\Enums\StiViewerTheme;
 use Stimulsoft\Viewer\StiViewer;
 
-require_once 'vendor/autoload.php';
 
 // Creating a viewer object
 $viewer = new StiViewer();

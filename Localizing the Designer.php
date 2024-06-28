@@ -1,9 +1,9 @@
 <?php
-
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
 require_once 'vendor/autoload.php';
+
+use Stimulsoft\Designer\StiDesigner;
+use Stimulsoft\Report\StiReport;
+
 
 // Creating a designer object
 $designer = new StiDesigner();

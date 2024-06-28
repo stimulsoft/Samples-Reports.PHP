@@ -1,9 +1,9 @@
 <?php
-
-use Stimulsoft\StiHandler;
-use Stimulsoft\Events\StiDataEventArgs;
-
 require_once 'vendor/autoload.php';
+
+use Stimulsoft\Events\StiDataEventArgs;
+use Stimulsoft\StiHandler;
+
 
 // Creating and configuring an event handler object
 $handler = new StiHandler();

@@ -1,9 +1,8 @@
 <?php
+require_once 'vendor/autoload.php';
 
 use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiLicense;
 
-require_once 'vendor/autoload.php';
 
 // Creating a report object
 $report = new StiReport();

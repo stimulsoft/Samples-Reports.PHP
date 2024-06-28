@@ -1,4 +1,5 @@
 <?php
+require_once 'vendor/autoload.php';
 
 use Stimulsoft\Events\StiExportEventArgs;
 use Stimulsoft\Export\Enums\StiExportFormat;
@@ -6,7 +7,6 @@ use Stimulsoft\Export\StiPdfExportSettings;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\Viewer\StiViewer;
 
-require_once 'vendor/autoload.php';
 
 // Creating a viewer object
 $viewer = new StiViewer();

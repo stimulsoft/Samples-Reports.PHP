@@ -1,10 +1,10 @@
 <?php
+require_once 'vendor/autoload.php';
 
 use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\Viewer\StiViewer;
 
-require_once 'vendor/autoload.php';
 
 // Creating a viewer object
 $viewer = new StiViewer();

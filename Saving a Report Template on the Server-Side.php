@@ -1,11 +1,11 @@
 <?php
+require_once 'vendor/autoload.php';
 
+use Stimulsoft\Designer\StiDesigner;
 use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
 use Stimulsoft\StiResult;
 
-require_once 'vendor/autoload.php';
 
 // Creating a designer object
 $designer = new StiDesigner();

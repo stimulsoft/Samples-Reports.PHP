@@ -5,7 +5,6 @@ use Stimulsoft\Events\StiVariablesEventArgs;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\Viewer\StiViewer;
 
-require_once 'vendor/autoload.php';
 
 // Creating a viewer object
 $viewer = new StiViewer();

@@ -1,11 +1,11 @@
 <?php
+require_once 'vendor/autoload.php';
 
+use Stimulsoft\Designer\StiDesigner;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
 use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Designer\StiDesigner;
 
-require_once 'vendor/autoload.php';
 
 // Getting the current action
 $action = $_GET['action'] ?? 'view';

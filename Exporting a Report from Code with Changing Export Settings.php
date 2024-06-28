@@ -1,12 +1,11 @@
 <?php
+require_once 'vendor/autoload.php';
 
-use Stimulsoft\Enums\StiHtmlMode;
 use Stimulsoft\Export\Enums\StiExportFormat;
 use Stimulsoft\Export\StiPdfExportSettings;
 use Stimulsoft\Report\Enums\StiEngineType;
 use Stimulsoft\Report\StiReport;
 
-require_once 'vendor/autoload.php';
 
 // Creating a report object
 $report = new StiReport();

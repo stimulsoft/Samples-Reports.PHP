@@ -1,8 +1,8 @@
 <?php
+require_once 'vendor/autoload.php';
 
 use Stimulsoft\StiNodeJs;
 
-require_once 'vendor/autoload.php';
 
 // Creating a Node.js object
 $nodejs = new StiNodeJs();
