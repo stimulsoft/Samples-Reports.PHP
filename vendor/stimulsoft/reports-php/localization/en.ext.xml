@@ -2267,7 +2267,7 @@
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
   <StiUserFunction>
-    <StiScriptAtInterpretationCheckLong>The script in the custom function '{0}' doesn't work in the interpretation mode.</StiScriptAtInterpretationCheckLong>
+    <StiScriptAtInterpretationCheckLong>The script in the user function '{0}' doesn't work in the interpretation mode.</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>Script in Interpretation</StiScriptAtInterpretationCheckShort>
   </StiUserFunction>
   <StiVariable>
