@@ -1,6 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 
+use Stimulsoft\StiLicense;
 use Stimulsoft\Report\StiReport;
 
 
