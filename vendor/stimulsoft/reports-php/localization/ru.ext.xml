@@ -375,6 +375,8 @@
     <ThemeBackground>Фоновый цвет:</ThemeBackground>
     <ThemeStyle>Стиль оформления:</ThemeStyle>
     <TrialVersion>Пробная версия</TrialVersion>
+    <TrialVersionNotIncluded>Пробная версия. Этот продукт не включен в Вашу подписку.</TrialVersionNotIncluded>
+    <TrialVersionHasExpired>Пробная версия. Ваша подписка истекла, необходимо обновление.</TrialVersionHasExpired>
     <Use>Использовать</Use>
     <UseCompilationCache>Использовать компиляцию для кэширования</UseCompilationCache>
     <UseCompilationCacheToolTip>Скомпилированный отчёт будет сохранён во временной директории, это позволяет ускорить последующее его построение и сократить использование памяти.</UseCompilationCacheToolTip>
