@@ -1,12 +1,34 @@
 <?php
 require_once 'vendor/autoload.php';
+
+use Stimulsoft\Events\StiDataEventArgs;
+use Stimulsoft\StiHandler;
+
+
+// Creating and configuring an event handler object
+$handler = new StiHandler();
+
+// By default, all requests are processed on the current page
+// It is possible to specify a path that contains an event handler, for example the 'handler.php' file
+// $handler = new StiHandler('handler.php');
+
+// If necessary, define events before processing
+// It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string
+// Also it is possible to add several functions of different types using the append() method
+$handler->onBeginProcessData = function (StiDataEventArgs $args) {
+
+};
+
+// Processing the request and, if successful, immediately printing the result
+$handler->process();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Showing a Report in the Viewer using JavaScript</title>
+    <title>Showing a Report in the Viewer in an HTML template using JavaScript</title>
     <style>
         html, body {
             font-family: sans-serif;
@@ -16,17 +38,14 @@ require_once 'vendor/autoload.php';
     <!-- Adding JavaScript code required for the viewer to work -->
     <script src="vendor/stimulsoft/reports-php/scripts/stimulsoft.reports.js" type="text/javascript"></script>
     <script src="vendor/stimulsoft/reports-php/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+    
+    <?php
+    // Rendering the necessary JavaScript code of the handler
+    $handler->renderHtml();
+    ?>
 
     <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
-
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
-        ?>
-
+    
         // Creating and configuring the viewer options object
         let options = new Stimulsoft.Viewer.StiViewerOptions();
         options.appearance.fullScreenMode = true;
@@ -42,7 +61,7 @@ require_once 'vendor/autoload.php';
         // This event will be triggered when requesting data for a report
         // To process the result on the server-side, you need to call the JavaScript event handler in the event
         viewer.onBeginProcessData = function (args, callback) {
-            Stimulsoft.Helper.process(args, callback);
+            Stimulsoft.handler.process(args, callback);
         }
 
         // Creating the report object
@@ -62,6 +81,8 @@ require_once 'vendor/autoload.php';
     </script>
 </head>
 <body onload="onLoad();">
+<h2>Showing a Report in the Viewer in an HTML template using JavaScript</h2>
+<hr>
 <div id="viewerContent"></div>
 </body>
 </html>

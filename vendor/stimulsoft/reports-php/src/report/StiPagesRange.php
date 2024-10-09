@@ -2,18 +2,18 @@
 
 namespace Stimulsoft\Report;
 
-use Stimulsoft\StiHtmlComponent;
+use Stimulsoft\Report\Enums\StiRangeType;
+use Stimulsoft\StiJsElement;
 
-class StiPagesRange extends StiHtmlComponent
+class StiPagesRange extends StiJsElement
 {
     public $rangeType = StiRangeType::All;
     public $pageRanges = '';
     public $currentPage = 0;
 
-    /** Get the HTML representation of the component. */
-    public function getHtml()
+    public function getHtml($newObject = true): string
     {
-        $result = "let $this->id = new Stimulsoft.Report.StiPagesRange();\n";
+        $result = $newObject ? "let $this->id = new Stimulsoft.Report.StiPagesRange();\n" : '';
         if ($this->rangeType != StiRangeType::All) {
             $result .= "$this->id.rangeType = $this->rangeType;\n";
 
@@ -24,14 +24,12 @@ class StiPagesRange extends StiHtmlComponent
                 $result .= "$this->id.currentPage = $this->currentPage;\n";
         }
 
-        $this->isHtmlRendered = true;
-        return $result;
+        return parent::getHtml() . $result;
     }
 
     public function __construct($rangeType = StiRangeType::All, $pageRanges = '', $currentPage = 0)
     {
         $this->id = 'pagesRange';
-
         $this->rangeType = $rangeType;
         $this->pageRanges = $pageRanges;
         $this->currentPage = $currentPage;

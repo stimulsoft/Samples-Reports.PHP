@@ -2,47 +2,58 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiMsSqlAdapter extends StiDataAdapter
 {
-    public $version = '2024.3.6';
+
+### Constants
+
+    const DriverNotFound = 'MS SQL driver not found. Please configure your PHP server to work with MS SQL.';
+
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = true;
 
+    protected $type = StiDatabaseType::MSSQL;
     protected $driverName = 'sqlsrv';
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult($message);
+            return parent::getLastErrorResult();
 
-        $code = 0;
-
-        if ($this->driverType == 'Microsoft') {
-            if (($errors = sqlsrv_errors()) != null) {
-                $error = $errors[count($errors) - 1];
-                $code = $error['code'];
-                $message = $error['message'];
-            }
-        }
-        else {
-            $error = mssql_get_last_message();
-            if ($error) $message = $error;
+        $message = self::UnknownError;
+        $errors = sqlsrv_errors();
+        if ($errors != null) {
+            $error = $errors[count($errors) - 1];
+            $message = "[{$error['code']}] " . $error['message'];
         }
 
-        return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
         if ($this->driverType == 'PDO')
             return parent::connect();
 
-        if ($this->driverType == 'Microsoft') {
-            if (!function_exists('sqlsrv_connect'))
-                return StiResult::error('MS SQL driver not found. Please configure your PHP server to work with MS SQL.');
+        if (!function_exists('sqlsrv_connect'))
+            return StiDataResult::getError(self::DriverNotFound)->getDataAdapterResult($this);
 
+        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $this->handler->onDatabaseConnect->call($args);
+
+        if ($args->link !== null)
+            $this->connectionLink = $args->link;
+        else {
             sqlsrv_configure('WarningsReturnAsErrors', 0);
             $this->connectionLink = sqlsrv_connect(
                 $this->connectionInfo->host,
@@ -54,21 +65,12 @@ class StiMsSqlAdapter extends StiDataAdapter
                     'ReturnDatesAsStrings' => true,
                     'CharacterSet' => $this->connectionInfo->charset
                 ));
-
-            if (!$this->connectionLink)
-                return $this->getLastErrorResult();
-
-            return StiDataResult::success();
         }
 
-        $this->connectionLink = mssql_connect($this->connectionInfo->host, $this->connectionInfo->userId, $this->connectionInfo->password);
         if (!$this->connectionLink)
             return $this->getLastErrorResult();
 
-        if (!mssql_select_db($this->connectionInfo->database, $this->connectionLink))
-            return $this->getLastErrorResult();
-
-        return StiResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -76,21 +78,16 @@ class StiMsSqlAdapter extends StiDataAdapter
         if ($this->driverType == 'PDO')
             parent::disconnect();
         else if ($this->connectionLink) {
-            if ($this->driverType == 'Microsoft')
-                sqlsrv_close($this->connectionLink);
-            else
-                mssql_close($this->connectionLink);
-
+            sqlsrv_close($this->connectionLink);
             $this->connectionLink = null;
         }
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
-        if (parent::parse($connectionString))
-            return true;
+        if (parent::process()) return true;
 
-        $this->driverType = function_exists('mssql_connect') ? 'Native' : 'Microsoft';
+        $this->driverType = 'Microsoft';
         $this->connectionInfo->charset = 'UTF-8';
 
         $parameterNames = array(
@@ -101,10 +98,10 @@ class StiMsSqlAdapter extends StiDataAdapter
             'charset' => ['charset']
         );
 
-        return $this->parseParameters($parameterNames);
+        return $this->processParameters($parameterNames);
     }
 
-    private function getStringType($type)
+    private function getStringType($type): string
     {
         switch ($type) {
             case -6:
@@ -155,7 +152,7 @@ class StiMsSqlAdapter extends StiDataAdapter
         return 'string';
     }
 
-    protected function parseType($meta)
+    protected function getType($meta): string
     {
         if ($this->driverType == 'PDO') {
             $type = $meta['sqlsrv:decl_type'];
@@ -251,40 +248,39 @@ class StiMsSqlAdapter extends StiDataAdapter
         return $value;
     }
 
-    public function makeQuery($procedure, $parameters)
+    public function makeQuery($procedure, $parameters): string
     {
         $paramsString = parent::makeQuery($procedure, $parameters);
         return "EXEC $procedure $paramsString";
     }
 
-    protected function executeNative($queryString, $result)
+    protected function executeNative($queryString, $maxDataRows, $result): StiDataResult
     {
-        $query = $this->driverType == 'Microsoft'
-            ? sqlsrv_query($this->connectionLink, $queryString)
-            : mssql_query($queryString, $this->connectionLink);
-
+        $query = sqlsrv_query($this->connectionLink, $queryString);
         if (!$query)
             return $this->getLastErrorResult();
 
         if ($this->driverType == 'Microsoft') {
             foreach (sqlsrv_field_metadata($query) as $meta) {
                 $result->columns[] = $meta['Name'];
-                $result->types[] = $this->parseType($meta);
+                $result->types[] = $this->getType($meta);
             }
         }
 
         $isColumnsEmpty = count($result->columns) == 0;
-        while ($rowItem = ($this->driverType == 'Microsoft'
-            ? sqlsrv_fetch_array($query, $isColumnsEmpty ? SQLSRV_FETCH_ASSOC : SQLSRV_FETCH_NUMERIC)
-            : mssql_fetch_assoc($query))) {
+        while ($rowItem = sqlsrv_fetch_array($query, $isColumnsEmpty ? SQLSRV_FETCH_ASSOC : SQLSRV_FETCH_NUMERIC)) {
+            $row = [];
 
-            $row = array();
             foreach ($rowItem as $key => $value) {
                 if ($isColumnsEmpty && count($result->columns) < count($rowItem)) $result->columns[] = $key;
                 $type = count($result->types) >= count($row) + 1 ? $result->types[count($row)] : 'string';
                 $row[] = $this->getValue($type, $value);
             }
+
             $result->rows[] = $row;
+
+            if (count($result->rows) === $maxDataRows)
+                break;
         }
 
         return $result;

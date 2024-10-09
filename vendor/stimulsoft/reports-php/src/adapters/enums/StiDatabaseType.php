@@ -1,6 +1,8 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Enums;
+
+use Stimulsoft\StiFunctions;
 
 class StiDatabaseType
 {
@@ -12,9 +14,11 @@ class StiDatabaseType
     const ODBC = 'ODBC';
     const MongoDB = 'MongoDB';
 
-    public static function getTypes() {
-        $reflectionClass = new \ReflectionClass('\Stimulsoft\StiDatabaseType');
-        $databases = $reflectionClass->getConstants();
-        return array_values($databases);
+
+### Helpers
+
+    public static function getValues(): array
+    {
+        return StiFunctions::getConstants('Stimulsoft\Enums\StiDatabaseType');
     }
 }

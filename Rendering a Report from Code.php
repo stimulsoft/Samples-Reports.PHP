@@ -1,6 +1,31 @@
 <?php
 require_once 'vendor/autoload.php';
+
+use Stimulsoft\Report\StiReport;
+
+
+// Creating a report object
+$report = new StiReport();
+
+// Defining report events before processing
+// It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string
+// Also it is possible to add several functions of different types using the append() method
+$report->onAfterRender = 'onAfterRender';
+
+// Processing the request and, if successful, immediately printing the result
+$report->process();
+
+// Loading a report by URL
+// This method does not load the report object on the server side, it only generates the necessary JavaScript code
+// The report will be loaded into a JavaScript object on the client side
+$report->loadFile('reports/SimpleList.mrt');
+
+// Calling the report build
+// This method does not render the report on the server side, it only generates the necessary JavaScript code
+// The report will be rendered using a JavaScript engine on the client side
+$report->render();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,46 +39,30 @@ require_once 'vendor/autoload.php';
     </style>
 
     <?php
-    // Creating and configuring a JavaScript deployment object for the report generator
-    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Report);
-
-    // Rendering the JavaScript code required for the component to work
-    $js->renderHtml();
+    // Rendering the necessary JavaScript code of the report engine
+    $report->javascript->renderHtml();
     ?>
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
+    <script>
+        // The function will be called after building the report
+        function onAfterRender(args) {
 
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
+            // Saving the report as a JSON string
+            let json = args.report.saveDocumentToJsonString();
+            document.getElementById("reportJson").innerText = json;
 
-        // Creating the report object
-        $report = new \Stimulsoft\Report\StiReport();
-
-        // Loading a report by URL
-        // This method does not load the report object on the server side, it only generates the necessary JavaScript code
-        // The report will be loaded into a JavaScript object on the client side
-        $report->loadFile('reports/SimpleList.mrt');
-
-        // Calling the report build
-        // This method does not render the report on the server side, it only generates the necessary JavaScript code
-        // The report will be rendered using a JavaScript engine on the client side
-        // If required, the specified JavaScript function will be called after building the report
-        $report->render('afterRender');
-
-        // Rendering the necessary JavaScript code and HTML part of the report generator
-        $report->renderHtml();
-        ?>
-
-        function afterRender() {
-            alert('Done!')
+            // Displaying a message with the number of built report pages
+            alert("The report rendering is completed. Pages: " + args.report.renderedPages.count);
         }
     </script>
 </head>
 <body>
-<h1>Rendering a Report from Code</h1>
+<h2>Rendering a Report from Code</h2>
+<hr>
+<?php
+// Rendering the HTML part of the report engine
+$report->renderHtml();
+?>
+<div id="reportJson"></div>
 </body>
 </html>

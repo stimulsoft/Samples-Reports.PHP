@@ -1,75 +1,37 @@
 <?php
 require_once 'vendor/autoload.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Localizing the Designer</title>
-    <style>
-        html, body {
-            font-family: sans-serif;
-        }
-    </style>
 
-    <?php
-    // Creating and configuring a JavaScript deployment object for the designer
-    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Designer);
+use Stimulsoft\Designer\StiDesigner;
+use Stimulsoft\Report\StiReport;
 
-    // Rendering the JavaScript code required for the component to work
-    $js->renderHtml();
-    ?>
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
+// Creating a designer object
+$designer = new StiDesigner();
 
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
+// Defining the required interface localization
+// The list of available localizations can be obtained from the GitHub repository:
+// https://github.com/stimulsoft/Stimulsoft.Reports.Localization
+$designer->options->localization = 'de.xml';
 
-        // Creating and configuring the designer options object
-        $options = new \Stimulsoft\Designer\StiDesignerOptions();
-        $options->appearance->fullScreenMode = true;
+// Additionally, it is possible to add optional localizations
+// They will be displayed in the localization menu in the designer panel
+$designer->options->addLocalization('fr.xml');
+$designer->options->addLocalization('es.xml');
+$designer->options->addLocalization('pt.xml');
 
-        // Defining the required interface localization
-        // The list of available localizations can be obtained from the GitHub repository:
-        // https://github.com/stimulsoft/Stimulsoft.Reports.Localization
-        $options->localization = 'de.xml';
+// Processing the request and, if successful, immediately printing the result
+$designer->process();
 
-        // Additionally, it is possible to add optional localizations
-        // They will be displayed in the localization menu in the designer panel
-        $options->addLocalization('fr.xml');
-        $options->addLocalization('es.xml');
-        $options->addLocalization('pt.xml');
+// Creating a report object
+$report = new StiReport();
 
-        // Creating the designer object with the necessary options
-        $designer = new \Stimulsoft\Designer\StiDesigner($options);
+// Loading a report by URL
+// This method does not load the report object on the server side, it only generates the necessary JavaScript code
+// The report will be loaded into a JavaScript object on the client side
+$report->loadFile('reports/SimpleList.mrt');
 
-        // Creating the report object
-        $report = new \Stimulsoft\Report\StiReport();
+// Assigning a report object to the designer
+$designer->report = $report;
 
-        // Loading a report by URL
-        // This method does not load the report object on the server side, it only generates the necessary JavaScript code
-        // The report will be loaded into a JavaScript object on the client side
-        $report->loadFile('reports/SimpleList.mrt');
-
-        // Assigning a report object to the designer
-        $designer->report = $report;
-        ?>
-
-        function onLoad() {
-            <?php
-            // Rendering the necessary JavaScript code and visual HTML part of the designer
-            // The rendered code will be placed inside the specified HTML element
-            $designer->renderHtml('designerContent');
-            ?>
-        }
-    </script>
-</head>
-<body onload="onLoad();">
-<div id="designerContent"></div>
-</body>
-</html>
+// Displaying the visual part of the designer as a prepared HTML page
+$designer->printHtml();

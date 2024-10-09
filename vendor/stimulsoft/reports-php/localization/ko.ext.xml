@@ -375,6 +375,8 @@
     <ThemeBackground>배경</ThemeBackground>
     <ThemeStyle>테마 스타일 :</ThemeStyle>
     <TrialVersion>평가판</TrialVersion>
+    <TrialVersionHasExpired>체험판. 구독이 만료되었으며 갱신이 필요합니다.</TrialVersionHasExpired>
+    <TrialVersionNotIncluded>체험판. 이 제품은 귀하의 구독에 포함되지 않았습니다.</TrialVersionNotIncluded>
     <Use>Use</Use>
     <UseCompilationCache>컴파일 캐시를 사용</UseCompilationCache>
     <UseCompilationCacheToolTip>렌더링된 리포트는 렌더링 속도를 높이고 메모리 사용량을 줄일 수 있는 임시 디렉토리에 저장될 것입니다.</UseCompilationCacheToolTip>
@@ -1878,6 +1880,7 @@
     <EngineVersion>현재보고 엔진</EngineVersion>
     <ExportedEvent>보고서 내보내기가 종료될 때 발생합니다.</ExportedEvent>
     <ExportingEvent>보고서 내보내기가 시작될 때 발생합니다.</ExportingEvent>
+    <ExportSettings>내보내기 설정</ExportSettings>
     <GlobalizationStrings>국제화 문자열로 구성된 컬렉션</GlobalizationStrings>
     <NumberOfPass>보고서 생성시 보고서 생성기를 만들 경로의 수</NumberOfPass>
     <ParametersOrientation>매개 변수 패널 방향을 나타내는 값</ParametersOrientation>
@@ -2275,6 +2278,9 @@
   <StiUserFunction>
     <StiScriptAtInterpretationCheckLong>사용자 지정 함수 '{0}'의 스크립트가 해석 모드에서 작동하지 않습니다.</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>스크립트 해석</StiScriptAtInterpretationCheckShort>
+    <StiUserFunctionLangScriptValueCheckLong>사용자 함수 '{1}'에 {0} 언어에 대한 스크립트가 정의되지 않았습니다.</StiUserFunctionLangScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckLong>사용자 함수 '{0}'에 현재 보고서 프로그래밍 언어에 대한 스크립트가 지정되지 않았습니다.</StiUserFunctionScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckShort>스크립트</StiUserFunctionScriptValueCheckShort>
   </StiUserFunction>
   <StiVariable>
     <Alias>변수의 별칭</Alias>

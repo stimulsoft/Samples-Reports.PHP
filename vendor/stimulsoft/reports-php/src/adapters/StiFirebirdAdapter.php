@@ -2,43 +2,61 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiFirebirdAdapter extends StiDataAdapter
 {
-    public $version = '2024.3.6';
+
+### Constants
+
+    const DriverNotFound = 'Firebird driver not found. Please configure your PHP server to work with Firebird.';
+
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = true;
 
+    protected $type = StiDatabaseType::Firebird;
     protected $driverName = 'firebird';
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult($message);
+            return parent::getLastErrorResult();
 
         $code = ibase_errcode();
         $error = ibase_errmsg();
-        if ($error) $message = $error;
+        $message = $error ?: self::UnknownError;
+        if ($code != 0) $message = "[$code] $message";
 
-        return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
         if ($this->driverType == 'PDO')
             return parent::connect();
 
         if (!function_exists('ibase_connect'))
-            return StiResult::error('Firebird driver not found. Please configure your PHP server to work with Firebird.');
+            return StiDataResult::getError(self::DriverNotFound)->getDataAdapterResult($this);
 
-        $this->connectionLink = ibase_connect(
+        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $this->handler->onDatabaseConnect->call($args);
+
+        $this->connectionLink = $args->link !== null ? $args->link : ibase_connect(
             $this->connectionInfo->host . '/' . $this->connectionInfo->port . ':' . $this->connectionInfo->database,
             $this->connectionInfo->userId, $this->connectionInfo->password, $this->connectionInfo->charset);
+
         if (!$this->connectionLink)
             return $this->getLastErrorResult();
 
-        return StiDataResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -51,10 +69,9 @@ class StiFirebirdAdapter extends StiDataAdapter
         }
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
-        if (parent::parse($connectionString))
-            return true;
+        if (parent::process()) return true;
 
         $this->connectionInfo->port = 3050;
         $this->connectionInfo->charset = 'UTF8';
@@ -68,10 +85,10 @@ class StiFirebirdAdapter extends StiDataAdapter
             'charset' => ['charset']
         );
 
-        return $this->parseParameters($parameterNames);
+        return $this->processParameters($parameterNames);
     }
 
-    protected function parseType($meta)
+    protected function getType($meta): string
     {
         switch ($meta) {
             case 'SMALLINT':
@@ -131,13 +148,13 @@ class StiFirebirdAdapter extends StiDataAdapter
         return $value;
     }
 
-    public function makeQuery($procedure, $parameters)
+    public function makeQuery($procedure, $parameters): string
     {
         $paramsString = parent::makeQuery($procedure, $parameters);
         return "EXECUTE PROCEDURE $procedure $paramsString";
     }
 
-    protected function executeNative($queryString, $result)
+    protected function executeNative($queryString, $maxDataRows, $result): StiDataResult
     {
         $query = ibase_query($this->connectionLink, $queryString);
         if (!$query)
@@ -148,26 +165,31 @@ class StiFirebirdAdapter extends StiDataAdapter
         for ($i = 0; $i < $result->count; $i++) {
             $meta = ibase_field_info($query, $i);
             $result->columns[] = $meta['name'];
-            $result->types[] = $this->parseType($meta['type']);
+            $result->types[] = $this->getType($meta['type']);
         }
 
         while ($rowItem = ibase_fetch_assoc($query, IBASE_TEXT)) {
-            $row = array();
+            $row = [];
+
             foreach ($rowItem as $value) {
                 $type = count($result->types) >= count($row) + 1 ? $result->types[count($row)] : 'string';
                 $row[] = $this->getValue($type, $value);
             }
+
             $result->rows[] = $row;
+
+            if (count($result->rows) === $maxDataRows)
+                break;
         }
 
         return $result;
     }
 
-    protected function executePDO($queryString, $result)
+    protected function executePDO($queryString, $maxDataRows, $result): StiDataResult
     {
         // PDO Firebird driver doesn't support getColumnMeta()
         // The type is determined by the first value
 
-        return $this->executePDOv2($queryString, $result);
+        return $this->executePDOv2($queryString, $maxDataRows, $result);
     }
 }

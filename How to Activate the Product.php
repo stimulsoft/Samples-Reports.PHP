@@ -1,6 +1,35 @@
 <?php
 require_once 'vendor/autoload.php';
+
+use Stimulsoft\StiLicense;
+use Stimulsoft\Report\StiReport;
+
+
+// Creating a report object
+$report = new StiReport();
+
+// You can use one of the methods below to register your license key for all components
+//StiLicense::setPrimaryKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
+//StiLicense::setPrimaryFile('license.key');
+
+// You can use one of the methods below to register your license key only for the specified component
+//$report->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
+//$report->license->setFile('license.key');
+
+// Processing the request and, if successful, immediately printing the result
+$report->process();
+
+// Loading a report by URL
+// This method does not load the report object on the server side, it only generates the necessary JavaScript code
+// The report will be loaded into a JavaScript object on the client side
+$report->loadFile('reports/SimpleList.mrt');
+
+// Calling the report build
+// This method does not render the report on the server side, it only generates the necessary JavaScript code
+// The report will be rendered using a JavaScript engine on the client side
+$report->render();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +40,9 @@ require_once 'vendor/autoload.php';
         html, body {
             font-family: sans-serif;
         }
-
         code {
             padding: 6px 8px;
-            margin: 10px 0;
+            margin: 8px 0 0 0;
             font-size: 1.2em;
             background: #eee;
             border-radius: 6px;
@@ -23,48 +51,42 @@ require_once 'vendor/autoload.php';
     </style>
 
     <?php
-    // Creating and configuring a JavaScript deployment object for the report generator
-    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Report);
-
-    // Rendering the JavaScript code required for the component to work
-    $js->renderHtml();
+    // Rendering the necessary JavaScript code of the report engine
+    $report->javascript->renderHtml();
     ?>
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
-
-        // You can use one of the methods below to register your license key
-        // $handler->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
-        // $handler->license->setFile('license.key');
-
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
-        ?>
+    <script>
+        // You can use one of the JavaScript methods below to register your license key
+        //Stimulsoft.Base.StiLicense.loadFromString('6vJhGtLLLz2GNviWmUTrhSqnO...');
+        //Stimulsoft.Base.StiLicense.loadFromFile('license.key');
     </script>
 </head>
 <body>
 <h2>How to Activate the Product</h2>
-<hr/>
-<br/>
+<hr>
+<br>
 The 30-day trial version of the product does not contain any restrictions, except for the Trial watermark on the report pages, and reminders about using the Trial
-version.<br/>
+version.<br>
 After purchasing the product, you can download the license key from your <a href="https://devs.stimulsoft.com/" target="_blank">personal account</a> on the
-website.<br/><br/>
+website.<br><br>
 
 You can activate the product in several ways:
 <ul>
-    <li>Set the key as a Base64 string for the StiHandler() object:<br/>
-        <code>$handler = new StiHandler();<br/>$handler->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');</code><br/><br/></li>
-    <li>Set the key as a license file for the StiHandler() object:<br/>
-        <code>$handler = new StiHandler();<br/>$handler->license->setFile('license.key');</code><br/><br/></li>
-    <li>Using the special line of JavaScript code with a key as a Base64 string:<br/>
-        <code>Stimulsoft.Base.StiLicense.Key = '6vJhGtLLLz2GNviWmUTrhSqnO...';</code><br/><br/></li>
-</ul>
+    <li>Using one of the static methods below to register your license for all components:<br>
+        <code>StiLicense::setPrimaryKey('6vJhGtLLLz2GNviWmUTrhSqnO...');</code><br>
+        <code>StiLicense::setPrimaryFile('license.key');</code><br><br><br>
+    </li>
+    <li>Using one of the methods below to register your license only for the specified component:<br>
+        <code>$report->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');</code><br>
+        <code>$report->license->setFile('license.key');</code><br><br><br>
+    </li>
+    <li>Using one of the functions below to register your license from the JavaScript code:<br>
+        <code>Stimulsoft.Base.StiLicense.loadFromString('6vJhGtLLLz2GNviWmUTrhSqnO...');</code><br>
+        <code>Stimulsoft.Base.StiLicense.loadFromFile('license.key');</code><br><br>
+    </li>
+</ul><br>
 
-<br/>For more details, please see the
+For more details, please see the
 <a href="https://www.stimulsoft.com/en/documentation/online/programming-manual/reports_and_dashboards_for_php_engine_activation.htm"
    target="_blank">documentation</a>.
 </body>

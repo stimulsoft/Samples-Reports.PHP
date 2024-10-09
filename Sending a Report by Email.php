@@ -1,70 +1,61 @@
 <?php
 require_once 'vendor/autoload.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Sending a Report by Email</title>
-    <style>
-        html, body {
-            font-family: sans-serif;
-        }
-    </style>
 
-    <?php
-    // Creating and configuring a JavaScript deployment object for the viewer
-    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Viewer);
+use Stimulsoft\Events\StiEmailEventArgs;
+use Stimulsoft\Report\StiReport;
+use Stimulsoft\StiResult;
+use Stimulsoft\Viewer\StiViewer;
 
-    // Rendering the JavaScript code required for the component to work
-    $js->renderHtml();
-    ?>
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
+// Creating a viewer object
+$viewer = new StiViewer();
 
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
+// Defining viewer options: displaying the Send Email button
+$viewer->options->toolbar->showSendEmailButton = true;
 
-        // Creating and configuring the viewer options object
-        $options = new \Stimulsoft\Viewer\StiViewerOptions();
-        $options->appearance->fullScreenMode = true;
-        $options->toolbar->showSendEmailButton = true;
+// If required, define default values for the email sending form.
+$viewer->options->email->defaultEmailAddress = 'mail.recipient@stimulsoft.com';
+$viewer->options->email->defaultEmailSubject = 'Default subject';
+$viewer->options->email->defaultEmailMessage = 'Default message for email body.';
 
-        // Creating the viewer object with the necessary options
-        $viewer = new \Stimulsoft\Viewer\StiViewer($options);
+// Defining viewer events
+// It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string
+// Also it is possible to add several functions of different types using the append() method
+$viewer->onEmailReport = function (StiEmailEventArgs $args) {
 
-        // Defining viewer events
-        // If set to true, this event will be passed to the server-side event handler
-        // By default, all server-side events are located in the 'handler.php' file
-        $viewer->onEmailReport = true;
+    // Defining the required options for sending (host, login, password), they will not be passed to the client side
+    $args->settings->from = 'mail.sender@stimulsoft.com';
+    $args->settings->host = 'smtp.stimulsoft.com';
+    $args->settings->login = '********';
+    $args->settings->password = '********';
 
-        // Creating the report object
-        $report = new \Stimulsoft\Report\StiReport();
+    // These parameters are optional
+    //$args->settings->name = 'John Smith';
+    //$args->settings->port = 465;
+    //$args->settings->secure = 'ssl';
+    //$args->settings->cc[] = 'copy1@stimulsoft.com';
+    //$args->settings->bcc[] = 'copy2@stimulsoft.com';
+    //$args->settings->bcc[] = 'copy3@stimulsoft.com John Smith';
 
-        // Loading a report by URL
-        // This method does not load the report object on the server side, it only generates the necessary JavaScript code
-        // The report will be loaded into a JavaScript object on the client side
-        $report->loadFile('reports/SimpleList.mrt');
+    // You can return a message about the successful sending of an email
+    // If the message is not required, do not return the result
+    // If an error occurred while sending an email, a message from the email sending module will be displayed
+    return StiResult::getSuccess('The Email has been sent successfully.');
+};
 
-        // Assigning a report object to the viewer
-        $viewer->report = $report;
-        ?>
+// Processing the request and, if successful, immediately printing the result
+$viewer->process();
 
-        function onLoad() {
-            <?php
-            // Rendering the necessary JavaScript code and visual HTML part of the viewer
-            // The rendered code will be placed inside the specified HTML element
-            $viewer->renderHtml('viewerContent');
-            ?>
-        }
-    </script>
-</head>
-<body onload="onLoad();">
-<div id="viewerContent"></div>
-</body>
-</html>
+// Creating a report object
+$report = new StiReport();
+
+// Loading a report by URL
+// This method does not load the report object on the server side, it only generates the necessary JavaScript code
+// The report will be loaded into a JavaScript object on the client side
+$report->loadFile('reports/SimpleList.mrt');
+
+// Assigning a report object to the viewer
+$viewer->report = $report;
+
+// Displaying the visual part of the viewer as a prepared HTML page
+$viewer->printHtml();

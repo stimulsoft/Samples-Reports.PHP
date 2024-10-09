@@ -1,69 +1,46 @@
 <?php
 require_once 'vendor/autoload.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Using Parameters in SQL Query</title>
-    <style>
-        html, body {
-            font-family: sans-serif;
-        }
-    </style>
 
-    <?php
-    // Creating and configuring a JavaScript deployment object for the viewer
-    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Viewer);
+use Stimulsoft\Events\StiDataEventArgs;
+use Stimulsoft\Report\StiReport;
+use Stimulsoft\Viewer\StiViewer;
 
-    // Rendering the JavaScript code required for the component to work
-    $js->renderHtml();
-    ?>
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
+// Creating a viewer object
+$viewer = new StiViewer();
 
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
+// Defining viewer events before processing
+// It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string
+// Also it is possible to add several functions of different types using the append() method
+$viewer->onBeginProcessData = function (StiDataEventArgs $args) {
+    // In this event, it is possible to handle the data request, and replace the connection parameters
+    
+    // You can change the connection string
+    // This example uses the 'Northwind' SQL database, it is located in the 'Data' folder
+    // You need to import it and correct the connection string to your database
+    if ($args->connection == 'MySQL')
+        $args->connectionString = 'Server=localhost; Database=northwind; UserId=root; Pwd=;';
 
-        // Creating and configuring the viewer options object
-        $options = new \Stimulsoft\Viewer\StiViewerOptions();
-        $options->appearance->fullScreenMode = true;
+    // Changing the SQL query parameters with the required values
+    // For example: SELECT * FROM @Parameter1 WHERE Id = @Parameter2 AND Date > @Parameter3
+    if ($args->dataSource == 'customers' && count($args->parameters) > 0) {
+        $args->parameters['Country']->value = "Germany";
+    }
+};
 
-        // Creating the viewer object with the necessary options
-        $viewer = new \Stimulsoft\Viewer\StiViewer($options);
+// Processing the request and, if successful, immediately printing the result
+$viewer->process();
 
-        // Defining viewer events
-        // If set to true, this event will be passed to the server-side event handler
-        // By default, all server-side events are located in the 'handler.php' file
-        $viewer->onBeginProcessData = true;
+// Creating a report object
+$report = new StiReport();
 
-        // Creating the report object
-        $report = new \Stimulsoft\Report\StiReport();
+// Loading a report by URL
+// This method does not load the report object on the server side, it only generates the necessary JavaScript code
+// The report will be loaded into a JavaScript object on the client side
+$report->loadFile('reports/SimpleListSQLParameters.mrt');
 
-        // Loading a report by URL
-        // This method does not load the report object on the server side, it only generates the necessary JavaScript code
-        // The report will be loaded into a JavaScript object on the client side
-        $report->loadFile('reports/SimpleListSQLParameters.mrt');
+// Assigning a report object to the viewer
+$viewer->report = $report;
 
-        // Assigning a report object to the viewer
-        $viewer->report = $report;
-        ?>
-
-        function onLoad() {
-            <?php
-            // Rendering the necessary JavaScript code and visual HTML part of the viewer
-            // The rendered code will be placed inside the specified HTML element
-            $viewer->renderHtml('viewerContent');
-            ?>
-        }
-    </script>
-</head>
-<body onload="onLoad();">
-<div id="viewerContent"></div>
-</body>
-</html>
+// Displaying the visual part of the viewer as a prepared HTML page
+$viewer->printHtml();

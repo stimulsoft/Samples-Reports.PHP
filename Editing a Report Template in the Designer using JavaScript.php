@@ -1,12 +1,34 @@
 <?php
 require_once 'vendor/autoload.php';
+
+use Stimulsoft\Events\StiDataEventArgs;
+use Stimulsoft\StiHandler;
+
+
+// Creating and configuring an event handler object
+$handler = new StiHandler();
+
+// By default, all requests are processed on the current page
+// It is possible to specify a path that contains an event handler, for example the 'handler.php' file
+// $handler = new StiHandler('handler.php');
+
+// If necessary, define events before processing
+// It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string
+// Also it is possible to add several functions of different types using the append() method
+$handler->onBeginProcessData = function (StiDataEventArgs $args) {
+
+};
+
+// Processing the request and, if successful, immediately printing the result
+$handler->process();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Editing a Report Template in the Designer</title>
+    <title>Editing a Report Template in the Designer using JavaScript</title>
     <style>
         html, body {
             font-family: sans-serif;
@@ -19,15 +41,12 @@ require_once 'vendor/autoload.php';
     <script src="vendor/stimulsoft/reports-php/scripts/stimulsoft.designer.js" type="text/javascript"></script>
     <script src="vendor/stimulsoft/reports-php/scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
+    <?php
+    // Rendering the necessary JavaScript code of the handler
+    $handler->renderHtml();
+    ?>
 
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
-        ?>
+    <script type="text/javascript">
 
         // Creating and configuring the designer options object
         let options = new Stimulsoft.Designer.StiDesignerOptions();
@@ -40,7 +59,7 @@ require_once 'vendor/autoload.php';
         // This event will be triggered when requesting data for a report
         // To process the result on the server-side, you need to call the JavaScript event handler in the event
         designer.onBeginProcessData = function (args, callback) {
-            Stimulsoft.Helper.process(args, callback);
+            Stimulsoft.handler.process(args, callback);
         }
 
         // Creating the report object
@@ -60,6 +79,8 @@ require_once 'vendor/autoload.php';
     </script>
 </head>
 <body onload="onLoad();">
+<h2>Editing a Report Template in the Designer using JavaScript</h2>
+<hr>
 <div id="designerContent"></div>
 </body>
 </html>

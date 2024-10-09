@@ -375,6 +375,8 @@
     <ThemeBackground>Hintergrund:</ThemeBackground>
     <ThemeStyle>Theme Style:</ThemeStyle>
     <TrialVersion>Testversion</TrialVersion>
+    <TrialVersionHasExpired>Testversion. Ihr Abonnement ist abgelaufen und hat zu erneuern.</TrialVersionHasExpired>
+    <TrialVersionNotIncluded>Testversion. Dieses Produkt ist nicht in Ihrem Abonnement enthalten.</TrialVersionNotIncluded>
     <Use>Verwenden</Use>
     <UseCompilationCache>Kompilationszwischenspeichern verwenden</UseCompilationCache>
     <UseCompilationCacheToolTip>Der gerenderte Bericht wird im Temporärverzeichnis gespeichert werden. Es erlaubt den Rendern-Prozess zu beschleunigen und die Speichernutzung zu verringern.</UseCompilationCacheToolTip>
@@ -1878,6 +1880,7 @@
     <EngineVersion>Aktuelle Report-Engine.</EngineVersion>
     <ExportedEvent>Erfolgt bei der Beendung vom Bericht-Export.</ExportedEvent>
     <ExportingEvent>Erfolgt bei dem Anfang vom Bericht-Export.</ExportingEvent>
+    <ExportSettings>Export-Einstellungen</ExportSettings>
     <GlobalizationStrings>Eine Sammlung von globalen Zeichenfolgen.</GlobalizationStrings>
     <NumberOfPass>Anzahl der der Durchläufe des Reportgenerators während der Reportaufbereitung.</NumberOfPass>
     <ParametersOrientation>Wert, der angibt, wie das Panel mit den Parameter-Eingabefeldern ausgerichtet wird.</ParametersOrientation>
@@ -2275,6 +2278,9 @@
   <StiUserFunction>
     <StiScriptAtInterpretationCheckLong>Das Skript der Benutzer-Funktion '{0}' funktioniert nicht im Interpretation-Modus.</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>Das Skript in der Interpretation</StiScriptAtInterpretationCheckShort>
+    <StiUserFunctionLangScriptValueCheckLong>Kein Script für {0}-Sprache in '{1}'-Benutzerfunktion ist festgelegt.</StiUserFunctionLangScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckLong>Kein Script für aktuelle Programmiersprache des Berichtes in '{0}'-Benutzerfunktion ist festgelegt.</StiUserFunctionScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckShort>Script</StiUserFunctionScriptValueCheckShort>
   </StiUserFunction>
   <StiVariable>
     <Alias>Der Alias-Name der Variable.</Alias>

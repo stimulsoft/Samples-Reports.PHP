@@ -1,6 +1,6 @@
 <?php
 
-namespace Stimulsoft\Viewer;
+namespace Stimulsoft\Viewer\Enums;
 
 class StiToolbarDisplayMode
 {

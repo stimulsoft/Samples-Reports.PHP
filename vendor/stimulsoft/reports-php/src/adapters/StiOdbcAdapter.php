@@ -2,32 +2,47 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiConnectionInfo;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiOdbcAdapter extends StiDataAdapter
 {
-    public $version = '2024.3.6';
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = true;
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+    protected $type = StiDatabaseType::ODBC;
+
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         $code = odbc_error();
         $error = odbc_errormsg();
-        if ($error) $message = $error;
+        $message = $error ?: self::UnknownError;
+        if ($code != 0) $message = "[$code] $message";
 
-        return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
-        $this->connectionLink = odbc_connect($this->connectionInfo->dsn, $this->connectionInfo->userId, $this->connectionInfo->password);
+        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $this->handler->onDatabaseConnect->call($args);
+
+        $this->connectionLink = $args->link !== null
+            ? $args->link
+            : odbc_connect($this->connectionInfo->dsn, $this->connectionInfo->userId, $this->connectionInfo->password);
 
         if (!$this->connectionLink)
             return $this->getLastErrorResult();
 
-        return StiDataResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -38,20 +53,19 @@ class StiOdbcAdapter extends StiDataAdapter
         }
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
         $this->connectionInfo = new StiConnectionInfo();
-        $this->connectionString = trim($connectionString);
 
         $parameterNames = array(
             'userId' => ['uid', 'user', 'username', 'userid', 'user id'],
             'password' => ['pwd', 'password']
         );
 
-        return $this->parseParameters($parameterNames);
+        return $this->processParameters($parameterNames);
     }
 
-    protected function parseType($meta)
+    protected function getType($meta): string
     {
         $type = strtolower($meta);
         switch ($type) {
@@ -151,7 +165,7 @@ class StiOdbcAdapter extends StiDataAdapter
         return $value;
     }
 
-    public function executeQuery($queryString)
+    public function executeQuery($queryString, $maxDataRows): StiDataResult
     {
         $result = $this->connect();
         if ($result->success) {
@@ -159,20 +173,21 @@ class StiOdbcAdapter extends StiDataAdapter
             if (!$query)
                 return $this->getLastErrorResult();
 
-            $result->types = array();
-            $result->columns = array();
-            $result->rows = array();
+            $result->types = [];
+            $result->columns = [];
+            $result->rows = [];
 
             $result->count = odbc_num_fields($query);
 
             for ($i = 1; $i <= $result->count; $i++) {
                 $type = odbc_field_type($query, $i);
-                $result->types[] = $this->parseType($type);
+                $result->types[] = $this->getType($type);
                 $result->columns[] = odbc_field_name($query, $i);
             }
 
             while (odbc_fetch_row($query)) {
-                $row = array();
+                $row = [];
+
                 for ($i = 1; $i <= $result->count; $i++) {
                     $type = $result->types[$i - 1];
                     $value = odbc_result($query, $i);
@@ -180,6 +195,9 @@ class StiOdbcAdapter extends StiDataAdapter
                 }
 
                 $result->rows[] = $row;
+
+                if (count($result->rows) === $maxDataRows)
+                    break;
             }
 
             odbc_free_result($query);

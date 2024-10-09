@@ -1,29 +1,51 @@
 # PHP and JavaScript samples for Stimulsoft Reports.PHP
 
-#### This repository contains examples of integrating the Stimulsoft Reports.PHP reporting tool into PHP applications, using a set of PHP classes and functions that allow you to easily add a JavaScript report generator to PHP applications. The reporting components are fully compatible with PHP 5, PHP 7, and PHP 8 versions. The integration supports PHP and JavaScript code.
+#### This repository contains examples of integrating the Stimulsoft Reports.PHP reporting tool into PHP applications, using a set of PHP classes and functions that allow you to easily add a JavaScript report generator to PHP applications. Supports building and exporting a report on the server side using the Node.js platform. The reporting components are fully compatible with all versions of PHP 7 and PHP 8. The integration supports PHP and JavaScript code.
 
 ## Overview
 This repository contains a PHP project ready to run. The 'index.php' file contains links to examples, each of which is located in a separate .php file:
-* [Changing the Viewer Theme](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Changing%20the%20Viewer%20Theme.php)
-* [Editing a Report Template in the Designer](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Editing%20a%20Report%20Template%20in%20the%20Designer.php)
-* [Editing a Report Template in the Designer using JavaScript](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Editing%20a%20Report%20Template%20in%20the%20Designer%20using%20JavaScript.php)
-* [Exporting a Report from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Exporting%20a%20Report%20from%20Code.php)
-* [How to Activate the Product](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/How%20to%20Activate%20the%20Product.php)
-* [Loading Scripts in Part to Minify Project](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Loading%20Scripts%20in%20Part%20to%20Minify%20Project.php)
-* [Localizing the Designer](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Localizing%20the%20Designer.php)
-* [Registering a Data from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Registering%20a%20Data%20from%20Code.php)
-* [Rendering a Report from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Rendering%20a%20Report%20from%20Code.php)
-* [Saving a Report Template on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Saving%20a%20Report%20Template%20on%20the%20Server-Side.php)
-* [Sending a Report by Email](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Sending%20a%20Report%20by%20Email.php)
-* [Sending an Exported Report to the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Sending%20an%20Exported%20Report%20to%20the%20Server-Side.php)
-* [Setting Report Variables on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Setting%20Report%20Variables%20on%20the%20Server-Side.php)
-* [Showing a Report in the Viewer](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Showing%20a%20Report%20in%20the%20Viewer.php)
-* [Showing a Report in the Viewer using JavaScript](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Showing%20a%20Report%20in%20the%20Viewer%20using%20JavaScript.php)
-* [Using Parameters in SQL Query](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Using%20Parameters%20in%20SQL%20Query.php)
-* [Using SQL Data Sources](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Using%20SQL%20Data%20Sources.php)
-  
-One event handler has been created with all the necessary events for each example:
-* [handler.php](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/handler.php)
+
+#### License activation
+* [How to Activate the Product](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/How%20to%20Activate%20the%20Product.php)
+
+#### Working with Report
+* [Rendering a Report from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Rendering%20a%20Report%20from%20Code.php)
+* [Rendering a Report from Code on a Button Click](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Rendering%20a%20Report%20from%20Code%20on%20a%20Button%20Click.php)
+* [Printing a Report from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Printing%20a%20Report%20from%20Code.php)
+* [Exporting a Report from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Exporting%20a%20Report%20from%20Code.php)
+* [Changing Report Properties on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Changing%20Report%20Properties%20on%20the%20Server-Side.php)
+
+#### Working with Report on the Server-Side
+* [Configuring and Installing Node.js](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Configuring%20and%20Installing%20NodeJs.php)
+* [Rendering a Report from Code on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Rendering%20a%20Report%20from%20Code%20on%20the%20Server-Side.php)
+* [Exporting a Report from Code on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Exporting%20a%20Report%20from%20Code%20on%20the%20Server-Side.php)
+* [Registering a Data from Code when Rendering a Report on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Registering%20a%20Data%20from%20Code%20when%20Rendering%20a%20Report%20on%20the%20Server-Side.php)
+* [Exporting a Report from Code with Changing Export Settings](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Exporting%20a%20Report%20from%20Code%20with%20Changing%20Export%20Settings.php)
+
+#### Working with Viewer
+* [Showing a Report in the Viewer](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Showing%20a%20Report%20in%20the%20Viewer.php)
+* [Showing a Report in the Viewer in an HTML template](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Showing%20a%20Report%20in%20the%20Viewer%20in%20an%20HTML%20template.php)
+* [Showing a Report in the Viewer in an HTML template using PHP variables](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Showing%20a%20Report%20in%20the%20Viewer%20in%20an%20HTML%20template%20using%20PHP%20variables.php)
+* [Showing a Report in the Viewer using JavaScript](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Showing%20a%20Report%20in%20the%20Viewer%20using%20JavaScript.php)
+* [Changing the Viewer Theme](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Changing%20the%20Viewer%20Theme.php)
+* [Registering a Data from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Registering%20a%20Data%20from%20Code.php)
+* [Setting Report Variables on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Setting%20Report%20Variables%20on%20the%20Server-Side.php)
+* [Using SQL Data Sources](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Using%20SQL%20Data%20Sources.php)
+* [Using Parameters in SQL Query](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Using%20Parameters%20in%20SQL%20Query.php)
+* [Sending a Report by Email](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Sending%20a%20Report%20by%20Email.php)
+* [Changing an Export Settings on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Changing%20an%20Export%20Settings%20on%20the%20Server-Side.php)
+* [Sending an Exported Report to the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Sending%20an%20Exported%20Report%20to%20the%20Server-Side.php)
+* [Opening the Report in the Viewer and Changing it on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Opening%20the%20Report%20in%20the%20Viewer%20and%20Changing%20it%20on%20the%20Server-Side.php)
+
+#### Working with Designer
+* [Editing a Report Template in the Designer](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Editing%20a%20Report%20Template%20in%20the%20Designer.php)
+* [Editing a Report Template in the Designer in an HTML template](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Editing%20a%20Report%20Template%20in%20the%20Designer%20in%20an%20HTML%20template.php)
+* [Editing a Report Template in the Designer using JavaScript](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Editing%20a%20Report%20Template%20in%20the%20Designer%20using%20JavaScript.php)
+* [Saving a Report Template on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Saving%20a%20Report%20Template%20on%20the%20Server-Side.php)
+* [Registering Data when Creating a New Report](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Registering%20Data%20when%20Creating%20a%20New%20Report.php)
+* [Localizing the Designer](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Localizing%20the%20Designer.php)
+* [Loading Scripts in Part to Minify Project](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Loading%20Scripts%20in%20Part%20to%20Minify%20Project.php)
+* [Working with onDesign and onExit events](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Working%20with%20onDesign%20and%20onExit%20events.php)
 
 ## Running samples
 The samples folder contains all the scripts and resources of the project, including the 'index.php' file. So all files from this folder are required to be copied on your PHP server, using FTP or HTTP access interface - depending on your hosting provider.

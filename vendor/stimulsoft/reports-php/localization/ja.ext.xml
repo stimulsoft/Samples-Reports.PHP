@@ -375,6 +375,8 @@
     <ThemeBackground>背景：</ThemeBackground>
     <ThemeStyle>テーマスタイル：</ThemeStyle>
     <TrialVersion>試用版</TrialVersion>
+    <TrialVersionHasExpired>トライアル版。サブスクリプションが期限切れとなり、更新が必要です。</TrialVersionHasExpired>
+    <TrialVersionNotIncluded>トライアル版。この製品はサブスクリプションに含まれていません。</TrialVersionNotIncluded>
     <Use>Use </Use>
     <UseCompilationCache>コンパイルキャッシュを使用する</UseCompilationCache>
     <UseCompilationCacheToolTip>レンダリングされたレポートは一時ディレクトリに保存されます。これにより、レンダリングを高速化し、メモリ使用量を減らすことができます。</UseCompilationCacheToolTip>
@@ -1883,6 +1885,7 @@
     <EngineVersion>現在のレポートエンジン</EngineVersion>
     <ExportedEvent>レポートのエクスポートが終了したときに発生します。</ExportedEvent>
     <ExportingEvent>レポートがエクスポートを開始したときに発生します。</ExportingEvent>
+    <ExportSettings>エクスポート設定</ExportSettings>
     <GlobalizationStrings>グローバリゼーション文字列で構成されるコレクション</GlobalizationStrings>
     <NumberOfPass>レポート生成時にレポートジェネレータが作成するパスの数</NumberOfPass>
     <ParametersOrientation>パラメータのパネル方向を示す値</ParametersOrientation>
@@ -2280,6 +2283,9 @@
   <StiUserFunction>
     <StiScriptAtInterpretationCheckLong>カスタム関数'{0}' のスクリプトは、解釈モードでは動作しません。</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>解釈スクリプト</StiScriptAtInterpretationCheckShort>
+    <StiUserFunctionLangScriptValueCheckLong>ユーザーファンクション「{1}」において、{0}言語のスクリプトが定義されていません。</StiUserFunctionLangScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckLong>ユーザーファンクション「{0}」において、現在のレポートプログラミング言語のスクリプトが指定されていません。</StiUserFunctionScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckShort>スクリプト</StiUserFunctionScriptValueCheckShort>
   </StiUserFunction>
   <StiVariable>
     <Alias>変数のエイリアス</Alias>

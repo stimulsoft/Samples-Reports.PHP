@@ -2,44 +2,55 @@
 
 namespace Stimulsoft\Adapters;
 
+use mysqli;
+use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiMySqlAdapter extends StiDataAdapter
 {
-    public $version = '2024.3.6';
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = true;
 
+    protected $type = StiDatabaseType::MySQL;
     protected $driverName = 'mysql';
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult($message);
+            return parent::getLastErrorResult();
 
-        $code = $this->connectionLink->errno;
-        if ($this->connectionLink->error)
-            $message = $this->connectionLink->error;
+        $message = $this->connectionLink->error ?: self::UnknownError;
+        if ($this->connectionLink->errno != 0) $message = "[{$this->connectionLink->errno}] $message";
 
-        return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
         if ($this->driverType == 'PDO')
             return parent::connect();
 
-        $this->connectionLink = new \mysqli(
+        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $this->handler->onDatabaseConnect->call($args);
+
+        $this->connectionLink = $args->link !== null ? $args->link : new mysqli(
             $this->connectionInfo->host, $this->connectionInfo->userId, $this->connectionInfo->password,
             $this->connectionInfo->database, $this->connectionInfo->port);
 
         if ($this->connectionLink->connect_error)
-            return StiResult::error("[{$this->connectionLink->connect_errno}] {$this->connectionLink->connect_error}");
+            return StiDataResult::getError("[{$this->connectionLink->connect_errno}] {$this->connectionLink->connect_error}")->getDataAdapterResult($this);
 
         if (!$this->connectionLink->set_charset($this->connectionInfo->charset))
             return $this->getLastErrorResult();
 
-        return StiDataResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -52,10 +63,9 @@ class StiMySqlAdapter extends StiDataAdapter
         }
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
-        if (parent::parse($connectionString))
-            return true;
+        if (parent::process()) return true;
 
         $this->connectionInfo->port = 3306;
         $this->connectionInfo->charset = 'utf8';
@@ -69,10 +79,10 @@ class StiMySqlAdapter extends StiDataAdapter
             'charset' => ['charset']
         );
 
-        return $this->parseParameters($parameterNames);
+        return $this->processParameters($parameterNames);
     }
 
-    private function getStringType($meta)
+    private function getStringType($meta): string
     {
         switch ($meta->type) {
             case MYSQLI_TYPE_TINY:
@@ -118,13 +128,13 @@ class StiMySqlAdapter extends StiDataAdapter
         return 'string';
     }
 
-    private function isBinaryStringType($meta)
+    private function isBinaryStringType($meta): bool
     {
         // BINARY_ENCODING = 63, see https://github.com/sidorares/node-mysql2/blob/ef283413607a5ee6643c238245f3ad4b533f5689/lib/constants/charsets.js#L64
         return ($meta->flags & MYSQLI_BINARY_FLAG) && ($meta->charsetnr == 63);
     }
 
-    protected function parseType($meta)
+    protected function getType($meta): string
     {
         $binary = false;
 
@@ -211,13 +221,13 @@ class StiMySqlAdapter extends StiDataAdapter
         return $value;
     }
 
-    public function makeQuery($procedure, $parameters)
+    public function makeQuery($procedure, $parameters): string
     {
         $paramsString = parent::makeQuery($procedure, $parameters);
         return "CALL $procedure ($paramsString)";
     }
 
-    protected function executeNative($queryString, $result)
+    protected function executeNative($queryString, $maxDataRows, $result): StiDataResult
     {
         $query = $this->connectionLink->query($queryString);
         if (!$query)
@@ -227,19 +237,24 @@ class StiMySqlAdapter extends StiDataAdapter
 
         while ($meta = $query->fetch_field()) {
             $result->columns[] = $meta->name;
-            $result->types[] = $this->parseType($meta);
+            $result->types[] = $this->getType($meta);
         }
 
         if ($query->num_rows > 0) {
             $isColumnsEmpty = count($result->columns) == 0;
             while ($rowItem = $isColumnsEmpty ? $query->fetch_assoc() : $query->fetch_row()) {
-                $row = array();
+                $row = [];
+
                 foreach ($rowItem as $key => $value) {
                     if ($isColumnsEmpty && count($result->columns) < count($rowItem)) $result->columns[] = $key;
                     $type = count($result->types) >= count($row) + 1 ? $result->types[count($row)] : 'string';
                     $row[] = $this->getValue($type, $value);
                 }
+
                 $result->rows[] = $row;
+
+                if (count($result->rows) === $maxDataRows)
+                    break;
             }
         }
 

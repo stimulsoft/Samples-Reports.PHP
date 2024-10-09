@@ -1,10 +1,10 @@
 <?php
 
-namespace Stimulsoft\Report;
+namespace Stimulsoft\Report\Enums;
 
 class StiRangeType
 {
-    const All = 'Stimulsoft.Report.StiRangeType.All';
-    const CurrentPage = 'Stimulsoft.Report.StiRangeType.CurrentPage';
-    const Pages = 'Stimulsoft.Report.StiRangeType.Pages';
+    const All = 1;
+    const CurrentPage = 2;
+    const Pages = 3;
 }

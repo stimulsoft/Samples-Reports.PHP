@@ -2,44 +2,80 @@
 
 namespace Stimulsoft\Adapters;
 
+use DateTime;
+use PDO;
+use PDOException;
+use Stimulsoft\Events\StiConnectionEventArgs;
+use Stimulsoft\StiBaseHandler;
 use Stimulsoft\StiConnectionInfo;
-use Stimulsoft\StiDatabaseType;
+use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiDataAdapter
 {
-    public $version;
+
+### Constants
+
+    const UnknownError = 'An unknown error has occurred.';
+
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = false;
 
+    /** @var StiBaseHandler */
+    public $handler;
+
+    /** @var StiDatabaseType|string */
+    protected $type;
+
+    /** @var string */
     protected $driverType = 'Native';
+
+    /** @var string */
     protected $driverName;
+
+    /** @var string */
     protected $connectionString;
+
+    /** @var StiConnectionInfo */
     protected $connectionInfo;
+
     protected $connectionLink;
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         $info = $this->connectionLink->errorInfo();
         $code = $info[0];
-        if (count($info) >= 3)
-            $message = $info[2];
+        $message = count($info) >= 3 ? $info[2] : StiDataAdapter::UnknownError;
+        if ($code != 0) $message = "[$code] $message";
 
-        return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
         try {
-            $this->connectionLink = new \PDO($this->connectionInfo->dsn, $this->connectionInfo->userId, $this->connectionInfo->password);
+            $args = new StiConnectionEventArgs($this->type, "pdo_$this->driverName", $this->connectionInfo);
+            $this->handler->onDatabaseConnect->call($args);
+
+            $this->connectionLink = $args->link !== null
+                ? $args->link
+                : new PDO($this->connectionInfo->dsn, $this->connectionInfo->userId, $this->connectionInfo->password);
         }
-        catch (\PDOException $e) {
+        catch (PDOException $e) {
             $code = $e->getCode();
             $message = $e->getMessage();
-            return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
+            if ($code != 0) $message = "[$code] $message";
+
+            return StiDataResult::getError($message)->getDataAdapterResult($this);
         }
 
-        return StiDataResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -47,17 +83,18 @@ class StiDataAdapter
         $this->connectionLink = null;
     }
 
-    public function test()
+    public function test(): StiDataResult
     {
         $result = $this->connect();
-        if ($result->success) $this->disconnect();
+        if ($result->success)
+            $this->disconnect();
+
         return $result;
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
         $this->connectionInfo = new StiConnectionInfo();
-        $this->connectionString = trim($connectionString);
 
         if (mb_strpos($this->connectionString, "$this->driverName:") !== false) {
             $this->driverType = 'PDO';
@@ -67,13 +104,13 @@ class StiDataAdapter
                 'password' => ['pwd', 'password']
             );
 
-            return $this->parseParameters($parameterNames);
+            return $this->processParameters($parameterNames);
         }
 
         return false;
     }
 
-    protected function parseParameters($parameterNames)
+    protected function processParameters($parameterNames): bool
     {
         $parameters = explode(';', $this->connectionString);
 
@@ -96,13 +133,13 @@ class StiDataAdapter
             }
 
             if ($unknown)
-                $this->parseUnknownParameter($parameter, $name, $value);
+                $this->processUnknownParameter($parameter, $name, $value);
         }
 
         return true;
     }
 
-    protected function parseUnknownParameter($parameter, $name, $value)
+    protected function processUnknownParameter($parameter, $name, $value)
     {
         if ($this->driverType == 'PDO' && !is_null($parameter) && mb_strlen($parameter) > 0) {
             if (mb_strlen($this->connectionInfo->dsn) > 0)
@@ -112,17 +149,12 @@ class StiDataAdapter
         }
     }
 
-    protected function parseType($meta)
+    protected function getType($meta): string
     {
         return 'string';
     }
 
-    protected function getValue($type, $value)
-    {
-        return $value;
-    }
-
-    protected function detectType($value)
+    protected function getValueType($value): string
     {
         if (empty($value))
             return 'string';
@@ -135,10 +167,10 @@ class StiDataAdapter
             return 'int';
         }
 
-        if (\DateTime::createFromFormat('Y-m-d H:i:s', $value) !== false ||
-            \DateTime::createFromFormat('Y-m-d', $value) !== false ||
-            \DateTime::createFromFormat('Y-M-d', $value) !== false ||
-            \DateTime::createFromFormat('H:i:s', $value) !== false)
+        if (DateTime::createFromFormat('Y-m-d H:i:s', $value) !== false ||
+            DateTime::createFromFormat('Y-m-d', $value) !== false ||
+            DateTime::createFromFormat('Y-M-d', $value) !== false ||
+            DateTime::createFromFormat('H:i:s', $value) !== false)
             return 'datetime';
 
         if (is_string($value))
@@ -147,7 +179,12 @@ class StiDataAdapter
         return 'array';
     }
 
-    public function makeQuery($procedure, $parameters)
+    protected function getValue($type, $value)
+    {
+        return $value;
+    }
+
+    public function makeQuery($procedure, $parameters): string
     {
         $paramsString = '';
         foreach ($parameters as $name => $parameter) {
@@ -160,17 +197,18 @@ class StiDataAdapter
         return $paramsString;
     }
 
-    public function executeQuery($queryString)
+    public function executeQuery($queryString, $maxDataRows): StiDataResult
     {
         $result = $this->connect();
         if ($result->success) {
-            $result->types = array();
-            $result->columns = array();
-            $result->rows = array();
+            $result->types = [];
+            $result->columns = [];
+            $result->rows = [];
 
-            $result = $this->driverType == 'PDO'
-                ? $this->executePDO($queryString, $result)
-                : $this->executeNative($queryString, $result);
+            if ($maxDataRows !== 0)
+                $result = $this->driverType == 'PDO'
+                    ? $this->executePDO($queryString, $maxDataRows, $result)
+                    : $this->executeNative($queryString, $maxDataRows, $result);
 
             $this->disconnect();
         }
@@ -178,7 +216,7 @@ class StiDataAdapter
         return $result;
     }
 
-    protected function executePDO($queryString, $result)
+    protected function executePDO($queryString, $maxDataRows, $result): StiDataResult
     {
         $query = $this->connectionLink->query($queryString);
         if (!$query)
@@ -189,22 +227,27 @@ class StiDataAdapter
         for ($i = 0; $i < $result->count; $i++) {
             $meta = $query->getColumnMeta($i);
             $result->columns[] = $meta['name'];
-            $result->types[] = $this->parseType($meta);
+            $result->types[] = $this->getType($meta);
         }
 
         while ($rowItem = $query->fetch()) {
-            $row = array();
+            $row = [];
+
             for ($i = 0; $i < $result->count; $i++) {
                 $type = count($result->types) >= $i + 1 ? $result->types[$i] : 'string';
                 $row[] = $this->getValue($type, $rowItem[$i]);
             }
+
             $result->rows[] = $row;
+
+            if (count($result->rows) === $maxDataRows)
+                break;
         }
 
         return $result;
     }
 
-    protected function executePDOv2($queryString, $result)
+    protected function executePDOv2($queryString, $maxDataRows, $result): StiDataResult
     {
         $query = $this->connectionLink->query($queryString);
         if (!$query)
@@ -214,58 +257,68 @@ class StiDataAdapter
 
         while ($rowItem = $query->fetch()) {
             $index = 0;
-            $row = array();
+            $row = [];
 
             foreach ($rowItem as $key => $value) {
                 if (is_string($key)) {
                     $index++;
                     if (count($result->columns) < $index) $result->columns[] = $key;
-                    if (count($result->types) < $index) $result->types[] = $this->detectType($value);
+                    if (count($result->types) < $index) $result->types[] = $this->getValueType($value);
                     $type = $result->types[$index - 1];
                     $row[] = $this->getValue($type, $value);
                 }
             }
 
             $result->rows[] = $row;
+
+            if (count($result->rows) === $maxDataRows)
+                break;
         }
 
         return $result;
     }
 
-    protected function executeNative($queryString, $result)
+    protected function executeNative($queryString, $maxDataRows, $result): StiDataResult
     {
         return $result;
     }
 
-    public static function getDataAdapter($database)
+
+### Helpers
+
+    /**
+     * @param StiDatabaseType|string $database [enum] The database type for which the command will be executed.
+     * @param string $connectionString The connection string for the current data source.
+     */
+    public static function getDataAdapter(string $database, string $connectionString)
     {
         switch ($database) {
             case StiDatabaseType::MySQL:
-                return new StiMySqlAdapter();
+                return new StiMySqlAdapter($connectionString);
 
             case StiDatabaseType::MSSQL:
-                return new StiMsSqlAdapter();
+                return new StiMsSqlAdapter($connectionString);
 
             case StiDatabaseType::Firebird:
-                return new StiFirebirdAdapter();
+                return new StiFirebirdAdapter($connectionString);
 
             case StiDatabaseType::PostgreSQL:
-                return new StiPostgreSqlAdapter();
+                return new StiPostgreSqlAdapter($connectionString);
 
             case StiDatabaseType::Oracle:
-                return new StiOracleAdapter();
+                return new StiOracleAdapter($connectionString);
 
             case StiDatabaseType::ODBC:
-                return new StiOdbcAdapter();
+                return new StiOdbcAdapter($connectionString);
 
             case StiDatabaseType::MongoDB:
-                return new StiMongoDbAdapter();
+                return new StiMongoDbAdapter($connectionString);
         }
 
         return null;
     }
 
-    public static function applyQueryParameters($query, $parameters, $escape)
+    public static function applyQueryParameters($query, $parameters, $escape): string
     {
         $result = '';
 
@@ -309,8 +362,12 @@ class StiDataAdapter
         return $result . $query;
     }
 
-    public function __construct()
+
+### Constructor
+
+    public function __construct($connectionString)
     {
-        $this->connectionInfo = new StiConnectionInfo();
+        $this->connectionString = trim($connectionString);
+        $this->process();
     }
 }

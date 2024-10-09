@@ -2,10 +2,14 @@
 
 namespace Stimulsoft;
 
-class StiRequest extends StiDataRequest
+use Stimulsoft\Enums\Encoding;
+
+class StiRequest extends StiBaseRequest
 {
+
+### Properties
+
     public $sender;
-    public $event;
     public $data;
     public $fileName;
     public $action;
@@ -14,12 +18,31 @@ class StiRequest extends StiDataRequest
     public $formatName;
     public $settings;
     public $variables;
-    public $escapeQueryParameters;
     public $isWizardUsed;
     public $report;
-    public $reportJson;
+    public $autoSave;
+    public $pageRange;
+    public $reportType;
 
-    protected function checkRequestParams($obj)
+
+### Helpers
+
+    protected function setProperty($name, $value)
+    {
+        if ($name == 'report' || $name == 'settings') {
+            $this->$name = json_decode($value);
+
+            if ($name == 'settings' && property_exists($this->settings, 'encoding')) {
+                $encodingName = $this->settings->encoding->encodingName;
+                $this->settings->encoding = Encoding::getByName($encodingName);
+            }
+        }
+        else
+            parent::setProperty($name, $value);
+    }
+
+
+    /*protected function checkRequestParams($obj)
     {
         if (!isset($obj->event) && isset($obj->command) &&
                 ($obj->command == StiDataCommand::TestConnection || $obj->command == StiDataCommand::RetrieveSchema ||
@@ -32,5 +55,5 @@ class StiRequest extends StiDataRequest
         }
 
         return StiResult::success(null, $this);
-    }
+    }*/
 }

@@ -2,44 +2,65 @@
 
 namespace Stimulsoft\Adapters;
 
+use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiPostgreSqlAdapter extends StiDataAdapter
 {
-    public $version = '2024.3.6';
+
+### Constants
+
+    const DriverNotFound = 'PostgreSQL driver not found. Please configure your PHP server to work with PostgreSQL.';
+
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = true;
 
+    protected $type = StiDatabaseType::PostgreSQL;
     protected $driverName = 'pgsql';
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult($message);
+            return parent::getLastErrorResult();
 
         $error = pg_last_error();
-        if ($error) $message = $error;
+        $message = $error ?: self::UnknownError;
 
-        return StiResult::error($message);
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
         if ($this->driverType == 'PDO')
             return parent::connect();
 
         if (!function_exists('pg_connect'))
-            return StiResult::error('PostgreSQL driver not found. Please configure your PHP server to work with PostgreSQL.');
+            return StiDataResult::getError(self::DriverNotFound)->getDataAdapterResult($this);
 
-        $connectionString =
-            "host='" . $this->connectionInfo->host . "' port='" . $this->connectionInfo->port . "' dbname='" . $this->connectionInfo->database .
-            "' user='" . $this->connectionInfo->userId . "' password='" . $this->connectionInfo->password .
-            "' options='--client_encoding=" . $this->connectionInfo->charset . "'";
-        $this->connectionLink = pg_connect($connectionString);
+        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $this->handler->onDatabaseConnect->call($args);
+
+        if ($args->link !== null)
+            $this->connectionLink = $args->link;
+        else {
+            $connectionString =
+                "host='" . $this->connectionInfo->host . "' port='" . $this->connectionInfo->port . "' dbname='" . $this->connectionInfo->database .
+                "' user='" . $this->connectionInfo->userId . "' password='" . $this->connectionInfo->password .
+                "' options='--client_encoding=" . $this->connectionInfo->charset . "'";
+            $this->connectionLink = pg_connect($connectionString);
+        }
+
         if (!$this->connectionLink)
             return $this->getLastErrorResult();
 
-        return StiDataResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -52,10 +73,9 @@ class StiPostgreSqlAdapter extends StiDataAdapter
         }
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
-        if (parent::parse($connectionString))
-            return true;
+        if (parent::process()) return true;
 
         $this->connectionInfo->port = 5432;
         $this->connectionInfo->charset = 'utf8';
@@ -69,10 +89,10 @@ class StiPostgreSqlAdapter extends StiDataAdapter
             'charset' => ['charset']
         );
 
-        return $this->parseParameters($parameterNames);
+        return $this->processParameters($parameterNames);
     }
 
-    protected function parseType($meta)
+    protected function getType($meta): string
     {
         $type = strtolower($this->driverType == 'PDO' ? $meta['native_type'] : $meta);
         if (substr($type, 0, 1) == '_')
@@ -169,13 +189,13 @@ class StiPostgreSqlAdapter extends StiDataAdapter
         return $value;
     }
 
-    public function makeQuery($procedure, $parameters)
+    public function makeQuery($procedure, $parameters): string
     {
         $paramsString = parent::makeQuery($procedure, $parameters);
         return "CALL $procedure ($paramsString)";
     }
 
-    protected function executeNative($queryString, $result)
+    protected function executeNative($queryString, $maxDataRows, $result): StiDataResult
     {
         $query = pg_query($this->connectionLink, $queryString);
         if (!$query)
@@ -186,16 +206,21 @@ class StiPostgreSqlAdapter extends StiDataAdapter
         for ($i = 0; $i < $result->count; $i++) {
             $result->columns[] = pg_field_name($query, $i);
             $type = pg_field_type($query, $i);
-            $result->types[] = $this->parseType($type);
+            $result->types[] = $this->getType($type);
         }
 
         while ($rowItem = pg_fetch_assoc($query)) {
-            $row = array();
+            $row = [];
+
             foreach ($rowItem as $value) {
                 $type = count($result->types) >= count($row) + 1 ? $result->types[count($row)] : 'string';
                 $row[] = $this->getValue($type, $value);
             }
+
             $result->rows[] = $row;
+
+            if (count($result->rows) === $maxDataRows)
+                break;
         }
 
         return $result;

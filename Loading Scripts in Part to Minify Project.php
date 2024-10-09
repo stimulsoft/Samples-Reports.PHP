@@ -1,75 +1,36 @@
 <?php
 require_once 'vendor/autoload.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Loading Scripts in Part to Minify Project</title>
-    <style>
-        html, body {
-            font-family: sans-serif;
-        }
-    </style>
-    
-    <?php
-    // Creating and configuring a JavaScript deployment object for the designer
-    $js = new \Stimulsoft\StiJavaScript(\Stimulsoft\StiComponentType::Designer);
 
-    // Defining JavaScript modules required for the report designer to work
-    $js->options->reports = false;
-    $js->options->blocklyEditor = false;
-    $js->options->reportsChart = true;
-    $js->options->reportsExport = true;
-    $js->options->reportsImportXlsx = false;
-    $js->options->reportsMaps = false;
+use Stimulsoft\Designer\StiDesigner;
+use Stimulsoft\Report\StiReport;
 
-    // Using a packaged version of scripts to speed up loading and save traffic
-    $js->usePacked = true;
 
-    // Rendering the JavaScript code required for the component to work
-    $js->renderHtml();
-    ?>
+// Creating a designer object
+$designer = new StiDesigner();
 
-    <script type="text/javascript">
-        <?php
-        // Creating and configuring an event handler object
-        // By default, the event handler sends all requests to the 'handler.php' file
-        $handler = new \Stimulsoft\StiHandler();
+// Defining JavaScript modules required for the report designer to work
+$designer->javascript->blocklyEditor = false;
+$designer->javascript->reportsChart = true;
+$designer->javascript->reportsExport = true;
+$designer->javascript->reportsImportXlsx = false;
+$designer->javascript->reportsMaps = false;
 
-        // Rendering the JavaScript code necessary for the event handler to work
-        $handler->renderHtml();
+// Using a packaged version of scripts to speed up loading and save traffic
+$designer->javascript->usePacked = true;
 
-        // Creating and configuring the designer options object
-        $options = new \Stimulsoft\Designer\StiDesignerOptions();
-        $options->appearance->fullScreenMode = true;
+// Processing the request and, if successful, immediately printing the result
+$designer->process();
 
-        // Creating the designer object with the necessary options
-        $designer = new \Stimulsoft\Designer\StiDesigner($options);
+// Creating a report object
+$report = new StiReport();
 
-        // Creating the report object
-        $report = new \Stimulsoft\Report\StiReport();
+// Loading a report by URL
+// This method does not load the report object on the server side, it only generates the necessary JavaScript code
+// The report will be loaded into a JavaScript object on the client side
+$report->loadFile('reports/SimpleList.mrt');
 
-        // Loading a report by URL
-        // This method does not load the report object on the server side, it only generates the necessary JavaScript code
-        // The report will be loaded into a JavaScript object on the client side
-        $report->loadFile('reports/SimpleList.mrt');
+// Assigning a report object to the designer
+$designer->report = $report;
 
-        // Assigning a report object to the designer
-        $designer->report = $report;
-        ?>
-
-        function onLoad() {
-            <?php
-            // Rendering the necessary JavaScript code and visual HTML part of the designer
-            // The rendered code will be placed inside the specified HTML element
-            $designer->renderHtml('designerContent');
-            ?>
-        }
-    </script>
-</head>
-<body onload="onLoad();">
-<div id="designerContent"></div>
-</body>
-</html>
+// Displaying the visual part of the designer as a prepared HTML page
+$designer->printHtml();

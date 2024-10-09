@@ -1,6 +1,8 @@
 <?php
 
-namespace Stimulsoft;
+namespace Stimulsoft\Enums;
+
+use Stimulsoft\StiFunctions;
 
 class StiDataCommand
 {
@@ -9,4 +11,12 @@ class StiDataCommand
     const RetrieveSchema = 'RetrieveSchema';
     const Execute = 'Execute';
     const ExecuteQuery = 'ExecuteQuery';
+
+
+### Helpers
+
+    public static function getValues(): array
+    {
+        return StiFunctions::getConstants('Stimulsoft\Enums\StiDataCommand');
+    }
 }

@@ -2,45 +2,66 @@
 
 namespace Stimulsoft\Adapters;
 
+use Exception;
+use MongoDB\Driver\Command;
+use MongoDB\Driver\Manager;
+use MongoDB\Driver\Query;
+use stdClass;
+use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiConnectionInfo;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiMongoDbAdapter extends StiDataAdapter
 {
-    public $version = '2024.3.6';
+
+### Constants
+
+    const DriverNotFound = 'MongoDB driver not found. Please configure your PHP server to work with MongoDB.';
+
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = true;
 
+    protected $type = StiDatabaseType::MongoDB;
     protected $driverName = 'mongodb';
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult($message);
+            return parent::getLastErrorResult();
 
-        return StiResult::error($message);
+        return StiDataResult::getError(self::UnknownError)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
         if ($this->driverType == 'PDO')
             return parent::connect();
 
         if (!class_exists('\MongoDB\Driver\Manager'))
-            return StiResult::error('MongoDB driver not found. Please configure your PHP server to work with MongoDB.');
+            return StiDataResult::getError(self::DriverNotFound)->getDataAdapterResult($this);
 
         if ($this->connectionInfo->database == '')
-            return StiResult::error('The database name cannot be empty.');
+            return StiDataResult::getError('The database name cannot be empty.')->getDataAdapterResult($this);
 
         try {
-            $this->connectionLink = new \MongoDB\Driver\Manager($this->connectionString);
+            $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+            $this->handler->onDatabaseConnect->call($args);
+
+            $this->connectionLink = $args->link !== null ? $args->link : new Manager($this->connectionString);
         }
-        catch (\Exception $e) {
+        catch (Exception $e) {
             $message = $e->getMessage();
-            return $this->getLastErrorResult($message);
+            return StiDataResult::getError($message)->getDataAdapterResult($this);
         }
 
-        return StiDataResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -51,27 +72,27 @@ class StiMongoDbAdapter extends StiDataAdapter
             $this->connectionLink = null;
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
         $this->connectionInfo = new StiConnectionInfo();
-        $this->connectionString = trim($connectionString);
 
-        $url = parse_url($connectionString);
-        $this->connectionInfo->host = isset($url['host']) ? $url['host'] : '';
-        $this->connectionInfo->port = isset($url['port']) ? $url['port'] : 27017;
-        $this->connectionInfo->userId = isset($url['user']) ? $url['user'] : '';
-        $this->connectionInfo->password = isset($url['pass']) ? $url['pass'] : '';
+        $url = parse_url($this->connectionString);
+        $this->connectionInfo->host = $url['host'] ?? '';
+        $this->connectionInfo->port = $url['port'] ?? 27017;
+        $this->connectionInfo->userId = $url['user'] ?? '';
+        $this->connectionInfo->password = $url['pass'] ?? '';
         $this->connectionInfo->database = isset($url['path']) ? trim($url['path'], '/') : '';
 
-        return true;
+        $parameterNames = [];
+        return $this->processParameters($parameterNames);
     }
 
-    protected function parseParameters($parameterNames)
+    protected function processParameters($parameterNames): bool
     {
         return true;
     }
 
-    protected function parseType($meta)
+    protected function getType($meta): string
     {
         switch ($meta) {
             case 'bool':
@@ -140,20 +161,20 @@ class StiMongoDbAdapter extends StiDataAdapter
         return $value;
     }
 
-    protected function executeNative($queryString, $result)
+    protected function executeNative($queryString, $maxDataRows, $result): StiDataResult
     {
         if (empty($queryString))
             return $this->retrieveSchema($result);
 
-        return $this->retrieveData($result, $queryString);
+        return $this->retrieveData($result, $queryString, $maxDataRows);
     }
 
     private function retrieveSchema($result)
     {
-        $command = new \MongoDB\Driver\Command(['listCollections' => 1]);
+        $command = new Command(['listCollections' => 1]);
         $cursor = $this->connectionLink->executeReadCommand($this->connectionInfo->database, $command);
 
-        $schema = array();
+        $schema = [];
         foreach ($cursor as $collection) {
             $pipeline = [
                 ['$project' => ['_id' => 0]],
@@ -165,7 +186,7 @@ class StiMongoDbAdapter extends StiDataAdapter
                 ],
                 ['$replaceRoot' => ['newRoot' => ['$arrayToObject' => '$data']]]
             ];
-            $command = new \MongoDB\Driver\Command(['aggregate' => $collection->name, 'pipeline' => $pipeline, 'cursor' => new \stdClass()]);
+            $command = new Command(['aggregate' => $collection->name, 'pipeline' => $pipeline, 'cursor' => new stdClass()]);
             $cursor = $this->connectionLink->executeReadCommand($this->connectionInfo->database, $command);
             $fields = $cursor->toArray();
             if (count($fields) > 0)
@@ -175,10 +196,10 @@ class StiMongoDbAdapter extends StiDataAdapter
         $result->count = count($schema);
         foreach ($schema as $tableName => $table) {
             foreach ($table as $columnName => $columnType) {
-                $row = array();
+                $row = [];
                 $row[] = $tableName;
                 $row[] = $columnName;
-                $row[] = $this->parseType($columnType);
+                $row[] = $this->getType($columnType);
                 $result->rows[] = $row;
             }
         }
@@ -186,7 +207,7 @@ class StiMongoDbAdapter extends StiDataAdapter
         return $result;
     }
 
-    private function retrieveData($result, $queryString)
+    private function retrieveData($result, $queryString, $maxDataRows)
     {
         $result = $this->retrieveSchema($result);
         foreach ($result->rows as $item) {
@@ -196,11 +217,14 @@ class StiMongoDbAdapter extends StiDataAdapter
             }
         }
         $result->count = count($result->columns);
-        $result->rows = array();
+        $result->rows = [];
 
         $filter = [];
         $options = [];
-        $query = new \MongoDB\Driver\Query($filter, $options);
+        if ($maxDataRows !== null)
+            $options['limit'] = $maxDataRows;
+
+        $query = new Query($filter, $options);
         $cursor = $this->connectionLink->executeQuery($this->connectionInfo->database . '.' . $queryString, $query);
         foreach ($cursor as $document) {
             $row = array_fill(0, $result->count, null);
@@ -208,6 +232,7 @@ class StiMongoDbAdapter extends StiDataAdapter
                 $index = array_search($key, $result->columns);
                 if ($index !== false) $row[$index] = $this->getValue($result->types[$index], $value);
             }
+
             $result->rows[] = $row;
         }
 

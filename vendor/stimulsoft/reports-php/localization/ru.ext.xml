@@ -375,8 +375,8 @@
     <ThemeBackground>Фоновый цвет:</ThemeBackground>
     <ThemeStyle>Стиль оформления:</ThemeStyle>
     <TrialVersion>Пробная версия</TrialVersion>
-    <TrialVersionNotIncluded>Пробная версия. Этот продукт не включен в Вашу подписку.</TrialVersionNotIncluded>
     <TrialVersionHasExpired>Пробная версия. Ваша подписка истекла, необходимо обновление.</TrialVersionHasExpired>
+    <TrialVersionNotIncluded>Пробная версия. Этот продукт не включен в Вашу подписку.</TrialVersionNotIncluded>
     <Use>Использовать</Use>
     <UseCompilationCache>Использовать компиляцию для кэширования</UseCompilationCache>
     <UseCompilationCacheToolTip>Скомпилированный отчёт будет сохранён во временной директории, это позволяет ускорить последующее его построение и сократить использование памяти.</UseCompilationCacheToolTip>
@@ -1881,6 +1881,7 @@
     <EngineVersion>Текущее ядро генератора отчетов.</EngineVersion>
     <ExportedEvent>Происходит при завершении экспорта отчета.</ExportedEvent>
     <ExportingEvent>Происходит при начале экспорта отчета.</ExportingEvent>
+    <ExportSettings>Параметры экспорта</ExportSettings>
     <GlobalizationStrings>Коллекция, которая содержит GlobalizationStrings.</GlobalizationStrings>
     <NumberOfPass>Количество проходов, которые генератор отчетов делает при построении отчета.</NumberOfPass>
     <ParametersOrientation>Ориентация панели параметров во вьювере отчетов.</ParametersOrientation>
@@ -2279,6 +2280,9 @@
   <StiUserFunction>
     <StiScriptAtInterpretationCheckLong>Сценарий пользовательской функции '{0}' не работает в режиме вычисления отчета как Интерпретация.</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>Сценарий в Интерпретации</StiScriptAtInterpretationCheckShort>
+    <StiUserFunctionLangScriptValueCheckLong>В пользовательской функции '{1}' не определен код сценария для языка {0}.</StiUserFunctionLangScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckLong>В пользовательской функции '{0}' не определен код сценария для текущего языка программирования отчета.</StiUserFunctionScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckShort>Сценарий</StiUserFunctionScriptValueCheckShort>
   </StiUserFunction>
   <StiVariable>
     <Alias>Псевдоним переменной.</Alias>

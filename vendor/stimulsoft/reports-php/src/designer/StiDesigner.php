@@ -2,104 +2,241 @@
 
 namespace Stimulsoft\Designer;
 
+use Stimulsoft\Enums\StiComponentType;
+use Stimulsoft\Enums\StiEventType;
+use Stimulsoft\Enums\StiHtmlMode;
+use Stimulsoft\Events\StiComponentEvent;
+use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiHtmlComponent;
+use Stimulsoft\StiComponent;
+use Stimulsoft\StiHandler;
 
-class StiDesigner extends StiHtmlComponent
+class StiDesigner extends StiComponent
 {
-    /** @var StiDesignerOptions */
-    public $options;
 
-    /** @var StiReport */
+### Events
+
+    /** @var StiComponentEvent The event is invoked after creation a new report in the designer. PHP and JavaScript functions are supported. */
+    public $onCreateReport;
+
+    /**
+     * @var StiComponentEvent
+     * The event is invoked before opening a report from the designer menu after clicking the button. Only JavaScript functions are supported.
+     */
+    public $onOpenReport;
+
+    /** @var StiComponentEvent The event is invoked after opening a report before sending to the designer. PHP and JavaScript functions are supported. */
+    public $onOpenedReport;
+
+    /** @var StiComponentEvent The event is invoked when saving a report in the designer. PHP and JavaScript functions are supported. */
+    public $onSaveReport;
+
+    /**
+     * @var StiComponentEvent
+     * The event is invoked when saving a report in the designer with a preliminary input of the file name.
+     * PHP and JavaScript functions are supported.
+     */
+    public $onSaveAsReport;
+
+    /** @var StiComponentEvent The event is invoked when going to the report preview tab. PHP and JavaScript functions are supported. */
+    public $onPreviewReport;
+
+    /**
+     * @var StiComponentEvent
+     * The event is invoked when by clicking the Exit button in the main menu of the designer. Only JavaScript functions are supported.
+     */
+    public $onExit;
+
+
+### Properties
+
+    /** @var StiReport Gets or sets a report object for the viewer. */
     public $report;
 
-    /** The event is invoked before rendering a report after preparing report variables. */
-    public $onPrepareVariables = false;
+    /** @var StiDesignerOptions All viewer component options, divided by categories. */
+    public $options;
 
-    /** The event is invoked before data request, which are needed to render a report. */
-    public $onBeginProcessData = false;
 
-    /** The event is invoked after loading data before rendering a report. */
-    public $onEndProcessData;
+### Event handlers
 
-    /** The event is invoked after creation a new report in the designer. */
-    public $onCreateReport = false;
-
-    /** The event is invoked before opening a report from the designer menu. */
-    public $onOpenReport = false;
-
-    /** The event is invoked when saving a report in the designer. */
-    public $onSaveReport = false;
-
-    /** The event is invoked when saving a report in the designer with a preliminary input of the file name. */
-    public $onSaveAsReport = false;
-
-    /** The event is invoked when going to the report view tab. */
-    public $onPreviewReport = false;
-
-    /** The event is invoked when by clicking the Exit button in the main menu of the designer */
-    public $onExit = false;
-
-    /** Get the HTML representation of the component. */
-    public function getHtml($element = null)
+    private function getCreateReportResult()
     {
-        $result = '';
+        $args = new StiReportEventArgs($this->handler->request);
+        return $this->getDefaultEventResult($this->onCreateReport, $args);
+    }
 
-        if ($this->options instanceof StiDesignerOptions && !$this->options->isHtmlRendered)
-            $result .= $this->options->getHtml();
+    private function getOpenedReportResult()
+    {
+        $args = new StiReportEventArgs($this->handler->request);
+        return $this->getDefaultEventResult($this->onOpenedReport, $args);
+    }
 
-        $optionsProperty = $this->options instanceof StiDesignerOptions ? $this->options->property : 'null';
-        $designerProperty = $this->id == 'StiDesigner' ? 'designer' : $this->id;
-        $result .= "let $designerProperty = new Stimulsoft.Designer.StiDesigner($optionsProperty, '$this->id', false);\n";
+    private function getSaveReportResult()
+    {
+        $args = new StiReportEventArgs($this->handler->request);
+        return $this->getDefaultEventResult($this->onSaveReport, $args);
+    }
 
-        if ($this->onPrepareVariables)
-            $result .= $this->getEventHtml('onPrepareVariables', true);
+    private function getSaveAsReportResult()
+    {
+        $args = new StiReportEventArgs($this->handler->request);
+        return $this->getDefaultEventResult($this->onSaveAsReport, $args);
+    }
 
-        if ($this->onBeginProcessData)
-            $result .= $this->getEventHtml('onBeginProcessData', true);
-
-        if ($this->onEndProcessData)
-            $result .= $this->getEventHtml('onEndProcessData');
-
-        if ($this->onCreateReport)
-            $result .= $this->getEventHtml('onCreateReport', true);
-
-        if ($this->onOpenReport)
-            $result .= $this->getEventHtml('onOpenReport');
-
-        if ($this->onSaveReport)
-            $result .= $this->getEventHtml('onSaveReport', false, true);
-
-        if ($this->onSaveAsReport)
-            $result .= $this->getEventHtml('onSaveAsReport', true);
-
-        if ($this->onPreviewReport)
-            $result .= $this->getEventHtml('onPreviewReport', true, false, false);
-
-        if ($this->onExit)
-            $result .= $this->getEventHtml('onExit', false, false, false);
-
-        if ($this->report instanceof StiReport) {
-            if (!$this->report->isHtmlRendered)
-                $result .= $this->report->getHtml();
-
-            $result .= "$designerProperty.report = {$this->report->id};\n";
-        }
-
-        $result .= "$designerProperty.renderHtml(" . (!is_null($element) && strlen($element) > 0 ? "'$element'" : '') . ");\n";
+    private function getPreviewReportResult()
+    {
+        $args = new StiReportEventArgs($this->handler->request);
+        $result = $this->getDefaultEventResult($this->onPreviewReport, $args);
+        if ($result != null && $args->report != $this->handler->request->report)
+            $result->report = $args->report;
 
         return $result;
     }
 
-    /** Output of the HTML representation of the component. */
-    public function renderHtml($element = null)
+    public function getEventResult()
     {
-        echo $this->getHtml($element);
+        $this->updateEvents();
+        $request = $this->getRequest();
+
+        if ($request->event == StiEventType::CreateReport)
+            return $this->getCreateReportResult();
+
+        if ($request->event == StiEventType::OpenedReport)
+            return $this->getOpenedReportResult();
+
+        if ($request->event == StiEventType::SaveReport)
+            return $this->getSaveReportResult();
+
+        if ($request->event == StiEventType::SaveAsReport)
+            return $this->getSaveAsReportResult();
+
+        if ($request->event == StiEventType::PreviewReport)
+            return $this->getPreviewReportResult();
+
+        return parent::getEventResult();
     }
 
-    public function __construct($options = null, $id = 'StiDesigner')
+
+### Helpers
+
+    protected function updateObjects()
+    {
+        parent::updateObjects();
+
+        $this->setOptions($this->options);
+        $this->setHandler($this->handler);
+        $this->setReport($this->report);
+    }
+
+    protected function updateEvents()
+    {
+        parent::updateEvents();
+
+        $this->updateEvent('onCreateReport');
+        $this->updateEvent('onOpenReport');
+        $this->updateEvent('onOpenedReport');
+        $this->updateEvent('onSaveReport');
+        $this->updateEvent('onSaveAsReport');
+        $this->updateEvent('onPreviewReport');
+        $this->updateEvent('onExit');
+    }
+
+    public function getComponentType()
+    {
+        return StiComponentType::Designer;
+    }
+
+    public function setOptions(StiDesignerOptions $options)
     {
         $this->options = $options;
-        $this->id = !is_null($id) && strlen($id) > 0 ? $id : 'StiDesigner';
+        $options->setComponent($this);
+    }
+
+    public function setHandler(StiHandler $handler)
+    {
+        parent::setHandler($handler);
+
+        if ($handler != null) {
+            $handler->onCreateReport = $this->onCreateReport;
+            $handler->onOpenReport = $this->onOpenReport;
+            $handler->onOpenedReport = $this->onOpenedReport;
+            $handler->onSaveReport = $this->onSaveReport;
+            $handler->onSaveAsReport = $this->onSaveAsReport;
+            $handler->onPreviewReport = $this->onPreviewReport;
+            $handler->onExit = $this->onExit;
+        }
+    }
+
+    public function setReport(StiReport $report)
+    {
+        $this->report = $report;
+
+        if ($report != null) {
+            $this->updateEvents();
+            $report->onDatabaseConnect = $this->onDatabaseConnect;
+            $report->onBeginProcessData = $this->onBeginProcessData;
+            $report->onEndProcessData = $this->onEndProcessData;
+            $report->onPrepareVariables = $this->onPrepareVariables;
+
+            $report->setHandler($this->handler);
+            $report->license = $this->license;
+        }
+    }
+
+
+### HTML
+
+    protected function getComponentHtml(): string
+    {
+        $result = $this->options->getHtml();
+        $result .= "let $this->id = new Stimulsoft.Designer.StiDesigner({$this->options->id}, '$this->id', false);\n";
+
+        $result .= $this->onPrepareVariables->getHtml(true);
+        $result .= $this->onBeginProcessData->getHtml(true);
+        $result .= $this->onEndProcessData->getHtml();
+        $result .= $this->onCreateReport->getHtml(true);
+        $result .= $this->onOpenReport->getHtml();
+        $result .= $this->onOpenedReport->getHtml();
+        $result .= $this->onSaveReport->getHtml(false, true);
+        $result .= $this->onSaveAsReport->getHtml(false, true);
+        $result .= $this->onPreviewReport->getHtml(true);
+        $result .= $this->onExit->getHtml(false, false, false);
+
+        if ($this->report != null) {
+            if (!$this->report->htmlRendered)
+                $result .= $this->report->getHtml(StiHtmlMode::Scripts);
+
+            $result .= "$this->id.report = {$this->report->id};\n";
+        }
+
+        $result .= "$this->id.renderHtml('{$this->id}Content');\n";
+
+        return $result;
+    }
+
+    public function getHtml($mode = StiHtmlMode::HtmlScripts): string
+    {
+        if ($mode == StiHtmlMode::HtmlPage)
+            $this->options->appearance->fullScreenMode = true;
+
+        return parent::getHtml($mode);
+    }
+
+
+### Constructor
+
+    public function __construct($id = 'designer', StiDesignerOptions $options = null)
+    {
+        parent::__construct();
+
+        if (StiHandler::$legacyMode && $id instanceof StiDesignerOptions) {
+            $options = $id;
+            $id = 'designer';
+        }
+
+        $this->id = strlen($id ?? '') > 0 ? $id : 'designer';
+        $this->options = $options ?? new StiDesignerOptions();
+        $this->setOptions($this->options);
+        $this->setHandler($this->handler);
     }
 }

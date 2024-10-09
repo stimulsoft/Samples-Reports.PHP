@@ -4,45 +4,45 @@ namespace Stimulsoft;
 
 class StiEmailSettings
 {
-    /** Email address of the sender. */
+    /** @var string Email address of the sender. */
     public $from;
 
-    /** Name and surname of the sender. */
+    /** @var string Name and surname of the sender. */
     public $name;
 
-    /** Email address of the recipient. */
+    /** @var string Email address of the recipient. */
     public $to;
 
-    /** Email Subject. */
+    /** @var string Email Subject. */
     public $subject;
 
-    /** Text of the Email. */
+    /** @var string Text of the Email. */
     public $message;
 
-    /** Attached file name. */
+    /** @var string Attached file name. */
     public $attachmentName;
 
-    /** Charset for the message. */
+    /** @var string Charset for the message. */
     public $charset = 'UTF-8';
 
-    /** Address of the SMTP server. */
+    /** @var string Address of the SMTP server. */
     public $host;
 
-    /** Port of the SMTP server. */
+    /** @var int Port of the SMTP server. */
     public $port = 465;
 
-    /** The secure connection prefix - ssl or tls. */
+    /** @var string The secure connection prefix - ssl or tls. */
     public $secure = 'ssl';
 
-    /** Login (Username or Email). */
+    /** @var string Login (Username or Email). */
     public $login;
 
-    /** Password */
+    /** @var string Password */
     public $password;
 
-    /** The array of 'cc' addresses. */
-    public $cc = array();
+    /** @var array The array of 'cc' addresses. */
+    public $cc = [];
 
-    /** The array of 'bcc' addresses. */
-    public $bcc = array();
+    /** @var array The array of 'bcc' addresses. */
+    public $bcc = [];
 }

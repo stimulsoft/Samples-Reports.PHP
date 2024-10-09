@@ -2,13 +2,42 @@
 
 namespace Stimulsoft;
 
-class StiComponentOptions
+class StiComponentOptions extends StiJsElement
 {
-    public $property;
-    public $isHtmlRendered = false;
 
-    protected $enums = [];
-    protected $ignore = ['ignore', 'enums', 'property', 'localization'];
+### Properties
+
+    /** @var StiComponent */
+    public $component;
+
+
+### Helpers
+
+    protected function getIgnoredProperties(): array
+    {
+        return array_merge(parent::getIgnoredProperties(), ['component', 'localization']);
+    }
+
+    protected function getStringValue(string $name, $value)
+    {
+        if (substr_compare($name, 'Color', -5) === 0)
+            return $this->getColorValue($value);
+
+        return parent::getStringValue($name, $value);
+    }
+
+    private function getColorValue($value): string
+    {
+        if ($value == null || strlen($value) == 0)
+            return 'Stimulsoft.System.Drawing.Color.transparent';
+
+        if ($value[0] == '#') {
+            list($r, $g, $b) = sscanf($value, '#%02x%02x%02x');
+            return "Stimulsoft.System.Drawing.Color.fromArgb(255, $r, $g, $b)";
+        }
+
+        return "Stimulsoft.System.Drawing.Color.$value";
+    }
 
     protected function getLocalizationPath($localization)
     {
@@ -24,52 +53,39 @@ class StiComponentOptions
         return $localization;
     }
 
-    private function getColorValue($value) {
-        if ($value == null || strlen($value) == 0)
-            return 'Stimulsoft.System.Drawing.Color.transparent';
+    /**
+     * Sets the component to which these options apply.
+     */
+    public function setComponent(StiComponent $component)
+    {
+        $this->component = $component;
+        $this->id = $component->id . 'Options';
 
-        if ($value[0] == '#') {
-            list($r, $g, $b) = sscanf($value, '#%02x%02x%02x');
-            return "Stimulsoft.System.Drawing.Color.fromArgb(255, $r, $g, $b)";
+        $properties = $this->getProperties();
+        foreach ($properties as $name) {
+            if ($this->$name instanceof StiComponentOptions)
+                $this->$name->setComponent($component);
         }
-
-        return "Stimulsoft.System.Drawing.Color.$value";
     }
 
-    /** Get the HTML representation of the component. */
-    public function getHtml()
+
+### HTML
+
+    public function getHtml(): string
     {
+        $properties = $this->getProperties();
+        $default = get_class_vars(get_class($this));
         $result = '';
-        $className = get_class($this);
-        $vars = get_class_vars($className);
-        foreach ($vars as $name => $defaultValue) {
-            if (!in_array($name, $this->ignore)) {
-                if (is_object($this->{$name}))
-                    $result .= $this->{$name}->getHtml();
-                else {
-                    $currentValue = $this->{$name};
-                    if ($currentValue != $defaultValue) {
-                        $stringValue = in_array($name, $this->enums) ? $currentValue : var_export($currentValue, true);
-                        if (substr_compare($name, 'Color', -5) === 0) $stringValue = $this->getColorValue($currentValue);
-                        if ($stringValue == 'NULL') $stringValue = 'null';
-                        $result .= "$this->property.$name = $stringValue;\n";
-                    }
-                }
+        foreach ($properties as $name) {
+            $value = $this->$name;
+            if ($value instanceof StiComponentOptions)
+                $result .= $value->getHtml();
+            else if ($value != $default[$name]) {
+                $stringValue = $this->getStringValue($name, $value);
+                $result .= "$this->id.$name = $stringValue;\n";
             }
         }
 
-        $this->isHtmlRendered = true;
-        return $result;
-    }
-
-    /** Output of the HTML representation of the component. */
-    public function renderHtml()
-    {
-        echo $this->getHtml();
-    }
-
-    public function __construct($property = '')
-    {
-        $this->property = $property;
+        return $result . parent::getHtml();
     }
 }

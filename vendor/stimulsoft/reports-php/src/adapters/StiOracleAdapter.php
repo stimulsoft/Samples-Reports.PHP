@@ -2,20 +2,35 @@
 
 namespace Stimulsoft\Adapters;
 
+use DateTime;
+use Exception;
+use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiDataResult;
-use Stimulsoft\StiResult;
 
 class StiOracleAdapter extends StiDataAdapter
 {
-    public $version = '2024.3.6';
+
+### Constants
+
+    const DriverNotFound = 'Oracle driver not found. Please configure your PHP server to work with Oracle.';
+
+
+### Properties
+
+    public $version = '2024.4.1';
     public $checkVersion = true;
 
+    protected $type = StiDatabaseType::Oracle;
     protected $driverName = 'oci';
 
-    protected function getLastErrorResult($message = 'An unknown error has occurred.')
+
+### Methods
+
+    protected function getLastErrorResult(): StiDataResult
     {
         if ($this->driverType == 'PDO')
-            return parent::getLastErrorResult($message);
+            return parent::getLastErrorResult();
 
         $code = 0;
         $error = oci_error();
@@ -24,20 +39,26 @@ class StiOracleAdapter extends StiDataAdapter
             $error = $error['message'];
         }
 
-        if ($error) $message = $error;
+        $message = $error ?: self::UnknownError;
+        if ($code != 0) $message = "[$code] $message";
 
-        return $code == 0 ? StiResult::error($message) : StiResult::error("[$code] $message");
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
-    protected function connect()
+    protected function connect(): StiDataResult
     {
         if ($this->driverType == 'PDO')
             return parent::connect();
 
         if (!function_exists('oci_connect'))
-            return StiResult::error('Oracle driver not found. Please configure your PHP server to work with Oracle.');
+            return StiDataResult::getError(self::DriverNotFound)->getDataAdapterResult($this);
 
-        if ($this->connectionInfo->privilege == '')
+        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $this->handler->onDatabaseConnect->call($args);
+
+        if ($args->link !== null)
+            $this->connectionLink = $args->link;
+        else if ($this->connectionInfo->privilege == '')
             $this->connectionLink = oci_connect(
                 $this->connectionInfo->userId, $this->connectionInfo->password, $this->connectionInfo->database,
                 $this->connectionInfo->charset);
@@ -49,7 +70,7 @@ class StiOracleAdapter extends StiDataAdapter
         if (!$this->connectionLink)
             return $this->getLastErrorResult();
 
-        return StiDataResult::success();
+        return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
     protected function disconnect()
@@ -62,10 +83,9 @@ class StiOracleAdapter extends StiDataAdapter
         }
     }
 
-    public function parse($connectionString)
+    public function process(): bool
     {
-        if (parent::parse($connectionString))
-            return true;
+        if (parent::process()) return true;
 
         $this->connectionInfo->port = 3306;
         $this->connectionInfo->charset = 'AL32UTF8';
@@ -77,12 +97,12 @@ class StiOracleAdapter extends StiDataAdapter
             'charset' => ['charset']
         );
 
-        return $this->parseParameters($parameterNames);
+        return $this->processParameters($parameterNames);
     }
 
-    protected function parseUnknownParameter($parameter, $name, $value)
+    protected function processUnknownParameter($parameter, $name, $value)
     {
-        parent::parseUnknownParameter($parameter, $name, $value);
+        parent::processUnknownParameter($parameter, $name, $value);
 
         if ($name == 'dba privilege' || $name == 'privilege') {
             $value = strtolower($value);
@@ -92,7 +112,7 @@ class StiOracleAdapter extends StiDataAdapter
         }
     }
 
-    protected function parseType($meta, $extended = false)
+    protected function getType($meta, $extended = false): string
     {
         switch ($meta) {
             case 'SMALLINT':
@@ -141,7 +161,7 @@ class StiOracleAdapter extends StiDataAdapter
                 $data = $value->load();
                 return $type == 'blob' ? base64_encode($data) : $data . "\n";
             }
-            catch (\Exception $e) {
+            catch (Exception $e) {
                 return null;
             }
         }
@@ -154,61 +174,68 @@ class StiOracleAdapter extends StiDataAdapter
                 return base64_encode($value);
 
             case 'datetime':
-                $dateTime = \DateTime::createFromFormat("d#M#y H#i#s*A", $value);
-                if ($dateTime !== false) $format = $dateTime->format("Y-m-d\TH:i:s.v");
+                $dateTime = DateTime::createFromFormat("d#M#y H#i#s*A", $value);
+                if ($dateTime !== false)
+                    $format = $dateTime->format("Y-m-d\TH:i:s.v");
                 else {
                     $timestamp = strtotime($value);
                     $format = date("Y-m-d\TH:i:s.v", $timestamp);
+                    if (strpos($format, '.v') > 0)
+                        $format = date("Y-m-d\TH:i:s.000", $timestamp);
                 }
-                if (strpos($format, '.v') > 0) $format = date("Y-m-d\TH:i:s.000", $timestamp);
                 return $format;
         }
 
         return $value;
     }
 
-    public function makeQuery($procedure, $parameters)
+    public function makeQuery($procedure, $parameters): string
     {
         $paramsString = parent::makeQuery($procedure, $parameters);
         return "SQLEXEC 'CALL $procedure ($paramsString)'";
     }
 
-    protected function executeNative($queryString, $result)
+    protected function executeNative($queryString, $maxDataRows, $result): StiDataResult
     {
         $query = oci_parse($this->connectionLink, $queryString);
         if (!$query || !oci_execute($query))
             return $this->getLastErrorResult();
 
         $result->count = oci_num_fields($query);
-        $types = array();
+        $types = [];
 
         for ($i = 1; $i <= $result->count; $i++) {
             $name = oci_field_name($query, $i);
             $result->columns[] = $name;
 
             $type = oci_field_type($query, $i);
-            $result->types[] = $this->parseType($type);
-            $types[] = $this->parseType($type, true);
+            $result->types[] = $this->getType($type);
+            $types[] = $this->getType($type, true);
         }
 
         while ($rowItem = oci_fetch_assoc($query)) {
-            $row = array();
+            $row = [];
+
             foreach ($rowItem as $key => $value) {
                 if (count($result->columns) < count($rowItem)) $result->columns[] = $key;
                 $type = $types[count($row)];
                 $row[] = $this->getValue($type, $value);
             }
+
             $result->rows[] = $row;
+
+            if (count($result->rows) === $maxDataRows)
+                break;
         }
 
         return $result;
     }
 
-    protected function executePDO($queryString, $result)
+    protected function executePDO($queryString, $maxDataRows, $result): StiDataResult
     {
         // PDO Oracle driver doesn't support getColumnMeta()
         // The type is determined by the first value
 
-        return $this->executePDOv2($queryString, $result);
+        return $this->executePDOv2($queryString, $maxDataRows, $result);
     }
 }

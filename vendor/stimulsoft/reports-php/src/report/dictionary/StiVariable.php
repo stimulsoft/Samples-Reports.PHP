@@ -2,37 +2,49 @@
 
 namespace Stimulsoft\Report;
 
-use Stimulsoft\StiHtmlComponent;
+use Stimulsoft\Report\Enums\StiVariableType;
+use Stimulsoft\StiElement;
 
-class StiVariable extends StiHtmlComponent
+class StiVariable extends StiElement
 {
+
+### Properties
+
     /** @var string The name of the variable. */
     public $name;
 
-    /** @var StiVariableType The type of the variable. Is equal to one of the values of the StiVariableType enumeration. */
+    /** @var StiVariableType|string The type of the variable. Is equal to one of the values of the StiVariableType enumeration. */
     public $type;
 
-    /** @var object The value of the variable. The type of object depends on the type of variable. */
+    /** @var object|string|int|bool The value of the variable. The type of object depends on the type of variable. */
     public $value;
 
 
-    /** Get the HTML representation of the component. */
-    public function getHtml()
+### HTML
+
+    public function getHtml(): string
     {
+        $id = $this->id !== null ? $this->id : $this->name;
         $result =
-            "let $this->id = new Stimulsoft.Report.Dictionary.StiVariable".
+            "let $id = new Stimulsoft.Report.Dictionary.StiVariable" .
             "('', '{$this->name}', '{$this->name}', '', Stimulsoft.System.{$this->type}, '{$this->value}');\n";
 
-        $this->isHtmlRendered = true;
-        return $result;
+        return $result . parent::getHtml();
     }
 
-    public function __construct($name = '', $type = 'String', $value = '')
+
+### Constructor
+
+    /**
+     * StiVariable constructor.
+     * @param string $name The name of the variable.
+     * @param StiVariableType|string $type The type of the variable.
+     * @param object|string|int|bool $value The value of the variable. The type of value object depends on the type of variable.
+     */
+    public function __construct(string $name, $type = StiVariableType::String, string $value = '')
     {
-        $this->name = !is_null($name) && strlen($name) > 0 ? $name : 'variable';
+        $this->name = $name;
         $this->type = $type;
         $this->value = $value;
-
-        $this->id = $this->name;
     }
 }
