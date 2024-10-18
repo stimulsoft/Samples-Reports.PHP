@@ -18,7 +18,7 @@ class StiOracleAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2024.4.1';
+    public $version = '2024.4.2';
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::Oracle;

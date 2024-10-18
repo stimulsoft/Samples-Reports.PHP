@@ -20,7 +20,7 @@ class StiPath
     {
         $path = str_replace('\\', '/', $path != null ? $path : '');
         $result = preg_replace(['~/{2,}~', '~/(\./)+~', '~([^/\.]+/(?R)*\.{2,}/)~', '~\.\./~'], ['/', '/', '', ''], $path);
-        $normalized = trim(explode('?', $result)[0], '/');
+        $normalized = explode('?', $result)[0];
         return str_replace('/', DIRECTORY_SEPARATOR, $normalized);
     }
 

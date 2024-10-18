@@ -27,8 +27,7 @@ class StiResourcesHelper
             return StiFileResult::getError('Unknown resource format.');
 
         $fileDirectory = dirname(__FILE__);
-        $separator = DIRECTORY_SEPARATOR;
-        $resourcePath = "$fileDirectory$separator..$separator..$separator$resourceDirectory$separator$name";
+        $resourcePath = "$fileDirectory/../../$resourceDirectory/$name";
         $path = new StiPath($resourcePath);
         if ($path->filePath !== null) {
             $data = file_get_contents($path->filePath);

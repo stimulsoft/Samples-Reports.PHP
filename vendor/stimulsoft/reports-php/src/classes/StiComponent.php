@@ -63,7 +63,10 @@ class StiComponent extends StiElement
     {
         if ($handler != null) {
             $this->handler = $handler;
-            $handler->component = $this;
+
+            // The component must be original, since it usually processes requests
+            if ($handler->component == null)
+                $handler->component = $this;
 
             $this->updateEvents();
             $handler->onDatabaseConnect = $this->onDatabaseConnect;
