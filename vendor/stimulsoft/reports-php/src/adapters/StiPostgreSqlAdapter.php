@@ -16,7 +16,7 @@ class StiPostgreSqlAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2024.4.2';
+    public $version = '2024.4.3';
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::PostgreSQL;

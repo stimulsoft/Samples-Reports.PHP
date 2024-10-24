@@ -366,10 +366,14 @@
     <ReportErrors>Unfortunately, due to errors, this report cannot be published!</ReportErrors>
     <SaveExportedPagesToArchive>Save all pages in one ZIP archive</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Each report page will be exported to the selected image format, all pages will be added into one ZIP archive.</SaveExportedPagesToArchiveToolTip>
+	<SaveExportedReportToFile>Save the exported report to a file</SaveExportedReportToFile>
+	<SaveExportedReportToFileToolTip>Saving the exported report on the server side to the specified file. The export function will return a boolean result.</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>Save Project Package</SaveProjectPackage>
     <SaveStandalone>Save Standalone</SaveStandalone>
     <SaveStandalonePackage>Save Standalone Package</SaveStandalonePackage>
     <SearchLibraries>Search for libraries...</SearchLibraries>
+    <ServerSideReportProcessing>Server-Side Report Processing</ServerSideReportProcessing>
+    <ServerSideReportProcessingToolTip>Loading, building and exporting the report will be done on the server-side using the Node.js platform.</ServerSideReportProcessingToolTip>
     <ShowMore>Show More</ShowMore>
     <ShowOptions>Show Options</ShowOptions>
     <ThemeBackground>Background:</ThemeBackground>

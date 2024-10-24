@@ -96,6 +96,19 @@ class StiNodeJs
         return class_exists('\Stimulsoft\Report\StiDashboard');
     }
 
+    private function getHandlerUrl($url): string {
+        if (strlen($url ?? '') == 0)
+            $url = $_SERVER['PHP_SELF'];
+
+        if (StiFunctions::startsWith($url, 'http:') || StiFunctions::startsWith($url, 'https:'))
+            return $url;
+
+        $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+        $baseUrl .= $_SERVER['HTTP_HOST'];
+
+        return StiFunctions::startsWith($url, '/') ? "$baseUrl$url" : "$baseUrl/$url";
+    }
+
     private function clearError()
     {
         $this->error = null;
@@ -229,7 +242,9 @@ class StiNodeJs
 
     private function getHandlerScript(): string
     {
-        $script = $this->getHandler()->getHtml(StiHtmlMode::Scripts);
+        $handler = $this->getHandler();
+        $handler->url = $this->getHandlerUrl($handler->url);
+        $script = $handler->getHtml(StiHtmlMode::Scripts);
         return str_replace('Stimulsoft.handler.send', 'Stimulsoft.handler.https', $script);
     }
 

@@ -80,8 +80,8 @@ class StiPath
 
         if ($this->fileName !== null) {
             $pathInfo = pathinfo($this->fileName);
-            $this->fileNameOnly = strlen($pathInfo['filename']) > 0 ? $pathInfo['filename'] : null;
-            $this->fileExtension = strlen($pathInfo['extension']) > 0 ? $pathInfo['extension'] : null;
+            $this->fileNameOnly = strlen($pathInfo['filename'] ?? '') > 0 ? $pathInfo['filename'] : null;
+            $this->fileExtension = strlen($pathInfo['extension'] ?? '') > 0 ? $pathInfo['extension'] : null;
         }
     }
 }

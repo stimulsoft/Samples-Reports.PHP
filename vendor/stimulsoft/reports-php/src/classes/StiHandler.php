@@ -400,7 +400,7 @@ class StiHandler extends StiBaseHandler
 
     private function getJavaScriptValue($value): string
     {
-        return $value === null ? '' : json_encode($value);
+        return $value === null ? '' : json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 
     private function getJavaScript()

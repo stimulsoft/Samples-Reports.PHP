@@ -242,7 +242,7 @@ class StiReport extends StiComponent
         $this->exportFile = $path->fileNameOnly;
 
         if ($load) $this->reportString = $this->loadReportFile($path);
-        else $this->reportFile = $filePath;
+        else $this->reportFile = preg_replace('/\\\\/', '/', $filePath);
     }
 
     /**
@@ -287,7 +287,7 @@ class StiReport extends StiComponent
         $this->exportFile = $path->fileNameOnly;
 
         if ($load) $this->documentString = $this->loadReportFile($path);
-        else $this->documentFile = $filePath;
+        else $this->documentFile = preg_replace('/\\\\/', '/', $filePath);
     }
 
     /**

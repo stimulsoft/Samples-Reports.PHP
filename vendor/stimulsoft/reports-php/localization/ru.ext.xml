@@ -366,10 +366,14 @@
     <ReportErrors>К сожалению, этот отчет не может быть опубликован из-за наличия ошибок!</ReportErrors>
     <SaveExportedPagesToArchive>Сохранить все страницы в одном ZIP-архиве</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Каждая страница отчета будет экспортирована в выбранный формат изображения, все страницы будут добавлены в один ZIP-архив.</SaveExportedPagesToArchiveToolTip>
+	<SaveExportedReportToFile>Сохранить экспортированный отчет в файл</SaveExportedReportToFile>
+	<SaveExportedReportToFileToolTip>Сохранение экспортированного отчета на стороне сервера в указанный файл. Функция экспорта вернет булиевый результат.</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>Сохранить пакет проекта</SaveProjectPackage>
     <SaveStandalone>Сохранить автономный</SaveStandalone>
     <SaveStandalonePackage>Сохранить автономный пакет</SaveStandalonePackage>
     <SearchLibraries>Поиск библиотек...</SearchLibraries>
+    <ServerSideReportProcessing>Обработка отчетов на стороне сервера</ServerSideReportProcessing>
+    <ServerSideReportProcessingToolTip>Загрузка, построение и экспортирование отчета будет выполнено на стороне сервера с использованием Node.js платформы.</ServerSideReportProcessingToolTip>
     <ShowMore>Показать еще</ShowMore>
     <ShowOptions>Показать опции</ShowOptions>
     <ThemeBackground>Фоновый цвет:</ThemeBackground>
