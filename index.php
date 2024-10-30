@@ -32,6 +32,7 @@
 <ul>
     <li><a href="Configuring and Installing NodeJs.php">Configuring and Installing Node.js</a></li>
     <li><a href="Rendering a Report from Code on the Server-Side.php">Rendering a Report from Code on the Server-Side</a></li>
+    <li><a href="Rendering a Report with SQL from Code on the Server-Side.php">Rendering a Report with SQL from Code on the Server-Side</a></li>
     <li><a href="Exporting a Report from Code on the Server-Side.php">Exporting a Report from Code on the Server-Side</a></li>
     <li><a href="Registering a Data from Code when Rendering a Report on the Server-Side.php">Registering a Data from Code when Rendering a Report on the Server-Side</a></li>
     <li><a href="Exporting a Report from Code with Changing Export Settings.php">Exporting a Report from Code with Changing Export Settings</a></li>

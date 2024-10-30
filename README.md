@@ -18,6 +18,7 @@ This repository contains a PHP project ready to run. The 'index.php' file contai
 #### Working with Report on the Server-Side
 * [Configuring and Installing Node.js](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Configuring%20and%20Installing%20NodeJs.php)
 * [Rendering a Report from Code on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Rendering%20a%20Report%20from%20Code%20on%20the%20Server-Side.php)
+* [Rendering a Report with SQL from Code on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Rendering%20a%20Report%20with%20SQL%20from%20Code%20on%20the%20Server-Side.php)
 * [Exporting a Report from Code on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Exporting%20a%20Report%20from%20Code%20on%20the%20Server-Side.php)
 * [Registering a Data from Code when Rendering a Report on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Registering%20a%20Data%20from%20Code%20when%20Rendering%20a%20Report%20on%20the%20Server-Side.php)
 * [Exporting a Report from Code with Changing Export Settings](https://github.com/stimulsoft/Samples-Reports.PHP/blob/major/Exporting%20a%20Report%20from%20Code%20with%20Changing%20Export%20Settings.php)
