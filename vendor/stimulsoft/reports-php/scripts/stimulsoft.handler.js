@@ -2,11 +2,11 @@ StiHandler.prototype.process = function (args, callback) {
     if (args) {
         if (args.event === 'OpenReport')
             return null;
-        
+
         if (args.event === 'BeginProcessData' || args.event === 'EndProcessData') {
             if (!this.databases.includes(args.database))
                 return null;
-            
+
             args.preventDefault = true;
         }
 
@@ -18,23 +18,21 @@ StiHandler.prototype.process = function (args, callback) {
             if (p === 'report' && args.report) command.report = args.report.isRendered ? args.report.saveDocumentToJsonString() : args.report.saveToJsonString();
             else if (p === 'settings' && args.settings) {
                 command.settings = JSON.stringify(args.settings);
-
-                let IStiDashboardExportSettings = Stimulsoft.Report.Dashboard.Export.IStiDashboardExportSettings;
-                command.reportType = typeof args.settings.is == 'function' && args.settings.is(IStiDashboardExportSettings) ? 2 : 1;
+                command.reportType = typeof args.settings.is == 'function' && args.settings.is(Stimulsoft.Report.Dashboard.Export.IStiDashboardExportSettings) ? 2 : 1;
             }
             else if (p === 'data') command.data = Stimulsoft.System.Convert.toBase64String(args.data);
             else if (p === 'variables') command[p] = this.getVariables(args[p]);
             else if (p === 'viewer') continue;
             else command[p] = args[p];
         }
-        
+
         let sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.encodeCommand(command);
         let handlerCallback = function (handlerArgs) {
             if (handlerArgs.report) args.report = handlerArgs.report;
             if (handlerArgs.settings) Stimulsoft.handler.copySettings(handlerArgs.settings, args.settings);
             if (handlerArgs.pageRange) Stimulsoft.handler.copySettings(handlerArgs.pageRange, args.pageRange);
             if (handlerArgs.fileName) args.fileName = handlerArgs.fileName;
-            
+
             if (!Stimulsoft.System.StiString.isNullOrEmpty(handlerArgs.notice))
                 Stimulsoft.System.StiError.showError(handlerArgs.notice, true, handlerArgs.success);
             if (callback) callback(handlerArgs);
@@ -49,8 +47,11 @@ StiHandler.prototype.send = function (data, callback) {
         request.open('post', this.url, true);
         request.setRequestHeader('Cache-Control', 'max-age=0, no-cache, no-store, must-revalidate');
         request.setRequestHeader('Pragma', 'no-cache');
-        let csrf_token = '{csrf_token}' || Stimulsoft.handler.getCookie('csrftoken');
-        if (csrf_token) request.setRequestHeader('X-CSRFToken', csrf_token);
+        let csrf_token = {csrf_token} || Stimulsoft.handler.getCookie('csrftoken');
+        if (csrf_token) {
+            request.setRequestHeader('X-CSRFToken', csrf_token);
+            request.setRequestHeader('X-CSRF-Token', csrf_token);
+        }
         request.timeout = this.timeout * 1000;
         request.onload = function () {
             if (request.status === 200) {
@@ -92,7 +93,7 @@ StiHandler.prototype.https = function (data, callback) {
     let options = {
         host: uri.hostname,
         port: uri.port,
-        path:  uri.pathname,
+        path:  uri.path,
         method: 'POST',
         timeout: this.timeout * 1000,
         headers: {
@@ -100,7 +101,7 @@ StiHandler.prototype.https = function (data, callback) {
             'Pragma': 'no-cache'
         }
     }
-    
+
     let responseText = '';
     let request = require(uri.protocol.replace(':', '')).request(options, function (response) {
         response.on('data', function (buffer) {
@@ -122,15 +123,15 @@ StiHandler.prototype.https = function (data, callback) {
             }
         });
     });
-    
+
     request.on('error', function (e) {
         console.log('RequestError: ' + e.message);
     })
-    
+
     request.on('timeout', function () {
         console.log('RequestError: Timeout ' + this.timeout + 'ms');
     })
-    
+
     request.write(data);
     request.end();
 }
@@ -182,7 +183,7 @@ function StiHandler() {
     this.checkDataAdaptersVersion = {checkDataAdaptersVersion};
     this.escapeQueryParameters = {escapeQueryParameters};
     this.databases = {databases};
-    this.frameworkType = 'Python';
+    this.frameworkType = {framework};
     this.setOptions();
 }
 

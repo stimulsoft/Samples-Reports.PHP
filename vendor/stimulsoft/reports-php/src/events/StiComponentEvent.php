@@ -3,6 +3,7 @@
 namespace Stimulsoft\Events;
 
 use Stimulsoft\StiComponent;
+use Stimulsoft\StiFunctions;
 
 class StiComponentEvent extends StiEvent
 {
@@ -39,7 +40,7 @@ class StiComponentEvent extends StiEvent
         $eventValue = '';
         foreach ($this->callbacks as $callbackName)
             if (is_string($callbackName))
-                $eventValue .= preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $callbackName)
+                $eventValue .= StiFunctions::isJavaScriptFunctionName($callbackName)
                     ? "if (typeof $callbackName === \"function\") $callbackName(args); "
                     : $callbackName;
 

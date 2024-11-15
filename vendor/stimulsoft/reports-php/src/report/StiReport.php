@@ -29,6 +29,7 @@ class StiReport extends StiComponent
     /** @var StiComponentEvent The event is invoked called immediately after report rendering. Only JavaScript functions are supported. */
     public $onAfterRender;
 
+
 ### Properties
 
     /** @var StiEngineType Gets or sets the report building and export mode - on the client side in a browser window or on the server side using Node.js */
@@ -202,7 +203,7 @@ class StiReport extends StiComponent
 
     protected function getComponentHtml(): string
     {
-        $result = $this->license->getHtml();
+        $result = parent::getComponentHtml();
 
         $result .= "let $this->id = new Stimulsoft.Report.StiReport();\n";
 

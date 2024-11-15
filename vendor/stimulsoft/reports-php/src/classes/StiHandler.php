@@ -398,27 +398,23 @@ class StiHandler extends StiBaseHandler
 
 ### JavaScript
 
-    private function getJavaScriptValue($value): string
-    {
-        return $value === null ? '' : json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    }
-
     private function getJavaScript()
     {
         $result = StiResourcesHelper::getResult('stimulsoft.handler.js');
         if ($result->success) {
-            $csrf_token = null;
+            $csrf_token = function_exists('csrf_token') ? csrf_token() : null;
             $script = $result->data ?? '';
 
             // Replace Handler parameters
-            $script = str_replace('{databases}', $this->getJavaScriptValue(StiDatabaseType::getValues()), $script);
-            $script = str_replace('{csrf_token}', $csrf_token ?: '', $script);
-            $script = str_replace('{url}', $this->getJavaScriptValue($this->getUrl()), $script);
-            $script = str_replace('{timeout}', $this->getJavaScriptValue($this->timeout), $script);
-            $script = str_replace('{encryptData}', $this->getJavaScriptValue($this->encryptData), $script);
-            $script = str_replace('{passQueryParametersToReport}', $this->getJavaScriptValue($this->passQueryParametersToReport), $script);
-            $script = str_replace('{checkDataAdaptersVersion}', $this->getJavaScriptValue($this->checkDataAdaptersVersion), $script);
-            $script = str_replace('{escapeQueryParameters}', $this->getJavaScriptValue($this->escapeQueryParameters), $script);
+            $script = str_replace('{databases}', StiFunctions::getJavaScriptValue(StiDatabaseType::getValues()), $script);
+            $script = str_replace('{csrf_token}', StiFunctions::getJavaScriptValue($csrf_token), $script);
+            $script = str_replace('{url}', StiFunctions::getJavaScriptValue($this->getUrl()), $script);
+            $script = str_replace('{timeout}', StiFunctions::getJavaScriptValue($this->timeout), $script);
+            $script = str_replace('{encryptData}', StiFunctions::getJavaScriptValue($this->encryptData), $script);
+            $script = str_replace('{passQueryParametersToReport}', StiFunctions::getJavaScriptValue($this->passQueryParametersToReport), $script);
+            $script = str_replace('{checkDataAdaptersVersion}', StiFunctions::getJavaScriptValue($this->checkDataAdaptersVersion), $script);
+            $script = str_replace('{escapeQueryParameters}', StiFunctions::getJavaScriptValue($this->escapeQueryParameters), $script);
+            $script = str_replace('{framework}', StiFunctions::getJavaScriptValue('PHP'), $script);
 
             if (StiHandler::$legacyMode)
                 $script = str_replace(
@@ -450,8 +446,10 @@ class StiHandler extends StiBaseHandler
 
         $result .= $this->getJavaScript() . "\n";
 
-        if ($this->license !== null && !$this->license->htmlRendered)
-            $result .= $this->license->getHtml();
+        if (StiHandler::$legacyMode) {
+            if ($this->license !== null && !$this->license->htmlRendered)
+                $result .= $this->license->getHtml();
+        }
 
         if ($mode == StiHtmlMode::HtmlScripts || $mode == StiHtmlMode::HtmlPage)
             $result .= "</script>\n";

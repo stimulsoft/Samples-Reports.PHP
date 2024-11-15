@@ -97,16 +97,22 @@ class StiNodeJs
     }
 
     private function getHandlerUrl($url): string {
-        if (strlen($url ?? '') == 0)
+        if (StiFunctions::isNullOrEmpty($url))
             $url = $_SERVER['PHP_SELF'];
+
+        else if (StiFunctions::startsWith($url, '?'))
+            $url = $_SERVER['PHP_SELF'] . $url;
 
         if (StiFunctions::startsWith($url, 'http:') || StiFunctions::startsWith($url, 'https:'))
             return $url;
 
-        $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
-        $baseUrl .= $_SERVER['HTTP_HOST'];
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+        $host = $_SERVER['HTTP_HOST'];
 
-        return StiFunctions::startsWith($url, '/') ? "$baseUrl$url" : "$baseUrl/$url";
+        if (StiFunctions::startsWith($url, '/'))
+            $url = mb_substr($url, 1);
+
+        return "$protocol://$host/$url";
     }
 
     private function clearError()
@@ -130,6 +136,10 @@ class StiNodeJs
                         }
                         return preg_replace("/\r/", '', $line);
                     }
+
+                    // Handling a parser error from StiHandler
+                    if (substr($line, 0, 1) == '[' && mb_strpos($line, 'StiHandler') > 0 && mb_strpos($line, 'StiHandler') < 10)
+                        return preg_replace("/\r/", '', $line);
                 }
             }
         }
@@ -243,7 +253,7 @@ class StiNodeJs
     private function getHandlerScript(): string
     {
         $handler = $this->getHandler();
-        $handler->url = $this->getHandlerUrl($handler->url);
+        $handler->url = $this->getHandlerUrl($handler->getUrl());
         $script = $handler->getHtml(StiHtmlMode::Scripts);
         return str_replace('Stimulsoft.handler.send', 'Stimulsoft.handler.https', $script);
     }

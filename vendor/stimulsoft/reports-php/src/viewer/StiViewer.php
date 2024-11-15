@@ -274,7 +274,10 @@ class StiViewer extends StiComponent
         }
     }
 
-    public function setReport(StiReport $report)
+    /**
+     * @param StiReport|null $report Prepared report object.
+     */
+    public function setReport($report)
     {
         $this->report = $report;
 
@@ -287,6 +290,8 @@ class StiViewer extends StiComponent
 
             $report->setHandler($this->handler);
             $report->license = $this->license;
+            $report->fontCollection = $this->fontCollection;
+            $report->functions = $this->functions;
         }
     }
 
@@ -314,7 +319,9 @@ class StiViewer extends StiComponent
 
     protected function getComponentHtml(): string
     {
-        $result = $this->options->getHtml();
+        $result = parent::getComponentHtml();
+
+        $result .= $this->options->getHtml();
         $result .= "let $this->id = new Stimulsoft.Viewer.StiViewer({$this->options->id}, '$this->id', false);\n";
 
         $result .= $this->onPrepareVariables->getHtml(true);

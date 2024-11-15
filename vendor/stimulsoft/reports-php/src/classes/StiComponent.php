@@ -2,12 +2,12 @@
 
 namespace Stimulsoft;
 
-use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Enums\StiDataType;
 use Stimulsoft\Enums\StiHtmlMode;
 use Stimulsoft\Events\StiComponentEvent;
 use Stimulsoft\Events\StiEvent;
 use Stimulsoft\Events\StiEventArgs;
+use Stimulsoft\Report\StiFunctions;
 
 class StiComponent extends StiElement
 {
@@ -34,6 +34,12 @@ class StiComponent extends StiElement
 
     /** @var string */
     protected $elementId;
+
+    /** @var StiFontCollection */
+    protected $fontCollection = null;
+
+    /** @var \Stimulsoft\Report\StiFunctions */
+    protected $functions = null;
 
 
 ### Properties
@@ -177,7 +183,18 @@ class StiComponent extends StiElement
 
     protected function getComponentHtml(): string
     {
-        return '';
+        $result = '';
+
+        if (!$this->license->htmlRendered)
+            $result .= $this->license->getHtml();
+
+        if (!$this->fontCollection->htmlRendered)
+            $result .= $this->fontCollection->getHtml();
+
+        if (!$this->functions->htmlRendered)
+            $result .= $this->functions->getHtml();
+
+        return $result;
     }
 
     /**
@@ -256,5 +273,7 @@ class StiComponent extends StiElement
         $this->handler = new StiHandler();
         $this->javascript = new StiJavaScript($this);
         $this->license = new StiLicense();
+        $this->fontCollection = new StiFontCollection();
+        $this->functions = new StiFunctions();
     }
 }

@@ -3,6 +3,7 @@
 namespace Stimulsoft;
 
 use Exception;
+use ReflectionClass;
 use Stimulsoft\Adapters\StiDataAdapter;
 use Stimulsoft\Adapters\StiMongoDbAdapter;
 use Stimulsoft\Enums\StiDatabaseType;
@@ -24,7 +25,7 @@ class StiBaseHandler
     public static $legacyMode = false;
 
     /** @var string Current version of the event handler. */
-    public $version = '2024.4.3';
+    public $version = '2024.4.4';
 
     /** @var bool Enables checking for client-side and server-side data adapter versions to match. */
     public $checkDataAdaptersVersion = true;
@@ -70,7 +71,9 @@ class StiBaseHandler
 
     public function stiErrorHandler($errNo, $errStr, $errFile, $errLine)
     {
-        $result = StiBaseResult::getError("[$errNo] $errStr ($errFile, Line $errLine)");
+        $class = new ReflectionClass($this);
+        $message = "[$errNo] {$class->getShortName()} ($errFile, Line $errLine) - $errStr";
+        $result = StiBaseResult::getError($message);
         $result->handlerVersion = $this->version;
         $response = new StiBaseResponse($this, $result);
         $response->printData();
@@ -80,7 +83,9 @@ class StiBaseHandler
     {
         $err = error_get_last();
         if ($err != null && (($err['type'] & E_COMPILE_ERROR) || ($err['type'] & E_ERROR) || ($err['type'] & E_CORE_ERROR) || ($err['type'] & E_RECOVERABLE_ERROR))) {
-            $result = StiBaseResult::getError("[{$err['type']}] {$err['message']} ({$err['file']}, Line {$err['line']})");
+            $class = new ReflectionClass($this);
+            $message = "[{$err['type']}] {$class->getShortName()} ({$err['file']}, Line {$err['line']}) - {$err['message']}";
+            $result = StiBaseResult::getError($message);
             $response = new StiBaseResponse($this, $result);
             $response->printData();
         }

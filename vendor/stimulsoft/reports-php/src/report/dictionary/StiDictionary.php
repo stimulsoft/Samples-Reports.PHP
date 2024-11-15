@@ -6,12 +6,17 @@ use Stimulsoft\StiElement;
 
 class StiDictionary extends StiElement
 {
+
+### Properties
+
     /** @var StiReport */
     public $report;
 
     /** @var array */
     public $variables;
 
+
+### HTML
 
     public function getHtml(): string
     {
@@ -25,6 +30,9 @@ class StiDictionary extends StiElement
 
         return parent::getHtml() . $result;
     }
+
+
+### Constructor
 
     public function __construct(StiReport $report)
     {

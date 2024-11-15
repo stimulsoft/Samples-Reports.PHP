@@ -37,6 +37,7 @@
     <StiGenerateNewNameDataSourceActionLong>Generate a new name for the Data Source.</StiGenerateNewNameDataSourceActionLong>
     <StiGenerateNewNamePageActionLong>Generate a new name for the page.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Generate a new name for the relation.</StiGenerateNewNameRelationActionLong>
+    <StiGenerateNewNameVariableActionLong>Generate a new name for the variable.</StiGenerateNewNameVariableActionLong>
     <StiGrowToHeightOverlappingLong>Set the value of the GrowToHeight property of the component to false.</StiGrowToHeightOverlappingLong>
     <StiInsufficientTextHeightForOneLineLong>The height of the component will increase at least to the height of one line of text or to the next cell of the report grid.</StiInsufficientTextHeightForOneLineLong>
     <StiInsufficientTextHeightForOneLineShort>Fix height</StiInsufficientTextHeightForOneLineShort>
@@ -259,6 +260,8 @@
   <CheckVariable>
     <StiVariableInitializationCheckLong>The '{0}' variable has the wrong default value. It is impossible to initialize the variable with a specified value.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Initialization value</StiVariableInitializationCheckShort>
+    <StiVariableNameCheckLong>The variable name "{0}" cannot be used because it is reserved.</StiVariableNameCheckLong>
+    <StiVariableNameCheckShort>The variable name is invalid.</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>The '{0}' variable has a expression with recursion. It's impossible to refer to the Variable in its own expression.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Recursive Expression</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>For the dependent variables to work correctly, their types and the types of their columns must match.</StiVariableTypeCheckLong>
@@ -366,8 +369,8 @@
     <ReportErrors>Unfortunately, due to errors, this report cannot be published!</ReportErrors>
     <SaveExportedPagesToArchive>Save all pages in one ZIP archive</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Each report page will be exported to the selected image format, all pages will be added into one ZIP archive.</SaveExportedPagesToArchiveToolTip>
-	<SaveExportedReportToFile>Save the exported report to a file</SaveExportedReportToFile>
-	<SaveExportedReportToFileToolTip>Saving the exported report on the server side to the specified file. The export function will return a boolean result.</SaveExportedReportToFileToolTip>
+    <SaveExportedReportToFile>Save the exported report to a file</SaveExportedReportToFile>
+    <SaveExportedReportToFileToolTip>Saving the exported report on the server side to the specified file. The export function will return a boolean result.</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>Save Project Package</SaveProjectPackage>
     <SaveStandalone>Save Standalone</SaveStandalone>
     <SaveStandalonePackage>Save Standalone Package</SaveStandalonePackage>
@@ -1072,6 +1075,7 @@
     <Linked>A value indicates that the object snap to the container is turned on.</Linked>
     <Locked>A value indicates that moving is locked.</Locked>
     <Margin>Specifies space between this component and another component's margin (Left, Top, Right, Bottom).</Margin>
+    <Margins>The margins (Left, Right, Top, Bottom).</Margins>
     <MasterComponent>The master-component.</MasterComponent>
     <MaxSize>Maximal size.</MaxSize>
     <MinSize>Minimal size.</MinSize>
@@ -2274,6 +2278,7 @@
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
   <StiUserFunction>
+    <InterpretationModeSwitchToBlocks>This report uses Interpretation mode. Functions with code will not work. We recommend switching to ScriptMode on Blocks.</InterpretationModeSwitchToBlocks>
     <StiScriptAtInterpretationCheckLong>The script in the user function '{0}' doesn't work in the interpretation mode.</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>Script in Interpretation</StiScriptAtInterpretationCheckShort>
     <StiUserFunctionLangScriptValueCheckLong>No script defined for {0} language in the user function '{1}'.</StiUserFunctionLangScriptValueCheckLong>
