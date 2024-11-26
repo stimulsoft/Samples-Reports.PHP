@@ -26,6 +26,6 @@ class StiXpsExportSettings extends StiExportSettings
 
     public function getExportFormat(): int
     {
-        return StiExportFormat::Word;
+        return StiExportFormat::Xps;
     }
 }

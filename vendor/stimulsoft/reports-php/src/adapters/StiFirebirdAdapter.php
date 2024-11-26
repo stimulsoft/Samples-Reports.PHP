@@ -16,7 +16,7 @@ class StiFirebirdAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2024.4.4';
+    public $version = '2024.4.5';
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::Firebird;

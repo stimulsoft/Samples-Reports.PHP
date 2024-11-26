@@ -30,7 +30,7 @@ class StiCustomFont extends StiElement
 
 ### Constructor
 
-    public function __construct(string $filePath, string $fontName, int $fontStyle)
+    public function __construct(string $filePath, $fontName, $fontStyle)
     {
         $this->filePath = $filePath;
         $this->fontName = $fontName;
