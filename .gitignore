@@ -1,3 +1,9 @@
-﻿.idea
-/tmp
-/composer.lock
+﻿.idea/
+.vs/
+tmp/
+node*/
+reports/*
+!reports/*.mrt
+package-lock.json
+package.json
+composer.lock
