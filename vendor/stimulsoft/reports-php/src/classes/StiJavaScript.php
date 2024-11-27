@@ -12,6 +12,7 @@ class StiJavaScript extends StiElement
     /** @var StiComponent */
     private $component;
     private $componentType;
+    private $head = [];
 
 
 ### Options
@@ -41,15 +42,25 @@ class StiJavaScript extends StiElement
         $this->componentType = $component->getComponentType();
     }
 
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->component != null && $this->component->handler != null ? $this->component->handler->getUrl() : '';
+    }
+
+    public function getRootUrl(): string
+    {
+        return $this->useRelativeUrls ? $this->relativePath : '/';
     }
 
     private function updateOptions()
     {
         if (StiHandler::$legacyMode)
             StiFunctions::populateObject($this, $this->options);
+    }
+
+    public function appendHead(string $value)
+    {
+        $this->head[] = $value;
     }
 
 
@@ -61,6 +72,11 @@ class StiJavaScript extends StiElement
     public function getHtml(): string
     {
         $this->updateOptions();
+
+        $result = '';
+        foreach ($this->head as $name) {
+            $result .= "$name\n";
+        }
 
         $extension = $this->usePacked ? 'pack.js' : 'js';
         $reportsSet = $this->reportsChart && $this->reportsExport && $this->reportsImportXlsx && $this->reportsMaps && $this->blocklyEditor;
@@ -93,13 +109,12 @@ class StiJavaScript extends StiElement
                 $scripts[] = "stimulsoft.blockly.editor.$extension";
         }
 
-        $result = '';
         foreach ($scripts as $name) {
             $scriptName = str_replace('.', '_', $name);
             $rendered = array_key_exists("Stimulsoft_Scripts_$scriptName", $GLOBALS) && $GLOBALS["Stimulsoft_Scripts_$scriptName"];
             if (!$rendered) {
                 $product = strpos($name, 'dashboards') > 0 ? 'dashboards-php' : 'reports-php';
-                $root = $this->useRelativeUrls ? $this->relativePath : '/';
+                $root = $this->getRootUrl();
                 $url = $this->getUrl();
                 $url .= strpos($url, '?') === false ? '?' : '&';
                 $result .= $this->useStaticUrls && $name != 'stimulsoft.handler.js'
