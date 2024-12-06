@@ -10,7 +10,7 @@ use Stimulsoft\Viewer\StiViewer;
 // Creating a viewer object and set the necessary javascript options
 $viewer = new StiViewer();
 $viewer->javascript->useRelativeUrls = false;
-$viewer->javascript->appendHead('<link rel="shortcut icon" href="..favicon.ico" type="image/x-icon">');
+$viewer->javascript->appendHead('<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">');
 
 // Defining viewer options: displaying the Send Email button
 $viewer->options->toolbar->showSendEmailButton = true;
