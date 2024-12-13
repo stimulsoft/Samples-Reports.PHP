@@ -36,10 +36,10 @@ $handler->process();
     </style>
 
     <!-- Adding JavaScript code required for the designer to work -->
-    <script src="/vendor/stimulsoft/reports-php/scripts/stimulsoft.reports.js" type="text/javascript"></script>
-    <script src="/vendor/stimulsoft/reports-php/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
-    <script src="/vendor/stimulsoft/reports-php/scripts/stimulsoft.designer.js" type="text/javascript"></script>
-    <script src="/vendor/stimulsoft/reports-php/scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
+    <script src="../vendor/stimulsoft/reports-php/scripts/stimulsoft.reports.js" type="text/javascript"></script>
+    <script src="../vendor/stimulsoft/reports-php/scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+    <script src="../vendor/stimulsoft/reports-php/scripts/stimulsoft.designer.js" type="text/javascript"></script>
+    <script src="../vendor/stimulsoft/reports-php/scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
 
     <?php
     // Rendering the necessary JavaScript code of the handler
