@@ -7,7 +7,7 @@ use Stimulsoft\Report\StiReport;
 
 // Creating a report object and set the necessary javascript options
 $report = new StiReport();
-$report->javascript->useRelativeUrls = false;
+$report->javascript->relativePath = '../';
 
 // Defining report events before processing
 // It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string

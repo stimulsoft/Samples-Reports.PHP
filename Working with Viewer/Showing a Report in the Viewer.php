@@ -7,7 +7,7 @@ use Stimulsoft\Viewer\StiViewer;
 
 // Creating a viewer object and set the necessary javascript options
 $viewer = new StiViewer();
-$viewer->javascript->useRelativeUrls = false;
+$viewer->javascript->relativePath = '../';
 $viewer->javascript->appendHead('<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">');
 
 // Processing the request and, if successful, immediately printing the result

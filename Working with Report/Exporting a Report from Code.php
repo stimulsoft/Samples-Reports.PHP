@@ -8,7 +8,7 @@ use Stimulsoft\Report\StiReport;
 
 // Creating a report object and set the necessary javascript options
 $report = new StiReport();
-$report->javascript->useRelativeUrls = false;
+$report->javascript->relativePath = '../';
 
 // Processing the request and, if successful, immediately printing the result
 $report->process();

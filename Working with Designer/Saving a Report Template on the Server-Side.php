@@ -9,7 +9,7 @@ use Stimulsoft\StiResult;
 
 // Creating a designer object and set the necessary javascript options
 $designer = new StiDesigner();
-$designer->javascript->useRelativeUrls = false;
+$designer->javascript->relativePath = '../';
 $designer->javascript->appendHead('<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">');
 
 // Defining designer events before processing

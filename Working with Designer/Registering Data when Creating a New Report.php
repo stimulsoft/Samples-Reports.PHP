@@ -7,7 +7,7 @@ use Stimulsoft\Report\StiReport;
 
 // Creating a designer object and set the necessary javascript options
 $designer = new StiDesigner();
-$designer->javascript->useRelativeUrls = false;
+$designer->javascript->relativePath = '../';
 
 // Defining designer events before processing
 // It is allowed to assign a PHP function, or the name of a JavaScript function, or a JavaScript function as a string

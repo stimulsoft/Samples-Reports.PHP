@@ -27,7 +27,7 @@ else {
 }
 
 // Set the necessary javascript options
-$component->javascript->useRelativeUrls = false;
+$component->javascript->relativePath = '../';
 
 
 // Processing the request and, if successful, immediately printing the result

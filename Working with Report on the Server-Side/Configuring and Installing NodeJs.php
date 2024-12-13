@@ -5,7 +5,7 @@ use Stimulsoft\StiNodeJs;
 
 
 // Changing the working directory one level up, this is necessary because the examples are in a subdirectory
-chdir('..');
+chdir('../');
 
 // Creating a Node.js object
 $nodejs = new StiNodeJs();

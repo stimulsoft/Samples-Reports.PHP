@@ -7,7 +7,7 @@ use Stimulsoft\Viewer\StiViewer;
 
 // Creating a viewer object and set the necessary javascript options
 $viewer = new StiViewer();
-$viewer->javascript->useRelativeUrls = false;
+$viewer->javascript->relativePath = '../';
 
 // Creating a report object
 $report = new StiReport();

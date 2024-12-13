@@ -6,7 +6,7 @@ use Stimulsoft\Report\StiReport;
 
 
 // Changing the working directory one level up, this is necessary because the examples are in a subdirectory
-chdir('..');
+chdir('../');
 
 // Creating a report object
 $report = new StiReport();

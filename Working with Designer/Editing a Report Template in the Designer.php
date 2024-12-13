@@ -7,7 +7,7 @@ use Stimulsoft\Report\StiReport;
 
 // Creating a designer object and set the necessary javascript options
 $designer = new StiDesigner();
-$designer->javascript->useRelativeUrls = false;
+$designer->javascript->relativePath = '../';
 $designer->javascript->appendHead('<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">');
 
 // Processing the request and, if successful, immediately printing the result

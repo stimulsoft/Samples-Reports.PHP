@@ -7,7 +7,7 @@ use Stimulsoft\Report\StiReport;
 
 // Creating a report object and set the necessary javascript options
 $report = new StiReport();
-$report->javascript->useRelativeUrls = false;
+$report->javascript->relativePath = '../';
 
 // You can use one of the methods below to register your license key for all components
 //StiLicense::setPrimaryKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
