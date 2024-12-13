@@ -33,8 +33,9 @@ StiHandler.prototype.process = function (args, callback) {
             if (handlerArgs.pageRange) Stimulsoft.handler.copySettings(handlerArgs.pageRange, args.pageRange);
             if (handlerArgs.fileName) args.fileName = handlerArgs.fileName;
 
-            if (!Stimulsoft.System.StiString.isNullOrEmpty(handlerArgs.notice))
+            if (args.command != 'TestConnection' && !Stimulsoft.System.StiString.isNullOrEmpty(handlerArgs.notice))
                 Stimulsoft.System.StiError.showError(handlerArgs.notice, true, handlerArgs.success);
+
             if (callback) callback(handlerArgs);
         }
         Stimulsoft.handler.send(sendText, handlerCallback);

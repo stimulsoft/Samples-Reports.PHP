@@ -38,7 +38,7 @@ class StiComponent extends StiElement
     /** @var StiFontCollection */
     protected $fontCollection = null;
 
-    /** @var \Stimulsoft\Report\StiFunctions */
+    /** @var StiFunctions */
     protected $functions = null;
 
 

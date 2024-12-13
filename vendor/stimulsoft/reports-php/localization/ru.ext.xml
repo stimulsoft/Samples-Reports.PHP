@@ -37,6 +37,7 @@
     <StiGenerateNewNameDataSourceActionLong>Сгенерировать новое имя для источника данных.</StiGenerateNewNameDataSourceActionLong>
     <StiGenerateNewNamePageActionLong>Сгенерировать новое имя для страницы.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Сгенерировать новое имя для связи.</StiGenerateNewNameRelationActionLong>
+    <StiGenerateNewNameVariableActionLong>Создайте новое наименование для переменной.</StiGenerateNewNameVariableActionLong>
     <StiGrowToHeightOverlappingLong>Задать у компонента значение свойства GrowToHeight равное false.</StiGrowToHeightOverlappingLong>
     <StiInsufficientTextHeightForOneLineLong>Высота компонента увеличится как минимум до высоты одной строки текста или до следующей ячейки сетки отчета.</StiInsufficientTextHeightForOneLineLong>
     <StiInsufficientTextHeightForOneLineShort>Исправить высоту</StiInsufficientTextHeightForOneLineShort>
@@ -259,6 +260,8 @@
   <CheckVariable>
     <StiVariableInitializationCheckLong>Переменная '{0}' имеет неправильное значение по умолчанию. Невозможно инициализировать переменную указанным значением.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Начальное значение</StiVariableInitializationCheckShort>
+    <StiVariableNameCheckLong>Наименование переменной '{0}' нельзя использовать, поскольку оно зарезервировано.</StiVariableNameCheckLong>
+    <StiVariableNameCheckShort>Недопустимое наименование переменной.</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>Переменная '{0}' содержит выражение с рекурсией. Нельзя ссылаться на переменную в выражении этой же переменной.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Рекурсивное выражение</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>Чтобы зависимые переменные работали правильно, их типы и типы их столбцов должны совпадать.</StiVariableTypeCheckLong>
@@ -366,8 +369,8 @@
     <ReportErrors>К сожалению, этот отчет не может быть опубликован из-за наличия ошибок!</ReportErrors>
     <SaveExportedPagesToArchive>Сохранить все страницы в одном ZIP-архиве</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Каждая страница отчета будет экспортирована в выбранный формат изображения, все страницы будут добавлены в один ZIP-архив.</SaveExportedPagesToArchiveToolTip>
-	<SaveExportedReportToFile>Сохранить экспортированный отчет в файл</SaveExportedReportToFile>
-	<SaveExportedReportToFileToolTip>Сохранение экспортированного отчета на стороне сервера в указанный файл. Функция экспорта вернет булиевый результат.</SaveExportedReportToFileToolTip>
+    <SaveExportedReportToFile>Сохранить экспортированный отчет в файл</SaveExportedReportToFile>
+    <SaveExportedReportToFileToolTip>Сохранение экспортированного отчета на стороне сервера в указанный файл. Функция экспорта вернет булиевый результат.</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>Сохранить пакет проекта</SaveProjectPackage>
     <SaveStandalone>Сохранить автономный</SaveStandalone>
     <SaveStandalonePackage>Сохранить автономный пакет</SaveStandalonePackage>
@@ -1072,6 +1075,7 @@
     <Linked>Значение, которое указывает, что привязка объекта к контейнеру включена.</Linked>
     <Locked>Значение, которое указывает, что перемещение компонента блокировано.</Locked>
     <Margin>Задает расстояние между этим компонентом и границами другого компонента (cлева, cверху, справа, снизу).</Margin>
+    <Margins>Отступы снаружи (слева, справа, сверху, снизу).</Margins>
     <MasterComponent>Мастер-компонент.</MasterComponent>
     <MaxSize>Максимальный размер.</MaxSize>
     <MinSize>Минимальный размер.</MinSize>
@@ -2282,6 +2286,7 @@
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
   <StiUserFunction>
+    <InterpretationModeSwitchToBlocks>Этот отчет использует режим интерпретации. Функции со сценарием кода работать не будут. Мы рекомендуем установить режим сценария как Блоки.</InterpretationModeSwitchToBlocks>
     <StiScriptAtInterpretationCheckLong>Сценарий пользовательской функции '{0}' не работает в режиме вычисления отчета как Интерпретация.</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>Сценарий в Интерпретации</StiScriptAtInterpretationCheckShort>
     <StiUserFunctionLangScriptValueCheckLong>В пользовательской функции '{1}' не определен код сценария для языка {0}.</StiUserFunctionLangScriptValueCheckLong>

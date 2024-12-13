@@ -41,20 +41,20 @@ class StiComponentEvent extends StiEvent
         foreach ($this->callbacks as $callbackName)
             if (is_string($callbackName))
                 $eventValue .= StiFunctions::isJavaScriptFunctionName($callbackName)
-                    ? "if (typeof $callbackName === \"function\") $callbackName(args); "
+                    ? "if (typeof $callbackName === \"function\") $callbackName(args);"
                     : $callbackName;
 
         if ($internal) {
             $objectArgsName = substr($this->name, 2);
             $componentType = $this->component->getComponentType();
-            $eventArgs = "let args = {event: \"$objectArgsName\", sender: \"$componentType\", report: $componentId}";
+            $eventArgs = "let args = {event: \"$objectArgsName\", sender: \"$componentType\", report: $componentId};";
             return "$eventArgs\n$eventValue\n";
         }
 
         $callbackValue = $callback ? ', callback' : '';
-        $preventValue = $prevent ? 'args.preventDefault = true; ' : '';
-        $processValue = $process ? "Stimulsoft.handler.process(args$callbackValue); " : ($callback ? 'callback(); ' : '');
-        $result = "$componentId.$this->name = function (args$callbackValue) { $preventValue$eventValue$processValue }\n";
+        $preventValue = $prevent ? 'args.preventDefault = true;' : '';
+        $processValue = $process ? "Stimulsoft.handler.process(args$callbackValue);" : ($callback ? 'callback();' : '');
+        $result = "$componentId.$this->name = function (args$callbackValue) { $preventValue$eventValue$processValue };\n";
 
         $this->htmlRendered = true;
         return $result;

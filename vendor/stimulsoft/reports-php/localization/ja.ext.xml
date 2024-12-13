@@ -37,6 +37,7 @@
     <StiGenerateNewNameDataSourceActionLong>データソースの新しい名前を生成します。</StiGenerateNewNameDataSourceActionLong>
     <StiGenerateNewNamePageActionLong>ページの新しい名前を生成します。</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>リレーションの新しい名前を生成します。</StiGenerateNewNameRelationActionLong>
+    <StiGenerateNewNameVariableActionLong>変数の新しい名前を生成します。</StiGenerateNewNameVariableActionLong>
     <StiGrowToHeightOverlappingLong>コンポーネントのGrowToHeightプロパティの値をfalseに設定します。</StiGrowToHeightOverlappingLong>
     <StiInsufficientTextHeightForOneLineLong>The height of the component will increase at least to the height of one line of text or to the next cell of the report grid.</StiInsufficientTextHeightForOneLineLong>
     <StiInsufficientTextHeightForOneLineShort>Fix height</StiInsufficientTextHeightForOneLineShort>
@@ -259,6 +260,8 @@
   <CheckVariable>
     <StiVariableInitializationCheckLong>'{0}'変数のデフォルト値が間違っています。 指定された値で変数を初期化することはできません。</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>初期化値</StiVariableInitializationCheckShort>
+    <StiVariableNameCheckLong>変数名 "{0}" は予約されているため使用できません。</StiVariableNameCheckLong>
+    <StiVariableNameCheckShort>変数名が無効です。</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>'{0}'変数には再帰を伴う式があります。 Variableを独自の式で参照することは不可能です。</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>再帰式</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>従属変数が正しく機能するためには、それらの型と列の型が一致する必要があります。</StiVariableTypeCheckLong>
@@ -366,10 +369,14 @@
     <ReportErrors>残念ながら、エラーのためこのレポートは公開できません！</ReportErrors>
     <SaveExportedPagesToArchive>全ページを1つのZIPアーカイブに保存</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>各レポートページは、選択した画像フォーマットにエクスポートされ、すべてのページは1つのZIPアーカイブに追加されます。</SaveExportedPagesToArchiveToolTip>
+    <SaveExportedReportToFile>エクスポートされたレポートをファイルに保存する</SaveExportedReportToFile>
+    <SaveExportedReportToFileToolTip>エクスポートされたレポートをサーバー側で指定されたファイルに保存します。エクスポート機能はブール値の結果を返します。</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>プロジェクトパッケージを保存する</SaveProjectPackage>
     <SaveStandalone>スタンドアロンを保存する</SaveStandalone>
     <SaveStandalonePackage>スタンドアロンパッケージを保存する</SaveStandalonePackage>
     <SearchLibraries>ライブラリを検索... </SearchLibraries>
+    <ServerSideReportProcessing>サーバー側のレポート処理</ServerSideReportProcessing>
+    <ServerSideReportProcessingToolTip>レポートの読み込み、構築、エクスポートはNode.jsプラットフォームを使用してサーバー側で行われます。</ServerSideReportProcessingToolTip>
     <ShowMore>もっと見る</ShowMore>
     <ShowOptions>オプションを表示する</ShowOptions>
     <ThemeBackground>背景：</ThemeBackground>
@@ -1070,6 +1077,7 @@
     <Linked>コンテナへのオブジェクトスナップがオンになっていることを示す値</Linked>
     <Locked>移動がロックされていることを示す値</Locked>
     <Margin>このコンポーネントと別のコンポーネントのマージンの間のスペースを指定します。</Margin>
+    <Margins>余白（左、右、上、下）</Margins>
     <MasterComponent>マスターコンポーネント</MasterComponent>
     <MaxSize>最大サイズ</MaxSize>
     <MinSize>最小サイズ</MinSize>
@@ -2281,6 +2289,7 @@
     <ShowQuietZoneIndicator>Quiet Zone IndicatorまたはNoを示す値を取得または設定</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
   <StiUserFunction>
+    <InterpretationModeSwitchToBlocks>このレポートは解釈モードを使用しています。コードを含む関数は機能しません。ブロックでスクリプトモードに切り替えることをお勧めします。</InterpretationModeSwitchToBlocks>
     <StiScriptAtInterpretationCheckLong>カスタム関数'{0}' のスクリプトは、解釈モードでは動作しません。</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>解釈スクリプト</StiScriptAtInterpretationCheckShort>
     <StiUserFunctionLangScriptValueCheckLong>ユーザーファンクション「{1}」において、{0}言語のスクリプトが定義されていません。</StiUserFunctionLangScriptValueCheckLong>

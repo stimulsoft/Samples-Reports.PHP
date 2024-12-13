@@ -12,7 +12,7 @@ class StiMySqlAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2024.4.5';
+    public $version = '2025.1.1';
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::MySQL;
@@ -65,7 +65,8 @@ class StiMySqlAdapter extends StiDataAdapter
 
     public function process(): bool
     {
-        if (parent::process()) return true;
+        if (parent::process())
+            return true;
 
         $this->connectionInfo->port = 3306;
         $this->connectionInfo->charset = 'utf8';

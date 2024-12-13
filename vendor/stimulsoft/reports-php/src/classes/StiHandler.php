@@ -153,6 +153,12 @@ class StiHandler extends StiBaseHandler
 
     /**
      * @var StiComponentEvent
+     * The event is invoked after the report is closed, before the report is unassigned from the designer. PHP and JavaScript functions are supported.
+     */
+    public $onCloseReport;
+
+    /**
+     * @var StiComponentEvent
      * The event is invoked when by clicking the Exit button in the main menu of the designer. Only JavaScript functions are supported.
      */
     public $onExit;
@@ -277,6 +283,7 @@ class StiHandler extends StiBaseHandler
         $this->updateEvent('onSaveReport');
         $this->updateEvent('onSaveAsReport');
         $this->updateEvent('onPreviewReport');
+        $this->updateEvent('onCloseReport');
         $this->updateEvent('onExit');
     }
 

@@ -43,6 +43,12 @@ class StiDesigner extends StiComponent
 
     /**
      * @var StiComponentEvent
+     * The event is invoked after the report is closed, before the report is unassigned from the designer. PHP and JavaScript functions are supported.
+     */
+    public $onCloseReport;
+
+    /**
+     * @var StiComponentEvent
      * The event is invoked when by clicking the Exit button in the main menu of the designer. Only JavaScript functions are supported.
      */
     public $onExit;
@@ -62,7 +68,11 @@ class StiDesigner extends StiComponent
     private function getCreateReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        return $this->getDefaultEventResult($this->onCreateReport, $args);
+        $result = $this->getDefaultEventResult($this->onCreateReport, $args);
+        if ($result != null && $args->report != $this->handler->request->report)
+            $result->report = $args->report;
+
+        return $result;
     }
 
     private function getOpenedReportResult()
@@ -93,6 +103,12 @@ class StiDesigner extends StiComponent
         return $result;
     }
 
+    private function getCloseReportResult()
+    {
+        $args = new StiReportEventArgs($this->handler->request);
+        return $this->getDefaultEventResult($this->onCloseReport, $args);
+    }
+
     public function getEventResult()
     {
         $this->updateEvents();
@@ -112,6 +128,9 @@ class StiDesigner extends StiComponent
 
         if ($request->event == StiEventType::PreviewReport)
             return $this->getPreviewReportResult();
+
+        if ($request->event == StiEventType::CloseReport)
+            return $this->getCloseReportResult();
 
         return parent::getEventResult();
     }
@@ -138,6 +157,7 @@ class StiDesigner extends StiComponent
         $this->updateEvent('onSaveReport');
         $this->updateEvent('onSaveAsReport');
         $this->updateEvent('onPreviewReport');
+        $this->updateEvent('onCloseReport');
         $this->updateEvent('onExit');
     }
 
@@ -163,6 +183,7 @@ class StiDesigner extends StiComponent
             $handler->onSaveReport = $this->onSaveReport;
             $handler->onSaveAsReport = $this->onSaveAsReport;
             $handler->onPreviewReport = $this->onPreviewReport;
+            $handler->onCloseReport = $this->onCloseReport;
             $handler->onExit = $this->onExit;
         }
     }
@@ -207,6 +228,7 @@ class StiDesigner extends StiComponent
         $result .= $this->onSaveReport->getHtml(false, true);
         $result .= $this->onSaveAsReport->getHtml(false, true);
         $result .= $this->onPreviewReport->getHtml(true);
+        $result .= $this->onCloseReport->getHtml(true);
         $result .= $this->onExit->getHtml(false, false, false);
 
         if ($this->report != null) {

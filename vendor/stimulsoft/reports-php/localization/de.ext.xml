@@ -37,6 +37,7 @@
     <StiGenerateNewNameDataSourceActionLong>Neuen Namen für die Datenquelle vergeben.</StiGenerateNewNameDataSourceActionLong>
     <StiGenerateNewNamePageActionLong>Neuen Namen für die Seite vergeben.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Neuen Namen für die Beziehung vergeben.</StiGenerateNewNameRelationActionLong>
+    <StiGenerateNewNameVariableActionLong>Generieren Sie einen neuen Namen für die Variable.</StiGenerateNewNameVariableActionLong>
     <StiGrowToHeightOverlappingLong>Den Wert der Eigenschaft 'In die Höhe wachsen' einer Komponente auf wahr setzen.</StiGrowToHeightOverlappingLong>
     <StiInsufficientTextHeightForOneLineLong>Die Höhe der Komponente wird mindestens bis der Höhe einer Textzeile oder nächster Zeile des Bericht-Rasters vergrößern.</StiInsufficientTextHeightForOneLineLong>
     <StiInsufficientTextHeightForOneLineShort>Die Höhe festlegen</StiInsufficientTextHeightForOneLineShort>
@@ -259,6 +260,8 @@
   <CheckVariable>
     <StiVariableInitializationCheckLong>Die '{0}' Variable hat den falschen Standardwert. Es ist unmöglich, die Variable mit dem angegebenen Wert zu initialisieren.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Initialisierungswert</StiVariableInitializationCheckShort>
+    <StiVariableNameCheckLong>Der Name der Variable "{0}" kann nicht verwendet werden, weil er reserviert ist.</StiVariableNameCheckLong>
+    <StiVariableNameCheckShort>Der Name der Variable ist ungültig.</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>Die '{0}' Variable hat einen Ausdruck mit der Rekursion. Es ist unmoglich, auf die kalkulierte Spalte in ihrem eigenen Ausdruck zu verweisen.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Rekursiver Ausdruck</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>Damit die abhängigen Variablen richtig arbeiten, müssen ihre Typen den Typen ihrer Spalten entsprechen.</StiVariableTypeCheckLong>
@@ -366,10 +369,14 @@
     <ReportErrors>Leider, dieser Bericht kann nicht wegen der Fehler veröffentlicht werden!</ReportErrors>
     <SaveExportedPagesToArchive>Alle Seiten in ein ZIP-Archiv speichern</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Jede Berichtsseite wird ins ausgewählte Bild-Format exportiert, alle Seiten werden in ein ZIP-Archiv hinzugefügt werden.</SaveExportedPagesToArchiveToolTip>
+    <SaveExportedReportToFile>Speichern Sie den exportierten Bericht in die Datei</SaveExportedReportToFile>
+    <SaveExportedReportToFileToolTip>Speichern vom exportierten Bericht auf der Server-Seite in die angegebene Datei. Die Export-Funktion wird als boolesches Ergebnis zurückgegeben werden.</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>Projekt-Verpackung speichern</SaveProjectPackage>
     <SaveStandalone>Standalone speichern</SaveStandalone>
     <SaveStandalonePackage>Standalone-Verpackung speichern</SaveStandalonePackage>
     <SearchLibraries>Suchen nach Bibliotheken...</SearchLibraries>
+    <ServerSideReportProcessing>Bericht-Verarbeitung auf der Server-Seite</ServerSideReportProcessing>
+    <ServerSideReportProcessingToolTip>Laden, Erstellen und Export vom Bericht werden auf der Server-Seite mit Hilfe von Node.js-Plattform erfüllt.</ServerSideReportProcessingToolTip>
     <ShowMore>Mehr anzeigen</ShowMore>
     <ShowOptions>Optionen anzeigen</ShowOptions>
     <ThemeBackground>Hintergrund:</ThemeBackground>
@@ -1068,6 +1075,7 @@
     <Linked>Wert, der angibt, ob die Komponente fix mit dem übergeordneten Container verknüpft wird.</Linked>
     <Locked>Wert, der anzeigt, dass das Verschieben nicht möglich ist.</Locked>
     <Margin>Legt den Raum zwischen dieser Komponente und den Rändern der anderen Komponente fest.</Margin>
+    <Margins>Die Ränder (links, rechts, oben, unten).</Margins>
     <MasterComponent>Master-Komponente.</MasterComponent>
     <MaxSize>Maximale Größe.</MaxSize>
     <MinSize>Minimale Größe.</MinSize>
@@ -2276,6 +2284,7 @@
     <ShowQuietZoneIndicator>Liest oder setzt den Wert, der zeigt an, ob Quiet Zone Indicator angezeigt werden wird.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
   <StiUserFunction>
+    <InterpretationModeSwitchToBlocks>Dieser Bericht verwendet den Interpretation-Modus. Die Funktionen mit dem Code werden nicht funktioniert. Wir empfehlen den Blockly-Modus zu aktivieren.</InterpretationModeSwitchToBlocks>
     <StiScriptAtInterpretationCheckLong>Das Skript der Benutzer-Funktion '{0}' funktioniert nicht im Interpretation-Modus.</StiScriptAtInterpretationCheckLong>
     <StiScriptAtInterpretationCheckShort>Das Skript in der Interpretation</StiScriptAtInterpretationCheckShort>
     <StiUserFunctionLangScriptValueCheckLong>Kein Script für {0}-Sprache in '{1}'-Benutzerfunktion ist festgelegt.</StiUserFunctionLangScriptValueCheckLong>

@@ -149,7 +149,7 @@ class StiReport extends StiComponent
     }
 
     private function getNodeJsOutput(string $type, string $data): string {
-        return "console.log('{$this->nodejs->id}{\"type\":\"$type\", \"data\":\"' + $data + '\"}{$this->nodejs->id}');\n";
+        return "console.log('{$this->nodejs->id}{\"type\":\"$type\", \"data\":\"' + $data + '\"}{$this->nodejs->id}');";
     }
 
     private function getPrintHtml(): string
@@ -184,7 +184,7 @@ class StiReport extends StiComponent
             $result = $this->exportSettings !== null && !$this->exportSettings->htmlRendered ? $this->exportSettings->getHtml() : "let settings = null;\n";
             $result .= "report.exportDocumentAsync(function (data) {\n";
             if ($this->engine == StiEngineType::ServerNodeJS)
-                $result .= "let buffer = Buffer.from(data);\n" . $this->getNodeJsOutput('bytes', "buffer.toString('base64')");
+                $result .= "let buffer = Buffer.from(data);\n" . $this->getNodeJsOutput('bytes', "buffer.toString('base64')") . "\n";
             else
                 $result .= $this->openAfterExport
                     ? "let blob = new Blob([new Uint8Array(data)], {type: '$exportMimeType'});\nlet fileURL = URL.createObjectURL(blob);\nwindow.open(fileURL);\n"

@@ -24,6 +24,7 @@ class StiEventType
     const Interaction = 'Interaction';
     const DesignReport = 'DesignReport';
     const PreviewReport = 'PreviewReport';
+    const CloseReport = 'CloseReport';
     const Exit = 'Exit';
 
 
