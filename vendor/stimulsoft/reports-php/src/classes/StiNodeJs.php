@@ -6,6 +6,7 @@ use Exception;
 use PharData;
 use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\Enums\StiHtmlMode;
+use Stimulsoft\StiFunctions;
 use ZipArchive;
 
 class StiNodeJs
@@ -14,9 +15,10 @@ class StiNodeJs
 ### Options
 
     public $id = '';
-    public $version = '20.12.2';
-    public $architecture = 'x64';
+    public $version = '22.12.0';
     public $system = '';
+    public $processor = '';
+    public $architecture = '';
     public $binDirectory = '';
     public $workingDirectory = '';
 
@@ -41,39 +43,38 @@ class StiNodeJs
     private function getSystem(): string
     {
         switch (PHP_OS) {
-            case 'WIN32':
-            case 'WINNT':
-            case 'Windows':
-                return 'win';
+            case "WIN32":
+            case "WINNT":
+            case "Windows":
+                return "win";
 
-            case 'Darwin':
-                return 'darwin';
+            case "Darwin":
+                return "darwin";
 
             default:
-                return 'linux';
+                return "linux";
         }
     }
 
-    private function getArchiveName(): string
+    private function getProcessor(): string
     {
-        $extension = $this->system == 'win' ? '.zip' : '.tar.gz';
-        return $this->getDirectoryName() . $extension;
+        return php_uname("m");
     }
 
-    private function getDirectoryName(): string
+    private function getArchitecture()
     {
-        return "node-v$this->version-$this->system-$this->architecture";
+        $processor = $this->getProcessor();
+        $bits = PHP_INT_SIZE * 8;
+        return StiFunctions::startsWith($processor, "arm") ? "arm$bits" : "x$bits";
     }
 
-    private function getDirectory(): string
+    private function getProduct(): string
     {
-        return getcwd() . DIRECTORY_SEPARATOR . $this->getDirectoryName();
+        return StiFunctions::isDashboardsProduct() ? "dashboards" : "reports";
     }
 
-    private function getUrl(): string
-    {
-        return "https://nodejs.org/dist/v$this->version/" . $this->getArchiveName();
-    }
+
+### Handler
 
     private function getHandler(): StiHandler
     {
@@ -88,32 +89,35 @@ class StiNodeJs
         return $this->getHandler()->version;
     }
 
-
-### Helpers
-
-    private function isDashboardsProduct(): bool
-    {
-        return class_exists('\Stimulsoft\Report\StiDashboard');
-    }
-
-    private function getHandlerUrl($url): string {
+    private static function getHandlerUrl($url): string {
         if (StiFunctions::isNullOrEmpty($url))
-            $url = $_SERVER['PHP_SELF'];
+            $url = $_SERVER["PHP_SELF"];
 
-        else if (StiFunctions::startsWith($url, '?'))
-            $url = $_SERVER['PHP_SELF'] . $url;
+        else if (StiFunctions::startsWith($url, "?"))
+            $url = $_SERVER["PHP_SELF"] . $url;
 
-        if (StiFunctions::startsWith($url, 'http:') || StiFunctions::startsWith($url, 'https:'))
+        if (StiFunctions::startsWith($url, "http:") || StiFunctions::startsWith($url, "https:"))
             return $url;
 
-        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
-        $host = $_SERVER['HTTP_HOST'];
+        $protocol = isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http";
+        $host = $_SERVER["HTTP_HOST"];
 
-        if (StiFunctions::startsWith($url, '/'))
+        if (StiFunctions::startsWith($url, "/"))
             $url = mb_substr($url, 1);
 
         return "$protocol://$host/$url";
     }
+
+    private function getHandlerScript(): string
+    {
+        $handler = $this->getHandler();
+        $handler->url = self::getHandlerUrl($handler->getUrl());
+        $script = $handler->getHtml(StiHtmlMode::Scripts);
+        return str_replace("Stimulsoft.handler.send", "Stimulsoft.handler.https", $script);
+    }
+
+
+### Helpers
 
     private function clearError()
     {
@@ -123,23 +127,23 @@ class StiNodeJs
 
     private function getNodeError($returnError, int $returnCode)
     {
-        $lines = is_array($returnError) ? $returnError : explode("\n", $returnError ?? '');
+        $lines = is_array($returnError) ? $returnError : explode("\n", $returnError ?? "");
         $npmError = false;
-        $errors = ['npm ERR', 'Error', 'SyntaxError', 'ReferenceError', 'TypeError', 'RequestError'];
+        $errors = ["npm ERR", "Error", "SyntaxError", "ReferenceError", "TypeError", "RequestError"];
         foreach ($lines as $line) {
-            if (strlen($line ?? '') > 0) {
+            if (!StiFunctions::isNullOrEmpty($line)) {
                 foreach ($errors as $error) {
                     if (mb_substr($line, 0, strlen($error)) == $error) {
-                        if (mb_substr($line, 0, 3) == 'npm' && !$npmError) {
+                        if (mb_substr($line, 0, 3) == "npm" && !$npmError) {
                             $npmError = true;
                             continue;
                         }
-                        return preg_replace("/\r/", '', $line);
+                        return preg_replace("/\r/", "", $line);
                     }
 
                     // Handling a parser error from StiHandler
-                    if (substr($line, 0, 1) == '[' && mb_strpos($line, 'StiHandler') > 0 && mb_strpos($line, 'StiHandler') < 10)
-                        return preg_replace("/\r/", '', $line);
+                    if (substr($line, 0, 1) == "[" && mb_strpos($line, "StiHandler") > 0 && mb_strpos($line, "StiHandler") < 10)
+                        return preg_replace("/\r/", "", $line);
                 }
             }
         }
@@ -147,7 +151,7 @@ class StiNodeJs
         if ($returnCode !== 0)
         {
             foreach ($lines as $line)
-                if (strlen($line or '') > 0)
+                if (!StiFunctions::isNullOrEmpty($line))
                     return $line;
 
             return "ExecErrorCode: $returnCode";
@@ -158,48 +162,141 @@ class StiNodeJs
 
     private function getNodeErrorStack($returnError)
     {
-        if (is_array($returnError)) return $returnError;
+        if (is_array($returnError))
+            return $returnError;
+
         $returnError = preg_replace("/\r\n/", "\n", $returnError);
-        return strlen($returnError ?? '') > 0 ? explode( "\n", $returnError) : null;
+        return StiFunctions::isNullOrEmpty($returnError) ? null : explode( "\n", $returnError);
     }
 
-    private function getNodePath()
+    private function getSystemPath($app)
     {
-        if (strlen($this->binDirectory ?? '') == 0)
-            return null;
+        if ($this->system == "win") {
+            $execResult = shell_exec("where /F $app") ?? "";
+            $result = trim($execResult, "\n\r");
+            $lines = explode("\n", $result);
+            return trim($lines[0], "\"");
+        }
+        else {
+            $descriptors = [
+                0 => ["pipe", "r"],
+                1 => ["pipe", "w"],
+                2 => ["pipe", "w"],
+            ];
 
-        $nodePath = $this->system == 'win'
-            ? $this->binDirectory . DIRECTORY_SEPARATOR . 'node.exe'
-            : $this->binDirectory . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'node';
+            $pipes = [];
+            $process = proc_open("which " . escapeshellarg($app), $descriptors, $pipes);
+            $output = stream_get_contents($pipes[1]);
+            fclose($pipes[1]);
+            fclose($pipes[2]);
+            proc_close($process);
 
-        return is_file($nodePath) ? $nodePath : null;
+            return trim($output, "\n\r");
+        }
     }
 
-    private function getNpmPath()
+    private function getVendorPath()
     {
-        $nodePath = $this->getNodePath();
-        if (strlen($nodePath ?? '') == 0)
-            return null;
-
-        $npmPath = $this->system == 'win'
-            ? mb_substr($nodePath, 0, -8) . 'npm.cmd'
-            : mb_substr($nodePath, 0, -4) . 'npm';
-
-        return is_file($npmPath) ? $npmPath : null;
+        $vendor = StiPath::getVendorPath();
+        return StiPath::normalize("$vendor/nodejs-v$this->version");
     }
 
-    private function download(): bool
+    private function setEnvPath($app)
     {
-        $url = $this->getUrl();
-        $archivePath = $this->binDirectory . DIRECTORY_SEPARATOR . $this->getArchiveName();
+        $appPath = dirname(realpath($app));
+        $path = getenv('PATH');
+        if (strpos($path, $appPath) === false) {
+            $separator = $this->system == "win" ? ";" : ":";
+            $newPath = "$path$separator$appPath";
+            putenv('PATH=' . $newPath);
+        }
+    }
+
+
+### Paths
+
+    private function getArchiveName()
+    {
+        $architecture = $this->processor == "armv6l" || $this->processor == "armv7l" ? $this->processor : $this->architecture;
+        $extension = $this->system == "win" ? "zip" : "tar.gz";
+
+        return "node-v$this->version-$this->system-$architecture.$extension";
+    }
+
+    private function getArchiveUrl()
+    {
+        $archiveName = $this->getArchiveName();
+        return "https://nodejs.org/download/release/v$this->version/$archiveName";
+    }
+
+    private function getArchivePath()
+    {
+        $vendorPath = $this->getVendorPath();
+        $archiveName = $this->getArchiveName();
+        return StiPath::normalize("$vendorPath/$archiveName");
+    }
+
+    private function getApplicationPath($app)
+    {
+        $appPath = $this->getSystemPath($app);
+        if (!StiFunctions::isNullOrEmpty($appPath))
+            return $appPath;
+
+        $path = StiFunctions::isNullOrEmpty($this->binDirectory) ? $this->getVendorPath() : $this->binDirectory;
+        $path = StiPath::normalize($path);
+
+        $appPath = StiPath::normalize("$path/$app");
+        if (is_file($appPath)) {
+            $this->setEnvPath($appPath);
+            return $appPath;
+        }
+
+        $appPath = StiPath::normalize("$path/bin/$app");
+        if (is_file($appPath)) {
+            $this->setEnvPath($appPath);
+            return $appPath;
+        }
+
+        $this->error = "The executable file \"$app\" was not found in the \"$path\" directory.";
+        return false;
+    }
+
+    /**
+     * Returns the full path to the Node executable, or false if the file was not found.
+     * @return false|string
+     */
+    public function getNodePath()
+    {
+        $app = $this->system == "win" ? "node.exe" : "node";
+        return $this->getApplicationPath($app);
+    }
+
+    /**
+     * Returns the full path to the Npm executable, or false if the file was not found.
+     * @return false|string
+     */
+    public function getNpmPath()
+    {
+        $app = $this->system == "win" ? "npm.cmd" : "npm";
+        return $this->getApplicationPath($app);
+    }
+
+
+### Methods
+
+    private function download()
+    {
+        $archiveUrl = $this->getArchiveUrl();
+        $archivePath = $this->getArchivePath();
+        $vendorPath = $this->getVendorPath();
 
         try {
-            if (!is_dir($this->binDirectory))
-                mkdir($this->binDirectory);
+            if (!file_exists($vendorPath))
+                mkdir($vendorPath, 0775, true);
 
-            $curl = curl_init($url);
+            $curl = curl_init($archiveUrl);
 
-            $fp = fopen($archivePath, 'wb');
+            $fp = fopen($archivePath, "wb");
             flock($fp, LOCK_EX);
 
             curl_setopt($curl, CURLOPT_HEADER, 0);
@@ -214,89 +311,114 @@ class StiNodeJs
             return false;
         }
 
+        $fileSize = filesize($archivePath);
+        if ($fileSize === false || $fileSize < 10000) {
+            if ($fileSize !== false) {
+                try {
+                    unlink($archivePath);
+                }
+                catch (Exception $e) {
+                }
+            }
+
+            $this->error = "The archive \"$archiveUrl\" was not found.";
+            return false;
+        }
+
         return true;
     }
 
-    private function unpack(): bool
+    private function move($from, $to)
     {
-        $archivePath = $this->binDirectory . DIRECTORY_SEPARATOR . $this->getArchiveName();
+        $files = scandir($from);
+        foreach ($files as $name) {
+            if ($name != "." && $name != "..")
+                rename("$from/$name", "$to/$name");
+        }
+
+        rmdir($from);
+    }
+
+    private function extract()
+    {
+        $vendorPath = $this->getVendorPath();
+        $archivePath = $this->getArchivePath();
+
+        $output = null;
+        $result = null;
         try {
-            if ($this->system == 'win') {
+            if ($this->system == "win") {
                 $zip = new ZipArchive;
                 $zip->open($archivePath);
-                $zip->extractTo($this->binDirectory);
+                $zip->extractTo($vendorPath);
                 $zip->close();
+
+                $archiveBasePath = substr($archivePath, 0, -4);
+                $this->move($archiveBasePath, $vendorPath);
+                $result = 0;
             }
             else {
-                $phar = new PharData($archivePath);
-                $phar->extractTo($this->binDirectory);
+                exec("tar -xvf " . escapeshellarg($archivePath) . " -C " . escapeshellarg($vendorPath) . " --strip 1", $output, $result);
             }
+
+            unlink($archivePath);
         }
         catch (Exception $e) {
             $this->error = $e->getMessage();
             return false;
         }
 
-        $sourcesPath = $this->binDirectory . DIRECTORY_SEPARATOR . $this->getDirectoryName();
-        $sourceFiles = scandir($sourcesPath);
-        foreach ($sourceFiles as $fileName) {
-            if ($fileName != '.' && $fileName != '..')
-                rename($sourcesPath . DIRECTORY_SEPARATOR . $fileName, $this->binDirectory . DIRECTORY_SEPARATOR . $fileName);
-        }
+        if ($result !== 0)
+            $this->error = "An error occurred while extracting the archive \"$archivePath\" [$result].";
 
-        rmdir($sourcesPath);
-        unlink($archivePath);
-
-        return true;
+        return $result === 0;
     }
 
-    private function getHandlerScript(): string
-    {
-        $handler = $this->getHandler();
-        $handler->url = $this->getHandlerUrl($handler->getUrl());
-        $script = $handler->getHtml(StiHtmlMode::Scripts);
-        return str_replace('Stimulsoft.handler.send', 'Stimulsoft.handler.https', $script);
-    }
-
-    function exec(string $command, string $input, string $cwd, &$output, &$error): int
+    private function exec(string $command, string $input, string $cwd, &$output, &$error): int
     {
         $descriptors = [
-            0 => ['pipe', 'r'],
-            1 => ['pipe', 'w'],
-            2 => ['pipe', 'w']
+            0 => ["pipe", "r"],
+            1 => ["pipe", "w"],
+            2 => ["pipe", "w"]
         ];
 
+        $pipes = [];
         $process = proc_open($command, $descriptors, $pipes, $cwd);
         if (is_resource($process)) {
             fwrite($pipes[0], $input);
             fclose($pipes[0]);
 
-            stream_set_blocking($pipes[1], false);
+            //stream_set_blocking($pipes[1], false);
             $output = stream_get_contents($pipes[1]);
             fclose($pipes[1]);
 
-            stream_set_blocking($pipes[2], false);
+            //stream_set_blocking($pipes[2], false);
             $error = stream_get_contents($pipes[2]);
             fclose($pipes[2]);
+
             return proc_close($process);
         }
 
         return -1;
     }
 
-
-### Methods
-
     /**
-     * Installs the version of Node.js specified in the parameters into the working directory from the official website.
+     * Installs the version of Node.js specified in the parameters into the vendor directory from the official website.
      * @return bool Boolean execution result.
      */
     public function installNodeJS(): bool
     {
         $this->clearError();
-        if ($this->getNodePath() == null) {
-            if (!$this->download()) return false;
-            if (!$this->unpack()) return false;
+        $nodePath = $this->getNodePath();
+
+        if ($nodePath === false) {
+            $this->clearError();
+
+            if ($this->download() === false)
+                return false;
+
+            if ($this->extract() === false)
+                return false;
         }
 
         return true;
@@ -309,15 +431,22 @@ class StiNodeJs
     public function updatePackages(): bool
     {
         $this->clearError();
+
         $npmPath = $this->getNpmPath();
-        $product = $this->isDashboardsProduct() ? 'dashboards' : 'reports';
+        if ($npmPath === false)
+            return false;
+
+        $product = $this->getProduct();
         $version = $this->getVersion();
         $command = "\"$npmPath\" install stimulsoft-$product-js@$version";
-        $result = $this->exec($command, '', $this->workingDirectory, $output, $error);
-        $this->error = strlen($error || '') > 0 ? $this->getNodeError($error, $result) : $this->getNodeError($output, $result);
-        $this->errorStack = strlen($error || '') > 0 ? $this->getNodeErrorStack($error) : $this->getNodeErrorStack($output);
+
+        $result = $this->exec($command, "", $this->workingDirectory, $output, $error);
+
+        $this->error = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeError($error, $result) : $this->getNodeError($output, $result);
+        $this->errorStack = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeErrorStack($error) : $this->getNodeErrorStack($output);
         $this->errorStack = $this->getNodeErrorStack($error);
-        return strlen($this->error ?? '') == 0;
+
+        return StiFunctions::isNullOrEmpty($this->error);
     }
 
     /**
@@ -328,34 +457,44 @@ class StiNodeJs
     public function run(string $script)
     {
         $this->clearError();
-        $nodePath = $this->getNodePath();
-        if ($nodePath == null) {
-            $this->error = 'The path to the Node.js not found.';
-            return false;
-        }
 
-        $product = $this->isDashboardsProduct() ? 'dashboards' : 'reports';
+        $nodePath = $this->getNodePath();
+        if ($nodePath === false)
+            return false;
+
+        $product = $this->getProduct();
         $require = "var Stimulsoft = require('stimulsoft-$product-js');\n";
         $handler = $this->getHandlerScript();
         $command = "\"$nodePath\" 2>&1";
         $input = "$require\n$handler\n$script";
+
         $result = $this->exec($command, $input, $this->workingDirectory, $output, $error);
-        $this->error = strlen($error || '') > 0 ? $this->getNodeError($error, $result) : $this->getNodeError($output, $result);
-        $this->errorStack = strlen($error || '') > 0 ? $this->getNodeErrorStack($error) : $this->getNodeErrorStack($output);
-        if (strlen($this->error ?? '') > 0)
+
+        $this->error = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeError($error, $result) : $this->getNodeError($output, $result);
+        $this->errorStack = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeErrorStack($error) : $this->getNodeErrorStack($output);
+        if (!StiFunctions::isNullOrEmpty($this->error))
             return false;
 
-        if (strlen($output or '') > 0) {
+        if (!StiFunctions::isNullOrEmpty($output)) {
             try {
                 $jsonStart = mb_strpos($output, $this->id) + strlen($this->id);
                 $jsonLength = mb_strpos($output, $this->id, $jsonStart) - $jsonStart;
                 $json = mb_substr($output, $jsonStart, $jsonLength);
                 $jsonObject = json_decode($json);
-                if ($jsonObject->type == 'string') return $jsonObject->data;
-                if ($jsonObject->type == 'bytes') return base64_decode($jsonObject->data);
+
+                if ($jsonLength < 0 || $jsonObject === null)
+                    return "The report generator script did not return a response.";
+
+                switch ($jsonObject->type) {
+                    case "string":
+                        return $jsonObject->data;
+
+                    case "bytes":
+                        return base64_decode($jsonObject->data);
+                }
             }
             catch (Exception $e) {
-                $this->error = 'ParseError: ' . $e->getMessage();
+                $this->error = "ParseError: " . $e->getMessage();
                 return false;
             }
         }
@@ -371,7 +510,8 @@ class StiNodeJs
         $this->id = StiFunctions::newGuid();
         $this->component = $component;
         $this->system = $this->getSystem();
-        $this->binDirectory = $this->getDirectory();
+        $this->processor = $this->getProcessor();
+        $this->architecture = $this->getArchitecture();
         $this->workingDirectory = getcwd();
     }
 }

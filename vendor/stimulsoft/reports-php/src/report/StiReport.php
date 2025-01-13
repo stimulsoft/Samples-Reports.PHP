@@ -367,6 +367,7 @@ class StiReport extends StiComponent
             $this->onAfterRender->append($callback);
 
         if ($this->engine == StiEngineType::ServerNodeJS) {
+            $this->setHtmlRendered(false);
             $afterRenderScript = $this->getAfterRenderNodeHtml();
             $this->onAfterRender->append($afterRenderScript);
             $script = $this->getHtml(StiHtmlMode::Scripts);
@@ -438,6 +439,7 @@ class StiReport extends StiComponent
         }
 
         if ($this->engine == StiEngineType::ServerNodeJS) {
+            $this->setHtmlRendered(false);
             $script = $this->getHtml(StiHtmlMode::Scripts);
             $this->exportCalled = false;
             $result = $this->nodejs->run($script);

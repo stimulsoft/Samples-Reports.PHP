@@ -16,7 +16,12 @@ class StiPath
 
 ### Helpers
 
-    private static function normalizePath($path): string
+    public static function getVendorPath()
+    {
+        return realpath(__DIR__ . "/../../../..");
+    }
+
+    public static function normalize($path): string
     {
         $path = str_replace('\\', '/', $path != null ? $path : '');
         $result = preg_replace(['~/{2,}~', '~/(\./)+~', '~([^/\.]+/(?R)*\.{2,}/)~', '~\.\./~'], ['/', '/', '', ''], $path);
@@ -26,13 +31,13 @@ class StiPath
 
     private static function getMissingFileName($filePath): string
     {
-        $filePath = StiPath::normalizePath($filePath);
+        $filePath = StiPath::normalize($filePath);
         return basename($filePath);
     }
 
     private static function getRealFilePath($filePath)
     {
-        $filePath = StiPath::normalizePath($filePath);
+        $filePath = StiPath::normalize($filePath);
         if (is_file($filePath))
             return $filePath;
 
@@ -45,7 +50,7 @@ class StiPath
 
     private static function getRealDirectoryPath($directoryPath)
     {
-        $filePath = StiPath::normalizePath($directoryPath);
+        $filePath = StiPath::normalize($directoryPath);
 
         $directoryPath = $filePath;
         if (is_dir($directoryPath))

@@ -181,6 +181,14 @@ class StiComponent extends StiElement
 
 ### HTML
 
+    protected function setHtmlRendered($value)
+    {
+        $this->htmlRendered = $value;
+        $this->license->htmlRendered = $value;
+        $this->fontCollection->htmlRendered = $value;
+        $this->functions->htmlRendered = $value;
+    }
+
     protected function getComponentHtml(): string
     {
         $result = '';
