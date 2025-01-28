@@ -12,7 +12,7 @@ class StiOdbcAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2025.1.3';
+    public $version = '2025.1.4';
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::ODBC;

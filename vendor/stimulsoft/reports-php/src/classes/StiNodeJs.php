@@ -195,7 +195,7 @@ class StiNodeJs
         }
     }
 
-    private function getVendorPath()
+    private function getInstallPath()
     {
         $vendor = StiPath::getVendorPath();
         return StiPath::normalize("$vendor/nodejs-v$this->version");
@@ -231,9 +231,9 @@ class StiNodeJs
 
     private function getArchivePath()
     {
-        $vendorPath = $this->getVendorPath();
+        $installPath = $this->getInstallPath();
         $archiveName = $this->getArchiveName();
-        return StiPath::normalize("$vendorPath/$archiveName");
+        return StiPath::normalize("$installPath/$archiveName");
     }
 
     private function getApplicationPath($app)
@@ -242,7 +242,7 @@ class StiNodeJs
         if (!StiFunctions::isNullOrEmpty($appPath))
             return $appPath;
 
-        $path = StiFunctions::isNullOrEmpty($this->binDirectory) ? $this->getVendorPath() : $this->binDirectory;
+        $path = StiFunctions::isNullOrEmpty($this->binDirectory) ? $this->getInstallPath() : $this->binDirectory;
         $path = StiPath::normalize($path);
 
         $appPath = StiPath::normalize("$path/$app");
@@ -286,13 +286,13 @@ class StiNodeJs
 
     private function download()
     {
+        $installPath = $this->getInstallPath();
         $archiveUrl = $this->getArchiveUrl();
         $archivePath = $this->getArchivePath();
-        $vendorPath = $this->getVendorPath();
 
         try {
-            if (!file_exists($vendorPath))
-                mkdir($vendorPath, 0775, true);
+            if (!file_exists($installPath))
+                mkdir($installPath, 0775, true);
 
             $curl = curl_init($archiveUrl);
 
@@ -341,7 +341,7 @@ class StiNodeJs
 
     private function extract()
     {
-        $vendorPath = $this->getVendorPath();
+        $installPath = $this->getInstallPath();
         $archivePath = $this->getArchivePath();
 
         $output = null;
@@ -350,15 +350,15 @@ class StiNodeJs
             if ($this->system == "win") {
                 $zip = new ZipArchive;
                 $zip->open($archivePath);
-                $zip->extractTo($vendorPath);
+                $zip->extractTo($installPath);
                 $zip->close();
 
                 $archiveBasePath = substr($archivePath, 0, -4);
-                $this->move($archiveBasePath, $vendorPath);
+                $this->move($archiveBasePath, $installPath);
                 $result = 0;
             }
             else {
-                exec("tar -xvf " . escapeshellarg($archivePath) . " -C " . escapeshellarg($vendorPath) . " --strip 1", $output, $result);
+                exec("tar -xvf " . escapeshellarg($archivePath) . " -C " . escapeshellarg($installPath) . " --strip 1", $output, $result);
             }
 
             unlink($archivePath);
@@ -442,9 +442,9 @@ class StiNodeJs
 
         $result = $this->exec($command, "", $this->workingDirectory, $output, $error);
 
-        $this->error = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeError($error, $result) : $this->getNodeError($output, $result);
-        $this->errorStack = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeErrorStack($error) : $this->getNodeErrorStack($output);
-        $this->errorStack = $this->getNodeErrorStack($error);
+        $errorText = !StiFunctions::isNullOrEmpty($error) ? $error : $output;
+        $this->error = $this->getNodeError($errorText, $result);
+        $this->errorStack = $this->getNodeErrorStack($errorText);
 
         return StiFunctions::isNullOrEmpty($this->error);
     }
@@ -470,8 +470,10 @@ class StiNodeJs
 
         $result = $this->exec($command, $input, $this->workingDirectory, $output, $error);
 
-        $this->error = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeError($error, $result) : $this->getNodeError($output, $result);
-        $this->errorStack = !StiFunctions::isNullOrEmpty($error) ? $this->getNodeErrorStack($error) : $this->getNodeErrorStack($output);
+        $errorText = !StiFunctions::isNullOrEmpty($error) ? $error : $output;
+        $this->error = $this->getNodeError($errorText, $result);
+        $this->errorStack = $this->getNodeErrorStack($errorText);
+
         if (!StiFunctions::isNullOrEmpty($this->error))
             return false;
 
@@ -482,8 +484,10 @@ class StiNodeJs
                 $json = mb_substr($output, $jsonStart, $jsonLength);
                 $jsonObject = json_decode($json);
 
-                if ($jsonLength < 0 || $jsonObject === null)
-                    return "The report generator script did not return a response.";
+                if ($jsonLength < 0 || $jsonObject === null) {
+                    $this->error = "The report generator script did not return a response.";
+                    return false;
+                }
 
                 switch ($jsonObject->type) {
                     case "string":

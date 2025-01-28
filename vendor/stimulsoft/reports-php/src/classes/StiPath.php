@@ -41,7 +41,7 @@ class StiPath
         if (is_file($filePath))
             return $filePath;
 
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . $filePath;
+        $filePath = StiPath::normalize(getcwd() . '/' . $filePath);
         if (is_file($filePath))
             return $filePath;
 
@@ -56,7 +56,7 @@ class StiPath
         if (is_dir($directoryPath))
             return $directoryPath;
 
-        $directoryPath = getcwd() . DIRECTORY_SEPARATOR . $directoryPath;
+        $directoryPath = StiPath::normalize(getcwd() . '/' . $directoryPath);
         if (is_dir($directoryPath))
             return $directoryPath;
 
@@ -64,7 +64,7 @@ class StiPath
         if (is_dir($directoryPath))
             return $directoryPath;
 
-        $directoryPath = getcwd() . DIRECTORY_SEPARATOR . $directoryPath;
+        $directoryPath = StiPath::normalize(getcwd() . '/' . $directoryPath);
         if (is_dir($directoryPath))
             return $directoryPath;
 

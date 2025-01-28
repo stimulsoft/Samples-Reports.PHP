@@ -167,7 +167,7 @@ class StiReport extends StiComponent
                 $pageRangeId = $pageRange->id;
             }
 
-            return "{$pageRangeHtml}report.print($pageRangeId);\n";
+            return "{$pageRangeHtml}{$this->id}.print($pageRangeId);\n";
         }
 
         return '';
@@ -182,7 +182,7 @@ class StiReport extends StiComponent
             $exportName = StiExportFormat::getFormatName($this->exportFormat);
 
             $result = $this->exportSettings !== null && !$this->exportSettings->htmlRendered ? $this->exportSettings->getHtml() : "let settings = null;\n";
-            $result .= "report.exportDocumentAsync(function (data) {\n";
+            $result .= "{$this->id}.exportDocumentAsync(function (data) {\n";
             if ($this->engine == StiEngineType::ServerNodeJS)
                 $result .= "let buffer = Buffer.from(data);\n" . $this->getNodeJsOutput('bytes', "buffer.toString('base64')") . "\n";
             else
@@ -462,7 +462,7 @@ class StiReport extends StiComponent
     {
         parent::__construct();
 
-        $this->id = strlen($id ?? '') > 0 ? $id : 'report';
+        $this->id = !StiFunctions::isNullOrEmpty($id) ? $id : 'report';
         $this->dictionary = new StiDictionary($this);
         $this->nodejs = new StiNodeJs($this);
         $this->setHandler($this->handler);
