@@ -48,11 +48,15 @@ StiHandler.prototype.send = function (data, callback) {
         request.open('post', this.url, true);
         request.setRequestHeader('Cache-Control', 'max-age=0, no-cache, no-store, must-revalidate');
         request.setRequestHeader('Pragma', 'no-cache');
-        let csrf_token = {csrf_token} || Stimulsoft.handler.getCookie('csrftoken');
-        if (csrf_token) {
-            request.setRequestHeader('X-CSRFToken', csrf_token);
-            request.setRequestHeader('X-CSRF-Token', csrf_token);
+
+        if (this.cookie)
+            request.setRequestHeader('Cookie', this.cookie);
+
+        if (this.csrfToken) {
+            request.setRequestHeader('X-CSRFToken', this.csrfToken);
+            request.setRequestHeader('X-CSRF-Token', this.csrfToken);
         }
+
         request.timeout = this.timeout * 1000;
         request.onload = function () {
             if (request.status === 200) {
@@ -99,15 +103,21 @@ StiHandler.prototype.https = function (data, callback) {
         timeout: this.timeout * 1000,
         headers: {
             'Cache-Control': 'max-age=0, no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache'
+            'Pragma': 'no-cache',
+            'Cookie': this.cookie,
+            'X-CSRFToken': this.csrfToken,
+            'X-CSRF-Token': this.csrfToken
         }
     }
 
     let responseText = '';
-    let request = require(uri.protocol.replace(':', '')).request(options, function (response) {
+    let module = uri.protocol.replace(':', '');
+    let request = require(module).request(options, function (response) {
+
         response.on('data', function (buffer) {
             responseText += buffer;
         });
+
         response.on('end', function () {
             try {
                 let args = Stimulsoft.Report.Dictionary.StiSqlAdapterService.decodeCommandResult(responseText);
@@ -120,27 +130,25 @@ StiHandler.prototype.https = function (data, callback) {
                 callback(args);
             }
             catch (e) {
-                console.log('RequestError: ' + e.message);
+                console.log('ResponseError: ' + e.message);
+                console.log(responseText);
+                process.exit(1);
             }
         });
     });
 
     request.on('error', function (e) {
         console.log('RequestError: ' + e.message);
-    })
+        process.exit(1);
+    });
 
     request.on('timeout', function () {
         console.log('RequestError: Timeout ' + this.timeout + 'ms');
-    })
+        process.exit(2);
+    });
 
     request.write(data);
     request.end();
-}
-
-StiHandler.prototype.getCookie = function (name) {
-    if (typeof document == 'undefined') return '';
-    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-    return matches ? decodeURIComponent(matches[1]) : '';
 }
 
 StiHandler.prototype.setOptions = function () {
@@ -185,6 +193,8 @@ function StiHandler() {
     this.escapeQueryParameters = {escapeQueryParameters};
     this.databases = {databases};
     this.frameworkType = {framework};
+    this.cookie = {cookie};
+    this.csrfToken = {csrfToken};
     this.setOptions();
 }
 

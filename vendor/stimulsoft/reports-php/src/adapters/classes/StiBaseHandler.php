@@ -25,7 +25,7 @@ class StiBaseHandler
     public static $legacyMode = false;
 
     /** @var string Current version of the event handler. */
-    public $version = '2025.1.4';
+    public $version = '2025.1.5';
 
     /** @var bool Enables checking for client-side and server-side data adapter versions to match. */
     public $checkDataAdaptersVersion = true;

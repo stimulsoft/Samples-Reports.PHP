@@ -37,6 +37,9 @@ class StiNodeJs
     /** @var array Full text of the last error as an array of strings. */
     public $errorStack;
 
+    /** @var bool Enables automatic passing of cookies in HTTP requests. */
+    public $passCookies = true;
+
 
 ### Parameters
 
@@ -108,10 +111,24 @@ class StiNodeJs
         return "$protocol://$host/$url";
     }
 
+    private function getCookieString()
+    {
+        if ($this->passCookies) {
+            if (array_key_exists('HTTP_COOKIE', $_SERVER))
+                return $_SERVER['HTTP_COOKIE'];
+
+            if (count($_COOKIE) > 0)
+                return http_build_query($_COOKIE, '', '; ');
+        }
+
+        return null;
+    }
+
     private function getHandlerScript(): string
     {
         $handler = $this->getHandler();
         $handler->url = self::getHandlerUrl($handler->getUrl());
+        $handler->cookie = $this->getCookieString();
         $script = $handler->getHtml(StiHtmlMode::Scripts);
         return str_replace("Stimulsoft.handler.send", "Stimulsoft.handler.https", $script);
     }
@@ -129,7 +146,7 @@ class StiNodeJs
     {
         $lines = is_array($returnError) ? $returnError : explode("\n", $returnError ?? "");
         $npmError = false;
-        $errors = ["npm ERR", "Error", "SyntaxError", "ReferenceError", "TypeError", "RequestError"];
+        $errors = ["npm ERR", "Error", "SyntaxError", "ReferenceError", "TypeError", "RequestError", "ResponseError"];
         foreach ($lines as $line) {
             if (!StiFunctions::isNullOrEmpty($line)) {
                 foreach ($errors as $error) {
@@ -472,10 +489,11 @@ class StiNodeJs
 
         $errorText = !StiFunctions::isNullOrEmpty($error) ? $error : $output;
         $this->error = $this->getNodeError($errorText, $result);
-        $this->errorStack = $this->getNodeErrorStack($errorText);
 
-        if (!StiFunctions::isNullOrEmpty($this->error))
+        if (!StiFunctions::isNullOrEmpty($this->error)) {
+            $this->errorStack = $this->getNodeErrorStack($errorText);
             return false;
+        }
 
         if (!StiFunctions::isNullOrEmpty($output)) {
             try {
@@ -499,6 +517,7 @@ class StiNodeJs
             }
             catch (Exception $e) {
                 $this->error = "ParseError: " . $e->getMessage();
+                $this->errorStack = $this->getNodeErrorStack($errorText);
                 return false;
             }
         }

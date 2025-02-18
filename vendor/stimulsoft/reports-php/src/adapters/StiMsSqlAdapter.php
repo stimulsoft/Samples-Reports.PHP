@@ -16,7 +16,7 @@ class StiMsSqlAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2025.1.4';
+    public $version = '2025.1.5';
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::MSSQL;

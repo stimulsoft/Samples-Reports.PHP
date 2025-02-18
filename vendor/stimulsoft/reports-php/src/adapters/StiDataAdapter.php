@@ -21,7 +21,7 @@ class StiDataAdapter
 
 ### Properties
 
-    public $version = '2025.1.4';
+    public $version = '2025.1.5';
     public $checkVersion = false;
 
     /** @var StiBaseHandler */

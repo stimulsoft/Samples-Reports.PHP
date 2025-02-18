@@ -60,6 +60,9 @@ class StiHandler extends StiBaseHandler
     /** @var bool Enables server-side file name checking for saving the report to eliminate dangerous values. */
     public $checkFileNames = true;
 
+    /** @var string Contains a string with cookies that will be passed when requesting events. */
+    public $cookie = null;
+
 
 ### Events: Component
 
@@ -316,6 +319,17 @@ class StiHandler extends StiBaseHandler
             StiFunctions::populateObject($this, $this->options);
     }
 
+    private function getCsrfToken()
+    {
+        if (function_exists('csrf_token'))
+            return csrf_token();
+
+        if (array_key_exists('csrftoken', $_COOKIE))
+            return $_COOKIE['csrftoken'];
+
+        return null;
+    }
+
 
 ### Results
 
@@ -409,12 +423,10 @@ class StiHandler extends StiBaseHandler
     {
         $result = StiResourcesHelper::getResult('stimulsoft.handler.js');
         if ($result->success) {
-            $csrf_token = function_exists('csrf_token') ? csrf_token() : null;
             $script = $result->data ?? '';
 
             // Replace Handler parameters
             $script = str_replace('{databases}', StiFunctions::getJavaScriptValue(StiDatabaseType::getValues()), $script);
-            $script = str_replace('{csrf_token}', StiFunctions::getJavaScriptValue($csrf_token), $script);
             $script = str_replace('{url}', StiFunctions::getJavaScriptValue($this->getUrl()), $script);
             $script = str_replace('{timeout}', StiFunctions::getJavaScriptValue($this->timeout), $script);
             $script = str_replace('{encryptData}', StiFunctions::getJavaScriptValue($this->encryptData), $script);
@@ -422,6 +434,8 @@ class StiHandler extends StiBaseHandler
             $script = str_replace('{checkDataAdaptersVersion}', StiFunctions::getJavaScriptValue($this->checkDataAdaptersVersion), $script);
             $script = str_replace('{escapeQueryParameters}', StiFunctions::getJavaScriptValue($this->escapeQueryParameters), $script);
             $script = str_replace('{framework}', StiFunctions::getJavaScriptValue('PHP'), $script);
+            $script = str_replace('{cookie}', StiFunctions::getJavaScriptValue($this->cookie), $script);
+            $script = str_replace('{csrfToken}', StiFunctions::getJavaScriptValue($this->getCsrfToken()), $script);
 
             if (StiHandler::$legacyMode)
                 $script = str_replace(
