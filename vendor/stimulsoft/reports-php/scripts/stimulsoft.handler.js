@@ -15,15 +15,34 @@ StiHandler.prototype.process = function (args, callback) {
 
         let command = {};
         for (let p in args) {
-            if (p === 'report' && args.report) command.report = args.report.isRendered ? args.report.saveDocumentToJsonString() : args.report.saveToJsonString();
-            else if (p === 'settings' && args.settings) {
-                command.settings = JSON.stringify(args.settings);
-                command.reportType = typeof args.settings.is == 'function' && args.settings.is(Stimulsoft.Report.Dashboard.Export.IStiDashboardExportSettings) ? 2 : 1;
+            switch (p) {
+                case 'report':
+                    if (args.report && args.event !== 'BeginProcessData' && args.event !== 'EndProcessData')
+                        command.report = args.report.isRendered ? args.report.saveDocumentToJsonString() : args.report.saveToJsonString();
+                    break;
+
+                case 'settings':
+                    if (args.settings) {
+                        command.settings = JSON.stringify(args.settings);
+                        command.reportType = typeof args.settings.is == 'function' && args.settings.is(Stimulsoft.Report.Dashboard.Export.IStiDashboardExportSettings) ? 2 : 1;
+                    }
+                    break;
+
+                case 'data':
+                    command.data = Stimulsoft.System.Convert.toBase64String(args.data);
+                    break;
+
+                case 'variables':
+                    command[p] = this.getVariables(args[p]);
+                    break;
+
+                case 'viewer':
+                    break;
+
+                default:
+                    command[p] = args[p];
+                    break;
             }
-            else if (p === 'data') command.data = Stimulsoft.System.Convert.toBase64String(args.data);
-            else if (p === 'variables') command[p] = this.getVariables(args[p]);
-            else if (p === 'viewer') continue;
-            else command[p] = args[p];
         }
 
         let sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.encodeCommand(command);

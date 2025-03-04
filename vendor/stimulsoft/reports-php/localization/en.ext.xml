@@ -84,6 +84,8 @@
     <StiComponentBoundsAreOutOfBandShort>The component is partially outside the band.</StiComponentBoundsAreOutOfBandShort>
     <StiComponentExpressionCheckLong>Expression in {0} property of '{1}' can't be evaluated!</StiComponentExpressionCheckLong>
     <StiComponentExpressionCheckShort>Expression can't be evaluated!</StiComponentExpressionCheckShort>
+    <StiComponentNameIsSystemVariableCheckLong>The component name '{0}' conflicts with a system variable name. Expressions using this system variable will not function correctly, as the reference will be replaced by the component reference.</StiComponentNameIsSystemVariableCheckLong>
+    <StiComponentNameIsSystemVariableCheckShort>The component name conflicts with a system variable name</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>The resource '{0}' specified for component '{1}' was not found in the report dictionary.</StiComponentResourceCheckLong>
     <StiComponentResourceCheckShort>The specified resource was not found!</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>The style specified for the '{0}' page does not exist.</StiComponentStyleIsNotFoundCheckAtPageLong>
@@ -275,6 +277,28 @@
     <Strikeout>A value that indicates whether this Font specifies a horizontal line through the font.</Strikeout>
     <Underline>A value that indicates whether this Font is underlined.</Underline>
   </Font>
+  <Parser>
+    <DivisionByZero>Division by zero.</DivisionByZero>
+    <ExpressionIsEmpty>The expression is empty.</ExpressionIsEmpty>
+    <FieldMethodOrPropertyNotFound>Field, method, or property is not found: '{0}'.</FieldMethodOrPropertyNotFound>
+    <FunctionHasInvalidArgument>The '{0}' function has an invalid argument '{1}': cannot convert from '{2}' to '{3}'.</FunctionHasInvalidArgument>
+    <FunctionNotFound>The function is not found: '{0}'.</FunctionNotFound>
+    <FunctionNotYetImplemented>The '{0}' function is not yet implemented.</FunctionNotYetImplemented>
+    <IntegralConstantIsTooLarge>The integral constant is too large.</IntegralConstantIsTooLarge>
+    <ItemDoesNotContainDefinition>The '{0}' does not contain a definition for the '{1}'.</ItemDoesNotContainDefinition>
+    <LeftParenthesisExpected>( expected.</LeftParenthesisExpected>
+    <MethodHasInvalidArgument>The '{0}' method has an invalid argument '{1}'. Cannot convert from '{2}' to '{3}'.</MethodHasInvalidArgument>
+    <NameDoesNotExistInCurrentContext>The name '{0}' does not exist in the current context.</NameDoesNotExistInCurrentContext>
+    <NoMatchingOverloadedMethod>There is no matching overloaded method for '{0}({1})'.</NoMatchingOverloadedMethod>
+    <NoOverloadForMethodTakesNArguments>No overload for the method '{0}' takes '{1}' arguments.</NoOverloadForMethodTakesNArguments>
+    <OperatorCannotBeAppliedToOperands>The operator '{0}' cannot be applied to operands of the type '{1}' and the type '{2}.</OperatorCannotBeAppliedToOperands>
+    <RightParenthesisExpected>) expected.</RightParenthesisExpected>
+    <SyntaxError>Syntax error.</SyntaxError>
+    <TheTypeOrNamespaceNotExistInTheNamespace>The type or namespace name '{0}' does not exist in the namespace '{1}'.</TheTypeOrNamespaceNotExistInTheNamespace>
+    <UnexpectedEndOfExpression>Unexpected end of expression.</UnexpectedEndOfExpression>
+    <UnknownInternalError>Unknown internal error.</UnknownInternalError>
+    <UnprocessedLexemesRemain>Syntax error - unprocessed lexemes remain.</UnprocessedLexemesRemain>
+  </Parser>
   <Publish>
     <ActionDesign>Design</ActionDesign>
     <ActionExport>Export</ActionExport>
@@ -2165,6 +2189,7 @@
   </StiTable>
   <StiTableElement>
     <Columns>Columns displayed in the table</Columns>
+    <FiltersTarget>Gets or sets the target data to which filters are applied.</FiltersTarget>
     <Group />
     <SizeMode />
     <Style>Table style.</Style>

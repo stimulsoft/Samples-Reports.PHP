@@ -84,6 +84,8 @@
     <StiComponentBoundsAreOutOfBandShort>Die Komponente ist teilweise außerhalb des Bandes.</StiComponentBoundsAreOutOfBandShort>
     <StiComponentExpressionCheckLong>Der Ausdruck in der Eigenschaft {0} von '{1}' kann nicht berechnet werden!</StiComponentExpressionCheckLong>
     <StiComponentExpressionCheckShort>Der Ausdruck kann nicht berechnet werden!</StiComponentExpressionCheckShort>
+    <StiComponentNameIsSystemVariableCheckLong>Der Komponente-Name '{0}' widerspricht sich dem Namen der Systemvariablen. Die Ausdrücke, die diese Systemvariable verwenden, werden nicht korrekt funktionieren, da die Referenz durch die Referenz der Komponente ersetzt wird.</StiComponentNameIsSystemVariableCheckLong>
+    <StiComponentNameIsSystemVariableCheckShort>Der Komponente-Name widerspricht sich dem Namen der Systemvariablen.</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>Die für Komponente '{1}' angegebene Ressource '{0}' wurde im Berichtswörterbuch nicht gefunden.</StiComponentResourceCheckLong>
     <StiComponentResourceCheckShort>Die angegebene Ressource wurde nicht gefunden!</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>Der aufgeführte Stil für die Seite '{0}' existiert nicht.</StiComponentStyleIsNotFoundCheckAtPageLong>
@@ -275,6 +277,28 @@
     <Strikeout>Wert, der anzeigt, ob der Zeichensatz eine Durchstreichungslinie enthält.</Strikeout>
     <Underline>Wert, der anzeigt, ob dieser Zeichensatz unterstrichen dargestellt wird.</Underline>
   </Font>
+  <Parser>
+    <DivisionByZero>Division durch Null.</DivisionByZero>
+    <ExpressionIsEmpty>Der Ausdruck ist leer.</ExpressionIsEmpty>
+    <FieldMethodOrPropertyNotFound>Feld, Methode, oder Eigenschaft ist nicht gefunden: '{0}'.</FieldMethodOrPropertyNotFound>
+    <FunctionHasInvalidArgument>Die '{0}' Funktion hat ein ungültiges Argument '{1}': man kann nicht von '{2}' auf '{3}' konvertieren.</FunctionHasInvalidArgument>
+    <FunctionNotFound>Die Funktion ist nicht gefunden: '{0}'.</FunctionNotFound>
+    <FunctionNotYetImplemented>Die '{0}' Funktion ist noch nicht durchgeführt.</FunctionNotYetImplemented>
+    <IntegralConstantIsTooLarge>Die integrale Konstante ist zu groß.</IntegralConstantIsTooLarge>
+    <ItemDoesNotContainDefinition>'{0}' enthält keine Definition für '{1}'.</ItemDoesNotContainDefinition>
+    <LeftParenthesisExpected>( erwartet.</LeftParenthesisExpected>
+    <MethodHasInvalidArgument>Die '{0}' Methode hat ein ungültiges Argument '{1}'. Man kann nicht von '{2}' auf '{3}' konvertieren.</MethodHasInvalidArgument>
+    <NameDoesNotExistInCurrentContext>Der Name '{0}' existiert nicht im aktuellen Kontext.</NameDoesNotExistInCurrentContext>
+    <NoMatchingOverloadedMethod>Es gibt keine passende überlastete Methode für '{0}({1})'.</NoMatchingOverloadedMethod>
+    <NoOverloadForMethodTakesNArguments>Es gibt keine Variante der Methode '{0}' mit der angegebenen Anzahl '{1}' von Argumenten.</NoOverloadForMethodTakesNArguments>
+    <OperatorCannotBeAppliedToOperands>Der Operator '{0}' kan nicht auf Operander des Typen '{1}' und des Typen '{2} angewandt werden.</OperatorCannotBeAppliedToOperands>
+    <RightParenthesisExpected>) erwartet.</RightParenthesisExpected>
+    <SyntaxError>Syntaxfehler.</SyntaxError>
+    <TheTypeOrNamespaceNotExistInTheNamespace>Der Typ oder Namensraum '{0}' existiert nicht im Namensraum '{1}'.</TheTypeOrNamespaceNotExistInTheNamespace>
+    <UnexpectedEndOfExpression>Unerwartetes Ende des Ausdrucks.</UnexpectedEndOfExpression>
+    <UnknownInternalError>Unbekannter interner Fehler.</UnknownInternalError>
+    <UnprocessedLexemesRemain>Syntaxfehler - unverarbeitete Lexeme sind geblieben.</UnprocessedLexemesRemain>
+  </Parser>
   <Publish>
     <ActionDesign>Entwerfen</ActionDesign>
     <ActionExport>Exportieren</ActionExport>
@@ -2171,6 +2195,7 @@
   </StiTable>
   <StiTableElement>
     <Columns>Die Spalten werden in der Tabelle angezeigt</Columns>
+    <FiltersTarget>Liest oder setzt die Solldaten, auf die die Filter angewandt werden.</FiltersTarget>
     <Group />
     <SizeMode />
     <Style>Tabellenart.</Style>

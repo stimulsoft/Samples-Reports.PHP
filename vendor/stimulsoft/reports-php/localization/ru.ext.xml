@@ -84,6 +84,8 @@
     <StiComponentBoundsAreOutOfBandShort>Компонент частично за пределами бэнда.</StiComponentBoundsAreOutOfBandShort>
     <StiComponentExpressionCheckLong>Выражение в свойстве {0} компонента '{1}' не может быть вычислено!</StiComponentExpressionCheckLong>
     <StiComponentExpressionCheckShort>Выражение не может быть вычислено!</StiComponentExpressionCheckShort>
+    <StiComponentNameIsSystemVariableCheckLong>Имя компонента '{0}' конфликтует с именем системной переменной! Выражения с этой системной переменной будут работать некорректно, т.к. обращение к ней будет заменяться на обращение к компоненту.</StiComponentNameIsSystemVariableCheckLong>
+    <StiComponentNameIsSystemVariableCheckShort>Имя компонента конфликтует с именем системной переменной</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>Ресурс '{0}' указанный для компонента '{1}' не найден в словаре отчета.</StiComponentResourceCheckLong>
     <StiComponentResourceCheckShort>Указанный ресурс не найден!</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>У страницы '{0}' задан не существующий стиль.</StiComponentStyleIsNotFoundCheckAtPageLong>
@@ -275,6 +277,28 @@
     <Strikeout>Значение определяет, что текст перечеркнутый.</Strikeout>
     <Underline>Значение определяет, что текст подчеркнутый.</Underline>
   </Font>
+  <Parser>
+    <DivisionByZero>Деление на ноль.</DivisionByZero>
+    <ExpressionIsEmpty>Выражение пусто.</ExpressionIsEmpty>
+    <FieldMethodOrPropertyNotFound>Поле, метод или свойство не найдены: '{0}'.</FieldMethodOrPropertyNotFound>
+    <FunctionHasInvalidArgument>Функция '{0}' имеет недопустимый аргумент '{1}': невозможно преобразовать из '{2}' в '{3}'.</FunctionHasInvalidArgument>
+    <FunctionNotFound>Функция не найдена: '{0}'.</FunctionNotFound>
+    <FunctionNotYetImplemented>Функция '{0}' еще не реализована.</FunctionNotYetImplemented>
+    <IntegralConstantIsTooLarge>Интегральная константа слишком велика.</IntegralConstantIsTooLarge>
+    <ItemDoesNotContainDefinition>Метод '{0}' не содержит определения для '{1}'.</ItemDoesNotContainDefinition>
+    <LeftParenthesisExpected>( ожидается.</LeftParenthesisExpected>
+    <MethodHasInvalidArgument>Метод '{0}' имеет недопустимый аргумент '{1}'. Невозможно преобразовать из '{2}' в '{3}'.</MethodHasInvalidArgument>
+    <NameDoesNotExistInCurrentContext>Имя '{0}' не существует в текущем контексте.</NameDoesNotExistInCurrentContext>
+    <NoMatchingOverloadedMethod>Нет подходящего перегруженного метода для '{0}({1})'.</NoMatchingOverloadedMethod>
+    <NoOverloadForMethodTakesNArguments>Нет варианта метода '{0}' с указанными количеством ('{1}') аргументов.</NoOverloadForMethodTakesNArguments>
+    <OperatorCannotBeAppliedToOperands>Оператор '{0}' не может быть применен к операндам типа '{1}' и типа '{2}.</OperatorCannotBeAppliedToOperands>
+    <RightParenthesisExpected>) ожидается.</RightParenthesisExpected>
+    <SyntaxError>Ошибка синтаксиса.</SyntaxError>
+    <TheTypeOrNamespaceNotExistInTheNamespace>Имя типа или пространства имен '{0}' не существует в пространстве имен '{1}'.</TheTypeOrNamespaceNotExistInTheNamespace>
+    <UnexpectedEndOfExpression>Неожиданный конец выражения.</UnexpectedEndOfExpression>
+    <UnknownInternalError>Неизвестная внутренняя ошибка.</UnknownInternalError>
+    <UnprocessedLexemesRemain>Ошибка синтаксиса - остались необработанные лексемы.</UnprocessedLexemesRemain>
+  </Parser>
   <Publish>
     <ActionDesign>Редактировать</ActionDesign>
     <ActionExport>Экспортировать</ActionExport>
@@ -2173,6 +2197,7 @@
   </StiTable>
   <StiTableElement>
     <Columns>Колонки отображаемые в таблице</Columns>
+    <FiltersTarget>Получает или задает целевые данные, к которым применяются фильтры.</FiltersTarget>
     <Group />
     <SizeMode />
     <Style>Стиль таблицы.</Style>
