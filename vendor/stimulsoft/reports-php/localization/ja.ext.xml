@@ -84,6 +84,8 @@
     <StiComponentBoundsAreOutOfBandShort>コンポーネントが部分的にバンド外にあります。</StiComponentBoundsAreOutOfBandShort>
     <StiComponentExpressionCheckLong>'{1}'の{0}プロパティの式は評価できません！</StiComponentExpressionCheckLong>
     <StiComponentExpressionCheckShort>式を評価できません！</StiComponentExpressionCheckShort>
+    <StiComponentNameIsSystemVariableCheckLong>コンポーネント名 '{0}' がシステム変数名と競合しています。このシステム変数を使用する式は正しく機能しません。参照がコンポーネント参照に置き換えられるためです。</StiComponentNameIsSystemVariableCheckLong>
+    <StiComponentNameIsSystemVariableCheckShort>コンポーネント名がシステム変数名と競合しています。</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>コンポーネント '{1}'に指定されたリソース '{0}'がレポート辞書に見つかりませんでした。</StiComponentResourceCheckLong>
     <StiComponentResourceCheckShort>指定されたリソースが見つかりませんでした！</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>'{0}'ページに指定されたスタイルが存在しません。</StiComponentStyleIsNotFoundCheckAtPageLong>
@@ -275,6 +277,28 @@
     <Strikeout>このFontがフォントを通過する水平線を指定するかどうかを示す値</Strikeout>
     <Underline>このフォントに下線が引かれているかどうかを示す値</Underline>
   </Font>
+  <Parser>
+    <DivisionByZero>ゼロによる除算。</DivisionByZero>
+    <ExpressionIsEmpty>式が空です。</ExpressionIsEmpty>
+    <FieldMethodOrPropertyNotFound>フィールド、メソッド、またはプロパティが見つかりません: '{0}'。</FieldMethodOrPropertyNotFound>
+    <FunctionHasInvalidArgument>関数 '{0}' の引数 '{1}' が無効です。'{2}' から '{3}' への変換ができません。</FunctionHasInvalidArgument>
+    <FunctionNotFound>関数が見つかりません: '{0}'。</FunctionNotFound>
+    <FunctionNotYetImplemented>関数 '{0}' はまだ実装されていません。</FunctionNotYetImplemented>
+    <IntegralConstantIsTooLarge>整数定数が大きすぎます。</IntegralConstantIsTooLarge>
+    <ItemDoesNotContainDefinition>'{0}' に '{1}' の定義が含まれていません。</ItemDoesNotContainDefinition>
+    <LeftParenthesisExpected>( が必要です。</LeftParenthesisExpected>
+    <MethodHasInvalidArgument>メソッド '{0}' の引数 '{1}' が無効です。'{2}' から '{3}' への変換ができません。</MethodHasInvalidArgument>
+    <NameDoesNotExistInCurrentContext>名前 '{0}' は現在のコンテキストに存在しません。</NameDoesNotExistInCurrentContext>
+    <NoMatchingOverloadedMethod>'{0}({1})' に一致するオーバーロードされたメソッドがありません。</NoMatchingOverloadedMethod>
+    <NoOverloadForMethodTakesNArguments>メソッド '{0}' に '{1}' 個の引数を取るオーバーロードはありません。</NoOverloadForMethodTakesNArguments>
+    <OperatorCannotBeAppliedToOperands>演算子 '{0}' は、型 '{1}' と型 '{2}' のオペランドに適用できません。</OperatorCannotBeAppliedToOperands>
+    <RightParenthesisExpected>) が必要です。</RightParenthesisExpected>
+    <SyntaxError>構文エラー。</SyntaxError>
+    <TheTypeOrNamespaceNotExistInTheNamespace>型または名前空間 '{0}' は、名前空間 '{1}' に存在しません。</TheTypeOrNamespaceNotExistInTheNamespace>
+    <UnexpectedEndOfExpression>予期しない式の終端。</UnexpectedEndOfExpression>
+    <UnknownInternalError>不明な内部エラー。</UnknownInternalError>
+    <UnprocessedLexemesRemain>構文エラー - 未処理の字句が残っています。</UnprocessedLexemesRemain>
+  </Parser>
   <Publish>
     <ActionDesign>デザイン</ActionDesign>
     <ActionExport>エクスポート</ActionExport>
@@ -2176,6 +2200,7 @@
   </StiTable>
   <StiTableElement>
     <Columns>テーブルに表示される列</Columns>
+    <FiltersTarget>フィルターが適用される対象データを取得または設定します。</FiltersTarget>
     <Group />
     <SizeMode />
     <Style>テーブルスタイル。</Style>

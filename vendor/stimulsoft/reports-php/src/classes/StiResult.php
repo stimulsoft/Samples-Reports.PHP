@@ -3,7 +3,7 @@
 namespace Stimulsoft;
 
 /**
- * The result of processing a request from the client side. The result object will contain a collection of data,
+ * The result of processing a request from the client side. The result contains a collection of data,
  * message about the result of the command execution, and other technical information.
  */
 class StiResult extends StiBaseResult
@@ -16,6 +16,18 @@ class StiResult extends StiBaseResult
     public $settings;
     public $report;
     public $pageRange;
+    public $data;
+
+
+### Helpers
+
+    public function getType(): string
+    {
+        if ($this->success && is_array($this->variables))
+            return "Variables";
+
+        return parent::getType();
+    }
 
 
 ### JSON

@@ -3,6 +3,9 @@
 namespace Stimulsoft\Events;
 
 use Stimulsoft\StiBaseHandler;
+use Stimulsoft\StiBaseResult;
+use Stimulsoft\StiDataResult;
+use Stimulsoft\StiFunctions;
 
 class StiEvent
 {
@@ -21,13 +24,35 @@ class StiEvent
 
 ### Helpers
 
-    protected function setArgs(...$args)
+    public function getResult(StiEventArgs $args, $resultClass = null)
     {
-        $eventArgs = count($args) > 0 ? $args[0] : null;
-        if (is_a($eventArgs, '\Stimulsoft\Events\StiEventArgs')) {
-            $eventArgs->event = substr($this->name, 2);
-            $eventArgs->sender = $this->handler;
-            return $eventArgs;
+        if ($resultClass == null)
+            $resultClass = StiBaseResult::class;
+
+        if ($this->getLength() > 0) {
+            $result = $this->call($args);
+
+            if ($result === null || $result === true)
+                return $resultClass::getSuccess();
+
+            if ($result === false)
+                return $resultClass::getError("An error occurred while processing the '{$this->name}' event.");
+
+            if ($result instanceof StiBaseResult)
+                return $result;
+
+            return $resultClass::getSuccess(strval($result));
+        }
+
+        return null;
+    }
+
+    protected function setArgs($args)
+    {
+        if (is_a($args, '\Stimulsoft\Events\StiEventArgs')) {
+            $args->event = substr($this->name, 2);
+            $args->sender = $this->handler;
+            return $args;
         }
 
         return null;
@@ -62,16 +87,36 @@ class StiEvent
         return count($this->callbacks);
     }
 
+    public function hasServerCallbacks(): bool
+    {
+        foreach ($this->callbacks as $callback) {
+            if (is_callable($callback) || $callback === true)
+                return true;
+        }
+
+        return false;
+    }
+
+    public function hasClientCallbacks(): bool
+    {
+        foreach ($this->callbacks as $callback) {
+            if (is_string($callback))
+                return true;
+        }
+
+        return false;
+    }
+
     /**
      * Calls all added functions passing the required arguments.
      */
-    public function call(...$args)
+    public function call($args)
     {
         foreach ($this->callbacks as $callback) {
             if (is_callable($callback)) {
-                $this->setArgs(...$args);
-                $result = $callback(...$args);
-                if ($result != null)
+                $this->setArgs($args);
+                $result = $callback($args);
+                if ($result !== null)
                     return $result;
             }
         }

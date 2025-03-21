@@ -68,7 +68,7 @@ class StiDesigner extends StiComponent
     private function getCreateReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        $result = $this->getDefaultEventResult($this->onCreateReport, $args);
+        $result = $this->onCreateReport->getResult($args);
         if ($result != null && $args->report != $this->handler->request->report)
             $result->report = $args->report;
 
@@ -78,25 +78,25 @@ class StiDesigner extends StiComponent
     private function getOpenedReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        return $this->getDefaultEventResult($this->onOpenedReport, $args);
+        return $this->onOpenedReport->getResult($args);
     }
 
     private function getSaveReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        return $this->getDefaultEventResult($this->onSaveReport, $args);
+        return $this->onSaveReport->getResult($args);
     }
 
     private function getSaveAsReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        return $this->getDefaultEventResult($this->onSaveAsReport, $args);
+        return $this->onSaveAsReport->getResult($args);
     }
 
     private function getPreviewReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        $result = $this->getDefaultEventResult($this->onPreviewReport, $args);
+        $result = $this->onPreviewReport->getResult($args);
         if ($result != null && $args->report != $this->handler->request->report)
             $result->report = $args->report;
 
@@ -106,7 +106,7 @@ class StiDesigner extends StiComponent
     private function getCloseReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        return $this->getDefaultEventResult($this->onCloseReport, $args);
+        return $this->onCloseReport->getResult($args);
     }
 
     public function getEventResult()
@@ -131,6 +131,9 @@ class StiDesigner extends StiComponent
 
         if ($request->event == StiEventType::CloseReport)
             return $this->getCloseReportResult();
+
+        if ($this->report != null)
+            return $this->report->getEventResult();
 
         return parent::getEventResult();
     }
@@ -177,6 +180,9 @@ class StiDesigner extends StiComponent
         parent::setHandler($handler);
 
         if ($handler != null) {
+            if ($this->report != null)
+                $this->report->handler = $handler;
+
             $handler->onCreateReport = $this->onCreateReport;
             $handler->onOpenReport = $this->onOpenReport;
             $handler->onOpenedReport = $this->onOpenedReport;
@@ -235,7 +241,10 @@ class StiDesigner extends StiComponent
             if (!$this->report->htmlRendered)
                 $result .= $this->report->getHtml(StiHtmlMode::Scripts);
 
-            $result .= "$this->id.report = {$this->report->id};\n";
+            $assignHtml = "$this->id.report = {$this->report->id};\n";
+            $result .= $this->report->onBeforeRender->hasServerCallbacks()
+                ? $this->getBeforeRenderCallback($assignHtml)
+                : $assignHtml;
         }
 
         $result .= "$this->id.renderHtml('{$this->id}Content');\n";

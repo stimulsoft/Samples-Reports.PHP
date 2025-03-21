@@ -1,10 +1,13 @@
 StiHandler.prototype.process = function (args, callback) {
     if (args) {
-        if (args.event === 'OpenReport')
+        if (args.event === 'OpenReport' || args.event === 'EndProcessData')
             return null;
 
-        if (args.event === 'BeginProcessData' || args.event === 'EndProcessData') {
+        if (args.event === 'BeginProcessData') {
             if (!this.databases.includes(args.database))
+                return null;
+
+            if (this.isFileDataAdapter(args) && !this.allowFileDataAdapters)
                 return null;
 
             args.preventDefault = true;
@@ -17,7 +20,8 @@ StiHandler.prototype.process = function (args, callback) {
         for (let p in args) {
             switch (p) {
                 case 'report':
-                    if (args.report && args.event !== 'BeginProcessData' && args.event !== 'EndProcessData')
+                    // When requesting data, the report is not required on the server side
+                    if (args.report && args.event !== 'BeginProcessData')
                         command.report = args.report.isRendered ? args.report.saveDocumentToJsonString() : args.report.saveToJsonString();
                     break;
 
@@ -46,17 +50,31 @@ StiHandler.prototype.process = function (args, callback) {
         }
 
         let sendText = Stimulsoft.Report.Dictionary.StiSqlAdapterService.encodeCommand(command);
-        let handlerCallback = function (handlerArgs) {
-            if (handlerArgs.report) args.report = handlerArgs.report;
-            if (handlerArgs.settings) Stimulsoft.handler.copySettings(handlerArgs.settings, args.settings);
-            if (handlerArgs.pageRange) Stimulsoft.handler.copySettings(handlerArgs.pageRange, args.pageRange);
-            if (handlerArgs.fileName) args.fileName = handlerArgs.fileName;
+        let handlerCallback = function (data) {
+            let success = typeof data == 'string' || typeof data == 'object' && data.success;
+            if (callback && success && Stimulsoft.handler.isFileDataAdapter(args)) {
 
-            if (args.command != 'TestConnection' && !Stimulsoft.System.StiString.isNullOrEmpty(handlerArgs.notice))
-                Stimulsoft.System.StiError.showError(handlerArgs.notice, true, handlerArgs.success);
+                // For file data, only string data should be passed to the callback function
+                // If a JSON response was returned - the data was not loaded, try loading it using JavaScript
+                args.preventDefault = typeof data == 'string';
+                return callback(args.preventDefault ? data : null);
+            }
 
-            if (callback) callback(handlerArgs);
+            if (data.report) args.report = data.report;
+            if (data.settings) Stimulsoft.handler.copySettings(data.settings, args.settings);
+            if (data.pageRange) Stimulsoft.handler.copySettings(data.pageRange, args.pageRange);
+            if (data.fileName) args.fileName = data.fileName;
+
+            // The test connection form has its own error message form
+            if (args.command != 'TestConnection' && !Stimulsoft.System.StiString.isNullOrEmpty(data.notice))
+                setTimeout(function () {
+                    Stimulsoft.System.StiError.showError(data.notice, true, data.success);
+                }, 150);
+
+            if (callback)
+                return callback(data);
         }
+
         Stimulsoft.handler.send(sendText, handlerCallback);
     }
 }
@@ -79,8 +97,13 @@ StiHandler.prototype.send = function (data, callback) {
         request.timeout = this.timeout * 1000;
         request.onload = function () {
             if (request.status === 200) {
+                let contentType = request.getResponseHeader('Content-Type');
+                let resultType = request.getResponseHeader('X-Stimulsoft-Result'); // Success, Error, File, SQL, Variables
                 let responseText = request.responseText;
                 request.abort();
+
+                if (Stimulsoft.handler.isFileResult(contentType, resultType))
+                    return callback(responseText);
 
                 try {
                     let args = Stimulsoft.Report.Dictionary.StiSqlAdapterService.decodeCommandResult(responseText);
@@ -90,10 +113,11 @@ StiHandler.prototype.send = function (data, callback) {
                         args.report.load(json);
                     }
 
-                    callback(args);
+                    return callback(args);
                 }
                 catch (e) {
-                    Stimulsoft.System.StiError.showError(e.message);
+                    let message = typeof e == 'string' ? e : e.message;
+                    Stimulsoft.System.StiError.showError(message);
                 }
             } else {
                 Stimulsoft.System.StiError.showError('Server response error: [' + request.status + '] ' + request.statusText);
@@ -139,6 +163,12 @@ StiHandler.prototype.https = function (data, callback) {
 
         response.on('end', function () {
             try {
+                let contentType = response.headers['content-type'];
+                let resultType = response.headers['x-stimulsoft-result'];
+
+                if (Stimulsoft.handler.isFileResult(contentType, resultType))
+                    return callback(responseText);
+
                 let args = Stimulsoft.Report.Dictionary.StiSqlAdapterService.decodeCommandResult(responseText);
                 if (args.report) {
                     let json = args.report;
@@ -149,7 +179,8 @@ StiHandler.prototype.https = function (data, callback) {
                 callback(args);
             }
             catch (e) {
-                console.log('ResponseError: ' + e.message);
+                let message = typeof e == 'string' ? e : e.message;
+                console.log('ResponseError: ' + message);
                 console.log(responseText);
                 process.exit(1);
             }
@@ -182,6 +213,14 @@ StiHandler.prototype.isNullOrEmpty = function (value) {
     return value == null || value === '' || value === undefined;
 }
 
+StiHandler.prototype.isFileDataAdapter = function (args) {
+    return args.command === 'GetSchema' || args.command === 'GetData';
+}
+
+StiHandler.prototype.isFileResult = function (contentType, resultType) {
+    return typeof contentType == 'string' && !contentType.startsWith('application/json') || resultType == 'File';
+}
+
 StiHandler.prototype.getVariables = function (variables) {
     if (variables) {
         for (let variable of variables) {
@@ -191,6 +230,12 @@ StiHandler.prototype.getVariables = function (variables) {
     }
 
     return variables;
+}
+
+StiHandler.prototype.getCookie = function (name) {
+    if (typeof document == 'undefined') return '';
+    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : '';
 }
 
 StiHandler.prototype.copySettings = function (from, to) {
@@ -213,7 +258,8 @@ function StiHandler() {
     this.databases = {databases};
     this.frameworkType = {framework};
     this.cookie = {cookie};
-    this.csrfToken = {csrfToken};
+    this.csrfToken = {csrfToken} || this.getCookie('csrftoken');
+    this.allowFileDataAdapters = {allowFileDataAdapters};
     this.setOptions();
 }
 

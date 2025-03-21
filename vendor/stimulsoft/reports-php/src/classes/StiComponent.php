@@ -8,6 +8,7 @@ use Stimulsoft\Events\StiComponentEvent;
 use Stimulsoft\Events\StiEvent;
 use Stimulsoft\Events\StiEventArgs;
 use Stimulsoft\Report\StiFunctions;
+use Stimulsoft\Report\StiReport;
 
 class StiComponent extends StiElement
 {
@@ -90,27 +91,12 @@ class StiComponent extends StiElement
 
 ### Events
 
-    protected function getDefaultEventResult(StiEvent $event, StiEventArgs $args)
-    {
-        if ($event instanceof StiEvent && $event->getLength() > 0 || is_callable($event)) {
-            $result = $event->call($args);
-            if ($result === null || $result === true)
-                return StiResult::getSuccess();
-            if ($result === false)
-                return StiResult::getError("An error occurred while processing the {$this->getRequest()->event} event.");
-            if ($result instanceof StiResult)
-                return $result;
-            return StiResult::getSuccess(strval($result));
-        }
-
-        return null;
-    }
-
     protected function updateEvents()
     {
-        if ($this->onBeginProcessData === null) $this->onBeginProcessData = true;
-        $this->updateEvent('onBeginProcessData');
+        if ($this->onBeginProcessData === null)
+            $this->onBeginProcessData = true;
 
+        $this->updateEvent('onBeginProcessData');
         $this->updateEvent('onEndProcessData');
         $this->updateEvent('onDatabaseConnect');
         $this->updateEvent('onPrepareVariables');
@@ -118,11 +104,13 @@ class StiComponent extends StiElement
 
     protected function updateEvent(string $eventName)
     {
-        if ($this->$eventName instanceof StiComponentEvent) return;
+        if ($this->$eventName instanceof StiComponentEvent)
+            return;
 
         $callback = is_callable($this->$eventName) || is_string($this->$eventName) || is_bool($this->$eventName) ? $this->$eventName : null;
         $this->$eventName = new StiComponentEvent($this, $eventName);
-        if ($callback !== null) $this->$eventName->append($callback);
+        if ($callback !== null)
+            $this->$eventName->append($callback);
     }
 
     /** @return StiResult|null */
@@ -201,6 +189,23 @@ class StiComponent extends StiElement
 
         if (!$this->functions->htmlRendered)
             $result .= $this->functions->getHtml();
+
+        return $result;
+    }
+
+    /**
+     * Wrapper for registering server-side data in the report.
+     * @param $renderHtml The code for building (StiReport) or assigning (StiViewer, StiDesigner) the report.
+     */
+    protected function getBeforeRenderCallback($renderHtml): string
+    {
+        $reportId = $this instanceof StiReport ? $this->id : $this->report->id;
+        $result = $reportId . "BeforeRenderCallback = function (args) {\n";
+        $result .= "if (args.data && args.data.data) {\n";
+        $result .= "$reportId.regData(args.data.name, args.data.name, args.data.data);\n";
+        $result .= "if (args.data.synchronize) $reportId.dictionary.synchronize();\n";
+        $result .= "}\n";
+        $result .= "$renderHtml}\n";
 
         return $result;
     }

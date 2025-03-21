@@ -62,9 +62,9 @@ class StiEventArgs
 
 ### Constructor
 
-    public function __construct($obj = null)
+    public function __construct($request = null)
     {
-        if ($obj !== null)
-            $this->setObject($obj);
+        if ($request !== null)
+            $this->setObject($request);
     }
 }

@@ -62,12 +62,12 @@ class StiViewer extends StiComponent
     public $options;
 
 
-### Methods: Event handlers
+### Events
 
     private function getOpenedReportResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        $result = $this->getDefaultEventResult($this->onOpenedReport, $args);
+        $result = $this->onOpenedReport->getResult($args);
         if ($result != null && $args->report != $this->handler->request->report)
             $result->report = $args->report;
 
@@ -77,7 +77,7 @@ class StiViewer extends StiComponent
     private function getPrintReportResult()
     {
         $args = new StiPrintEventArgs($this->handler->request);
-        $result = $this->getDefaultEventResult($this->onPrintReport, $args);
+        $result = $this->onPrintReport->getResult($args);
         if ($result != null) {
             if ($args->report != $this->handler->request->report)
                 $result->report = $args->report;
@@ -91,7 +91,7 @@ class StiViewer extends StiComponent
     private function getBeginExportReportResult()
     {
         $args = new StiExportEventArgs($this->handler->request);
-        $result = $this->getDefaultEventResult($this->onBeginExportReport, $args);
+        $result = $this->onBeginExportReport->getResult($args);
         if ($result != null) {
             if ($args->fileName != $this->handler->request->fileName)
                 $result->fileName = $args->fileName;
@@ -105,13 +105,13 @@ class StiViewer extends StiComponent
     private function getEndExportReportResult()
     {
         $args = new StiExportEventArgs($this->handler->request);
-        return $this->getDefaultEventResult($this->onEndExportReport, $args);
+        return $this->onEndExportReport->getResult($args);
     }
 
     /*private function getInteractionResult()
     {
         $args = new StiReportEventArgs($this->handler->request);
-        return $this->getDefaultEventResult($this->onInteraction, $args);
+        return $this->onInteraction->getResult($args);
     }*/
 
     private function getEmailReportResult()
@@ -126,7 +126,7 @@ class StiViewer extends StiComponent
                 ? $args->fileName
                 : $args->fileName . '.' . $args->fileExtension;
 
-        $result = $this->getDefaultEventResult($this->onEmailReport, $args);
+        $result = $this->onEmailReport->getResult($args);
         if ($result == null || $result->success == false)
             return $result;
 
@@ -218,11 +218,14 @@ class StiViewer extends StiComponent
         if ($request->event == StiEventType::EmailReport)
             return $this->getEmailReportResult();
 
+        if ($this->report != null)
+            return $this->report->getEventResult();
+
         return parent::getEventResult();
     }
 
 
-### Methods: Helpers
+### Helpers
 
     protected function updateObjects()
     {
@@ -263,6 +266,9 @@ class StiViewer extends StiComponent
         parent::setHandler($handler);
 
         if ($handler != null) {
+            if ($this->report != null)
+                $this->report->handler = $handler;
+
             $handler->onOpenReport = $this->onOpenReport;
             $handler->onOpenedReport = $this->onOpenedReport;
             $handler->onPrintReport = $this->onPrintReport;
@@ -315,7 +321,7 @@ class StiViewer extends StiComponent
     }
 
 
-### Methods: HTML
+### HTML
 
     protected function getComponentHtml(): string
     {
@@ -340,7 +346,10 @@ class StiViewer extends StiComponent
             if (!$this->report->htmlRendered)
                 $result .= $this->report->getHtml(StiHtmlMode::Scripts);
 
-            $result .= "$this->id.report = {$this->report->id};\n";
+            $assignHtml = "$this->id.report = {$this->report->id};\n";
+            $result .= $this->report->onBeforeRender->hasServerCallbacks()
+                ? $this->getBeforeRenderCallback($assignHtml)
+                : $assignHtml;
         }
 
         $result .= "$this->id.renderHtml('{$this->id}Content');\n";

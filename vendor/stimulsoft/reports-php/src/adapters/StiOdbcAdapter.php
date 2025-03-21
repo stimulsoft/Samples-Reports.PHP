@@ -7,12 +7,15 @@ use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiConnectionInfo;
 use Stimulsoft\StiDataResult;
 
-class StiOdbcAdapter extends StiDataAdapter
+class StiOdbcAdapter extends StiSqlAdapter
 {
 
 ### Properties
 
-    public $version = '2025.1.6';
+    /** @var string Current version of the data adapter. */
+    public $version = '2025.2.1';
+
+    /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::ODBC;
@@ -39,7 +42,7 @@ class StiOdbcAdapter extends StiDataAdapter
         if ($this->driverType == 'PDO')
             return parent::connect();
 
-        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $args = new StiConnectionEventArgs($this->handler->request, $this->type, $this->driverName, $this->connectionInfo);
         $this->handler->onDatabaseConnect->call($args);
 
         $this->connectionLink = $args->link !== null

@@ -113,13 +113,11 @@ class StiNodeJs
 
     private function getCookieString()
     {
-        if ($this->passCookies) {
-            if (array_key_exists('HTTP_COOKIE', $_SERVER))
-                return $_SERVER['HTTP_COOKIE'];
+        if (array_key_exists('HTTP_COOKIE', $_SERVER))
+            return $_SERVER['HTTP_COOKIE'];
 
-            if (count($_COOKIE) > 0)
-                return http_build_query($_COOKIE, '', '; ');
-        }
+        if (count($_COOKIE) > 0)
+            return http_build_query($_COOKIE, '', '; ');
 
         return null;
     }
@@ -128,7 +126,12 @@ class StiNodeJs
     {
         $handler = $this->getHandler();
         $handler->url = self::getHandlerUrl($handler->getUrl());
-        $handler->cookie = $this->getCookieString();
+
+        if ($this->passCookies) {
+            $cookie = $this->getCookieString();
+            $handler->setCookies($cookie);
+        }
+
         $script = $handler->getHtml(StiHtmlMode::Scripts);
         return str_replace("Stimulsoft.handler.send", "Stimulsoft.handler.https", $script);
     }

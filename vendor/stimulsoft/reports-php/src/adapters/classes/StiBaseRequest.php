@@ -25,6 +25,8 @@ class StiBaseRequest
     public $connection;
     public $timeout = 0;
     public $maxDataRows;
+    public $pathData;
+    public $pathSchema;
     public $escapeQueryParameters = false;
     public $error = null;
 

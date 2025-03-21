@@ -22,9 +22,9 @@ class StiConnectionEventArgs extends StiEventArgs
 
 ### Constructor
 
-    public function __construct($database, $driver, $info)
+    public function __construct($request, $database, $driver, $info)
     {
-        parent::__construct();
+        parent::__construct($request);
 
         $this->database = $database;
         $this->driver = $driver;

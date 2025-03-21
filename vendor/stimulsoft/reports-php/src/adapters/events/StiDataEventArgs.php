@@ -34,4 +34,10 @@ class StiDataEventArgs extends StiEventArgs
 
     /** @var StiDataResult The result of executing an event handler request. */
     public $result = null;
+
+    /** @var string The path or URL to the XML schema. */
+    public $pathSchema = null;
+
+    /** @var string The path or URL to the file data. */
+    public $pathData = null;
 }

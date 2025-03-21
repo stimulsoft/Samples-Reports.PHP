@@ -3,8 +3,10 @@
 namespace Stimulsoft\Report;
 
 use JetBrains\PhpStorm\Deprecated;
+use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiHtmlMode;
 use Stimulsoft\Events\StiComponentEvent;
+use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Export\StiDataExportSettings;
 use Stimulsoft\Export\StiExportSettings;
 use Stimulsoft\Export\StiHtmlExportSettings;
@@ -47,11 +49,17 @@ class StiReport extends StiComponent
 
 ### Fields
 
+    private $clearDataCalled = false;
+    private $clearDataSourcesCalled = false;
     private $renderCalled = false;
     private $printCalled = false;
     private $exportCalled = false;
     private $openAfterExport = false;
-
+    /** @var string */
+    private $reportDataName;
+    /** @var mixed|string|array */
+    private $reportData;
+    private $reportDataSynchronization = false;
     /** @var string */
     private $reportString;
     /** @var string */
@@ -70,6 +78,33 @@ class StiReport extends StiComponent
     private $exportSettings;
 
 
+### Events
+
+    private function getBeforeRenderResult()
+    {
+        $args = new StiReportEventArgs($this->handler->request);
+        if ($this->reportData !== null)
+            $args->regReportData($this->reportDataName, $this->reportData, $this->reportDataSynchronization);
+
+        $result = $this->onBeforeRender->getResult($args);
+        if ($result != null && $result->success)
+            $result->data = $args->data;
+
+        return $result;
+    }
+
+    public function getEventResult()
+    {
+        $this->updateEvents();
+        $request = $this->getRequest();
+
+        if ($request->event == StiEventType::BeforeRender)
+            return $this->getBeforeRenderResult();
+
+        return parent::getEventResult();
+    }
+
+
 ### Helpers
 
     private function clearReport()
@@ -83,7 +118,7 @@ class StiReport extends StiComponent
 
     private function loadReportFile($path)
     {
-        $path = $path instanceof StiPath ? $path : new StiPath($path);
+        $path = $path instanceof StiPath ? $path : new StiPath($path, $this->handler->checkFileNames);
         if ($path->filePath !== null) {
             $data = file_get_contents($path->filePath);
             if ($path->fileExtension == 'mrz' || $path->fileExtension == 'mdz')
@@ -98,7 +133,7 @@ class StiReport extends StiComponent
 
     private function saveReportFile($path, $extension, $data): bool
     {
-        $path = $path instanceof StiPath ? $path : new StiPath($path);
+        $path = $path instanceof StiPath ? $path : new StiPath($path, $this->handler->checkFileNames);
         if ($path->directoryPath != null) {
             if ($path->fileName == null)
                 $path->fileName = $this->exportFile != null ? $this->exportFile : 'Report';
@@ -196,6 +231,14 @@ class StiReport extends StiComponent
         return $result;
     }
 
+    private function getAfterRenderHtml(): string
+    {
+        $result = $this->getPrintHtml();
+        $result .= $this->getExportHtml();
+
+        return $result;
+    }
+
     private function getAfterRenderNodeHtml(): string
     {
         return "let {$this->id}String = $this->id.savePackedDocumentToString();\n" . $this->getNodeJsOutput('string', "{$this->id}String");
@@ -212,18 +255,26 @@ class StiReport extends StiComponent
         $result .= $this->onEndProcessData->getHtml(false, false, false);
         $result .= $this->getLoadReportHtml();
         $result .= $this->dictionary->getHtml();
-        $result .= $this->onBeforeRender->getHtml(false, false, true, true);
+        $result .= $this->onBeforeRender->getHtml(true, false, true, true);
+
+        if ($this->clearDataCalled)
+            $result .= "$this->id.dictionary.databases.clear()\n";
+
+        if ($this->clearDataSourcesCalled)
+            $result .= "$this->id.dictionary.dataSources.clear()\n";
 
         if ($this->renderCalled) {
-            $result .= "$this->id.renderAsync(function () {\n";
-            $result .= $this->onAfterRender->getHtml(false, false, true, true);
+            $renderAsyncHtml = "$this->id.renderAsync(function () {\n";
+            $renderAsyncHtml .= $this->onAfterRender->getHtml(false, false, true, true);
+            $renderAsyncHtml .= $this->getAfterRenderHtml();
+            $renderAsyncHtml .= "});\n";
+
+            $result .= $this->onBeforeRender->hasServerCallbacks()
+                ? $this->getBeforeRenderCallback($renderAsyncHtml)
+                : $renderAsyncHtml;
         }
-
-        $result .= $this->getPrintHtml();
-        $result .= $this->getExportHtml();
-
-        if ($this->renderCalled)
-            $result .= "});\n";
+        else
+            $result .= $this->getAfterRenderHtml();
 
         return $result;
     }
@@ -239,7 +290,7 @@ class StiReport extends StiComponent
     public function loadFile(string $filePath, bool $load = false)
     {
         $this->clearReport();
-        $path = new StiPath($filePath);
+        $path = new StiPath($filePath, $this->handler->checkFileNames);
         $this->exportFile = $path->fileNameOnly;
 
         if ($load) $this->reportString = $this->loadReportFile($path);
@@ -284,7 +335,7 @@ class StiReport extends StiComponent
     public function loadDocumentFile(string $filePath, bool $load = false)
     {
         $this->clearReport();
-        $path = new StiPath($filePath);
+        $path = new StiPath($filePath, $this->handler->checkFileNames);
         $this->exportFile = $path->fileNameOnly;
 
         if ($load) $this->documentString = $this->loadReportFile($path);
@@ -350,6 +401,34 @@ class StiReport extends StiComponent
 
 
 ### Process
+
+    /**
+     * Clears all data connections in the report before rendering it. By default, the data sources will not be cleared.
+     * @param bool $clearDataSources If true, all data sources in the dictionary will be completely deleted.
+     */
+    public function clearData($clearDataSources = false)
+    {
+        $this->clearDataCalled = true;
+        $this->clearDataSourcesCalled = $clearDataSources;
+    }
+
+    /**
+     * Sets the data that will be passed to the report generator before building the report.
+     * It can be an XML or JSON string, as well as an array or a data object that will be serialized into a JSON string.
+     * @param string $name The name of the data source in the report.
+     * @param mixed|string|array $data Report data as a string, array, or object.
+     * @param bool $synchronize If true, data synchronization will be called after the data is registered.
+     */
+    public function regData(string $name, $data, $synchronize = false)
+    {
+        $this->reportDataName = $name;
+        $this->reportData = $data;
+        $this->reportDataSynchronization = $synchronize;
+
+        $this->updateEvents();
+        if (!$this->onBeforeRender->hasServerCallbacks())
+            $this->onBeforeRender->append(true);
+    }
 
     /**
      * Builds a report, or prepares the necessary JavaScript to build the report.

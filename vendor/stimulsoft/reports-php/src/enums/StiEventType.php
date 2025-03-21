@@ -12,6 +12,7 @@ class StiEventType
     const DatabaseConnect = 'DatabaseConnect';
     const BeginProcessData = 'BeginProcessData';
     const EndProcessData = 'EndProcessData';
+    const BeforeRender = 'BeforeRender';
     const CreateReport = 'CreateReport';
     const OpenReport = 'OpenReport';
     const OpenedReport = 'OpenedReport';

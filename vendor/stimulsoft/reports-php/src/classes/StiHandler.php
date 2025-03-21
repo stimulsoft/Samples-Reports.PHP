@@ -24,6 +24,9 @@ class StiHandler extends StiBaseHandler
 
     public static $legacyMode = false;
 
+    /** @var string|null */
+    private $cookie = null;
+
     /** @var StiComponent */
     public $component;
 
@@ -48,7 +51,7 @@ class StiHandler extends StiBaseHandler
     /** @var int Timeout for waiting for a response from the server side, in seconds. */
     public $timeout = 30;
 
-    /** @var bool Enable encryption of data transferred between the client and server. */
+    /** @var bool Enables encryption of data transmitted between the client and the server. */
     public $encryptData = true;
 
     /** @var bool Enables automatic escaping of parameters in SQL queries. */
@@ -57,11 +60,14 @@ class StiHandler extends StiBaseHandler
     /** @var bool Enables automatic passing of GET parameters from the current URL to the report as variables. */
     public $passQueryParametersToReport = false;
 
-    /** @var bool Enables server-side file name checking for saving the report to eliminate dangerous values. */
+    /** @var bool Enables server-side file name checking for loading and saving the report to eliminate dangerous values. */
     public $checkFileNames = true;
 
-    /** @var string Contains a string with cookies that will be passed when requesting events. */
-    public $cookie = null;
+    /** @var bool
+     * Allows server-side processing of file data such as XML, JSON, and CSV.
+     * This improves functionality but may slow down data loading speed a bit.
+     */
+    public $allowFileDataAdapters = true;
 
 
 ### Events: Component
@@ -330,6 +336,12 @@ class StiHandler extends StiBaseHandler
         return null;
     }
 
+    /** @var string|null Sets a string with cookies that will be passed when requesting events. */
+    public function setCookies($cookie)
+    {
+        $this->cookie = $cookie;
+    }
+
 
 ### Results
 
@@ -339,11 +351,15 @@ class StiHandler extends StiBaseHandler
 
         if ($this->onPrepareVariables->getLength() > 0) {
             $args = new StiVariablesEventArgs($this->request);
-            $this->onPrepareVariables->call($args);
+            $result = $this->onPrepareVariables->getResult($args);
+            if ($result == null)
+                $result = StiResult::getSuccess();
 
-            $result = StiResult::getSuccess();
             $result->handlerVersion = $this->version;
             $result->variables = [];
+
+            if (!$result->success)
+                return $result;
 
             foreach ($args->variables as $variable) {
                 $isChanged = true;
@@ -436,6 +452,7 @@ class StiHandler extends StiBaseHandler
             $script = str_replace('{framework}', StiFunctions::getJavaScriptValue('PHP'), $script);
             $script = str_replace('{cookie}', StiFunctions::getJavaScriptValue($this->cookie), $script);
             $script = str_replace('{csrfToken}', StiFunctions::getJavaScriptValue($this->getCsrfToken()), $script);
+            $script = str_replace('{allowFileDataAdapters}', StiFunctions::getJavaScriptValue($this->allowFileDataAdapters), $script);
 
             if (StiHandler::$legacyMode)
                 $script = str_replace(

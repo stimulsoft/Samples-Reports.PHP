@@ -3,6 +3,7 @@
 namespace Stimulsoft\Events;
 
 use Stimulsoft\StiComponent;
+use Stimulsoft\StiFunctions;
 use Stimulsoft\StiHandler;
 
 class StiReportEventArgs extends StiEventArgs
@@ -27,6 +28,11 @@ class StiReportEventArgs extends StiEventArgs
      * @deprecated Please use the '$args->getReportJson()' method.
      */
     public $reportJson;
+
+    /**
+     * @var array|null Predefined data object for building the report. Please use the 'regReportData()' method to set it.
+     */
+    public $data;
 
 
 ### Helpers
@@ -70,5 +76,22 @@ class StiReportEventArgs extends StiEventArgs
         }
 
         return false;
+    }
+
+    /**
+     * Sets the data that will be passed to the report generator before building the report.
+     * It can be an XML or JSON string, as well as an array or a data object that will be serialized into a JSON string.
+     * @param string $name The name of the data source in the report.
+     * @param mixed|string|array $data Report data as a string, array, or object.
+     * @param bool $synchronize If true, data synchronization will be called after the data is registered.
+     */
+    public function regReportData(string $name, $data, $synchronize = false) {
+        $stringData = is_string($data) ? $data : json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        if (!StiFunctions::isNullOrEmpty($stringData))
+            $this->data = [
+                "name" => $name,
+                "data" => $stringData,
+                "synchronize" => $synchronize
+            ];
     }
 }

@@ -3,9 +3,10 @@
 use Stimulsoft\StiBaseHandler;
 use Stimulsoft\Events\StiDataEventArgs;
 
-// Event handler classes and functions
+// Event handler classes and functions.
 require_once 'enums\StiBaseEventType.php';
 require_once 'enums\StiDataCommand.php';
+require_once 'enums\StiDataType.php';
 require_once 'enums\StiDatabaseType.php';
 require_once 'events\StiEvent.php';
 require_once 'events\StiEventArgs.php';
@@ -18,10 +19,16 @@ require_once 'classes\StiBaseResult.php';
 require_once 'classes\StiDataResult.php';
 require_once 'classes\StiBaseResponse.php';
 require_once 'classes\StiBaseHandler.php';
+require_once 'classes\StiPath.php';
 require_once 'classes\StiParameter.php';
 
-// Data adapters for supported database types
+// Data adapters for supported database types.
 require_once 'StiDataAdapter.php';
+require_once 'StiFileAdapter.php';
+require_once 'StiXmlAdapter.php';
+require_once 'StiJsonAdapter.php';
+require_once 'StiCsvAdapter.php';
+require_once 'StiSqlAdapter.php';
 require_once 'StiFirebirdAdapter.php';
 require_once 'StiMongoDbAdapter.php';
 require_once 'StiMsSqlAdapter.php';
@@ -41,6 +48,10 @@ $onBeginProcessData = function (StiDataEventArgs $args) {
     
 };
 
+// Creating the data handler and assign events.
 $handler = new StiBaseHandler();
 $handler->onBeginProcessData->append($onBeginProcessData);
-$handler->process();
+
+// Processing the request.
+// If the parameter 'true' is passed, all results will be output, otherwise only the data necessary for the adapters.
+$handler->process(true);

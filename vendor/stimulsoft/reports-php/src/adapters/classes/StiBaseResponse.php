@@ -2,6 +2,8 @@
 
 namespace Stimulsoft;
 
+use Stimulsoft\Enums\StiDataType;
+
 /**
  * The result of executing an event handler request. You can get the data, its type
  * and other parameters necessary to create a web server response.
@@ -33,7 +35,10 @@ class StiBaseResponse
      */
     public function getMimeType(): string
     {
-        return 'application/json';
+        if ($this->result instanceof StiDataResult && $this->result->dataType !== null)
+            return $this->result->dataType;
+
+        return StiDataType::JSON;
     }
 
     /**
@@ -49,8 +54,12 @@ class StiBaseResponse
      */
     public function getData(): string
     {
+        if ($this->result instanceof StiDataResult && $this->result->getType() == "File")
+            return $this->result->data !== null ? $this->result->data : "";
+
         $result = json_encode($this->result, JSON_UNESCAPED_SLASHES);
-        return $this->handler->request->encryptData ? str_rot13(base64_encode($result)) : $result;
+        $encryptSqlData = $this->handler->encryptSqlData || $this->result->getType() != "SQL";
+        return $this->handler->request->encryptData && $encryptSqlData ? str_rot13(base64_encode($result)) : $result;
     }
 
 
@@ -66,6 +75,7 @@ class StiBaseResponse
             header('Content-Type: ' . $this->getContentType());
             header('Content-Length: ' . strlen($data));
             header('Cache-Control: no-cache');
+            header("X-Stimulsoft-Result: " . $this->result->getType());
         }
         echo $data;
         exit();

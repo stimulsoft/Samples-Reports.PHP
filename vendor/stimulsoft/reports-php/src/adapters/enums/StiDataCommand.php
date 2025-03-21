@@ -7,6 +7,8 @@ use Stimulsoft\StiFunctions;
 class StiDataCommand
 {
     const GetSupportedAdapters = 'GetSupportedAdapters';
+    const GetSchema = 'GetSchema';
+    const GetData = 'GetData';
     const TestConnection = 'TestConnection';
     const RetrieveSchema = 'RetrieveSchema';
     const Execute = 'Execute';

@@ -4,10 +4,9 @@ namespace Stimulsoft;
 
 use JsonSerializable;
 use ReflectionClass;
-use ReflectionProperty;
 
 /**
- * The result of executing an event handler request. The result contains a collection of data,
+ * The result of processing a request from the client side. The result contains a collection of data,
  * message about the result of the command execution, and other technical information.
  */
 class StiBaseResult implements JsonSerializable
@@ -19,11 +18,6 @@ class StiBaseResult implements JsonSerializable
     public $checkVersion = true;
     public $success = true;
     public $notice = null;
-
-
-### Abstract
-
-    public $types;
 
 
 ### JSON
@@ -39,18 +33,27 @@ class StiBaseResult implements JsonSerializable
     }
 
 
+### Helpers
+
+    public function getType(): string
+    {
+        return $this->success ? "Success" : "Error";
+    }
+
+
 ### Result
 
     /**
      * Creates a successful result.
-     * @param string $notice Optionally, a message about the result.
+     * @param string|null $notice Optionally, a message about the result.
      * @return StiBaseResult
      */
-    public static function getSuccess(string $notice = null)
+    public static function getSuccess(?string $notice = null)
     {
         $result = new StiBaseResult();
         $result->success = true;
         $result->notice = $notice;
+
         return $result;
     }
 
@@ -64,6 +67,7 @@ class StiBaseResult implements JsonSerializable
         $result = new StiBaseResult();
         $result->success = false;
         $result->notice = $notice;
+
         return $result;
     }
 }

@@ -5,6 +5,7 @@ namespace Stimulsoft;
 use Exception;
 use ReflectionClass;
 use Stimulsoft\Adapters\StiDataAdapter;
+use Stimulsoft\Adapters\StiSqlAdapter;
 use Stimulsoft\Adapters\StiMongoDbAdapter;
 use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\Enums\StiDataCommand;
@@ -25,7 +26,7 @@ class StiBaseHandler
     public static $legacyMode = false;
 
     /** @var string Current version of the event handler. */
-    public $version = '2025.1.6';
+    public $version = '2025.2.1';
 
     /** @var bool Enables checking for client-side and server-side data adapter versions to match. */
     public $checkDataAdaptersVersion = true;
@@ -53,6 +54,12 @@ class StiBaseHandler
 
     /** @var bool Enables automatic passing of GET parameters from the current URL to event handler requests. */
     public $passQueryParameters = false;
+
+    /** @var bool
+     * Enables encryption of SQL data transmitted from the server to the report generator.
+     * This improves security but slows down the processing of large data.
+     */
+    public $encryptSqlData = true;
 
 
 ### Events
@@ -241,9 +248,30 @@ class StiBaseHandler
 
     private function getSupportedDataAdaptersResult(): StiBaseResult
     {
-        $result = StiBaseResult::getSuccess();
+        $result = StiDataResult::getSuccess();
         $result->types = StiDatabaseType::getValues();
         $result->handlerVersion = $this->version;
+        return $result;
+    }
+
+    private function getDataResult($result, $notice, StiDataEventArgs $args)
+    {
+        // The event did not return any result, the result of the data adapter is used
+        if ($result == null)
+            $result = $args->result;
+
+        // Copying message from event if data adapter message is empty
+        if (StiFunctions::isNullOrEmpty($args->result->notice))
+            $args->result->notice = !StiFunctions::isNullOrEmpty($result->notice) ? $result->notice : $notice;
+
+        // If the result from the event is successful, use the result of the data adapter
+        if ($result->success)
+            return $args->result;
+
+        // Passing data adapter parameters
+        if ($result instanceof StiDataResult)
+            $result = $result->getDataAdapterResult($this->dataAdapter);
+
         return $result;
     }
 
@@ -252,21 +280,37 @@ class StiBaseHandler
         $this->updateEvents();
 
         $args = new StiDataEventArgs($this->request);
-        $this->onBeginProcessData->call($args);
+        $result = $this->onBeginProcessData->getResult($args);
+        if ($result != null && !$result->success)
+            return $result;
 
-        $this->dataAdapter = StiDataAdapter::getDataAdapter($args->database, $args->connectionString);
+        // Saving a message to return in the results of the next events
+        $notice = $result != null ? $result->notice : null;
+
+        // Prepare the connection string or the URL of the data file
+        $connectionString = $args->connectionString;
+        if ($this->request->command == StiDataCommand::GetData || $this->request->command == StiDataCommand::GetSchema)
+            $connectionString = $this->request->command == StiDataCommand::GetData ? $args->pathData : $args->pathSchema;
+
+        // Get the necessary data adapter
+        $this->dataAdapter = StiDataAdapter::getDataAdapter($args->database, $connectionString);
         if ($this->dataAdapter == null)
             return StiBaseResult::getError("Unknown database type: $args->database");
 
         $this->dataAdapter->handler = $this;
 
+        // Get the data source schema
         if ($this->request->command == StiDataCommand::RetrieveSchema) {
-            $args->result = $this->dataAdapter->executeQuery($args->dataSource, $args->maxDataRows);
-            $this->onEndProcessData->call($args);
-            return $args->result;
+            $args->result = $this->dataAdapter->getDataResult($args->dataSource, $args->maxDataRows);
+            $result = $this->onEndProcessData->getResult($args, StiDataResult::class);
+            return $this->getDataResult($result, $notice, $args);
         }
 
+        // Process SQL data
         if ($this->request->command == StiDataCommand::Execute || $this->request->command == StiDataCommand::ExecuteQuery) {
+
+            // The MongoDB data source does not contain a connection string
+            // Using the data source name to find a match from the MongoDB data object
             if ($this->dataAdapter instanceof StiMongoDbAdapter)
                 $args->queryString = $args->dataSource;
 
@@ -274,11 +318,24 @@ class StiBaseHandler
                 $args->queryString = $this->dataAdapter->makeQuery($args->queryString, $args->parameters);
 
             if (count($this->request->parameters) > 0)
-                $args->queryString = StiDataAdapter::applyQueryParameters($args->queryString, $args->parameters, $this->request->escapeQueryParameters);
+                $args->queryString = StiSqlAdapter::applyQueryParameters($args->queryString, $args->parameters, $this->request->escapeQueryParameters);
 
-            $args->result = $this->dataAdapter->executeQuery($args->queryString, $args->maxDataRows);
-            $this->onEndProcessData->call($args);
-            return $args->result;
+            $args->result = $this->dataAdapter->getDataResult($args->queryString, $args->maxDataRows);
+            $result = $this->onEndProcessData->getResult($args, StiDataResult::class);
+            return $this->getDataResult($result, $notice, $args);
+        }
+
+        // Process file data
+        if ($this->request->command == StiDataCommand::GetData || $this->request->command == StiDataCommand::GetSchema) {
+            $args->result = $this->dataAdapter->getDataResult($connectionString);
+            $result = $this->onEndProcessData->getResult($args, StiDataResult::class);
+
+            // If the server side event is not set, the result is always successful
+            // Required for loading file data on the JavaScript client-side
+            if (!$this->onEndProcessData->hasServerCallbacks())
+                $args->result->success = true;
+
+            return $this->getDataResult($result, $notice, $args);
         }
 
         return $this->dataAdapter->test();

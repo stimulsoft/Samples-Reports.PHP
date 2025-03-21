@@ -17,6 +17,17 @@ class StiFileResult extends StiBaseResult
     public $dataType;
 
 
+### Helpers
+
+    public function getType(): string
+    {
+        if ($this->success && $this->dataType != null)
+            return "File";
+
+        return parent::getType();
+    }
+
+
 ### Result
 
     /**

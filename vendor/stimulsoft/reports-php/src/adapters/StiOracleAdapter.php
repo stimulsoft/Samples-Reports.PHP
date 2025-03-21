@@ -8,7 +8,7 @@ use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiDataResult;
 
-class StiOracleAdapter extends StiDataAdapter
+class StiOracleAdapter extends StiSqlAdapter
 {
 
 ### Constants
@@ -18,7 +18,10 @@ class StiOracleAdapter extends StiDataAdapter
 
 ### Properties
 
-    public $version = '2025.1.6';
+    /** @var string Current version of the data adapter. */
+    public $version = '2025.2.1';
+
+    /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = true;
 
     protected $type = StiDatabaseType::Oracle;
@@ -53,7 +56,7 @@ class StiOracleAdapter extends StiDataAdapter
         if (!function_exists('oci_connect'))
             return StiDataResult::getError(self::DriverNotFound)->getDataAdapterResult($this);
 
-        $args = new StiConnectionEventArgs($this->type, $this->driverName, $this->connectionInfo);
+        $args = new StiConnectionEventArgs($this->handler->request, $this->type, $this->driverName, $this->connectionInfo);
         $this->handler->onDatabaseConnect->call($args);
 
         if ($args->link !== null)
