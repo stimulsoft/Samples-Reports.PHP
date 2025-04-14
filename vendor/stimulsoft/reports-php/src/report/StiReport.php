@@ -3,6 +3,7 @@
 namespace Stimulsoft\Report;
 
 use JetBrains\PhpStorm\Deprecated;
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiHtmlMode;
 use Stimulsoft\Events\StiComponentEvent;
@@ -25,7 +26,7 @@ class StiReport extends StiComponent
 
 ### Events
 
-    /** @var StiComponentEvent The event is invoked called before all actions related to report rendering. Only JavaScript functions are supported. */
+    /** @var StiComponentEvent The event is invoked called before all actions related to report rendering. PHP and JavaScript functions are supported. */
     public $onBeforeRender;
 
     /** @var StiComponentEvent The event is invoked called immediately after report rendering. Only JavaScript functions are supported. */
@@ -87,8 +88,13 @@ class StiReport extends StiComponent
             $args->regReportData($this->reportDataName, $this->reportData, $this->reportDataSynchronization);
 
         $result = $this->onBeforeRender->getResult($args);
-        if ($result != null && $result->success)
-            $result->data = $args->data;
+        if ($result != null) {
+            if ($args->report != $this->handler->request->report)
+                $result->report = $args->report;
+
+            if ($result->success)
+                $result->data = $args->data;
+        }
 
         return $result;
     }
@@ -153,6 +159,11 @@ class StiReport extends StiComponent
 
         $this->updateEvent('onBeforeRender');
         $this->updateEvent('onAfterRender');
+    }
+
+    public function getComponentType()
+    {
+        return StiComponentType::Report;
     }
 
     public function setHandler(StiHandler $handler)

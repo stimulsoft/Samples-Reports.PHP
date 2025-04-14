@@ -26,7 +26,7 @@ class StiDataAdapter
 ### Properties
 
     /** @var string Current version of the data adapter. */
-    public $version = '2025.2.1';
+    public $version = '2025.2.2';
 
     /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = false;

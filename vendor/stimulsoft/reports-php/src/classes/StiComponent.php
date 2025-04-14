@@ -201,6 +201,7 @@ class StiComponent extends StiElement
     {
         $reportId = $this instanceof StiReport ? $this->id : $this->report->id;
         $result = $reportId . "BeforeRenderCallback = function (args) {\n";
+        $result .= "if (args.report) $reportId = args.report;\n";
         $result .= "if (args.data && args.data.data) {\n";
         $result .= "$reportId.regData(args.data.name, args.data.name, args.data.data);\n";
         $result .= "if (args.data.synchronize) $reportId.dictionary.synchronize();\n";

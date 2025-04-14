@@ -26,7 +26,7 @@ class StiBaseHandler
     public static $legacyMode = false;
 
     /** @var string Current version of the event handler. */
-    public $version = '2025.2.1';
+    public $version = '2025.2.2';
 
     /** @var bool Enables checking for client-side and server-side data adapter versions to match. */
     public $checkDataAdaptersVersion = true;
@@ -330,9 +330,10 @@ class StiBaseHandler
             $args->result = $this->dataAdapter->getDataResult($connectionString);
             $result = $this->onEndProcessData->getResult($args, StiDataResult::class);
 
-            // If the server side event is not set, the result is always successful
+            // If the event did not return a result, the internal result is always successful
             // Required for loading file data on the JavaScript client-side
-            if (!$this->onEndProcessData->hasServerCallbacks())
+            // To display an internal error, the event can return $args->result
+            if ($result != $args->result)
                 $args->result->success = true;
 
             return $this->getDataResult($result, $notice, $args);

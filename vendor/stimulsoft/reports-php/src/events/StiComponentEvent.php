@@ -2,6 +2,7 @@
 
 namespace Stimulsoft\Events;
 
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\StiResult;
 use Stimulsoft\StiComponent;
 use Stimulsoft\StiFunctions;
@@ -66,7 +67,10 @@ class StiComponentEvent extends StiEvent
         // Prepare args for internal event
         if ($internal) {
             $componentType = $this->component->getComponentType();
-            $result .= "let args = {event: \"$eventName\", sender: \"$componentType\", report: $componentId, preventDefault: false};\n";
+            $reportId = $componentType == StiComponentType::Report
+                ? $componentId : ($this->component->report != null ? "$componentId.{$this->component->report->id}" : "null");
+
+            $result .= "var args = {event: \"$eventName\", sender: \"$componentType\", report: $reportId, preventDefault: false};\n";
             if (!StiFunctions::isNullOrEmpty($clientScript))
                 $result .= "$clientScript\n";
         }

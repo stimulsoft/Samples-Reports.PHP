@@ -351,7 +351,7 @@ class StiHandler extends StiBaseHandler
 
         if ($this->onPrepareVariables->getLength() > 0) {
             $args = new StiVariablesEventArgs($this->request);
-            $result = $this->onPrepareVariables->getResult($args);
+            $result = $this->onPrepareVariables->getResult($args, StiResult::class);
             if ($result == null)
                 $result = StiResult::getSuccess();
 

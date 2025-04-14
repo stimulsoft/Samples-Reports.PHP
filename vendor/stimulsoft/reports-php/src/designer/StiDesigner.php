@@ -16,6 +16,9 @@ class StiDesigner extends StiComponent
 
 ### Events
 
+    /** @var StiComponentEvent The event is invoked after the JavaScript component is initialized. Only JavaScript functions are supported. */
+    public $onAfterInitialize;
+
     /** @var StiComponentEvent The event is invoked after creation a new report in the designer. PHP and JavaScript functions are supported. */
     public $onCreateReport;
 
@@ -154,6 +157,7 @@ class StiDesigner extends StiComponent
     {
         parent::updateEvents();
 
+        $this->updateEvent('onAfterInitialize');
         $this->updateEvent('onCreateReport');
         $this->updateEvent('onOpenReport');
         $this->updateEvent('onOpenedReport');
@@ -248,6 +252,7 @@ class StiDesigner extends StiComponent
         }
 
         $result .= "$this->id.renderHtml('{$this->id}Content');\n";
+        $result .= $this->onAfterInitialize->getHtml(false, false, false, true);
 
         return $result;
     }
