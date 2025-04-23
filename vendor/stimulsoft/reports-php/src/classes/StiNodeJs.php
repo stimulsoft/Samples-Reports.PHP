@@ -162,7 +162,7 @@ class StiNodeJs
                     }
 
                     // Handling a parser error from StiHandler
-                    if (substr($line, 0, 1) == "[" && mb_strpos($line, "StiHandler") > 0 && mb_strpos($line, "StiHandler") < 10)
+                    if (mb_strpos($line, "] StiHandler (") > 0)
                         return preg_replace("/\r/", "", $line);
                 }
             }

@@ -26,9 +26,9 @@ class StiComponentEvent extends StiEvent
         return parent::getResult($args, $resultClass);
     }
 
-    protected function setArgs(...$args)
+    protected function setArgs($args)
     {
-        $eventArgs = parent::setArgs(...$args);
+        $eventArgs = parent::setArgs($args);
         if (is_a($eventArgs, '\Stimulsoft\Events\StiEventArgs'))
             $eventArgs->sender = $this->component;
 

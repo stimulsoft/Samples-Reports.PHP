@@ -24,9 +24,8 @@ class StiVariable extends StiElement
 
     public function getHtml(): string
     {
-        $id = $this->id !== null ? $this->id : $this->name;
         $result =
-            "let $id = new Stimulsoft.Report.Dictionary.StiVariable" .
+            "let $this->id = new Stimulsoft.Report.Dictionary.StiVariable" .
             "('', '{$this->name}', '{$this->name}', '', Stimulsoft.System.{$this->type}, '{$this->value}');\n";
 
         return $result . parent::getHtml();
@@ -43,6 +42,7 @@ class StiVariable extends StiElement
      */
     public function __construct(string $name, $type = StiVariableType::String, string $value = '')
     {
+        $this->id = "variable" . $name;
         $this->name = $name;
         $this->type = $type;
         $this->value = $value;
