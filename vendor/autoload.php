@@ -84,6 +84,7 @@ require_once __DIR__ . '/stimulsoft/reports-php/src/classes/StiResourcesHelper.p
 require_once __DIR__ . '/stimulsoft/reports-php/src/designer/StiDesigner.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/enums/Encoding.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/enums/FontStyle.php';
+require_once __DIR__ . '/stimulsoft/reports-php/src/enums/ImageFormat.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/enums/PaperKind.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/enums/StiComponentType.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/enums/StiEventType.php';

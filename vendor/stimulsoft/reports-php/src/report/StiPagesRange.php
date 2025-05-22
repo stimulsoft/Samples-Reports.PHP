@@ -27,7 +27,7 @@ class StiPagesRange extends StiJsElement
         return parent::getHtml() . $result;
     }
 
-    public function __construct($rangeType = StiRangeType::All, $pageRanges = '', $currentPage = 0)
+    public function __construct(int $rangeType = StiRangeType::All, ?string $pageRanges = '', int $currentPage = 0)
     {
         $this->id = 'pagesRange';
         $this->rangeType = $rangeType;

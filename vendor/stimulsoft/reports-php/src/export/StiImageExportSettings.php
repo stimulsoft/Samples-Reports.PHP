@@ -130,9 +130,9 @@ class StiImageExportSettings extends StiExportSettings
 ### Constructor
 
     /**
-     * @param StiImageType|int $imageType Type of the exported image file.
+     * @param StiImageType|int|null $imageType Type of the exported image file.
      */
-    public function __construct(int $imageType = null)
+    public function __construct(?int $imageType = null)
     {
         parent::__construct();
         $this->imageType = $imageType;

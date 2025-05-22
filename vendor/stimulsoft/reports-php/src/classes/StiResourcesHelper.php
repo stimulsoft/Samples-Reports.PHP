@@ -6,14 +6,14 @@ use Stimulsoft\Enums\StiDataType;
 
 class StiResourcesHelper
 {
-    private static function getDirectory(string $name)
+    private static function getDirectory(string $name): ?string
     {
         if (StiFunctions::endsWith($name, '.xml')) return 'localization';
         else if (StiFunctions::endsWith($name, '.js')) return 'scripts';
         return null;
     }
 
-    private static function getFormat(string $name)
+    private static function getFormat(string $name): ?string
     {
         if (StiFunctions::endsWith($name, '.xml')) return StiDataType::XML;
         else if (StiFunctions::endsWith($name, '.js')) return StiDataType::JavaScript;

@@ -2,6 +2,9 @@
 
 namespace Stimulsoft\Adapters;
 
+use DateTime;
+use PDO;
+use PDOException;
 use Stimulsoft\Events\StiConnectionEventArgs;
 use Stimulsoft\StiConnectionInfo;
 use Stimulsoft\StiDataResult;
@@ -25,7 +28,7 @@ class StiSqlAdapter extends StiDataAdapter
         $message = count($info) >= 3 ? $info[2] : StiDataAdapter::UnknownError;
         if ($code != 0) $message = "[$code] $message";
 
-        return StiDataResult::getError($message, $this);
+        return StiDataResult::getError($message)->getDataAdapterResult($this);
     }
 
     protected function connect(): StiDataResult
@@ -43,7 +46,7 @@ class StiSqlAdapter extends StiDataAdapter
             $message = $e->getMessage();
             if ($code != 0) $message = "[$code] $message";
 
-            return StiDataResult::getError($message, $this);
+            return StiDataResult::getError($message)->getDataAdapterResult($this);
         }
 
         return parent::connect();
@@ -240,8 +243,11 @@ class StiSqlAdapter extends StiDataAdapter
         return $result;
     }
 
-    public function getDataResult($queryString, $maxDataRows = -1): StiDataResult
+    public function getDataResult(?string $queryString, ?int $maxDataRows = -1): StiDataResult
     {
+        if ($maxDataRows === null)
+            $maxDataRows = -1;
+
         return $this->executeQuery($queryString, $maxDataRows);
     }
 

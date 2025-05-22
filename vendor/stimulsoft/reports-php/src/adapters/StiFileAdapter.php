@@ -5,6 +5,7 @@ namespace Stimulsoft\Adapters;
 use Exception;
 use Stimulsoft\Enums\StiDataType;
 use Stimulsoft\StiDataResult;
+use Stimulsoft\StiHandler;
 use Stimulsoft\StiPath;
 
 class StiFileAdapter extends StiDataAdapter
@@ -23,7 +24,8 @@ class StiFileAdapter extends StiDataAdapter
 
     protected function connect(): StiDataResult
     {
-        $path = new StiPath($this->connectionString, $this->handler->checkFileNames);
+        $checkFileNames = $this->handler instanceof StiHandler ? $this->handler->checkFileNames : true;
+        $path = new StiPath($this->connectionString, $checkFileNames);
         if ($path->filePath == null)
             return StiDataResult::getError("Data file '$this->connectionString' not found.")->getDataAdapterResult($this);
 
@@ -32,9 +34,9 @@ class StiFileAdapter extends StiDataAdapter
         return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
 
-    public function getDataResult($filePath, $maxDataRows = -1): StiDataResult
+    public function getDataResult(?string $queryString, ?int $maxDataRows = -1): StiDataResult
     {
-        $this->connectionString = $filePath;
+        $this->connectionString = $queryString;
         $this->process();
 
         $result = $this->connect();

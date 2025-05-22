@@ -51,7 +51,7 @@ class StiResult extends StiBaseResult
      * Creates a successful result.
      * @param string|null $notice Optionally, a message about the result.
      */
-    public static function getSuccess(string $notice = null)
+    public static function getSuccess(?string $notice = null)
     {
         $result = new StiResult();
         $result->success = true;
@@ -78,7 +78,7 @@ class StiResult extends StiBaseResult
      * @param string|null $notice Optionally, a message about the result.
      * @deprecated Please use the 'getSuccess()' method.
      */
-    public static function success(string $notice = null)
+    public static function success(?string $notice = null)
     {
         $result = new StiResult();
         $result->success = true;

@@ -20,6 +20,7 @@ use Stimulsoft\StiFunctions;
 use Stimulsoft\StiHandler;
 use Stimulsoft\StiNodeJs;
 use Stimulsoft\StiPath;
+use Stimulsoft\StiResult;
 
 class StiReport extends StiComponent
 {
@@ -35,8 +36,8 @@ class StiReport extends StiComponent
 
 ### Properties
 
-    /** @var StiEngineType Gets or sets the report building and export mode - on the client side in a browser window or on the server side using Node.js */
-    public $engine;
+    /** @var StiEngineType|int Gets or sets the report building and export mode - on the client side in a browser window or on the server side using Node.js */
+    public $engine = StiEngineType::ClientJS;
 
     /** @var StiDictionary Gets a report data dictionary that allows you to add new variables to an existing report. */
     public $dictionary;
@@ -89,17 +90,17 @@ class StiReport extends StiComponent
 
         $result = $this->onBeforeRender->getResult($args);
         if ($result != null) {
-            if ($args->report != $this->handler->request->report)
+            if ($args->report != $this->handler->request->report && property_exists($result, "report"))
                 $result->report = $args->report;
 
-            if ($result->success)
+            if ($result->success && property_exists($result, "data"))
                 $result->data = $args->data;
         }
 
         return $result;
     }
 
-    public function getEventResult()
+    public function getEventResult(): ?StiResult
     {
         $this->updateEvents();
         $request = $this->getRequest();
@@ -161,7 +162,7 @@ class StiReport extends StiComponent
         $this->updateEvent('onAfterRender');
     }
 
-    public function getComponentType()
+    public function getComponentType(): ?string
     {
         return StiComponentType::Report;
     }
@@ -382,7 +383,7 @@ class StiReport extends StiComponent
      * @param string|null $filePath The path to the .mdc file of the rendered report.
      * @return string|bool Boolean result of saving the report. If property 'filePath' not specified, the function will return JSON string of the report.
      */
-    public function saveDocument(string $filePath = null)
+    public function saveDocument(?string $filePath = null)
     {
         if (strlen($this->documentString ?? '') > 0) {
             $data = gzdecode(base64_decode($this->documentString));
@@ -397,7 +398,7 @@ class StiReport extends StiComponent
      * @param string|null $filePath The path to the .mdz file of the rendered report.
      * @return string|bool Boolean result of saving the report. If property 'filePath' not specified, the function will return Base64 string of the report.
      */
-    public function savePackedDocument(string $filePath = null)
+    public function savePackedDocument(?string $filePath = null)
     {
         if (strlen($this->documentString ?? '') > 0) {
             if (strlen($filePath ?? '') == 0)
@@ -417,7 +418,7 @@ class StiReport extends StiComponent
      * Clears all data connections in the report before rendering it. By default, the data sources will not be cleared.
      * @param bool $clearDataSources If true, all data sources in the dictionary will be completely deleted.
      */
-    public function clearData($clearDataSources = false)
+    public function clearData(bool $clearDataSources = false)
     {
         $this->clearDataCalled = true;
         $this->clearDataSourcesCalled = $clearDataSources;
@@ -430,7 +431,7 @@ class StiReport extends StiComponent
      * @param mixed|string|array $data Report data as a string, array, or object.
      * @param bool $synchronize If true, data synchronization will be called after the data is registered.
      */
-    public function regData(string $name, $data, $synchronize = false)
+    public function regData(string $name, $data, bool $synchronize = false)
     {
         $this->reportDataName = $name;
         $this->reportData = $data;
@@ -448,7 +449,7 @@ class StiReport extends StiComponent
      */
     public function render(
         #[Deprecated]
-        string $callback = null): bool
+        ?string $callback = null): bool
     {
         $this->updateEvents();
         $this->renderCalled = true;
@@ -498,12 +499,12 @@ class StiReport extends StiComponent
      * Important: The export function does not automatically build the report template.
      *
      * @param StiExportFormat|int $format [enum] Report export format.
-     * @param StiExportSettings $settings Export settings, the type of settings must match the export format.
+     * @param StiExportSettings|null $settings Export settings, the type of settings must match the export format.
      * @param bool $openAfterExport Automatically open the exported report in a browser window if the export is performed on the client side.
      * @param string|null $filePath The path to the file of the exported document. It only works with server-side Node.js mode.
      * @return string|bool Byte data of the exported report, or the boolean result of the export.
      */
-    public function exportDocument(int $format, StiExportSettings $settings = null, bool $openAfterExport = false, string $filePath = null)
+    public function exportDocument(int $format, ?StiExportSettings $settings = null, bool $openAfterExport = false, ?string $filePath = null)
     {
         if (StiHandler::$legacyMode && is_bool($settings)) {
             $openAfterExport = $settings;

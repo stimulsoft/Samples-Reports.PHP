@@ -123,7 +123,7 @@ class StiExportFormat
     /**
      * Returns the file extension for the selected export format.
      */
-    public static function getFileExtension(int $format, StiExportSettings $settings = null): string
+    public static function getFileExtension(int $format, ?StiExportSettings $settings = null): string
     {
         $format = self::getCorrectExportFormat($format);
         $compressToArchive = $settings instanceof StiImageExportSettings && $settings->compressToArchive;
@@ -155,7 +155,7 @@ class StiExportFormat
     }
 
     /** Returns the mime type for the selected export format. */
-    public static function getMimeType(int $format, StiExportSettings $settings = null): string
+    public static function getMimeType(int $format, ?StiExportSettings $settings = null): string
     {
         $format = self::getCorrectExportFormat($format);
         $compressToArchive = $settings instanceof StiImageExportSettings && $settings->compressToArchive;

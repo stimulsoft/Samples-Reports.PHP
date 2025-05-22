@@ -17,7 +17,7 @@ class StiVariablesEventArgs extends StiEventArgs
 
 ### Helpers
 
-    protected function setProperty($name, $value)
+    protected function setProperty(string $name, $value)
     {
         parent::setProperty($name, $value);
 

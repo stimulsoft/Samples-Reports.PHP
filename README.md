@@ -1,6 +1,6 @@
 # PHP and JavaScript samples for Stimulsoft Reports.PHP
 
-#### This repository contains examples of integrating the Stimulsoft Reports.PHP reporting tool into PHP applications, using a set of PHP classes and functions that allow you to easily add a JavaScript report generator to PHP applications. Supports building and exporting a report on the server side using the Node.js platform. The reporting components are fully compatible with all versions of PHP 7 and PHP 8. The integration supports PHP and JavaScript code.
+#### This repository contains examples of integrating the Stimulsoft Reports.PHP reporting tool into PHP applications, using a set of PHP classes and functions that allow you to easily add a JavaScript report generator to PHP applications. Supports building and exporting a report on the server side using the Node.js platform. The reporting components are fully compatible with all versions of PHP 7.1 and above. The integration supports PHP and JavaScript code.
 
 ## Overview
 This repository contains a PHP project ready to run. The 'index.php' file contains links to examples, each of which is located in a separate .php file:

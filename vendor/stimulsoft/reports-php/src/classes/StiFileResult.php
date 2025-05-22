@@ -47,10 +47,10 @@ class StiFileResult extends StiBaseResult
 ### Constructor
 
     /**
-     * @param string $data
-     * @param StiDataType|string $dataType [enum]
+     * @param string|null $data
+     * @param StiDataType|string|null $dataType [enum]
      */
-    public function __construct(string $data = null, string $dataType = null)
+    public function __construct(?string $data = null, ?string $dataType = null)
     {
         if ($data !== null)
             $this->data = $data;

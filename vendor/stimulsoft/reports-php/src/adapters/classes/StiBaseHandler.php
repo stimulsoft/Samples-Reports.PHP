@@ -26,7 +26,7 @@ class StiBaseHandler
     public static $legacyMode = false;
 
     /** @var string Current version of the event handler. */
-    public $version = '2025.2.3';
+    public $version = '2025.2.4';
 
     /** @var bool Enables checking for client-side and server-side data adapter versions to match. */
     public $checkDataAdaptersVersion = true;
@@ -168,17 +168,22 @@ class StiBaseHandler
         if ($this->request->parameters !== null && $this->request->queryString !== null && strlen($this->request->queryString) > 0) {
             foreach ($this->request->parameters as $item) {
                 $name = mb_strpos($item->name, '@') === 0 || mb_strpos($item->name, ':') === 0 ? mb_substr($item->name, 1) : $item->name;
-                $parameters[$name] = new StiParameter($name, $item->type, $item->typeName, $item->typeGroup, $item->size, $item->value);
+                $parameters[$name] = new StiParameter($name, $item->type, $item->typeName, $item->typeGroup, $item->size ?? 0, $item->value);
             }
         }
 
         $this->request->parameters = $parameters;
     }
 
+    public function getPassQueryParameters(): bool
+    {
+        return $this->passQueryParameters;
+    }
+
     public function getUrl()
     {
         $url = $this->url ?? '';
-        if ($this->passQueryParameters) {
+        if ($this->getPassQueryParameters()) {
             foreach ($_GET as $key => $value)
                 if (strpos($url, $key) === false) {
                     $url .= strpos($url, '?') === false ? '?' : '&';
@@ -195,11 +200,11 @@ class StiBaseHandler
     /**
      * Processing an HTTP request from the client side of the component. If successful, it is necessary to return a response
      * with the processing result, which can be obtained using the 'getResponse()' function.
-     * @param string $query The GET query string if no framework request is specified.
-     * @param string $body The POST form data if no framework request is specified.
+     * @param string|null $query The GET query string if no framework request is specified.
+     * @param string|null $body The POST form data if no framework request is specified.
      * @return bool True if the request was processed successfully.
      */
-    public function processRequest(string $query = null, string $body = null): bool
+    public function processRequest(?string $query = null, ?string $body = null): bool
     {
         $this->error = null;
 

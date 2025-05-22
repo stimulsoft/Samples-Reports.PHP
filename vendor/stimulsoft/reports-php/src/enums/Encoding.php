@@ -20,7 +20,7 @@ class Encoding
 
 ### Helpers
 
-    public static function getByName($name)
+    public static function getByName(string $name)
     {
         if (defined("Stimulsoft\Enums\Encoding::$name"))
             return constant("Stimulsoft\Enums\Encoding::$name");

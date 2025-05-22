@@ -64,7 +64,7 @@ class StiNodeJs
         return php_uname("m");
     }
 
-    private function getArchitecture()
+    private function getArchitecture(): string
     {
         $processor = $this->getProcessor();
         $bits = PHP_INT_SIZE * 8;
@@ -162,8 +162,11 @@ class StiNodeJs
                     }
 
                     // Handling a parser error from StiHandler
-                    if (mb_strpos($line, "] StiHandler (") > 0)
-                        return preg_replace("/\r/", "", $line);
+                    if (mb_strpos($line, "] StiHandler (") > 0) {
+                        $error = preg_replace("/\r/", "", $line);
+                        $errorText = $this->getMessageFromId($error);
+                        return $errorText !== false ? $errorText : $error;
+                    }
                 }
             }
         }
@@ -189,7 +192,7 @@ class StiNodeJs
         return StiFunctions::isNullOrEmpty($returnError) ? null : explode( "\n", $returnError);
     }
 
-    private function getSystemPath($app)
+    private function getSystemPath($app): string
     {
         if ($this->system == "win") {
             $execResult = shell_exec("where /F $app") ?? "";
@@ -215,7 +218,7 @@ class StiNodeJs
         }
     }
 
-    private function getInstallPath()
+    private function getInstallPath(): string
     {
         $vendor = StiPath::getVendorPath();
         return StiPath::normalize("$vendor/nodejs-v$this->version");
@@ -232,10 +235,28 @@ class StiNodeJs
         }
     }
 
+    private function getMessageFromId($text)
+    {
+        $textStart = mb_strpos($text, $this->id);
+        if ($textStart === false)
+            return false;
+
+        $textStart += strlen($this->id);
+        $textLength = mb_strpos($text, $this->id, $textStart) - $textStart;
+        return mb_substr($text, $textStart, $textLength);
+    }
+
+    private function getGuid(): string
+    {
+        $name = 'HTTP_X_NODEJS_ID';
+        $id = array_key_exists($name, $_SERVER) ? $_SERVER[$name] : '';
+        return strlen($id) > 0 ? $id : StiFunctions::newGuid();
+    }
+
 
 ### Paths
 
-    private function getArchiveName()
+    private function getArchiveName(): string
     {
         $architecture = $this->processor == "armv6l" || $this->processor == "armv7l" ? $this->processor : $this->architecture;
         $extension = $this->system == "win" ? "zip" : "tar.gz";
@@ -243,13 +264,13 @@ class StiNodeJs
         return "node-v$this->version-$this->system-$architecture.$extension";
     }
 
-    private function getArchiveUrl()
+    private function getArchiveUrl(): string
     {
         $archiveName = $this->getArchiveName();
         return "https://nodejs.org/download/release/v$this->version/$archiveName";
     }
 
-    private function getArchivePath()
+    private function getArchivePath(): string
     {
         $installPath = $this->getInstallPath();
         $archiveName = $this->getArchiveName();
@@ -304,7 +325,7 @@ class StiNodeJs
 
 ### Methods
 
-    private function download()
+    private function download(): bool
     {
         $installPath = $this->getInstallPath();
         $archiveUrl = $this->getArchiveUrl();
@@ -359,7 +380,7 @@ class StiNodeJs
         rmdir($from);
     }
 
-    private function extract()
+    private function extract(): bool
     {
         $installPath = $this->getInstallPath();
         $archivePath = $this->getArchivePath();
@@ -500,12 +521,10 @@ class StiNodeJs
 
         if (!StiFunctions::isNullOrEmpty($output)) {
             try {
-                $jsonStart = mb_strpos($output, $this->id) + strlen($this->id);
-                $jsonLength = mb_strpos($output, $this->id, $jsonStart) - $jsonStart;
-                $json = mb_substr($output, $jsonStart, $jsonLength);
-                $jsonObject = json_decode($json);
+                $json = $this->getMessageFromId($output);
+                $jsonObject = $json !== false ? json_decode($json) : null;
 
-                if ($jsonLength < 0 || $jsonObject === null) {
+                if ($json === false || $jsonObject === null) {
                     $this->error = "The report generator script did not return a response.";
                     return false;
                 }
@@ -531,9 +550,9 @@ class StiNodeJs
 
 ### Constructor
 
-    public function __construct(StiComponent $component = null)
+    public function __construct(?StiComponent $component = null)
     {
-        $this->id = StiFunctions::newGuid();
+        $this->id = $this->getGuid();
         $this->component = $component;
         $this->system = $this->getSystem();
         $this->processor = $this->getProcessor();

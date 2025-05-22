@@ -61,7 +61,7 @@ class StiComponent extends StiElement
 
 ### Helpers
 
-    public function getComponentType()
+    public function getComponentType(): ?string
     {
         return null;
     }
@@ -114,7 +114,7 @@ class StiComponent extends StiElement
     }
 
     /** @return StiResult|null */
-    public function getEventResult()
+    public function getEventResult(): ?StiResult
     {
         return null;
     }
@@ -125,11 +125,11 @@ class StiComponent extends StiElement
     /**
      * Processing an HTTP request from the client side of the component. If successful, it is necessary to return a response
      * with the processing result, which can be obtained using the 'getResponse()' function.
-     * @param string $query The GET query string if no framework request is specified.
-     * @param string $body The POST form data if no framework request is specified.
+     * @param string|null $query The GET query string if no framework request is specified.
+     * @param string|null $body The POST form data if no framework request is specified.
      * @return bool True if the request was processed successfully.
      */
-    public function processRequest(string $query = null, string $body = null): bool
+    public function processRequest(?string $query = null, ?string $body = null): bool
     {
         $this->processRequestResult = $this->handler->processRequest($query, $body);
         return $this->processRequestResult;
@@ -145,7 +145,7 @@ class StiComponent extends StiElement
         $this->handler->process($printAll);
     }
 
-    public function getRequest()
+    public function getRequest(): ?StiRequest
     {
         return $this->handler != null ? $this->handler->request : null;
     }
@@ -195,11 +195,11 @@ class StiComponent extends StiElement
 
     /**
      * Wrapper for registering server-side data in the report.
-     * @param $renderHtml The code for building (StiReport) or assigning (StiViewer, StiDesigner) the report.
+     * @param string $renderHtml The code for building (StiReport) or assigning (StiViewer, StiDesigner) the report.
      */
-    protected function getBeforeRenderCallback($renderHtml): string
+    protected function getBeforeRenderCallback(string $renderHtml): string
     {
-        $reportId = $this instanceof StiReport ? $this->id : $this->report->id;
+        $reportId = property_exists($this, "report") ? $this->report->id : $this->id;
         $result = $reportId . "BeforeRenderCallback = function (args) {\n";
         $result .= "if (args.report) $reportId = args.report;\n";
         $result .= "if (args.data && args.data.data) {\n";
@@ -213,10 +213,10 @@ class StiComponent extends StiElement
 
     /**
      * Gets the HTML representation of the component.
-     * @param StiHtmlMode $mode HTML code generation mode.
+     * @param StiHtmlMode|int $mode HTML code generation mode.
      * @return string Prepared HTML and JavaScript code for embedding in an HTML template.
      */
-    public function getHtml($mode = StiHtmlMode::HtmlScripts): string
+    public function getHtml(int $mode = StiHtmlMode::HtmlScripts): string
     {
         $this->updateEvents();
         $this->updateObjects();
@@ -257,10 +257,10 @@ class StiComponent extends StiElement
 
     /**
      * Outputs the HTML representation of the component or element.
-     * @param string $elementId The ID of the HTML element, inside which the component code will be printed.
+     * @param string|null $elementId The ID of the HTML element, inside which the component code will be printed.
      * If not specified, the code will be printed in the current position.
      */
-    public function renderHtml(string $elementId = null)
+    public function renderHtml(?string $elementId = null)
     {
         $this->elementId = $elementId;
 

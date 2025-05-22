@@ -30,8 +30,8 @@ class StiFunctions extends StiElement
      * @param string|null $jsFunction The name of an existing JavaScript function, or the JavaScript function itself.
      */
     public static function addFunction(string $category, string $groupFunctionName, string $functionName, string $description, string $typeOfFunction,
-                                       string $returnType, string $returnDescription = "", array $argumentTypes = null, array $argumentNames = null,
-                                       array $argumentDescriptions = null, string $jsFunction = null)
+                                       string $returnType, string $returnDescription = "", ?array $argumentTypes = null, ?array $argumentNames = null,
+                                       ?array $argumentDescriptions = null, ?string $jsFunction = null)
     {
         self::$functions[] = new StiCustomFunction(
             $category, $groupFunctionName, $functionName, $description, $typeOfFunction, $returnType,

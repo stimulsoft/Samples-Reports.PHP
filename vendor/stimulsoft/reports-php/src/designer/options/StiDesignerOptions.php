@@ -50,7 +50,7 @@ class StiDesignerOptions extends StiComponentOptions
 ### Helpers
 
     /** Adds localization to the designer menu */
-    public function addLocalization($path)
+    public function addLocalization(string $path)
     {
         $this->localizations[] = $path;
     }

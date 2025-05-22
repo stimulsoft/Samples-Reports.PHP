@@ -39,7 +39,7 @@ class StiComponentOptions extends StiJsElement
         return "Stimulsoft.System.Drawing.Color.$value";
     }
 
-    protected function getLocalizationPath($localization)
+    protected function getLocalizationPath(?string $localization): ?string
     {
         if (is_null($localization) || strlen($localization) == 0)
             return null;

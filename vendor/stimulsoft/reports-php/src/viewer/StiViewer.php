@@ -71,7 +71,7 @@ class StiViewer extends StiComponent
     {
         $args = new StiReportEventArgs($this->handler->request);
         $result = $this->onOpenedReport->getResult($args);
-        if ($result != null && $args->report != $this->handler->request->report)
+        if ($result != null && property_exists($result, "report") && $args->report != $this->handler->request->report)
             $result->report = $args->report;
 
         return $result;
@@ -82,9 +82,10 @@ class StiViewer extends StiComponent
         $args = new StiPrintEventArgs($this->handler->request);
         $result = $this->onPrintReport->getResult($args);
         if ($result != null) {
-            if ($args->report != $this->handler->request->report)
+            if ($args->report != $this->handler->request->report && property_exists($result, "report"))
                 $result->report = $args->report;
-            if ($args->pageRange != null && $args->pageRange->compareObject($this->handler->request->pageRange) === false)
+
+            if ($args->pageRange != null && property_exists($result, "pageRange") && $args->pageRange->compareObject($this->handler->request->pageRange) === false)
                 $result->pageRange = $args->pageRange;
         }
 
@@ -96,9 +97,10 @@ class StiViewer extends StiComponent
         $args = new StiExportEventArgs($this->handler->request);
         $result = $this->onBeginExportReport->getResult($args);
         if ($result != null) {
-            if ($args->fileName != $this->handler->request->fileName)
+            if ($args->fileName != $this->handler->request->fileName && property_exists($result, "fileName"))
                 $result->fileName = $args->fileName;
-            if ($args->settings != null && $args->settings->compareObject($this->handler->request->settings) === false)
+
+            if ($args->settings != null && property_exists($result, "settings") && $args->settings->compareObject($this->handler->request->settings) === false)
                 $result->settings = $args->settings;
         }
 
@@ -196,7 +198,7 @@ class StiViewer extends StiComponent
         return $result;
     }
 
-    public function getEventResult()
+    public function getEventResult(): ?StiResult
     {
         $this->updateEvents();
         $request = $this->getRequest();
@@ -254,7 +256,7 @@ class StiViewer extends StiComponent
         $this->updateEvent('onDesignReport');
     }
 
-    public function getComponentType()
+    public function getComponentType(): ?string
     {
         return StiComponentType::Viewer;
     }
@@ -287,7 +289,7 @@ class StiViewer extends StiComponent
     /**
      * @param StiReport|null $report Prepared report object.
      */
-    public function setReport($report)
+    public function setReport(?StiReport $report)
     {
         $this->report = $report;
 
@@ -362,7 +364,7 @@ class StiViewer extends StiComponent
         return $result;
     }
 
-    public function getHtml($mode = StiHtmlMode::HtmlScripts): string
+    public function getHtml(int $mode = StiHtmlMode::HtmlScripts): string
     {
         if ($mode == StiHtmlMode::HtmlPage) {
             $this->options->toolbar->showFullScreenButton = false;
@@ -375,7 +377,7 @@ class StiViewer extends StiComponent
 
 ### Constructor
 
-    public function __construct($id = 'viewer', StiViewerOptions $options = null)
+    public function __construct($id = 'viewer', ?StiViewerOptions $options = null)
     {
         parent::__construct();
 

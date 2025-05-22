@@ -51,7 +51,7 @@ class StiEventArgs
                 $this->setProperty($name, $object->$name);
     }
 
-    protected function setProperty($name, $value)
+    protected function setProperty(string $name, $value)
     {
         if ($name == 'fileName' && $value !== null)
             $value = $this->getFileName($value);

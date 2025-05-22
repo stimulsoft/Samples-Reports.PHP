@@ -26,7 +26,7 @@ class StiDataAdapter
 ### Properties
 
     /** @var string Current version of the data adapter. */
-    public $version = '2025.2.3';
+    public $version = '2025.2.4';
 
     /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = false;
@@ -46,7 +46,7 @@ class StiDataAdapter
     /** @var string The connection string or URL for the current data source. */
     protected $connectionString;
 
-    /** @var object Link to the database connection driver. */
+    /** @var object|resource Link to the database connection driver. */
     protected $connectionLink;
 
 
@@ -76,7 +76,7 @@ class StiDataAdapter
         return false;
     }
 
-    public function getDataResult($queryString, $maxDataRows = -1): StiDataResult
+    public function getDataResult(?string $queryString, ?int $maxDataRows = null): StiDataResult
     {
         return StiDataResult::getSuccess()->getDataAdapterResult($this);
     }
@@ -86,9 +86,9 @@ class StiDataAdapter
 
     /**
      * @param StiDatabaseType|string $database [enum] The database type for which the command will be executed.
-     * @param string $connectionString The connection string or URL for the current data source.
+     * @param string|null $connectionString The connection string or URL for the current data source.
      */
-    public static function getDataAdapter(string $database, $connectionString)
+    public static function getDataAdapter(string $database, ?string $connectionString)
     {
         switch ($database) {
             case StiDatabaseType::MySQL:
@@ -128,7 +128,7 @@ class StiDataAdapter
 
 ### Constructor
 
-    public function __construct($connectionString)
+    public function __construct(?string $connectionString)
     {
         $this->connectionString = StiFunctions::isNullOrEmpty($connectionString) ? null : trim($connectionString);
         $this->process();

@@ -45,7 +45,7 @@ class StiComponentEvent extends StiEvent
      * @param bool $process Processing event on the server side.
      * @param bool $internal A custom event that is not supported by the JavaScript component.
      */
-    public function getHtml($callback = false, $prevent = false, $process = true, $internal = false): string
+    public function getHtml(bool $callback = false, bool $prevent = false, bool $process = true, bool $internal = false): string
     {
         if ($this->getLength() == 0 || $this->htmlRendered)
             return '';
@@ -67,8 +67,9 @@ class StiComponentEvent extends StiEvent
         // Prepare args for internal event
         if ($internal) {
             $componentType = $this->component->getComponentType();
+            $report = property_exists($this->component, "report") ? $this->component->report : null;
             $reportId = $componentType == StiComponentType::Report
-                ? $componentId : ($this->component->report != null ? "$componentId.{$this->component->report->id}" : "null");
+                ? $componentId : ($report != null ? "$componentId.{$report->id}" : "null");
 
             $result .= "var args = {event: \"$eventName\", sender: \"$componentType\", report: $reportId, preventDefault: false};\n";
             if (!StiFunctions::isNullOrEmpty($clientScript))

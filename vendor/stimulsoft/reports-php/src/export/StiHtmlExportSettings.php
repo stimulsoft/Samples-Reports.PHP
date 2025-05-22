@@ -3,8 +3,8 @@
 namespace Stimulsoft\Export;
 
 use Stimulsoft\Enums\Encoding;
+use Stimulsoft\Enums\ImageFormat;
 use Stimulsoft\Export\Enums\StiExportFormat;
-use Stimulsoft\Export\Enums\ImageFormat;
 use Stimulsoft\Export\Enums\StiHorAlignment;
 use Stimulsoft\Export\Enums\StiHtmlChartType;
 use Stimulsoft\Export\Enums\StiHtmlExportBookmarksMode;
@@ -121,9 +121,9 @@ class StiHtmlExportSettings extends StiExportSettings
 ### Constructor
 
     /**
-     * @param StiHtmlType|int $htmlType Type of the exported HTML file.
+     * @param StiHtmlType|int|null $htmlType Type of the exported HTML file.
      */
-    public function __construct(int $htmlType = null)
+    public function __construct(?int $htmlType = null)
     {
         parent::__construct();
         $this->htmlType = $htmlType;

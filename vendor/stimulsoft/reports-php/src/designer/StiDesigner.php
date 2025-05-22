@@ -10,6 +10,7 @@ use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\StiComponent;
 use Stimulsoft\StiHandler;
+use Stimulsoft\StiResult;
 
 class StiDesigner extends StiComponent
 {
@@ -72,7 +73,7 @@ class StiDesigner extends StiComponent
     {
         $args = new StiReportEventArgs($this->handler->request);
         $result = $this->onCreateReport->getResult($args);
-        if ($result != null && $args->report != $this->handler->request->report)
+        if ($result != null && property_exists($result, "report") && $args->report != $this->handler->request->report)
             $result->report = $args->report;
 
         return $result;
@@ -100,7 +101,7 @@ class StiDesigner extends StiComponent
     {
         $args = new StiReportEventArgs($this->handler->request);
         $result = $this->onPreviewReport->getResult($args);
-        if ($result != null && $args->report != $this->handler->request->report)
+        if ($result != null && property_exists($result, "report") && $args->report != $this->handler->request->report)
             $result->report = $args->report;
 
         return $result;
@@ -112,7 +113,7 @@ class StiDesigner extends StiComponent
         return $this->onCloseReport->getResult($args);
     }
 
-    public function getEventResult()
+    public function getEventResult(): ?StiResult
     {
         $this->updateEvents();
         $request = $this->getRequest();
@@ -168,7 +169,7 @@ class StiDesigner extends StiComponent
         $this->updateEvent('onExit');
     }
 
-    public function getComponentType()
+    public function getComponentType(): ?string
     {
         return StiComponentType::Designer;
     }
@@ -201,7 +202,7 @@ class StiDesigner extends StiComponent
     /**
      * @param StiReport|null $report Prepared report object.
      */
-    public function setReport($report)
+    public function setReport(?StiReport $report)
     {
         $this->report = $report;
 
@@ -257,7 +258,7 @@ class StiDesigner extends StiComponent
         return $result;
     }
 
-    public function getHtml($mode = StiHtmlMode::HtmlScripts): string
+    public function getHtml(int $mode = StiHtmlMode::HtmlScripts): string
     {
         if ($mode == StiHtmlMode::HtmlPage)
             $this->options->appearance->fullScreenMode = true;
@@ -268,7 +269,7 @@ class StiDesigner extends StiComponent
 
 ### Constructor
 
-    public function __construct($id = 'designer', StiDesignerOptions $options = null)
+    public function __construct($id = 'designer', ?StiDesignerOptions $options = null)
     {
         parent::__construct();
 

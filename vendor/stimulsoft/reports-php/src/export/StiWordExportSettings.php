@@ -2,8 +2,8 @@
 
 namespace Stimulsoft\Export;
 
+use Stimulsoft\Enums\ImageFormat;
 use Stimulsoft\Export\Enums\StiExportFormat;
-use Stimulsoft\Export\Enums\ImageFormat;
 use Stimulsoft\Export\Enums\StiWordRestrictEditing;
 
 /**

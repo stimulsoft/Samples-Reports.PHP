@@ -112,9 +112,9 @@ class StiDataExportSettings extends StiExportSettings
 ### Constructor
 
     /**
-     * @param StiDataType|int $dataType [enum] Type of the exported data file.
+     * @param StiDataType|int|null $dataType [enum] Type of the exported data file.
      */
-    public function __construct(int $dataType = null)
+    public function __construct(?int $dataType = null)
     {
         parent::__construct();
         $this->dataType = $dataType;

@@ -48,7 +48,7 @@ class StiReportEventArgs extends StiEventArgs
         return null;
     }
 
-    protected function setProperty($name, $value)
+    protected function setProperty(string $name, $value)
     {
         parent::setProperty($name, $value);
 
@@ -85,7 +85,7 @@ class StiReportEventArgs extends StiEventArgs
      * @param mixed|string|array $data Report data as a string, array, or object.
      * @param bool $synchronize If true, data synchronization will be called after the data is registered.
      */
-    public function regReportData(string $name, $data, $synchronize = false) {
+    public function regReportData(string $name, $data, bool $synchronize = false) {
         $stringData = is_string($data) ? $data : json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         if (!StiFunctions::isNullOrEmpty($stringData))
             $this->data = [

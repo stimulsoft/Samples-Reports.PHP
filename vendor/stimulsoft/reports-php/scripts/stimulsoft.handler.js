@@ -149,7 +149,8 @@ StiHandler.prototype.https = function (data, callback) {
             'Pragma': 'no-cache',
             'Cookie': this.cookie,
             'X-CSRFToken': this.csrfToken,
-            'X-CSRF-Token': this.csrfToken
+            'X-CSRF-Token': this.csrfToken,
+            'X-NodeJS-Id': this.nodejsId
         }
     }
 
@@ -248,6 +249,28 @@ StiHandler.prototype.copySettings = function (from, to) {
     }
 }
 
+// For the Node.js engine, take the parameters from the event handler URL
+StiHandler.prototype.getUrlParametersNodejs = function () {
+    let parameters = [];
+
+    if (this.handler && this.handler.url)
+        this.handler.url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => parameters.push({
+            name: key,
+            value: decodeURI(value)
+        }).toString());
+
+    return parameters;
+}
+
+StiHandler.prototype.setFunctions = function () {
+    // 1: Client JavaScript
+    // 2: Server Node.js
+    if (this.engineType == 2) {
+        Stimulsoft.System.IO.Http.handler = this;
+        Stimulsoft.System.IO.Http.getUrlParameters = this.getUrlParametersNodejs;
+    }
+}
+
 function StiHandler() {
     this.url = {url};
     this.timeout = {timeout};
@@ -260,7 +283,10 @@ function StiHandler() {
     this.cookie = {cookie};
     this.csrfToken = {csrfToken} || this.getCookie('csrftoken');
     this.allowFileDataAdapters = {allowFileDataAdapters};
+    this.nodejsId = {nodejsId};
+    this.engineType = {engineType};
     this.setOptions();
+    this.setFunctions();
 }
 
 setTimeout(function () {

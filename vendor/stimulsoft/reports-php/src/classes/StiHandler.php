@@ -2,7 +2,9 @@
 
 namespace Stimulsoft;
 
+use Exception;
 use Stimulsoft\Designer\StiDesigner;
+use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Enums\StiDatabaseType;
 use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiHtmlMode;
@@ -11,6 +13,7 @@ use Stimulsoft\Events\StiVariablesEventArgs;
 use Stimulsoft\Report\Enums\StiVariableType;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\Viewer\StiViewer;
+use Stimulsoft\Report\Enums\StiEngineType;
 
 /**
  * Event handler for all requests from components. Processes the incoming request, communicates with data adapters,
@@ -301,14 +304,16 @@ class StiHandler extends StiBaseHandler
         if ($this->component !== null)
             return $this->component;
 
-        if ($this->request->sender == 'Report')
-            return new StiReport();
+        if ($this->request !== null) {
+            if ($this->request->sender == 'Report')
+                return new StiReport();
 
-        if ($this->request->sender == 'Viewer')
-            return new StiViewer();
+            if ($this->request->sender == 'Viewer')
+                return new StiViewer();
 
-        if ($this->request->sender == 'Designer')
-            return new StiDesigner();
+            if ($this->request->sender == 'Designer')
+                return new StiDesigner();
+        }
 
         return null;
     }
@@ -342,6 +347,23 @@ class StiHandler extends StiBaseHandler
         $this->cookie = $cookie;
     }
 
+    private function getNodejsId(): ?string
+    {
+        $component = $this->getComponent();
+        return $component !== null && $component->getComponentType() == StiComponentType::Report ? $component->nodejs->id : null;
+    }
+
+    private function getEngineType(): int
+    {
+        $component = $this->getComponent();
+        return $component !== null && $component->getComponentType() == StiComponentType::Report ? $component->engine : StiEngineType::ClientJS;
+    }
+
+    public function getPassQueryParameters(): bool
+    {
+        return $this->passQueryParameters || ($this->passQueryParametersToReport && $this->getEngineType() == StiEngineType::ServerNodeJS);
+    }
+
 
 ### Results
 
@@ -358,8 +380,16 @@ class StiHandler extends StiBaseHandler
             $result->handlerVersion = $this->version;
             $result->variables = [];
 
-            if (!$result->success)
+            if (!$result->success) {
+                // An error message should be triggered if rendering is performed on the server side.
+                $component = $this->getComponent();
+                if ($component instanceof StiReport &&
+                    $component->engine == StiEngineType::ServerNodeJS &&
+                    !StiFunctions::isNullOrEmpty($result->notice))
+                    throw new Exception($component->nodejs->id . $result->notice . $component->nodejs->id);
+
                 return $result;
+            }
 
             foreach ($args->variables as $variable) {
                 $isChanged = true;
@@ -453,6 +483,8 @@ class StiHandler extends StiBaseHandler
             $script = str_replace('{cookie}', StiFunctions::getJavaScriptValue($this->cookie), $script);
             $script = str_replace('{csrfToken}', StiFunctions::getJavaScriptValue($this->getCsrfToken()), $script);
             $script = str_replace('{allowFileDataAdapters}', StiFunctions::getJavaScriptValue($this->allowFileDataAdapters), $script);
+            $script = str_replace('{nodejsId}', StiFunctions::getJavaScriptValue( $this->getNodejsId()), $script);
+            $script = str_replace('{engineType}', StiFunctions::getJavaScriptValue($this->getEngineType()), $script);
 
             if (StiHandler::$legacyMode)
                 $script = str_replace(
@@ -511,7 +543,7 @@ class StiHandler extends StiBaseHandler
 
 ### Constructor
 
-    public function __construct($url = null, $timeout = 30, $registerErrorHandlers = true)
+    public function __construct($url = null, int $timeout = 30, $registerErrorHandlers = true)
     {
         if (StiHandler::$legacyMode) {
             $this->options = new \stdClass();

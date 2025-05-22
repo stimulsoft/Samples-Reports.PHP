@@ -17,7 +17,7 @@ class StiExportSettings extends StiJsElement
 
 ### Helpers
 
-    public function setPageRange(StiPagesRange $pageRange = null)
+    public function setPageRange(?StiPagesRange $pageRange = null)
     {
         if ($pageRange == null)
             $pageRange = new StiPagesRange();

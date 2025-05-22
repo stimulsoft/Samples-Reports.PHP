@@ -21,7 +21,7 @@ class StiFontCollection extends StiElement
      * @param string|null $fontName Uses the specified name for this font.
      * @param int|FontStyle|null $fontStyle [enum] Uses the specified style for this font.
      */
-    public static function addFontFile(string $filePath, string $fontName = null, int $fontStyle = null)
+    public static function addFontFile(string $filePath, ?string $fontName = null, ?int $fontStyle = null)
     {
         if (!StiFunctions::isNullOrEmpty($filePath)) {
             $filePath = preg_replace('/\\\\/', '/', $filePath);
