@@ -547,7 +547,7 @@
     <RadarStyle>A style of radar area.</RadarStyle>
     <ReverseHor>A value that indicate that all values on horizontal axis is reverse.</ReverseHor>
     <ReverseVert>A value that indicate that all values on vertical axis is reverse.</ReverseVert>
-    <ShowShadow>A value that indicates necessary draw shadod or no.</ShowShadow>
+    <ShowShadow>A value that indicates necessary draw shadow or no.</ShowShadow>
     <XAxis>Settings of XAxis.</XAxis>
     <XTopAxis>Settings of XTopAxis.</XTopAxis>
     <YAxis>Settings of YAxis.</YAxis>
@@ -561,7 +561,7 @@
     <ArrowWidth>The arrow width factor.</ArrowWidth>
   </StiArrowShapeType>
   <StiAustraliaPost4StateBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiAustraliaPost4StateBarCodeType>
   <StiAxis>
@@ -596,7 +596,7 @@
     <Angle>An angle of label rotation.</Angle>
     <Antialiasing>A value that control antialiasing drawing mode.</Antialiasing>
     <Color>A color of labels drawing.</Color>
-    <Font>a font which will be used for axis label drawing.</Font>
+    <Font>A font which will be used for axis label drawing.</Font>
     <Format>Format string which is used for formating argument values.</Format>
     <Placement>A mode of labels placement on axis.</Placement>
     <Step>A value which indicates with what steps do labels be shown on axis.</Step>
@@ -968,54 +968,54 @@
     <Width>Width factor of one bar series. Value 1 is equal to 100%.</Width>
   </StiClusteredColumnSeries>
   <StiCodabarBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCodabarBarCodeType>
   <StiCode11BarCodeType>
     <Checksum>Gets or sets mode of checksum.</Checksum>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiCode11BarCodeType>
   <StiCode128aBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiCode128aBarCodeType>
   <StiCode128AutoBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiCode128AutoBarCodeType>
   <StiCode128BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiCode128BarCodeType>
   <StiCode128bBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiCode128bBarCodeType>
   <StiCode128cBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiCode128cBarCodeType>
   <StiCode39BarCodeType>
     <CheckSum>Gets or sets a mode of the checksum.</CheckSum>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode39BarCodeType>
   <StiCode39ExtBarCodeType>
     <CheckSum>Gets or sets a mode of the checksum.</CheckSum>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode39ExtBarCodeType>
   <StiCode93BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode93BarCodeType>
   <StiCode93ExtBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode93ExtBarCodeType>
@@ -1094,6 +1094,7 @@
     <IconAlignment>The alignment of the icon that will be displayed on the component.</IconAlignment>
     <IconBrush>The icon brush of the component.</IconBrush>
     <IconSet>The set of icons used in the component.</IconSet>
+    <InclusionMode>Specifies the mode in which this element applies to the filter.</InclusionMode>
     <Interaction>Interaction options of this component.</Interaction>
     <Left>Left position of the component.</Left>
     <Linked>A value indicates that the object snap to the container is turned on.</Linked>
@@ -1223,8 +1224,8 @@
   </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>Occurs when band begin render.</BeginRenderEvent>
-    <CalcInvisible>A value indicates that, when aggregate functions calculation, it is nesessary to take into consideration invisible data bands.</CalcInvisible>
-    <ColumnDirection>Direction of the rendeting columns.</ColumnDirection>
+    <CalcInvisible>A value indicates that, when aggregate functions calculation, it is necessary to take into consideration invisible data bands.</CalcInvisible>
+    <ColumnDirection>Direction of the rendering columns.</ColumnDirection>
     <ColumnGaps>Distance between two columns.</ColumnGaps>
     <Columns>Number of columns.</Columns>
     <ColumnWidth>Width of column.</ColumnWidth>
@@ -1269,7 +1270,7 @@
   </StiDataColumn>
   <StiDataMatrixBarCodeType>
     <EncodingType>Gets or sets type of encoding type.</EncodingType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <MatrixSize>Gets or sets matrix size.</MatrixSize>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <UseRectangularSymbols>Gets or sets value which indicates will RectangularSymbols be used or not.</UseRectangularSymbols>
@@ -1302,7 +1303,7 @@
     <NameInSource>A name of the Data Source in database.</NameInSource>
     <Parameters>The parameter collection of the SQL query.</Parameters>
     <Path>A path to the data file.</Path>
-    <ReconnectOnEachRow>A value which indicates that data source reconnect on each master row in master-detail reports.</ReconnectOnEachRow>
+    <ReconnectOnEachRow>A value which indicates that data source reconnects on each master row in master-detail reports.</ReconnectOnEachRow>
     <SqlCommand>A SQL statement to execute at the Data Source.</SqlCommand>
     <Type>A value which indicates type of sql data source.</Type>
   </StiDataSource>
@@ -1341,7 +1342,7 @@
     <Name>A name of drill-down parameter.</Name>
   </StiDrillDownParameter>
   <StiDutchKIXBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiDutchKIXBarCodeType>
   <StiDynamicBand>
@@ -1354,30 +1355,30 @@
     <SkipFirst>If the value of this property is true, then, a new page/column will be generated only starting from the second case.</SkipFirst>
   </StiDynamicBand>
   <StiEAN128aBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiEAN128aBarCodeType>
   <StiEAN128AutoBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiEAN128AutoBarCodeType>
   <StiEAN128bBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiEAN128bBarCodeType>
   <StiEAN128cBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiEAN128cBarCodeType>
   <StiEAN13BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiEAN13BarCodeType>
   <StiEAN8BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
@@ -1393,7 +1394,7 @@
   </StiEmptyBand>
   <StiFIMBarCodeType>
     <AddClearZone>Gets or sets value which indicates will show Clear Zone or no.</AddClearZone>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiFIMBarCodeType>
   <StiFooterBand>
@@ -1617,39 +1618,39 @@
     <Visible>Visibility of interlaced bars.</Visible>
   </StiInterlacing>
   <StiInterleaved2of5BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiInterleaved2of5BarCodeType>
   <StiIsbn10BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiIsbn10BarCodeType>
   <StiIsbn13BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiIsbn13BarCodeType>
   <StiITF14BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <PrintVerticalBars>Get or sets value, which indicates, print or not vertical sections.</PrintVerticalBars>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiITF14BarCodeType>
   <StiJan13BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiJan13BarCodeType>
   <StiJan8BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
@@ -1742,7 +1743,7 @@
   <StiMsiBarCodeType>
     <CheckSum1>Gets or sets mode of CheckSum1.</CheckSum1>
     <CheckSum2>Gets or sets mode of CheckSum2.</CheckSum2>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiMsiBarCodeType>
   <StiNumericUpDownControl>
@@ -1810,15 +1811,15 @@
     <AutoDataColumns>Gets or sets value which indicates that amount of columns will be calculated automatically.</AutoDataColumns>
     <AutoDataRows>Gets or sets value which indicates that amount of rows will be calculated automatically.</AutoDataRows>
     <DataColumns>Gets or sets amount of data columns.</DataColumns>
-    <DataRows>Gets or sets amound of data rows.</DataRows>
+    <DataRows>Gets or sets amount of data rows.</DataRows>
     <EncodingMode>Gets or sets type of encoding type.</EncodingMode>
     <ErrorsCorrectionLevel>Gets or sets errors correction level. The higher level is the more information is added to bar code for restoring.</ErrorsCorrectionLevel>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <RatioY>Gets or sets vertical ratio of bar code. Value must between 2 and 5.</RatioY>
+    <RatioY>Gets or sets vertical ratio of bar code. Value must be between 2 and 5.</RatioY>
   </StiPdf417BarCodeType>
   <StiPharmacodeBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiPharmacodeBarCodeType>
   <StiPictureBoxControl>
@@ -1828,7 +1829,7 @@
     <TransparentColor>A transparent color for the image.</TransparentColor>
   </StiPictureBoxControl>
   <StiPieSeries>
-    <AllowApplyBorderColor>A value that allow to use border color from series settings.</AllowApplyBorderColor>
+    <AllowApplyBorderColor>A value that allows to use border color from series settings.</AllowApplyBorderColor>
     <AllowApplyBrush>A value that allows using a brush from series settings.</AllowApplyBrush>
     <CutPieList>An expression to fill a list of cut pie segments. Example: 1;4;6</CutPieList>
     <Diameter>Fixed size of diameter of pie series.</Diameter>
@@ -1839,11 +1840,11 @@
   <StiPlesseyBarCodeType>
     <CheckSum1>Gets or sets mode of CheckSum1.</CheckSum1>
     <CheckSum2>Gets or sets mode of CheckSum2.</CheckSum2>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiPlesseyBarCodeType>
   <StiPostnetBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Space>Gets or sets space between elements of bar code.</Space>
   </StiPostnetBarCodeType>
@@ -1861,7 +1862,7 @@
   </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Gets or sets the error correction level.</ErrorCorrectionLevel>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <MatrixSize>Gets or sets matrix size.</MatrixSize>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiQRCodeBarCodeType>
@@ -1869,7 +1870,7 @@
     <Visible>Visibility of axis.</Visible>
   </StiRadarAxis>
   <StiRadarAxisLabels>
-    <Brush>A brush which will used to fill label area.</Brush>
+    <Brush>A brush which will be used to fill label area.</Brush>
     <DrawBorder>A value which indicates that label border will be shown.</DrawBorder>
   </StiRadarAxisLabels>
   <StiRadarGridLines>
@@ -1889,9 +1890,9 @@
     <TextBinding>Data bindings for the text.</TextBinding>
   </StiRadioButtonControl>
   <StiRectanglePrimitive>
-    <BottomSide>A property that indicates indicates to draw bottom side of the rectangle or no.</BottomSide>
-    <LeftSide>A property that indicates indicates to draw left side of the rectangle or no.</LeftSide>
-    <RightSide>A property that indicates indicates to draw fright side of the rectangle or no.</RightSide>
+    <BottomSide>A property that indicates to draw bottom side of the rectangle or no.</BottomSide>
+    <LeftSide>A property that indicates to draw left side of the rectangle or no.</LeftSide>
+    <RightSide>A property that indicates to draw right side of the rectangle or no.</RightSide>
     <TopSide>A property that indicates to draw top side of the rectangle or no.</TopSide>
   </StiRectanglePrimitive>
   <StiReport>
@@ -1900,7 +1901,7 @@
     <CacheAllData>A value that indicates whether it is necessary to cache all data of the report in one DataSet.</CacheAllData>
     <CacheTotals>The property includes caching the totals of the report which are used with the Totals prefix. This property accelerates the report rendering in case of using several totals with the same input parameters on one band.</CacheTotals>
     <CalculationMode>A method of an expression calculation in the report rendering.</CalculationMode>
-    <Collate>A value that can be used for pages collating. The value of the property cannot be less then 1.</Collate>
+    <Collate>A value that can be used for pages collating. The value of the property cannot be less than 1.</Collate>
     <ConvertNulls>A value that shows whether it is necessary to convert null or DBNull.</ConvertNulls>
     <EndRenderEvent>Occurs when the report rendering is finished.</EndRenderEvent>
     <EngineVersion>The current report engine.</EngineVersion>
@@ -1983,7 +1984,7 @@
   </StiRoundedRectangleShapeType>
   <StiRoyalMail4StateBarCodeType>
     <CheckSum>Gets or sets mode of checksum.</CheckSum>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
   </StiRoyalMail4StateBarCodeType>
   <StiSeries>
@@ -2070,7 +2071,7 @@
     <BorderColor>A border color of series labels.</BorderColor>
     <Brush>A brush that will be used to fill area of series labels.</Brush>
     <Conditions>A collection of conditions which can be used to change behavior of series labels.</Conditions>
-    <DrawBorder>A value that incates that border will be drawn or not.</DrawBorder>
+    <DrawBorder>A value that indicates that border will be drawn or not.</DrawBorder>
     <Font>A font that will be used to draw series labels.</Font>
     <Format>Format string that is used for formating series values (if applicable).</Format>
     <LabelColor>A foreground color of series labels.</LabelColor>
@@ -2079,7 +2080,7 @@
     <LineLength>Length of line between border of series labels and border of series element.</LineLength>
     <MarkerAlignment>Marker alignment related to the label text.</MarkerAlignment>
     <MarkerSize>Marker size.</MarkerSize>
-    <MarkerVisible>Vibility of marker.</MarkerVisible>
+    <MarkerVisible>Visibility of marker.</MarkerVisible>
     <PreventIntersection>A value indicates that whether it is necessary to avoid intersections between border of series labels and border of series.</PreventIntersection>
     <ShowInPercent>A value indicates that values from series must be shown as percents.</ShowInPercent>
     <ShowNulls>A value that indicates whether it is necessary to show the series label, if the value is null.</ShowNulls>
@@ -2134,12 +2135,12 @@
   <StiSSCC18BarCodeType>
     <CompanyPrefix>Gets or sets the GS1 Company Prefix (7-10 digits).</CompanyPrefix>
     <ExtensionDigit>Gets or sets the extension digit.</ExtensionDigit>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <SerialNumber>Gets or sets the Serial Reference Numbers (6-9 digits).</SerialNumber>
   </StiSSCC18BarCodeType>
   <StiStandard2of5BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiStandard2of5BarCodeType>
@@ -2223,7 +2224,7 @@
     <HorAlignment>The text horizontal alignment.</HorAlignment>
     <Margins>Text margins (Left, Right, Top, Bottom).</Margins>
     <RenderTo>In the property specify the Text component in what the text that is out of the current Text component bound will be continued to be output.</RenderTo>
-    <ShrinkFontToFit>A value indicates that this component descreases font size to fit contents of a component.</ShrinkFontToFit>
+    <ShrinkFontToFit>A value indicates that this component decreases font size to fit contents of a component.</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>A value that indicates minimum font size for ShrinkFontToFit operation.</ShrinkFontToFitMinimumSize>
     <TextFormat>The format of the text.</TextFormat>
     <TextOptions>Options to control of the text showing.</TextOptions>
@@ -2280,25 +2281,25 @@
     <ShowShadow>A value that indicates draw shadow or no.</ShowShadow>
   </StiTrendLine>
   <StiUpcABarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiUpcABarCodeType>
   <StiUpcEBarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiUpcEBarCodeType>
   <StiUpcSup2BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
   </StiUpcSup2BarCodeType>
   <StiUpcSup5BarCodeType>
-    <Height>Gets os sets height factor of the bar code.</Height>
+    <Height>Gets or sets height factor of the bar code.</Height>
     <Module>Gets or sets width of the most fine element of the bar code.</Module>
     <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
