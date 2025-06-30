@@ -1094,6 +1094,7 @@
     <IconAlignment>Ausrichtung vom Symbol, das auf der Komponente angezeigt wird.</IconAlignment>
     <IconBrush>Der Symbol-Pinsel der Komponente.</IconBrush>
     <IconSet>Das für die Komponente verwendende Symbol.</IconSet>
+    <InclusionMode>Legt den Modus fest, in dem dieses Element auf den Filter angewandt wird.</InclusionMode>
     <Interaction>Behandlung dieser Komponente.</Interaction>
     <Left>Linke Stelle der Komponenten.</Left>
     <Linked>Wert, der angibt, ob die Komponente fix mit dem übergeordneten Container verknüpft wird.</Linked>

@@ -28,7 +28,7 @@ class StiParameter
 
 ### Constructor
 
-    public function __construct(string $name, int $typeCode, string $typeName, string $typeGroup, int $size, $value)
+    public function __construct(string $name, int $typeCode, ?string $typeName, ?string $typeGroup, int $size, $value)
     {
         $this->name = $name;
         $this->typeCode = $typeCode;

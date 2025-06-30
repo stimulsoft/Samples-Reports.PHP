@@ -1094,6 +1094,7 @@
     <IconAlignment>구성 요소에 표시될 아이콘의 정렬값입니다.</IconAlignment>
     <IconBrush>구성 요소의 아이콘 브러시입니다.</IconBrush>
     <IconSet>구성 요소에서 사용되는 아이콘 집합입니다.</IconSet>
+    <InclusionMode>이 요소가 필터에 적용되는 방식을 지정합니다.</InclusionMode>
     <Interaction>이 구성 요소의 상호 작용 옵션</Interaction>
     <Left>구성 요소의 왼쪽 위치</Left>
     <Linked>컨테이너에 객체 스냅이 켜져 있는지를 나타내는 값</Linked>

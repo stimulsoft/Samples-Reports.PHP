@@ -1096,6 +1096,7 @@
     <IconAlignment>コンポーネントに表示されるアイコンの配置。</IconAlignment>
     <IconBrush>コンポーネントのアイコンブラシ。</IconBrush>
     <IconSet>コンポーネントで使用されるアイコンのセット。</IconSet>
+    <InclusionMode>この要素がフィルターに適用されるモードを指定します。</InclusionMode>
     <Interaction>このコンポーネントの対話オプション</Interaction>
     <Left>コンポーネントの左位置</Left>
     <Linked>コンテナへのオブジェクトスナップがオンになっていることを示す値</Linked>
