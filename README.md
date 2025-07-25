@@ -29,6 +29,7 @@ This repository contains a PHP project ready to run. The 'index.php' file contai
 * [Showing a Report in the Viewer in an HTML template using PHP variables](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Working%20with%20Viewer/Showing%20a%20Report%20in%20the%20Viewer%20in%20an%20HTML%20template%20using%20PHP%20variables.php)
 * [Showing a Report in the Viewer using JavaScript](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Working%20with%20Viewer/Showing%20a%20Report%20in%20the%20Viewer%20using%20JavaScript.php)
 * [Changing the Viewer Theme](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Working%20with%20Viewer/Changing%20the%20Viewer%20Theme.php)
+* [Creating a Custom Button on the Viewer Toolbar](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Working%20with%20Viewer/Creating%20a%20Custom%20Button%20on%20the%20Viewer%20Toolbar.php)
 * [Registering a Data from Code](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Working%20with%20Viewer/Registering%20a%20Data%20from%20Code.php)
 * [Setting Report Variables on the Server-Side](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Working%20with%20Viewer/Setting%20Report%20Variables%20on%20the%20Server-Side.php)
 * [Using SQL Data Sources](https://github.com/stimulsoft/Samples-Reports.PHP/blob/master/Working%20with%20Viewer/Using%20SQL%20Data%20Sources.php)
