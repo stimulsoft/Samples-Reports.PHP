@@ -67,6 +67,10 @@ class StiExportEventArgs extends StiEventArgs
             $this->settings = StiExportFormat::getExportSettings($this->format, $this->reportType);
             $this->settings->setObject($value);
         }
+
+        // Correct document extension for dashboards
+        if ($this->format == StiExportFormat::Document)
+            $this->fileExtension = StiExportFormat::getFileExtension($this->format, null, $this->reportType);
     }
 
     protected function setProperty($name, $value)

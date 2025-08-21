@@ -20,16 +20,18 @@ StiHandler.prototype.process = function (args, callback) {
         for (let p in args) {
             switch (p) {
                 case 'report':
-                    // When requesting data, the report is not required on the server side
-                    if (args.report && args.event !== 'BeginProcessData')
-                        command.report = args.report.isRendered ? args.report.saveDocumentToJsonString() : args.report.saveToJsonString();
+                    if (args.report) {
+                        // When requesting data, the report is not required on the server side
+                        if (args.event !== 'BeginProcessData')
+                            command.report = args.report.isRendered ? args.report.saveDocumentToJsonString() : args.report.saveToJsonString();
+
+                        command.reportType = args.report.containsDashboard ? 2 : 1;
+                    }
                     break;
 
                 case 'settings':
-                    if (args.settings) {
+                    if (args.settings)
                         command.settings = JSON.stringify(args.settings);
-                        command.reportType = typeof args.settings.is == 'function' && args.settings.is(Stimulsoft.Report.Dashboard.Export.IStiDashboardExportSettings) ? 2 : 1;
-                    }
                     break;
 
                 case 'data':

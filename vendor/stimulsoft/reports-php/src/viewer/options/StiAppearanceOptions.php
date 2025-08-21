@@ -97,6 +97,9 @@ class StiAppearanceOptions extends StiComponentOptions
     /** @var bool Gets or sets a value which allows touch zoom in the viewer. */
     public $allowTouchZoom = true;
 
+    /** @var bool Gets or sets a value which allows scroll zoom in the viewer. */
+    public $allowScrollZoom = true;
+
     /** @var bool Gets or sets a value which indicates that allows mobile mode of the viewer interface. */
     public $allowMobileMode = true;
 
@@ -108,6 +111,9 @@ class StiAppearanceOptions extends StiComponentOptions
 
     /** @var StiWebUIIconSet [enum] Gets or sets the current icon set for the viewer. */
     public $iconSet = StiWebUIIconSet::Auto;
+    
+    /** @var bool Gets or sets a value that allows event propagation outside the viewer. */
+    public $allowPropagationEvents = true;
 
 
 ### Helpers

@@ -97,6 +97,12 @@ class StiAppearanceOptions extends StiComponentOptions
     /** @var StiWebUIIconSet [enum] Gets or sets the current icon set for the designer. */
     public $iconSet = StiWebUIIconSet::Auto;
 
+    /** @var bool Gets or sets a value which enables or disables the attribute component-name for components on the page. */
+    public $addCustomAttribute = false;
+
+    /** @var bool Gets or sets a value that allows event propagation outside the designer. */
+    public $allowPropagationEvents = true;
+
 
 ### Helpers
 
