@@ -37,7 +37,10 @@
     <StiGenerateNewNameDataSourceActionLong>Générer un nouveau nom pour la source de données.</StiGenerateNewNameDataSourceActionLong>
     <StiGenerateNewNamePageActionLong>Générer un nouveau nom pour la page.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Générer un nouveau nom pour la relation.</StiGenerateNewNameRelationActionLong>
+    <StiGenerateNewNameVariableActionLong>Générer un nouveau nom pour la variable.</StiGenerateNewNameVariableActionLong>
     <StiGrowToHeightOverlappingLong>Définir la propriété Agrandir à la hauteur du composant à non.</StiGrowToHeightOverlappingLong>
+    <StiInsufficientTextHeightForOneLineLong>La hauteur du composant augmentera au moins jusqu'à la hauteur d'une ligne de texte ou jusqu'à la cellule suivante de la grille du rapport.</StiInsufficientTextHeightForOneLineLong>
+    <StiInsufficientTextHeightForOneLineShort>Corriger la hauteur</StiInsufficientTextHeightForOneLineShort>
     <StiLargeHeightAtPageActionLong>Pour une visualisation et une édition plus pratique des composant, la propriété Grande Hauteur va être définie à oui.</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>Définir la propriété Nombre minimum de lignes dans la colonne à zéro.</StiMinRowsInColumnsActionLong>
     <StiMoveComponentToPageAreaActionLong>Le composant va être placé pour qu'il soit entièrement sur la page. Les champs de la page ne sont pas pris en considération.</StiMoveComponentToPageAreaActionLong>
@@ -54,6 +57,7 @@
     <StiPropertiesOnlyEngineV1ActionLong>Désactiver les propriétés du composant '{0}' qui ne sont pas supportées par l'EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
     <StiPropertiesOnlyEngineV2ActionLong>Désactiver les propriétés du composant qui ne sont pas supportées par l'EngineV1.</StiPropertiesOnlyEngineV2ActionLong>
     <StiResetPageNumberActionLong>Définir la propriété Réinitialiser le nombre de pages à non.</StiResetPageNumberActionLong>
+    <StiSwitchToParametersVerticalOrientationAction>Basculer la valeur de la propriété du rapport 'Orientation des paramètres' sur 'Vertical'.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Réarrangez la hauteur et la largeur de la page.</StiSwitchWidthAndHeightOfPageActionLong>
     <StiVerySmallSizesOfComponentsLong>La taille du composant sera augmentée à la valeur Taille de la grille du rapport. Cette opération ne garanti pas une correction à 100%!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>Augmenter la taille</StiVerySmallSizesOfComponentsShort>
@@ -80,6 +84,8 @@
     <StiComponentBoundsAreOutOfBandShort>Le composant est partiellement en dehors de la bande.</StiComponentBoundsAreOutOfBandShort>
     <StiComponentExpressionCheckLong>L'expression dans la propriété {0} de '{1}' ne peut pas être évaluée!</StiComponentExpressionCheckLong>
     <StiComponentExpressionCheckShort>L'expression ne peut pas être évaluée!</StiComponentExpressionCheckShort>
+    <StiComponentNameIsSystemVariableCheckLong>Le nom du composant '{0}' est en conflit avec un nom de variable système. Les expressions utilisant cette variable système ne fonctionneront pas correctement, car la référence sera remplacée par la référence du composant.</StiComponentNameIsSystemVariableCheckLong>
+    <StiComponentNameIsSystemVariableCheckShort>Le nom du composant est en conflit avec un nom de variable système</StiComponentNameIsSystemVariableCheckShort>
     <StiComponentResourceCheckLong>La ressource '{0}' spécifiée pour le composant '{1}' n'a pas été trouvé dans le dictionnaire du rapport.</StiComponentResourceCheckLong>
     <StiComponentResourceCheckShort>La ressource spécifiée n'a pas été trouvé !</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>Le style spécifié pour la page '{0}' n'existe pas.</StiComponentStyleIsNotFoundCheckAtPageLong>
@@ -112,8 +118,12 @@
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>Le nombre de pied de groupe ne correspond pas au  nombre d’en-tête de groupe sur le conteneur '{0}'. Les composants impairs ne seront pas rendus.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>Le nombre de pied de groupe ne correspond pas au  nombre d’en-tête de groupe sur la page '{0}'. Les composants impairs ne seront pas rendus.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Certains composants ne seront pas rendus</StiGroupHeaderNotEqualToGroupFooterShort>
+    <StiGroupHeaderSummaryExpressionCheckLong>L'expression de synthèse pour l'en-tête de groupe {0} contient une fonction d'agrégation, mais cette fonction est définie dans une propriété distincte. La génération du rapport n'est pas possible.</StiGroupHeaderSummaryExpressionCheckLong>
+    <StiGroupHeaderSummaryExpressionCheckShort>Fonction invalide dans l'expression</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>La propriété Agrandir à la taille du composant '{0}' est définie à oui. Pendant le rendu du rapport, ce composant peut chevaucher un ou plusieurs composants sous-jacents.</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>Il est possible que certains composants se chevauchent.</StiGrowToHeightOverlappingShort>
+    <StiInsufficientTextHeightForOneLineCheckLong>La hauteur du composant texte {0} est trop petite, même pour une ligne de texte. Cela peut poser des problèmes lors de l'exportation vers certains formats, ainsi qu'à l'impression sur le Web. Il est recommandé d'augmenter la hauteur ou de définir la propriété CanGrow sur true.</StiInsufficientTextHeightForOneLineCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>Hauteur insuffisante pour une ligne.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>Les variables système IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough fournissent des résultats incorrects en mode simple passe. Il est requis de définir la propriété Nombre de passes du rapport à double passe.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>Des variables système qui requièrent la double passe sont utilisées dans le rapport.</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>Pour un fonctionnement correct des fonctions IsFirstPass, IsSecondPass la double passe pour le rendu du rapport est requise. Il se peut que vous ayez oublié de définir la propriété Nombre de passes du rapport à double passe.</StiIsFirstPassIsSecondPassCheckLong>
@@ -134,6 +144,8 @@
     <StiNoNameComponentCheckShort>Le composant n'a pas de nom</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>La page à l'index '{0}' n'a pas de nom. Si vous ne spécifiez pas de nom pour la page, le moteur d'impression ne pourra pas compiler le rapport.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>La page n'a pas de nom</StiNoNamePageCheckShort>
+    <StiPageLineAndDoublePassCheckLong>La variable système PageLine nécessite un double passage du moteur de rapport.</StiPageLineAndDoublePassCheckLong>
+    <StiPageLineAndDoublePassCheckShort>PageLine nécessite un double passage !</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>Le panneau '{0}' a été trouvé dans le rapport alors que l'EngineV1 est utilisé. Ce composant n'est pas disponible dans l'EngineV1. Le moteur d'impression essaiera de le rendre comme un conteneur. Cependant, le panneau a plus de fonctionnalités que le conteneur et cela peut causer un rendu incorrect du rapport.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>Panneau dans l'EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>La propriété Imprimer le entêtes et pieds de page des pages précédentes de la page '{0}' est définie à oui alors que pour la première et unique page cela n'a pas de sens.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -160,6 +172,8 @@
     <StiTextColorEqualToBackColorCheckShort>La propriété Remplissage du texte est égale à la propriété Remplissage</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>Le format sélectionné pour le composant '{0}' n'est pas spécifié.</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>Le format n'est pas spécifié.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatFieldCheckLong>La colonne utilisée dans le composant {0} n'est pas de type date. Il est recommandé de changer le formatage en Général pour éviter de ralentir le rapport et garantir un formatage correct.</StiTextTextFormatFieldCheckLong>
+    <StiTextTextFormatFieldCheckShort>Le format sélectionné n'est pas compatible avec le type de colonne de données.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>Les variables système TotalPageCount, TotalPageCountThrough dans les scripts et conditions fournissent des résultats incorrects en mode simple passe. Il est requis de définir la propriété Nombre de passes du rapport à double passe.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>Le composant '{0}' est inconnu. Le moteur d'impression est incapable d'identifier ce composant. Il s'agit peut-être d'un composant personnalisé. Ce rapport ne peut pas être rendu!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Composant inconnu</StiUndefinedComponentCheckShort>
@@ -224,6 +238,8 @@
     <StiOrientationPageCheckShort>Orientation '{0}'  de la page incorrecte.</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
+    <StiCategoryRequestFromUserCheckLong>Les catégories de la variable '{0}' ne peuvent pas être affichées dans le panneau des paramètres du visualiseur car cela n'est possible que lorsque la propriété 'ParametersOrientation' du rapport est définie sur 'Vertical'.</StiCategoryRequestFromUserCheckLong>
+    <StiCategoryRequestFromUserCheckShort>Affichage des catégories dans le panneau des paramètres</StiCategoryRequestFromUserCheckShort>
     <StiCloudCompilationModeCheckLong>Le rapport doit être changé en mode d'interprétation.</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>Le rapport est en mode compilation</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>Impossible de charger le fichier ou l'assemblage '{0}' ou une de ses dépendances.</StiCompilationErrorAssemblyCheckLong>
@@ -231,9 +247,13 @@
     <StiCompilationErrorCheck3Long>Une erreur de compilation a été trouvée dans l’événement '{1}' du composant '{2}' :</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>Une erreur de compilation a été trouvée dans le rapport '{0}' :</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Erreur de compilation</StiCompilationErrorCheckShort>
+    <StiDataSourceLoopingCheckLong>La bande de données '{0}' et la bande de données enfant '{1}' utilisent la même source de données '{2}'. Pour éviter une boucle, la bande de données enfant ne sera pas affichée.</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckShort>Une boucle de données est possible</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>Il y a plusieurs composants nommés '{0}'.</StiDuplicatedName2CheckLong>
+    <StiDuplicatedName3CheckLong>Il existe plusieurs sources de données portant le nom '{0}' qui diffèrent par la casse.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>Il y a plusieurs composants nommés '{0}'.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>Des composants ont le même nom</StiDuplicatedNameCheckShort>
+    <StiDuplicatedNameInSourceCheckShort>Doublons dans la source de données</StiDuplicatedNameInSourceCheckShort>
     <StiDuplicatedNameInSourceInDataRelationReportCheckLong>Les  relations'{0}' ont été trouvées dans le rapport. Elles ont des valeurs égales ('{1}') dans le nom dans la source. Toutes les valeurs dans Nom dans la source devraient être uniques dans une relations d'une base de données! Il est nécessaire de corriger ces champs de ces relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Doublons dans les relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Le nom du rapport '{0}' est le même que le nom de la source de données.</StiDuplicatedReportName2CheckLong>
@@ -244,6 +264,8 @@
   <CheckVariable>
     <StiVariableInitializationCheckLong>La variable '{0}' a une valeur par défaut erronée. Il est impossible d'initialiser la variable avec une valeur spécifique.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Initialisation de la valeur</StiVariableInitializationCheckShort>
+    <StiVariableNameCheckLong>Le nom de la variable "{0}" ne peut pas être utilisé car il est réservé.</StiVariableNameCheckLong>
+    <StiVariableNameCheckShort>Le nom de la variable est invalide.</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>La variable '{0}' a une expression avec une récursion. Il est impossible de référencer une variable dans sa propre expression.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Expression récursive</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>Afin que les variables dépendante puissent fonctionner correctement, leurs types et le type de leurs colonnes doivent correspondre.</StiVariableTypeCheckLong>
@@ -257,12 +279,36 @@
     <Strikeout>Une valeur qui indique si cette police est barrée.</Strikeout>
     <Underline>Une valeur qui indique si cette police est soulignée.</Underline>
   </Font>
+  <Parser>
+    <DivisionByZero>Division par zéro.</DivisionByZero>
+    <ExpressionIsEmpty>L'expression est vide.</ExpressionIsEmpty>
+    <FieldMethodOrPropertyNotFound>Champ, méthode ou propriété introuvable : '{0}'.</FieldMethodOrPropertyNotFound>
+    <FunctionHasInvalidArgument>La fonction '{0}' a un argument invalide '{1}' : impossible de convertir de '{2}' en '{3}'.</FunctionHasInvalidArgument>
+    <FunctionNotFound>La fonction est introuvable : '{0}'.</FunctionNotFound>
+    <FunctionNotYetImplemented>La fonction '{0}' n'est pas encore implémentée.</FunctionNotYetImplemented>
+    <IntegralConstantIsTooLarge>La constante entière est trop grande.</IntegralConstantIsTooLarge>
+    <ItemDoesNotContainDefinition>Le '{0}' ne contient pas de définition pour le '{1}'.</ItemDoesNotContainDefinition>
+    <LeftParenthesisExpected>( attendu.</LeftParenthesisExpected>
+    <MethodHasInvalidArgument>La méthode '{0}' a un argument invalide '{1}'. Impossible de convertir de '{2}' en '{3}'.</MethodHasInvalidArgument>
+    <NameDoesNotExistInCurrentContext>Le nom '{0}' n'existe pas dans le contexte actuel.</NameDoesNotExistInCurrentContext>
+    <NoMatchingOverloadedMethod>Il n'existe aucune méthode surchargée correspondante pour '{0}({1})'.</NoMatchingOverloadedMethod>
+    <NoOverloadForMethodTakesNArguments>Aucune surcharge de la méthode '{0}' ne prend '{1}' arguments.</NoOverloadForMethodTakesNArguments>
+    <OperatorCannotBeAppliedToOperands>L'opérateur '{0}' ne peut pas être appliqué aux opérandes de type '{1}' et de type '{2}'.</OperatorCannotBeAppliedToOperands>
+    <RightParenthesisExpected>) attendu.</RightParenthesisExpected>
+    <SyntaxError>Erreur de syntaxe.</SyntaxError>
+    <TheTypeOrNamespaceNotExistInTheNamespace>Le type ou le nom d'espace de noms '{0}' n'existe pas dans l'espace de noms '{1}'.</TheTypeOrNamespaceNotExistInTheNamespace>
+    <UnexpectedEndOfExpression>Fin inattendue de l'expression.</UnexpectedEndOfExpression>
+    <UnknownInternalError>Erreur interne inconnue.</UnknownInternalError>
+    <UnprocessedLexemesRemain>Erreur de syntaxe - des lexèmes non traités restent.</UnprocessedLexemesRemain>
+  </Parser>
   <Publish>
     <ActionDesign>Conception</ActionDesign>
     <ActionExport>Exporter</ActionExport>
     <ActionShow>Afficher</ActionShow>
     <AddNewConnection>Ajouter une nouvelle connexion</AddNewConnection>
     <Cancel>Annuler</Cancel>
+    <ChangeExportSettings>Modifier les paramètres d'exportation</ChangeExportSettings>
+    <ChangeExportSettingsToolTip>Le code pour créer la classe de paramètres du format d'exportation sélectionné sera ajouté. Dans le projet, vous pouvez modifier les paramètres d'exportation.</ChangeExportSettingsToolTip>
     <Close>Fermer</Close>
     <ConnectionsFromReport>Utiliser la connexion du rapport</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>Les connexions enregistrées dans le modèle de rapport seront utilisées sans aucune modification.</ConnectionsFromReportToolTip>
@@ -272,6 +318,8 @@
     <ConnectionsReplaceToolTip>Il vous sera proposé de modifier la connexion à partir du code, en fonction de son type - chemin du fichier, chaîne de connexion à la base de données.</ConnectionsReplaceToolTip>
     <Copy>Copier</Copy>
     <CopyingLibraries>Copie des fichiers du projet...</CopyingLibraries>
+    <DataAdapterPlatform>Plateforme de l'adaptateur de données</DataAdapterPlatform>
+    <DeployFormPlatform>Déployer le formulaire sur la plateforme :</DeployFormPlatform>
     <DeployReportPlatform>Déployer le rapport vers la plateforme:</DeployReportPlatform>
     <DownloadingLibraries>Téléchargement des librairies...</DownloadingLibraries>
     <EmbedAllDataToResources>Le rapport contient des connexions de données qui ne sont pas prises en charge sur la plate-forme sélectionnée. Souhaitez-vous intégrer les données disponibles dans le rapport en tant que ressources ? Dans ce cas, toutes les connexions seront remplacées par des ressources XML.</EmbedAllDataToResources>
@@ -281,6 +329,7 @@
     <ExportFormatDataType>Type de données:</ExportFormatDataType>
     <ExportFormatImage>Image</ExportFormatImage>
     <ExportFormatImageType>Type d'image:</ExportFormatImageType>
+    <FormAction>Que faire avec le formulaire :</FormAction>
     <FrameworkType>Type de Framework</FrameworkType>
     <FrameworkVersion>Version du Framework</FrameworkVersion>
     <FullScreenViewer>Afficher l'aperçu dans une fenêtre plein écran</FullScreenViewer>
@@ -293,6 +342,8 @@
     <HideOptions>Cacher les options</HideOptions>
     <IncludeFonts>Inclure les polices</IncludeFonts>
     <IncludeFontsToolTip>Les polices nécessaires au calcul correct des tailles des composants du rapport seront copiées et connectées au projet.</IncludeFontsToolTip>
+    <IncludeFormPackedStringToCode>Inclure le formulaire comme chaîne packée dans le code</IncludeFormPackedStringToCode>
+    <IncludeFormPackedStringToCodeToolTip>Le formulaire sera enregistré en tant que chaîne Base64 directement dans le code du projet. Cela vous permet de vous débarrasser des fichiers supplémentaires.</IncludeFormPackedStringToCodeToolTip>
     <IncludeLibrariesToStandalone>Inclure les bibliothèques Stimulsoft dans le fichier exécutable</IncludeLibrariesToStandalone>
     <IncludeLibrariesToStandaloneToolTip>Toutes les bibliothèques et tous les fichiers nécessaires seront inclus dans le fichier exécutable. Sinon, une archive ZIP sera créée.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Inclure la clé de licence</IncludeLicenseKey>
@@ -306,12 +357,15 @@
     <JavaScriptFramework>Type de framework:</JavaScriptFramework>
     <LicenseKeyTypeFile>Fiichier</LicenseKeyTypeFile>
     <LicenseKeyTypeString>Chaîne</LicenseKeyTypeString>
+    <LoadForm>Charger le formulaire depuis :</LoadForm>
     <LoadReport>Charger le rapport depuis:</LoadReport>
     <LoadReportAssembly>Assembly</LoadReportAssembly>
     <LoadReportByteArray>Tableau d'octets</LoadReportByteArray>
     <LoadReportClass>Classe</LoadReportClass>
     <LoadReportFile>Fichier</LoadReportFile>
     <LoadReportHyperlink>Hyperlien</LoadReportHyperlink>
+    <LoadReportOnServerSide>Charger le rapport côté serveur</LoadReportOnServerSide>
+    <LoadReportOnServerSideToolTip>Le fichier de rapport sera chargé côté serveur et transféré au composant sous forme de chaîne Base64. Cela évite les requêtes inutiles vers le serveur.</LoadReportOnServerSideToolTip>
     <LoadReportResource>Ressource</LoadReportResource>
     <LoadReportStream>Flux</LoadReportStream>
     <LoadReportString>Chaîne</LoadReportString>
@@ -322,8 +376,10 @@
     <ParametersReplaceToolTip>Il vous sera proposé de modifier les valeurs des paramètres du rapport à partir du code.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Demander à l'utilisateur</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>Le paramètre de rapport sera demandé à l'utilisateur lors de la visualisation du rapport dans la fenêtre de visualisation.</ParametersRequestFromUserToolTip>
+    <ProjectType>Type de projet :</ProjectType>
     <Publish>Publiier</Publish>
     <PublishType>Type de publication du rapport:</PublishType>
+    <PublishTypeForm>Type de publication du formulaire :</PublishTypeForm>
     <PublishTypeProject>Projet</PublishTypeProject>
     <PublishTypeProjectToolTip>Une archive ZIP sera créée avec le projet fini et tous les fichiers nécessaires pour une compilation et un lancement ultérieurs.</PublishTypeProjectToolTip>
     <PublishTypeStandalone>Autonome</PublishTypeStandalone>
@@ -337,22 +393,34 @@
     <ReplacePathToData>Remplacer le chemin de la donnée</ReplacePathToData>
     <ReportAction>Que faire avec le rapport:</ReportAction>
     <ReportErrors>Malheuresement, à cause d'erreurs, le rapport ne peut pas être publié !</ReportErrors>
+    <SaveExportedPagesToArchive>Enregistrer toutes les pages dans une archive ZIP</SaveExportedPagesToArchive>
+    <SaveExportedPagesToArchiveToolTip>Chaque page du rapport sera exportée au format d'image sélectionné, toutes les pages seront ajoutées dans une archive ZIP.</SaveExportedPagesToArchiveToolTip>
+    <SaveExportedReportToFile>Enregistrer le rapport exporté dans un fichier</SaveExportedReportToFile>
+    <SaveExportedReportToFileToolTip>Enregistrement du rapport exporté côté serveur dans le fichier spécifié. La fonction d'exportation retournera un résultat booléen.</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>Enregistrer le projet de paquet</SaveProjectPackage>
     <SaveStandalone>Enregistrer en autonome</SaveStandalone>
     <SaveStandalonePackage>Enregistrer le paquet autonome</SaveStandalonePackage>
     <SearchLibraries>Recherche des librairies...</SearchLibraries>
+    <ServerSideReportProcessing>Traitement du rapport côté serveur</ServerSideReportProcessing>
+    <ServerSideReportProcessingToolTip>Le chargement, la construction et l'exportation du rapport seront effectués côté serveur à l'aide de la plateforme Node.js.</ServerSideReportProcessingToolTip>
     <ShowMore>Afficher plus</ShowMore>
     <ShowOptions>Afficher les options</ShowOptions>
     <ThemeBackground>Arrière plan:</ThemeBackground>
     <ThemeStyle>Style du thème:</ThemeStyle>
     <TrialVersion>Version d'essai</TrialVersion>
+    <TrialVersionHasExpired>Version d'essai. Votre abonnement a expiré et nécessite un renouvellement.</TrialVersionHasExpired>
+    <TrialVersionNotIncluded>Version d'essai. Ce produit n'est pas inclus dans votre abonnement.</TrialVersionNotIncluded>
     <Use>Utiliser</Use>
     <UseCompilationCache>Utiliser le cache de compilation</UseCompilationCache>
     <UseCompilationCacheToolTip>Le rapport rendu sera enregistré dans un répertoire temporaire, ce qui vous permet d'accélérer son rendu et de réduire l'utilisation de la mémoire.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Utiliser lles scripts compressés</UseCompressedScripts>
     <UseCompressedScriptsToolTip>Des scripts compressés seront utilisés à la place des scripts normaux. Cela vous permet de réduire leur taille, mais il faut un certain temps pour décompresser lors de l'exécution.</UseCompressedScriptsToolTip>
+    <UseHtmlTemplate>Utiliser un modèle HTML</UseHtmlTemplate>
+    <UseHtmlTemplateToolTip>Utilisez un modèle HTML pour afficher le composant. Cela vous permet de placer d'autres éléments sur la page et d'utiliser des événements JavaScript.</UseHtmlTemplateToolTip>
     <UseLatestVersion>Utiliser la dernière version des librairies</UseLatestVersion>
     <UseLatestVersionToolTip>Lors de la connexion de bibliothèques et de scripts, la dernière version officielle disponible du produit sera utilisée à la place de la version actuellement installée.</UseLatestVersionToolTip>
+    <UseRenderedReport>Utiliser le rapport généré</UseRenderedReport>
+    <UseRenderedReportToolTip>Le rapport sera généré et enregistré au format document. Vous n'aurez plus besoin d'une connexion de données pour visualiser le rapport, mais toute interactivité et tous les paramètres du rapport ne seront plus disponibles.</UseRenderedReportToolTip>
     <UseWpfDesignerV2>Utiliser le concepteur V2</UseWpfDesignerV2>
     <UseWpfDesignerV2ToolTip>Le concepteur de rapport WPF mis à jour sera utilisé. Il a une nouvelle interface utilisateur, une vitesse accrue et d'autres optimisations.</UseWpfDesignerV2ToolTip>
   </Publish>
@@ -714,6 +782,9 @@
     <Style>Style de l'extrémité.</Style>
     <Width>Largeur de l'extrémité.</Width>
   </StiCap>
+  <StiCardsStyle>
+    <LineColor>La propriété définit la couleur qui sera utilisée pour dessiner les bordures des cartes.</LineColor>
+  </StiCardsStyle>
   <StiChart>
     <Area>Surface du graphique.</Area>
     <ChartType>Type de graphique.</ChartType>
@@ -739,6 +810,7 @@
     <InterlacingVert>Paramètres d'entrelacement sur l'axe vertical.</InterlacingVert>
     <ReverseHor>Une valeur indiquant que toutes les valeurs sur l'axe horizontal sont inversées.</ReverseHor>
     <ReverseVert>Une valeur indiquant que toutes les valeurs sur l'axe vertical sont inversées.</ReverseVert>
+    <SideBySide>Définit le mode d'agencement des éléments graphiques du graphique pour chaque argument - côte à côte ou le long de l'axe Z.</SideBySide>
     <XAxis>Paramètres de l'axe X.</XAxis>
     <XTopAxis>Paramètres de l'axe X du haut.</XTopAxis>
     <YAxis>Paramètres de l'axe Y.</YAxis>
@@ -822,6 +894,17 @@
     <Font>Police du titre de la légende.</Font>
     <Text>Un titre texte de légende.</Text>
   </StiChartLegendTitle>
+  <StiChartStyle>
+    <ChartAreaShowShadow>La propriété définit si l'ombre de la zone sera affichée ou non.</ChartAreaShowShadow>
+    <MarkerVisible>La propriété définit si le marqueur sera affiché ou non.</MarkerVisible>
+    <SeriesBorderThickness>La propriété définit l'épaisseur de la bordure de la série.</SeriesBorderThickness>
+    <SeriesLabelsLineColor>La propriété définit la couleur de la ligne des étiquettes de série.</SeriesLabelsLineColor>
+    <SeriesLighting>La propriété définit si l'éclairage du secteur sera affiché ou non.</SeriesLighting>
+    <SeriesShowBorder>La propriété définit si la bordure de la série sera affichée ou non.</SeriesShowBorder>
+    <SeriesShowShadow>La propriété définit si l'ombre de la série sera affichée ou non.</SeriesShowShadow>
+    <TrendLineColor>La propriété définit la couleur de la ligne de tendance.</TrendLineColor>
+    <TrendLineShowShadow>La propriété définit si l'ombre de la ligne de tendance sera affichée ou non.</TrendLineShowShadow>
+  </StiChartStyle>
   <StiChartTable>
     <Font>Police de la table du graphique.</Font>
     <GridLineColor>Couleur des lignes de grille.</GridLineColor>
@@ -880,6 +963,9 @@
     <Container>Conteneur clone.</Container>
     <ScaleHor>Une valeur indiquant que le contenu du conteneur sera agrandit ou réduit.</ScaleHor>
   </StiClone>
+  <StiClusteredColumnArea3D>
+    <SideBySide>Définit le mode d'agencement des éléments graphiques du graphique pour chaque argument - côte à côte ou le long de l'axe Z.</SideBySide>
+  </StiClusteredColumnArea3D>
   <StiClusteredColumnSeries>
     <Width>Facteur de largeur d'une série de barres. La valeur 1 équivaut à 100%.</Width>
   </StiClusteredColumnSeries>
@@ -983,6 +1069,7 @@
     <CrossFiltering>Obtient ou définit une valeur qui contrôle l'application de filtres croisés de la page actuelle à cet élément.</CrossFiltering>
     <DataRelation>Relation utilisée pour le rendu des rapports maître-détail.</DataRelation>
     <DataSource>Source de données utilisée pour obtenir les données.</DataSource>
+    <DecimalDigits>Le nombre de décimales à utiliser dans les valeurs.</DecimalDigits>
     <Disabled>L'état non interactif du composant.</Disabled>
     <DockStyle>Type d'ancrage.</DockStyle>
     <DoubleClickEvent>Se produit quand l'utilisateur double clique sur le composant dans la fenêtre d'aperçu.</DoubleClickEvent>
@@ -1009,12 +1096,15 @@
     <IconAlignment>L'alignement de l'icône qui sera affichée sur le composant.</IconAlignment>
     <IconBrush>Le pinceau d'icônes du composant.</IconBrush>
     <IconSet>L'ensemble des icônes utilisées dans le composant.</IconSet>
+    <InclusionMode>Spécifie le mode dans lequel cet élément s'applique au filtre.</InclusionMode>
     <Interaction>Options d'interaction du composant.</Interaction>
     <Left>Position gauche du composant.</Left>
     <Linked>Une valeur indiquant que le lien au conteneur est activé.</Linked>
     <Locked>Une valeur indiquant que le déplacement est impossible.</Locked>
     <Margin>Spécifie l'espace entre ce composant et la marge d'un autre composant.</Margin>
+    <Margins>Les marges (Gauche, Droite, Haut, Bas).</Margins>
     <MasterComponent>Composant maître.</MasterComponent>
+    <MaxSelectedItems>Limite le nombre maximum d'éléments pouvant être sélectionnés. Mettre 0 pour une sélection illimitée.</MaxSelectedItems>
     <MaxSize>Taille maximale.</MaxSize>
     <MinSize>Taille minimale.</MinSize>
     <MouseEnterEvent>Se produit quand la souris de l'utilisateur entre dans la surface du composant dans la fenêtre d'aperçu.</MouseEnterEvent>
@@ -1085,6 +1175,7 @@
     <SortDirection>Ordre de tri.</SortDirection>
     <SortType>Type de tri.</SortType>
     <Summary>Type de valeurs de résumé.</Summary>
+    <SummaryForFieldsInExpression>Si vrai, calcule d'abord le résumé pour les champs dans l'expression, puis calcule l'expression, sinon calcule le résumé pour l'ensemble de l'expression.</SummaryForFieldsInExpression>
     <SummaryValues>Type de zéros et de nuls additionnés.</SummaryValues>
     <UseStyleOfSummaryInColumnTotal>Valeur indiquant que le style de résumé sera utilisé dans le total de la colonne.</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>Valeur indiquant que le style de résumé sera utilisé dans le total de la ligne.</UseStyleOfSummaryInRowTotal>
@@ -1115,6 +1206,25 @@
     <Wrap>Valeur indiquant que le tableau croisé doit être rendu sur une seule colonne. Dans le même temps , tout ce qui ne tient pas en largeur est rendu dessous. Pour utiliser cette propriété, il est nécessaire d'activer la propriété Cassable sur la bande sur laquelle est placé le tableau croisé.</Wrap>
     <WrapGap>Espace entre deux partie d'un tableau croisé. Cette propriété est utilisée avec la propriété Wrap.</WrapGap>
   </StiCrossTab>
+  <StiCrossTabStyle>
+    <AlternatingCellBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan des lignes paires.</AlternatingCellBackColor>
+    <AlternatingCellForeColor>La propriété définit la couleur qui sera utilisée pour dessiner les valeurs dans les lignes paires.</AlternatingCellForeColor>
+    <CellBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan des cellules.</CellBackColor>
+    <CellForeColor>La propriété définit la couleur qui sera utilisée pour dessiner les valeurs dans les cellules.</CellForeColor>
+    <ColumnHeaderBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan des cellules d'en-tête de colonne.</ColumnHeaderBackColor>
+    <ColumnHeaderForeColor>La propriété définit la couleur qui sera utilisée pour dessiner le texte dans les cellules d'en-tête de colonne.</ColumnHeaderForeColor>
+    <HotColumnHeaderBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la cellule d'en-tête de colonne lorsque le curseur la survole.</HotColumnHeaderBackColor>
+    <HotRowHeaderBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la cellule d'en-tête de ligne lorsque le curseur la survole.</HotRowHeaderBackColor>
+    <LineColor>La propriété définit la couleur qui sera utilisée pour dessiner les bordures des cellules.</LineColor>
+    <RowHeaderBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan des cellules d'en-tête de ligne.</RowHeaderBackColor>
+    <RowHeaderForeColor>La propriété définit la couleur qui sera utilisée pour dessiner le texte dans les cellules d'en-tête de ligne.</RowHeaderForeColor>
+    <SelectedCellBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la cellule sélectionnée.</SelectedCellBackColor>
+    <SelectedCellForeColor>La propriété définit la couleur qui sera utilisée pour dessiner les valeurs dans les cellules sélectionnées.</SelectedCellForeColor>
+    <TotalCellColumnBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la colonne de cellule totale.</TotalCellColumnBackColor>
+    <TotalCellColumnForeColor>La propriété définit la couleur qui sera utilisée pour dessiner les valeurs dans la colonne de cellule totale.</TotalCellColumnForeColor>
+    <TotalCellRowBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la ligne de cellule totale.</TotalCellRowBackColor>
+    <TotalCellRowForeColor>La propriété définit la couleur qui sera utilisée pour dessiner les valeurs dans la ligne de cellule totale.</TotalCellRowForeColor>
+  </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>Se produit quand le rendu d'une bande commence.</BeginRenderEvent>
     <CalcInvisible>Valeur indiquant que, quand le calcul de fonctions d'agrégation, il est nécessaire de prendre en considération les bandes invisibles.</CalcInvisible>
@@ -1126,6 +1236,7 @@
     <EvenStyle>Valeur indiquant le style des lignes paires.</EvenStyle>
     <FilterEngine>Valeur indiquant comment un filtre sera appliqué aux données - au moyen du générateur de rapport ou au moyen de requête SQL.</FilterEngine>
     <FilterMode>Mode de filtre.</FilterMode>
+    <GapAfterLastColumn>La propriété permet d'ajouter un espace après la dernière colonne.</GapAfterLastColumn>
     <GetCollapsedEvent>Se produit quand la valeur replié est calculée.</GetCollapsedEvent>
     <KeepChildTogether>Valeur indiquant que les enfants doivent rester ensemble.</KeepChildTogether>
     <KeepDetailsTogether>Valeur indiquant que les détails doivent rester avec cette bande.</KeepDetailsTogether>
@@ -1133,6 +1244,7 @@
     <KeepGroupTogether>Valeur indiquant que les groupes doivent rester ensemble.</KeepGroupTogether>
     <KeepHeaderTogether>Valeur indiquant que le en-tête doit être imprimé avec les données.</KeepHeaderTogether>
     <MinRowsInColumn>Nombre minimum de ligne dans une colonne.</MinRowsInColumn>
+    <MultipleInitialization>Initialiser la source de données pour chaque conteneur et section de détail. Par exemple, les filtres seront appliqués pour chaque section de détail même si la relation n'est pas assignée.</MultipleInitialization>
     <OddStyle>Valeur indiquant le style des lignes impaires.</OddStyle>
     <PrintIfDetailEmpty>Valeur indiquant si les détails sont vides alors le maître doit être imprimé.</PrintIfDetailEmpty>
     <PrintOnAllPages>Valeur indiquant si le composant doit être imprimé sur toutes les pages.</PrintOnAllPages>
@@ -1451,6 +1563,16 @@
     <PrintIfEmpty>Valeur indiquant si l'en-te^te doit être imprime m^me si il n'y a pas de données.</PrintIfEmpty>
     <PrintOnAllPages>Valeur indiquant que le composant est imprimé sur toues les pages.</PrintOnAllPages>
   </StiHeaderBand>
+  <StiHeatmapStyleData>
+    <Color>Cette propriété définit la couleur qui sera utilisée pour remplir l'objet géographique Carte, qui contient la valeur maximale.</Color>
+    <Mode>La propriété définit le mode qui sera utilisé pour former la collection de couleurs de la carte thermique.</Mode>
+    <ZeroColor>Cette propriété définit la couleur qui sera utilisée pour remplir l'objet géographique Carte, qui contient la valeur zéro.</ZeroColor>
+  </StiHeatmapStyleData>
+  <StiHeatmapWithGroupStyleData>
+    <Colors>La propriété permet de créer une collection de couleurs. Chaque couleur de la collection sera utilisée comme couleur principale du groupe spécifique.</Colors>
+    <Mode>La propriété définit le mode qui sera utilisé pour former la collection de couleurs de la carte thermique.</Mode>
+    <ZeroColor>Cette propriété définit la couleur qui sera utilisée pour remplir l'objet géographique Carte, qui contient la valeur zéro.</ZeroColor>
+  </StiHeatmapWithGroupStyleData>
   <StiHierarchicalBand>
     <Footers>Liste de tous les pieds de la bande hiérarchique.</Footers>
     <Headers>Liste de tous les en-têtes de la bande hiérarchique.</Headers>
@@ -1474,6 +1596,12 @@
     <ImageURL>Expression pour remplir l'URL de l'image.</ImageURL>
     <ProcessingDuplicates>Valeur indiquant comment le moteur d'impression traite les images en doublon.</ProcessingDuplicates>
   </StiImage>
+  <StiIndicatorStyle>
+    <GlyphColor>La propriété définit la couleur qui sera utilisée pour dessiner l'icône.</GlyphColor>
+    <HotBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de l'indicateur lorsque le curseur le survole.</HotBackColor>
+    <NegativeColor>La propriété définit la couleur qui sera utilisée pour la valeur de variation lorsqu'elle est inférieure à zéro.</NegativeColor>
+    <PositiveColor>La propriété définit la couleur qui sera utilisée pour la valeur de variation lorsqu'elle est supérieure à zéro.</PositiveColor>
+  </StiIndicatorStyle>
   <StiInteraction>
     <AllowSeries>Valeur indiquant si l'opération d'analyse peut être exécutée sur les séries.</AllowSeries>
     <AllowSeriesElements>Valeur indiquant si l'opération d'analyse peut être exécutée sur les éléments des séries.</AllowSeriesElements>
@@ -1590,6 +1718,20 @@
     <KeysBinding>Liaison de données pour les clés.</KeysBinding>
     <SelectedKeyBinding>Liaison de données pour la clé sélectionnée.</SelectedKeyBinding>
   </StiLookUpBoxControl>
+  <StiMapStyle>
+    <BackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la carte.</BackColor>
+    <BorderColor>La propriété définit la couleur qui sera utilisée pour dessiner les bordures des objets géographiques de la carte.</BorderColor>
+    <BorderSize>La propriété définit la largeur de la bordure qui sera utilisée pour les objets géographiques de la carte.</BorderSize>
+    <BubbleBackColor>La propriété définit la couleur qui sera utilisée pour remplir les bulles de la carte.</BubbleBackColor>
+    <BubbleBorderColor>La propriété définit la couleur qui sera utilisée pour dessiner les bordures des bulles de la carte.</BubbleBorderColor>
+    <Colors>La propriété permet de créer un ensemble de couleurs qui sera utilisé pour remplir les objets géographiques de la carte lorsque le mode color each est utilisé.</Colors>
+    <DefaultColor>La propriété définit la couleur par défaut qui sera utilisée pour remplir les objets géographiques de la carte lorsque le type de carte est défini sur tout type sauf individuel.</DefaultColor>
+    <Heatmap>Les propriétés définies définissent les paramètres qui seront utilisés pour la carte thermique.</Heatmap>
+    <HeatmapWithGroup>Les propriétés définies définissent les paramètres qui seront utilisés pour la carte thermique avec groupe.</HeatmapWithGroup>
+    <IndividualColor>La propriété définit la couleur qui sera utilisée pour remplir les objets géographiques de la carte.</IndividualColor>
+    <LabelForeground>La propriété définit la couleur qui sera utilisée pour dessiner les étiquettes des objets géographiques de la carte.</LabelForeground>
+    <LabelShadowForeground>La propriété définit la couleur qui sera utilisée pour dessiner l'ombre de l'étiquette des objets géographiques de la carte.</LabelShadowForeground>
+  </StiMapStyle>
   <StiMargin>
     <Bottom>Cette valeur ajoute une marge à partir du coin inférieur du contrôle.</Bottom>
     <Left>Cette valeur ajoute une marge à partir du coin gauche du contrôle.</Left>
@@ -1722,6 +1864,11 @@
     <PrinterName>Nom de l'imprimante utilisée.</PrinterName>
     <ShowDialog>Une valeur indiquant que la boîte d'impression sera affichée ou non.</ShowDialog>
   </StiPrinterSettings>
+  <StiProgressStyle>
+    <BandColor>La propriété définit la couleur qui sera utilisée pour remplir la zone graphique de la valeur de progression.</BandColor>
+    <SeriesColors>La propriété permet de créer un ensemble de couleurs pour dessiner les séries de progression.</SeriesColors>
+    <TrackColor>La propriété définit la couleur qui sera utilisée pour remplir la piste de progression.</TrackColor>
+  </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Définit ou obtient le niveau de correction d'erreur.</ErrorCorrectionLevel>
     <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
@@ -1769,9 +1916,12 @@
     <EngineVersion>Le moteur d'impression courant.</EngineVersion>
     <ExportedEvent>Se ​​produit lorsque le rapport termine l'exportation.</ExportedEvent>
     <ExportingEvent>Se ​​produit lorsque le rapport commence à être exporté.</ExportingEvent>
+    <ExportSettings>Paramètres d'exportation</ExportSettings>
     <GlobalizationStrings>Liste des chaîne d'internationalisation.</GlobalizationStrings>
     <NumberOfPass>Nombre de passe effectuées par le moteur.</NumberOfPass>
+    <ParametersDisplayMode>Le mode d'affichage du panneau des paramètres : Panel - afficher les paramètres dans un panneau du visualiseur, Dialog - afficher les paramètres dans une fenêtre de dialogue.</ParametersDisplayMode>
     <ParametersOrientation>Une valeur indiquant les paramètres d'orientation.</ParametersOrientation>
+    <ParameterWidth>Obtient ou définit une largeur en pixels d'un paramètre dans le visualiseur. La valeur par défaut est utilisée si une valeur zéro est spécifiée.</ParameterWidth>
     <PreviewMode>Mode d'aperçu d'un rapport.</PreviewMode>
     <PreviewSettings>Contrôle ce qui sera visible en aperçu.</PreviewSettings>
     <PrintedEvent>Se ​​produit lorsque le rapport termine l'impression.</PrintedEvent>
@@ -2050,6 +2200,7 @@
   </StiTable>
   <StiTableElement>
     <Columns>Colonnes affichés dans la table</Columns>
+    <FiltersTarget>Obtient ou définit les données cibles auxquelles les filtres sont appliqués.</FiltersTarget>
     <Group />
     <SizeMode />
     <Style>Table style.</Style>
@@ -2058,6 +2209,20 @@
   <StiTableOfContents>
     <RightToLeft>Obtient ou définit la direction de sortie horizontale.</RightToLeft>
   </StiTableOfContents>
+  <StiTableStyle>
+    <AlternatingDataColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan des lignes alternées.</AlternatingDataColor>
+    <AlternatingDataForeground>La propriété définit la couleur qui sera utilisée pour dessiner la valeur dans les lignes alternées.</AlternatingDataForeground>
+    <DataColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan des lignes.</DataColor>
+    <DataForeground>La propriété définit la couleur qui sera utilisée pour dessiner la valeur dans les lignes.</DataForeground>
+    <FooterColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la ligne de pied de page.</FooterColor>
+    <FooterForeground>La propriété définit la couleur qui sera utilisée pour dessiner les valeurs dans la ligne de pied de page.</FooterForeground>
+    <GridColor>La propriété définit la couleur qui sera utilisée pour dessiner les bordures des cellules.</GridColor>
+    <HeaderColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la ligne d'en-tête.</HeaderColor>
+    <HeaderForeground>La propriété définit la couleur qui sera utilisée pour dessiner les valeurs dans la ligne d'en-tête.</HeaderForeground>
+    <HotHeaderColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la ligne d'en-tête lorsque le curseur la survole.</HotHeaderColor>
+    <SelectedDataColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan de la cellule sélectionnée.</SelectedDataColor>
+    <SelectedDataForeground>La propriété définit la couleur qui sera utilisée pour dessiner la valeur dans la cellule sélectionnée.</SelectedDataForeground>
+  </StiTableStyle>
   <StiText>
     <AllowHtmlTags>Une valeur indiquant si ce composant autorise les balises HTML dans le texte.</AllowHtmlTags>
     <Angle>Angle de rotation du texte.</Angle>
@@ -2086,6 +2251,9 @@
     <TextBinding>Liaison de données pour le texte.</TextBinding>
     <WordWrap>Retour à la ligne automatique.</WordWrap>
   </StiTextBoxControl>
+  <StiTextElement>
+    <SizeMode>Spécifie comment la sortie du texte dans la zone du composant dépend de la taille du texte.</SizeMode>
+  </StiTextElement>
   <StiTextInCells>
     <CellHeight>hauteur de la cellule.</CellHeight>
     <CellWidth>Largeur de la cellule.</CellWidth>
@@ -2145,6 +2313,14 @@
     <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
     <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
+  <StiUserFunction>
+    <InterpretationModeSwitchToBlocks>Ce rapport utilise le mode Interprétation. Les fonctions avec code ne fonctionneront pas. Nous recommandons de passer en mode Script sur Blocs.</InterpretationModeSwitchToBlocks>
+    <StiScriptAtInterpretationCheckLong>Le script dans la fonction utilisateur '{0}' ne fonctionne pas en mode interprétation.</StiScriptAtInterpretationCheckLong>
+    <StiScriptAtInterpretationCheckShort>Script en Interprétation</StiScriptAtInterpretationCheckShort>
+    <StiUserFunctionLangScriptValueCheckLong>Aucun script défini pour le langage {0} dans la fonction utilisateur '{1}'.</StiUserFunctionLangScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckLong>Aucun script spécifié pour le langage de programmation du rapport actuel dans la fonction utilisateur '{0}'.</StiUserFunctionScriptValueCheckLong>
+    <StiUserFunctionScriptValueCheckShort>Script</StiUserFunctionScriptValueCheckShort>
+  </StiUserFunction>
   <StiVariable>
     <Alias>Alias de la variable.</Alias>
     <Category>Catégorie de la variable.</Category>

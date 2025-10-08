@@ -144,6 +144,8 @@
     <StiNoNameComponentCheckShort>Die Komponente hat keinen Namen</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>Der Name des Seitenindex '{0}' nicht angegeben. Wenn der Name der Seite nicht angegeben wurde, kann die Engine den Report nicht aufbereiten.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>Eine Seite hat keinen Namen</StiNoNamePageCheckShort>
+    <StiPageLineAndDoublePassCheckLong>Die System-Variable PageLine fordert Double-Pass der Berichtsengine.</StiPageLineAndDoublePassCheckLong>
+    <StiPageLineAndDoublePassCheckShort>PageLine fordert Double-Pass!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>Das Panel '{0}' wurde im Report gefunden, der EngineV1 benutzt. Diese Komponente ist in der EngineV1 nicht verfügbar. Das Reportprogramm versucht diese Komponente als eine Container-Komponente zu behandeln. Aber die Panel-Komponente besitzt mehr Möglichkeiten im Vergleich zur Container-Komponenten. Dieses kann zu einer fehlerhaften Ausführung des des Reports führen.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>Panel in EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>Die Eigenschaft ' Köpfe und Füße der vorigen Seiten drucken' der Seite '{0}' ist auf wahr gesetzt. Ist überflüssig für die erste und einzige Seite.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -1102,6 +1104,7 @@
     <Margin>Legt den Raum zwischen dieser Komponente und den Rändern der anderen Komponente fest.</Margin>
     <Margins>Die Ränder (links, rechts, oben, unten).</Margins>
     <MasterComponent>Master-Komponente.</MasterComponent>
+    <MaxSelectedItems>Beschränkt die maximale Anzahl von Elementen, die ausgewählt werden können. Limits the maximum number of items that can be selected. Legen Sie 0 für unbeschränkte Auswahl fest.</MaxSelectedItems>
     <MaxSize>Maximale Größe.</MaxSize>
     <MinSize>Minimale Größe.</MinSize>
     <MouseEnterEvent>Tritt auf, wenn der Benutzer mit der Maus in der Komponente des Report-Viewers arbeitet.</MouseEnterEvent>
@@ -1916,6 +1919,7 @@
     <ExportSettings>Export-Einstellungen</ExportSettings>
     <GlobalizationStrings>Eine Sammlung von globalen Zeichenfolgen.</GlobalizationStrings>
     <NumberOfPass>Anzahl der der Durchläufe des Reportgenerators während der Reportaufbereitung.</NumberOfPass>
+    <ParametersDisplayMode>Der Anzeigen-Modus der Parameter-Leiste: Leiste - zeigt die Parameter auf der Leiste im Viewer, Dialog - zeigt die Parameter im Dialogfenster.</ParametersDisplayMode>
     <ParametersOrientation>Wert, der angibt, wie das Panel mit den Parameter-Eingabefeldern ausgerichtet wird.</ParametersOrientation>
     <ParameterWidth>Liest oder setzt die Breite in Pixeln des Parameters im Viewer. Der standardmäßiger Wert wird verwendet, wenn der Nullwert angegeben ist.</ParameterWidth>
     <PreviewMode>Vorschaumodus eines Bereichts.</PreviewMode>

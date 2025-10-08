@@ -144,6 +144,8 @@
     <StiNoNameComponentCheckShort>The component has no name</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>The name of the page with the '{0}' index is not specified. If the name of the page is not specified then the report engine will not compile the report.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>A page has no name</StiNoNamePageCheckShort>
+    <StiPageLineAndDoublePassCheckLong>The system variable PageLine requires Double-Pass of the report engine.</StiPageLineAndDoublePassCheckLong>
+    <StiPageLineAndDoublePassCheckShort>The PageLine requires Double-Pass!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>The '{0}' panel is found in the report where the EngineV1 is used. This component is not available in the EngineV1. So the reporting tool attempts to render it as a Container component. But the Panel component has more capabilities in compare with the Container and this may cause the incorrect report rendering.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>The panel in EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>The PrintHeadersAndFootersFromPreviousPage property of the '{0}' page is set to true. But for the first and the only page it has no sense.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -1102,6 +1104,7 @@
     <Margin>Specifies space between this component and another component's margin (Left, Top, Right, Bottom).</Margin>
     <Margins>The margins (Left, Right, Top, Bottom).</Margins>
     <MasterComponent>The master-component.</MasterComponent>
+    <MaxSelectedItems>Limits the maximum number of items that can be selected. Set to 0 for unlimited selection.</MaxSelectedItems>
     <MaxSize>Maximal size.</MaxSize>
     <MinSize>Minimal size.</MinSize>
     <MouseEnterEvent>Occurs when a user enters the mouse into the area of the component in the report viewer.</MouseEnterEvent>
@@ -1910,6 +1913,7 @@
     <ExportSettings>Export Settings</ExportSettings>
     <GlobalizationStrings>A collection which consists of globalization strings.</GlobalizationStrings>
     <NumberOfPass>Number of passes which the report generator makes while report rendering.</NumberOfPass>
+    <ParametersDisplayMode>The display mode of the parameters panel: Panel - show parameters in a panel in the viewer, Dialog - show parameters in a dialog window.</ParametersDisplayMode>
     <ParametersOrientation>A value which indicates parameters panel orientation.</ParametersOrientation>
     <ParameterWidth>Gets or sets a width in pixels of a parameter in the viewer. The default value is used if a zero value is specified.</ParameterWidth>
     <PreviewMode>The preview mode of a report.</PreviewMode>

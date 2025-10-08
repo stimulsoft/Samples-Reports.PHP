@@ -144,6 +144,8 @@
     <StiNoNameComponentCheckShort>요소에 이름이 없습니다.</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>'{0}'인덱스가있는 페이지의 이름이 지정되어 있지 않습니다. 페이지의 이름이 지정되지 않은 경우 보고서 엔진 보고서를 컴파일하지 않습니다.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>페이지에 이름이 없습니다.</StiNoNamePageCheckShort>
+    <StiPageLineAndDoublePassCheckLong>시스템 변수 PageLine은 보고서 엔진의 이중 패스(Double-Pass)를 필요로 합니다.</StiPageLineAndDoublePassCheckLong>
+    <StiPageLineAndDoublePassCheckShort>PageLine은 이중 패스가 필요합니다!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>'{0}'패널은 EngineV1가 사용되는 보고서입니다. 이 구성 요소는 EngineV1는 사용할 수 없습니다. 따라서 보고서 도구는 컨테이너 구성 요소로 렌더링하려고합니다. 그러나 Panel 구성 요소는 Container에 비해 더 많은 기능을 가지고 잘못된 보고서 렌더링을 일으킬 수 있습니다.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>EngineV1 패널</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>'{0}'페이지의 PrintHeadersAndFootersFromPreviousPage 속성이 true로 설정되어 있습니다. 그러나 첫 유일한 페이지에서는 의미가 없습니다.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -1102,6 +1104,7 @@
     <Margin>이 구성 요소와 다른 구성 요소의 여백 사이의 마진을 지정합니다.</Margin>
     <Margins>여백(왼쪽, 오른쪽, 위쪽, 아래쪽).</Margins>
     <MasterComponent>마스터 구성 요소</MasterComponent>
+    <MaxSelectedItems>선택할 수 있는 항목의 최대 개수를 제한합니다. 0으로 설정하면 무제한 선택이 가능합니다.</MaxSelectedItems>
     <MaxSize>최대 크기</MaxSize>
     <MinSize>최소 크기</MinSize>
     <MouseEnterEvent>사용자가 보고서 뷰어 구성 요소의 영역에 마우스를 놓을 때 발생</MouseEnterEvent>
@@ -1916,6 +1919,7 @@
     <ExportSettings>내보내기 설정</ExportSettings>
     <GlobalizationStrings>국제화 문자열로 구성된 컬렉션</GlobalizationStrings>
     <NumberOfPass>보고서 생성시 보고서 생성기를 만들 경로의 수</NumberOfPass>
+    <ParametersDisplayMode>매개변수 패널의 표시 모드: 패널 - 뷰어 내 패널에 매개변수를 표시, 대화상자 - 대화상자 창에 매개변수를 표시.</ParametersDisplayMode>
     <ParametersOrientation>매개 변수 패널 방향을 나타내는 값</ParametersOrientation>
     <ParameterWidth>뷰어에서 매개 변수의 너비를 픽셀 단위로 가져오거나 설정합니다. 0 값이 지정된 경우 기본값이 사용됩니다.</ParameterWidth>
     <PreviewMode>보고서 미리보기 모드</PreviewMode>
