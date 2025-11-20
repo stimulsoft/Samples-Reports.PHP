@@ -85,11 +85,9 @@ StiHandler.prototype.send = function (data, callback) {
     let request = new XMLHttpRequest();
     try {
         request.open('post', this.url, true);
+        request.withCredentials = true;
         request.setRequestHeader('Cache-Control', 'max-age=0, no-cache, no-store, must-revalidate');
         request.setRequestHeader('Pragma', 'no-cache');
-
-        if (this.cookie)
-            request.setRequestHeader('Cookie', this.cookie);
 
         if (this.csrfToken) {
             request.setRequestHeader('X-CSRFToken', this.csrfToken);
@@ -140,6 +138,7 @@ StiHandler.prototype.send = function (data, callback) {
 
 StiHandler.prototype.https = function (data, callback) {
     let uri = require('url').parse(this.url);
+    let dataLength = data ? Buffer.byteLength(data, 'utf8') : 0;
     let options = {
         host: uri.hostname,
         port: uri.port,
@@ -149,11 +148,17 @@ StiHandler.prototype.https = function (data, callback) {
         headers: {
             'Cache-Control': 'max-age=0, no-cache, no-store, must-revalidate',
             'Pragma': 'no-cache',
-            'Cookie': this.cookie,
-            'X-CSRFToken': this.csrfToken,
-            'X-CSRF-Token': this.csrfToken,
+            'Content-Length': dataLength,
             'X-NodeJS-Id': this.nodejsId
         }
+    }
+
+    if (this.cookie)
+        options.headers['Cookie'] = this.cookie;
+
+    if (this.csrfToken) {
+        options.headers['X-CSRFToken'] = this.csrfToken;
+        options.headers['X-CSRF-Token'] = this.csrfToken;
     }
 
     let responseText = '';
