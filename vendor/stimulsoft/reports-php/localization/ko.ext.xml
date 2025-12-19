@@ -1940,7 +1940,7 @@
     <RequestParameters>사용자가 보고서를 렌더링하기 전에 매개 변수를 요구하거나 기본값 매개 변수를 사용하여 보고서를 렌더링할지 여부를 나타내는 값을 가져 오거나 설정합니다.</RequestParameters>
     <ScriptLanguage>현재 스크립트 언어</ScriptLanguage>
     <StopBeforePage>페이지 번호이 페이지에 도달하면 보고서의 렌더링이 중지</StopBeforePage>
-    <StoreImagesInResources>보고서의 이미지가 어셈블리 리소스로 저장되는 것을 나타내는 값</StoreImagesInResources>
+    <StoreImagesInResources>보고서의 이미지가 리소스로 저장되는 것을 나타내는 값</StoreImagesInResources>
     <Styles>스타일로 구성된 컬렉션</Styles>
   </StiReport>
   <StiReportControl>

@@ -144,8 +144,8 @@
     <StiNoNameComponentCheckShort>Компонент без имени</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>У страницы с индексом '{0}' не указано имя. Если не указать имя страницы, то ядро генератора отчетов не сможет скомпилировать отчет.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>Страница без имени</StiNoNamePageCheckShort>
-	<StiPageLineAndDoublePassCheckLong>Системная переменная PageLine требует использования двойного прохода при построении отчета.</StiPageLineAndDoublePassCheckLong>
-	<StiPageLineAndDoublePassCheckShort>PageLine требует Double-Pass!</StiPageLineAndDoublePassCheckShort>
+    <StiPageLineAndDoublePassCheckLong>Системная переменная PageLine требует использования двойного прохода при построении отчета.</StiPageLineAndDoublePassCheckLong>
+    <StiPageLineAndDoublePassCheckShort>PageLine требует Double-Pass!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>В отчете, в котором применяется EngineV1, найдена панель '{0}'. Этот компонент недоступен в EngineV1, поэтому генератор отчетов попытается построить его как компонент Контейнер. Однако, компонент Панель имеет расширенные возможности по сравнению с компонентом Контейнер, и это может привести к неверному построению всего отчета.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>Панель в EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>У страницы '{0}' задано значение свойства PrintHeadersAndFootersFromPreviousPage равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -1096,7 +1096,7 @@
     <IconAlignment>Выравнивание значка, который будет отображаться на компоненте.</IconAlignment>
     <IconBrush>Кисть значка компонента.</IconBrush>
     <IconSet>Набор значков используемых для компонента.</IconSet>
-	<InclusionMode>Режим, в котором элементы компонента применяется к фильтру.</InclusionMode>
+    <InclusionMode>Режим, в котором элементы компонента применяется к фильтру.</InclusionMode>
     <Interaction>Параметры взаимодействия данного компонента.</Interaction>
     <Left>Левая позиция компонента.</Left>
     <Linked>Значение, которое указывает, что привязка объекта к контейнеру включена.</Linked>
@@ -1104,7 +1104,7 @@
     <Margin>Задает расстояние между этим компонентом и границами другого компонента (cлева, cверху, справа, снизу).</Margin>
     <Margins>Отступы снаружи (слева, справа, сверху, снизу).</Margins>
     <MasterComponent>Мастер-компонент.</MasterComponent>
-	<MaxSelectedItems>Ограничивает максимальное количество элементов, которые можно выбрать. Установите значение 0 для неограниченного выбора.</MaxSelectedItems>
+    <MaxSelectedItems>Ограничивает максимальное количество элементов, которые можно выбрать. Установите значение 0 для неограниченного выбора.</MaxSelectedItems>
     <MaxSize>Максимальный размер.</MaxSize>
     <MinSize>Минимальный размер.</MinSize>
     <MouseEnterEvent>Срабатывает, когда пользователь наводит мышью на область компонента в окне предварительного просмотра.</MouseEnterEvent>
@@ -1920,7 +1920,7 @@
     <ExportSettings>Параметры экспорта</ExportSettings>
     <GlobalizationStrings>Коллекция, которая содержит GlobalizationStrings.</GlobalizationStrings>
     <NumberOfPass>Количество проходов, которые генератор отчетов делает при построении отчета.</NumberOfPass>
-	<ParametersDisplayMode>Режим отображения панели параметров: Панель — отображение параметров в панели во вьювере, Диалог — отображение параметров в диалоговом окне.</ParametersDisplayMode>
+    <ParametersDisplayMode>Режим отображения панели параметров: Панель — отображение параметров в панели во вьювере, Диалог — отображение параметров в диалоговом окне.</ParametersDisplayMode>
     <ParametersOrientation>Ориентация панели параметров во вьювере отчетов.</ParametersOrientation>
     <ParameterWidth>Определяет ширину параметра во вьювере в пикселях. Значение по умолчанию используется, если указано нулевое значение.</ParameterWidth>
     <PreviewMode>Режим просмотра отчета.</PreviewMode>
@@ -1941,7 +1941,7 @@
     <RequestParameters>Свойство управляет вводом параметров перед построением отчета. Если значение свойства равно истине, то параметры будут запрашиваться обязательно.</RequestParameters>
     <ScriptLanguage>Текущий язык скрипта.</ScriptLanguage>
     <StopBeforePage>Номер страницы. Когда достигнута данная страница, то построение отчета останавливается.</StopBeforePage>
-    <StoreImagesInResources>Значение определяет, что изображения будут храниться как assembly resources.</StoreImagesInResources>
+    <StoreImagesInResources>Значение определяет, что изображения будут храниться как ресурсы.</StoreImagesInResources>
     <Styles>Коллекция стилей.</Styles>
   </StiReport>
   <StiReportControl>

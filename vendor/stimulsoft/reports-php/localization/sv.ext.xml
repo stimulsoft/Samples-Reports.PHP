@@ -1283,7 +1283,7 @@
     <RequestParameters>Hämtar eller ställer in värde som anger om att begära parametrar från en användare innan rapport rendering eller avge en rapport med standardvärdet för parametrarna.</RequestParameters>
     <ScriptLanguage>Det aktuella skriptspråk.</ScriptLanguage>
     <StopBeforePage>Ett sidnummer. När denna sida är nådd då rapporten rendering stoppas.</StopBeforePage>
-    <StoreImagesInResources>Ett värde som visar att bilder från rapporten kommer att lagras som monteringsresurser.</StoreImagesInResources>
+    <StoreImagesInResources>Ett värde som visar att bilder från rapporten kommer att lagras som resurser.</StoreImagesInResources>
     <Styles>En kollektion som består av stilar.</Styles>
   </StiReport>
   <StiReportControl>

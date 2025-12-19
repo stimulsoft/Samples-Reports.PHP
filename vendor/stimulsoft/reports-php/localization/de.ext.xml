@@ -1940,7 +1940,7 @@
     <RequestParameters>Lesen oder setzen eines Wertes, der anzeigt, ob vor der Ausführung des Reports Parameter vom Benutzer anzuforderen sind oder ob die Reportausführung mit Standardwerten erfolgt.</RequestParameters>
     <ScriptLanguage>Die aktuelle Scriptsprache.</ScriptLanguage>
     <StopBeforePage>Seitennummer. Beim Erreichen dieser Seitennummer wird die Reportaufbereitung abgebrochen.</StopBeforePage>
-    <StoreImagesInResources>Wert, der angibt, das Bildes aus dem Report in die Assembly Ressources gespeichert werden.</StoreImagesInResources>
+    <StoreImagesInResources>Wert, der angibt, dass Bilder aus dem Report in die Ressourcen gespeichert werden.</StoreImagesInResources>
     <Styles>Sammlung von Arten.</Styles>
   </StiReport>
   <StiReportControl>

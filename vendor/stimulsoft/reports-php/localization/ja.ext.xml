@@ -144,6 +144,8 @@
     <StiNoNameComponentCheckShort>コンポーネントに名前がありません。</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>'{0}'インデックスを持つページの名前が指定されていません。ページの名前が指定されていない場合、レポートエンジンはレポートをコンパイルしません。</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>ページに名前がありません。</StiNoNamePageCheckShort>
+    <StiPageLineAndDoublePassCheckLong>システム変数 PageLine を使用するには、レポートエンジンのダブルパスが必要です。</StiPageLineAndDoublePassCheckLong>
+    <StiPageLineAndDoublePassCheckShort>PageLine を使用するにはダブルパスが必要です！</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>'{0}'パネルは、EngineV1が使用されているレポートにあります。このコンポーネントはEngineV1では使用できません。したがって、レポートツールはコンテナコンポーネントとしてレンダリングしようとします。しかしPanelコンポーネントはContainerと比較してより多くの機能を持ち、不正なレポートレンダリングを引き起こす可能性があります。</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>EngineV1のパネル</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>'{0}'ページのPrintHeadersAndFootersFromPreviousPageプロパティがtrueに設定されています。しかし最初の唯一のページでは意味がありません。</StiPrintHeadersAndFootersFromPreviousPageLong>
@@ -1104,6 +1106,7 @@
     <Margin>このコンポーネントと別のコンポーネントのマージンの間のスペースを指定します。</Margin>
     <Margins>余白（左、右、上、下）</Margins>
     <MasterComponent>マスターコンポーネント</MasterComponent>
+    <MaxSelectedItems>選択可能な項目の最大数を制限します。0 に設定すると無制限に選択できます。</MaxSelectedItems>
     <MaxSize>最大サイズ</MaxSize>
     <MinSize>最小サイズ</MinSize>
     <MouseEnterEvent>ユーザーがレポートビューアのコンポーネントの領域にマウスを置いたときに発生</MouseEnterEvent>
@@ -1921,6 +1924,7 @@
     <ExportSettings>エクスポート設定</ExportSettings>
     <GlobalizationStrings>グローバリゼーション文字列で構成されるコレクション</GlobalizationStrings>
     <NumberOfPass>レポート生成時にレポートジェネレータが作成するパスの数</NumberOfPass>
+    <ParametersDisplayMode>パラメータパネルの表示モード： Panel - ビューア内のパネルにパラメータを表示、Dialog - ダイアログウィンドウで表示します。</ParametersDisplayMode>
     <ParametersOrientation>パラメータのパネル方向を示す値</ParametersOrientation>
     <ParameterWidth>Gets or sets a width in pixels of a parameter in the viewer. The default value is used if a zero value is specified.</ParameterWidth>
     <PreviewMode>レポートのプレビューモード</PreviewMode>
@@ -1941,7 +1945,7 @@
     <RequestParameters>ユーザーがレポートをレンダリングする前にパラメータを要求するか、デフォルト値のパラメータを使用してレポートをレンダリングするかを示す値を取得または設定します。</RequestParameters>
     <ScriptLanguage>現在のスクリプト言語</ScriptLanguage>
     <StopBeforePage>ページ番号　このページに達すると、レポートのレンダリングが停止</StopBeforePage>
-    <StoreImagesInResources>レポートのイメージがアセンブリリソースとして格納されることを示す値</StoreImagesInResources>
+    <StoreImagesInResources>レポートのイメージがリソースとして格納されることを示す値</StoreImagesInResources>
     <Styles>スタイルで構成されるコレクション</Styles>
   </StiReport>
   <StiReportControl>

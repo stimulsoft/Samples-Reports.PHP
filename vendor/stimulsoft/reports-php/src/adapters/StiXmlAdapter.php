@@ -11,7 +11,7 @@ class StiXmlAdapter extends StiFileAdapter
 ### Properties
 
     /** @var string Current version of the data adapter. */
-    public $version = '2025.4.3';
+    public $version = '2026.1.1';
 
     /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = true;

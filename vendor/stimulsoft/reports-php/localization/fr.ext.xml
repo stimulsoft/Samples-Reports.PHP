@@ -1940,7 +1940,7 @@
     <RequestParameters>Définit ou obtient une valeur qui indique si il faut demander les paramètres à l'utilisateur avant le rendu du rapport effectuer un rendu avec la valeur par défaut des paramètres.</RequestParameters>
     <ScriptLanguage>Langage du script.</ScriptLanguage>
     <StopBeforePage>Numéro de page. Quand cette page est atteinte, le rendu du rapport est stoppé.</StopBeforePage>
-    <StoreImagesInResources>Une valeur indiquant que les images du rapport seront stockées en tant que ressource de l'assembly.</StoreImagesInResources>
+    <StoreImagesInResources>Une valeur indiquant que les images du rapport seront stockées en tant que ressource.</StoreImagesInResources>
     <Styles>Collection de styles.</Styles>
   </StiReport>
   <StiReportControl>

@@ -1934,7 +1934,7 @@
     <RequestParameters>Gets or sets value which indicates whether to request parameters from a user before report rendering or render a report with the default value of parameters.</RequestParameters>
     <ScriptLanguage>The current script language.</ScriptLanguage>
     <StopBeforePage>A page number. When this page is reached then the report rendering is stopped.</StopBeforePage>
-    <StoreImagesInResources>A value indicates that images from report will be stored as assembly resources.</StoreImagesInResources>
+    <StoreImagesInResources>A value indicates that images from report will be stored as resources.</StoreImagesInResources>
     <Styles>A collection which consists of styles.</Styles>
   </StiReport>
   <StiReportControl>
