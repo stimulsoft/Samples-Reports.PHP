@@ -71,7 +71,7 @@ class StiDesigner extends StiComponent
 
     private function getCreateReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         $result = $this->onCreateReport->getResult($args);
         if ($result != null && property_exists($result, "report") && $args->report != $this->handler->request->report)
             $result->report = $args->report;
@@ -81,25 +81,25 @@ class StiDesigner extends StiComponent
 
     private function getOpenedReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         return $this->onOpenedReport->getResult($args);
     }
 
     private function getSaveReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         return $this->onSaveReport->getResult($args);
     }
 
     private function getSaveAsReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         return $this->onSaveAsReport->getResult($args);
     }
 
     private function getPreviewReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         $result = $this->onPreviewReport->getResult($args);
         if ($result != null && property_exists($result, "report") && $args->report != $this->handler->request->report)
             $result->report = $args->report;
@@ -109,7 +109,7 @@ class StiDesigner extends StiComponent
 
     private function getCloseReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         return $this->onCloseReport->getResult($args);
     }
 

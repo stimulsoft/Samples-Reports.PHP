@@ -69,7 +69,7 @@ class StiViewer extends StiComponent
 
     private function getOpenedReportResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         $result = $this->onOpenedReport->getResult($args);
         if ($result != null && property_exists($result, "report") && $args->report != $this->handler->request->report)
             $result->report = $args->report;
@@ -79,7 +79,7 @@ class StiViewer extends StiComponent
 
     private function getPrintReportResult()
     {
-        $args = new StiPrintEventArgs($this->handler->request);
+        $args = new StiPrintEventArgs($this->handler->request, $this);
         $result = $this->onPrintReport->getResult($args);
         if ($result != null) {
             if ($args->report != $this->handler->request->report && property_exists($result, "report"))
@@ -94,7 +94,7 @@ class StiViewer extends StiComponent
 
     private function getBeginExportReportResult()
     {
-        $args = new StiExportEventArgs($this->handler->request);
+        $args = new StiExportEventArgs($this->handler->request, $this);
         $result = $this->onBeginExportReport->getResult($args);
         if ($result != null) {
             if ($args->fileName != $this->handler->request->fileName && property_exists($result, "fileName"))
@@ -109,19 +109,19 @@ class StiViewer extends StiComponent
 
     private function getEndExportReportResult()
     {
-        $args = new StiExportEventArgs($this->handler->request);
+        $args = new StiExportEventArgs($this->handler->request, $this);
         return $this->onEndExportReport->getResult($args);
     }
 
     /*private function getInteractionResult()
     {
-        $args = new StiReportEventArgs($this->handler->request);
+        $args = new StiReportEventArgs($this->handler->request, $this);
         return $this->onInteraction->getResult($args);
     }*/
 
     private function getEmailReportResult()
     {
-        $args = new StiEmailEventArgs($this->handler->request);
+        $args = new StiEmailEventArgs($this->handler->request, $this);
 
         if ($args->settings == null)
             $args->settings = new StiEmailSettings();
@@ -135,9 +135,20 @@ class StiViewer extends StiComponent
         if ($result == null || $result->success == false)
             return $result;
 
-        $tempFile = 'tmp/' . StiFunctions::newGuid() . '_' . $args->fileName;
-        if (!file_exists('tmp')) mkdir('tmp');
-        file_put_contents($tempFile, base64_decode($args->data));
+        $tempDir = sys_get_temp_dir();
+        $tempFile = $tempDir . DIRECTORY_SEPARATOR . StiFunctions::newGuid() . '_' . basename($args->fileName);
+        $tempData = base64_decode($args->data, true);
+
+        if ($tempData === false)
+            return StiResult::getError("Error sending Email: Attached report data is not valid Base64.");
+
+        if ($tempData === '')
+            return StiResult::getError("Error sending Email: Attached report file has 0 bytes.");
+
+        $tempWritten = file_put_contents($tempFile, $tempData);
+
+        if ($tempWritten === false)
+            return StiResult::getError("Error sending Email: Cannot write temporary attachment file.");
 
         $mailer = new PHPMailer(true);
 
@@ -147,31 +158,31 @@ class StiViewer extends StiComponent
         if ($auth) $mailer->isSMTP();
 
         try {
-            $mailer->CharSet = $args->settings->charset;
+            $mailer->CharSet = $args->settings->charset ?: 'UTF-8';
             $mailer->isHTML(false);
-            $mailer->From = $args->settings->from;
-            $mailer->FromName = $args->settings->name;
+            $mailer->setFrom($args->settings->from, $args->settings->name ?? '');
 
             // Add Emails list
-            $emails = preg_split('/[,;]/', $args->settings->to);
-            foreach ($emails as $args->settings->to) {
-                $mailer->addAddress(trim($args->settings->to));
+            $emails = preg_split('/[,;]/', (string)$args->settings->to) ?: [];
+            foreach ($emails as $email) {
+                $email = trim($email);
+                if ($email !== '') $mailer->addAddress($email);
             }
 
             // Fill email fields
-            $mailer->Subject = htmlspecialchars($args->settings->subject);
+            $mailer->Subject = $args->settings->subject;
             $mailer->Body = $args->settings->message;
             $mailer->addAttachment($tempFile, $args->settings->attachmentName);
 
             // Fill auth fields
             if ($auth) {
                 $mailer->Host = $args->settings->host;
-                $mailer->Port = $args->settings->port;
+                $mailer->Port = (int)$args->settings->port;
                 $mailer->Username = $login;
                 $mailer->Password = $args->settings->password;
 
                 $mailer->SMTPAuth = true;
-                $mailer->SMTPSecure = $args->settings->secure;
+                $mailer->SMTPSecure = $args->settings->secure ?: '';
                 $mailer->SMTPOptions = [
                     'ssl' => [
                         'verify_peer' => false,
@@ -192,7 +203,7 @@ class StiViewer extends StiComponent
             return StiResult::getError($error);
         }
         finally {
-            unlink($tempFile);
+            if (is_file($tempFile)) @unlink($tempFile);
         }
 
         return $result;

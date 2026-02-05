@@ -62,8 +62,11 @@ class StiEventArgs
 
 ### Constructor
 
-    public function __construct($request = null)
+    public function __construct($request = null, $sender = null)
     {
+        if ($sender !== null)
+            $this->sender = $sender;
+
         if ($request !== null)
             $this->setObject($request);
     }
