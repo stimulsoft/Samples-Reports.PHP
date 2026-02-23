@@ -143,6 +143,7 @@ require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiFirstDayOf
 require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiInterfaceType.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiNewReportDictionary.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiPropertiesGridPosition.php';
+require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiPropertiesPanelViewMode.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiReportUnitType.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiUseAliases.php';
 require_once __DIR__ . '/stimulsoft/reports-php/src/designer/enums/StiWebUIIconSet.php';

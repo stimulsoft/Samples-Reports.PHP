@@ -115,6 +115,9 @@ class StiAppearanceOptions extends StiComponentOptions
     /** @var bool Gets or sets a value that allows event propagation outside the viewer. */
     public $allowPropagationEvents = true;
 
+    /** @var int Gets or sets the height of items in the dashboard filter element in the viewer. */
+    public $dashboardFilterElementItemHeight = 0;
+
 
 ### Helpers
 

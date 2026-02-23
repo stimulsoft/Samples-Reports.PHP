@@ -7,6 +7,7 @@ use Stimulsoft\Designer\Enums\StiDesignerTheme;
 use Stimulsoft\Designer\Enums\StiFirstDayOfWeek;
 use Stimulsoft\Designer\Enums\StiInterfaceType;
 use Stimulsoft\Designer\Enums\StiPropertiesGridPosition;
+use Stimulsoft\Designer\Enums\StiPropertiesPanelViewMode;
 use Stimulsoft\Designer\Enums\StiReportUnitType;
 use Stimulsoft\Designer\Enums\StiWebUIIconSet;
 use Stimulsoft\Designer\Enums\StiWizardType;
@@ -102,6 +103,9 @@ class StiAppearanceOptions extends StiComponentOptions
 
     /** @var bool Gets or sets a value that allows event propagation outside the designer. */
     public $allowPropagationEvents = true;
+
+    /** @var StiPropertiesPanelViewMode [enum] Gets or sets a view mode of the properties panel in the designer. */
+    public $propertiesPanelViewMode = StiPropertiesPanelViewMode::Pinned;
 
 
 ### Helpers

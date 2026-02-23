@@ -23,7 +23,7 @@ class StiMongoDbAdapter extends StiSqlAdapter
 ### Properties
 
     /** @var string Current version of the data adapter. */
-    public $version = '2026.1.3';
+    public $version = '2026.1.4';
 
     /** @var bool Sets the version matching check on the server and client sides. */
     public $checkVersion = true;
