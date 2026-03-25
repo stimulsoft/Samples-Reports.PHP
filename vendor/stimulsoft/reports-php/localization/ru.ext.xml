@@ -247,6 +247,8 @@
     <StiCompilationErrorCheck3Long>Выявлена ошибка компиляции в событии '{1}' компонента '{2}':</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>В отчете '{0}' выявлена ошибка компиляции:'</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Ошибка компиляции</StiCompilationErrorCheckShort>
+    <StiCompilationWarningCheckLong>В отчете '{0}' выявлено предупреждение компиляции:</StiCompilationWarningCheckLong>
+    <StiCompilationWarningCheckShort>Предупреждение компиляции</StiCompilationWarningCheckShort>
     <StiDataSourceLoopingCheckLong>Бэнд Данные '{0}' и подчиненный бэнд Данные '{1}' используют один и тот же источник данных '{2}'. Во избежание зацикливанния, подчиненный бэнд Данные не будет отображаться.</StiDataSourceLoopingCheckLong>
     <StiDataSourceLoopingCheckShort>Возможно зацикливание данных.</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>Найдены источники данных с одинаковым именем '{0}'. Компиляция отчета невозможна.</StiDuplicatedName2CheckLong>

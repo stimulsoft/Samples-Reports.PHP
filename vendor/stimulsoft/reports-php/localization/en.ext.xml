@@ -247,6 +247,8 @@
     <StiCompilationErrorCheck3Long>The error of compilation is found in the '{1}' event of the '{2}' component:</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>The error of compilation is found in the '{0}' report:</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>The error of compilation</StiCompilationErrorCheckShort>
+    <StiCompilationWarningCheckLong>A compilation warning is found in the '{0}' report:</StiCompilationWarningCheckLong>
+    <StiCompilationWarningCheckShort>A compilation warning</StiCompilationWarningCheckShort>
     <StiDataSourceLoopingCheckLong>Data band '{0}' and child data band '{1}' use the same data source '{2}'. To avoid looping, the child data band will not be shown.</StiDataSourceLoopingCheckLong>
     <StiDataSourceLoopingCheckShort>Data looping is possible</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>There are several data sources with the '{0}' name.</StiDuplicatedName2CheckLong>
