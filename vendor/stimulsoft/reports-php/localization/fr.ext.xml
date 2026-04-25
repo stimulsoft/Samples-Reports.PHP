@@ -52,6 +52,7 @@
     <StiOrientationPageToLandscapeActionShort>Orientation en paysage</StiOrientationPageToLandscapeActionShort>
     <StiOrientationPageToPortraitActionLong>Change l'orientation de la page en portrait. La taille de la page ne sera pas modifiée.</StiOrientationPageToPortraitActionLong>
     <StiOrientationPageToPortraitActionShort>Orientation en portrait</StiOrientationPageToPortraitActionShort>
+    <StiPageFooterOnlyLastPageActionLong>Convertir PageFooter en ReportSummary</StiPageFooterOnlyLastPageActionLong>
     <StiPrintHeadersFootersFromPreviousPageLong>Définir la propriété Imprimer les entêtes et pieds de page des pages précédentes à non.</StiPrintHeadersFootersFromPreviousPageLong>
     <StiPrintOnPreviousPageLong>Définir la propriété Imprimer sur la page précédente à non.</StiPrintOnPreviousPageLong>
     <StiPropertiesOnlyEngineV1ActionLong>Désactiver les propriétés du composant '{0}' qui ne sont pas supportées par l'EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
@@ -144,6 +145,8 @@
     <StiNoNameComponentCheckShort>Le composant n'a pas de nom</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>La page à l'index '{0}' n'a pas de nom. Si vous ne spécifiez pas de nom pour la page, le moteur d'impression ne pourra pas compiler le rapport.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>La page n'a pas de nom</StiNoNamePageCheckShort>
+    <StiPageFooterOnlyLastPageCheckLong>La bande {0} avec la propriété PrintOn=OnlyLastPage crée des lacunes indésirables au bas de la page. Il est recommandé de la remplacer par ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
+    <StiPageFooterOnlyLastPageCheckShort>Probabilité d'apparition de lacunes</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>La variable système PageLine nécessite un double passage du moteur de rapport.</StiPageLineAndDoublePassCheckLong>
     <StiPageLineAndDoublePassCheckShort>PageLine nécessite un double passage !</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>Le panneau '{0}' a été trouvé dans le rapport alors que l'EngineV1 est utilisé. Ce composant n'est pas disponible dans l'EngineV1. Le moteur d'impression essaiera de le rendre comme un conteneur. Cependant, le panneau a plus de fonctionnalités que le conteneur et cela peut causer un rendu incorrect du rapport.</StiPanelInEngineV1CheckLong>
@@ -247,6 +250,8 @@
     <StiCompilationErrorCheck3Long>Une erreur de compilation a été trouvée dans l’événement '{1}' du composant '{2}' :</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>Une erreur de compilation a été trouvée dans le rapport '{0}' :</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Erreur de compilation</StiCompilationErrorCheckShort>
+    <StiCompilationWarningCheckLong>Un avertissement de compilation est trouvé dans le rapport '{0}' :</StiCompilationWarningCheckLong>
+    <StiCompilationWarningCheckShort>Un avertissement de compilation</StiCompilationWarningCheckShort>
     <StiDataSourceLoopingCheckLong>La bande de données '{0}' et la bande de données enfant '{1}' utilisent la même source de données '{2}'. Pour éviter une boucle, la bande de données enfant ne sera pas affichée.</StiDataSourceLoopingCheckLong>
     <StiDataSourceLoopingCheckShort>Une boucle de données est possible</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>Il y a plusieurs composants nommés '{0}'.</StiDuplicatedName2CheckLong>
@@ -258,8 +263,12 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Doublons dans les relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Le nom du rapport '{0}' est le même que le nom de la source de données.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Le nom du rapport '{0}' est le même que le nom du composant.</StiDuplicatedReportNameCheckLong>
+    <StiMainPageMissingCheckLong>Le rapport ne peut pas être rendu car la page principale ne peut pas être déterminée. Vérifiez la référence de page dans SubReports et DrillDowns.</StiMainPageMissingCheckLong>
+    <StiMainPageMissingCheckShort>La page principale est manquante</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine ne peut pas faire le rendu de ce rapport dans le mode de compilation. Changez le mode d'interprétation du rapport.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>Ce rapport est en mode compilation</StiNetCoreCompilationModeCheckShort>
+    <StiResourcesFontsCheckLong>Impossible de charger la police à partir de la ressource '{0}'. Le fichier est corrompu ou le format de fichier n'est pas supporté.</StiResourcesFontsCheckLong>
+    <StiResourcesFontsCheckShort>Police non chargée</StiResourcesFontsCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>La variable '{0}' a une valeur par défaut erronée. Il est impossible d'initialiser la variable avec une valeur spécifique.</StiVariableInitializationCheckLong>

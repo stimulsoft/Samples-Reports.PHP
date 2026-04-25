@@ -52,6 +52,7 @@
     <StiOrientationPageToLandscapeActionShort>Альбомная ориентация</StiOrientationPageToLandscapeActionShort>
     <StiOrientationPageToPortraitActionLong>Изменить ориентацию страницы на портретную. Размеры страницы изменены не будут.</StiOrientationPageToPortraitActionLong>
     <StiOrientationPageToPortraitActionShort>Портретная ориентация</StiOrientationPageToPortraitActionShort>
+    <StiPageFooterOnlyLastPageActionLong>Преобразовать PageFooter в ReportSummary</StiPageFooterOnlyLastPageActionLong>
     <StiPrintHeadersFootersFromPreviousPageLong>Задать у страницы значение свойства PrintHeadersFootersFromPreviousPage равное false.</StiPrintHeadersFootersFromPreviousPageLong>
     <StiPrintOnPreviousPageLong>Задать у страницы значение свойства PrintOnPreviousPage равное false.</StiPrintOnPreviousPageLong>
     <StiPropertiesOnlyEngineV1ActionLong>Выключить у компонента '{0}' свойства, которые не поддерживаются в EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
@@ -144,6 +145,8 @@
     <StiNoNameComponentCheckShort>Компонент без имени</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>У страницы с индексом '{0}' не указано имя. Если не указать имя страницы, то ядро генератора отчетов не сможет скомпилировать отчет.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>Страница без имени</StiNoNamePageCheckShort>
+    <StiPageFooterOnlyLastPageCheckLong>Бэнд {0} со свойством PrintOn=OnlyLastPage, создаёт нежелательные пустые места внизу страницы. Рекомендуется заменить такой бэнд на ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
+    <StiPageFooterOnlyLastPageCheckShort>Вероятность появления пустых мест внизу страницы</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>Системная переменная PageLine требует использования двойного прохода при построении отчета.</StiPageLineAndDoublePassCheckLong>
     <StiPageLineAndDoublePassCheckShort>PageLine требует Double-Pass!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>В отчете, в котором применяется EngineV1, найдена панель '{0}'. Этот компонент недоступен в EngineV1, поэтому генератор отчетов попытается построить его как компонент Контейнер. Однако, компонент Панель имеет расширенные возможности по сравнению с компонентом Контейнер, и это может привести к неверному построению всего отчета.</StiPanelInEngineV1CheckLong>
@@ -260,8 +263,12 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Дубликаты в связях</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Имя отчёта '{0}' совпадает с именем источника данных.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Имя отчёта '{0}' совпадает с именем компонента.</StiDuplicatedReportNameCheckLong>
+    <StiMainPageMissingCheckLong>Отчёт не может быть построен, т.к. невозможно определить главную страницу. Проверьте ссылки на страницы в SubReports и DrillDown.</StiMainPageMissingCheckLong>
+    <StiMainPageMissingCheckShort>Отсутствует главная страница</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core генератор не может построить отчёт в режиме компиляции. Переключите отчёт в режим интерпретации.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>Отчёт в режиме компиляции</StiNetCoreCompilationModeCheckShort>
+    <StiResourcesFontsCheckLong>Не удаётся загрузить шрифт из ресурса '{0}'. Файл повреждён или формат файла не поддерживается.</StiResourcesFontsCheckLong>
+    <StiResourcesFontsCheckShort>Шрифт не загружен</StiResourcesFontsCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>Переменная '{0}' имеет неправильное значение по умолчанию. Невозможно инициализировать переменную указанным значением.</StiVariableInitializationCheckLong>

@@ -52,6 +52,7 @@
     <StiOrientationPageToLandscapeActionShort>가로 레이아웃</StiOrientationPageToLandscapeActionShort>
     <StiOrientationPageToPortraitActionLong>페이지 레이아웃을 세로로 변경합니다. 페이지 크기는 변경되지 않습니다.</StiOrientationPageToPortraitActionLong>
     <StiOrientationPageToPortraitActionShort>인물 레이아웃</StiOrientationPageToPortraitActionShort>
+    <StiPageFooterOnlyLastPageActionLong>PageFooter를 ReportSummary로 변환</StiPageFooterOnlyLastPageActionLong>
     <StiPrintHeadersFootersFromPreviousPageLong>페이지의 PrintHeadersFootersFromPreviousPage 속성을 false로 설정합니다.</StiPrintHeadersFootersFromPreviousPageLong>
     <StiPrintOnPreviousPageLong>페이지의 PrintOnPreviousPage 속성을 false로 설정합니다.</StiPrintOnPreviousPageLong>
     <StiPropertiesOnlyEngineV1ActionLong>EngineV2에서 지원되지 않는 '{0}'구성 요소의 속성을 해제합니다.</StiPropertiesOnlyEngineV1ActionLong>
@@ -144,6 +145,8 @@
     <StiNoNameComponentCheckShort>요소에 이름이 없습니다.</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>'{0}'인덱스가있는 페이지의 이름이 지정되어 있지 않습니다. 페이지의 이름이 지정되지 않은 경우 보고서 엔진 보고서를 컴파일하지 않습니다.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>페이지에 이름이 없습니다.</StiNoNamePageCheckShort>
+    <StiPageFooterOnlyLastPageCheckLong>PrintOn=OnlyLastPage 속성이 설정된 밴드 {0}는 페이지 하단에 원치 않는 여백을 생성할 수 있습니다. ReportSummary로 교체하는 것을 권장합니다.</StiPageFooterOnlyLastPageCheckLong>
+    <StiPageFooterOnlyLastPageCheckShort>여백이 발생할 가능성</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>시스템 변수 PageLine은 보고서 엔진의 이중 패스(Double-Pass)를 필요로 합니다.</StiPageLineAndDoublePassCheckLong>
     <StiPageLineAndDoublePassCheckShort>PageLine은 이중 패스가 필요합니다!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>'{0}'패널은 EngineV1가 사용되는 보고서입니다. 이 구성 요소는 EngineV1는 사용할 수 없습니다. 따라서 보고서 도구는 컨테이너 구성 요소로 렌더링하려고합니다. 그러나 Panel 구성 요소는 Container에 비해 더 많은 기능을 가지고 잘못된 보고서 렌더링을 일으킬 수 있습니다.</StiPanelInEngineV1CheckLong>
@@ -247,6 +250,8 @@
     <StiCompilationErrorCheck3Long>컴파일 오류는 '{2}'구성 요소 '{1}'이벤트에서 발견 :</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>컴파일 오류가 '{0}'보고서에 발견 :</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>컴파일 오류</StiCompilationErrorCheckShort>
+    <StiCompilationWarningCheckLong>'{0}' 보고서에서 컴파일 경고가 발견되었습니다:</StiCompilationWarningCheckLong>
+    <StiCompilationWarningCheckShort>컴파일 경고</StiCompilationWarningCheckShort>
     <StiDataSourceLoopingCheckLong>데이터 밴드 '{0}'과(와) 하위 데이터 밴드 '{1}'이 동일한 데이터 소스 '{2}'를 사용합니다. 루프를 방지하기 위해 하위 데이터 밴드는 표시되지 않습니다..</StiDataSourceLoopingCheckLong>
     <StiDataSourceLoopingCheckShort>데이터 반복이 가능합니다.</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>'{0}'라는 데이터 소스가 몇 가지 있습니다.</StiDuplicatedName2CheckLong>
@@ -258,8 +263,12 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>릴레이션에서 중복됩니다.</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>보고서 이름 '{0}'은(는) 데이터소스 이름과 동일합니다.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>보고서 이름 '{0}'은(는) 구성 요소 이름과 동일합니다.</StiDuplicatedReportNameCheckLong>
+    <StiMainPageMissingCheckLong>기본 페이지를 확인할 수 없어 보고서를 렌더링할 수 없습니다. SubReport 및 DrillDown의 페이지 참조를 확인하세요.</StiMainPageMissingCheckLong>
+    <StiMainPageMissingCheckShort>기본 페이지가 없습니다</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core 엔진이 컴파일 모드에서 이 보고서를 렌더링 할 수 없습니다. 보고서를 해석 모드로 변경하십시오.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>이 보고서는 편집 모드입니다.</StiNetCoreCompilationModeCheckShort>
+    <StiResourcesFontsCheckLong>리소스 '{0}'에서 글꼴을 로드할 수 없습니다. 파일이 손상되었거나 지원되지 않는 형식입니다.</StiResourcesFontsCheckLong>
+    <StiResourcesFontsCheckShort>글꼴을 불러오지 못했습니다</StiResourcesFontsCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>'{0}' 변수의 기본값이 잘못되었습니다. 지정한 값으로 변수를 초기화할 수 없습니다.</StiVariableInitializationCheckLong>

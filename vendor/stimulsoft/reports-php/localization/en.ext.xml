@@ -52,6 +52,7 @@
     <StiOrientationPageToLandscapeActionShort>Landscape layout</StiOrientationPageToLandscapeActionShort>
     <StiOrientationPageToPortraitActionLong>Change the page layout to portrait. Page size will not be changed.</StiOrientationPageToPortraitActionLong>
     <StiOrientationPageToPortraitActionShort>Portrait layout</StiOrientationPageToPortraitActionShort>
+    <StiPageFooterOnlyLastPageActionLong>Convert PageFooter to ReportSummary</StiPageFooterOnlyLastPageActionLong>
     <StiPrintHeadersFootersFromPreviousPageLong>Set the PrintHeadersFootersFromPreviousPage property of a page to false.</StiPrintHeadersFootersFromPreviousPageLong>
     <StiPrintOnPreviousPageLong>Set the PrintOnPreviousPage property of a page to false.</StiPrintOnPreviousPageLong>
     <StiPropertiesOnlyEngineV1ActionLong>Disable properties of the '{0}' component which are not supported in the EngineV2.</StiPropertiesOnlyEngineV1ActionLong>
@@ -144,6 +145,8 @@
     <StiNoNameComponentCheckShort>The component has no name</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>The name of the page with the '{0}' index is not specified. If the name of the page is not specified then the report engine will not compile the report.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>A page has no name</StiNoNamePageCheckShort>
+    <StiPageFooterOnlyLastPageCheckLong>Band {0} with the property PrintOn=OnlyLastPage creates an unwanted gaps at the bottom of the page. Recommend replacing it with ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
+    <StiPageFooterOnlyLastPageCheckShort>Probability of gaps appearing</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>The system variable PageLine requires Double-Pass of the report engine.</StiPageLineAndDoublePassCheckLong>
     <StiPageLineAndDoublePassCheckShort>The PageLine requires Double-Pass!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>The '{0}' panel is found in the report where the EngineV1 is used. This component is not available in the EngineV1. So the reporting tool attempts to render it as a Container component. But the Panel component has more capabilities in compare with the Container and this may cause the incorrect report rendering.</StiPanelInEngineV1CheckLong>
@@ -260,8 +263,12 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicates in relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
+    <StiMainPageMissingCheckLong>The report cannot be rendered because the main page cannot be determined. Check the page reference in SubReports and DrillDowns.</StiMainPageMissingCheckLong>
+    <StiMainPageMissingCheckShort>The main page is missing</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine cannot render this report in the compilation mode. Change the report to the interpretation mode.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>This report is in the compilation mode</StiNetCoreCompilationModeCheckShort>
+    <StiResourcesFontsCheckLong>Cannot load the font from resource '{0}'. The file is corrupted, or the file format is unsupported.</StiResourcesFontsCheckLong>
+    <StiResourcesFontsCheckShort>Font not loaded</StiResourcesFontsCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>The '{0}' variable has the wrong default value. It is impossible to initialize the variable with a specified value.</StiVariableInitializationCheckLong>

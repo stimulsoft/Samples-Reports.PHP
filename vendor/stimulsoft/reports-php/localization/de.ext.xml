@@ -52,6 +52,7 @@
     <StiOrientationPageToLandscapeActionShort>Querformat</StiOrientationPageToLandscapeActionShort>
     <StiOrientationPageToPortraitActionLong>Seiteals Hochformat einrichten. Die Seitengröße wird nicht geändert.</StiOrientationPageToPortraitActionLong>
     <StiOrientationPageToPortraitActionShort>Hochformat</StiOrientationPageToPortraitActionShort>
+    <StiPageFooterOnlyLastPageActionLong>PageFooter zu ReportSummary konvertieren</StiPageFooterOnlyLastPageActionLong>
     <StiPrintHeadersFootersFromPreviousPageLong>Die Eigenschaft 'Kopf- und Fußzeilen von vorheriger Seite drucken' auf falsch setzen.</StiPrintHeadersFootersFromPreviousPageLong>
     <StiPrintOnPreviousPageLong>Die Eigenschaft 'Auf der vorherigen Seite drucken' auf falsch setzen.</StiPrintOnPreviousPageLong>
     <StiPropertiesOnlyEngineV1ActionLong>Diejenigen Eigenschaften der Komponente '{0}' deaktivieren, die nicht in der EngineV1 unterstützt werden.</StiPropertiesOnlyEngineV1ActionLong>
@@ -144,6 +145,8 @@
     <StiNoNameComponentCheckShort>Die Komponente hat keinen Namen</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>Der Name des Seitenindex '{0}' nicht angegeben. Wenn der Name der Seite nicht angegeben wurde, kann die Engine den Report nicht aufbereiten.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>Eine Seite hat keinen Namen</StiNoNamePageCheckShort>
+    <StiPageFooterOnlyLastPageCheckLong>Band {0} mit der Eigenschaft PrintOn=OnlyLastPage erstellt unerwünschte Lücken am unteren Seitenrand. Es wird empfohlen, es durch ReportSummary zu ersetzen.</StiPageFooterOnlyLastPageCheckLong>
+    <StiPageFooterOnlyLastPageCheckShort>Wahrscheinlichkeit der Entstehung von Lücken</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>Die System-Variable PageLine fordert Double-Pass der Berichtsengine.</StiPageLineAndDoublePassCheckLong>
     <StiPageLineAndDoublePassCheckShort>PageLine fordert Double-Pass!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>Das Panel '{0}' wurde im Report gefunden, der EngineV1 benutzt. Diese Komponente ist in der EngineV1 nicht verfügbar. Das Reportprogramm versucht diese Komponente als eine Container-Komponente zu behandeln. Aber die Panel-Komponente besitzt mehr Möglichkeiten im Vergleich zur Container-Komponenten. Dieses kann zu einer fehlerhaften Ausführung des des Reports führen.</StiPanelInEngineV1CheckLong>
@@ -247,6 +250,8 @@
     <StiCompilationErrorCheck3Long>Der Kompilierungsfehler wurde im Ereignis '{1}' der Komponente '{2}' gefunden:</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>Ein Umwandlungsfehler wurde im Report '{0}' gefunden.</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Umwandlungsfehler</StiCompilationErrorCheckShort>
+    <StiCompilationWarningCheckLong>Eine Kompilationswarnung ist im '{0}' Bericht gefunden:</StiCompilationWarningCheckLong>
+    <StiCompilationWarningCheckShort>Eine Kompilationswarnung</StiCompilationWarningCheckShort>
     <StiDataSourceLoopingCheckLong>Datenband '{0}' und untergeordnetes Datenband '{1}' verwenden gleiche Datenquelle '{2}'. Um die Schleife zu vermeiden, wird das untergeordnete Datenband nicht angezeigt werden.</StiDataSourceLoopingCheckLong>
     <StiDataSourceLoopingCheckShort>Datenschleife ist möglich.</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>Die Datenquellen mit dem gleichen Namen '{0}' sind gefunden.</StiDuplicatedName2CheckLong>
@@ -258,8 +263,12 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplikate in Beziehungen</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Der Berichtsname '{0}' ist gleich wie der Datenuellenname.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Der Berichtsname '{0}' ist gleich wie der Komponentennname</StiDuplicatedReportNameCheckLong>
+    <StiMainPageMissingCheckLong>Der Bericht kann nicht gerendert werden, weil die Hauptseite nicht bestimmt werden kann. Überprüfen Sie die Seitenreferenz in SubReports und DrillDowns.</StiMainPageMissingCheckLong>
+    <StiMainPageMissingCheckShort>Die Hauptseite fehlt.</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core-Engine kann nicht diesen Bericht im Kompilation-Modus rendern. Wechseln Sie den Bericht in Interpretation-Modus.</StiNetCoreCompilationModeCheckLong>
     <StiNetCoreCompilationModeCheckShort>Dieser Bericht ist im Kompilation-Modus</StiNetCoreCompilationModeCheckShort>
+    <StiResourcesFontsCheckLong>Die Schriftart aus der Ressource '{0}' kann nicht geladen werden. Die Datei ist beschädigt, oder das Dateiformat ist nicht unterstützt.</StiResourcesFontsCheckLong>
+    <StiResourcesFontsCheckShort>Schriftart nicht geladen</StiResourcesFontsCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>Die '{0}' Variable hat den falschen Standardwert. Es ist unmöglich, die Variable mit dem angegebenen Wert zu initialisieren.</StiVariableInitializationCheckLong>
