@@ -78,6 +78,9 @@ class StiAppearanceOptions extends StiComponentOptions
 
     /** @var bool Gets or sets a value which indicates that variable items will be sorted. */
     public $parametersPanelSortDataItems = false;
+    
+    /** @var bool Gets or sets a value which indicates that showing descriptions for variables is allowed. */
+    public $parametersPanelShowDescriptions = true;
 
     /** @var StiInterfaceType [enum] Gets or sets the type of the viewer interface. */
     public $interfaceType = StiInterfaceType::Auto;

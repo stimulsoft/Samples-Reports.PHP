@@ -284,7 +284,7 @@ class StiSqlAdapter extends StiDataAdapter
                             break;
 
                         default:
-                            $result .= "'" . ($escape ? addcslashes($item->value, "\\\"'") : $item->value) . "'";
+                            $result .= "'" . ($escape ? addcslashes($item->value ?? '', "\\\"'") : $item->value ?? '') . "'";
                             break;
                     }
 
