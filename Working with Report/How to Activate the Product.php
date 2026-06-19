@@ -11,11 +11,11 @@ $report->javascript->relativePath = '../';
 
 // You can use one of the methods below to register your license key for all components
 //StiLicense::setPrimaryKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
-//StiLicense::setPrimaryFile('license.key');
+//StiLicense::setPrimaryFile('stimulsoft.key');
 
 // You can use one of the methods below to register your license key only for the specified component
 //$report->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');
-//$report->license->setFile('license.key');
+//$report->license->setFile('stimulsoft.key');
 
 // Processing the request and, if successful, immediately printing the result
 $report->process();
@@ -59,7 +59,7 @@ $report->render();
     <script>
         // You can use one of the JavaScript methods below to register your license key
         //Stimulsoft.Base.StiLicense.loadFromString('6vJhGtLLLz2GNviWmUTrhSqnO...');
-        //Stimulsoft.Base.StiLicense.loadFromFile('license.key');
+        //Stimulsoft.Base.StiLicense.loadFromFile('stimulsoft.key');
     </script>
 </head>
 <body>
@@ -79,15 +79,15 @@ You can activate the product in several ways:
 <ul>
     <li>Using one of the static methods below to register your license for all components:<br>
         <code>StiLicense::setPrimaryKey('6vJhGtLLLz2GNviWmUTrhSqnO...');</code><br>
-        <code>StiLicense::setPrimaryFile('license.key');</code><br><br><br>
+        <code>StiLicense::setPrimaryFile('stimulsoft.key');</code><br><br><br>
     </li>
     <li>Using one of the methods below to register your license only for the specified component:<br>
         <code>$report->license->setKey('6vJhGtLLLz2GNviWmUTrhSqnO...');</code><br>
-        <code>$report->license->setFile('license.key');</code><br><br><br>
+        <code>$report->license->setFile('stimulsoft.key');</code><br><br><br>
     </li>
     <li>Using one of the functions below to register your license from the JavaScript code:<br>
         <code>Stimulsoft.Base.StiLicense.loadFromString('6vJhGtLLLz2GNviWmUTrhSqnO...');</code><br>
-        <code>Stimulsoft.Base.StiLicense.loadFromFile('license.key');</code><br><br>
+        <code>Stimulsoft.Base.StiLicense.loadFromFile('stimulsoft.key');</code><br><br>
     </li>
 </ul><br>
 
