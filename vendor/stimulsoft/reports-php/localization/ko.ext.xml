@@ -230,7 +230,7 @@
     <Warning>경고!</Warning>
   </CheckGlobal>
   <CheckLicense>
-    <StiLicenseTrialCheckLong>Stimulsoft Reports 및 대시보드의 평가판을 사용하고 있습니다. 운영 중인 소프트웨어를 사용하려면 라이센스를 구입해야 합니다.</StiLicenseTrialCheckLong>
+    <StiLicenseTrialCheckLong>평가판 제품 평가 전용입니다. Stimulsoft를 사용하여 개발하거나 배포하려면 라이선스가 필요합니다.</StiLicenseTrialCheckLong>
     <StiValidSubscriptioRequiredCheckLong>유효한 구독이 필요합니다. 사용 중인 제품을 업데이트하여 전체 버전의 Stimulsoft Designer를 사용하십시오.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
@@ -269,6 +269,10 @@
     <StiNetCoreCompilationModeCheckShort>이 보고서는 편집 모드입니다.</StiNetCoreCompilationModeCheckShort>
     <StiResourcesFontsCheckLong>리소스 '{0}'에서 글꼴을 로드할 수 없습니다. 파일이 손상되었거나 지원되지 않는 형식입니다.</StiResourcesFontsCheckLong>
     <StiResourcesFontsCheckShort>글꼴을 불러오지 못했습니다</StiResourcesFontsCheckShort>
+    <StiScriptExecutionErrorCheck2Long>'{2}' 구성 요소의 '{1}' 속성에서 스크립트 실행 오류가 발생했습니다.</StiScriptExecutionErrorCheck2Long>
+    <StiScriptExecutionErrorCheck3Long>'{2}' 구성 요소의 '{1}' 이벤트에서 스크립트 실행 오류가 발생했습니다.</StiScriptExecutionErrorCheck3Long>
+    <StiScriptExecutionErrorCheckLong>스크립트 실행 오류가 발생했습니다.</StiScriptExecutionErrorCheckLong>
+    <StiScriptExecutionErrorCheckShort>스크립트 실행 오류</StiScriptExecutionErrorCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>'{0}' 변수의 기본값이 잘못되었습니다. 지정한 값으로 변수를 초기화할 수 없습니다.</StiVariableInitializationCheckLong>
@@ -1682,6 +1686,7 @@
     <BorderColor>테두리 색상</BorderColor>
     <Brush>전설의 배경 브러시</Brush>
     <Columns>열의 양</Columns>
+    <ColumnWidth>범례 열의 너비를 지정합니다. 자동 줄바꿈과 함께 사용하여 범례 항목 내의 텍스트 줄바꿈을 제어할 수 있습니다.</ColumnWidth>
     <Direction>범례 연속 그리는 데 사용 된 방향</Direction>
     <Font>차트 범례에서 시리즈 타이틀을 그리는 데 사용 된 글꼴</Font>
     <HideSeriesWithEmptyTitle>빈 제목의 계열을 표시 / 숨기기 값</HideSeriesWithEmptyTitle>
@@ -1700,6 +1705,7 @@
     <VertAlignment>범례 배치의 수직 정렬</VertAlignment>
     <VertSpacing>범례 항목 간의 수직 간격</VertSpacing>
     <Visible>차트 범례 표시</Visible>
+    <WordWrap>범례 항목의 자동 줄바꿈을 사용하거나 사용하지 않도록 설정합니다. 열 너비와 함께 동작합니다.</WordWrap>
   </StiLegend>
   <StiLinePrimitive>
     <Color>선의 색상</Color>

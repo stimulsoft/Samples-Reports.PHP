@@ -230,7 +230,7 @@
     <Warning>Warnung! </Warning>
   </CheckGlobal>
   <CheckLicense>
-    <StiLicenseTrialCheckLong>Sie verwenden die Testversion von Stimulsoft Reports and Dashboards. Um die Software für die Produktion zu verwenden, kaufen Sie die Lizenz ein.</StiLicenseTrialCheckLong>
+    <StiLicenseTrialCheckLong>Testversion nur zur Evaluierung des Produkts. Für die Entwicklung oder Bereitstellung mit Stimulsoft ist eine Lizenz erforderlich.</StiLicenseTrialCheckLong>
     <StiValidSubscriptioRequiredCheckLong>Valid Subscription Required. Please update your subscription to use the fully functional version of Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
@@ -269,6 +269,10 @@
     <StiNetCoreCompilationModeCheckShort>Dieser Bericht ist im Kompilation-Modus</StiNetCoreCompilationModeCheckShort>
     <StiResourcesFontsCheckLong>Die Schriftart aus der Ressource '{0}' kann nicht geladen werden. Die Datei ist beschädigt, oder das Dateiformat ist nicht unterstützt.</StiResourcesFontsCheckLong>
     <StiResourcesFontsCheckShort>Schriftart nicht geladen</StiResourcesFontsCheckShort>
+    <StiScriptExecutionErrorCheck2Long>Der Fehler bei der Skriptausführung trat in der Eigenschaft '{1}' der Komponente '{2}' auf.</StiScriptExecutionErrorCheck2Long>
+    <StiScriptExecutionErrorCheck3Long>Der Fehler bei der Skriptausführung trat im Ereignis '{1}' der Komponente '{2}' auf.</StiScriptExecutionErrorCheck3Long>
+    <StiScriptExecutionErrorCheckLong>Der Fehler bei der Skriptausführung trat auf.</StiScriptExecutionErrorCheckLong>
+    <StiScriptExecutionErrorCheckShort>Der Fehler bei der Skriptausführung</StiScriptExecutionErrorCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>Die '{0}' Variable hat den falschen Standardwert. Es ist unmöglich, die Variable mit dem angegebenen Wert zu initialisieren.</StiVariableInitializationCheckLong>
@@ -948,7 +952,7 @@
   <StiCheckBoxControl>
     <Checked>Wert, der den Aktivierungsstatus der Checkbox anzeigt.</Checked>
     <CheckedBinding>Datenbindungen aus der Aktivierung der Checkbox.</CheckedBinding>
-    <CheckedChangedEvent>Script des Ereignisses 'Checked geeändert'.</CheckedChangedEvent>
+    <CheckedChangedEvent>Tritt auf, wenn sich der Wert der Eigenschaft Checked ändert.</CheckedChangedEvent>
     <Text>Ein mit dem Steuerelement verbundener Text.</Text>
     <TextBinding>Datenbindungen für den Text.</TextBinding>
   </StiCheckBoxControl>
@@ -1043,7 +1047,7 @@
     <ItemsBinding>Datenbindungen für die Elemente.</ItemsBinding>
     <MaxDropDownItems>Maximale Anzahl.</MaxDropDownItems>
     <MaxLength>Maximale Anzahl erlaubter Zeichen.</MaxLength>
-    <SelectedIndexChangedEvent>Script des Ereignisses 'Index geändert'.</SelectedIndexChangedEvent>
+    <SelectedIndexChangedEvent>Tritt auf, wenn sich die Eigenschaft SelectedIndex geändert hat.</SelectedIndexChangedEvent>
     <SelectedItemBinding>Datenbindungen für das ausgewählte Element.</SelectedItemBinding>
     <SelectedValueBinding>Datenbindungen für den ausgewählten Wert.</SelectedValueBinding>
     <Sorted>Wert, der anzeig, ob die Elemente sortiert sind.</Sorted>
@@ -1173,8 +1177,8 @@
     <DisplayValue>Ausdruck, der für die Berechnung desjenigen Zellenwertes benutzt wird, fer in der Tabelle ausgegeben wird.</DisplayValue>
     <EnumeratorSeparator>Zählertrennung.</EnumeratorSeparator>
     <EnumeratorType>Zählertyp.</EnumeratorType>
-    <GetCrossValueEvent>Script des Ereignisses 'Wert lesen'.</GetCrossValueEvent>
-    <GetDisplayCrossValueEvent>Script des Ereignisses 'Kreuz-Anzeigewert lesen'.</GetDisplayCrossValueEvent>
+    <GetCrossValueEvent>Tritt beim Abrufen des Kreuzwertes auf.</GetCrossValueEvent>
+    <GetDisplayCrossValueEvent>Tritt beim Abrufen des angezeigten Kreuzwertes auf.</GetDisplayCrossValueEvent>
     <HideZeros>Wert, der anzeigt, dass für leere numerische Felder keine Null ausgeben wird.</HideZeros>
     <KeepMergedCellsTogether>Ein Wert zeigt an, dass die verbundenen Zellen zur nächste Seite nicht getrennt werden.</KeepMergedCellsTogether>
     <MergeHeaders>Wert, der anzeigt, das übereinstimmende Werte im Kopf zusammengeführt werden.</MergeHeaders>
@@ -1331,7 +1335,7 @@
     <Today>Wert, der anzeigt, dass das Datum mit dem laufenden Datum gleichzusetzen ist.</Today>
     <Value>Dem Steuerelement zugeordnetes Datum.</Value>
     <ValueBinding>Datenbindungen für den Text.</ValueBinding>
-    <ValueChangedEvent>Script des Ereignisses 'Wert geändert'.</ValueChangedEvent>
+    <ValueChangedEvent>Tritt auf, wenn sich die Eigenschaft Value geändert hat.</ValueChangedEvent>
   </StiDateTimePickerControl>
   <StiDialogStyle>
     <GlyphColor>Eine Glyphe-Farbe des Stils.</GlyphColor>
@@ -1421,11 +1425,11 @@
   </StiFooterBand>
   <StiForm>
     <BackColor>Hintergrundfarbe des Steuerelemens.</BackColor>
-    <ClickEvent>Script des Ereignisses 'Einfachklick'.</ClickEvent>
-    <ClosedFormEvent>Script des Ereignisses 'Nach dem Schließen'.</ClosedFormEvent>
-    <ClosingFormEvent>Script des Ereignisses 'Vordem Schließen.</ClosingFormEvent>
+    <ClickEvent>Tritt auf, wenn auf das Formular geklickt wird.</ClickEvent>
+    <ClosedFormEvent>Tritt auf, nachdem das Formular geschlossen wurde.</ClosedFormEvent>
+    <ClosingFormEvent>Tritt auf, wenn das Formular geschlossen wird.</ClosingFormEvent>
     <Font>Zeichensatz des Steuerelements.</Font>
-    <LoadFormEvent>Script des Ereignisses 'Beim Laden'.</LoadFormEvent>
+    <LoadFormEvent>Tritt vor der ersten Anzeige des Formulars auf.</LoadFormEvent>
     <Location>Koordinaten der oberen linken Ecke des Formulars.</Location>
     <RightToLeft>Wert, der anzeigt, ob Elemente des Steuerelements eingerichtet sind zur lokalen Unterstützung bei Anwendung von right-to-left Zeichensätzen.</RightToLeft>
     <Size>Umfang des Formulars.</Size>
@@ -1522,7 +1526,7 @@
     <HeaderBackColor>Hintergrundfarbe für alle Reihen- und Spaltenköpfe.</HeaderBackColor>
     <HeaderFont>Zeichensatz für Spaltenköpfe.</HeaderFont>
     <HeaderForeColor>Vordergrundfarbe aller Köpfe.</HeaderForeColor>
-    <PositionChangedEvent>Script des Ereignisses 'Position geändert'.</PositionChangedEvent>
+    <PositionChangedEvent>Tritt auf, wenn sich die Eigenschaft Position geändert hat.</PositionChangedEvent>
     <PreferredColumnWidth>Standbreite der Gitterspalten in Pixel.</PreferredColumnWidth>
     <PreferredRowHeight>Bevorzugte Zeilenhöhe.</PreferredRowHeight>
     <RowHeadersVisible>Wert, der anzeigt, ob Zeilenköpfe sichtbar sind.</RowHeadersVisible>
@@ -1682,6 +1686,7 @@
     <BorderColor>Rahmenfarbe.</BorderColor>
     <Brush>Hintergrundpinsel für die Legende.</Brush>
     <Columns>Spaltenanzahl.</Columns>
+    <ColumnWidth>Legt die Breite einer Legenden-Spalte fest. Kann zusammen mit dem Zeilenumbruch verwendet werden, um den Textumbruch in Legenden-Elementen zu steuern.</ColumnWidth>
     <Direction>Richtung, die für die Richtung der Reihen in der Legende benutzt wird.</Direction>
     <Font>Zeichensatz, der für die Reihentitel benutzt wird, die in die Diagramm-Legende einbezogen werden.</Font>
     <HideSeriesWithEmptyTitle>Wert, der anzeigt/verbirgt Reihen mit leerem Titel.</HideSeriesWithEmptyTitle>
@@ -1700,6 +1705,7 @@
     <VertAlignment>Vertikale Ausrichtung der Legendenplazierung.</VertAlignment>
     <VertSpacing>Vertikaler Abstand zwischen den Elementen der Legende.</VertSpacing>
     <Visible>Sichtbarkeit der Diagramm-Legende.</Visible>
+    <WordWrap>Aktiviert oder deaktiviert den Zeilenumbruch in Legenden-Elementen. Funktioniert zusammen mit der Spaltenbreite.</WordWrap>
   </StiLegend>
   <StiLinePrimitive>
     <Color>Linienfarbe.</Color>
@@ -1713,7 +1719,7 @@
     <Items>Elemente des Listenfeldes.</Items>
     <ItemsBinding>Datenbindungen für die Elemente.</ItemsBinding>
     <SelectedIndexBinding>Datenbindungen für den ausgewählten Index.</SelectedIndexBinding>
-    <SelectedIndexChangedEvent>Script des Ereignisses 'Index geändert'.</SelectedIndexChangedEvent>
+    <SelectedIndexChangedEvent>Tritt auf, wenn sich die Eigenschaft SelectedIndex geändert hat.</SelectedIndexChangedEvent>
     <SelectedItemBinding>Datenbindungen für das ausgewählte Element.</SelectedItemBinding>
     <SelectedValueBinding>Datenbindungen für den ausgewählten Wert.</SelectedValueBinding>
     <SelectionMode>Eine Methode, welche Elemente in der Listenbox ausgewählt werden.</SelectionMode>
@@ -1771,7 +1777,7 @@
     <MinimumBinding>Datenbindungen für das Minimum.</MinimumBinding>
     <Value>Wert verbunden mit dem up-down Steuerelement.</Value>
     <ValueBinding>Datenbindungen für den Wert.</ValueBinding>
-    <ValueChangedEvent>Ein Script des Ereignisses 'Wert geändert'.</ValueChangedEvent>
+    <ValueChangedEvent>Tritt auf, wenn sich die Eigenschaft Value geändert hat.</ValueChangedEvent>
   </StiNumericUpDownControl>
   <StiOutsidePieLabels>
     <LineLength>Linienlänge zwischen den Rahmen von Reihenbezeichnungen und den Rahmen von Tortendarstellungen.</LineLength>
@@ -1954,22 +1960,22 @@
   </StiReport>
   <StiReportControl>
     <BackColor>Hintergrundfarbe des Steuerelements.</BackColor>
-    <ClickEvent>Script des Ereignisses 'Einfachklick'.</ClickEvent>
+    <ClickEvent>Tritt auf, wenn auf das Steuerelement geklickt wird.</ClickEvent>
     <DataBindings>Datenbindungen für dieses Steuerelement.</DataBindings>
-    <DoubleClickEvent>Script des Ereignisses 'Doppelklick'.</DoubleClickEvent>
+    <DoubleClickEvent>Tritt auf, wenn auf das Steuerelement doppelt geklickt wird.</DoubleClickEvent>
     <Enabled>Wert, der anzeigt, ob das Steuerelement auf den Benutzerdialog antworten kann.</Enabled>
-    <EnterEvent>Script des Ereignisses 'ENTER'.</EnterEvent>
+    <EnterEvent>Tritt auf, wenn das Steuerelement den Fokus erhält.</EnterEvent>
     <Font>Zeichensatz für die Textanzeige durch das Steuerelement.</Font>
     <ForeColor>Vordergrundfarbe für das Steuerelement.</ForeColor>
-    <GetTagEvent>Script des Ereignisses 'Tag lesen'.</GetTagEvent>
-    <GetToolTipEvent>Script des Ereignisses 'ToolTip lesen'.</GetToolTipEvent>
-    <LeaveEvent>Script des Ereignisses 'Verlassen'.</LeaveEvent>
+    <GetTagEvent>Tritt beim Abrufen eines Tags für das Steuerelement auf.</GetTagEvent>
+    <GetToolTipEvent>Tritt beim Abrufen des ToolTips für das Steuerelement auf.</GetToolTipEvent>
+    <LeaveEvent>Tritt auf, wenn der Eingabefokus das Steuerelement verlässt.</LeaveEvent>
     <Location>Koordinaten der oberen linken Ecke in Beziehung zur oberen linken Ecke des Containers.</Location>
-    <MouseDownEvent>Script 'Maustaste gedrückt'.</MouseDownEvent>
-    <MouseEnterEvent>Script des Ereignisses 'Mausbereich eintreten'.</MouseEnterEvent>
-    <MouseLeaveEvent>Script des Ereignisses 'Mausbereich verlassen'.</MouseLeaveEvent>
-    <MouseMoveEvent>Script des Ereignisses 'Maus bewegt'.</MouseMoveEvent>
-    <MouseUpEvent>Script des Ereignisses 'Maustaste losgelassen'.</MouseUpEvent>
+    <MouseDownEvent>Tritt auf, wenn sich der Mauszeiger über dem Steuerelement befindet und eine Maustaste gedrückt wird.</MouseDownEvent>
+    <MouseEnterEvent>Tritt auf, wenn der Mauszeiger das Steuerelement betritt.</MouseEnterEvent>
+    <MouseLeaveEvent>Tritt auf, wenn der Mauszeiger das Steuerelement verlässt.</MouseLeaveEvent>
+    <MouseMoveEvent>Tritt auf, wenn der Mauszeiger über dem Steuerelement bewegt wird.</MouseMoveEvent>
+    <MouseUpEvent>Tritt auf, wenn sich der Mauszeiger über dem Steuerelement befindet und eine Maustaste losgelassen wird.</MouseUpEvent>
     <RightToLeft>Wert, der anzeigt, ob Elemente des Steuerelements eingerichtet sind zur lokalen Unterstützung bei Anwendung von right-to-left Zeichensätzen.</RightToLeft>
     <Size>Höhe und Breite des Steuerelemens.</Size>
     <TagValueBinding>Datenbindungen für den Tagwert.</TagValueBinding>

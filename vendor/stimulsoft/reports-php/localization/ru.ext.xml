@@ -9,16 +9,16 @@
     <Delete>Удалить</Delete>
     <Edit>Редактировать</Edit>
     <Fix>Исправить</Fix>
-    <GotoCodeLong>Перейти в код</GotoCodeLong>
+    <GotoCodeLong>Перейти в код.</GotoCodeLong>
     <Hide>Не показывать подобные сообщения в дальнейшем.</Hide>
     <NewName>Новое имя</NewName>
     <Off>Отключить</Off>
     <On>Включить</On>
     <SetGrowToHeightToFalse>Установить свойство GrowToHeight в false</SetGrowToHeightToFalse>
     <SetGrowToHeightToTrue>Установить свойство GrowToHeight в true</SetGrowToHeightToTrue>
-    <StiAllowHtmlTagsInTextActionLong>Задать у компонента значение свойства AllowHtmlTags равное true, для правильного отображения html-тэгов.</StiAllowHtmlTagsInTextActionLong>
-    <StiAllowOnDoublePassActionLong>Задать значение свойства NumberOfPass равное DoublePass, для правильного расчета перемененных.</StiAllowOnDoublePassActionLong>
-    <StiApplyGeneralTextFormatLong>Установить 'Общий' формат для  компонента '{0}'.</StiApplyGeneralTextFormatLong>
+    <StiAllowHtmlTagsInTextActionLong>Задать у компонента значение свойства AllowHtmlTags равное true, для правильного отображения HTML-тегов.</StiAllowHtmlTagsInTextActionLong>
+    <StiAllowOnDoublePassActionLong>Задать значение свойства NumberOfPass равное DoublePass, для правильного расчета переменных.</StiAllowOnDoublePassActionLong>
+    <StiApplyGeneralTextFormatLong>Установить 'Общий' формат для компонента '{0}'.</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>Применить Общий</StiApplyGeneralTextFormatShort>
     <StiCanBreakComponentInContainerActionLong>Задать у компонента значение свойства CanBreak равное true.</StiCanBreakComponentInContainerActionLong>
     <StiCanGrowComponentInContainerActionLong>Задать у контейнера значение свойства CanGrow равное true.</StiCanGrowComponentInContainerActionLong>
@@ -37,7 +37,7 @@
     <StiGenerateNewNameDataSourceActionLong>Сгенерировать новое имя для источника данных.</StiGenerateNewNameDataSourceActionLong>
     <StiGenerateNewNamePageActionLong>Сгенерировать новое имя для страницы.</StiGenerateNewNamePageActionLong>
     <StiGenerateNewNameRelationActionLong>Сгенерировать новое имя для связи.</StiGenerateNewNameRelationActionLong>
-    <StiGenerateNewNameVariableActionLong>Создайте новое наименование для переменной.</StiGenerateNewNameVariableActionLong>
+    <StiGenerateNewNameVariableActionLong>Сгенерировать новое имя для переменной.</StiGenerateNewNameVariableActionLong>
     <StiGrowToHeightOverlappingLong>Задать у компонента значение свойства GrowToHeight равное false.</StiGrowToHeightOverlappingLong>
     <StiInsufficientTextHeightForOneLineLong>Высота компонента увеличится как минимум до высоты одной строки текста или до следующей ячейки сетки отчета.</StiInsufficientTextHeightForOneLineLong>
     <StiInsufficientTextHeightForOneLineShort>Исправить высоту</StiInsufficientTextHeightForOneLineShort>
@@ -66,20 +66,20 @@
     <Zero>Обнулить</Zero>
   </CheckActions>
   <CheckComponent>
-    <StiAllowHtmlTagsInTextCheckLong>В тексте используются Html тэги, но значение свойства AllowHtmlTags равно false. Содержимое компонента {0} напечатается неправильно.</StiAllowHtmlTagsInTextCheckLong>
+    <StiAllowHtmlTagsInTextCheckLong>В тексте используются HTML-теги, но значение свойства AllowHtmlTags равно false. Содержимое компонента {0} напечатается неправильно.</StiAllowHtmlTagsInTextCheckLong>
     <StiAllowHtmlTagsInTextCheckShort>Не задано значение свойства AllowHtmlTags</StiAllowHtmlTagsInTextCheckShort>
     <StiCanBreakComponentInContainerCheckLong>У контейнера '{0}' значение свойства CanBreak равно false, а у некоторых вложенных компонентов значение свойства CanBreak равно true.</StiCanBreakComponentInContainerCheckLong>
     <StiCanBreakComponentInContainerCheckShort>У контейнера значение свойства CanBreak равно false</StiCanBreakComponentInContainerCheckShort>
     <StiCanGrowComponentInContainerCheckLong>У контейнера '{0}' значение свойства CanGrow равно false, а у некоторых вложенных компонентов значение свойства CanGrow равно true. Это может привести к некорректному построению отчета.</StiCanGrowComponentInContainerCheckLong>
     <StiCanGrowComponentInContainerCheckShort>У контейнера значение свойства CanGrow равно false</StiCanGrowComponentInContainerCheckShort>
-    <StiCanGrowGrowToHeightComponentInContainerLong>В контейнере '{0}' у некоторых компонентов значение свойство CanGrow равно true, но не у всех значение свойства GrowToHeight равно true. При построении отчета эти компоненты могут быть не выравнены по нижней границе контейнера.</StiCanGrowGrowToHeightComponentInContainerLong>
+    <StiCanGrowGrowToHeightComponentInContainerLong>В контейнере '{0}' у некоторых компонентов значение свойства CanGrow равно true, но не у всех значение свойства GrowToHeight равно true. При построении отчета эти компоненты могут быть не выровнены по нижней границе контейнера.</StiCanGrowGrowToHeightComponentInContainerLong>
     <StiCanGrowGrowToHeightComponentInContainerShort>Возможно некорректное отображение компонентов</StiCanGrowGrowToHeightComponentInContainerShort>
-    <StiCanGrowWordWrapTextAndWysiwygCheckLong>При значение свойства TextQuality равном Standard или Typographic отображение текста в превью, при разных масштабах и при печати может отличаться, из-за ошибок округления библиотеки GDI+.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
+    <StiCanGrowWordWrapTextAndWysiwygCheckLong>При значении свойства TextQuality равном Standard или Typographic отображение текста в превью, при разных масштабах и при печати может отличаться, из-за ошибок округления библиотеки GDI+.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>Возможен некорректный перенос текста</StiCanGrowWordWrapTextAndWysiwygCheckShort>
     <StiChartSeriesValueCheckLong>Свойство Значение указано для ряда из диаграммы "{0}", но для диаграммы не задано свойство источника данных.</StiChartSeriesValueCheckLong>
-    <StiColumnsWidthGreaterContainerWidthCheckLong>У компонента '{0}' cуммарная ширина колонок больше его собственной ширины. Это может привести к некорректному построению отчета. Также возможны проблемы с экспортом отчета в другие форматы.</StiColumnsWidthGreaterContainerWidthCheckLong>
+    <StiColumnsWidthGreaterContainerWidthCheckLong>У компонента '{0}' суммарная ширина колонок больше его собственной ширины. Это может привести к некорректному построению отчета. Также возможны проблемы с экспортом отчета в другие форматы.</StiColumnsWidthGreaterContainerWidthCheckLong>
     <StiColumnsWidthGreaterContainerWidthCheckShort>Суммарная ширина колонок больше ширины компонента</StiColumnsWidthGreaterContainerWidthCheckShort>
-    <StiColumnsWidthGreaterPageWidthCheckLong>У страницы '{0}' cуммарная ширина колонок больше ее собственной ширины. Это может привести к некорректному построению отчета. Также возможны проблемы с экспортом отчета в другие форматы.</StiColumnsWidthGreaterPageWidthCheckLong>
+    <StiColumnsWidthGreaterPageWidthCheckLong>У страницы '{0}' суммарная ширина колонок больше ее собственной ширины. Это может привести к некорректному построению отчета. Также возможны проблемы с экспортом отчета в другие форматы.</StiColumnsWidthGreaterPageWidthCheckLong>
     <StiColumnsWidthGreaterPageWidthCheckShort>Суммарная ширина колонок больше ширины страницы</StiColumnsWidthGreaterPageWidthCheckShort>
     <StiComponentBoundsAreOutOfBandLong>Компонент '{0}' частично или полностью находится за пределами бэнда. Компонент с таким расположением может быть выведен на печать неверно. Однако, в некоторых случаях такое расположение компонента допустимо. Также возможны проблемы с экспортом отчета в другие форматы.</StiComponentBoundsAreOutOfBandLong>
     <StiComponentBoundsAreOutOfBandShort>Компонент частично за пределами бэнда.</StiComponentBoundsAreOutOfBandShort>
@@ -87,7 +87,7 @@
     <StiComponentExpressionCheckShort>Выражение не может быть вычислено!</StiComponentExpressionCheckShort>
     <StiComponentNameIsSystemVariableCheckLong>Имя компонента '{0}' конфликтует с именем системной переменной! Выражения с этой системной переменной будут работать некорректно, т.к. обращение к ней будет заменяться на обращение к компоненту.</StiComponentNameIsSystemVariableCheckLong>
     <StiComponentNameIsSystemVariableCheckShort>Имя компонента конфликтует с именем системной переменной</StiComponentNameIsSystemVariableCheckShort>
-    <StiComponentResourceCheckLong>Ресурс '{0}' указанный для компонента '{1}' не найден в словаре отчета.</StiComponentResourceCheckLong>
+    <StiComponentResourceCheckLong>Ресурс '{0}', указанный для компонента '{1}', не найден в словаре отчета.</StiComponentResourceCheckLong>
     <StiComponentResourceCheckShort>Указанный ресурс не найден!</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>У страницы '{0}' задан не существующий стиль.</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>У компонента '{0}' задан не существующий стиль.</StiComponentStyleIsNotFoundCheckLong>
@@ -99,7 +99,7 @@
     <StiCorruptedCrossLinePrimitiveCheckLong>В графическом примитиве '{0}' отсутствует начальная и/или конечная точка. Такой графический примитив может не отображаться вообще или может отображаться неверно.</StiCorruptedCrossLinePrimitiveCheckLong>
     <StiCorruptedCrossLinePrimitiveCheckShort>Поврежденный примитив</StiCorruptedCrossLinePrimitiveCheckShort>
     <StiCountDataDataSourceAtDataBandLong>У компонента '{0}' не заданы значения свойств CountData, DataSource и BusinessObject. В некоторых случаях это допустимо.</StiCountDataDataSourceAtDataBandLong>
-    <StiCountDataDataSourceAtDataBandShort>Возможно вы забыли задать значения свойств</StiCountDataDataSourceAtDataBandShort>
+    <StiCountDataDataSourceAtDataBandShort>Возможно, вы забыли задать значения свойств</StiCountDataDataSourceAtDataBandShort>
     <StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>На странице '{0}' количество CrossGroupFooter не соответствует количеству CrossGroupHeader. Лишние компоненты не будут построены.</StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>
     <StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>В контейнере '{0}' количество CrossGroupFooter не соответствует количеству CrossGroupHeader. Лишние компоненты не будут построены.</StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>
     <StiDataSourcesForImageCheckLong>У компонента '{0}' задано больше одного источника данных.</StiDataSourcesForImageCheckLong>
@@ -112,10 +112,10 @@
     <StiFilterCircularDependencyElementCheckShort>Циклическая зависимость фильтра</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>Для компонента {0} задан фильтр, но в нём не задано значение. Поэтому фильтр не применяется.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>В фильтре не задано значение</StiFilterValueCheckShort>
-    <StiFontMissingCheckLong>Шрифт '{0}' указанный для компонента '{1}' не найден.</StiFontMissingCheckLong>
+    <StiFontMissingCheckLong>Шрифт '{0}', указанный для компонента '{1}', не найден.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>Шрифт не найден.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>В отчете используются системные переменные, которые не доступны в EngineV1. Вам необходимо переключиться на EngineV2.</StiFunctionsOnlyForEngineV2CheckLong>
-    <StiFunctionsOnlyForEngineV2CheckShort>Используются переменные недоступные в EngineV1.</StiFunctionsOnlyForEngineV2CheckShort>
+    <StiFunctionsOnlyForEngineV2CheckShort>Используются переменные, недоступные в EngineV1.</StiFunctionsOnlyForEngineV2CheckShort>
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>В контейнере '{0}' количество GroupFooter не соответствует количеству GroupHeader. Лишние компоненты не будут построены.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>На странице '{0}' количество GroupFooter не соответствует количеству GroupHeader. Лишние компоненты не будут построены.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Некоторые компоненты не будет построены</StiGroupHeaderNotEqualToGroupFooterShort>
@@ -127,16 +127,16 @@
     <StiInsufficientTextHeightForOneLineCheckShort>Недостаточно высоты для одной строки.</StiInsufficientTextHeightForOneLineCheckShort>
     <StiIsFirstPageIsLastPageDoublePassCheckLong>Системные переменные IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough при одном проходе выдают некорректные результаты. Требуется задать значение свойства NumberOfPass равное DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>В отчете используются системные переменные, которые требуют два прохода</StiIsFirstPageIsLastPageDoublePassCheckShort>
-    <StiIsFirstPassIsSecondPassCheckLong>Для корректной работы функций IsFirstPass, IsSecondPass требуется построение отчета в два прохода. Возможно вы забыли задать у отчета значение свойства NumberOfPass равное DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
+    <StiIsFirstPassIsSecondPassCheckLong>Для корректной работы функций IsFirstPass, IsSecondPass требуется построение отчета в два прохода. Возможно, вы забыли задать у отчета значение свойства NumberOfPass равное DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
     <StiIsFirstPassIsSecondPassCheckShort>Функции IsFirstPass, IsSecondPass требуют два прохода при построении отчета</StiIsFirstPassIsSecondPassCheckShort>
-    <StiLargeHeightAtPageCheckLong>На странице '{0}' мало свободного места, что может затруднить в дальнейшем просмотр и редактивароние компонентов. Рекомендуем задать значение свойства LargeHeight равное true.</StiLargeHeightAtPageCheckLong>
+    <StiLargeHeightAtPageCheckLong>На странице '{0}' мало свободного места, что может затруднить в дальнейшем просмотр и редактирование компонентов. Рекомендуем задать значение свойства LargeHeight равное true.</StiLargeHeightAtPageCheckLong>
     <StiLargeHeightAtPageCheckShort>На странице мало свободного места</StiLargeHeightAtPageCheckShort>
     <StiLocationOutsidePageCheckLong>Компонент '{0}' частично или полностью находится за пределами страницы. Компонент с таким расположением будет напечатан неверно. Также возможны проблемы с экспортом отчета в другие форматы.</StiLocationOutsidePageCheckLong>
     <StiLocationOutsidePageCheckShort>Компонент частично за пределами страницы</StiLocationOutsidePageCheckShort>
     <StiLocationOutsidePrintableAreaCheckLong>Компонент '{0}' частично или полностью находится за пределами зоны печати страницы. Компонент с таким расположением может быть выведен на печать неверно. Однако, в некоторых случаях такое расположение компонента допустимо. Также возможны проблемы с экспортом отчета в другие форматы.</StiLocationOutsidePrintableAreaCheckLong>
     <StiLocationOutsidePrintableAreaCheckShort>Компонент частично за пределами зоны печати</StiLocationOutsidePrintableAreaCheckShort>
     <StiMinRowsInColumnsCheckLong>У бэнда '{0}' задано значение свойства MinRowsInColumns не равное нулю, а значение свойства Columns равно нулю. Это является бессмысленным.</StiMinRowsInColumnsCheckLong>
-    <StiMinRowsInColumnsCheckShort>Возможно неверно задано значение свойства MinRowsInColumns</StiMinRowsInColumnsCheckShort>
+    <StiMinRowsInColumnsCheckShort>Возможно, неверно задано значение свойства MinRowsInColumns</StiMinRowsInColumnsCheckShort>
     <StiNegativeSizesOfComponentsCheckLong>Значение свойства Width или Height у компонента '{0}' меньше нуля. Это может привести к некорректному построению отчета.</StiNegativeSizesOfComponentsCheckLong>
     <StiNegativeSizesOfComponentsCheckShort>Ширина или высота компонента меньше нуля</StiNegativeSizesOfComponentsCheckShort>
     <StiNoConditionAtGroupCheckLong>У компонента '{0}' не задано условие. Без него группировка осуществляться не будет</StiNoConditionAtGroupCheckLong>
@@ -145,46 +145,46 @@
     <StiNoNameComponentCheckShort>Компонент без имени</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>У страницы с индексом '{0}' не указано имя. Если не указать имя страницы, то ядро генератора отчетов не сможет скомпилировать отчет.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>Страница без имени</StiNoNamePageCheckShort>
-    <StiPageFooterOnlyLastPageCheckLong>Бэнд {0} со свойством PrintOn=OnlyLastPage, создаёт нежелательные пустые места внизу страницы. Рекомендуется заменить такой бэнд на ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
+    <StiPageFooterOnlyLastPageCheckLong>Бэнд {0} со свойством PrintOn=OnlyLastPage создаёт нежелательные пустые места внизу страницы. Рекомендуется заменить такой бэнд на ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
     <StiPageFooterOnlyLastPageCheckShort>Вероятность появления пустых мест внизу страницы</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>Системная переменная PageLine требует использования двойного прохода при построении отчета.</StiPageLineAndDoublePassCheckLong>
     <StiPageLineAndDoublePassCheckShort>PageLine требует Double-Pass!</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>В отчете, в котором применяется EngineV1, найдена панель '{0}'. Этот компонент недоступен в EngineV1, поэтому генератор отчетов попытается построить его как компонент Контейнер. Однако, компонент Панель имеет расширенные возможности по сравнению с компонентом Контейнер, и это может привести к неверному построению всего отчета.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>Панель в EngineV1</StiPanelInEngineV1CheckShort>
     <StiPrintHeadersAndFootersFromPreviousPageLong>У страницы '{0}' задано значение свойства PrintHeadersAndFootersFromPreviousPage равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiPrintHeadersAndFootersFromPreviousPageLong>
-    <StiPrintHeadersAndFootersFromPreviousPageShort>Возможно неверно задано значение свойства PrintHeadersAndFootersFromPreviousPage</StiPrintHeadersAndFootersFromPreviousPageShort>
+    <StiPrintHeadersAndFootersFromPreviousPageShort>Возможно, неверно задано значение свойства PrintHeadersAndFootersFromPreviousPage</StiPrintHeadersAndFootersFromPreviousPageShort>
     <StiPrintOnDoublePassCheckLong>У компонента '{0}' значение свойства PrintOn не равно AllPages. Для правильного построения отчета необходимо включить два прохода.</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>Свойство PrintOn не равно AllPages</StiPrintOnDoublePassCheckShort>
     <StiPrintOnPreviousPageCheck2Long>У страницы '{0}' задано значение свойства PrintOnPreviousPage равное true. Все компоненты (кроме бэндов), которые лежат на этой странице, будут напечатаны только начиная со следующей новой страницы, или не будут напечатаны вообще, если новых страниц не будет.</StiPrintOnPreviousPageCheck2Long>
     <StiPrintOnPreviousPageCheck2Short>Некоторые компоненты могут быть не напечатаны.</StiPrintOnPreviousPageCheck2Short>
     <StiPrintOnPreviousPageCheckLong>У страницы '{0}' задано значение свойства PrintOnPreviousPage равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiPrintOnPreviousPageCheckLong>
-    <StiPrintOnPreviousPageCheckShort>Возможно неверно задано значение свойства PrintOnPreviousPage</StiPrintOnPreviousPageCheckShort>
+    <StiPrintOnPreviousPageCheckShort>Возможно, неверно задано значение свойства PrintOnPreviousPage</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>У компонента '{0}' задано свойство StartNewPage, поддерживаемое только в EngineV1.</StiPropertiesOnlyEngineV1CheckLong>
-    <StiPropertiesOnlyEngineV1CheckShort>Заданы свойства не поддерживаемые EngineV2</StiPropertiesOnlyEngineV1CheckShort>
+    <StiPropertiesOnlyEngineV1CheckShort>Заданы свойства, не поддерживаемые EngineV2</StiPropertiesOnlyEngineV1CheckShort>
     <StiPropertiesOnlyEngineV2CheckLong>У компонента '{0}' используется одно из свойств: NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter, SkipFirst, не поддерживаемые EngineV2.</StiPropertiesOnlyEngineV2CheckLong>
-    <StiPropertiesOnlyEngineV2CheckShort>Заданы свойства не поддерживаемые EngineV1</StiPropertiesOnlyEngineV2CheckShort>
+    <StiPropertiesOnlyEngineV2CheckShort>Заданы свойства, не поддерживаемые EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>У страницы '{0}' задано значение свойства ResetPageNumber равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiResetPageNumberCheckLong>
-    <StiResetPageNumberCheckShort>Возможно неверно задано значение свойства ResetPageNumber</StiResetPageNumberCheckShort>
+    <StiResetPageNumberCheckShort>Возможно, неверно задано значение свойства ResetPageNumber</StiResetPageNumberCheckShort>
     <StiShowInsteadNullValuesCheckLong>У компонента '{0}' задано значение свойства NullValues, но не задано значение свойства DataColumn. Это не имеет смысла.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>Задано свойство NullValues</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Если у SubReport значение свойства SubReportPage не задано, то отчет не может быть построен.</StiSubReportPageZeroCheckLong>
     <StiSubReportPageZeroCheckShort>Значение свойства SubReportPage не задано</StiSubReportPageZeroCheckShort>
     <StiSystemTextObsoleteCheckLong>Компонент '{0}' имеет тип StiSystemText. Компонент StiSystemText устарел и более не будет поддерживаться, поэтому не рекомендуем использовать его.</StiSystemTextObsoleteCheckLong>
     <StiSystemTextObsoleteCheckShort>Компонент устарел</StiSystemTextObsoleteCheckShort>
-    <StiTextColorEqualToBackColorCheckLong>Возможно вы неверно задали значения свойств TextBrush и Brush у компонента '{0}'. Текст компонента не будет виден.</StiTextColorEqualToBackColorCheckLong>
+    <StiTextColorEqualToBackColorCheckLong>Возможно, вы неверно задали значения свойств TextBrush и Brush у компонента '{0}'. Текст компонента не будет виден.</StiTextColorEqualToBackColorCheckLong>
     <StiTextColorEqualToBackColorCheckShort>Значение свойства TextBrush равно значению свойства Brush</StiTextColorEqualToBackColorCheckShort>
     <StiTextTextFormatCheckLong>Выбранный для компонента '{0}' текстовый формат не может быть применён, т.к. результат выражения уже является текстовой строкой.</StiTextTextFormatCheckLong>
     <StiTextTextFormatCheckShort>Формат не может быть применён.</StiTextTextFormatCheckShort>
-    <StiTextTextFormatFieldCheckLong>Колонка используемая в компоненте {0} имеет тип отличный от даты. Рекомендуем изменить форматирование на Стандарт чтобы избежать замедления работы и ошибок преобразования.</StiTextTextFormatFieldCheckLong>
+    <StiTextTextFormatFieldCheckLong>Колонка, используемая в компоненте {0}, имеет тип, отличный от даты. Рекомендуем изменить форматирование на Стандарт, чтобы избежать замедления работы и ошибок преобразования.</StiTextTextFormatFieldCheckLong>
     <StiTextTextFormatFieldCheckShort>Тип колонки данных не подходит для выбранного формата.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>Системные переменные TotalPageCount, TotalPageCountThrough в скриптах и условиях при одном проходе выдают некорректные результаты. Требуется задать значение свойства NumberOfPass равное DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>В отчете найден неизвестный компонент '{0}'. Генератор отчетов не может определить тип этого компонента. Возможно, это пользовательский компонент. В текущем состоянии отчет не может быть построен!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Неизвестный компонент</StiUndefinedComponentCheckShort>
-    <StiVerySmallSizesOfComponentsCheckLong>Значение свойства Width или Height у компонента '{0}', меньше значения свойства GridSize отчета. Возможно вы неверно указали его размер. Также возможны проблемы с экспортом отчета в другие форматы.</StiVerySmallSizesOfComponentsCheckLong>
+    <StiVerySmallSizesOfComponentsCheckLong>Значение свойства Width или Height у компонента '{0}' меньше значения свойства GridSize отчета. Возможно, вы неверно указали его размер. Также возможны проблемы с экспортом отчета в другие форматы.</StiVerySmallSizesOfComponentsCheckLong>
     <StiVerySmallSizesOfComponentsCheckShort>Очень маленький размер компонента</StiVerySmallSizesOfComponentsCheckShort>
-    <StiWidthHeightZeroComponentCheckLongHeight>Высота компонента '{0}' равна нулю. Компонент с такими параметрами может иметь проблемы при отображении на странице. Также возможны проблемы при эспорте отчета с таким компонентом в другие форматы.</StiWidthHeightZeroComponentCheckLongHeight>
-    <StiWidthHeightZeroComponentCheckLongWidth>Ширина компонента '{0}' равна нулю. Компонент с такими параметрами может иметь проблемы при отображении на странице. Также возможны проблемы при эспорте отчета с таким компонентом в другие форматы.</StiWidthHeightZeroComponentCheckLongWidth>
-    <StiWidthHeightZeroComponentCheckLongWidthHeight>Ширина и высота компонента '{0}' равны нулю. Компонент с такими параметрами может иметь проблемы при отображении на странице. Также возможны проблемы при эспорте отчета с таким компонентом в другие форматы.</StiWidthHeightZeroComponentCheckLongWidthHeight>
+    <StiWidthHeightZeroComponentCheckLongHeight>Высота компонента '{0}' равна нулю. Компонент с такими параметрами может иметь проблемы при отображении на странице. Также возможны проблемы при экспорте отчета с таким компонентом в другие форматы.</StiWidthHeightZeroComponentCheckLongHeight>
+    <StiWidthHeightZeroComponentCheckLongWidth>Ширина компонента '{0}' равна нулю. Компонент с такими параметрами может иметь проблемы при отображении на странице. Также возможны проблемы при экспорте отчета с таким компонентом в другие форматы.</StiWidthHeightZeroComponentCheckLongWidth>
+    <StiWidthHeightZeroComponentCheckLongWidthHeight>Ширина и высота компонента '{0}' равны нулю. Компонент с такими параметрами может иметь проблемы при отображении на странице. Также возможны проблемы при экспорте отчета с таким компонентом в другие форматы.</StiWidthHeightZeroComponentCheckLongWidthHeight>
     <StiWidthHeightZeroComponentCheckShortHeight>Высота компонента '{0}' равна нулю</StiWidthHeightZeroComponentCheckShortHeight>
     <StiWidthHeightZeroComponentCheckShortWidth>Ширина компонента '{0}' равна нулю</StiWidthHeightZeroComponentCheckShortWidth>
     <StiWidthHeightZeroComponentCheckShortWidthHeight>Ширина и высота компонента '{0}' равны нулю</StiWidthHeightZeroComponentCheckShortWidthHeight>
@@ -204,7 +204,7 @@
     <StiKeysInAbsentDataRelationCheckShort>Нет ключей</StiKeysInAbsentDataRelationCheckShort>
     <StiKeysNotFoundRelationCheckLong>Следующие колонки: '{1}', которые были указаны как ключи у связи '{0}', не найдены в Parent или Child источниках данных связи. Данная связь не может быть создана во время построения отчета!</StiKeysNotFoundRelationCheckLong>
     <StiKeysNotFoundRelationCheckShort>Не найден ключ связи</StiKeysNotFoundRelationCheckShort>
-    <StiKeysTypesMismatchDataRelationCheckLong>Типы колонок '{1}', которые указаны как ключи для связи '{0}' не совпадают! Такая связь не может быть создана во время построения отчета!</StiKeysTypesMismatchDataRelationCheckLong>
+    <StiKeysTypesMismatchDataRelationCheckLong>Типы колонок '{1}', которые указаны как ключи для связи '{0}', не совпадают! Такая связь не может быть создана во время построения отчета!</StiKeysTypesMismatchDataRelationCheckLong>
     <StiKeysTypesMismatchDataRelationCheckShort>Типы ключей у связи не совпадают</StiKeysTypesMismatchDataRelationCheckShort>
     <StiNoNameDataRelationCheckLong>У связи (создана между источниками данных '{0}') не указано имя (Name). Это имя используется для создания класса в коде отчета данной связи. Без указания имени, генератор отчетов не сможет создать код отчета и отчет не будет скомпилирован!</StiNoNameDataRelationCheckLong>
     <StiNoNameDataRelationCheckShort>Связь без имени</StiNoNameDataRelationCheckShort>
@@ -230,13 +230,13 @@
     <Warning>Внимание! </Warning>
   </CheckGlobal>
   <CheckLicense>
-    <StiLicenseTrialCheckLong>Вы используете пробную версию продукта. Для полноценного использования Вам необходимо приобрести лицензию.</StiLicenseTrialCheckLong>
+    <StiLicenseTrialCheckLong>Пробная версия только для ознакомления с продуктом. Для разработки или развертывания с использованием Stimulsoft требуется лицензия.</StiLicenseTrialCheckLong>
     <StiValidSubscriptioRequiredCheckLong>Требуется активная подписка. Обновите подписку, чтобы использовать весь функционал Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
     <StiLostPointsOnPageCheckLong>На странице '{0}' найдены потерянные точки: {1}. Точки невидимы на странице и используются в следующих графических примитивах: вертикальная линия, прямоугольник и закругленный прямоугольник. Если точка не сопоставлена ни с одним компонентом, то ее можно удалить.</StiLostPointsOnPageCheckLong>
     <StiLostPointsOnPageCheckShort>Потерянные точки</StiLostPointsOnPageCheckShort>
-    <StiOrientationPageCheckLongLandscape>Ориентация страницы '{0}' не совпадает с указанными размерами страницы. Обычно, для альбомной ориентации страницы, ширина страницы должна быть больше, чем высота страницы. У указанной страницы высота страницы меньше высоты. Это может привести к проблемам при выводе на печать данной страницы.</StiOrientationPageCheckLongLandscape>
+    <StiOrientationPageCheckLongLandscape>Ориентация страницы '{0}' не совпадает с указанными размерами страницы. Обычно, для альбомной ориентации страницы, ширина страницы должна быть больше, чем высота страницы. У указанной страницы ширина страницы меньше высоты. Это может привести к проблемам при выводе на печать данной страницы.</StiOrientationPageCheckLongLandscape>
     <StiOrientationPageCheckLongPortrait>Ориентация страницы '{0}' не совпадает с указанными размерами страницы. Обычно, для портретной ориентации страницы, ширина страницы должна быть меньше, чем высота страницы. У указанной страницы ширина страницы больше высоты. Это может привести к проблемам при выводе на печать данной страницы.</StiOrientationPageCheckLongPortrait>
     <StiOrientationPageCheckShort>Возможно неверная ориентация страницы '{0}'.</StiOrientationPageCheckShort>
   </CheckPage>
@@ -248,11 +248,11 @@
     <StiCompilationErrorAssemblyCheckLong>Невозможно загрузить файл или сборку '{0}' или один из зависимых от них компонентов.</StiCompilationErrorAssemblyCheckLong>
     <StiCompilationErrorCheck2Long>Выявлена ошибка компиляции в свойстве '{1}' компонента '{2}':</StiCompilationErrorCheck2Long>
     <StiCompilationErrorCheck3Long>Выявлена ошибка компиляции в событии '{1}' компонента '{2}':</StiCompilationErrorCheck3Long>
-    <StiCompilationErrorCheckLong>В отчете '{0}' выявлена ошибка компиляции:'</StiCompilationErrorCheckLong>
+    <StiCompilationErrorCheckLong>В отчете '{0}' выявлена ошибка компиляции:</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>Ошибка компиляции</StiCompilationErrorCheckShort>
     <StiCompilationWarningCheckLong>В отчете '{0}' выявлено предупреждение компиляции:</StiCompilationWarningCheckLong>
     <StiCompilationWarningCheckShort>Предупреждение компиляции</StiCompilationWarningCheckShort>
-    <StiDataSourceLoopingCheckLong>Бэнд Данные '{0}' и подчиненный бэнд Данные '{1}' используют один и тот же источник данных '{2}'. Во избежание зацикливанния, подчиненный бэнд Данные не будет отображаться.</StiDataSourceLoopingCheckLong>
+    <StiDataSourceLoopingCheckLong>Бэнд Данные '{0}' и подчиненный бэнд Данные '{1}' используют один и тот же источник данных '{2}'. Во избежание зацикливания, подчиненный бэнд Данные не будет отображаться.</StiDataSourceLoopingCheckLong>
     <StiDataSourceLoopingCheckShort>Возможно зацикливание данных.</StiDataSourceLoopingCheckShort>
     <StiDuplicatedName2CheckLong>Найдены источники данных с одинаковым именем '{0}'. Компиляция отчета невозможна.</StiDuplicatedName2CheckLong>
     <StiDuplicatedName3CheckLong>Существует несколько источников данных с именем '{0}', различающихся регистром.</StiDuplicatedName3CheckLong>
@@ -269,6 +269,10 @@
     <StiNetCoreCompilationModeCheckShort>Отчёт в режиме компиляции</StiNetCoreCompilationModeCheckShort>
     <StiResourcesFontsCheckLong>Не удаётся загрузить шрифт из ресурса '{0}'. Файл повреждён или формат файла не поддерживается.</StiResourcesFontsCheckLong>
     <StiResourcesFontsCheckShort>Шрифт не загружен</StiResourcesFontsCheckShort>
+    <StiScriptExecutionErrorCheck2Long>Ошибка выполнения сценария произошла в свойстве '{1}' компонента '{2}'.</StiScriptExecutionErrorCheck2Long>
+    <StiScriptExecutionErrorCheck3Long>Ошибка выполнения сценария произошла в событии '{1}' компонента '{2}'.</StiScriptExecutionErrorCheck3Long>
+    <StiScriptExecutionErrorCheckLong>Ошибка выполнения сценария произошла.</StiScriptExecutionErrorCheckLong>
+    <StiScriptExecutionErrorCheckShort>Ошибка выполнения сценария</StiScriptExecutionErrorCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>Переменная '{0}' имеет неправильное значение по умолчанию. Невозможно инициализировать переменную указанным значением.</StiVariableInitializationCheckLong>
@@ -301,8 +305,8 @@
     <MethodHasInvalidArgument>Метод '{0}' имеет недопустимый аргумент '{1}'. Невозможно преобразовать из '{2}' в '{3}'.</MethodHasInvalidArgument>
     <NameDoesNotExistInCurrentContext>Имя '{0}' не существует в текущем контексте.</NameDoesNotExistInCurrentContext>
     <NoMatchingOverloadedMethod>Нет подходящего перегруженного метода для '{0}({1})'.</NoMatchingOverloadedMethod>
-    <NoOverloadForMethodTakesNArguments>Нет варианта метода '{0}' с указанными количеством ('{1}') аргументов.</NoOverloadForMethodTakesNArguments>
-    <OperatorCannotBeAppliedToOperands>Оператор '{0}' не может быть применен к операндам типа '{1}' и типа '{2}.</OperatorCannotBeAppliedToOperands>
+    <NoOverloadForMethodTakesNArguments>Нет варианта метода '{0}' с указанным количеством ('{1}') аргументов.</NoOverloadForMethodTakesNArguments>
+    <OperatorCannotBeAppliedToOperands>Оператор '{0}' не может быть применен к операндам типа '{1}' и типа '{2}'.</OperatorCannotBeAppliedToOperands>
     <RightParenthesisExpected>) ожидается.</RightParenthesisExpected>
     <SyntaxError>Ошибка синтаксиса.</SyntaxError>
     <TheTypeOrNamespaceNotExistInTheNamespace>Имя типа или пространства имен '{0}' не существует в пространстве имен '{1}'.</TheTypeOrNamespaceNotExistInTheNamespace>
@@ -322,7 +326,7 @@
     <ConnectionsFromReport>Использовать заданное в отчете подключение</ConnectionsFromReport>
     <ConnectionsFromReportToolTip>Будут использованы сохранённые в шаблоне отчёта подключения без каких-либо изменений.</ConnectionsFromReportToolTip>
     <ConnectionsRegData>Подключить данные из кода</ConnectionsRegData>
-    <ConnectionsRegDataToolTip>Будет предложен вариант подключения данных из кода в виде XML или JSON данных, либо при возможности в виде бизнес объектов.</ConnectionsRegDataToolTip>
+    <ConnectionsRegDataToolTip>Будет предложен вариант подключения данных из кода в виде XML или JSON данных, либо при возможности в виде бизнес-объектов.</ConnectionsRegDataToolTip>
     <ConnectionsReplace>Заменить строку подключения</ConnectionsReplace>
     <ConnectionsReplaceToolTip>Будет предложен вариант изменения подключения из кода в зависимости от его типа - путь к файлу, строка подключения к базе данных.</ConnectionsReplaceToolTip>
     <Copy>Копировать</Copy>
@@ -342,7 +346,7 @@
     <FrameworkType>Тип фреймворка</FrameworkType>
     <FrameworkVersion>Версия фреймворка</FrameworkVersion>
     <FullScreenViewer>Отобразить вьювер на все окно Web-браузера</FullScreenViewer>
-    <FullScreenViewerToolTip>Вьювер с отчётом будут отображены на всём доступном пространстве окна браузера.</FullScreenViewerToolTip>
+    <FullScreenViewerToolTip>Вьювер с отчётом будет отображён на всём доступном пространстве окна браузера.</FullScreenViewerToolTip>
     <GetLibrariesFrom>Подключить библиотеки Stimulsoft из {0}</GetLibrariesFrom>
     <GetLibrariesFromToolTip>Все необходимые библиотеки и скрипты будут подключены из репозитория, иначе будут скопированы в проект и подключены напрямую.</GetLibrariesFromToolTip>
     <GroupAddons>Дополнительно</GroupAddons>
@@ -363,7 +367,7 @@
     <IncludeReportPackedStringToCodeToolTip>Отчёт будет сохранён в виде Base64 строки прямо в коде проекта. Это позволяет избавиться от дополнительных файлов.</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>Добавить тему оформления</IncludeUITheme>
     <IncludeUIThemeToolTip>В настройках компонентов будет установлена выбранная тема оформления интерфейса.</IncludeUIThemeToolTip>
-    <JavaScriptFramework>Тип фрэймворка:</JavaScriptFramework>
+    <JavaScriptFramework>Тип фреймворка:</JavaScriptFramework>
     <LicenseKeyTypeFile>Файл</LicenseKeyTypeFile>
     <LicenseKeyTypeString>Строка</LicenseKeyTypeString>
     <LoadForm>Загружать форму как:</LoadForm>
@@ -374,7 +378,7 @@
     <LoadReportFile>Файл</LoadReportFile>
     <LoadReportHyperlink>Ссылка</LoadReportHyperlink>
     <LoadReportOnServerSide>Загрузка отчета на стороне сервера</LoadReportOnServerSide>
-    <LoadReportOnServerSideToolTip>Файл отчета будет загружен на стороре сервера и передан компоненту в виде Base64 строки. Это позволяет избежать лишних запросов к серверу.</LoadReportOnServerSideToolTip>
+    <LoadReportOnServerSideToolTip>Файл отчета будет загружен на стороне сервера и передан компоненту в виде Base64 строки. Это позволяет избежать лишних запросов к серверу.</LoadReportOnServerSideToolTip>
     <LoadReportResource>Ресурс</LoadReportResource>
     <LoadReportStream>Поток</LoadReportStream>
     <LoadReportString>Строка</LoadReportString>
@@ -405,7 +409,7 @@
     <SaveExportedPagesToArchive>Сохранить все страницы в одном ZIP-архиве</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Каждая страница отчета будет экспортирована в выбранный формат изображения, все страницы будут добавлены в один ZIP-архив.</SaveExportedPagesToArchiveToolTip>
     <SaveExportedReportToFile>Сохранить экспортированный отчет в файл</SaveExportedReportToFile>
-    <SaveExportedReportToFileToolTip>Сохранение экспортированного отчета на стороне сервера в указанный файл. Функция экспорта вернет булиевый результат.</SaveExportedReportToFileToolTip>
+    <SaveExportedReportToFileToolTip>Сохранение экспортированного отчета на стороне сервера в указанный файл. Функция экспорта вернет логическое значение.</SaveExportedReportToFileToolTip>
     <SaveProjectPackage>Сохранить пакет проекта</SaveProjectPackage>
     <SaveStandalone>Сохранить автономный</SaveStandalone>
     <SaveStandalonePackage>Сохранить автономный пакет</SaveStandalonePackage>
@@ -423,7 +427,7 @@
     <UseCompilationCache>Использовать компиляцию для кэширования</UseCompilationCache>
     <UseCompilationCacheToolTip>Скомпилированный отчёт будет сохранён во временной директории, это позволяет ускорить последующее его построение и сократить использование памяти.</UseCompilationCacheToolTip>
     <UseCompressedScripts>Использовать сжатые скрипты</UseCompressedScripts>
-    <UseCompressedScriptsToolTip>Будут использованы упакованные скрипты вместо обычных. Это позволяет уменьшить их размер, однако требует некоторое время на из распаковку в момент запуска.</UseCompressedScriptsToolTip>
+    <UseCompressedScriptsToolTip>Будут использованы упакованные скрипты вместо обычных. Это позволяет уменьшить их размер, однако требует некоторое время на их распаковку в момент запуска.</UseCompressedScriptsToolTip>
     <UseHtmlTemplate>Использовать HTML шаблон</UseHtmlTemplate>
     <UseHtmlTemplateToolTip>Использовать HTML шаблон для отображения компонента. Это позволяет размещать другие элементы на странице, и использовать JavaScript события.</UseHtmlTemplateToolTip>
     <UseLatestVersion>Использовать последнюю версию библиотек</UseLatestVersion>
@@ -443,11 +447,11 @@
     <StiBusinessObjectDifferentColumnCompareLong>Колонка '{0}' из бизнес-объекта '{1}' отчета '{2}' отсутствует в бизнес-объекте '{3}' отчета '{4}'.</StiBusinessObjectDifferentColumnCompareLong>
     <StiBusinessObjectDifferentColumnCompareShort>Нет колонки у бизнес-объекта.</StiBusinessObjectDifferentColumnCompareShort>
     <StiBusinessObjectPropertiesCompareComment>Показывает различные значения свойств у идентичных бизнес-объектов.</StiBusinessObjectPropertiesCompareComment>
-    <StiBusinessObjectPropertiesCompareLong>В отчете '{0}' свойство '{2}' бизнес-объекта '{1}' отличается по значению со свойством '{5}' бизнес-объекта '{4}' из отчета '{3}'.</StiBusinessObjectPropertiesCompareLong>
+    <StiBusinessObjectPropertiesCompareLong>В отчете '{0}' свойство '{2}' бизнес-объекта '{1}' отличается по значению от свойства '{5}' бизнес-объекта '{4}' из отчета '{3}'.</StiBusinessObjectPropertiesCompareLong>
     <StiBusinessObjectPropertiesCompareShort>Различные значения свойств у бизнес-объектов.</StiBusinessObjectPropertiesCompareShort>
     <StiChangeInReportPropertyActionDescription>Оба значения свойств приравнять к '{0}'</StiChangeInReportPropertyActionDescription>
     <StiComponentPropertiesCompareComment>Показывает различные значения свойств у идентичных компонентов.</StiComponentPropertiesCompareComment>
-    <StiComponentPropertiesCompareLong>Свойство '{2}' компонента '{1}' в отчете '{0}' отличается по значению со свойством '{5}' компонента '{4}' из отчета '{3}'.</StiComponentPropertiesCompareLong>
+    <StiComponentPropertiesCompareLong>Свойство '{2}' компонента '{1}' в отчете '{0}' отличается по значению от свойства '{5}' компонента '{4}' из отчета '{3}'.</StiComponentPropertiesCompareLong>
     <StiComponentPropertiesCompareShort>Различные значения свойств у компонентов.</StiComponentPropertiesCompareShort>
     <StiCopyAllActionDescription>Скопировать все в отчет '{0}'</StiCopyAllActionDescription>
     <StiCopyBusinessDataColumnActionsDescription>Скопировать колонку в бизнес-объект</StiCopyBusinessDataColumnActionsDescription>
@@ -455,7 +459,7 @@
     <StiCopyComponentActionDescription>Скопировать компонент</StiCopyComponentActionDescription>
     <StiCopyDataColumnActionDescription>Скопировать колонку в источник данных</StiCopyDataColumnActionDescription>
     <StiCopyDataRelationActionDescription>Скопировать связь</StiCopyDataRelationActionDescription>
-    <StiCopyDataSourceActionDescription>Скопировать источник данныx</StiCopyDataSourceActionDescription>
+    <StiCopyDataSourceActionDescription>Скопировать источник данных</StiCopyDataSourceActionDescription>
     <StiCopyStyleActionDescription>Скопировать стиль</StiCopyStyleActionDescription>
     <StiCopyVariableActionDescription>Скопировать переменную</StiCopyVariableActionDescription>
     <StiDataRelationPropertiesCompareComment>Показывает различные значения свойств у идентичных связей.</StiDataRelationPropertiesCompareComment>
@@ -466,7 +470,7 @@
     <StiDataSourceDifferentColumnCompareShort>Нет колонки в источнике данных.</StiDataSourceDifferentColumnCompareShort>
     <StiDataSourcePropertiesCompareComment>Показывает различные значения свойств у идентичных источников данных.</StiDataSourcePropertiesCompareComment>
     <StiDataSourcePropertiesCompareLong>Свойство '{2}' источника данных '{1}' отчета '{0}' отличается по значению от свойства '{5}' источника данных '{4}' отчета '{3}'.</StiDataSourcePropertiesCompareLong>
-    <StiDataSourcePropertiesCompareShort>Различные значения свойства у источников данных.</StiDataSourcePropertiesCompareShort>
+    <StiDataSourcePropertiesCompareShort>Различные значения свойств у источников данных.</StiDataSourcePropertiesCompareShort>
     <StiDeleteBusinessDataColumnActionsDescription>Удалить колонку из бизнес-объекта</StiDeleteBusinessDataColumnActionsDescription>
     <StiDeleteBusinessObjectActionDescription>Удалить бизнес-объект</StiDeleteBusinessObjectActionDescription>
     <StiDeleteComponentActionDescription>Удалить компонент из отчета</StiDeleteComponentActionDescription>
@@ -518,7 +522,7 @@
     <DataRelations>Связи</DataRelations>
     <DataSources>Источники данных</DataSources>
     <DataSourcesDataColumns>Колонки источников данных</DataSourcesDataColumns>
-    <EnterPassword>Введите пароль для открытия файла</EnterPassword>
+    <EnterPassword>Введите пароль для открытия файла.</EnterPassword>
     <FirstReport>Первый отчет</FirstReport>
     <LongMessage>Подробное описание</LongMessage>
     <Next>Вперед</Next>
@@ -535,9 +539,9 @@
     <StatusMiddle>Средний</StatusMiddle>
     <Styles>Стили</Styles>
     <Variables>Переменные</Variables>
-    <WarningFile1EqualFile2>Внимание! Файл 'Первый очтет' и 'Второй отчет' равны.</WarningFile1EqualFile2>
-    <WarningFirstAndSecondReportNotFound>Внимание! Файлы 'Первый очтет' и 'Второй отчет' не найдены.</WarningFirstAndSecondReportNotFound>
-    <WarningFirstReportNotFound>Внимание! Файл 'Первый очтет' не найден.</WarningFirstReportNotFound>
+    <WarningFile1EqualFile2>Внимание! Файл 'Первый отчет' и 'Второй отчет' равны.</WarningFile1EqualFile2>
+    <WarningFirstAndSecondReportNotFound>Внимание! Файлы 'Первый отчет' и 'Второй отчет' не найдены.</WarningFirstAndSecondReportNotFound>
+    <WarningFirstReportNotFound>Внимание! Файл 'Первый отчет' не найден.</WarningFirstReportNotFound>
     <WarningSecondReportNotFound>Внимание! Файл 'Второй отчет' не найден.</WarningSecondReportNotFound>
   </ReportComparerViewer>
   <StiAdvancedBorder>
@@ -583,9 +587,9 @@
     <LineStyle>Стиль линий оси.</LineStyle>
     <LineWidth>Ширина линии, которая используется для рисования оси.</LineWidth>
     <LogarithmicScale>Значение определяет, что будет использоваться логарифмическая шкала.</LogarithmicScale>
-    <Range>Диапазон настроек оси.</Range>
-    <RangeScrollEnabled>Значение определяет, что диапозон данных по оси может быть прокручен.</RangeScrollEnabled>
-    <ShowEdgeValues>Значение определяет, что первый и последний аргумент на оси будут показаны в любой случае.</ShowEdgeValues>
+    <Range>Настройки диапазона оси.</Range>
+    <RangeScrollEnabled>Значение определяет, может ли диапазон данных по оси быть прокручен.</RangeScrollEnabled>
+    <ShowEdgeValues>Значение определяет, что первый и последний аргументы на оси будут показаны в любом случае.</ShowEdgeValues>
     <ShowScrollBar>Значение определяет, будет ли отображаться полоса прокрутки.</ShowScrollBar>
     <ShowXAxis>Тип отрисовки оси X.</ShowXAxis>
     <ShowYAxis>Тип отрисовки оси Y.</ShowYAxis>
@@ -607,14 +611,14 @@
     <Angle>Угол поворота подписей.</Angle>
     <Antialiasing>Значение, которое управляет режимом сглаживания отрисовки.</Antialiasing>
     <Color>Цвет отрисовки подписей.</Color>
-    <Font>Шрифт для отрисовки, который будет использоваться для отрисовки подписи оси.</Font>
-    <Format>Форматировать сроку, которая будет использоваться для форматирования значений аргумента.</Format>
+    <Font>Шрифт, который будет использоваться для отрисовки подписи оси.</Font>
+    <Format>Строка формата, которая используется для форматирования значений аргумента.</Format>
     <Placement>Режим расположения подписей на оси.</Placement>
     <Step>Значение, которое определяет с каким шагом будут отображаться метки по оси.</Step>
-    <TextAfter>Строка, которая будет выведена после представлением строки аргумента.</TextAfter>
+    <TextAfter>Строка, которая будет выведена после представления строки аргумента.</TextAfter>
     <TextAlignment>Выравнивание текста подписи.</TextAlignment>
     <TextBefore>Строка, которая будет выведена перед представлением строки аргумента.</TextBefore>
-    <Width>Фискированная ширина подписи оси.</Width>
+    <Width>Фиксированная ширина подписи оси.</Width>
     <WordWrap>Значение определяет, что слова будут переноситься при достижении заданной ширины.</WordWrap>
   </StiAxisLabels>
   <StiAxisRange>
@@ -625,7 +629,7 @@
   <StiAxisTicks>
     <Length>Длина метки.</Length>
     <LengthUnderLabels>Длина промежуточной метки, которая расположена под подписью оси.</LengthUnderLabels>
-    <MinorCount>Количество вспомагательных меток между двумя основными метками.</MinorCount>
+    <MinorCount>Количество вспомогательных меток между двумя основными метками.</MinorCount>
     <MinorLength>Длина промежуточных меток.</MinorLength>
     <MinorVisible>Видимость промежуточных меток.</MinorVisible>
     <Step>Значение определяет, через какой шаг основные метки будут показаны.</Step>
@@ -646,7 +650,7 @@
     <PrintOnEvenOddPages>Значение определяет, что компонент напечатан на четных/нечетных страницах.</PrintOnEvenOddPages>
     <ResetPageNumber>Позволяет сбросить номер страницы на данном бенде.</ResetPageNumber>
     <StartNewPage>Значение определяет, что необходимо печатать каждую новую строку на новой странице.</StartNewPage>
-    <StartNewPageIfLessThan>Значение определяет, сколько свободного места на странице (в процентах) должно остаться для формирования новой страницы. Значение должно быть установлено в диапазон от 0 до 100. Если значение равно 100, то, в любом случае, новая страница будет сформирована. Данное свойство используется вместе со свойством StartNewPage.</StartNewPageIfLessThan>
+    <StartNewPageIfLessThan>Значение определяет, сколько свободного места на странице (в процентах) должно остаться для формирования новой страницы. Значение должно быть установлено в диапазоне от 0 до 100. Если значение равно 100, то, в любом случае, новая страница будет сформирована. Данное свойство используется вместе со свойством StartNewPage.</StartNewPageIfLessThan>
   </StiBand>
   <StiBandInteraction>
     <Collapsed>Булевское значение указывает, должна ли сворачиваться группа при построении.</Collapsed>
@@ -661,17 +665,17 @@
     <BarCodeType>Тип штрих-кода.</BarCodeType>
     <Code>Выражение для заполнения кода штрих-кода.</Code>
     <Font>Шрифт штрих-кода.</Font>
-    <ForeColor>Цвет штрих кода.</ForeColor>
+    <ForeColor>Цвет штрих-кода.</ForeColor>
     <GetBarCodeEvent>Возникает при получении кода штрих-кода.</GetBarCodeEvent>
     <ShowLabelText>Значение определяет, покажет ли данный штрих-код текст этикетки или нет.</ShowLabelText>
     <ShowQuietZones>Значение, которое определяет, что штрих-код будет отображать quiet zones или нет.</ShowQuietZones>
-    <Zoom>Значение для умножения на размер шрих-кода.</Zoom>
+    <Zoom>Значение для умножения на размер штрих-кода.</Zoom>
   </StiBarCode>
   <StiBarCodeTypeService>
     <AddClearZone>Значение определяет, будет ли показана Clear Zone.</AddClearZone>
     <AspectRatio>Значение, которое устанавливает соотношение размеров между горизонтальной и вертикальной сторонами штрих-кода.</AspectRatio>
     <AutoDataColumns>Значение определяет, что количество колонок будет рассчитано автоматически.</AutoDataColumns>
-    <AutoDataRows>Значение определяет, что количество строк будет расчитано автоматически.</AutoDataRows>
+    <AutoDataRows>Значение определяет, что количество строк будет рассчитано автоматически.</AutoDataRows>
     <Checksum>Режим контрольной суммы.</Checksum>
     <CheckSum>Режим контрольной суммы.</CheckSum>
     <CheckSum1>Режим CheckSum1.</CheckSum1>
@@ -681,13 +685,13 @@
     <EncodingMode>Режим кодировки.</EncodingMode>
     <EncodingType>Тип кодировки.</EncodingType>
     <ErrorsCorrectionLevel>Уровень исправления ошибок. Чем выше уровень, тем больше информации добавлено для восстановления штрих-кода.</ErrorsCorrectionLevel>
-    <Height>Коэффициент высоты штрих кода.</Height>
+    <Height>Коэффициент высоты штрих-кода.</Height>
     <MatrixSize>Матричный размер.</MatrixSize>
     <Module>Ширина наиболее тонкого элемента штрих-кода.</Module>
     <PrintVerticalBars>Значение определяет, будут ли напечатаны вертикальные секции.</PrintVerticalBars>
     <Ratio>Значение определяет, пропорции WideToNarrow.</Ratio>
     <RatioY>Вертикальная пропорция штрих-кода. Значение должно быть между 2 и 5.</RatioY>
-    <ShowQuietZoneIndicator>Значение определяет, что будет ли показан Quiet Zone Indicator.</ShowQuietZoneIndicator>
+    <ShowQuietZoneIndicator>Значение определяет, будет ли показан Quiet Zone Indicator.</ShowQuietZoneIndicator>
     <Space>Расстояние между элементами штрих-кода.</Space>
     <SupplementCode>Дополнительный компонент штрих-кода.</SupplementCode>
     <SupplementType>Тип дополнительного кода.</SupplementType>
@@ -707,7 +711,7 @@
     <AllowUseTextOptions>Значение определяет, может ли генератор отчетов использовать параметры текста компонента из стиля или нет.</AllowUseTextOptions>
     <AllowUseVertAlignment>Значение определяет, может ли генератор отчетов использовать вертикальное выравнивание из стиля или нет.</AllowUseVertAlignment>
     <AxisLabelsColor>Цвет подписей осей.</AxisLabelsColor>
-    <AxisLineColor>Цвет лини для оси.</AxisLineColor>
+    <AxisLineColor>Цвет линии для оси.</AxisLineColor>
     <AxisTitleColor>Цвет заголовка оси.</AxisTitleColor>
     <BackColor>Цвет заднего фона для отрисовки стиля.</BackColor>
     <BasicStyleColor>Базовый цвет стиля.</BasicStyleColor>
@@ -715,7 +719,7 @@
     <Brush>Кисть для заполнения фона.</Brush>
     <BrushType>Тип кисти, который будет использован для отрисовки этого стиля.</BrushType>
     <ChartAreaBorderColor>Цвет бордюра области.</ChartAreaBorderColor>
-    <ChartAreaBrush>Цвет заливки области.</ChartAreaBrush>
+    <ChartAreaBrush>Кисть для заливки области.</ChartAreaBrush>
     <CollectionName>Наименование коллекции стилей.</CollectionName>
     <Color>Цвет стиля.</Color>
     <Conditions>Коллекция условий стиля.</Conditions>
@@ -729,14 +733,14 @@
     <InterlacingHorBrush>Кисть, которая используется для отрисовки горизонтальной перемежающейся полосы.</InterlacingHorBrush>
     <InterlacingVertBrush>Кисть, которая используется для отрисовки вертикальной перемежающейся полосы.</InterlacingVertBrush>
     <LegendBorderColor>Цвет бордюра.</LegendBorderColor>
-    <LegendBrush>Фоновый цвет легенды.</LegendBrush>
+    <LegendBrush>Фоновая кисть легенды.</LegendBrush>
     <LegendLabelsColor>Цвет подписей легенды.</LegendLabelsColor>
     <LegendTitleColor>Цвет заголовка легенды.</LegendTitleColor>
     <Name>Наименование стиля.</Name>
     <SeriesLabelsBorderColor>Цвет бордюра подписей.</SeriesLabelsBorderColor>
-    <SeriesLabelsBrush>Фоновый цвет подписей.</SeriesLabelsBrush>
+    <SeriesLabelsBrush>Кисть, которая будет использоваться для заливки области подписей.</SeriesLabelsBrush>
     <SeriesLabelsColor>Цвет текста подписей.</SeriesLabelsColor>
-    <StyleColors>Список цветов для отрисовки стиля</StyleColors>
+    <StyleColors>Список цветов для отрисовки рядов диаграммы.</StyleColors>
     <TextBrush>Кисть для отрисовки текста.</TextBrush>
     <VertAlignment>Вертикальное выравнивание стиля.</VertAlignment>
   </StiBaseStyle>
@@ -781,7 +785,7 @@
     <ValueDataColumnLow>Имя колонки, которое содержит минимальное значение.</ValueDataColumnLow>
     <ValueDataColumnOpen>Имя колонки, которое содержит значение открытия.</ValueDataColumnOpen>
     <ValueHigh>Выражение максимального значения. Пример: {Order.Value}</ValueHigh>
-    <ValueLow>Выражение значения закрытия. Пример: {Order.Value}</ValueLow>
+    <ValueLow>Выражение минимального значения. Пример: {Order.Value}</ValueLow>
     <ValueOpen>Выражение значения открытия. Пример: {Order.Value}</ValueOpen>
   </StiCandlestickSeries>
   <StiCap>
@@ -831,10 +835,10 @@
   <StiChartAxisLabels>
     <Angle>Угол поворота подписей.</Angle>
     <Color>Цвет отрисовки подписей.</Color>
-    <Font>Шрифт для отрисовки, который будет использоваться для отрисовки подписи оси.</Font>
+    <Font>Шрифт, который будет использоваться для отрисовки подписи оси.</Font>
     <Placement>Режим расположения подписей на оси.</Placement>
     <Step>Значение, которое определяет с каким шагом будут отображаться метки по оси.</Step>
-    <TextAfter>Строка, которая будет выведена после представлением строки аргумента.</TextAfter>
+    <TextAfter>Строка, которая будет выведена после представления строки аргумента.</TextAfter>
     <TextAlignment>Выравнивание текста подписи.</TextAlignment>
     <TextBefore>Строка, которая будет выведена перед представлением строки аргумента.</TextBefore>
   </StiChartAxisLabels>
@@ -867,7 +871,7 @@
     <Style>Стиль диаграммы.</Style>
     <TextFormat>Формат текста.</TextFormat>
     <Title>Заголовок диаграммы.</Title>
-    <TrendLines>Настройки тренд линии.</TrendLines>
+    <TrendLines>Настройки линии тренда.</TrendLines>
     <Values>Значения диаграммы.</Values>
     <Weights>Весовые значения диаграммы.</Weights>
   </StiChartElement>
@@ -904,25 +908,25 @@
     <Text>Текст заголовка легенды.</Text>
   </StiChartLegendTitle>
   <StiChartStyle>
-    <ChartAreaShowShadow>Свойство определяет будет ли отображаться тень области или нет.</ChartAreaShowShadow>
-    <MarkerVisible>Свойство определяет будет ли отображаться маркер или нет.</MarkerVisible>
+    <ChartAreaShowShadow>Свойство определяет, будет ли отображаться тень области или нет.</ChartAreaShowShadow>
+    <MarkerVisible>Свойство определяет, будет ли отображаться маркер или нет.</MarkerVisible>
     <SeriesBorderThickness>Свойство определяет толщину границы рядов.</SeriesBorderThickness>
     <SeriesLabelsLineColor>Свойство определяет цвет, который будет использоваться для заголовков рядов.</SeriesLabelsLineColor>
-    <SeriesLighting>Свойство определяет будет ли отображаться подсветка круговой диаграммы или нет.</SeriesLighting>
-    <SeriesShowBorder>Свойство определяет будут ли отображаться границы рядов или нет.</SeriesShowBorder>
-    <SeriesShowShadow>Свойство определяет будет ли отображаться тень рядов или нет.</SeriesShowShadow>
+    <SeriesLighting>Свойство определяет, будет ли отображаться подсветка круговой диаграммы или нет.</SeriesLighting>
+    <SeriesShowBorder>Свойство определяет, будут ли отображаться границы рядов или нет.</SeriesShowBorder>
+    <SeriesShowShadow>Свойство определяет, будет ли отображаться тень рядов или нет.</SeriesShowShadow>
     <TrendLineColor>Свойство определяет цвет, который будет использоваться для линии тренда.</TrendLineColor>
-    <TrendLineShowShadow>Свойство определяет будет ли отображаться тень линии тренда или нет.</TrendLineShowShadow>
+    <TrendLineShowShadow>Свойство определяет, будет ли отображаться тень линии тренда или нет.</TrendLineShowShadow>
   </StiChartStyle>
   <StiChartTable>
     <Font>Шрифт таблицы диаграммы.</Font>
     <GridLineColor>Цвет линий сетки.</GridLineColor>
-    <GridLinesHor>Видмость горизонтальных линий таблицы.</GridLinesHor>
-    <GridLinesVert>Видмость вертикальных линий таблицы.</GridLinesVert>
+    <GridLinesHor>Видимость горизонтальных линий таблицы.</GridLinesHor>
+    <GridLinesVert>Видимость вертикальных линий таблицы.</GridLinesVert>
     <GridOutline>Видимость контура.</GridOutline>
     <MarkerVisible>Видимость маркеров.</MarkerVisible>
-    <NegativeSeriesColors>Список цетов для отображения негативных значений рядов.</NegativeSeriesColors>
-    <SeriesColors>Список цетов для отображения значений рядов.</SeriesColors>
+    <NegativeSeriesColors>Список цветов для отображения отрицательных значений рядов.</NegativeSeriesColors>
+    <SeriesColors>Список цветов для отображения значений рядов.</SeriesColors>
     <Visible>Видимость таблицы диаграммы.</Visible>
   </StiChartTable>
   <StiChartTitle>
@@ -936,7 +940,7 @@
     <Visible>Видимость заголовка диаграммы.</Visible>
   </StiChartTitle>
   <StiCheckBox>
-    <Checked>Получает или задает значение, определяющее, находится ли Флажок в выбранном состоянии.</Checked>
+    <Checked>Выражение, которое используется для вычисления состояния флажка.</Checked>
     <CheckStyleForFalse>Стиль флажка для значения false.</CheckStyleForFalse>
     <CheckStyleForTrue>Стиль флажка для значения true.</CheckStyleForTrue>
     <ContourColor>Цвет контура.</ContourColor>
@@ -946,14 +950,14 @@
     <Values>Строка, которая описывает значения true и false.</Values>
   </StiCheckBox>
   <StiCheckBoxControl>
-    <Checked>Значение определяет, находится ли check box в состоянии checked.</Checked>
+    <Checked>Значение определяет, находится ли флажок в отмеченном состоянии.</Checked>
     <CheckedBinding>Привязка данных для checked.</CheckedBinding>
     <CheckedChangedEvent>Скрипт события CheckedChanged.</CheckedChangedEvent>
     <Text>Текст, связанный с данным элементом управления.</Text>
     <TextBinding>Привязка данных для текста.</TextBinding>
   </StiCheckBoxControl>
   <StiCheckedListBoxControl>
-    <CheckOnClick>Значение определяет, должен ли Флажок быть переключен когда элемент выбран.</CheckOnClick>
+    <CheckOnClick>Значение определяет, должен ли Флажок быть переключен, когда элемент выбран.</CheckOnClick>
     <ItemHeight>Высота области элемента.</ItemHeight>
     <Items>Коллекция элементов в данном CheckedListBox.</Items>
     <ItemsBinding>Привязка данных для элементов.</ItemsBinding>
@@ -961,12 +965,12 @@
     <SelectedIndexChangedEvent>Возникает, когда свойство SelectedIndex изменено.</SelectedIndexChangedEvent>
     <SelectedItemBinding>Привязка данных для выбранного элемента.</SelectedItemBinding>
     <SelectedValueBinding>Привязка данных для выбранного значения.</SelectedValueBinding>
-    <SelectionMode>Значение указывает выбранный режим.</SelectionMode>
+    <SelectionMode>Значение указывает режим выбора.</SelectionMode>
     <Sorted>Значение определяет, сортированы ли в алфавитном порядке элементы в ListBox.</Sorted>
   </StiCheckedListBoxControl>
   <StiChildBand>
-    <KeepChildTogether>Значение определяет, что child-ы должны держаться вместе.</KeepChildTogether>
-    <PrintIfParentDisabled>Значение определяет, будут ли напечатаны child-ы, если родительский бенд выключен.</PrintIfParentDisabled>
+    <KeepChildTogether>Значение определяет, что дочерние элементы должны держаться вместе.</KeepChildTogether>
+    <PrintIfParentDisabled>Значение определяет, будут ли напечатаны дочерние бенды, если родительский бенд выключен.</PrintIfParentDisabled>
   </StiChildBand>
   <StiClone>
     <Container>Клон контейнера.</Container>
@@ -1040,7 +1044,7 @@
     <DropDownWidth>Ширина части drop-down.</DropDownWidth>
     <ItemHeight>Высота элемента.</ItemHeight>
     <Items>Объект, представляющий коллекцию элементов.</Items>
-    <ItemsBinding>Привязка данных для элемента.</ItemsBinding>
+    <ItemsBinding>Привязка данных для элементов.</ItemsBinding>
     <MaxDropDownItems>Максимальное число.</MaxDropDownItems>
     <MaxLength>Максимальное число разрешенных символов.</MaxLength>
     <SelectedIndexChangedEvent>Скрипт события SelectedIndexChanged.</SelectedIndexChangedEvent>
@@ -1058,7 +1062,7 @@
     <BeforePrintEvent>Срабатывает перед печатью компонента.</BeforePrintEvent>
     <Bookmark>Выражение для заполнения закладки компонента.</Bookmark>
     <Border>Границы компонента.</Border>
-    <Brush>Кисть для заполнения компонента.</Brush>
+    <Brush>Кисть для заполнения фона.</Brush>
     <BusinessObject>Бизнес-объект, который используется для получения данных.</BusinessObject>
     <CanBreak>Значение определяет, что компонент может/не может разрывать содержимое на несколько страниц.</CanBreak>
     <CanGrow>Значение определяет, что данный объект может расти.</CanGrow>
@@ -1078,14 +1082,14 @@
     <CrossFiltering>Значение, которое управляет использованием или не использованием кросс-фильтров текущей страницы для этого элемента.</CrossFiltering>
     <DataRelation>Ссылка, которая используется для построения master-detail отчетов.</DataRelation>
     <DataSource>Источник данных, который используется для получения данных.</DataSource>
-    <DecimalDigits>Количество знаков дробной части используемое в значениях.</DecimalDigits>
+    <DecimalDigits>Количество знаков дробной части, используемое в значениях.</DecimalDigits>
     <Disabled>Неинтерактивное состояние компонента.</Disabled>
     <DockStyle>Тип стыковки компонента.</DockStyle>
     <DoubleClickEvent>Срабатывает, когда пользователь двойным щелчком нажимает на компонент в окне предварительного просмотра.</DoubleClickEvent>
-    <Editable>Значение, которое указывает, что компонент можно редактировать в окне вьювера.</Editable>
+    <Editable>Значение, которое указывает, что компонент можно редактировать в окне предварительного просмотра.</Editable>
     <Enabled>Значение, которое указывает, будет ли компонент доступен.</Enabled>
     <ExceedMargins>Значение, которое управляет расширением фона компонента за его границы.</ExceedMargins>
-    <FilterMode>Логическая операция сочетания фильтров для текущего бэнда.</FilterMode>
+    <FilterMode>Логическая операция сочетания фильтров для текущего бенда.</FilterMode>
     <FilterOn>Значение указывает, что фильтр включен.</FilterOn>
     <Filters>Коллекция фильтров данных.</Filters>
     <FixedWidth>Значение, которое определяет, что ячейка имеет фиксированную ширину.</FixedWidth>
@@ -1096,21 +1100,21 @@
     <GetHyperlinkEvent>Срабатывает при получении Hyperlink для компонента.</GetHyperlinkEvent>
     <GetTagEvent>Срабатывает при получении Tag для компонента.</GetTagEvent>
     <GetToolTipEvent>Срабатывает при получении ToolTip для компонента.</GetToolTipEvent>
-    <GrowToHeight>Значение определяет, что высота данного компонента увеличивается/уменьшается книзу контейнера.</GrowToHeight>
+    <GrowToHeight>Значение определяет, что высота данного компонента увеличивается/уменьшается к нижней части контейнера.</GrowToHeight>
     <Height>Высота компонента.</Height>
-    <HorAlignment>Горизонтальное выравнивание объекта.</HorAlignment>
+    <HorAlignment>Горизонтальное выравнивание текста, который будет отображаться на компоненте.</HorAlignment>
     <Hover>Состояние, при котором пользователь навел курсор на компонент.</Hover>
-    <Hyperlink>Выражение для заполнения гиперлинка компонента.</Hyperlink>
-    <Icon>Значок используемый для компонента.</Icon>
+    <Hyperlink>Выражение для заполнения гиперссылки компонента.</Hyperlink>
+    <Icon>Значок, используемый для компонента.</Icon>
     <IconAlignment>Выравнивание значка, который будет отображаться на компоненте.</IconAlignment>
     <IconBrush>Кисть значка компонента.</IconBrush>
-    <IconSet>Набор значков используемых для компонента.</IconSet>
-    <InclusionMode>Режим, в котором элементы компонента применяется к фильтру.</InclusionMode>
+    <IconSet>Набор значков, используемых для компонента.</IconSet>
+    <InclusionMode>Режим, в котором данный элемент применяется к фильтру.</InclusionMode>
     <Interaction>Параметры взаимодействия данного компонента.</Interaction>
     <Left>Левая позиция компонента.</Left>
     <Linked>Значение, которое указывает, что привязка объекта к контейнеру включена.</Linked>
     <Locked>Значение, которое указывает, что перемещение компонента блокировано.</Locked>
-    <Margin>Задает расстояние между этим компонентом и границами другого компонента (cлева, cверху, справа, снизу).</Margin>
+    <Margin>Задает расстояние между этим компонентом и границами другого компонента (слева, сверху, справа, снизу).</Margin>
     <Margins>Отступы снаружи (слева, справа, сверху, снизу).</Margins>
     <MasterComponent>Мастер-компонент.</MasterComponent>
     <MaxSelectedItems>Ограничивает максимальное количество элементов, которые можно выбрать. Установите значение 0 для неограниченного выбора.</MaxSelectedItems>
@@ -1119,18 +1123,18 @@
     <MouseEnterEvent>Срабатывает, когда пользователь наводит мышью на область компонента в окне предварительного просмотра.</MouseEnterEvent>
     <MouseLeaveEvent>Срабатывает, когда пользователь выводит мышь из области компонента в окне предварительного просмотра.</MouseLeaveEvent>
     <Name>Наименование компонента.</Name>
-    <Padding>Задает внутренний интервал компонента (cлева, cверху, cправа, cнизу).</Padding>
+    <Padding>Задает внутренний интервал компонента (слева, сверху, справа, снизу).</Padding>
     <Pressed>Состояние, при котором пользователь нажал на компонент.</Pressed>
     <Printable>Значение определяет, будет ли компонент напечатан.</Printable>
     <PrintOn>Значение определяет, на каких страницах должен быть напечатан компонент.</PrintOn>
     <Restrictions>Значение определяет ограничения компонента.</Restrictions>
     <Shadow>Настройки тени компонента.</Shadow>
     <ShapeType>Указывает, какая геометрия используется для отрисовки формы компонента.</ShapeType>
-    <ShiftMode>Значение определяет режим смены компонента.</ShiftMode>
+    <ShiftMode>Значение определяет режим сдвига компонента.</ShiftMode>
     <Sort>Массив строк, который описывает правила сортировки.</Sort>
     <Stretch>Описывает, как изменяется размер компонента, чтобы заполнить выделенное ему пространство.</Stretch>
     <Tag>Выражение для заполнения тега компонента.</Tag>
-    <Text>Текст связанный с компонентом.</Text>
+    <Text>Текст, связанный с компонентом.</Text>
     <TextBrush>Кисть для рисования текста.</TextBrush>
     <ThreeStates>Указывает, что элемент управления поддерживает два или три состояния.</ThreeStates>
     <ToolTip>Выражение для заполнения подсказки компонента.</ToolTip>
@@ -1138,20 +1142,20 @@
     <TotalLabel>Значение, которое будет отображаться как подпись для итога.</TotalLabel>
     <Type>Описывает тип поведения этого компонента.</Type>
     <UseParentStyles>Значение определяет, что данный компонент должен использовать стили из родительского компонента.</UseParentStyles>
-    <VertAlignment>Вертикальное выравнивание объекта.</VertAlignment>
+    <VertAlignment>Вертикальное выравнивание текста, который будет отображаться на компоненте.</VertAlignment>
     <VisualStates>Управляет различными визуальными состояниями компонента.</VisualStates>
-    <Watermark>Водяной знак используемый для компонента.</Watermark>
+    <Watermark>Водяной знак, используемый для компонента.</Watermark>
     <Width>Ширина компонента.</Width>
     <WordWrap>Указывает, что переносятся слова или нет в многострочном тексте.</WordWrap>
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>Значение, которое управляет режимом сглаженного рисования линии.</Antialiasing>
-    <AxisValue>Значение оси через которое строится постоянная линия. Пример: 1, yyyy.MM.dd</AxisValue>
+    <AxisValue>Значение оси, через которое строится постоянная линия. Пример: 1, yyyy.MM.dd</AxisValue>
     <Font>Шрифт, который используется для отрисовки текста постоянной линии.</Font>
     <LineColor>Цвет, который будет использоваться для отрисовки постоянной линии.</LineColor>
     <LineStyle>Стиль постоянной линии.</LineStyle>
     <LineWidth>Толщина постоянной линии.</LineWidth>
-    <Orientation>Горизонтальная и вертикальная ориентация постоянной линии.</Orientation>
+    <Orientation>Горизонтальная или вертикальная ориентация постоянной линии.</Orientation>
     <Position>Положение текста на постоянной линии.</Position>
     <ShowBehind>Значение определяет, что постоянная линия будет показана за графиком или перед графиком.</ShowBehind>
     <ShowInLegend>Отображать постоянную линию в легенде графика.</ShowInLegend>
@@ -1170,10 +1174,10 @@
     <MinWidth>Минимальная ширина бенда.</MinWidth>
   </StiCrossDataBand>
   <StiCrossField>
-    <DisplayValue>Выражение, которое используется для расчета значения ячейки, которое будет выводится в таблицы.</DisplayValue>
+    <DisplayValue>Выражение, которое используется для расчета значения ячейки, которое будет выводиться в таблице.</DisplayValue>
     <EnumeratorSeparator>Строковый разделитель перечисления.</EnumeratorSeparator>
     <EnumeratorType>Тип обработки перечисления.</EnumeratorType>
-    <GetCrossValueEvent>Скрипт события GetValueEvent.</GetCrossValueEvent>
+    <GetCrossValueEvent>Скрипт события GetCrossValueEvent.</GetCrossValueEvent>
     <GetDisplayCrossValueEvent>Скрипт события GetDisplayCrossValueEvent.</GetDisplayCrossValueEvent>
     <HideZeros>Значение определяет, что не нужно показывать нули.</HideZeros>
     <KeepMergedCellsTogether>Значение определяет, что объединенные ячейки не будут отделены от следующей страницы.</KeepMergedCellsTogether>
@@ -1186,7 +1190,7 @@
     <Summary>Тип суммирования значений.</Summary>
     <SummaryForFieldsInExpression>Если установлено True, то сначала вычисляется сумма для полей в выражении, а затем вычисляется выражение, иначе вычисляется сумма для всего выражения.</SummaryForFieldsInExpression>
     <SummaryValues>Значение, которое определяет, как будут суммироваться нулевые значения.</SummaryValues>
-    <UseStyleOfSummaryInColumnTotal>Значение определяет, что стиль итоговой ячейки будет использовать в итоге колонки.</UseStyleOfSummaryInColumnTotal>
+    <UseStyleOfSummaryInColumnTotal>Значение определяет, что стиль итоговой ячейки будет использован в итоге колонки.</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>Значение определяет, что стиль итоговой ячейки будет использован в итоге ряда.</UseStyleOfSummaryInRowTotal>
     <Value>Выражение, которое используется для расчета значения ячейки.</Value>
   </StiCrossField>
@@ -1212,7 +1216,7 @@
     <KeepCrossTabTogether>Значение определяет, что кросс-таб должен держаться вместе с DataBand-ом, на котором он должен быть размещен.</KeepCrossTabTogether>
     <PrintIfEmpty>Значение определяет, что кросс-таб будет напечатан, если данные отсутствуют.</PrintIfEmpty>
     <RightToLeft>Горизонтальное направление Кросс-таба.</RightToLeft>
-    <Wrap>Значение определяет, что кросс-таб должен выводиться в одной колонке. В то же время, все, что не подходит по ширине выводится ниже. Для использования данного свойства необходимо включить свойство CanBreak для бенда, на котором находится кросс-таб (если он находится на бенде).</Wrap>
+    <Wrap>Значение определяет, что кросс-таб должен выводиться в одной колонке. В то же время, все, что не подходит по ширине, выводится ниже. Для использования данного свойства необходимо включить свойство CanBreak для бенда, на котором находится кросс-таб (если он находится на бенде).</Wrap>
     <WrapGap>Пространство между двумя частями перенесенного кросс-таба. Свойство используется вместе со свойством Wrap.</WrapGap>
   </StiCrossTab>
   <StiCrossTabStyle>
@@ -1247,15 +1251,15 @@
     <FilterMode>Режим фильтрации данных.</FilterMode>
     <GapAfterLastColumn>Свойство разрешает добавлять промежуток после последней колонки.</GapAfterLastColumn>
     <GetCollapsedEvent>Возникает, когда рассчитывается значение Collapsed.</GetCollapsedEvent>
-    <KeepChildTogether>Значение определяет, что child-ы должны держаться вместе.</KeepChildTogether>
+    <KeepChildTogether>Значение определяет, что дочерние элементы должны держаться вместе.</KeepChildTogether>
     <KeepDetailsTogether>Значение определяет, что детали должны держаться вместе с данным DataBand.</KeepDetailsTogether>
     <KeepFooterTogether>Значение определяет, что итог печатается вместе с данными.</KeepFooterTogether>
     <KeepGroupTogether>Значение определяет, что группа должна держаться вместе.</KeepGroupTogether>
-    <KeepHeaderTogether>Значение определяет, что заголовок печетается вместе с данными.</KeepHeaderTogether>
+    <KeepHeaderTogether>Значение определяет, что заголовок печатается вместе с данными.</KeepHeaderTogether>
     <MinRowsInColumn>Минимальное количество рядов в одной колонке.</MinRowsInColumn>
-    <MultipleInitialization>Инициализирует источник данных для каждого нового контейнера или подчинённой секции. Например, фильтры будут применены к каждой подчинённой секции, даже если для бэнда не заданы связи.</MultipleInitialization>
+    <MultipleInitialization>Инициализирует источник данных для каждого нового контейнера или подчинённой секции. Например, фильтры будут применены к каждой подчинённой секции, даже если для бенда не заданы связи.</MultipleInitialization>
     <OddStyle>Значение определяет стиль нечетных строк.</OddStyle>
-    <PrintIfDetailEmpty>Значение определяет, что если деталь пустая, то мастер данные должны печататься в любому случае.</PrintIfDetailEmpty>
+    <PrintIfDetailEmpty>Значение определяет, что если деталь пустая, то мастер данные должны печататься в любом случае.</PrintIfDetailEmpty>
     <PrintOnAllPages>Значение определяет, что компонент печатается на всех страницах.</PrintOnAllPages>
     <RenderingEvent>Возникает при начале построения ряда данных.</RenderingEvent>
     <ResetDataSource>Значение определяет, что необходимо сбрасывать позицию Data Source в начало, перед подготовкой для построения.</ResetDataSource>
@@ -1288,7 +1292,7 @@
     <UseRectangularSymbols>Использовать прямоугольные размеры матрицы.</UseRectangularSymbols>
   </StiDataMatrixBarCodeType>
   <StiDataParameter>
-    <Alias>Всевдоним параметра данных.</Alias>
+    <Alias>Псевдоним параметра данных.</Alias>
     <Expression>Выражение для расчета параметра.</Expression>
     <Name>Наименование параметра данных.</Name>
     <Size>Размер параметра данных.</Size>
@@ -1323,9 +1327,9 @@
     <CustomFormat>Пользовательская строка формата date-time.</CustomFormat>
     <DropDownAlign>Выравнивание drop-down календаря на элементе управления date-time picker.</DropDownAlign>
     <Format>Формат даты и времени, указанный в элементе управления.</Format>
-    <MaxDate>Максимальная дата и время, которое может выбрать в элементе управления.</MaxDate>
+    <MaxDate>Максимальная дата и время, которые можно выбрать в элементе управления.</MaxDate>
     <MaxDateBinding>Привязка данных для максимальной даты.</MaxDateBinding>
-    <MinDate>Минимальная дата и время, которое может выбрать в элементе управления.</MinDate>
+    <MinDate>Минимальная дата и время, которые можно выбрать в элементе управления.</MinDate>
     <MinDateBinding>Привязка данных для минимальной даты.</MinDateBinding>
     <ShowUpDown>Значение определяет, используется ли элемент управления up-down, чтобы настроить значение date-time.</ShowUpDown>
     <Today>Значение определяет, что установленная дата соответствует текущей дате.</Today>
@@ -1398,8 +1402,8 @@
   </StiEAN8BarCodeType>
   <StiElement>
     <BackColor>Цвет заднего фона для элемента.</BackColor>
-    <Margin>Отступ снаружи элемента (cлева, cверху, справа, снизу).</Margin>
-    <Padding>Отступ внутри элемента (cлева, cверху, справа, снизу).</Padding>
+    <Margin>Отступ снаружи элемента (слева, сверху, справа, снизу).</Margin>
+    <Padding>Отступ внутри элемента (слева, сверху, справа, снизу).</Padding>
   </StiElement>
   <StiEmptyBand>
     <BeginRenderEvent>Возникает, когда бенд начинает строиться.</BeginRenderEvent>
@@ -1407,7 +1411,7 @@
     <EvenStyle>Значение определяет стиль четных строк.</EvenStyle>
     <OddStyle>Значение определяет стиль нечетных строк.</OddStyle>
     <RenderingEvent>Возникает при построении рядов.</RenderingEvent>
-    <SizeMode>Свойство определяет как изменить размер последнего ряда на странице.</SizeMode>
+    <SizeMode>Свойство определяет, как изменить размер последнего ряда на странице.</SizeMode>
   </StiEmptyBand>
   <StiFIMBarCodeType>
     <AddClearZone>Добавлять поля Clear Zone или нет.</AddClearZone>
@@ -1416,7 +1420,7 @@
   </StiFIMBarCodeType>
   <StiFooterBand>
     <KeepFooterTogether>Значение определяет, что итог напечатан с данными.</KeepFooterTogether>
-    <PrintIfEmpty>Значение определяет, что итог печатается, если данные отстутствуют.</PrintIfEmpty>
+    <PrintIfEmpty>Значение определяет, что итог печатается, если данные отсутствуют.</PrintIfEmpty>
     <PrintOnAllPages>Значение определяет, что компонент печатается на всех страницах.</PrintOnAllPages>
   </StiFooterBand>
   <StiForm>
@@ -1436,8 +1440,8 @@
     <WindowState>Состояние окна формы.</WindowState>
   </StiForm>
   <StiGanttSeries>
-    <GetListOfValuesEndEvent>Возникает, при получении списка конечных значений.</GetListOfValuesEndEvent>
-    <GetValueEndEvent>Возникает, при получении конечного значения.</GetValueEndEvent>
+    <GetListOfValuesEndEvent>Возникает при получении списка конечных значений.</GetListOfValuesEndEvent>
+    <GetValueEndEvent>Возникает при получении конечного значения.</GetValueEndEvent>
     <ListOfValues>Выражение для заполнения списка начальных значений. Пример: 1;2;3</ListOfValues>
     <ListOfValuesEnd>Выражение для заполнения списка конечных значений. Пример: 1;2;3</ListOfValuesEnd>
     <Value>Выражение начального значения. Пример: {Order.Value}</Value>
@@ -1453,14 +1457,14 @@
     <Title>Заголовок измерительного прибора.</Title>
   </StiGaugeElement>
   <StiGaugeStyle>
-    <BorderColor>Цвет бордюра.</BorderColor>
+    <BorderColor>Цвет границы.</BorderColor>
     <BorderWidth>Размер границы.</BorderWidth>
     <Brush>Кисть заливки стиля.</Brush>
     <ForeColor>Цвет для отрисовки текста.</ForeColor>
     <LinearBarBorderBrush>Кисть границы LinearBar.</LinearBarBorderBrush>
     <LinearBarBrush>Кисть заливки LinearBar.</LinearBarBrush>
     <LinearBarEmptyBorderBrush>Кисть пустой границы LinearBar.</LinearBarEmptyBorderBrush>
-    <LinearBarEmptyBrush>Кисть пустой заливки LinearScale.</LinearBarEmptyBrush>
+    <LinearBarEmptyBrush>Кисть пустой заливки LinearBar.</LinearBarEmptyBrush>
     <LinearScaleBrush>Кисть заливки LinearScale.</LinearScaleBrush>
     <MarkerBrush>Кисть заливки маркера.</MarkerBrush>
     <NeedleBorderBrush>Кисть границы иглы.</NeedleBorderBrush>
@@ -1488,7 +1492,7 @@
     <Angle>Угол, который измеряется в градусах по часовой стрелке от оси x.</Angle>
     <EndColor>Конечный цвет градиента.</EndColor>
     <Focus>Значение от 0 до 1, которое определяет центр градиента (точка, где градиент состоит из конечного цвета).</Focus>
-    <Scale>Значение от 0 до 1, которое определяет как быстро цвета удаляются от фокуса.</Scale>
+    <Scale>Значение от 0 до 1, которое определяет, как быстро цвета удаляются от фокуса.</Scale>
     <StartColor>Начальный цвет градиента.</StartColor>
   </StiGlareBrush>
   <StiGlassBrush>
@@ -1506,7 +1510,7 @@
     <DataTextField>Имя колонки данных, которое должно быть показано.</DataTextField>
     <HeaderText>Текст заголовка колонки.</HeaderText>
     <NullText>Текст, который будет показан вместо нулевых значений.</NullText>
-    <Visible>Видимость колонок.</Visible>
+    <Visible>Видимость колонки.</Visible>
     <Width>Ширина колонки.</Width>
   </StiGridColumn>
   <StiGridControl>
@@ -1520,7 +1524,7 @@
     <GridLineColor>Цвет линий сетки.</GridLineColor>
     <GridLineStyle>Стиль линий сетки.</GridLineStyle>
     <HeaderBackColor>Цвет заднего фона всех заголовков рядов и колонок.</HeaderBackColor>
-    <HeaderFont>Шрифт используется для заголовков колонок.</HeaderFont>
+    <HeaderFont>Шрифт, используемый для заголовков колонок.</HeaderFont>
     <HeaderForeColor>Цвет переднего фона заголовков.</HeaderForeColor>
     <PositionChangedEvent>Скрипт события PositionChanged.</PositionChangedEvent>
     <PreferredColumnWidth>Ширина колонок сетки в пикселях по умолчанию.</PreferredColumnWidth>
@@ -1532,10 +1536,10 @@
   </StiGridControl>
   <StiGridLines>
     <Color>Цвет для отрисовки основных линий сетки.</Color>
-    <MinorColor>Цвет для отрисовки вспомагательных линий сетки.</MinorColor>
-    <MinorCount>Количество вспомагательных линий сетки на каждую основную линию сетки.</MinorCount>
-    <MinorStyle>Стиль для отрисовки вспомагательных линий сетки.</MinorStyle>
-    <MinorVisible>Видимость вспомагательных линий сетки.</MinorVisible>
+    <MinorColor>Цвет для отрисовки вспомогательных линий сетки.</MinorColor>
+    <MinorCount>Количество вспомогательных линий сетки на каждую основную линию сетки.</MinorCount>
+    <MinorStyle>Стиль для отрисовки вспомогательных линий сетки.</MinorStyle>
+    <MinorVisible>Видимость вспомогательных линий сетки.</MinorVisible>
     <Style>Стиль для отрисовки основных линий сетки.</Style>
     <Visible>Видимость основных линий сетки.</Visible>
   </StiGridLines>
@@ -1558,13 +1562,13 @@
     <PrintOnAllPages>Значение определяет, что компонент печатается на всех страницах.</PrintOnAllPages>
     <RenderingEvent>Возникает, при построении одной строки данных.</RenderingEvent>
     <SortDirection>Направление сортировки сгруппированных данных.</SortDirection>
-    <SummaryExpression>Выражение, результат вычисления которого, используется для расчета итога группы, для последубщей сортировки.</SummaryExpression>
+    <SummaryExpression>Выражение, результат вычисления которого используется для расчета итога группы для последующей сортировки.</SummaryExpression>
     <SummarySortDirection>Значение определяет направление сортировки итогов группы. Если значение не указано, то сортировка по итогам группы не производится.</SummarySortDirection>
-    <SummaryType>Тип функции для расчет итогов группы, которая будет использована для последующей сортировки группы.</SummaryType>
+    <SummaryType>Тип функции для расчета итогов группы, которая будет использована для последующей сортировки группы.</SummaryType>
   </StiGroupHeaderBand>
   <StiHatchBrush>
-    <BackColor>Цвет промежутков между шрихованными линиями, нарисованный данной кистью.</BackColor>
-    <ForeColor>Цвет шрихованных линий, нарисованный данной кистью.</ForeColor>
+    <BackColor>Цвет промежутков между штрихованными линиями, нарисованный данной кистью.</BackColor>
+    <ForeColor>Цвет штрихованных линий, нарисованный данной кистью.</ForeColor>
     <Style>Стиль штриховки данной кисти.</Style>
   </StiHatchBrush>
   <StiHeaderBand>
@@ -1587,7 +1591,7 @@
     <Headers>Список заголовков для иерархического бенда.</Headers>
     <Indent>Отступ от левой стороны бенда для смещения уровней данных.</Indent>
     <KeyDataColumn>Колонка, которая содержит ключ данных.</KeyDataColumn>
-    <MasterKeyDataColumn>Колонка, которая содержит data master key.</MasterKeyDataColumn>
+    <MasterKeyDataColumn>Колонка, которая содержит главный ключ данных.</MasterKeyDataColumn>
     <ParentValue>Колонка, которая содержит значение, которое определяет родительские строки.</ParentValue>
   </StiHierarchicalBand>
   <StiHorChartGridLines>
@@ -1595,14 +1599,14 @@
   </StiHorChartGridLines>
   <StiImage>
     <DataColumn>Имя колонки, которая содержит изображение.</DataColumn>
-    <File>Путь в файлу, который содержит изображение.</File>
+    <File>Путь к файлу, который содержит изображение.</File>
     <GetImageDataEvent>Возникает, при получении изображения для компонента.</GetImageDataEvent>
     <GetImageURLEvent>Возникает, при получении URL изображения для компонента.</GetImageURLEvent>
     <GlobalizedName>Значение, которое используется как ключ для Globalization Manager.</GlobalizedName>
     <Image>Изображение.</Image>
     <ImageData>Выражение для заполнения свойства изображения компонента.</ImageData>
     <ImageRotation>Значение определяет, как повернуть изображение перед выводом.</ImageRotation>
-    <ImageURL>Выражение для заполнения URL компонента изображение.</ImageURL>
+    <ImageURL>Выражение для заполнения URL изображения компонента.</ImageURL>
     <ProcessingDuplicates>Значение определяет, как ядро отчета обрабатывает дублированные изображения.</ProcessingDuplicates>
   </StiImage>
   <StiIndicatorStyle>
@@ -1626,7 +1630,7 @@
     <DrillDownReport>Путь к отчету для операции Drill-Down.</DrillDownReport>
     <Hyperlink>Выражение для заполнения гиперссылки компонента.</Hyperlink>
     <SortingColumn>Колонка, по которой данные должны быть пересортированы во вьювере отчетов.</SortingColumn>
-    <SortingEnabled>Значение определяет, разрешено ли, использовать данный компонент, пересортировка данных во вьювере отчетов.</SortingEnabled>
+    <SortingEnabled>Значение определяет, разрешена ли пересортировка данных во вьювере отчетов с помощью данного компонента.</SortingEnabled>
     <Tag>Выражение для заполнения тега компонента.</Tag>
     <ToolTip>Выражение для заполнения подсказки компонента.</ToolTip>
   </StiInteraction>
@@ -1682,13 +1686,14 @@
     <BorderColor>Цвет границы.</BorderColor>
     <Brush>Кисть заднего фона легенды.</Brush>
     <Columns>Количество колонок.</Columns>
+    <ColumnWidth>Указывает ширину столбца легенды. Может использоваться вместе с Переносом текста для управления переносом текста внутри элементов легенды.</ColumnWidth>
     <Direction>Направление, используемое для отрисовки рядов в легенде.</Direction>
     <Font>Шрифт, используемый для отрисовки заголовка рядов в легенде диаграммы.</Font>
     <HideSeriesWithEmptyTitle>Значение определяет показывать или нет ряд без заголовка в легенде диаграммы.</HideSeriesWithEmptyTitle>
     <HorAlignment>Горизонтальное выравнивание положения легенды.</HorAlignment>
     <HorSpacing>Горизонтальное расстояние между элементами в легенде.</HorSpacing>
     <LabelsColor>Цвет подписей.</LabelsColor>
-    <MarkerAlignment>Выравнивание маркеров, связанных в заголовками рядов.</MarkerAlignment>
+    <MarkerAlignment>Выравнивание маркеров, связанных с заголовками рядов.</MarkerAlignment>
     <MarkerBorder>Значение определяет, будет ли отображаться граница маркера.</MarkerBorder>
     <MarkerSize>Размер маркера.</MarkerSize>
     <MarkerVisible>Видимость маркеров.</MarkerVisible>
@@ -1700,6 +1705,7 @@
     <VertAlignment>Вертикальное выравнивание положения легенды.</VertAlignment>
     <VertSpacing>Вертикальное расстояние между элементами в легенде.</VertSpacing>
     <Visible>Видимость легенды диаграммы.</Visible>
+    <WordWrap>Включает или отключает перенос текста внутри элементов легенды. Работает вместе со свойством Ширина колонки легенды.</WordWrap>
   </StiLegend>
   <StiLinePrimitive>
     <Color>Цвет линии.</Color>
@@ -1716,7 +1722,7 @@
     <SelectedIndexChangedEvent>Скрипт события SelectedIndexChanged.</SelectedIndexChangedEvent>
     <SelectedItemBinding>Привязка данных для выбранного элемента.</SelectedItemBinding>
     <SelectedValueBinding>Привязка данных для выбранного значения.</SelectedValueBinding>
-    <SelectionMode>Метод, в котором элементы выбираются в ListBox.</SelectionMode>
+    <SelectionMode>Метод, с помощью которого элементы выбираются в ListBox.</SelectionMode>
     <Sorted>Значение определяет, будут ли автоматически сортироваться элементы в ListBox.</Sorted>
   </StiListBoxControl>
   <StiListViewControl>
@@ -1751,7 +1757,7 @@
     <Angle>Угол поворота маркера.</Angle>
     <BorderColor>Цвет границы маркера.</BorderColor>
     <Brush>Кисть для заполнения области маркера.</Brush>
-    <ShowInLegend>Значение определяет, что маркер будет видим в маркере легенды.</ShowInLegend>
+    <ShowInLegend>Значение определяет, что маркер будет виден в легенде.</ShowInLegend>
     <Size>Размер маркера.</Size>
     <Step>Шаг маркера линии.</Step>
     <Type>Тип маркера.</Type>
@@ -1777,22 +1783,22 @@
     <LineLength>Длина линии между границами заголовков рядов и границей кольцевых рядов.</LineLength>
   </StiOutsidePieLabels>
   <StiPadding>
-    <Bottom>Значение задает отступ внутри элемента от нижней границы и его содержимым.</Bottom>
-    <Left>Значение задает отступ внутри элемента от левой границы и его содержимым.</Left>
-    <Right>Значение задает отступ внутри элемента от правой границы и его содержимым.</Right>
-    <Top>Значение задает отступ внутри элемента от верхней границы и его содержимым.</Top>
+    <Bottom>Значение задает отступ внутри элемента между нижней границей и его содержимым.</Bottom>
+    <Left>Значение задает отступ внутри элемента между левой границей и его содержимым.</Left>
+    <Right>Значение задает отступ внутри элемента между правой границей и его содержимым.</Right>
+    <Top>Значение задает отступ внутри элемента между верхней границей и его содержимым.</Top>
   </StiPadding>
   <StiPage>
     <BeginRenderEvent>Возникает, когда страница начинает строиться.</BeginRenderEvent>
     <ColumnBeginRenderEvent>Возникает, когда начинается построение колонки.</ColumnBeginRenderEvent>
     <ColumnEndRenderEvent>Возникает, когда заканчивается построение колонки.</ColumnEndRenderEvent>
     <EndRenderEvent>Возникает, при окончании построения страницы.</EndRenderEvent>
-    <ExcelSheet>Выражение используется для генерации имени листа с Excel.</ExcelSheet>
+    <ExcelSheet>Выражение используется для генерации имени листа Excel.</ExcelSheet>
     <GetExcelSheetEvent>Возникает, когда рассчитывается ExcelSheet.</GetExcelSheetEvent>
     <Icon>Иконка страницы.</Icon>
     <LargeHeight>Значение определяет, что данная страница имеет большую высоту в дизайнере.</LargeHeight>
     <LargeHeightFactor>Коэффициент увеличения высоты для свойства страницы LargeHeight.</LargeHeightFactor>
-    <Margins>Границы страницы (слева, справо, сверху, снизу).</Margins>
+    <Margins>Границы страницы (слева, справа, сверху, снизу).</Margins>
     <MirrorMargins>Значение определяет отражать ли зеркально левую и правую границу страницы в зависимости от того, четная страница или нет.</MirrorMargins>
     <NumberOfCopies>Значение определяет число копий текущей страницы.</NumberOfCopies>
     <Orientation>Ориентация страницы.</Orientation>
@@ -1816,7 +1822,7 @@
     <Watermark>Водяной знак страницы.</Watermark>
   </StiPage>
   <StiPanel>
-    <ColumnGaps>Растояние между двумя колонками.</ColumnGaps>
+    <ColumnGaps>Расстояние между двумя колонками.</ColumnGaps>
     <Columns>Число колонок.</Columns>
     <ColumnWidth>Ширина колонки.</ColumnWidth>
     <RightToLeft>Направление вывода колонок.</RightToLeft>
@@ -1849,7 +1855,7 @@
   <StiPieSeries>
     <AllowApplyBorderColor>Значение, которое позволяет использовать цвет границы из настроек рядов.</AllowApplyBorderColor>
     <AllowApplyBrush>Значение позволяет использовать кисть из настроек рядов.</AllowApplyBrush>
-    <CutPieList>Выражение для заполения списка выдвинутых сегментов. Пример: 1;4;6</CutPieList>
+    <CutPieList>Выражение для заполнения списка выдвинутых сегментов. Пример: 1;4;6</CutPieList>
     <Diameter>Фиксированный диаметр ряда круговой диаграммы.</Diameter>
     <Distance>Расстояние между центром ряда и центром каждого сегмента.</Distance>
     <GetCutPieListEvent>Возникает, при получении списка выдвинутых сегментов.</GetCutPieListEvent>
@@ -1894,22 +1900,22 @@
   </StiRadarAxisLabels>
   <StiRadarGridLines>
     <Color>Цвет для отрисовки основных линий сетки.</Color>
-    <MinorColor>Цвет для отрисовки вспомагательных линий сетки.</MinorColor>
-    <MinorCount>Количество вспомагательных линий сетки на каждую основную линию сетки.</MinorCount>
-    <MinorStyle>Стиль для отрисовки вспомагательных линий сетки.</MinorStyle>
-    <MinorVisible>Видимость вспомагательных линий сетки.</MinorVisible>
+    <MinorColor>Цвет для отрисовки вспомогательных линий сетки.</MinorColor>
+    <MinorCount>Количество вспомогательных линий сетки на каждую основную линию сетки.</MinorCount>
+    <MinorStyle>Стиль для отрисовки вспомогательных линий сетки.</MinorStyle>
+    <MinorVisible>Видимость вспомогательных линий сетки.</MinorVisible>
     <Style>Стиль для отрисовки основных линий сетки.</Style>
     <Visible>Видимость основных линий сетки.</Visible>
   </StiRadarGridLines>
   <StiRadioButtonControl>
     <Checked>Значение определяет, проверяется ли данный элемент управления.</Checked>
     <CheckedBinding>Привязка данных для свойства Checked.</CheckedBinding>
-    <CheckedChangedEvent>Возникает, когда изменено свойство Checked</CheckedChangedEvent>
+    <CheckedChangedEvent>Возникает, когда изменено свойство Checked.</CheckedChangedEvent>
     <Text>Текст элемента управления.</Text>
     <TextBinding>Привязка данных для текста.</TextBinding>
   </StiRadioButtonControl>
   <StiRectanglePrimitive>
-    <BottomSide>Свойство, которое определяет, рисовать нижнюю сторону прямокгольника или нет.</BottomSide>
+    <BottomSide>Свойство, которое определяет, рисовать нижнюю сторону прямоугольника или нет.</BottomSide>
     <LeftSide>Свойство, которое определяет, рисовать левую сторону прямоугольника или нет.</LeftSide>
     <RightSide>Свойство, которое определяет, рисовать правую сторону прямоугольника или нет.</RightSide>
     <TopSide>Свойство, которое определяет, рисовать верхнюю сторону прямоугольника или нет.</TopSide>
@@ -1918,10 +1924,10 @@
     <AutoLocalizeReportOnRun>Свойство включает или выключает автоматическую локализацию отчета перед его построением.</AutoLocalizeReportOnRun>
     <BeginRenderEvent>Возникает, когда начинается построение отчета.</BeginRenderEvent>
     <CacheAllData>Значение определяет, нужно ли кэшировать все данные отчета в одном DataSet.</CacheAllData>
-    <CacheTotals>Свойство включает кэширование итогов отчета, которые используются с префиксом Totals. В случае использования на одном бэнде нескольких итогов с одинаковыми входными параметрами  - использование данного свойства ускоряет построение отчета.</CacheTotals>
+    <CacheTotals>Свойство включает кэширование итогов отчета, которые используются с префиксом Totals. В случае использования на одном бенде нескольких итогов с одинаковыми входными параметрами - использование данного свойства ускоряет построение отчета.</CacheTotals>
     <CalculationMode>Методика вычисления выражений при построении отчета.</CalculationMode>
     <Collate>Значение, которое будет использоваться для collating страниц. Значение свойства не может быть меньше 1.</Collate>
-    <ConvertNulls>Значение опеределяет, необходимо ли конвертировать null или DBNull.</ConvertNulls>
+    <ConvertNulls>Значение определяет, необходимо ли конвертировать null или DBNull.</ConvertNulls>
     <EndRenderEvent>Возникает, при окончании построения отчета.</EndRenderEvent>
     <EngineVersion>Текущее ядро генератора отчетов.</EngineVersion>
     <ExportedEvent>Происходит при завершении экспорта отчета.</ExportedEvent>
@@ -1965,13 +1971,13 @@
     <GetTagEvent>Скрипт события GetTag.</GetTagEvent>
     <GetToolTipEvent>Скрипт события GetToolTip.</GetToolTipEvent>
     <LeaveEvent>Скрипт события Leave.</LeaveEvent>
-    <Location>Координаты от верхнего левого угла компонента в соответствии с верхним левым углом данного контейнера.</Location>
+    <Location>Координаты левого верхнего угла элемента управления относительно левого верхнего угла его контейнера.</Location>
     <MouseDownEvent>Скрипт события MouseDown.</MouseDownEvent>
     <MouseEnterEvent>Скрипт события MouseEnter.</MouseEnterEvent>
     <MouseLeaveEvent>Скрипт события MouseLeave.</MouseLeaveEvent>
     <MouseMoveEvent>Скрипт события MouseMove.</MouseMoveEvent>
     <MouseUpEvent>Скрипт события MouseUp.</MouseUpEvent>
-    <RightToLeft>Значение определяет, выровнены ли элементы управления для поддержки локалей, используя шрифты right-to-left.</RightToLeft>
+    <RightToLeft>Значение определяет, выровнены ли элементы управления для поддержки локалей, использующих шрифты с направлением справа налево.</RightToLeft>
     <Size>Высота и ширина элемента управления.</Size>
     <TagValueBinding>Привязка данных для значения Tag.</TagValueBinding>
     <Visible>Значение определяет, показан ли элемент управления.</Visible>
@@ -1981,15 +1987,15 @@
     <PrintIfEmpty>Значение определяет, что итог печатается внизу страницы.</PrintIfEmpty>
   </StiReportSummaryBand>
   <StiReportTitleBand>
-    <PrintIfEmpty>Значение определяет, что бенд заголовок отчета печатается, если данные отсутствуют.</PrintIfEmpty>
+    <PrintIfEmpty>Значение определяет, что бенд заголовка отчета печатается, если данные отсутствуют.</PrintIfEmpty>
   </StiReportTitleBand>
   <StiRichText>
     <BackColor>Цвет фона.</BackColor>
     <DataColumn>Имя колонки, которая содержит RTF текст.</DataColumn>
-    <DataUrl>Выражение для заполнения RTF текста по гипер-ссылке.</DataUrl>
-    <DetectUrls>Определение гипер-ссылок в Rich тексте.</DetectUrls>
-    <FullConvertExpression>Значение определяет, что необходимо полностью конвертировать выражение в формат RTF. Полная конверсия выражений замедляет построение отчета.</FullConvertExpression>
-    <Margins>Границы текста (слева, справо, сверху, снизу).</Margins>
+    <DataUrl>Выражение для заполнения RTF текста компонента.</DataUrl>
+    <DetectUrls>Определение гиперссылок в Rich тексте.</DetectUrls>
+    <FullConvertExpression>Значение определяет, что необходимо полностью конвертировать выражение в формат RTF. Полное преобразование выражений замедляет построение отчета.</FullConvertExpression>
+    <Margins>Границы текста (слева, справа, сверху, снизу).</Margins>
     <WordWrap>Перенос текста.</WordWrap>
     <Wysiwyg>Значение, которое определяет, что будет использоваться Wysiwyg режим отображения компонента.</Wysiwyg>
   </StiRichText>
@@ -2012,43 +2018,43 @@
     <AllowApplyColorNegative>Значение определяет, что будет использоваться определенный цвет для окраски отрицательных значений.</AllowApplyColorNegative>
     <Argument>Выражение аргумента. Пример: {Order.Argument}</Argument>
     <ArgumentDataColumn>Имя колонки, которая содержит значение аргумента.</ArgumentDataColumn>
-    <AutoSeriesColorDataColumn>Имя колонки, которое содержит цвет автоматически созданных рядов. Цвет должен быть представлен как строка.</AutoSeriesColorDataColumn>
-    <AutoSeriesKeyDataColumn>Имя колонки, которое содержит ключ автоматически созданных рядов.</AutoSeriesKeyDataColumn>
-    <AutoSeriesTitleDataColumn>Имя колонки, которое содержит заголовки автоматически созданных заголовков.</AutoSeriesTitleDataColumn>
+    <AutoSeriesColorDataColumn>Имя колонки, которая содержит цвет автоматически созданных рядов. Цвет должен быть представлен как строка.</AutoSeriesColorDataColumn>
+    <AutoSeriesKeyDataColumn>Имя колонки, которая содержит ключ автоматически созданных рядов.</AutoSeriesKeyDataColumn>
+    <AutoSeriesTitleDataColumn>Имя колонки, которая содержит заголовок автоматически созданных рядов.</AutoSeriesTitleDataColumn>
     <BorderColor>Цвет границы рядов.</BorderColor>
     <Brush>Кисть для заливки рядов.</Brush>
     <BrushNegative>Кисть для заливки отрицательных значений.</BrushNegative>
-    <Conditions>Коллекция условий, которая будет использована для изменения цвета выводимого ряда.</Conditions>
+    <Conditions>Коллекция условий, которая будет использована для изменения поведения рядов.</Conditions>
     <FilterMode>Режим фильтра рядов.</FilterMode>
-    <Filters>Фильтры используются для отрисовки значений заголовков.</Filters>
+    <Filters>Фильтры, используемые для фильтрации значений рядов.</Filters>
     <Format>Строка используется для форматирования значений рядов.</Format>
-    <GetArgumentEvent>Возникает, при получении свойства Argument.</GetArgumentEvent>
-    <GetHyperlinkEvent>Возникает, при получении Hyperlink для ряда.</GetHyperlinkEvent>
-    <GetListOfArgumentsEvent>Возникает, при получении списка аргументов.</GetListOfArgumentsEvent>
-    <GetListOfHyperlinksEvent>Возникает, при получении списка гиперссылок.</GetListOfHyperlinksEvent>
-    <GetListOfTagsEvent>Возникает, при получении списка тегов.</GetListOfTagsEvent>
-    <GetListOfToolTipsEvent>Возникает, при получении списка подсказок.</GetListOfToolTipsEvent>
-    <GetListOfValuesEvent>Возникает, при получении списка значений.</GetListOfValuesEvent>
-    <GetListOfWeightsEvent>Возникает, при получении списка значений веса.</GetListOfWeightsEvent>
-    <GetTagEvent>Возникает, при получении Tag для ряда.</GetTagEvent>
-    <GetTitleEvent>Возникает, при получении свойства Title.</GetTitleEvent>
-    <GetToolTipEvent>Возникает, при получении ToolTip для ряда.</GetToolTipEvent>
-    <GetValueEvent>Возникает, при получении свойства Value.</GetValueEvent>
-    <GetWeightEvent>Возникает, при получении свойства Weight.</GetWeightEvent>
+    <GetArgumentEvent>Возникает при получении свойства Argument.</GetArgumentEvent>
+    <GetHyperlinkEvent>Возникает при получении Hyperlink для ряда.</GetHyperlinkEvent>
+    <GetListOfArgumentsEvent>Возникает при получении списка аргументов.</GetListOfArgumentsEvent>
+    <GetListOfHyperlinksEvent>Возникает при получении списка гиперссылок.</GetListOfHyperlinksEvent>
+    <GetListOfTagsEvent>Возникает при получении списка тегов.</GetListOfTagsEvent>
+    <GetListOfToolTipsEvent>Возникает при получении списка подсказок.</GetListOfToolTipsEvent>
+    <GetListOfValuesEvent>Возникает при получении списка значений.</GetListOfValuesEvent>
+    <GetListOfWeightsEvent>Возникает при получении списка значений веса.</GetListOfWeightsEvent>
+    <GetTagEvent>Возникает при получении Tag для ряда.</GetTagEvent>
+    <GetTitleEvent>Возникает при получении свойства Title.</GetTitleEvent>
+    <GetToolTipEvent>Возникает при получении ToolTip для ряда.</GetToolTipEvent>
+    <GetValueEvent>Возникает при получении свойства Value.</GetValueEvent>
+    <GetWeightEvent>Возникает при получении свойства Weight.</GetWeightEvent>
     <Interaction>Параметры взаимодействия данного компонента.</Interaction>
-    <LabelsOffset>Смещение вертикальных подписей.</LabelsOffset>
+    <LabelsOffset>Вертикальное смещение подписей.</LabelsOffset>
     <Lighting>Значение определяет, что световой эффект будет показан.</Lighting>
-    <LineColor>Цвет строки рядов.</LineColor>
-    <LineColorNegative>Цвет строки рядов для отрицательных значений.</LineColorNegative>
+    <LineColor>Цвет линии рядов.</LineColor>
+    <LineColorNegative>Цвет линии рядов для отрицательных значений.</LineColorNegative>
     <LineMarker>Настройки линейного маркера.</LineMarker>
-    <LineStyle>Стиль строки рядов.</LineStyle>
+    <LineStyle>Стиль линии рядов.</LineStyle>
     <LineWidth>Ширина линии рядов.</LineWidth>
     <ListOfArguments>Выражение для заполнения списка аргументов. Пример: 1;2;3</ListOfArguments>
     <ListOfValues>Выражение для заполнения списка значений. Пример: 1;2;3</ListOfValues>
     <ListOfWeights>Выражение для заполнения списка значений веса. Пример: 1;2;3</ListOfWeights>
     <Marker>Настройки маркера.</Marker>
     <NewAutoSeriesEvent>Возникает, когда создаются новые авторяды.</NewAutoSeriesEvent>
-    <PointAtCenter>Значение определяет, где размесить центр сегмента ряда.</PointAtCenter>
+    <PointAtCenter>Значение определяет, где разместить центр сегмента ряда.</PointAtCenter>
     <SeriesLabels>Настройки заголовков рядов.</SeriesLabels>
     <ShowInLegend>Значение определяет, что ряды должны быть показаны в легенде.</ShowInLegend>
     <ShowNulls>Значение определяет, что необходимо показывать элемент ряда, если значение ряда равно null.</ShowNulls>
@@ -2059,13 +2065,13 @@
     <SortDirection>Направление сортировки.</SortDirection>
     <Tension>Коэффициент натяжения рядов.</Tension>
     <Title>Заголовок рядов.</Title>
-    <TopmostLine>Значение определяет, что линия будут отрисовываться поверх заливки области.</TopmostLine>
+    <TopmostLine>Значение определяет, что линия будет отрисовываться поверх заливки области.</TopmostLine>
     <TopN>Параметры для отображения лучших результатов.</TopN>
     <TrendLine>Настройки тренд линии.</TrendLine>
     <Value>Значение выражения точки. Пример: {Order.Value}</Value>
-    <ValueDataColumn>Имя колонки, которое содержит значение.</ValueDataColumn>
+    <ValueDataColumn>Имя колонки, которая содержит значение.</ValueDataColumn>
     <Weight>Значение выражения веса. Пример: {Order.Value}</Weight>
-    <WeightDataColumn>Имя колонки, которое содержит значение веса.</WeightDataColumn>
+    <WeightDataColumn>Имя колонки, которая содержит значение веса.</WeightDataColumn>
     <YAxis>Ось Y для рядов, на которой будет выведено строковое представление аргументов.</YAxis>
   </StiSeries>
   <StiSeriesInteraction>
@@ -2076,32 +2082,32 @@
     <DrillDownReport>Путь к отчету для операции Drill-Down.</DrillDownReport>
     <Hyperlink>Выражение для заполнения гиперссылки компонента.</Hyperlink>
     <HyperlinkDataColumn>Наименование колонки, которая содержит значение гиперссылки.</HyperlinkDataColumn>
-    <ListOfHyperlinks>Выражение для заполнения списка гиперссылок. Например:1;2;3</ListOfHyperlinks>
-    <ListOfTags>Выражение для заполнения списка тегов. Например:1;2;3</ListOfTags>
-    <ListOfToolTips>Выражение для заполнения списка подсказок. Например:1;2;3</ListOfToolTips>
+    <ListOfHyperlinks>Выражение для заполнения списка гиперссылок. Пример: 1;2;3</ListOfHyperlinks>
+    <ListOfTags>Выражение для заполнения списка тегов. Пример: 1;2;3</ListOfTags>
+    <ListOfToolTips>Выражение для заполнения списка подсказок. Пример: 1;2;3</ListOfToolTips>
     <Tag>Выражение для заполнения тега компонента.</Tag>
     <TagDataColumn>Наименование колонки, которая содержит значение тега.</TagDataColumn>
     <ToolTip>Выражение для заполнения подсказки компонента.</ToolTip>
-    <ToolTipDataColumn>Наименование колонки, которая содержит значение гиперссылки.</ToolTipDataColumn>
+    <ToolTipDataColumn>Наименование колонки, которая содержит значение подсказки.</ToolTipDataColumn>
   </StiSeriesInteraction>
   <StiSeriesLabels>
     <Angle>Угол поворота текста.</Angle>
     <Antialiasing>Значение, которое управляет режимом сглаженной отрисовки заголовка диаграммы.</Antialiasing>
     <AutoRotate>Значение, которое включает/выключает режим автоповорота отрисовки заголовков рядов.</AutoRotate>
-    <BorderColor>Граница цвета заголовка рядов.</BorderColor>
+    <BorderColor>Цвет границы заголовков рядов.</BorderColor>
     <Brush>Кисть, которая будет использоваться для заливки заголовков рядов.</Brush>
-    <Conditions>Коллекция условий, которая будет использована для изменения цвета выводимой подписи ряда.</Conditions>
+    <Conditions>Коллекция условий, которая будет использована для изменения поведения подписей рядов.</Conditions>
     <DrawBorder>Значение указывает, что данная граница будет рисоваться.</DrawBorder>
     <Font>Шрифт, который будет использоваться для отрисовки заголовков рядов.</Font>
     <Format>Строка форматирования, которая используется для форматирования значений рядов.</Format>
     <LabelColor>Передний цвет заголовков рядов.</LabelColor>
     <LegendValueType>Какой тип информации будет показан в легенде.</LegendValueType>
     <LineColor>Цвет линии.</LineColor>
-    <LineLength>Длина линии между границами заголовков рядов и границ элемента ряда.</LineLength>
+    <LineLength>Длина линии между границами заголовков рядов и границей элемента ряда.</LineLength>
     <MarkerAlignment>Выравнивание маркера, связанное с текстом подписей.</MarkerAlignment>
     <MarkerSize>Размер маркера.</MarkerSize>
     <MarkerVisible>Видимость маркера.</MarkerVisible>
-    <PreventIntersection>Значение определяет, необходимо ли избегать пересечения между границами заголовков рядов и границ рядов.</PreventIntersection>
+    <PreventIntersection>Значение определяет, необходимо ли избегать пересечения между границами заголовков рядов и границами рядов.</PreventIntersection>
     <ShowInPercent>Значение определяет, что значения должны быть показаны как проценты.</ShowInPercent>
     <ShowNulls>Значение определяет, что необходимо показывать заголовок ряда, если значение ряда равно null.</ShowNulls>
     <ShowValue>Значение определяет, что значения из рядов будут показаны в заголовках рядов.</ShowValue>
@@ -2110,11 +2116,11 @@
     <TextAfter>Текст, который будет показан после текста подписи.</TextAfter>
     <TextAlignment>Выравнивание текста заголовков рядов.</TextAlignment>
     <TextBefore>Текст, который будет показан перед текстом подписи.</TextBefore>
-    <UseSeriesColor>Значение указывает, что цвет заголовков должен быть использован.</UseSeriesColor>
+    <UseSeriesColor>Значение указывает, что цвета рядов должны быть использованы.</UseSeriesColor>
     <ValueType>Какой тип информации будет отображаться на подписи.</ValueType>
     <ValueTypeSeparator>Строка, которая содержит разделитель для информационного значения.</ValueTypeSeparator>
     <Visible>Видимость заголовка рядов.</Visible>
-    <Width>Fixed width of series labels.</Width>
+    <Width>Фиксированная ширина заголовков рядов.</Width>
     <WordWrap>Значение определяет, что слова будут переноситься при достижении заданной ширины.</WordWrap>
   </StiSeriesLabels>
   <StiSeriesTopN>
@@ -2126,7 +2132,7 @@
   <StiShape>
     <BorderColor>Цвет границы.</BorderColor>
     <ShapeType>Тип фигуры.</ShapeType>
-    <Size>Стиль границы.</Size>
+    <Size>Размер границы.</Size>
     <Style>Стиль пера.</Style>
   </StiShape>
   <StiShapeTypeService>
@@ -2167,7 +2173,7 @@
   </StiStandard2of5BarCodeType>
   <StiStrips>
     <Antialiasing>Значение, которое управляет режимом сглаженной отрисовки.</Antialiasing>
-    <Font>Шрифт текста полосы.</Font>
+    <Font>Шрифт текста заголовка полосы.</Font>
     <MaxValue>Максимальное значение полосы.</MaxValue>
     <MinValue>Минимальное значение полосы.</MinValue>
     <Orientation>Горизонтальная или вертикальная ориентация полос.</Orientation>
@@ -2192,10 +2198,10 @@
     <FooterCanBreak>Значение определяет, что данный итог может разрывать свое содержимое.</FooterCanBreak>
     <FooterCanGrow>Значение определяет, что итог таблицы может расти по высоте.</FooterCanGrow>
     <FooterCanShrink>Значение определяет, что итог таблицы может сжиматься по высоте.</FooterCanShrink>
-    <FooterPrintAtBottom>Значение определяет, что итог таблицы будет напечатано внизу страницы.</FooterPrintAtBottom>
+    <FooterPrintAtBottom>Значение определяет, что итог таблицы будет напечатан внизу страницы.</FooterPrintAtBottom>
     <FooterPrintIfEmpty>Значение определяет, что итог будет напечатан, если данные в таблице отсутствуют.</FooterPrintIfEmpty>
     <FooterPrintOn>Значение определяет, как итог таблицы будет напечатан на страницах.</FooterPrintOn>
-    <FooterPrintOnAllPages>Значение определяет, как итог таблицы будет печататься на всех страницах.</FooterPrintOnAllPages>
+    <FooterPrintOnAllPages>Значение определяет, что итог таблицы будет печататься на всех страницах.</FooterPrintOnAllPages>
     <FooterPrintOnEvenOddPages>Значение определяет, как итог таблицы будет печататься на четных/нечетных страницах.</FooterPrintOnEvenOddPages>
     <FooterRowsCount>Количество рядов итога в таблице.</FooterRowsCount>
     <HeaderCanBreak>Значение определяет, что данный заголовок может разрывать свое содержание.</HeaderCanBreak>
@@ -2210,7 +2216,7 @@
     <RowCount>Количество рядов в таблице.</RowCount>
   </StiTable>
   <StiTableElement>
-    <Columns>Колонки отображаемые в таблице</Columns>
+    <Columns>Колонки, отображаемые в таблице.</Columns>
     <FiltersTarget>Получает или задает целевые данные, к которым применяются фильтры.</FiltersTarget>
     <Group />
     <SizeMode />
@@ -2243,7 +2249,7 @@
     <Font>Шрифт компонента.</Font>
     <GetExcelValueEvent>Срабатывает при расчете ExcelValue.</GetExcelValueEvent>
     <HorAlignment>Выравнивание текста по горизонтали.</HorAlignment>
-    <Margins>Границы текста (слева, справо, сверху, снизу).</Margins>
+    <Margins>Границы текста (слева, справа, сверху, снизу).</Margins>
     <RenderTo>В свойстве указать компонент Text, в котором текст находится за границами текущего текстового компонента и будет выведен далее.</RenderTo>
     <ShrinkFontToFit>Значение определяет, что данный компонент уменьшает размер шрифта, для того чтобы поместить содержимое компонента.</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>Значение определяет минимальный размер шрифта для операции ShrinkFontToFit.</ShrinkFontToFitMinimumSize>
@@ -2257,7 +2263,7 @@
     <AcceptsTab>Значение определяет, будет ли переключаться фокус на следующий компонент при нажатии клавиши TAB.</AcceptsTab>
     <MaxLength>Максимальное количество символов, которые пользователь может ввести в элементе управления TextBox.</MaxLength>
     <Multiline>Значение определяет, является ли это многострочным элементом управления TextBox.</Multiline>
-    <PasswordChar>Символ используется для маскирования символов пароля в однострочным элементе управления TextBox.</PasswordChar>
+    <PasswordChar>Символ используется для маскирования символов пароля в однострочном элементе управления TextBox.</PasswordChar>
     <Text>Текущий текст в текстбоксе.</Text>
     <TextBinding>Привязка данных для текста.</TextBinding>
     <WordWrap>Указывает переносит ли, если это необходимо, многострочный элемент управления TextBox слова автоматически на начало следующей строки.</WordWrap>
@@ -2268,7 +2274,7 @@
   <StiTextInCells>
     <CellHeight>Высота ячейки.</CellHeight>
     <CellWidth>Ширина ячейки.</CellWidth>
-    <ContinuousText>Флажок неприрывного текста.</ContinuousText>
+    <ContinuousText>Флажок непрерывного текста.</ContinuousText>
     <HorSpacing>Горизонтальное расстояние между ячейками.</HorSpacing>
     <RightToLeft>Направление горизонтального вывода.</RightToLeft>
     <VertSpacing>Вертикальное расстояние между ячейками.</VertSpacing>
@@ -2276,8 +2282,8 @@
   </StiTextInCells>
   <StiTextOptions>
     <Angle>Угол поворота текста.</Angle>
-    <DistanceBetweenTabs>Расстояние между закладками.</DistanceBetweenTabs>
-    <FirstTabOffset>Смещение первой закладки.</FirstTabOffset>
+    <DistanceBetweenTabs>Расстояние между табуляциями.</DistanceBetweenTabs>
+    <FirstTabOffset>Смещение первой табуляции.</FirstTabOffset>
     <HotkeyPrefix>Тип отображения горячих клавиш.</HotkeyPrefix>
     <LineLimit>Значение, которое показывает только законченные строки.</LineLimit>
     <RightToLeft>Направление горизонтального вывода.</RightToLeft>
@@ -2345,7 +2351,7 @@
     <AspectRatio>Значение определяет, что изображение сохранит свои пропорции.</AspectRatio>
     <MultipleFactor>Значение для умножения на размер изображения.</MultipleFactor>
     <Smoothing>Режим сглаживания для отрисовки изображения.</Smoothing>
-    <Stretch>Значение определяет, что данный компонент расширит изображение до тех пор, пока оно не получит размер, соотвествующий размеру страницы.</Stretch>
+    <Stretch>Значение определяет, что данный компонент расширит изображение до тех пор, пока оно не получит размер, соответствующий размеру страницы.</Stretch>
   </StiView>
   <StiWatermark>
     <Angle>Угол водяного знака.</Angle>
@@ -2366,7 +2372,7 @@
   </StiWatermark>
   <StiWinControl>
     <BackColor>Возвращает или задает цвет фона для элемента управления.</BackColor>
-    <Font>Шрифт текста показанный в элементе управления.</Font>
+    <Font>Шрифт текста, показанного в элементе управления.</Font>
     <ForeColor>Возвращает или задает основной цвет элемента управления.</ForeColor>
     <Text>Текст, связанный с данным элементом управления.</Text>
     <TypeName>Имя типа.</TypeName>
@@ -2375,7 +2381,7 @@
     <DateTimeStep>Настройки временного шага.</DateTimeStep>
   </StiXAxis>
   <StiXChartAxis>
-    <ShowEdgeValues>Значение определяет, что первый и последний аргумент на оси будут показаны в любой случае.</ShowEdgeValues>
+    <ShowEdgeValues>Значение определяет, что первый и последний аргументы на оси будут показаны в любом случае.</ShowEdgeValues>
     <StartFromZero>Значение определяет, что все аргументы будут показаны от нуля.</StartFromZero>
     <Title>Настройки заголовка оси.</Title>
   </StiXChartAxis>
@@ -2389,16 +2395,16 @@
     <Direction>Направление отрисовки текста.</Direction>
   </StiYChartAxisTitle>
   <StiZipCode>
-    <Code>Выражение для заливки кода штрих-кода.</Code>
+    <Code>Выражение для заполнения кода штрих-кода.</Code>
     <ForeColor>Возвращает или задает основной цвет элемента управления.</ForeColor>
-    <GetZipCodeEvent>Возникает, при получении кода штрих-кода.</GetZipCodeEvent>
-    <Ratio>Значение определяет, ширину и высоту пропорций.</Ratio>
+    <GetZipCodeEvent>Возникает при получении кода штрих-кода.</GetZipCodeEvent>
+    <Ratio>Значение определяет соотношение ширины и высоты.</Ratio>
     <Size>Размер контура.</Size>
   </StiZipCode>
   <Universal>
     <AllowApplyStyle>Значение определяет, что будет использоваться стиль диаграммы.</AllowApplyStyle>
     <Key>Ключ, который будет использоваться в переменных, когда пользователь при помощи интерфейса выбрал значение элемента.</Key>
-    <Label>Метка, которое будет отображаться вместо ключа в интерфейсе работы с параметрами.</Label>
+    <Label>Метка, которая будет отображаться вместо ключа в интерфейсе работы с параметрами.</Label>
     <Value>Значение, которое будет отображаться вместо ключа в интерфейсе работы с параметрами.</Value>
   </Universal>
 </Localization>

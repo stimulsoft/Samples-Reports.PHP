@@ -230,7 +230,7 @@
     <Warning>Avertissement! </Warning>
   </CheckGlobal>
   <CheckLicense>
-    <StiLicenseTrialCheckLong>Vous utilisez la version d'essai de Stimulsoft Rapports et Tableaux de bord. Pour utiliser le logiciel en production, vous devez acheter une licence.</StiLicenseTrialCheckLong>
+    <StiLicenseTrialCheckLong>Version d’essai uniquement pour l’évaluation du produit. Une licence est requise pour développer ou déployer avec Stimulsoft.</StiLicenseTrialCheckLong>
     <StiValidSubscriptioRequiredCheckLong>Abonnement valide requis. Veuillez mettre à jour votre abonnement pour utiliser la version entièrement fonctionnelle de Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
@@ -269,6 +269,10 @@
     <StiNetCoreCompilationModeCheckShort>Ce rapport est en mode compilation</StiNetCoreCompilationModeCheckShort>
     <StiResourcesFontsCheckLong>Impossible de charger la police à partir de la ressource '{0}'. Le fichier est corrompu ou le format de fichier n'est pas supporté.</StiResourcesFontsCheckLong>
     <StiResourcesFontsCheckShort>Police non chargée</StiResourcesFontsCheckShort>
+    <StiScriptExecutionErrorCheck2Long>Une erreur d'exécution de script s'est produite dans la propriété '{1}' du composant '{2}'.</StiScriptExecutionErrorCheck2Long>
+    <StiScriptExecutionErrorCheck3Long>Une erreur d'exécution de script s'est produite dans l'événement '{1}' du composant '{2}'.</StiScriptExecutionErrorCheck3Long>
+    <StiScriptExecutionErrorCheckLong>Une erreur d'exécution de script s'est produite.</StiScriptExecutionErrorCheckLong>
+    <StiScriptExecutionErrorCheckShort>Erreur d'exécution de script</StiScriptExecutionErrorCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>La variable '{0}' a une valeur par défaut erronée. Il est impossible d'initialiser la variable avec une valeur spécifique.</StiVariableInitializationCheckLong>
@@ -1682,6 +1686,7 @@
     <BorderColor>Couleur de fond.</BorderColor>
     <Brush>Brosse d'arrière plan de la légende.</Brush>
     <Columns>Nombre de colonnes.</Columns>
+    <ColumnWidth>Spécifie la largeur d'une colonne de légende. Peut être utilisé conjointement avec Retour à la ligne pour contrôler le retour à la ligne du texte dans les éléments de légende.</ColumnWidth>
     <Direction>Sens pour le dessin de séries dans la légende.</Direction>
     <Font>Police des titres des séries.</Font>
     <HideSeriesWithEmptyTitle>Affiche/Cache les séries sans titre.</HideSeriesWithEmptyTitle>
@@ -1700,6 +1705,7 @@
     <VertAlignment>alignement vertical de la légende.</VertAlignment>
     <VertSpacing>Espacement vertical entre les éléments dans la légende..</VertSpacing>
     <Visible>Visibilité de la légende.</Visible>
+    <WordWrap>Active ou désactive le retour à la ligne du texte dans les éléments de légende. Fonctionne avec la largeur de colonne.</WordWrap>
   </StiLegend>
   <StiLinePrimitive>
     <Color>Couleur de la ligne.</Color>

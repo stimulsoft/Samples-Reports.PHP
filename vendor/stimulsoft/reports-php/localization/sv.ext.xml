@@ -1247,7 +1247,7 @@
   <StiRadioButtonControl>
     <Checked>Ett värde anger om kontrollen är markerad.</Checked>
     <CheckedBinding>Bindningar Data för den kontrollerade.</CheckedBinding>
-    <CheckedChangedEvent>Gets</CheckedChangedEvent>
+    <CheckedChangedEvent>Inträffar när värdet för egenskapen Checked ändras.</CheckedChangedEvent>
     <Text>En text i samband med denna kontroll.</Text>
     <TextBinding>Data bindningar för texten.</TextBinding>
   </StiRadioButtonControl>

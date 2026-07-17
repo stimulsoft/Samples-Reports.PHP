@@ -16,7 +16,7 @@
     <On>On</On>
     <SetGrowToHeightToFalse>Set the GrowToHeight property to false</SetGrowToHeightToFalse>
     <SetGrowToHeightToTrue>Set the GrowToHeight property to true</SetGrowToHeightToTrue>
-    <StiAllowHtmlTagsInTextActionLong>Set the value of the AllowHtmlTags property of the component to true, for correct showing the HTML tags.</StiAllowHtmlTagsInTextActionLong>
+    <StiAllowHtmlTagsInTextActionLong>Set the value of the AllowHtmlTags property of the component to true, to display the HTML tags correctly.</StiAllowHtmlTagsInTextActionLong>
     <StiAllowOnDoublePassActionLong>Set the NumberOfPass property to DoublePass for correct calculation of variables.</StiAllowOnDoublePassActionLong>
     <StiApplyGeneralTextFormatLong>Set the 'General' format for the '{0}' component.</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>Apply General</StiApplyGeneralTextFormatShort>
@@ -41,9 +41,9 @@
     <StiGrowToHeightOverlappingLong>Set the value of the GrowToHeight property of the component to false.</StiGrowToHeightOverlappingLong>
     <StiInsufficientTextHeightForOneLineLong>The height of the component will increase at least to the height of one line of text or to the next cell of the report grid.</StiInsufficientTextHeightForOneLineLong>
     <StiInsufficientTextHeightForOneLineShort>Fix height</StiInsufficientTextHeightForOneLineShort>
-    <StiLargeHeightAtPageActionLong>For handy viewing and editing components, the LargeHeight property of the page will be set to true.</StiLargeHeightAtPageActionLong>
+    <StiLargeHeightAtPageActionLong>For convenient viewing and editing of components, the LargeHeight property of the page will be set to true.</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>Set the MinRowsInColumns property to zero.</StiMinRowsInColumnsActionLong>
-    <StiMoveComponentToPageAreaActionLong>The component will be placed so that it is entirely placed on the page. In this case the page fields are not taken into consideration.</StiMoveComponentToPageAreaActionLong>
+    <StiMoveComponentToPageAreaActionLong>The component will be placed so that it is entirely on the page. In this case the page margins are not taken into consideration.</StiMoveComponentToPageAreaActionLong>
     <StiMoveComponentToPageAreaActionShort>Move to page</StiMoveComponentToPageAreaActionShort>
     <StiMoveComponentToPrintablePageAreaActionLong>Move the component to the page printing area. Page margins will be taken into consideration.</StiMoveComponentToPrintablePageAreaActionLong>
     <StiMoveComponentToPrintablePageAreaActionShort>To Print Area</StiMoveComponentToPrintablePageAreaActionShort>
@@ -70,18 +70,18 @@
     <StiAllowHtmlTagsInTextCheckShort>The AllowHtmlTags property is not set</StiAllowHtmlTagsInTextCheckShort>
     <StiCanBreakComponentInContainerCheckLong>The CanBreak property of the '{0}' container is set to false. Some nested components have the CanBreak property set to true.</StiCanBreakComponentInContainerCheckLong>
     <StiCanBreakComponentInContainerCheckShort>The CanBreak property of the container is set to false</StiCanBreakComponentInContainerCheckShort>
-    <StiCanGrowComponentInContainerCheckLong>The CanGrow property of the '{0}' component is set to false. Some nested components have the CanGrow property set to true. This may cause to incorrect report rendering.</StiCanGrowComponentInContainerCheckLong>
+    <StiCanGrowComponentInContainerCheckLong>The CanGrow property of the '{0}' component is set to false. Some nested components have the CanGrow property set to true. This may cause incorrect report rendering.</StiCanGrowComponentInContainerCheckLong>
     <StiCanGrowComponentInContainerCheckShort>The CanGrow property of the container is set to false</StiCanGrowComponentInContainerCheckShort>
     <StiCanGrowGrowToHeightComponentInContainerLong>The CanGrow properties of some components of the '{0}' container are set to true. But the GrowToHeight property is not set to true for all components. When rendering a report these components may be aligned with the bottom margin of the container.</StiCanGrowGrowToHeightComponentInContainerLong>
-    <StiCanGrowGrowToHeightComponentInContainerShort>It is possible an incorrect showing of components</StiCanGrowGrowToHeightComponentInContainerShort>
-    <StiCanGrowWordWrapTextAndWysiwygCheckLong>When the TextQuality property is set to Standard or Typographic. Text preview, in different zoom modes and when printing may differ due to errors of rounding of the GDI+ library.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
-    <StiCanGrowWordWrapTextAndWysiwygCheckShort>Possibly there will be the incorrect text wrap</StiCanGrowWordWrapTextAndWysiwygCheckShort>
+    <StiCanGrowGrowToHeightComponentInContainerShort>Components may be shown incorrectly</StiCanGrowGrowToHeightComponentInContainerShort>
+    <StiCanGrowWordWrapTextAndWysiwygCheckLong>The TextQuality property is set to Standard or Typographic. Text preview in different zoom modes and when printing may differ due to rounding errors of the GDI+ library.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
+    <StiCanGrowWordWrapTextAndWysiwygCheckShort>The text may wrap incorrectly</StiCanGrowWordWrapTextAndWysiwygCheckShort>
     <StiChartSeriesValueCheckLong>The Value property is specified for series from the chart "{0}" but the chart does not have the Data Source property set.</StiChartSeriesValueCheckLong>
-    <StiColumnsWidthGreaterContainerWidthCheckLong>The total column width is greater then the width of the '{0}' component. This may cause to incorrect report rendering. Also it may cause some problems with exporting a report to other formats.</StiColumnsWidthGreaterContainerWidthCheckLong>
-    <StiColumnsWidthGreaterContainerWidthCheckShort>The total column width is greater then the component width</StiColumnsWidthGreaterContainerWidthCheckShort>
-    <StiColumnsWidthGreaterPageWidthCheckLong>The total width of columns of the '{0}' page is greater than the page width. This may cause to incorrect report rendering. Also it may cause some problems with exporting a report to other formats.</StiColumnsWidthGreaterPageWidthCheckLong>
+    <StiColumnsWidthGreaterContainerWidthCheckLong>The total column width is greater than the width of the '{0}' component. This may cause incorrect report rendering. Also it may cause some problems with exporting a report to other formats.</StiColumnsWidthGreaterContainerWidthCheckLong>
+    <StiColumnsWidthGreaterContainerWidthCheckShort>The total column width is greater than the component width</StiColumnsWidthGreaterContainerWidthCheckShort>
+    <StiColumnsWidthGreaterPageWidthCheckLong>The total width of columns of the '{0}' page is greater than the page width. This may cause incorrect report rendering. Also it may cause some problems with exporting a report to other formats.</StiColumnsWidthGreaterPageWidthCheckLong>
     <StiColumnsWidthGreaterPageWidthCheckShort>The total column width is greater than page width</StiColumnsWidthGreaterPageWidthCheckShort>
-    <StiComponentBoundsAreOutOfBandLong>The '{0}' component is completely or partially outside the band. This component will not be printed correctly. But, in some cases, such position of the component is acceptable. Also it may cause some problems with exporting a report to other formats.</StiComponentBoundsAreOutOfBandLong>
+    <StiComponentBoundsAreOutOfBandLong>The '{0}' component is completely or partially outside the band. This component will not be printed correctly. But, in some cases, such a position of the component is acceptable. Also it may cause some problems with exporting a report to other formats.</StiComponentBoundsAreOutOfBandLong>
     <StiComponentBoundsAreOutOfBandShort>The component is partially outside the band.</StiComponentBoundsAreOutOfBandShort>
     <StiComponentExpressionCheckLong>Expression in {0} property of '{1}' can't be evaluated!</StiComponentExpressionCheckLong>
     <StiComponentExpressionCheckShort>Expression can't be evaluated!</StiComponentExpressionCheckShort>
@@ -92,14 +92,14 @@
     <StiComponentStyleIsNotFoundCheckAtPageLong>The style specified for the '{0}' page does not exist.</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>The style specified for the '{0}' component does not exist.</StiComponentStyleIsNotFoundCheckLong>
     <StiComponentStyleIsNotFoundCheckShort>The specified style does not exist</StiComponentStyleIsNotFoundCheckShort>
-    <StiContainerInEngineV2CheckLong>The '{0}' container is found in the report where the EngineV2 is used. In the EngineV2 the Panel component is used instead of the Container component. The Panel component has more capabilities in compare with the Container.</StiContainerInEngineV2CheckLong>
+    <StiContainerInEngineV2CheckLong>The '{0}' container is found in the report where the EngineV2 is used. In the EngineV2 the Panel component is used instead of the Container component. The Panel component has more capabilities in comparison with the Container.</StiContainerInEngineV2CheckLong>
     <StiContainerInEngineV2CheckShort>The container in EngineV2</StiContainerInEngineV2CheckShort>
     <StiContourTextObsoleteCheckLong>The '{0}' component has the StiContourText type. The StiContourText component is obsolete and no longer supported, so it is not recommended to use it.</StiContourTextObsoleteCheckLong>
     <StiContourTextObsoleteCheckShort>The component is obsolete</StiContourTextObsoleteCheckShort>
     <StiCorruptedCrossLinePrimitiveCheckLong>Start and end points of the '{0}' primitive are absent. This primitive either will not be shown or will be shown incorrectly.</StiCorruptedCrossLinePrimitiveCheckLong>
     <StiCorruptedCrossLinePrimitiveCheckShort>Corrupted primitive</StiCorruptedCrossLinePrimitiveCheckShort>
     <StiCountDataDataSourceAtDataBandLong>The CountData, DataSource and BusinessObject properties are not set for the '{0}' components. In some cases it is acceptable.</StiCountDataDataSourceAtDataBandLong>
-    <StiCountDataDataSourceAtDataBandShort>May be you forgot to set values of properties</StiCountDataDataSourceAtDataBandShort>
+    <StiCountDataDataSourceAtDataBandShort>Maybe you forgot to set values of properties</StiCountDataDataSourceAtDataBandShort>
     <StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>The number of CrossGroupFooter does not correspond to the number of CrossGroupHeader on the '{0}' page. Odd components will not be rendered.</StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>
     <StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>The number of CrossGroupFooter does not correspond to the number of CrossGroupHeader in the '{0}' container. Odd components will not be rendered.</StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>
     <StiDataSourcesForImageCheckLong>Several data sources are set for the '{0}' component.</StiDataSourcesForImageCheckLong>
@@ -108,13 +108,13 @@
     <StiEventsAtInterpretationCheckShort>Events in Interpretation</StiEventsAtInterpretationCheckShort>
     <StiExpressionElementCheckLong>The expression '{0}' in the '{1}' component works incorrectly. The following message was received from the parser: '{2}'.</StiExpressionElementCheckLong>
     <StiExpressionElementCheckShort>An expression works incorrectly!</StiExpressionElementCheckShort>
-    <StiFilterCircularDependencyElementCheckLong>The circular dependency of the filter is found at the element '{0}'. Please check the 'Parent Key' property of the {0} 'element!</StiFilterCircularDependencyElementCheckLong>
+    <StiFilterCircularDependencyElementCheckLong>The circular dependency of the filter is found at the element '{0}'. Please check the 'Parent Key' property of the '{0}' element!</StiFilterCircularDependencyElementCheckLong>
     <StiFilterCircularDependencyElementCheckShort>Circular filter dependency</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>A filter value of '{0}' is not specified. This filter can't be processed.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>A filter Value is not specified</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>The font '{0}' specified for the component '{1}' is not found.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>The font is not found.</StiFontMissingCheckShort>
-    <StiFunctionsOnlyForEngineV2CheckLong>System variables which are not available in the EngineV1 are used in the report. Do you want to use EngineV2.</StiFunctionsOnlyForEngineV2CheckLong>
+    <StiFunctionsOnlyForEngineV2CheckLong>System variables which are not available in the EngineV1 are used in the report. Do you want to use EngineV2?</StiFunctionsOnlyForEngineV2CheckLong>
     <StiFunctionsOnlyForEngineV2CheckShort>Variables unavailable in the EngineV1 are used.</StiFunctionsOnlyForEngineV2CheckShort>
     <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>The number of GroupFooter does not correspond to the number of GroupHeader in the '{0}' container. Odd components will not be rendered.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
     <StiGroupHeaderNotEqualToGroupFooterOnPageLong>The number of GroupFooter does not correspond to the number of GroupHeader on the '{0}' page. Odd components will not be rendered.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
@@ -122,48 +122,48 @@
     <StiGroupHeaderSummaryExpressionCheckLong>The Summary Expression for the group header {0} contains an aggregate function, but this function is set in a separate property. Report generation is not possible.</StiGroupHeaderSummaryExpressionCheckLong>
     <StiGroupHeaderSummaryExpressionCheckShort>Invalid function in expression</StiGroupHeaderSummaryExpressionCheckShort>
     <StiGrowToHeightOverlappingLong>The GrowToHeight property of the '{0}' component is set to true. When rendering a report, this component can overlap one or more underlying components.</StiGrowToHeightOverlappingLong>
-    <StiGrowToHeightOverlappingShort>It is possible to overlap components.</StiGrowToHeightOverlappingShort>
+    <StiGrowToHeightOverlappingShort>Components may overlap.</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>The height of the text component {0} is too small, even for one line of text. This can cause issues with exporting to some formats, as well as with printing on the Web. It is recommended to increase the height or set the CanGrow property to true.</StiInsufficientTextHeightForOneLineCheckLong>
-    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient Height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
-    <StiIsFirstPageIsLastPageDoublePassCheckLong>The IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough system variables provide incorrect results when one pass. It is required to set the NumberOfPass property to DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
+    <StiInsufficientTextHeightForOneLineCheckShort>Insufficient height for one line.</StiInsufficientTextHeightForOneLineCheckShort>
+    <StiIsFirstPageIsLastPageDoublePassCheckLong>The IsFirstPage, IsFirstPageThrough, IsLastPage, IsLastPageThrough system variables provide incorrect results with one pass. It is required to set the NumberOfPass property to DoublePass.</StiIsFirstPageIsLastPageDoublePassCheckLong>
     <StiIsFirstPageIsLastPageDoublePassCheckShort>System variables which require double pass are used in the report</StiIsFirstPageIsLastPageDoublePassCheckShort>
-    <StiIsFirstPassIsSecondPassCheckLong>For correct work of IsFirstPass, IsSecondPass functions double pass of the report rendering is required. maybe you forgot to set the NumberOfPass property of the report to DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
+    <StiIsFirstPassIsSecondPassCheckLong>For correct work of IsFirstPass, IsSecondPass functions double pass of the report rendering is required. Maybe you forgot to set the NumberOfPass property of the report to DoublePass.</StiIsFirstPassIsSecondPassCheckLong>
     <StiIsFirstPassIsSecondPassCheckShort>IsFirstPass, IsSecondPass functions require double pass when rendering a report</StiIsFirstPassIsSecondPassCheckShort>
     <StiLargeHeightAtPageCheckLong>Lack of free space on the '{0}' page. This may impede further editing the components and preview. It is recommended to set the LargeHeight property to true.</StiLargeHeightAtPageCheckLong>
     <StiLargeHeightAtPageCheckShort>Lack of free space on the page</StiLargeHeightAtPageCheckShort>
     <StiLocationOutsidePageCheckLong>The '{0}' component is partially outside of the page. This component will not be printed correctly. Also it may cause some problems with exporting a report to other formats.</StiLocationOutsidePageCheckLong>
     <StiLocationOutsidePageCheckShort>The component is partially outside of the page</StiLocationOutsidePageCheckShort>
-    <StiLocationOutsidePrintableAreaCheckLong>The '{0}' component is partially or completely outside of the printing area. This component will not be printed correctly. But, in some cases, such position of the component is acceptable. Also it may cause some problems with exporting a report to other formats.</StiLocationOutsidePrintableAreaCheckLong>
+    <StiLocationOutsidePrintableAreaCheckLong>The '{0}' component is partially or completely outside of the printing area. This component will not be printed correctly. But, in some cases, such a position of the component is acceptable. Also it may cause some problems with exporting a report to other formats.</StiLocationOutsidePrintableAreaCheckLong>
     <StiLocationOutsidePrintableAreaCheckShort>The component is partially out of the printing area</StiLocationOutsidePrintableAreaCheckShort>
     <StiMinRowsInColumnsCheckLong>The MinRowsInColumns property of the band is not set to 0. But the value of the Columns property is set to 0. This is senseless.</StiMinRowsInColumnsCheckLong>
     <StiMinRowsInColumnsCheckShort>Maybe the MinRowsInColumns property is set incorrectly</StiMinRowsInColumnsCheckShort>
-    <StiNegativeSizesOfComponentsCheckLong>The Width and Height of the '{0}' component have negative values. This may cause to incorrect report rendering.</StiNegativeSizesOfComponentsCheckLong>
+    <StiNegativeSizesOfComponentsCheckLong>The Width and Height of the '{0}' component have negative values. This may cause incorrect report rendering.</StiNegativeSizesOfComponentsCheckLong>
     <StiNegativeSizesOfComponentsCheckShort>The Width and Height of the component have negative values.</StiNegativeSizesOfComponentsCheckShort>
     <StiNoConditionAtGroupCheckLong>A condition is not set for the '{0}' component. Grouping will not be done without it</StiNoConditionAtGroupCheckLong>
     <StiNoConditionAtGroupCheckShort>A condition for the group is not set</StiNoConditionAtGroupCheckShort>
-    <StiNoNameComponentCheckLong>The component has no name. If to specify the name of the component then the report engine will not be able to compile the report.</StiNoNameComponentCheckLong>
+    <StiNoNameComponentCheckLong>The component has no name. If the name of the component is not specified then the report engine will not be able to compile the report.</StiNoNameComponentCheckLong>
     <StiNoNameComponentCheckShort>The component has no name</StiNoNameComponentCheckShort>
     <StiNoNamePageCheckLong>The name of the page with the '{0}' index is not specified. If the name of the page is not specified then the report engine will not compile the report.</StiNoNamePageCheckLong>
     <StiNoNamePageCheckShort>A page has no name</StiNoNamePageCheckShort>
-    <StiPageFooterOnlyLastPageCheckLong>Band {0} with the property PrintOn=OnlyLastPage creates an unwanted gaps at the bottom of the page. Recommend replacing it with ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
+    <StiPageFooterOnlyLastPageCheckLong>Band {0} with the property PrintOn=OnlyLastPage creates unwanted gaps at the bottom of the page. We recommend replacing it with ReportSummary.</StiPageFooterOnlyLastPageCheckLong>
     <StiPageFooterOnlyLastPageCheckShort>Probability of gaps appearing</StiPageFooterOnlyLastPageCheckShort>
     <StiPageLineAndDoublePassCheckLong>The system variable PageLine requires Double-Pass of the report engine.</StiPageLineAndDoublePassCheckLong>
     <StiPageLineAndDoublePassCheckShort>The PageLine requires Double-Pass!</StiPageLineAndDoublePassCheckShort>
-    <StiPanelInEngineV1CheckLong>The '{0}' panel is found in the report where the EngineV1 is used. This component is not available in the EngineV1. So the reporting tool attempts to render it as a Container component. But the Panel component has more capabilities in compare with the Container and this may cause the incorrect report rendering.</StiPanelInEngineV1CheckLong>
+    <StiPanelInEngineV1CheckLong>The '{0}' panel is found in the report where the EngineV1 is used. This component is not available in the EngineV1. So the reporting tool attempts to render it as a Container component. But the Panel component has more capabilities in comparison with the Container and this may cause incorrect report rendering.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>The panel in EngineV1</StiPanelInEngineV1CheckShort>
-    <StiPrintHeadersAndFootersFromPreviousPageLong>The PrintHeadersAndFootersFromPreviousPage property of the '{0}' page is set to true. But for the first and the only page it has no sense.</StiPrintHeadersAndFootersFromPreviousPageLong>
-    <StiPrintHeadersAndFootersFromPreviousPageShort>May be the PrintHeadersAndFootersFromPreviousPage property is set incorrectly</StiPrintHeadersAndFootersFromPreviousPageShort>
+    <StiPrintHeadersAndFootersFromPreviousPageLong>The PrintHeadersAndFootersFromPreviousPage property of the '{0}' page is set to true. But for the first and the only page it makes no sense.</StiPrintHeadersAndFootersFromPreviousPageLong>
+    <StiPrintHeadersAndFootersFromPreviousPageShort>Maybe the PrintHeadersAndFootersFromPreviousPage property is set incorrectly</StiPrintHeadersAndFootersFromPreviousPageShort>
     <StiPrintOnDoublePassCheckLong>The PrintOn property of the '{0}' component is not set to AllPages. For correct report rendering double pass should be enabled.</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>The PrintOn property is not set to AllPages</StiPrintOnDoublePassCheckShort>
     <StiPrintOnPreviousPageCheck2Long>The PrintOnPreviousPage property of the '{0}' page is set to true. All components (except bands), which lie on this page will be printed only from the next new page, or may not be printed at all if there will be no new pages.</StiPrintOnPreviousPageCheck2Long>
     <StiPrintOnPreviousPageCheck2Short>Some components may not be printed.</StiPrintOnPreviousPageCheck2Short>
-    <StiPrintOnPreviousPageCheckLong>The PrintOnPreviousPage property of the '{0}' page is set to true. But for the first and the only page it has no sense.</StiPrintOnPreviousPageCheckLong>
+    <StiPrintOnPreviousPageCheckLong>The PrintOnPreviousPage property of the '{0}' page is set to true. But for the first and the only page it makes no sense.</StiPrintOnPreviousPageCheckLong>
     <StiPrintOnPreviousPageCheckShort>Maybe the PrintOnPreviousPage property is set incorrectly</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>The StartNewPage property of the '{0}' component is supported in the EngineV1 only.</StiPropertiesOnlyEngineV1CheckLong>
     <StiPropertiesOnlyEngineV1CheckShort>Some properties are set which are not supported in the EngineV2</StiPropertiesOnlyEngineV1CheckShort>
     <StiPropertiesOnlyEngineV2CheckLong>One of the following properties is used for the '{0}' component: NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter, SkipFirst. They are not supported by EngineV2.</StiPropertiesOnlyEngineV2CheckLong>
     <StiPropertiesOnlyEngineV2CheckShort>Some properties are set which are not supported in the EngineV1</StiPropertiesOnlyEngineV2CheckShort>
-    <StiResetPageNumberCheckLong>The ResetPageNumber property of the '{0}' page is set to true. But for the first and the only page it has no sense.</StiResetPageNumberCheckLong>
+    <StiResetPageNumberCheckLong>The ResetPageNumber property of the '{0}' page is set to true. But for the first and the only page it makes no sense.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Maybe the ResetPageNumber property is set incorrectly</StiResetPageNumberCheckShort>
     <StiShowInsteadNullValuesCheckLong>The NullValues property is set for the '{0}' component. But the DataColumn property is not set. This is senseless.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>The NullValues property is set</StiShowInsteadNullValuesCheckShort>
@@ -171,28 +171,28 @@
     <StiSubReportPageZeroCheckShort>The SubReportPage property is not set</StiSubReportPageZeroCheckShort>
     <StiSystemTextObsoleteCheckLong>The '{0}' component has the StiSystemText type. The StiSystemText component is obsolete and no longer supported, so it is not recommended to use it.</StiSystemTextObsoleteCheckLong>
     <StiSystemTextObsoleteCheckShort>The component is obsolete</StiSystemTextObsoleteCheckShort>
-    <StiTextColorEqualToBackColorCheckLong>Possible reason is that the values of the TextBrush and Brush properties of the '{0}' component were set incorrectly. The text will not be visible.</StiTextColorEqualToBackColorCheckLong>
+    <StiTextColorEqualToBackColorCheckLong>A possible reason is that the values of the TextBrush and Brush properties of the '{0}' component were set incorrectly. The text will not be visible.</StiTextColorEqualToBackColorCheckLong>
     <StiTextColorEqualToBackColorCheckShort>The TextBrush property is equal to the Brush property</StiTextColorEqualToBackColorCheckShort>
-    <StiTextTextFormatCheckLong>Selected text format for the '{0}' component can`t be applied, because the result of the expression is text string.</StiTextTextFormatCheckLong>
-    <StiTextTextFormatCheckShort>The format can`t be applied.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatCheckLong>The selected text format for the '{0}' component can't be applied, because the result of the expression is a text string.</StiTextTextFormatCheckLong>
+    <StiTextTextFormatCheckShort>The format can't be applied.</StiTextTextFormatCheckShort>
     <StiTextTextFormatFieldCheckLong>The column used in the {0} component is not a date type. Changing the formatting to General is recommended to avoid slowing down the report and to ensure correct formatting.</StiTextTextFormatFieldCheckLong>
     <StiTextTextFormatFieldCheckShort>The selected format is not compatible with the data column type.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>The TotalPageCount, TotalPageCountThrough system variables in scripts and conditions provide incorrect results when one pass. It is required to set the NumberOfPass property to DoublePass.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>Undefined '{0}' component is found in the report. The reporting tool cannot identify this component. Maybe this is a custom component. The report cannot be rendered!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Undefined component</StiUndefinedComponentCheckShort>
-    <StiVerySmallSizesOfComponentsCheckLong>The values of the Width of Height of the '{0}' component are less than the values of the GridSize of the report. Maybe you incorrectly set its size. This may cause problems when exporting to other formats.</StiVerySmallSizesOfComponentsCheckLong>
+    <StiVerySmallSizesOfComponentsCheckLong>The values of the Width and Height of the '{0}' component are less than the values of the GridSize of the report. Maybe you incorrectly set its size. This may cause problems when exporting to other formats.</StiVerySmallSizesOfComponentsCheckLong>
     <StiVerySmallSizesOfComponentsCheckShort>Very small size of the component</StiVerySmallSizesOfComponentsCheckShort>
     <StiWidthHeightZeroComponentCheckLongHeight>The height of the '{0}' component is zero. This may cause problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongHeight>
     <StiWidthHeightZeroComponentCheckLongWidth>The width of the '{0}' component is zero. There may be some problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongWidth>
     <StiWidthHeightZeroComponentCheckLongWidthHeight>The height and width of the '{0}' component are equal to 0. There may be some problems with showing this component on a page. It also may cause some problems when exporting the report to other formats.</StiWidthHeightZeroComponentCheckLongWidthHeight>
-    <StiWidthHeightZeroComponentCheckShortHeight>The height of the '{0}' component are equal to 0</StiWidthHeightZeroComponentCheckShortHeight>
-    <StiWidthHeightZeroComponentCheckShortWidth>The width of the '{0}' component are equal to 0</StiWidthHeightZeroComponentCheckShortWidth>
+    <StiWidthHeightZeroComponentCheckShortHeight>The height of the '{0}' component is equal to 0</StiWidthHeightZeroComponentCheckShortHeight>
+    <StiWidthHeightZeroComponentCheckShortWidth>The width of the '{0}' component is equal to 0</StiWidthHeightZeroComponentCheckShortWidth>
     <StiWidthHeightZeroComponentCheckShortWidthHeight>The height and width of the '{0}' component are equal to 0</StiWidthHeightZeroComponentCheckShortWidthHeight>
     <StiWordWrapCanGrowTextDoesNotFitLong>If the WordWrap property is set to true, and the CanGrow property is set to false, then the text of the {0} component cannot be shown completely. It is recommended to set the CanGrow property to true.</StiWordWrapCanGrowTextDoesNotFitLong>
     <StiWordWrapCanGrowTextDoesNotFitShort>The text may not fit</StiWordWrapCanGrowTextDoesNotFitShort>
   </CheckComponent>
   <CheckConnection>
-    <StiUndefinedConnectionCheckLong>Undefined '{0}' connection is found. The reporting tool cannot correctly process such type of connection with the database! May be the customer types of connections are used in the report. This report cannot be rendered!</StiUndefinedConnectionCheckLong>
+    <StiUndefinedConnectionCheckLong>Undefined '{0}' connection is found. The reporting tool cannot correctly process such type of connection with the database! Maybe the custom types of connections are used in the report. This report cannot be rendered!</StiUndefinedConnectionCheckLong>
     <StiUndefinedConnectionCheckShort>Undefined type of connection</StiUndefinedConnectionCheckShort>
     <StiUnsupportedConnectionCheckLong>The report contains the connection '{0}' that is not supported in the selected platform. Please change the options for this connection.</StiUnsupportedConnectionCheckLong>
     <StiUnsupportedConnectionCheckShort>Unsupported connection type</StiUnsupportedConnectionCheckShort>
@@ -200,27 +200,27 @@
   <CheckDataRelation>
     <StiDifferentAmountOfKeysInDataRelationCheckLong>The number of parent keys of the '{0}' relation does not correspond to the number of child keys. The following relation cannot be created when rendering a report!</StiDifferentAmountOfKeysInDataRelationCheckLong>
     <StiDifferentAmountOfKeysInDataRelationCheckShort>Incorrect number of keys</StiDifferentAmountOfKeysInDataRelationCheckShort>
-    <StiKeysInAbsentDataRelationCheckLong>Keys of the '{0}' relation are not specified. Such a relation will not be created when report rendering!</StiKeysInAbsentDataRelationCheckLong>
+    <StiKeysInAbsentDataRelationCheckLong>Keys of the '{0}' relation are not specified. Such a relation will not be created when rendering the report!</StiKeysInAbsentDataRelationCheckLong>
     <StiKeysInAbsentDataRelationCheckShort>No keys</StiKeysInAbsentDataRelationCheckShort>
-    <StiKeysNotFoundRelationCheckLong>The following columns: '{1}' which were specified as keys of the '{0}', were not found in the Parent or Child data sources of the relation. This relation cannot be created when report rendering!</StiKeysNotFoundRelationCheckLong>
-    <StiKeysNotFoundRelationCheckShort>The key of the relation not found</StiKeysNotFoundRelationCheckShort>
-    <StiKeysTypesMismatchDataRelationCheckLong>'{1}' column types which were specified as keys for the '{0}' relation does not correspond! Such a relation cannot be created when report rendering!</StiKeysTypesMismatchDataRelationCheckLong>
-    <StiKeysTypesMismatchDataRelationCheckShort>The key types of the relation does not correspond</StiKeysTypesMismatchDataRelationCheckShort>
-    <StiNoNameDataRelationCheckLong>The Name of the relation (created between data sources '{0}') is not specified. This name is used for creating the class in the report code of this relation. Without the name the reporting tool will not be able to create the report code of the report and the report will not be compiled!</StiNoNameDataRelationCheckLong>
+    <StiKeysNotFoundRelationCheckLong>The following columns: '{1}' which were specified as keys of the '{0}', were not found in the Parent or Child data sources of the relation. This relation cannot be created when rendering the report!</StiKeysNotFoundRelationCheckLong>
+    <StiKeysNotFoundRelationCheckShort>The key of the relation is not found</StiKeysNotFoundRelationCheckShort>
+    <StiKeysTypesMismatchDataRelationCheckLong>'{1}' column types which were specified as keys for the '{0}' relation do not correspond! Such a relation cannot be created during report rendering!</StiKeysTypesMismatchDataRelationCheckLong>
+    <StiKeysTypesMismatchDataRelationCheckShort>The key types of the relation do not correspond</StiKeysTypesMismatchDataRelationCheckShort>
+    <StiNoNameDataRelationCheckLong>The Name of the relation (created between data sources '{0}') is not specified. This name is used for creating the class in the report code of this relation. Without the name, the reporting tool will not be able to create the report code of the report and the report will not be compiled!</StiNoNameDataRelationCheckLong>
     <StiNoNameDataRelationCheckShort>There is no name for the relation</StiNoNameDataRelationCheckShort>
-    <StiNoNameInSourceDataRelationCheckLong>NameInSource field is not filled for the '{0}' relation. Without this field the reporting tool will not be able to find the relation in the database and the report will not be rendered!</StiNoNameInSourceDataRelationCheckLong>
+    <StiNoNameInSourceDataRelationCheckLong>NameInSource field is not filled for the '{0}' relation. Without this field, the reporting tool will not be able to find the relation in the database and the report will not be rendered!</StiNoNameInSourceDataRelationCheckLong>
     <StiNoNameInSourceDataRelationCheckShort>NameInSource field is not filled for the relation</StiNoNameInSourceDataRelationCheckShort>
     <StiSourcesInAbsentDataRelationCheckLong>The parent data source and/or the child data source is not specified for the '{0}' relation. It is necessary to specify both data sources!</StiSourcesInAbsentDataRelationCheckLong>
     <StiSourcesInAbsentDataRelationCheckShort>There are no Data Sources</StiSourcesInAbsentDataRelationCheckShort>
   </CheckDataRelation>
   <CheckDataSource>
-    <StiCalculatedColumnRecursionCheckLong>The '{0}' calculated column of the '{1}' datasource has a expression with recursion. It's impossible to refer to the Calculated Column in its own expression.</StiCalculatedColumnRecursionCheckLong>
+    <StiCalculatedColumnRecursionCheckLong>The '{0}' calculated column of the '{1}' datasource has an expression with recursion. It's impossible to refer to the Calculated Column in its own expression.</StiCalculatedColumnRecursionCheckLong>
     <StiCalculatedColumnRecursionCheckShort>Recursive Expression</StiCalculatedColumnRecursionCheckShort>
     <StiNoNameDataSourceCheckLong>The datasource name is not specified. This name is used for creating a class in the report code of the data source. Without indicating the name, the reporting tool cannot create the report code and the report will not be compiled!</StiNoNameDataSourceCheckLong>
     <StiNoNameDataSourceCheckShort>There is no name for the Data Source</StiNoNameDataSourceCheckShort>
-    <StiNoNameInSourceDataSourceCheckLong>NameInSource field is not filled for the '{0}' data sources. Without filling this field, the reporting tool will not be able to find the data for the data source in the database and the report will not be rendered!</StiNoNameInSourceDataSourceCheckLong>
+    <StiNoNameInSourceDataSourceCheckLong>NameInSource field is not filled for the '{0}' data source. Without filling this field, the reporting tool will not be able to find the data for the data source in the database and the report will not be rendered!</StiNoNameInSourceDataSourceCheckLong>
     <StiNoNameInSourceDataSourceCheckShort>NameInSource of the data source field is not filled</StiNoNameInSourceDataSourceCheckShort>
-    <StiUndefinedDataSourceCheckLong>The undefined '{0}' data source is found in the report. The reporting tool cannot correctly process such type of the data source! Maybe custom data sources are used in the report. This report cannot be rendered!</StiUndefinedDataSourceCheckLong>
+    <StiUndefinedDataSourceCheckLong>The undefined '{0}' data source is found in the report. The reporting tool cannot correctly process this type of data source! Maybe custom data sources are used in the report. This report cannot be rendered!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>Undefined Data Source</StiUndefinedDataSourceCheckShort>
   </CheckDataSource>
   <CheckGlobal>
@@ -230,14 +230,14 @@
     <Warning>Warning! </Warning>
   </CheckGlobal>
   <CheckLicense>
-    <StiLicenseTrialCheckLong>You are using the trial version of Stimulsoft Reports and Dashboards. To use the software in production you should purchase a license.</StiLicenseTrialCheckLong>
+    <StiLicenseTrialCheckLong>Trial version for product evaluation only. A license is required to develop or deploy with Stimulsoft.</StiLicenseTrialCheckLong>
     <StiValidSubscriptioRequiredCheckLong>Valid Subscription Required. Please update your subscription to use the fully functional version of Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
-    <StiLostPointsOnPageCheckLong>Lost points are found on the '{0}' page: {1}. Points are invisible and used in the following primitives: vertical line, rectangle and rounded rectangle. If the point does not match to any components then it can be deleted.</StiLostPointsOnPageCheckLong>
+    <StiLostPointsOnPageCheckLong>Lost points are found on the '{0}' page: {1}. Points are invisible and used in the following primitives: vertical line, rectangle and rounded rectangle. If the point does not match any components, then it can be deleted.</StiLostPointsOnPageCheckLong>
     <StiLostPointsOnPageCheckShort>Lost points</StiLostPointsOnPageCheckShort>
-    <StiOrientationPageCheckLongLandscape>The '{0}' page orientation does not correspond to the specified page size. Usually, for Landscape orientation, the page width should be greater than the page height. The width of this page is lesser than the height. This may cause to problems when printing this page.</StiOrientationPageCheckLongLandscape>
-    <StiOrientationPageCheckLongPortrait>The '{0}' page orientation does not correspond to the specified page size. Usually, for Portrait orientation, the page width should be less than the page height. The width of this page is greater than the height. This may cause to problems when printing this page.</StiOrientationPageCheckLongPortrait>
+    <StiOrientationPageCheckLongLandscape>The '{0}' page orientation does not correspond to the specified page size. Usually, for Landscape orientation, the page width should be greater than the page height. The width of this page is less than the height. This may cause problems when printing this page.</StiOrientationPageCheckLongLandscape>
+    <StiOrientationPageCheckLongPortrait>The '{0}' page orientation does not correspond to the specified page size. Usually, for Portrait orientation, the page width should be less than the page height. The width of this page is greater than the height. This may cause problems when printing this page.</StiOrientationPageCheckLongPortrait>
     <StiOrientationPageCheckShort>Incorrect '{0}' page orientation.</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
@@ -246,8 +246,8 @@
     <StiCloudCompilationModeCheckLong>Stimulsoft Cloud cannot preview this report in the compilation mode. Change the report to the interpretation mode.</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>This report is in the compilation mode</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>Could not load file or assembly '{0}' or one of its dependencies.</StiCompilationErrorAssemblyCheckLong>
-    <StiCompilationErrorCheck2Long>The error of compilation is found in the '{1}' property of the '{2}' component:</StiCompilationErrorCheck2Long>
-    <StiCompilationErrorCheck3Long>The error of compilation is found in the '{1}' event of the '{2}' component:</StiCompilationErrorCheck3Long>
+    <StiCompilationErrorCheck2Long>The error of compilation is found in the '{1}' property of the '{2}' component.</StiCompilationErrorCheck2Long>
+    <StiCompilationErrorCheck3Long>The error of compilation is found in the '{1}' event of the '{2}' component.</StiCompilationErrorCheck3Long>
     <StiCompilationErrorCheckLong>The error of compilation is found in the '{0}' report:</StiCompilationErrorCheckLong>
     <StiCompilationErrorCheckShort>The error of compilation</StiCompilationErrorCheckShort>
     <StiCompilationWarningCheckLong>A compilation warning is found in the '{0}' report:</StiCompilationWarningCheckLong>
@@ -269,13 +269,17 @@
     <StiNetCoreCompilationModeCheckShort>This report is in the compilation mode</StiNetCoreCompilationModeCheckShort>
     <StiResourcesFontsCheckLong>Cannot load the font from resource '{0}'. The file is corrupted, or the file format is unsupported.</StiResourcesFontsCheckLong>
     <StiResourcesFontsCheckShort>Font not loaded</StiResourcesFontsCheckShort>
+    <StiScriptExecutionErrorCheck2Long>The script execution error occurred in the '{1}' property of the '{2}' component.</StiScriptExecutionErrorCheck2Long>
+    <StiScriptExecutionErrorCheck3Long>The script execution error occurred in the '{1}' event of the '{2}' component.</StiScriptExecutionErrorCheck3Long>
+    <StiScriptExecutionErrorCheckLong>The script execution error occurred.</StiScriptExecutionErrorCheckLong>
+    <StiScriptExecutionErrorCheckShort>Script execution error</StiScriptExecutionErrorCheckShort>
   </CheckReport>
   <CheckVariable>
     <StiVariableInitializationCheckLong>The '{0}' variable has the wrong default value. It is impossible to initialize the variable with a specified value.</StiVariableInitializationCheckLong>
     <StiVariableInitializationCheckShort>Initialization value</StiVariableInitializationCheckShort>
     <StiVariableNameCheckLong>The variable name "{0}" cannot be used because it is reserved.</StiVariableNameCheckLong>
     <StiVariableNameCheckShort>The variable name is invalid.</StiVariableNameCheckShort>
-    <StiVariableRecursionCheckLong>The '{0}' variable has a expression with recursion. It's impossible to refer to the Variable in its own expression.</StiVariableRecursionCheckLong>
+    <StiVariableRecursionCheckLong>The '{0}' variable has an expression with recursion. It's impossible to refer to the Variable in its own expression.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Recursive Expression</StiVariableRecursionCheckShort>
     <StiVariableTypeCheckLong>For the dependent variables to work correctly, their types and the types of their columns must match.</StiVariableTypeCheckLong>
     <StiVariableTypeCheckShort>Variable types do not match.</StiVariableTypeCheckShort>
@@ -284,7 +288,7 @@
     <Bold>A value that indicates whether this Font is bold.</Bold>
     <Italic>A value that indicates whether this Font is italic.</Italic>
     <Name>The face name of this Font.</Name>
-    <Size>Size of this Font.</Size>
+    <Size>The size of this Font.</Size>
     <Strikeout>A value that indicates whether this Font specifies a horizontal line through the font.</Strikeout>
     <Underline>A value that indicates whether this Font is underlined.</Underline>
   </Font>
@@ -302,7 +306,7 @@
     <NameDoesNotExistInCurrentContext>The name '{0}' does not exist in the current context.</NameDoesNotExistInCurrentContext>
     <NoMatchingOverloadedMethod>There is no matching overloaded method for '{0}({1})'.</NoMatchingOverloadedMethod>
     <NoOverloadForMethodTakesNArguments>No overload for the method '{0}' takes '{1}' arguments.</NoOverloadForMethodTakesNArguments>
-    <OperatorCannotBeAppliedToOperands>The operator '{0}' cannot be applied to operands of the type '{1}' and the type '{2}.</OperatorCannotBeAppliedToOperands>
+    <OperatorCannotBeAppliedToOperands>The operator '{0}' cannot be applied to operands of the type '{1}' and the type '{2}'.</OperatorCannotBeAppliedToOperands>
     <RightParenthesisExpected>) expected.</RightParenthesisExpected>
     <SyntaxError>Syntax error.</SyntaxError>
     <TheTypeOrNamespaceNotExistInTheNamespace>The type or namespace name '{0}' does not exist in the namespace '{1}'.</TheTypeOrNamespaceNotExistInTheNamespace>
@@ -440,13 +444,13 @@
     <Delete>Delete</Delete>
     <SaveChangesInReports>Do you want to save changes in reports?</SaveChangesInReports>
     <StiBusinessObjectDifferentColumnCompareComment>Shows what columns of identical Business Objects are only in one report.</StiBusinessObjectDifferentColumnCompareComment>
-    <StiBusinessObjectDifferentColumnCompareLong>The column '{0}' of the Business Object '{1}' of the report '{2}' not present in the Business Object '{3}' of the report '{4}'.</StiBusinessObjectDifferentColumnCompareLong>
+    <StiBusinessObjectDifferentColumnCompareLong>The column '{0}' of the Business Object '{1}' of the report '{2}' is not present in the Business Object '{3}' of the report '{4}'.</StiBusinessObjectDifferentColumnCompareLong>
     <StiBusinessObjectDifferentColumnCompareShort>No column in the business object.</StiBusinessObjectDifferentColumnCompareShort>
-    <StiBusinessObjectPropertiesCompareComment>Shows different properties values of identical Business Objects.</StiBusinessObjectPropertiesCompareComment>
-    <StiBusinessObjectPropertiesCompareLong>In the report '{0}' the '{2}' property of the Business Object '{1}' differs from the values of the '{5}' property of the Business Object '{4}' of the report '{3}'.</StiBusinessObjectPropertiesCompareLong>
-    <StiBusinessObjectPropertiesCompareShort>Different properties values of Business Objects.</StiBusinessObjectPropertiesCompareShort>
-    <StiChangeInReportPropertyActionDescription>Equate both properties values to '{0}'</StiChangeInReportPropertyActionDescription>
-    <StiComponentPropertiesCompareComment>Shows different properties values of identical components.</StiComponentPropertiesCompareComment>
+    <StiBusinessObjectPropertiesCompareComment>Shows different property values of identical Business Objects.</StiBusinessObjectPropertiesCompareComment>
+    <StiBusinessObjectPropertiesCompareLong>In the report '{0}', the '{2}' property of the Business Object '{1}' differs from the value of the '{5}' property of the Business Object '{4}' of the report '{3}'.</StiBusinessObjectPropertiesCompareLong>
+    <StiBusinessObjectPropertiesCompareShort>Different property values of Business Objects.</StiBusinessObjectPropertiesCompareShort>
+    <StiChangeInReportPropertyActionDescription>Equate both property values to '{0}'</StiChangeInReportPropertyActionDescription>
+    <StiComponentPropertiesCompareComment>Shows different property values of identical components.</StiComponentPropertiesCompareComment>
     <StiComponentPropertiesCompareLong>The '{2}' property of the component '{1}' in the report '{0}' differs from the value of the '{5}' property of the component '{4}' in the report '{3}'.</StiComponentPropertiesCompareLong>
     <StiComponentPropertiesCompareShort>Different values of component properties.</StiComponentPropertiesCompareShort>
     <StiCopyAllActionDescription>Copy everything to the report '{0}'</StiCopyAllActionDescription>
@@ -458,13 +462,13 @@
     <StiCopyDataSourceActionDescription>Copy data source</StiCopyDataSourceActionDescription>
     <StiCopyStyleActionDescription>Copy Style</StiCopyStyleActionDescription>
     <StiCopyVariableActionDescription>Copy variable</StiCopyVariableActionDescription>
-    <StiDataRelationPropertiesCompareComment>Shows different properties values of identical relations.</StiDataRelationPropertiesCompareComment>
+    <StiDataRelationPropertiesCompareComment>Shows different property values of identical relations.</StiDataRelationPropertiesCompareComment>
     <StiDataRelationPropertiesCompareLong>The '{2}' property of the relation '{1}' of the report '{0}' differs from the value of the '{5}' property of the relation '{4}' of the report '{3}'.</StiDataRelationPropertiesCompareLong>
-    <StiDataRelationPropertiesCompareShort>Different properties values of relations.</StiDataRelationPropertiesCompareShort>
+    <StiDataRelationPropertiesCompareShort>Different property values of relations.</StiDataRelationPropertiesCompareShort>
     <StiDataSourceDifferentColumnCompareComment>Shows what columns of identical data sources are only in one report.</StiDataSourceDifferentColumnCompareComment>
-    <StiDataSourceDifferentColumnCompareLong>The column '{0}' from the data source '{1}' of the report '{2}' not present in the data source '{3}' of the report '{4}'.</StiDataSourceDifferentColumnCompareLong>
+    <StiDataSourceDifferentColumnCompareLong>The column '{0}' from the data source '{1}' of the report '{2}' is not present in the data source '{3}' of the report '{4}'.</StiDataSourceDifferentColumnCompareLong>
     <StiDataSourceDifferentColumnCompareShort>No column in the data source.</StiDataSourceDifferentColumnCompareShort>
-    <StiDataSourcePropertiesCompareComment>Shows different properties values of identical data sources.</StiDataSourcePropertiesCompareComment>
+    <StiDataSourcePropertiesCompareComment>Shows different property values of identical data sources.</StiDataSourcePropertiesCompareComment>
     <StiDataSourcePropertiesCompareLong>The '{2}' property of the data source '{1}' of the report '{0}' differs from the value of the '{5}' property of the data source '{4}' of the report '{3}'.</StiDataSourcePropertiesCompareLong>
     <StiDataSourcePropertiesCompareShort>Different values of the data sources properties.</StiDataSourcePropertiesCompareShort>
     <StiDeleteBusinessDataColumnActionsDescription>Delete the column from Business Objects</StiDeleteBusinessDataColumnActionsDescription>
@@ -475,35 +479,35 @@
     <StiDeleteDataSourceActionDescription>Delete data source</StiDeleteDataSourceActionDescription>
     <StiDeleteStyleActionDescription>Delete Style</StiDeleteStyleActionDescription>
     <StiDeleteVariableActionDescription>Delete the variable from the Report </StiDeleteVariableActionDescription>
-    <StiReportDifferentBusinessObjectCompareComment>Shows what Business Object present in one report only.</StiReportDifferentBusinessObjectCompareComment>
-    <StiReportDifferentBusinessObjectCompareLong>The Business Object '{0}' not present in the report '{1}'.</StiReportDifferentBusinessObjectCompareLong>
+    <StiReportDifferentBusinessObjectCompareComment>Shows what Business Object is present in one report only.</StiReportDifferentBusinessObjectCompareComment>
+    <StiReportDifferentBusinessObjectCompareLong>The Business Object '{0}' is not present in the report '{1}'.</StiReportDifferentBusinessObjectCompareLong>
     <StiReportDifferentBusinessObjectCompareShort>No Business Object.</StiReportDifferentBusinessObjectCompareShort>
-    <StiReportDifferentComponentsCompareComment>Shows what component present in one report only.</StiReportDifferentComponentsCompareComment>
-    <StiReportDifferentComponentsCompareLong>The component '{0}' not present in the report '{1}'.</StiReportDifferentComponentsCompareLong>
+    <StiReportDifferentComponentsCompareComment>Shows what component is present in one report only.</StiReportDifferentComponentsCompareComment>
+    <StiReportDifferentComponentsCompareLong>The component '{0}' is not present in the report '{1}'.</StiReportDifferentComponentsCompareLong>
     <StiReportDifferentComponentsCompareMessag1>There is no component '{1}' for the Container property of the StiClone '{0}'.</StiReportDifferentComponentsCompareMessag1>
     <StiReportDifferentComponentsCompareMessag2>There is no component '{1}' for the Master Component property of the StiDataBand '{0}'.</StiReportDifferentComponentsCompareMessag2>
     <StiReportDifferentComponentsCompareShort>No component.</StiReportDifferentComponentsCompareShort>
     <StiReportDifferentDataRelationCompareComment>Shows what relation between the data sources is only in one report.</StiReportDifferentDataRelationCompareComment>
     <StiReportDifferentDataRelationCompareLong>The relation '{0}' between '{1}' and '{2}' is not present in the report '{3}'.</StiReportDifferentDataRelationCompareLong>
     <StiReportDifferentDataRelationCompareShort>No relation.</StiReportDifferentDataRelationCompareShort>
-    <StiReportDifferentDataSourceCompareComment>Shows what data source present in one report only.</StiReportDifferentDataSourceCompareComment>
-    <StiReportDifferentDataSourceCompareLong>The data source '{0}' not present in the report '{1}'.</StiReportDifferentDataSourceCompareLong>
+    <StiReportDifferentDataSourceCompareComment>Shows what data source is present in one report only.</StiReportDifferentDataSourceCompareComment>
+    <StiReportDifferentDataSourceCompareLong>The data source '{0}' is not present in the report '{1}'.</StiReportDifferentDataSourceCompareLong>
     <StiReportDifferentDataSourceCompareShort>No data source.</StiReportDifferentDataSourceCompareShort>
-    <StiReportDifferentStyleCompareComment>Shows what style present in one report only.</StiReportDifferentStyleCompareComment>
+    <StiReportDifferentStyleCompareComment>Shows what style is present in one report only.</StiReportDifferentStyleCompareComment>
     <StiReportDifferentStyleCompareLong>The style '{0}' is not present in the report '{1}'.</StiReportDifferentStyleCompareLong>
     <StiReportDifferentStyleCompareShort>No style.</StiReportDifferentStyleCompareShort>
-    <StiReportDifferentVariableCompareComment>Shows what variable present in one report only.</StiReportDifferentVariableCompareComment>
-    <StiReportDifferentVariableCompareLong>The variable '{0}' not present in the report '{1}'.</StiReportDifferentVariableCompareLong>
+    <StiReportDifferentVariableCompareComment>Shows what variable is present in one report only.</StiReportDifferentVariableCompareComment>
+    <StiReportDifferentVariableCompareLong>The variable '{0}' is not present in the report '{1}'.</StiReportDifferentVariableCompareLong>
     <StiReportDifferentVariableCompareShort>No variable.</StiReportDifferentVariableCompareShort>
     <StiReportPropertiesCompareComment>Shows various values of report properties.</StiReportPropertiesCompareComment>
     <StiReportPropertiesCompareLong>In the report '{0}' the '{1}' property does not correspond to the value of the '{3}' property of the report '{2}'.</StiReportPropertiesCompareLong>
     <StiReportPropertiesCompareShort>Different values of report properties.</StiReportPropertiesCompareShort>
-    <StiStylePropertiesCompareComment>Shows different properties values with identical styles.</StiStylePropertiesCompareComment>
-    <StiStylePropertiesCompareLong>The '{2}' property of the style '{1}' of the report '{0}' differs from the value of the '{5}' property of the style '{4}' of the report '{3 }'.</StiStylePropertiesCompareLong>
+    <StiStylePropertiesCompareComment>Shows different property values with identical styles.</StiStylePropertiesCompareComment>
+    <StiStylePropertiesCompareLong>The '{2}' property of the style '{1}' of the report '{0}' differs from the value of the '{5}' property of the style '{4}' of the report '{3}'.</StiStylePropertiesCompareLong>
     <StiStylePropertiesCompareShort>Different values of properties in the styles.</StiStylePropertiesCompareShort>
     <StiVariablePropertiesCompareComment>Shows different values of the properties of identical variables.</StiVariablePropertiesCompareComment>
     <StiVariablePropertiesCompareLong>The '{2}' property of the variable '{1}' of the report '{0}' differs from the value of the '{5}' property of the variable '{4}' of the report '{3}'.</StiVariablePropertiesCompareLong>
-    <StiVariablePropertiesCompareShort>Different properties values of variables.</StiVariablePropertiesCompareShort>
+    <StiVariablePropertiesCompareShort>Different property values of variables.</StiVariablePropertiesCompareShort>
   </ReportComparer>
   <ReportComparerViewer>
     <Browse>Browse...</Browse>
@@ -518,7 +522,7 @@
     <DataRelations>Data Relations</DataRelations>
     <DataSources>Data Sources</DataSources>
     <DataSourcesDataColumns>Data Sources Data Columns</DataSourcesDataColumns>
-    <EnterPassword>Enter the password for opening of it a file</EnterPassword>
+    <EnterPassword>Enter the password to open the file.</EnterPassword>
     <FirstReport>First Report</FirstReport>
     <LongMessage>Long Message</LongMessage>
     <Next>Next</Next>
@@ -535,7 +539,7 @@
     <StatusMiddle>Middle</StatusMiddle>
     <Styles>Styles</Styles>
     <Variables>Variables</Variables>
-    <WarningFile1EqualFile2>Warning! File 'First Report' equal 'Second Report'.</WarningFile1EqualFile2>
+    <WarningFile1EqualFile2>Warning! File 'First Report' is equal to 'Second Report'.</WarningFile1EqualFile2>
     <WarningFirstAndSecondReportNotFound>Warning! Files 'First Report' and 'Second Report' not found.</WarningFirstAndSecondReportNotFound>
     <WarningFirstReportNotFound>Warning! File 'First Report' not found.</WarningFirstReportNotFound>
     <WarningSecondReportNotFound>Warning! File 'Second Report' not found.</WarningSecondReportNotFound>
@@ -548,49 +552,49 @@
   </StiAdvancedBorder>
   <StiArea>
     <BorderColor>A border color of this area.</BorderColor>
-    <Brush>A brush to fill a area.</Brush>
-    <ColorEach>A value indicates that each series is drawn by its own colour.</ColorEach>
+    <Brush>A brush to fill an area.</Brush>
+    <ColorEach>A value indicates that each series is drawn by its own color.</ColorEach>
     <GridLinesHor>Horizontal grid lines on left axis.</GridLinesHor>
     <GridLinesHorRight>Horizontal grid lines on right axis.</GridLinesHorRight>
     <GridLinesVert>Grid lines on vertical axis.</GridLinesVert>
     <InterlacingHor>Interlacing settings on horizontal axis.</InterlacingHor>
     <InterlacingVert>Interlacing settings on vertical axis.</InterlacingVert>
     <RadarStyle>A style of radar area.</RadarStyle>
-    <ReverseHor>A value that indicate that all values on horizontal axis is reverse.</ReverseHor>
-    <ReverseVert>A value that indicate that all values on vertical axis is reverse.</ReverseVert>
-    <ShowShadow>A value that indicates necessary draw shadow or no.</ShowShadow>
+    <ReverseHor>A value that indicates that all values on the horizontal axis are reversed.</ReverseHor>
+    <ReverseVert>A value that indicates that all values on the vertical axis are reversed.</ReverseVert>
+    <ShowShadow>A value that indicates whether it is necessary to draw a shadow or not.</ShowShadow>
     <XAxis>Settings of XAxis.</XAxis>
     <XTopAxis>Settings of XTopAxis.</XTopAxis>
     <YAxis>Settings of YAxis.</YAxis>
     <YRightAxis>Settings of YRightAxis.</YRightAxis>
   </StiArea>
   <StiAreaSeries>
-    <Brush>A brush that will be used to fill area.</Brush>
+    <Brush>A brush that will be used to fill the area.</Brush>
   </StiAreaSeries>
   <StiArrowShapeType>
     <ArrowHeight>The arrow height factor.</ArrowHeight>
     <ArrowWidth>The arrow width factor.</ArrowWidth>
   </StiArrowShapeType>
   <StiAustraliaPost4StateBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiAustraliaPost4StateBarCodeType>
   <StiAxis>
     <ArrowStyle>Style of axis arrow.</ArrowStyle>
     <Interaction>Interaction options of this component.</Interaction>
     <Labels>Axis labels settings.</Labels>
-    <LineColor>Line color which used to draw axis.</LineColor>
+    <LineColor>Line color which is used to draw the axis.</LineColor>
     <LineStyle>Line style of axis.</LineStyle>
-    <LineWidth>Line width which used to draw axis.</LineWidth>
-    <LogarithmicScale>A value indicates that logarithmic scale will be used.</LogarithmicScale>
+    <LineWidth>Line width which is used to draw the axis.</LineWidth>
+    <LogarithmicScale>A value indicates that a logarithmic scale will be used.</LogarithmicScale>
     <Range>Axis range settings.</Range>
-    <RangeScrollEnabled>A value which indicates whether the range of axis can be scrolled.</RangeScrollEnabled>
-    <ShowEdgeValues>A value indicates that first and last arguments on axis will be shown anyway.</ShowEdgeValues>
-    <ShowScrollBar>A value which indicates that scroll bar will be shown.</ShowScrollBar>
+    <RangeScrollEnabled>A value which indicates whether the range of the axis can be scrolled.</RangeScrollEnabled>
+    <ShowEdgeValues>A value indicates that the first and last arguments on the axis will be shown anyway.</ShowEdgeValues>
+    <ShowScrollBar>A value which indicates that the scroll bar will be shown.</ShowScrollBar>
     <ShowXAxis>Type of drawing X axis.</ShowXAxis>
     <ShowYAxis>Type of drawing Y axis.</ShowYAxis>
-    <StartFromZero>A value indicates that all arguments will be shows from zero.</StartFromZero>
-    <Step>A value that indicates with what steps do labels be shown on axis.</Step>
+    <StartFromZero>A value indicates that all arguments will be shown from zero.</StartFromZero>
+    <Step>A value that indicates at which steps labels are shown on the axis.</Step>
     <Ticks>Ticks settings.</Ticks>
     <Title>Axis title settings.</Title>
     <Visible>Visibility of axis.</Visible>
@@ -601,16 +605,16 @@
     <Step>The value indicates with what the time step values will be shown.</Step>
   </StiAxisDateTimeStep>
   <StiAxisInteraction>
-    <RangeScrollEnabled>A value which indicates whether the range of axis can be scrolled.</RangeScrollEnabled>
+    <RangeScrollEnabled>A value which indicates whether the range of the axis can be scrolled.</RangeScrollEnabled>
   </StiAxisInteraction>
   <StiAxisLabels>
     <Angle>An angle of label rotation.</Angle>
-    <Antialiasing>A value that control antialiasing drawing mode.</Antialiasing>
-    <Color>A color of labels drawing.</Color>
+    <Antialiasing>A value that controls antialiasing drawing mode.</Antialiasing>
+    <Color>A color for label drawing.</Color>
     <Font>A font which will be used for axis label drawing.</Font>
-    <Format>Format string which is used for formating argument values.</Format>
-    <Placement>A mode of labels placement on axis.</Placement>
-    <Step>A value which indicates with what steps do labels be shown on axis.</Step>
+    <Format>Format string which is used for formatting argument values.</Format>
+    <Placement>A mode of label placement on the axis.</Placement>
+    <Step>A value which indicates at which steps labels are shown on the axis.</Step>
     <TextAfter>A string which will be output after argument string representation.</TextAfter>
     <TextAlignment>A label text alignment.</TextAlignment>
     <TextBefore>A string which will be output before argument string representation.</TextBefore>
@@ -629,11 +633,11 @@
     <MinorLength>Length of one minor tick.</MinorLength>
     <MinorVisible>Visibility of minor ticks.</MinorVisible>
     <Step>A value that indicates on which steps major ticks will be displayed.</Step>
-    <Visible>Visility of major ticks.</Visible>
+    <Visible>Visibility of major ticks.</Visible>
   </StiAxisTicks>
   <StiAxisTitle>
     <Alignment>A title text alignment.</Alignment>
-    <Antialiasing>A value that control antialiasing drawing mode.</Antialiasing>
+    <Antialiasing>A value that controls antialiasing drawing mode.</Antialiasing>
     <Color>A color which will be used for title drawing.</Color>
     <Direction>A text direction for axis title drawing.</Direction>
     <Font>A font which will be used for axis title drawing.</Font>
@@ -644,54 +648,54 @@
     <MaxHeight>Maximal height of band.</MaxHeight>
     <MinHeight>Minimal height of band.</MinHeight>
     <PrintOnEvenOddPages>A value indicates that the component is printed on even-odd pages.</PrintOnEvenOddPages>
-    <ResetPageNumber>Allows to reset page number on this band.</ResetPageNumber>
+    <ResetPageNumber>Allows you to reset the page number on this band.</ResetPageNumber>
     <StartNewPage>A value indicates that it is necessary to print every new string on a new page.</StartNewPage>
     <StartNewPageIfLessThan>A value that indicates how much free space on a page (in percentage terms) should be reserved for formation of a new page. The value should be set in the range from 0 to 100. If the value is 100 then, in any case, a new page will be formed. This property is used together with the StartNewPage property.</StartNewPageIfLessThan>
   </StiBand>
   <StiBandInteraction>
     <Collapsed>A boolean expression that indicates whether a group, when rendering, should be collapsed or not.</Collapsed>
-    <CollapseGroupFooter>A value that indicates whether it is necessary GroupFooter collapsing.</CollapseGroupFooter>
-    <CollapsingEnabled>A value that indicates whether it is allowed or not data collapsing in the report viewer.</CollapsingEnabled>
+    <CollapseGroupFooter>A value that indicates whether GroupFooter collapsing is necessary.</CollapseGroupFooter>
+    <CollapsingEnabled>A value that indicates whether data collapsing is allowed in the report viewer.</CollapsingEnabled>
     <SelectionEnabled>A value which indicates whether it is allowed to select one data row which is output by this DataBand.</SelectionEnabled>
   </StiBandInteraction>
   <StiBarCode>
-    <Angle>An angle of a bar-code rotation.</Angle>
-    <AutoScale>A value that indicates how bar-code will scale its size.</AutoScale>
+    <Angle>An angle of bar-code rotation.</Angle>
+    <AutoScale>A value that indicates how the bar-code will scale its size.</AutoScale>
     <BackColor>A background color of bar-code.</BackColor>
     <BarCodeType>A type of the bar-code.</BarCodeType>
     <Code>An expression to fill a code of bar-code.</Code>
     <Font>A font of bar-code.</Font>
     <ForeColor>A bar-code color.</ForeColor>
-    <GetBarCodeEvent>Occurs when getting the code of bar-code.</GetBarCodeEvent>
-    <ShowLabelText>A value that indicates will this bar-code show a label text or not.</ShowLabelText>
-    <ShowQuietZones>A value which indicates will this bar code show quiet zones or no.</ShowQuietZones>
-    <Zoom>A value to multiply by it bar-code size.</Zoom>
+    <GetBarCodeEvent>Occurs when getting the code of the bar-code.</GetBarCodeEvent>
+    <ShowLabelText>A value that indicates whether this bar-code will show a label text or not.</ShowLabelText>
+    <ShowQuietZones>A value which indicates whether this bar code will show quiet zones or not.</ShowQuietZones>
+    <Zoom>A value by which to multiply the bar-code size.</Zoom>
   </StiBarCode>
   <StiBarCodeTypeService>
-    <AddClearZone>A value that indicates will the Clear Zone be shown.</AddClearZone>
-    <AspectRatio>A value that set aspect ratio between horizontal and vertical sides of bar-code.</AspectRatio>
-    <AutoDataColumns>A value indicates that amount of columns will be calculated automatically.</AutoDataColumns>
-    <AutoDataRows>A value indicates that amount of rows will be calculated automatically.</AutoDataRows>
+    <AddClearZone>A value that indicates whether the Clear Zone will be shown.</AddClearZone>
+    <AspectRatio>A value that sets the aspect ratio between the horizontal and vertical sides of the bar-code.</AspectRatio>
+    <AutoDataColumns>A value indicates that the number of columns will be calculated automatically.</AutoDataColumns>
+    <AutoDataRows>A value indicates that the number of rows will be calculated automatically.</AutoDataRows>
     <Checksum>A mode of checksum.</Checksum>
     <CheckSum>A mode of checksum.</CheckSum>
     <CheckSum1>A mode of CheckSum1.</CheckSum1>
     <CheckSum2>A mode of CheckSum2.</CheckSum2>
-    <DataColumns>The amount of data columns.</DataColumns>
-    <DataRows>The amount of data rows.</DataRows>
+    <DataColumns>The number of data columns.</DataColumns>
+    <DataRows>The number of data rows.</DataRows>
     <EncodingMode>A mode of encoding.</EncodingMode>
     <EncodingType>A type of encoding.</EncodingType>
-    <ErrorsCorrectionLevel>Errors correction level. The higher level is, the more information is added to bar-code for restoring.</ErrorsCorrectionLevel>
+    <ErrorsCorrectionLevel>Error correction level. The higher the level, the more information is added to the bar-code for restoring.</ErrorsCorrectionLevel>
     <Height>Height factor of the bar-code.</Height>
     <MatrixSize>Matrix size.</MatrixSize>
-    <Module>Width of the most fine element of the bar-code.</Module>
-    <PrintVerticalBars>A value that indicates whether to print or not vertical sections.</PrintVerticalBars>
+    <Module>Width of the finest element of the bar-code.</Module>
+    <PrintVerticalBars>A value that indicates whether to print vertical sections or not.</PrintVerticalBars>
     <Ratio>A value that indicates the WideToNarrow ratio.</Ratio>
-    <RatioY>Vertical ratio of bar-code. Value must between 2 and 5.</RatioY>
-    <ShowQuietZoneIndicator>A value that indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <RatioY>Vertical ratio of the bar-code. The value must be between 2 and 5.</RatioY>
+    <ShowQuietZoneIndicator>A value that indicates whether the Quiet Zone Indicator will be shown or not.</ShowQuietZoneIndicator>
     <Space>Space between elements of bar-code.</Space>
     <SupplementCode>A component supplement bar-code.</SupplementCode>
     <SupplementType>A type of supplement code.</SupplementType>
-    <UseRectangularSymbols>A value that indicates will RectangularSymbols be used or not.</UseRectangularSymbols>
+    <UseRectangularSymbols>A value that indicates whether RectangularSymbols will be used or not.</UseRectangularSymbols>
   </StiBarCodeTypeService>
   <StiBaseStyle>
     <AllowUseBackColor>A value which indicates whether a report engine can use BackColor for dialog controls.</AllowUseBackColor>
@@ -706,8 +710,8 @@
     <AllowUseTextBrush>A value which indicates whether a report engine can use TextBrush formatting or not.</AllowUseTextBrush>
     <AllowUseTextOptions>A value which indicates whether a report engine can use TextOptions formatting or not.</AllowUseTextOptions>
     <AllowUseVertAlignment>A value which indicates whether a report engine can use VertAlignment formatting or not.</AllowUseVertAlignment>
-    <AxisLabelsColor>A color of labels drawing.</AxisLabelsColor>
-    <AxisLineColor>A line color which used to draw axis.</AxisLineColor>
+    <AxisLabelsColor>A color for label drawing.</AxisLabelsColor>
+    <AxisLineColor>A line color which is used to draw the axis.</AxisLineColor>
     <AxisTitleColor>A color which will be used for title drawing.</AxisTitleColor>
     <BackColor>A background color for drawing this style.</BackColor>
     <BasicStyleColor>A base color for drawing this style.</BasicStyleColor>
@@ -715,7 +719,7 @@
     <Brush>The brush, which is used to draw background.</Brush>
     <BrushType>A value which indicates which type of brush will be used to draw this style.</BrushType>
     <ChartAreaBorderColor>A border color of area.</ChartAreaBorderColor>
-    <ChartAreaBrush>A brush to fill a area.</ChartAreaBrush>
+    <ChartAreaBrush>A brush to fill an area.</ChartAreaBrush>
     <CollectionName>A name of the styles collection.</CollectionName>
     <Color>A color of the style.</Color>
     <Conditions>A collection of the style conditions.</Conditions>
@@ -734,7 +738,7 @@
     <LegendTitleColor>A title color of legend.</LegendTitleColor>
     <Name>A style name.</Name>
     <SeriesLabelsBorderColor>A border color of series labels.</SeriesLabelsBorderColor>
-    <SeriesLabelsBrush>A brush that will be used to fill area of series labels.</SeriesLabelsBrush>
+    <SeriesLabelsBrush>A brush that will be used to fill the area of series labels.</SeriesLabelsBrush>
     <SeriesLabelsColor>A foreground color of series labels.</SeriesLabelsColor>
     <StyleColors>A list of colors which will be used for drawing chart series.</StyleColors>
     <TextBrush>A brush of the style, which is used to display text.</TextBrush>
@@ -776,7 +780,7 @@
     <ListOfValuesLow>An expression to fill a list of low values. Example: 1;2;3</ListOfValuesLow>
     <ListOfValuesOpen>An expression to fill a list of open values. Example: 1;2;3</ListOfValuesOpen>
     <ValueClose>The close value expression. Example: {Order.Value}</ValueClose>
-    <ValueDataColumnClose>A column name column that contains the close value.</ValueDataColumnClose>
+    <ValueDataColumnClose>A column name that contains the close value.</ValueDataColumnClose>
     <ValueDataColumnHigh>A column name that contains the high value.</ValueDataColumnHigh>
     <ValueDataColumnLow>A column name that contains the low value.</ValueDataColumnLow>
     <ValueDataColumnOpen>A column name that contains the open value.</ValueDataColumnOpen>
@@ -798,27 +802,27 @@
     <Area>An area of the chart.</Area>
     <ChartType>A type of the chart.</ChartType>
     <ConstantLines>Constant lines settings of the chart.</ConstantLines>
-    <HorSpacing>Horizontal space between border of the chart and the chart.</HorSpacing>
+    <HorSpacing>Horizontal space between the border of the chart and the chart.</HorSpacing>
     <Legend>Legend settings.</Legend>
     <ProcessAtEnd>A value indicates that a chart is processed at the end of the report execution.</ProcessAtEnd>
     <ProcessChartEvent>Occurs when getting the ProcessChart.</ProcessChartEvent>
-    <Rotation>A value which indicates how to rotate an chart before output.</Rotation>
+    <Rotation>A value which indicates how to rotate a chart before output.</Rotation>
     <Series>A list of series.</Series>
     <SeriesLabels>Series labels.</SeriesLabels>
     <Strips>Strips settings of the chart.</Strips>
     <Style>A style of the chart.</Style>
     <Table>Chart table settings.</Table>
     <Title>Chart title settings.</Title>
-    <VertSpacing>Vertical space between border of the chart and the chart.</VertSpacing>
+    <VertSpacing>Vertical space between the border of the chart and the chart.</VertSpacing>
   </StiChart>
   <StiChartArea>
-    <ColorEach>A value indicates that each series is drawn by its own colour.</ColorEach>
+    <ColorEach>A value indicates that each series is drawn by its own color.</ColorEach>
     <GridLinesHor>Horizontal grid lines on left axis.</GridLinesHor>
     <GridLinesVert>Grid lines on vertical axis.</GridLinesVert>
     <InterlacingHor>Interlacing settings on horizontal axis.</InterlacingHor>
     <InterlacingVert>Interlacing settings on vertical axis.</InterlacingVert>
-    <ReverseHor>A value that indicate that all values on horizontal axis is reverse.</ReverseHor>
-    <ReverseVert>A value that indicate that all values on vertical axis is reverse.</ReverseVert>
+    <ReverseHor>A value that indicates that all values on the horizontal axis are reversed.</ReverseHor>
+    <ReverseVert>A value that indicates that all values on the vertical axis are reversed.</ReverseVert>
     <SideBySide>Sets the layout mode of the graphic elements of the chart for each argument - side-by-side or along the Z axis.</SideBySide>
     <XAxis>Settings of XAxis.</XAxis>
     <XTopAxis>Settings of XTopAxis.</XTopAxis>
@@ -830,10 +834,10 @@
   </StiChartAxis>
   <StiChartAxisLabels>
     <Angle>An angle of label rotation.</Angle>
-    <Color>A color of labels drawing.</Color>
-    <Font>a font which will be used for axis label drawing.</Font>
-    <Placement>A mode of labels placement on axis.</Placement>
-    <Step>A value which indicates with what steps do labels be shown on axis.</Step>
+    <Color>A color for label drawing.</Color>
+    <Font>A font which will be used for axis label drawing.</Font>
+    <Placement>A mode of label placement on the axis.</Placement>
+    <Step>A value which indicates at which steps labels are shown on the axis.</Step>
     <TextAfter>A string which will be output after argument string representation.</TextAfter>
     <TextAlignment>A label text alignment.</TextAlignment>
     <TextBefore>A string which will be output before argument string representation.</TextBefore>
@@ -881,22 +885,22 @@
   <StiChartLabels>
     <AutoRotate>A value that enables or disables auto rotate mode drawing of series labels.</AutoRotate>
     <Font>A font that will be used to draw series labels.</Font>
-    <ForeColor>A color of labels drawing.</ForeColor>
+    <ForeColor>A color for label drawing.</ForeColor>
     <Position>A position of the labels.</Position>
     <Style>A style of the labels.</Style>
     <TextAfter>A text that will be shown after label text.</TextAfter>
     <TextBefore>A text that will be shown before label text.</TextBefore>
   </StiChartLabels>
   <StiChartLegend>
-    <Columns>Amount of columns.</Columns>
-    <Direction>Direction which used for series drawing in legend.</Direction>
+    <Columns>Number of columns.</Columns>
+    <Direction>Direction which is used for series drawing in legend.</Direction>
     <HorAlignment>Horizontal alignment of legend placement.</HorAlignment>
     <VertAlignment>Vertical alignment of legend placement.</VertAlignment>
     <Visible>Visibility of chart legend.</Visible>
   </StiChartLegend>
   <StiChartLegendLabels>
     <Color>A color of the labels.</Color>
-    <Font>A font which used for series title drawing in chart legend.</Font>
+    <Font>A font which is used for series title drawing in chart legend.</Font>
   </StiChartLegendLabels>
   <StiChartLegendTitle>
     <Color>A title color of legend.</Color>
@@ -904,22 +908,22 @@
     <Text>A title text of legend.</Text>
   </StiChartLegendTitle>
   <StiChartStyle>
-    <ChartAreaShowShadow>The property defines the area shadow will be displayed or not.</ChartAreaShowShadow>
-    <MarkerVisible>The property defines the marker will be displayed or not.</MarkerVisible>
+    <ChartAreaShowShadow>The property defines whether the area shadow will be displayed or not.</ChartAreaShowShadow>
+    <MarkerVisible>The property defines whether the marker will be displayed or not.</MarkerVisible>
     <SeriesBorderThickness>The property defines the series border width.</SeriesBorderThickness>
     <SeriesLabelsLineColor>The property defines the line color of series labels.</SeriesLabelsLineColor>
-    <SeriesLighting>The property defines the pie lighting will be displayed or not.</SeriesLighting>
-    <SeriesShowBorder>The property defines the series border will be displayed or not.</SeriesShowBorder>
-    <SeriesShowShadow>The property defines the series shadow will be displayed or not.</SeriesShowShadow>
-    <TrendLineColor>The property defines the color of trend line.</TrendLineColor>
-    <TrendLineShowShadow>The property defines the trend line shadow will be displayed or not.</TrendLineShowShadow>
+    <SeriesLighting>The property defines whether the pie lighting will be displayed or not.</SeriesLighting>
+    <SeriesShowBorder>The property defines whether the series border will be displayed or not.</SeriesShowBorder>
+    <SeriesShowShadow>The property defines whether the series shadow will be displayed or not.</SeriesShowShadow>
+    <TrendLineColor>The property defines the color of the trend line.</TrendLineColor>
+    <TrendLineShowShadow>The property defines whether the trend line shadow will be displayed or not.</TrendLineShowShadow>
   </StiChartStyle>
   <StiChartTable>
     <Font>Font of the chart table.</Font>
     <GridLineColor>A color of the grid lines.</GridLineColor>
-    <GridLinesHor>Visibility of grid lines horizontal.</GridLinesHor>
-    <GridLinesVert>Visibility of grid lines vertical.</GridLinesVert>
-    <GridOutline>Visibility of grid outline</GridOutline>
+    <GridLinesHor>Visibility of horizontal grid lines.</GridLinesHor>
+    <GridLinesVert>Visibility of vertical grid lines.</GridLinesVert>
+    <GridOutline>Visibility of grid outline.</GridOutline>
     <MarkerVisible>Visibility of markers.</MarkerVisible>
     <NegativeSeriesColors>A list of colors which will be used for drawing series with negative values.</NegativeSeriesColors>
     <SeriesColors>A list of colors which will be used for drawing series.</SeriesColors>
@@ -927,9 +931,9 @@
   </StiChartTable>
   <StiChartTitle>
     <Alignment>Alignment of chart title.</Alignment>
-    <Antialiasing>A value that control antialiasing drawing mode of chart title.</Antialiasing>
+    <Antialiasing>A value that controls antialiasing drawing mode of chart title.</Antialiasing>
     <Brush>A text brush of the chart title.</Brush>
-    <Dock>Docking ot chart title.</Dock>
+    <Dock>Docking of chart title.</Dock>
     <Font>Font of the chart title.</Font>
     <Spacing>Spacing between chart title and chart area.</Spacing>
     <Text>A text of the chart title.</Text>
@@ -948,7 +952,7 @@
   <StiCheckBoxControl>
     <Checked>A value indicates whether the check box is in the checked state.</Checked>
     <CheckedBinding>Data bindings for the checked.</CheckedBinding>
-    <CheckedChangedEvent>A script of the CheckedChanged event.</CheckedChangedEvent>
+    <CheckedChangedEvent>Occurs when the value of the Checked property changes.</CheckedChangedEvent>
     <Text>A text associated with this control.</Text>
     <TextBinding>Data bindings for the text.</TextBinding>
   </StiCheckBoxControl>
@@ -956,16 +960,16 @@
     <CheckOnClick>A value indicates whether the check box should be toggled when an item is selected.</CheckOnClick>
     <ItemHeight>Height of the item area.</ItemHeight>
     <Items>A collection of items in this CheckedListBox.</Items>
-    <ItemsBinding>A data bindings for the items.</ItemsBinding>
+    <ItemsBinding>Data bindings for the items.</ItemsBinding>
     <SelectedIndexBinding>Data bindings for the selected index.</SelectedIndexBinding>
-    <SelectedIndexChangedEvent>Occurs when the SelectedIndex property has been changed.</SelectedIndexChangedEvent>
+    <SelectedIndexChangedEvent>Occurs when the SelectedIndex property has changed.</SelectedIndexChangedEvent>
     <SelectedItemBinding>Data bindings for the selected item.</SelectedItemBinding>
     <SelectedValueBinding>Data bindings for the selected value.</SelectedValueBinding>
     <SelectionMode>A value specifying the selection mode.</SelectionMode>
     <Sorted>A value indicates whether the items in the ListBox are sorted alphabetically.</Sorted>
   </StiCheckedListBoxControl>
   <StiChildBand>
-    <KeepChildTogether>A value indicates that childs are to be kept together.</KeepChildTogether>
+    <KeepChildTogether>A value indicates that children are to be kept together.</KeepChildTogether>
     <PrintIfParentDisabled>Gets or sets value which indicates that if the parent band is disabled then the child band will be printed anyway.</PrintIfParentDisabled>
   </StiChildBand>
   <StiClone>
@@ -979,71 +983,71 @@
     <Width>Width factor of one bar series. Value 1 is equal to 100%.</Width>
   </StiClusteredColumnSeries>
   <StiCodabarBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCodabarBarCodeType>
   <StiCode11BarCodeType>
-    <Checksum>Gets or sets mode of checksum.</Checksum>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Checksum>Gets or sets a mode of the checksum.</Checksum>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiCode11BarCodeType>
   <StiCode128aBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiCode128aBarCodeType>
   <StiCode128AutoBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiCode128AutoBarCodeType>
   <StiCode128BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiCode128BarCodeType>
   <StiCode128bBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiCode128bBarCodeType>
   <StiCode128cBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiCode128cBarCodeType>
   <StiCode39BarCodeType>
     <CheckSum>Gets or sets a mode of the checksum.</CheckSum>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode39BarCodeType>
   <StiCode39ExtBarCodeType>
     <CheckSum>Gets or sets a mode of the checksum.</CheckSum>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode39ExtBarCodeType>
   <StiCode93BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode93BarCodeType>
   <StiCode93ExtBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiCode93ExtBarCodeType>
   <StiColumnSize>
     <MaxWidth>Gets or sets a maximum width of the table column.</MaxWidth>
     <MinWidth>Gets or sets a minimum width of the table column.</MinWidth>
-    <Width>Gets or sets the specified width for the table column. The width will be calculated automatically by the table element if a value equal to zero.</Width>
+    <Width>Gets or sets the specified width for the table column. The width will be calculated automatically by the table element if the value is equal to zero.</Width>
   </StiColumnSize>
   <StiComboBoxControl>
     <DropDownStyle>A value specifying the style.</DropDownStyle>
-    <DropDownWidth>Width of the of the drop-down portion.</DropDownWidth>
+    <DropDownWidth>Width of the drop-down portion.</DropDownWidth>
     <ItemHeight>Height of an item.</ItemHeight>
     <Items>An object representing the collection of the items.</Items>
     <ItemsBinding>Data bindings for the items.</ItemsBinding>
     <MaxDropDownItems>Maximum number.</MaxDropDownItems>
     <MaxLength>Maximum number of characters allowed.</MaxLength>
-    <SelectedIndexChangedEvent>A script of the SelectedIndexChanged event.</SelectedIndexChangedEvent>
+    <SelectedIndexChangedEvent>Occurs when the SelectedIndex property has changed.</SelectedIndexChangedEvent>
     <SelectedItemBinding>Data bindings for the selected item.</SelectedItemBinding>
     <SelectedValueBinding>Data bindings for the selected value.</SelectedValueBinding>
     <Sorted>A value indicates whether the items are sorted.</Sorted>
@@ -1053,7 +1057,7 @@
   <StiComponent>
     <AfterPrintEvent>Occurs after the component printing.</AfterPrintEvent>
     <Alias>Indicates the text that will be shown instead of the component name. If the text is not indicated, then the component name is shown.</Alias>
-    <Anchor>Gets or sets a value which indicates the mode of linking component location to the parent component size..</Anchor>
+    <Anchor>Gets or sets a value which indicates the mode of linking component location to the parent component size.</Anchor>
     <BackColor>The background color of the component.</BackColor>
     <BeforePrintEvent>Occurs before printing the component.</BeforePrintEvent>
     <Bookmark>An expression to fill the component Bookmark.</Bookmark>
@@ -1086,9 +1090,9 @@
     <Enabled>Indicates that this component will be available or not.</Enabled>
     <ExceedMargins>Gets or sets a value to exceed margins of the component background.</ExceedMargins>
     <FilterMode>A logical operation of combining filters for the current band.</FilterMode>
-    <FilterOn>A value that indicates, that filter is turned on.</FilterOn>
+    <FilterOn>A value that indicates that the filter is turned on.</FilterOn>
     <Filters>A collection of the data filters.</Filters>
-    <FixedWidth>A value which indicates that the cell have fixed width.</FixedWidth>
+    <FixedWidth>A value which indicates that the cell has fixed width.</FixedWidth>
     <Font>The font used to display text in control.</Font>
     <ForeColor>The foreground color of this component, which is used to display text.</ForeColor>
     <GetBookmarkEvent>Occurs when getting the Bookmark for the component.</GetBookmarkEvent>
@@ -1145,7 +1149,7 @@
     <WordWrap>Indicates that the multiline text wraps words or not.</WordWrap>
   </StiComponent>
   <StiConstantLines>
-    <Antialiasing>A value that control antialiasing drawing mode.</Antialiasing>
+    <Antialiasing>A value that controls antialiasing drawing mode.</Antialiasing>
     <AxisValue>Axis value through what the constant line is drawn. Sample: 1, yyyy.MM.dd</AxisValue>
     <Font>A font that is used for drawing constant line text.</Font>
     <LineColor>A color which will be used for drawing constant line.</LineColor>
@@ -1173,9 +1177,9 @@
     <DisplayValue>An expression that is used for calculation of a cell value which will be output in the table.</DisplayValue>
     <EnumeratorSeparator>The enumerator separator.</EnumeratorSeparator>
     <EnumeratorType>The enumerator type.</EnumeratorType>
-    <GetCrossValueEvent>A script of the event GetValueEvent.</GetCrossValueEvent>
-    <GetDisplayCrossValueEvent>A script of the event GetDisplayCrossValueEvent.</GetDisplayCrossValueEvent>
-    <HideZeros>A value indicates that no need show zeroes.</HideZeros>
+    <GetCrossValueEvent>Occurs when getting the cross value.</GetCrossValueEvent>
+    <GetDisplayCrossValueEvent>Occurs when getting the display cross value.</GetDisplayCrossValueEvent>
+    <HideZeros>A value indicates that there is no need to show zeros.</HideZeros>
     <KeepMergedCellsTogether>A value indicates that merged cells will not separate to next page.</KeepMergedCellsTogether>
     <MergeHeaders>A value indicates that all equal values of header will be merged into one.</MergeHeaders>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>
@@ -1184,7 +1188,7 @@
     <SortDirection>The sorting direction.</SortDirection>
     <SortType>A type of sorting.</SortType>
     <Summary>A type of values summation.</Summary>
-    <SummaryForFieldsInExpression>If True first calculate summary for fields in expression, then calculate expression, otherwise calculate summary for whole expression.</SummaryForFieldsInExpression>
+    <SummaryForFieldsInExpression>If True, first calculate the summary for fields in the expression, then calculate the expression, otherwise calculate the summary for the whole expression.</SummaryForFieldsInExpression>
     <SummaryValues>A type of zeros and nulls values summation.</SummaryValues>
     <UseStyleOfSummaryInColumnTotal>A value indicates that style of summary cell will be used in column total.</UseStyleOfSummaryInColumnTotal>
     <UseStyleOfSummaryInRowTotal>A value indicates that style of summary cell will be used in row total.</UseStyleOfSummaryInRowTotal>
@@ -1208,11 +1212,11 @@
   </StiCrossHeaderBand>
   <StiCrossTab>
     <EmptyValue>A string value that is used to show the cross-tab in empty cells.</EmptyValue>
-    <HorAlignment>Horizontal alignment of an Cross-Tab.</HorAlignment>
-    <KeepCrossTabTogether>A value indicates that the CrossTab must to be kept together with DataBand on what it is placed.</KeepCrossTabTogether>
+    <HorAlignment>Horizontal alignment of a Cross-Tab.</HorAlignment>
+    <KeepCrossTabTogether>A value indicates that the CrossTab must be kept together with the DataBand on which it is placed.</KeepCrossTabTogether>
     <PrintIfEmpty>A value indicates that the cross-tab is printed if data is not present.</PrintIfEmpty>
     <RightToLeft>Horizontal CrossTab direction.</RightToLeft>
-    <Wrap>A value indicates that the cross-tab is to be output in one column. At the same time, everything that do not fit by the width is output below. For using this property it is necessary to enable the CanBreak property of the band on which the cross-tab is placed (if it is placed on the band).</Wrap>
+    <Wrap>A value indicates that the cross-tab is to be output in one column. At the same time, everything that does not fit within the width is output below. To use this property, it is necessary to enable the CanBreak property of the band on which the cross-tab is placed (if it is placed on the band).</Wrap>
     <WrapGap>Space between two parts of a wrapped cross-tab. The property is used jointly with the property Wrap.</WrapGap>
   </StiCrossTab>
   <StiCrossTabStyle>
@@ -1235,19 +1239,19 @@
     <TotalCellRowForeColor>The property defines the color which will be used for drawing of the values in the total cell row.</TotalCellRowForeColor>
   </StiCrossTabStyle>
   <StiDataBand>
-    <BeginRenderEvent>Occurs when band begin render.</BeginRenderEvent>
-    <CalcInvisible>A value indicates that, when aggregate functions calculation, it is necessary to take into consideration invisible data bands.</CalcInvisible>
+    <BeginRenderEvent>Occurs when the band begins to render.</BeginRenderEvent>
+    <CalcInvisible>A value indicates that, when calculating aggregate functions, it is necessary to take into consideration invisible data bands.</CalcInvisible>
     <ColumnDirection>Direction of the rendering columns.</ColumnDirection>
     <ColumnGaps>Distance between two columns.</ColumnGaps>
     <Columns>Number of columns.</Columns>
     <ColumnWidth>Width of column.</ColumnWidth>
     <EndRenderEvent>Occurs when band rendering is finished.</EndRenderEvent>
     <EvenStyle>A value that indicates style of even lines.</EvenStyle>
-    <FilterEngine>A value which indicates how a filter will be applied to data - be means of the report generator or by means of changing the SQL query.</FilterEngine>
+    <FilterEngine>A value which indicates how a filter will be applied to data - by means of the report generator or by means of changing the SQL query.</FilterEngine>
     <FilterMode>A filter mode.</FilterMode>
-    <GapAfterLastColumn>The property allows to add gap after the last column.</GapAfterLastColumn>
+    <GapAfterLastColumn>The property allows you to add a gap after the last column.</GapAfterLastColumn>
     <GetCollapsedEvent>Occurs when the Collapsed value is calculated.</GetCollapsedEvent>
-    <KeepChildTogether>A value indicates that childs are to be kept together.</KeepChildTogether>
+    <KeepChildTogether>A value indicates that children are to be kept together.</KeepChildTogether>
     <KeepDetailsTogether>A value indicates that details are to be kept together with this DataBand.</KeepDetailsTogether>
     <KeepFooterTogether>A value indicates that the footer is printed with data.</KeepFooterTogether>
     <KeepGroupTogether>A value indicates that the group is to be kept together.</KeepGroupTogether>
@@ -1257,8 +1261,8 @@
     <OddStyle>A value that indicates style of odd lines.</OddStyle>
     <PrintIfDetailEmpty>A value indicates that if detail is empty then the master data must be printed anyway.</PrintIfDetailEmpty>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>
-    <RenderingEvent>Occurs when a data row rendering.</RenderingEvent>
-    <ResetDataSource>A value that indicates to reset Data Source position to begin when preparation for rendering.</ResetDataSource>
+    <RenderingEvent>Occurs when a data row is rendered.</RenderingEvent>
+    <ResetDataSource>A value that indicates to reset the Data Source position to the beginning when preparing for rendering.</ResetDataSource>
     <RightToLeft>Horizontal column direction.</RightToLeft>
   </StiDataBand>
   <StiDatabase>
@@ -1281,11 +1285,11 @@
     <Type>A type of column data.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>
-    <EncodingType>Gets or sets type of encoding type.</EncodingType>
-    <Height>Gets or sets height factor of the bar code.</Height>
+    <EncodingType>Gets or sets the encoding type.</EncodingType>
+    <Height>Gets or sets the height factor of the bar code.</Height>
     <MatrixSize>Gets or sets matrix size.</MatrixSize>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <UseRectangularSymbols>Gets or sets value which indicates will RectangularSymbols be used or not.</UseRectangularSymbols>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <UseRectangularSymbols>Gets or sets a value which indicates whether RectangularSymbols will be used or not.</UseRectangularSymbols>
   </StiDataMatrixBarCodeType>
   <StiDataParameter>
     <Alias>An alias of the data parameter.</Alias>
@@ -1305,11 +1309,11 @@
   </StiDataRelation>
   <StiDataSource>
     <Alias>A Data Source alias.</Alias>
-    <AllowExpressions>A value which indicates that sql query of the data source can contain script expressions or no.</AllowExpressions>
+    <AllowExpressions>A value which indicates that the sql query of the data source can contain script expressions or not.</AllowExpressions>
     <CodePage>A code page.</CodePage>
     <Columns>A column collection.</Columns>
-    <CommandTimeout>A number of seconds to wait while attempting to execute a command, before canceling the attempt and generate an error. Default is 30.</CommandTimeout>
-    <ConnectionOrder>A value that indicates in what order that data source will be connect to the data.</ConnectionOrder>
+    <CommandTimeout>A number of seconds to wait while attempting to execute a command, before canceling the attempt and generating an error. Default is 30.</CommandTimeout>
+    <ConnectionOrder>A value that indicates in what order the data source will be connected to the data.</ConnectionOrder>
     <ConnectOnStart>A value indicates that data source is not connected to the data automatically.</ConnectOnStart>
     <Name>A Data Source name which will be used in report.</Name>
     <NameInSource>A name of the Data Source in database.</NameInSource>
@@ -1328,10 +1332,10 @@
     <MinDate>Minimum date and time that can be selected in the control.</MinDate>
     <MinDateBinding>Data bindings for the min date.</MinDateBinding>
     <ShowUpDown>A value indicates whether an up-down control is used to adjust the date-time value.</ShowUpDown>
-    <Today>A value that indicates the date is set equal current date.</Today>
+    <Today>A value that indicates the date is set equal to the current date.</Today>
     <Value>A date-time value assigned to the control.</Value>
     <ValueBinding>Data bindings for the value.</ValueBinding>
-    <ValueChangedEvent>A script of the event ValueChanged.</ValueChangedEvent>
+    <ValueChangedEvent>Occurs when the Value property has changed.</ValueChangedEvent>
   </StiDateTimePickerControl>
   <StiDialogStyle>
     <GlyphColor>A glyph color of the style.</GlyphColor>
@@ -1354,8 +1358,8 @@
     <Name>A name of drill-down parameter.</Name>
   </StiDrillDownParameter>
   <StiDutchKIXBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiDutchKIXBarCodeType>
   <StiDynamicBand>
     <BreakIfLessThan>A value that indicates how much free space is on a page (in per cent) should be reserved for formation of a new page or a new column. The value should be set in the range from 0 to 100. If the value is 100 then, in any case, a new page or a new column will be formed. This property is used together with NewPageBefore, NewPageAfter, NewColumnBefore, NewColumnAfter properties.</BreakIfLessThan>
@@ -1367,60 +1371,60 @@
     <SkipFirst>If the value of this property is true, then, a new page/column will be generated only starting from the second case.</SkipFirst>
   </StiDynamicBand>
   <StiEAN128aBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiEAN128aBarCodeType>
   <StiEAN128AutoBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiEAN128AutoBarCodeType>
   <StiEAN128bBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiEAN128bBarCodeType>
   <StiEAN128cBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiEAN128cBarCodeType>
   <StiEAN13BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiEAN13BarCodeType>
   <StiEAN8BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiEAN8BarCodeType>
   <StiEmptyBand>
-    <BeginRenderEvent>Occurs when band begin render.</BeginRenderEvent>
+    <BeginRenderEvent>Occurs when the band begins to render.</BeginRenderEvent>
     <EndRenderEvent>Occurs when band rendering is finished.</EndRenderEvent>
     <EvenStyle>A value that indicates style of even lines.</EvenStyle>
     <OddStyle>A value that indicates style of odd lines.</OddStyle>
-    <RenderingEvent>Occurs when data row rendering.</RenderingEvent>
-    <SizeMode>This property allows to indicate how to change the size of the last row on a page.</SizeMode>
+    <RenderingEvent>Occurs when a data row is rendered.</RenderingEvent>
+    <SizeMode>This property allows you to indicate how to change the size of the last row on a page.</SizeMode>
   </StiEmptyBand>
   <StiFIMBarCodeType>
-    <AddClearZone>Gets or sets value which indicates will show Clear Zone or no.</AddClearZone>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <AddClearZone>Gets or sets a value which indicates whether the Clear Zone will be shown or not.</AddClearZone>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiFIMBarCodeType>
   <StiFooterBand>
     <KeepFooterTogether>A value indicates that the footer is printed with data.</KeepFooterTogether>
-    <PrintIfEmpty>A value indicates that the footer if data not present.</PrintIfEmpty>
+    <PrintIfEmpty>A value indicates that the footer is printed if data is not present.</PrintIfEmpty>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>
   </StiFooterBand>
   <StiForm>
     <BackColor>A background color for the control.</BackColor>
-    <ClickEvent>A script of the Click event.</ClickEvent>
-    <ClosedFormEvent>A script of the ClosedForm event.</ClosedFormEvent>
-    <ClosingFormEvent>A script of the ClosingForm event.</ClosingFormEvent>
+    <ClickEvent>Occurs when the form is clicked.</ClickEvent>
+    <ClosedFormEvent>Occurs when the form is closed.</ClosedFormEvent>
+    <ClosingFormEvent>Occurs when the form is closing.</ClosingFormEvent>
     <Font>A font of the control.</Font>
-    <LoadFormEvent>A script of the LoadForm event.</LoadFormEvent>
+    <LoadFormEvent>Occurs before a form is displayed for the first time.</LoadFormEvent>
     <Location>The coordinates of the upper-left corner of the form.</Location>
     <RightToLeft>A value indicates whether control's elements are aligned to support locales using right-to-left fonts.</RightToLeft>
     <Size>Size of the form.</Size>
@@ -1432,7 +1436,7 @@
   </StiForm>
   <StiGanttSeries>
     <GetListOfValuesEndEvent>Occurs when getting the list of end values.</GetListOfValuesEndEvent>
-    <GetValueEndEvent>Occurs when getting the property Value.</GetValueEndEvent>
+    <GetValueEndEvent>Occurs when getting the end value.</GetValueEndEvent>
     <ListOfValues>An expression to fill a list of start values. Example: 1;2;3</ListOfValues>
     <ListOfValuesEnd>An expression to fill a list of end values. Example: 1;2;3</ListOfValuesEnd>
     <Value>The start value expression. Example: {Order.Value}</Value>
@@ -1454,8 +1458,8 @@
     <ForeColor>Gets or sets a brush to draw the text.</ForeColor>
     <LinearBarBorderBrush>Gets or sets a border of the LinearBar.</LinearBarBorderBrush>
     <LinearBarBrush>Gets or sets a brush LinearBar.</LinearBarBrush>
-    <LinearBarEmptyBorderBrush>Gets or sets a empty border of the LinearBar.</LinearBarEmptyBorderBrush>
-    <LinearBarEmptyBrush>Gets or sets a empty brush LinearBar.</LinearBarEmptyBrush>
+    <LinearBarEmptyBorderBrush>Gets or sets an empty border of the LinearBar.</LinearBarEmptyBorderBrush>
+    <LinearBarEmptyBrush>Gets or sets an empty brush LinearBar.</LinearBarEmptyBrush>
     <LinearScaleBrush>Gets or sets a brush LinearScale.</LinearScaleBrush>
     <MarkerBrush>Gets or sets a brush marker.</MarkerBrush>
     <NeedleBorderBrush>Gets or sets a border of the Needle.</NeedleBorderBrush>
@@ -1464,9 +1468,9 @@
     <NeedleCapBorderBrush>Gets or sets a border of the cap.</NeedleCapBorderBrush>
     <NeedleCapBrush>Gets or sets a brush to fill the cap.</NeedleCapBrush>
     <RadialBarBorderBrush>Gets or sets a border of the RadialBar.</RadialBarBorderBrush>
-    <RadialBarBrush>Gets or sets a brush RadialBar.</RadialBarBrush>
-    <RadialBarEmptyBorderBrush>Gets or sets a empty border of the RadialBar.</RadialBarEmptyBorderBrush>
-    <RadialBarEmptyBrush>Gets or sets a empty brush RadialBar.</RadialBarEmptyBrush>
+    <RadialBarBrush>Gets or sets a brush of the RadialBar.</RadialBarBrush>
+    <RadialBarEmptyBorderBrush>Gets or sets an empty border of the RadialBar.</RadialBarEmptyBorderBrush>
+    <RadialBarEmptyBrush>Gets or sets an empty brush of the RadialBar.</RadialBarEmptyBrush>
     <TargetColor>Gets or sets target color.</TargetColor>
     <TickLabelMajorFont>Gets or sets a font for drawing TickLabelMajor.</TickLabelMajorFont>
     <TickLabelMajorTextBrush>Gets or sets a brush to draw the text.</TickLabelMajorTextBrush>
@@ -1489,7 +1493,7 @@
   <StiGlassBrush>
     <Blend>A blend factor.</Blend>
     <Color>The color of the brush.</Color>
-    <DrawHatch>A value that indicates draw hatch at background or not.</DrawHatch>
+    <DrawHatch>A value that indicates whether to draw hatch at the background or not.</DrawHatch>
   </StiGlassBrush>
   <StiGradientBrush>
     <Angle>The angle, measured in degrees clockwise from the x-axis, of the gradient's orientation line.</Angle>
@@ -1500,15 +1504,15 @@
     <Alignment>Horizontal alignment of column content.</Alignment>
     <DataTextField>A name of data column to be shown.</DataTextField>
     <HeaderText>Header text of column.</HeaderText>
-    <NullText>A text that will be shown instead null values.</NullText>
-    <Visible>Visiblity of column.</Visible>
+    <NullText>A text that will be shown instead of null values.</NullText>
+    <Visible>Visibility of column.</Visible>
     <Width>Width of column.</Width>
   </StiGridColumn>
   <StiGridControl>
     <AlternatingBackColor>A background color of alternating rows for a ledger appearance.</AlternatingBackColor>
     <BackColor>A background color of the grid.</BackColor>
     <BackgroundColor>A color of the non-row area of the grid.</BackgroundColor>
-    <ColumnHeadersVisible>A value indicates whether the column headers a table are visible.</ColumnHeadersVisible>
+    <ColumnHeadersVisible>A value indicates whether the column headers of a table are visible.</ColumnHeadersVisible>
     <Columns>A column collection.</Columns>
     <Filter>A filter string.</Filter>
     <ForeColor>A foreground color (typically the color of the text) property.</ForeColor>
@@ -1517,7 +1521,7 @@
     <HeaderBackColor>A background color of all row and column headers.</HeaderBackColor>
     <HeaderFont>A font used for column headers.</HeaderFont>
     <HeaderForeColor>A foreground color of headers.</HeaderForeColor>
-    <PositionChangedEvent>A script of the event PositionChanged.</PositionChangedEvent>
+    <PositionChangedEvent>Occurs when the Position property has changed.</PositionChangedEvent>
     <PreferredColumnWidth>Default width of the grid columns in pixels.</PreferredColumnWidth>
     <PreferredRowHeight>The preferred row height.</PreferredRowHeight>
     <RowHeadersVisible>A value that specifies whether row headers are visible.</RowHeadersVisible>
@@ -1542,16 +1546,16 @@
     <KeepGroupFooterTogether>A value indicates that the group footer is printed with data.</KeepGroupFooterTogether>
   </StiGroupFooterBand>
   <StiGroupHeaderBand>
-    <BeginRenderEvent>Occurs when band begins to render.</BeginRenderEvent>
+    <BeginRenderEvent>Occurs when the band begins to render.</BeginRenderEvent>
     <Condition>Grouping condition.</Condition>
-    <EndRenderEvent>Occurs when ends rendering band.</EndRenderEvent>
+    <EndRenderEvent>Occurs when the band finishes rendering.</EndRenderEvent>
     <GetCollapsedEvent>Occurs when the Collapsed value is calculated.</GetCollapsedEvent>
-    <GetSummaryExpressionEvent>Occurs when when group summary expression is calculated.</GetSummaryExpressionEvent>
-    <GetValueEvent>Occurs when condition of the group is checked.</GetValueEvent>
+    <GetSummaryExpressionEvent>Occurs when the group summary expression is calculated.</GetSummaryExpressionEvent>
+    <GetValueEvent>Occurs when the group condition is checked.</GetValueEvent>
     <KeepGroupHeaderTogether>A value indicates that group header is printed together with data.</KeepGroupHeaderTogether>
     <KeepGroupTogether>A value indicates that a group is to be kept together.</KeepGroupTogether>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>
-    <RenderingEvent>Occurs when occurs rendering one line of data.</RenderingEvent>
+    <RenderingEvent>Occurs when a data row is rendered.</RenderingEvent>
     <SortDirection>Sorting direction of grouped data.</SortDirection>
     <SummaryExpression>Gets or sets summary expression which is used for group summary totals calculation.</SummaryExpression>
     <SummarySortDirection>Gets or sets function of calculating group totals for its sorting by totals.</SummarySortDirection>
@@ -1564,7 +1568,7 @@
   </StiHatchBrush>
   <StiHeaderBand>
     <KeepHeaderTogether>A value indicates that header is printed with data together.</KeepHeaderTogether>
-    <PrintIfEmpty>A value indicates that the header if data not present.</PrintIfEmpty>
+    <PrintIfEmpty>A value indicates that the header is printed if data is not present.</PrintIfEmpty>
     <PrintOnAllPages>A value indicates that the component is printed on all pages.</PrintOnAllPages>
   </StiHeaderBand>
   <StiHeatmapStyleData>
@@ -1620,8 +1624,8 @@
     <DrillDownParameter5>The fifth Drill-Down parameter.</DrillDownParameter5>
     <DrillDownReport>A path to a report for the Drill-Down operation.</DrillDownReport>
     <Hyperlink>An expression to fill a component hyperlink.</Hyperlink>
-    <SortingColumn>A column by what data should be re-sorted in the report viewer.</SortingColumn>
-    <SortingEnabled>A value that indicates whether it is allowed or not, using given component, data re-sorting in the report viewer.</SortingEnabled>
+    <SortingColumn>A column by which data should be re-sorted in the report viewer.</SortingColumn>
+    <SortingEnabled>A value that indicates whether data re-sorting in the report viewer, using the given component, is allowed or not.</SortingEnabled>
     <Tag>An expression to fill a component tag.</Tag>
     <ToolTip>An expression to fill a component ToolTip.</ToolTip>
   </StiInteraction>
@@ -1630,41 +1634,41 @@
     <Visible>Visibility of interlaced bars.</Visible>
   </StiInterlacing>
   <StiInterleaved2of5BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiInterleaved2of5BarCodeType>
   <StiIsbn10BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiIsbn10BarCodeType>
   <StiIsbn13BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiIsbn13BarCodeType>
   <StiITF14BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <PrintVerticalBars>Get or sets value, which indicates, print or not vertical sections.</PrintVerticalBars>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <PrintVerticalBars>Gets or sets a value which indicates whether to print vertical sections or not.</PrintVerticalBars>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiITF14BarCodeType>
   <StiJan13BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiJan13BarCodeType>
   <StiJan8BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiJan8BarCodeType>
@@ -1676,9 +1680,10 @@
   <StiLegend>
     <BorderColor>A border color.</BorderColor>
     <Brush>A background brush of legend.</Brush>
-    <Columns>Amount of columns.</Columns>
-    <Direction>Direction which used for series drawing in legend.</Direction>
-    <Font>A font which used for series title drawing in chart legend.</Font>
+    <Columns>Number of columns.</Columns>
+    <ColumnWidth>Specifies the width of a legend column. Can be used together with Word Wrap to control text wrapping within legend items.</ColumnWidth>
+    <Direction>Direction which is used for series drawing in legend.</Direction>
+    <Font>A font which is used for series title drawing in chart legend.</Font>
     <HideSeriesWithEmptyTitle>A value which shows/hides series with empty title.</HideSeriesWithEmptyTitle>
     <HorAlignment>Horizontal alignment of legend placement.</HorAlignment>
     <HorSpacing>Horizontal spacing between items in legend.</HorSpacing>
@@ -1687,7 +1692,7 @@
     <MarkerBorder>A value which indicates that marker border will be shown.</MarkerBorder>
     <MarkerSize>Marker size.</MarkerSize>
     <MarkerVisible>Visibility of markers.</MarkerVisible>
-    <ShowShadow>A value that indicates draw shadow or no.</ShowShadow>
+    <ShowShadow>A value that indicates whether to draw a shadow or not.</ShowShadow>
     <Size>Size of legend.</Size>
     <Title>A title of the legend.</Title>
     <TitleColor>Title color of legend.</TitleColor>
@@ -1695,12 +1700,13 @@
     <VertAlignment>Vertical alignment of legend placement.</VertAlignment>
     <VertSpacing>Vertical spacing between items in legend.</VertSpacing>
     <Visible>Visibility of chart legend.</Visible>
+    <WordWrap>Enables or disables text wrapping in legend items. Works together with Column Width.</WordWrap>
   </StiLegend>
   <StiLinePrimitive>
     <Color>A line color.</Color>
     <EndCap>The end cap settings.</EndCap>
     <Size>Size of the line.</Size>
-    <StartCap>The end cap settings.</StartCap>
+    <StartCap>The start cap settings.</StartCap>
     <Style>A pen style.</Style>
   </StiLinePrimitive>
   <StiListBoxControl>
@@ -1708,10 +1714,10 @@
     <Items>Items of the ListBox.</Items>
     <ItemsBinding>Data bindings for the items.</ItemsBinding>
     <SelectedIndexBinding>Data bindings for the selected index.</SelectedIndexBinding>
-    <SelectedIndexChangedEvent>A script of the event SelectedIndexChanged.</SelectedIndexChangedEvent>
+    <SelectedIndexChangedEvent>Occurs when the SelectedIndex property has changed.</SelectedIndexChangedEvent>
     <SelectedItemBinding>Data bindings for the selected item.</SelectedItemBinding>
     <SelectedValueBinding>Data bindings for the selected value.</SelectedValueBinding>
-    <SelectionMode>A method in what items are selected in the ListBox.</SelectionMode>
+    <SelectionMode>A method by which items are selected in the ListBox.</SelectionMode>
     <Sorted>A value indicates whether the items in the ListBox are sorted alphabetically.</Sorted>
   </StiListBoxControl>
   <StiListViewControl>
@@ -1728,10 +1734,10 @@
     <BorderSize>The property defines the border width which will be used for the map geographic objects.</BorderSize>
     <BubbleBackColor>The property defines the color which will be used to fill map bubbles.</BubbleBackColor>
     <BubbleBorderColor>The property defines the color which will be used to draw borders of the map bubbles.</BubbleBorderColor>
-    <Colors>The property allows to create colors set which will be used to fill the map geographic objects when color each mode is used.</Colors>
-    <DefaultColor>The property defines the color by default which will be used to fill the map geographic objects when the map type is setted any type except individual.</DefaultColor>
-    <Heatmap>The properties set define the settings which will be used for heatmap.</Heatmap>
-    <HeatmapWithGroup>The properties set define the settings which will be used for heatmap with group.</HeatmapWithGroup>
+    <Colors>The property allows the creation of a set of colors which will be used to fill the map geographic objects when the color each mode is used.</Colors>
+    <DefaultColor>The property defines the default color which will be used to fill the map geographic objects when the map type is set to any type except individual.</DefaultColor>
+    <Heatmap>The properties set defines the settings which will be used for heatmap.</Heatmap>
+    <HeatmapWithGroup>The properties set defines the settings which will be used for heatmap with group.</HeatmapWithGroup>
     <IndividualColor>The property defines the color which will be used to fill the map geographic objects.</IndividualColor>
     <LabelForeground>The property defines the color which will be used to draw labels of the map geographic objects.</LabelForeground>
     <LabelShadowForeground>The property defines the color which will be used to draw label shadow of the map geographic objects.</LabelShadowForeground>
@@ -1746,7 +1752,7 @@
     <Angle>A rotation angle of the marker.</Angle>
     <BorderColor>A border color of marker.</BorderColor>
     <Brush>A brush that will be used to fill marker area.</Brush>
-    <ShowInLegend>A value indicates that marker will be visible in legend marker.</ShowInLegend>
+    <ShowInLegend>A value indicates that the marker will be visible in the legend.</ShowInLegend>
     <Size>Size of the marker.</Size>
     <Step>Step of the line marker.</Step>
     <Type>A type of the marker.</Type>
@@ -1755,8 +1761,8 @@
   <StiMsiBarCodeType>
     <CheckSum1>Gets or sets mode of CheckSum1.</CheckSum1>
     <CheckSum2>Gets or sets mode of CheckSum2.</CheckSum2>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiMsiBarCodeType>
   <StiNumericUpDownControl>
     <Increment>A value to increment or decrement the up-down control when the up or down buttons are clicked.</Increment>
@@ -1766,7 +1772,7 @@
     <MinimumBinding>Data bindings for the minimum.</MinimumBinding>
     <Value>A value assigned to the up-down control.</Value>
     <ValueBinding>Data bindings for the value.</ValueBinding>
-    <ValueChangedEvent>A script of the event ValueChanged.</ValueChangedEvent>
+    <ValueChangedEvent>Occurs when the Value property has changed.</ValueChangedEvent>
   </StiNumericUpDownControl>
   <StiOutsidePieLabels>
     <LineLength>A line length between border of series labels and border of pie series.</LineLength>
@@ -1778,11 +1784,11 @@
     <Top>The value sets the padding inside the element from the top border and its contents.</Top>
   </StiPadding>
   <StiPage>
-    <BeginRenderEvent>Occurs when when a page begins to render.</BeginRenderEvent>
-    <ColumnBeginRenderEvent>Occurs when begin rendering a column.</ColumnBeginRenderEvent>
-    <ColumnEndRenderEvent>Occurs when column rendering ends.</ColumnEndRenderEvent>
-    <EndRenderEvent>Occurs when a page render ends.</EndRenderEvent>
-    <ExcelSheet>An expression that is used for generation name of excel sheet.</ExcelSheet>
+    <BeginRenderEvent>Occurs when a page begins to render.</BeginRenderEvent>
+    <ColumnBeginRenderEvent>Occurs when a column begins to render.</ColumnBeginRenderEvent>
+    <ColumnEndRenderEvent>Occurs when a column finishes rendering.</ColumnEndRenderEvent>
+    <EndRenderEvent>Occurs when a page finishes rendering.</EndRenderEvent>
+    <ExcelSheet>An expression that is used to generate the name of the Excel sheet.</ExcelSheet>
     <GetExcelSheetEvent>Occurs when the ExcelSheet is calculated.</GetExcelSheetEvent>
     <Icon>A page icon.</Icon>
     <LargeHeight>A value indicates that this page has large height in the designer.</LargeHeight>
@@ -1794,11 +1800,11 @@
     <PageHeight>The total height of the page.</PageHeight>
     <PageWidth>The total width of the page.</PageWidth>
     <PaperSize>The page size.</PaperSize>
-    <PaperSourceOfFirstPage>The paper source for the first page. Some printers does not support this feature.</PaperSourceOfFirstPage>
-    <PaperSourceOfOtherPages>The paper source for the first page. Some printers does not support this feature.</PaperSourceOfOtherPages>
+    <PaperSourceOfFirstPage>The paper source for the first page. Some printers do not support this feature.</PaperSourceOfFirstPage>
+    <PaperSourceOfOtherPages>The paper source for the other pages. Some printers do not support this feature.</PaperSourceOfOtherPages>
     <PrintHeadersFootersFromPreviousPage>A value indicates that, on this page, it is necessary to print headers and footers of the previous page.</PrintHeadersFootersFromPreviousPage>
     <PrintOnPreviousPage>A value indicates that the page will start to be rendered on the free space of the previous page.</PrintOnPreviousPage>
-    <RenderingEvent>Occurs when page rendering.</RenderingEvent>
+    <RenderingEvent>Occurs when a page is rendered.</RenderingEvent>
     <ResetPageNumber>Allows resetting page number on this page.</ResetPageNumber>
     <SegmentPerHeight>The number of segments per height.</SegmentPerHeight>
     <SegmentPerWidth>The number of segments per width.</SegmentPerWidth>
@@ -1819,20 +1825,20 @@
     <BorderStyle>Indicates the border style for the control.</BorderStyle>
   </StiPanelControl>
   <StiPdf417BarCodeType>
-    <AspectRatio>Gets or sets value, which set aspect ratio between horizontal and vertical sides of bar code.</AspectRatio>
+    <AspectRatio>Gets or sets a value which sets the aspect ratio between the horizontal and vertical sides of the bar code.</AspectRatio>
     <AutoDataColumns>Gets or sets value which indicates that amount of columns will be calculated automatically.</AutoDataColumns>
     <AutoDataRows>Gets or sets value which indicates that amount of rows will be calculated automatically.</AutoDataRows>
     <DataColumns>Gets or sets amount of data columns.</DataColumns>
     <DataRows>Gets or sets amount of data rows.</DataRows>
-    <EncodingMode>Gets or sets type of encoding type.</EncodingMode>
-    <ErrorsCorrectionLevel>Gets or sets errors correction level. The higher level is the more information is added to bar code for restoring.</ErrorsCorrectionLevel>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <EncodingMode>Gets or sets the encoding type.</EncodingMode>
+    <ErrorsCorrectionLevel>Gets or sets errors correction level. The higher the level, the more information is added to the bar code for restoring.</ErrorsCorrectionLevel>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
     <RatioY>Gets or sets vertical ratio of bar code. Value must be between 2 and 5.</RatioY>
   </StiPdf417BarCodeType>
   <StiPharmacodeBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiPharmacodeBarCodeType>
   <StiPictureBoxControl>
     <BorderStyle>Indicates the border style for the control.</BorderStyle>
@@ -1841,7 +1847,7 @@
     <TransparentColor>A transparent color for the image.</TransparentColor>
   </StiPictureBoxControl>
   <StiPieSeries>
-    <AllowApplyBorderColor>A value that allows to use border color from series settings.</AllowApplyBorderColor>
+    <AllowApplyBorderColor>A value that allows using a border color from series settings.</AllowApplyBorderColor>
     <AllowApplyBrush>A value that allows using a brush from series settings.</AllowApplyBrush>
     <CutPieList>An expression to fill a list of cut pie segments. Example: 1;4;6</CutPieList>
     <Diameter>Fixed size of diameter of pie series.</Diameter>
@@ -1852,12 +1858,12 @@
   <StiPlesseyBarCodeType>
     <CheckSum1>Gets or sets mode of CheckSum1.</CheckSum1>
     <CheckSum2>Gets or sets mode of CheckSum2.</CheckSum2>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiPlesseyBarCodeType>
   <StiPostnetBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
     <Space>Gets or sets space between elements of bar code.</Space>
   </StiPostnetBarCodeType>
   <StiPrinterSettings>
@@ -1869,14 +1875,14 @@
   </StiPrinterSettings>
   <StiProgressStyle>
     <BandColor>The property defines the color which will be used to fill the area graphics of the progress value.</BandColor>
-    <SeriesColors>The property allows to create color set for drawing the progress series.</SeriesColors>
+    <SeriesColors>The property allows the creation of a color set for drawing the progress series.</SeriesColors>
     <TrackColor>The property defines the color which will be used to fill the progress track.</TrackColor>
   </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Gets or sets the error correction level.</ErrorCorrectionLevel>
-    <Height>Gets or sets height factor of the bar code.</Height>
+    <Height>Gets or sets the height factor of the bar code.</Height>
     <MatrixSize>Gets or sets matrix size.</MatrixSize>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiQRCodeBarCodeType>
   <StiRadarAxis>
     <Visible>Visibility of axis.</Visible>
@@ -1897,7 +1903,7 @@
   <StiRadioButtonControl>
     <Checked>A value indicates whether the control is checked.</Checked>
     <CheckedBinding>Data bindings for the checked.</CheckedBinding>
-    <CheckedChangedEvent>Gets</CheckedChangedEvent>
+    <CheckedChangedEvent>Occurs when the value of the Checked property changes.</CheckedChangedEvent>
     <Text>A text associated with this control.</Text>
     <TextBinding>Data bindings for the text.</TextBinding>
   </StiRadioButtonControl>
@@ -1948,22 +1954,22 @@
   </StiReport>
   <StiReportControl>
     <BackColor>A background color for the control.</BackColor>
-    <ClickEvent>A script of the Click event.</ClickEvent>
+    <ClickEvent>Occurs when the control is clicked.</ClickEvent>
     <DataBindings>Data bindings for the control.</DataBindings>
-    <DoubleClickEvent>A script of the DoubleClick event.</DoubleClickEvent>
+    <DoubleClickEvent>Occurs when the control is double-clicked.</DoubleClickEvent>
     <Enabled>A value indicates whether the control can respond to user interaction.</Enabled>
-    <EnterEvent>A script of the Enter event.</EnterEvent>
+    <EnterEvent>Occurs when the control is entered.</EnterEvent>
     <Font>A font of the text displayed by the control.</Font>
     <ForeColor>A foreground color of the control.</ForeColor>
-    <GetTagEvent>A script of the GetTag event.</GetTagEvent>
-    <GetToolTipEvent>A script of the GetToolTip event.</GetToolTipEvent>
-    <LeaveEvent>A script of the Leave event.</LeaveEvent>
+    <GetTagEvent>Occurs when getting a Tag for the control.</GetTagEvent>
+    <GetToolTipEvent>Occurs when getting the ToolTip for the control.</GetToolTipEvent>
+    <LeaveEvent>Occurs when the input focus leaves the control.</LeaveEvent>
     <Location>The coordinates of the upper-left corner of the control relative to the upper-left corner of its container.</Location>
-    <MouseDownEvent>A script of the MouseDown event.</MouseDownEvent>
-    <MouseEnterEvent>A script of the MouseEnter event.</MouseEnterEvent>
-    <MouseLeaveEvent>A script of the MouseLeave event.</MouseLeaveEvent>
-    <MouseMoveEvent>A script of the MouseMove event.</MouseMoveEvent>
-    <MouseUpEvent>A script of the MouseUp event.</MouseUpEvent>
+    <MouseDownEvent>Occurs when the mouse pointer is over the control and a mouse button is pressed.</MouseDownEvent>
+    <MouseEnterEvent>Occurs when the mouse pointer enters the control.</MouseEnterEvent>
+    <MouseLeaveEvent>Occurs when the mouse pointer leaves the control.</MouseLeaveEvent>
+    <MouseMoveEvent>Occurs when the mouse pointer is moved over the control.</MouseMoveEvent>
+    <MouseUpEvent>Occurs when the mouse pointer is over the control and a mouse button is released.</MouseUpEvent>
     <RightToLeft>A value indicates whether control's elements are aligned to support locales using right-to-left fonts.</RightToLeft>
     <Size>Height and width of the control.</Size>
     <TagValueBinding>Data bindings for the tag value.</TagValueBinding>
@@ -1980,8 +1986,8 @@
     <BackColor>A back color.</BackColor>
     <DataColumn>A name of the column that contains the RTF text.</DataColumn>
     <DataUrl>The expression to fill a component RTF text.</DataUrl>
-    <DetectUrls>Detection of urls.</DetectUrls>
-    <FullConvertExpression>A value indicates that it is necessary to fully convert the expression to the RTF format. Full convertion of expressions slows down the report rendering.</FullConvertExpression>
+    <DetectUrls>Detection of URLs.</DetectUrls>
+    <FullConvertExpression>A value indicates that it is necessary to fully convert the expression to the RTF format. Full conversion of expressions slows down the report rendering.</FullConvertExpression>
     <Margins>Text margins (Left, Right, Top, Bottom).</Margins>
     <WordWrap>Word wrap.</WordWrap>
     <Wysiwyg>A value which indicates that it is necessary to use the Wysiwyg mode of the rendering.</Wysiwyg>
@@ -1997,11 +2003,11 @@
   </StiRoundedRectangleShapeType>
   <StiRoyalMail4StateBarCodeType>
     <CheckSum>Gets or sets mode of checksum.</CheckSum>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
   </StiRoyalMail4StateBarCodeType>
   <StiSeries>
-    <AllowApplyBrushNegative>The values indicates that the specific brush for filling negative values will be used.</AllowApplyBrushNegative>
+    <AllowApplyBrushNegative>The value indicates that the specific brush for filling negative values will be used.</AllowApplyBrushNegative>
     <AllowApplyColorNegative>This value indicates that the specific color for negative values will be used.</AllowApplyColorNegative>
     <Argument>An argument expression. Example: {Order.Argument}</Argument>
     <ArgumentDataColumn>A name of the column that contains the argument value.</ArgumentDataColumn>
@@ -2009,7 +2015,7 @@
     <AutoSeriesKeyDataColumn>A name of the column that contains the key of auto created series.</AutoSeriesKeyDataColumn>
     <AutoSeriesTitleDataColumn>A name of the column that contains the title of auto created series.</AutoSeriesTitleDataColumn>
     <BorderColor>A border color of series.</BorderColor>
-    <Brush>A brush which will used to fill series.</Brush>
+    <Brush>A brush which will be used to fill series.</Brush>
     <BrushNegative>A brush to fill negative values.</BrushNegative>
     <Conditions>A collection of conditions which can be used to change behavior of series.</Conditions>
     <FilterMode>The filter mode of series.</FilterMode>
@@ -2036,7 +2042,7 @@
     <LineMarker>Line marker settings.</LineMarker>
     <LineStyle>A line style of series.</LineStyle>
     <LineWidth>Line width of series.</LineWidth>
-    <ListOfArguments>An expression to fill a list of arguments.  Example: 1;2;3</ListOfArguments>
+    <ListOfArguments>An expression to fill a list of arguments. Example: 1;2;3</ListOfArguments>
     <ListOfValues>An expression to fill a list of values. Example: 1;2;3</ListOfValues>
     <ListOfWeights>An expression to fill a list of values. Example: 1;2;3</ListOfWeights>
     <Marker>Marker settings.</Marker>
@@ -2046,20 +2052,20 @@
     <ShowInLegend>A value indicates that series must be shown in legend.</ShowInLegend>
     <ShowNulls>A value that indicates whether it is necessary to show the series element, if the value is null.</ShowNulls>
     <ShowSeriesLabels>Series labels output mode.</ShowSeriesLabels>
-    <ShowShadow>A value that indicates draw shadow or no.</ShowShadow>
+    <ShowShadow>A value that indicates whether to draw a shadow or not.</ShowShadow>
     <ShowZeros>A value that indicates whether it is necessary to show the series element, if the value is 0.</ShowZeros>
     <SortBy>A mode of series values sorting.</SortBy>
     <SortDirection>Sort direction.</SortDirection>
     <Tension>A tension factor of series.</Tension>
     <Title>A title of series.</Title>
-    <TopmostLine>A value that indicates whether the line be displayed as a topmost.</TopmostLine>
+    <TopmostLine>A value that indicates whether the line will be displayed as topmost.</TopmostLine>
     <TopN>Parameters of displaying top results.</TopN>
     <TrendLine>Trend line settings.</TrendLine>
     <Value>A point value expression. Example: {Order.Value}</Value>
     <ValueDataColumn>A name of the column that contains the value.</ValueDataColumn>
     <Weight>A weight value expression. Example: {Order.Value}</Weight>
     <WeightDataColumn>A name of the column that contains the weight value.</WeightDataColumn>
-    <YAxis>Y Axis for series on which will output string representation of arguments.</YAxis>
+    <YAxis>Y Axis for series on which the string representation of arguments will be output.</YAxis>
   </StiSeries>
   <StiSeriesInteraction>
     <AllowSeries>A value which indicates that the Drill-Down operation can be executed for Series.</AllowSeries>
@@ -2079,14 +2085,14 @@
   </StiSeriesInteraction>
   <StiSeriesLabels>
     <Angle>A text rotation angle.</Angle>
-    <Antialiasing>A value that control antialiasing drawing mode of a chart title.</Antialiasing>
+    <Antialiasing>A value that controls antialiasing drawing mode of a chart title.</Antialiasing>
     <AutoRotate>A value that enables or disables auto rotate mode drawing of series labels.</AutoRotate>
     <BorderColor>A border color of series labels.</BorderColor>
     <Brush>A brush that will be used to fill area of series labels.</Brush>
     <Conditions>A collection of conditions which can be used to change behavior of series labels.</Conditions>
     <DrawBorder>A value that indicates that border will be drawn or not.</DrawBorder>
     <Font>A font that will be used to draw series labels.</Font>
-    <Format>Format string that is used for formating series values (if applicable).</Format>
+    <Format>Format string that is used for formatting series values (if applicable).</Format>
     <LabelColor>A foreground color of series labels.</LabelColor>
     <LegendValueType>What type of information will be shown in the legend.</LegendValueType>
     <LineColor>A color of the line.</LineColor>
@@ -2094,24 +2100,24 @@
     <MarkerAlignment>Marker alignment related to the label text.</MarkerAlignment>
     <MarkerSize>Marker size.</MarkerSize>
     <MarkerVisible>Visibility of marker.</MarkerVisible>
-    <PreventIntersection>A value indicates that whether it is necessary to avoid intersections between border of series labels and border of series.</PreventIntersection>
+    <PreventIntersection>A value that indicates whether it is necessary to avoid intersections between border of series labels and border of series.</PreventIntersection>
     <ShowInPercent>A value indicates that values from series must be shown as percents.</ShowInPercent>
     <ShowNulls>A value that indicates whether it is necessary to show the series label, if the value is null.</ShowNulls>
     <ShowValue>A value indicates that values from series will be shown in series labels.</ShowValue>
     <ShowZeros>A value that indicates whether it is necessary to show the series label, if the value is 0.</ShowZeros>
-    <Step>A value that indicates with what steps will labels be shown.</Step>
+    <Step>A value that indicates with what steps the labels will be shown.</Step>
     <TextAfter>A text that will be shown after label text.</TextAfter>
     <TextBefore>A text that will be shown before label text.</TextBefore>
     <UseSeriesColor>A value indicates that series colors must be used.</UseSeriesColor>
     <ValueType>What type of information will be shown in series labels.</ValueType>
-    <ValueTypeSeparator>A string that contain separator for value information (if applicated).</ValueTypeSeparator>
-    <Visible>Visiblity of series labels.</Visible>
+    <ValueTypeSeparator>A string that contains a separator for value information (if applicable).</ValueTypeSeparator>
+    <Visible>Visibility of series labels.</Visible>
     <Width>Fixed width of series labels.</Width>
     <WordWrap>Word wrap.</WordWrap>
   </StiSeriesLabels>
   <StiSeriesTopN>
     <Count>The number of output values.</Count>
-    <Mode>Output values mode</Mode>
+    <Mode>Output values mode.</Mode>
     <OtherText>Signature for other values.</OtherText>
     <ShowOther>The value sets whether to display different values.</ShowOther>
   </StiSeriesTopN>
@@ -2134,7 +2140,7 @@
     <GetValueEvent>Occurs when the text is being prepared for rendering.</GetValueEvent>
     <GlobalizedName>A value that is used as a key for the Globalization Manager.</GlobalizedName>
     <HideZeros>A value indicates that there is no need to show zeroes.</HideZeros>
-    <LinesOfUnderline>A value indicates that it is necessary underline lines.</LinesOfUnderline>
+    <LinesOfUnderline>A value indicates that it is necessary to underline lines.</LinesOfUnderline>
     <MaxNumberOfLines>The maximum number of lines which specify the limit of the height stretch.</MaxNumberOfLines>
     <OnlyText>A value indicates that the text expression contains a text only.</OnlyText>
     <ProcessAt>A value indicates whether to process a text expression of this component at the end of the page rendering or at the end of the report rendering.</ProcessAt>
@@ -2148,17 +2154,17 @@
   <StiSSCC18BarCodeType>
     <CompanyPrefix>Gets or sets the GS1 Company Prefix (7-10 digits).</CompanyPrefix>
     <ExtensionDigit>Gets or sets the extension digit.</ExtensionDigit>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
     <SerialNumber>Gets or sets the Serial Reference Numbers (6-9 digits).</SerialNumber>
   </StiSSCC18BarCodeType>
   <StiStandard2of5BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <Ratio>Get or sets value, which indicates WideToNarrow ratio.</Ratio>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <Ratio>Gets or sets value, which indicates WideToNarrow ratio.</Ratio>
   </StiStandard2of5BarCodeType>
   <StiStrips>
-    <Antialiasing>A value that control antialiasing drawing mode.</Antialiasing>
+    <Antialiasing>A value that controls antialiasing drawing mode.</Antialiasing>
     <Font>A font of title text.</Font>
     <MaxValue>Maximal range of strips.</MaxValue>
     <MinValue>Minimal range of strips.</MinValue>
@@ -2172,12 +2178,12 @@
     <Visible>Visibility of strips.</Visible>
   </StiStrips>
   <StiSubReport>
-    <KeepSubReportTogether>A value indicates that the sub-report must to be kept together with the DataBand on what it is placed.</KeepSubReportTogether>
+    <KeepSubReportTogether>A value indicates that the sub-report must be kept together with the DataBand on which it is placed.</KeepSubReportTogether>
     <SubReportPage>A page that contains sub-report.</SubReportPage>
     <UseExternalReport>A value indicates that this sub-report requires the external report.</UseExternalReport>
   </StiSubReport>
   <StiTable>
-    <AutoWidth>Which range use table component for adjusting columns width.</AutoWidth>
+    <AutoWidth>Which range the table component uses for adjusting columns width.</AutoWidth>
     <AutoWidthType>How to adjust columns width to the table component.</AutoWidthType>
     <ColumnCount>A number of columns in the table.</ColumnCount>
     <DockableTable>A value which indicates that the table will be adjusted to the top of the parent component area.</DockableTable>
@@ -2185,7 +2191,7 @@
     <FooterCanGrow>A value indicates that the footer of a table can grow its height.</FooterCanGrow>
     <FooterCanShrink>A value indicates that this footer can shrink its height.</FooterCanShrink>
     <FooterPrintAtBottom>A value indicates that the footer of a table will be printed at the bottom of page.</FooterPrintAtBottom>
-    <FooterPrintIfEmpty>A value indicates that the footer will be printed if data not present in table.</FooterPrintIfEmpty>
+    <FooterPrintIfEmpty>A value indicates that the footer will be printed if data is not present in table.</FooterPrintIfEmpty>
     <FooterPrintOn>A value that indicates how the footer of a table will be printed on the pages.</FooterPrintOn>
     <FooterPrintOnAllPages>A value indicates that the footer of a table will be printed on all pages.</FooterPrintOnAllPages>
     <FooterPrintOnEvenOddPages>A value that indicates how the footer of a table will be printed on even-odd pages.</FooterPrintOnEvenOddPages>
@@ -2194,15 +2200,15 @@
     <HeaderCanGrow>A value indicates that header of table can grow its height.</HeaderCanGrow>
     <HeaderCanShrink>A value indicates that this header can shrink its height.</HeaderCanShrink>
     <HeaderPrintAtBottom>A value indicates that the header of a table will be printed at the bottom of a page.</HeaderPrintAtBottom>
-    <HeaderPrintIfEmpty>A value indicates that the header will be print if data is not present in table.</HeaderPrintIfEmpty>
-    <HeaderPrintOn>A value that indicates how header of table will be print on pages.</HeaderPrintOn>
+    <HeaderPrintIfEmpty>A value indicates that the header will be printed if data is not present in table.</HeaderPrintIfEmpty>
+    <HeaderPrintOn>A value that indicates how header of table will be printed on pages.</HeaderPrintOn>
     <HeaderPrintOnAllPages>A value indicates that the header of a table will be printed on all pages.</HeaderPrintOnAllPages>
     <HeaderPrintOnEvenOddPages>A value that indicates how the header of a table will be printed on even-odd pages.</HeaderPrintOnEvenOddPages>
     <HeaderRowsCount>A number of header rows in the table.</HeaderRowsCount>
     <RowCount>A number of rows in the table.</RowCount>
   </StiTable>
   <StiTableElement>
-    <Columns>Columns displayed in the table</Columns>
+    <Columns>Columns displayed in the table.</Columns>
     <FiltersTarget>Gets or sets the target data to which filters are applied.</FiltersTarget>
     <Group />
     <SizeMode />
@@ -2236,7 +2242,7 @@
     <GetExcelValueEvent>Occurs when the ExcelValue is calculated.</GetExcelValueEvent>
     <HorAlignment>The text horizontal alignment.</HorAlignment>
     <Margins>Text margins (Left, Right, Top, Bottom).</Margins>
-    <RenderTo>In the property specify the Text component in what the text that is out of the current Text component bound will be continued to be output.</RenderTo>
+    <RenderTo>In this property specify the Text component in which the text that is out of the current Text component bounds will continue to be output.</RenderTo>
     <ShrinkFontToFit>A value indicates that this component decreases font size to fit contents of a component.</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>A value that indicates minimum font size for ShrinkFontToFit operation.</ShrinkFontToFitMinimumSize>
     <TextFormat>The format of the text.</TextFormat>
@@ -2271,7 +2277,7 @@
     <DistanceBetweenTabs>Distance between tabs.</DistanceBetweenTabs>
     <FirstTabOffset>The first tab offset.</FirstTabOffset>
     <HotkeyPrefix>A type of drawing hot keys.</HotkeyPrefix>
-    <LineLimit>A value that shows compleleted lines only.</LineLimit>
+    <LineLimit>A value that shows completed lines only.</LineLimit>
     <RightToLeft>Horizontal output direction.</RightToLeft>
     <Trimming>A type to trim the end of a line.</Trimming>
     <WordWrap>Word wrap.</WordWrap>
@@ -2291,30 +2297,30 @@
     <LineColor>A color which will be used for drawing trend line.</LineColor>
     <LineStyle>Trend line style.</LineStyle>
     <LineWidth>Trend line width.</LineWidth>
-    <ShowShadow>A value that indicates draw shadow or no.</ShowShadow>
+    <ShowShadow>A value that indicates whether to draw a shadow or not.</ShowShadow>
   </StiTrendLine>
   <StiUpcABarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiUpcABarCodeType>
   <StiUpcEBarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
     <SupplementCode>Gets or sets the component supplement bar code.</SupplementCode>
     <SupplementType>Gets or sets type of supplement code.</SupplementType>
   </StiUpcEBarCodeType>
   <StiUpcSup2BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
   </StiUpcSup2BarCodeType>
   <StiUpcSup5BarCodeType>
-    <Height>Gets or sets height factor of the bar code.</Height>
-    <Module>Gets or sets width of the most fine element of the bar code.</Module>
-    <ShowQuietZoneIndicator>Gets or sets value which indicates will show Quiet Zone Indicator or no.</ShowQuietZoneIndicator>
+    <Height>Gets or sets the height factor of the bar code.</Height>
+    <Module>Gets or sets width of the finest element of the bar code.</Module>
+    <ShowQuietZoneIndicator>Gets or sets a value which indicates whether to show the Quiet Zone Indicator or not.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
   <StiUserFunction>
     <InterpretationModeSwitchToBlocks>This report uses Interpretation mode. Functions with code will not work. We recommend switching to ScriptMode on Blocks.</InterpretationModeSwitchToBlocks>
@@ -2337,7 +2343,7 @@
     <AspectRatio>A value indicates that an image will save its aspect ratio.</AspectRatio>
     <MultipleFactor>A value to multiply by it an image size.</MultipleFactor>
     <Smoothing>The smoothing mode for drawing an image.</Smoothing>
-    <Stretch>A value indicates that this component will stretch the image till an image will get size equal in its size on a page.</Stretch>
+    <Stretch>A value indicates that this component will stretch the image until the image size equals its size on a page.</Stretch>
   </StiView>
   <StiWatermark>
     <Angle>An angle of Watermark.</Angle>
@@ -2367,15 +2373,15 @@
     <DateTimeStep>Date time step settings.</DateTimeStep>
   </StiXAxis>
   <StiXChartAxis>
-    <ShowEdgeValues>A value indicates that first and last arguments on axis will be shown anyway.</ShowEdgeValues>
-    <StartFromZero>A value indicates that all arguments will be shows from zero.</StartFromZero>
+    <ShowEdgeValues>A value indicates that the first and last arguments on the axis will be shown anyway.</ShowEdgeValues>
+    <StartFromZero>A value indicates that all arguments will be shown from zero.</StartFromZero>
     <Title>Axis title settings.</Title>
   </StiXChartAxis>
   <StiXChartAxisTitle>
     <Direction>A text direction for axis title drawing.</Direction>
   </StiXChartAxisTitle>
   <StiYChartAxis>
-    <StartFromZero>A value indicates that all arguments will be shows from zero.</StartFromZero>
+    <StartFromZero>A value indicates that all arguments will be shown from zero.</StartFromZero>
   </StiYChartAxis>
   <StiYChartAxisTitle>
     <Direction>A text direction for axis title drawing.</Direction>
@@ -2389,7 +2395,7 @@
   </StiZipCode>
   <Universal>
     <AllowApplyStyle>A value indicates that chart style will be used.</AllowApplyStyle>
-    <Key>A Key which will be used in variables when user select associated with it Value in GUI.</Key>
+    <Key>A Key which will be used in variables when the user selects the associated Value in GUI.</Key>
     <Label>A Label which will be displayed instead of Key in GUI.</Label>
     <Value>A Value which will be displayed instead of the Key value in GUI.</Value>
   </Universal>
