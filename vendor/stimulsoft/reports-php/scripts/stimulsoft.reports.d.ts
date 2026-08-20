@@ -1,7 +1,7 @@
 /*
 Stimulsoft.Reports.JS
-Version: 2026.3.1
-Build date: 2026.07.16
+Version: 2026.3.2
+Build date: 2026.08.11
 License: https://www.stimulsoft.com/en/licensing/reports
 */
 export namespace Stimulsoft.System {
@@ -10363,6 +10363,7 @@ export namespace Stimulsoft.Data.Helpers {
         static replaceFunction(expression: string, newFunction: string): string;
         static removeFunction(expression: string): string;
         static isPercentOfGrandTotal(expression: string): boolean;
+        static isYearFunctionPresent(expression: string): boolean;
         static isAggregationFunctionPresent(expression: string): boolean;
         static isFunctionPresent(expression: string): boolean;
         static getFunction(expression: string): string;
@@ -19037,6 +19038,11 @@ export namespace Stimulsoft.Report.Export {
         ExceptEditableFields = 2,
         Yes = 3
     }
+    enum StiExcelConvertNumericTextMode {
+        None = 0,
+        CrossTabOnly = 1,
+        All = 2
+    }
     enum StiPdfAllowEditable {
         No = 1,
         Yes = 2
@@ -22722,6 +22728,7 @@ export namespace Stimulsoft {
     import StiPropertiesProcessingType = Stimulsoft.Report.Dictionary.StiPropertiesProcessingType;
     import StiFieldsProcessingType = Stimulsoft.Report.Dictionary.StiFieldsProcessingType;
     import StiExcelRestrictEditing = Stimulsoft.Report.Export.StiExcelRestrictEditing;
+    import StiExcelConvertNumericTextMode = Stimulsoft.Report.Export.StiExcelConvertNumericTextMode;
     import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
     import StiVertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment;
     import StiArabicDigitsType = Stimulsoft.Report.StiArabicDigitsType;
@@ -22976,6 +22983,7 @@ export namespace Stimulsoft {
                 ImageMoveAndSizeWithCells: boolean;
                 AllowNativeImageBorders: boolean;
                 RepeatRowsAtTop: boolean;
+                ConvertNumericTextMode: StiExcelConvertNumericTextMode;
             };
             PowerPoint: {
                 AllowImageComparer: boolean;
@@ -33718,7 +33726,7 @@ export namespace Stimulsoft.Report.Dashboard {
 }
 
 export namespace Stimulsoft.Report.Dashboard {
-    let IStiTableCells: System.Interface<IStiTableSection>;
+    let IStiTableCells: System.Interface<IStiTableCells>;
     let ImplementsIStiTableCells: any[];
     interface IStiTableCells {
         getColumns(): IStiTableSection;
@@ -33729,7 +33737,7 @@ export namespace Stimulsoft.Report.Dashboard {
 
 export namespace Stimulsoft.Report.Dashboard {
     import StiTableColumnSize = Stimulsoft.Report.Dashboard.StiTableColumnSize;
-    let IStiTableColumnSize: System.Interface<IStiTitle>;
+    let IStiTableColumnSize: System.Interface<IStiTableColumnSize>;
     let ImplementsIStiTableColumnSize: any[];
     interface IStiTableColumnSize {
         size: StiTableColumnSize;
@@ -34029,17 +34037,17 @@ export namespace Stimulsoft.Report.Dashboard {
         static parseBool(expression: string, report: IStiReport, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean, throwException?: boolean): boolean;
         static parse(expression: string, component: IStiReportComponent, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean, throwException?: boolean): string;
         static parse2(expression: string, report: IStiReport, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean): string;
-        static parseAsync(expression: string, component: IStiReportComponent, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean): Promise<string>;
+        static parseAsync(expression: string, component: IStiReportComponent, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean, dataFieldValues?: Hashtable): Promise<string>;
         static parseAsync2(expression: string, report: IStiReport, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean): Promise<string>;
         static parseObject(expression: string, component: IStiReportComponent, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean, throwException?: boolean): any;
-        static parseObjectAsync(expression: string, component: IStiReportComponent, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean): Promise<any>;
+        static parseObjectAsync(expression: string, component: IStiReportComponent, allowCache?: boolean, constants?: Hashtable, allowDataLoading?: boolean, onlyExpression?: boolean, dataFieldValues?: Hashtable): Promise<any>;
         private static parseOrDefault;
         private static parseOrDefaultAsync;
         private static tryParse;
         private static tryParseAsync;
         private static prepareConstants;
         static getDataFieldValueProcessor(sender: any, e: StiParserGetDataFieldValueEventArgs): void;
-        static getDataFieldValueProcessorAsync(sender: any, e: StiParserGetDataFieldValueEventArgs): Promise<void>;
+        static getDataFieldValueProcessorAsync(sender: any, e: StiParserGetDataFieldValueEventArgs, dataFieldValues?: Hashtable): Promise<void>;
         private static prepareExpression;
         private static getCacheKey;
         static addToCache(expression: string, result: string, component: IStiReportComponent): void;
@@ -43538,6 +43546,7 @@ export namespace Stimulsoft.Report.Export {
         getExportFormat(): StiExportFormat;
         imageQuality: number;
         imageResolution: number;
+        embeddedFonts: boolean;
         encryptionPassword: string;
         imageFormat: ImageFormat;
     }
@@ -43549,6 +43558,7 @@ export namespace Stimulsoft.Report.Export {
     class StiWordExportSettings extends StiPageRangeExportSettings {
         getExportFormat(): StiExportFormat;
         usePageHeadersAndFooters: boolean;
+        embeddedFonts: boolean;
         imageQuality: number;
         imageResolution: number;
         imageFormat: ImageFormat;
@@ -43880,10 +43890,13 @@ export namespace Stimulsoft.Report.Export {
         imageCache: StiImageCache;
         imageIndex: Hashtable;
         imageIndex2: Hashtable;
+        sourceImages: Hashtable<any, any>;
+        sourceImagesByIndex: Hashtable<any, any>;
         isOffice: boolean;
         imageFormat: Stimulsoft.Report.ImageFormat;
         scale: number;
         report: StiReport;
+        preserveSvgPrimitives: boolean;
         addImage(image: Image, page: StiPage, compId: number, propId: string, comp: StiComponent, convertOptions: {
             rect?: Rectangle;
             reconvert?: boolean;
@@ -43891,8 +43904,9 @@ export namespace Stimulsoft.Report.Export {
             imageOptions: ImageOptions;
         }): Promise<void>;
         getImageIndex(comp: StiComponent, propId?: string, compIndex?: any): number;
+        getSourceImage(comp: StiComponent, propId?: string, compIndex?: any): Image;
         copyImageInfo(oldPage: StiPage, newPage: StiPage, oldComp: StiComponent, newComp: StiComponent): void;
-        constructor(imageFormat: Stimulsoft.Report.ImageFormat, isOffice: boolean, imageCache: StiImageCache, scale: number, report: StiReport);
+        constructor(imageFormat: Stimulsoft.Report.ImageFormat, isOffice: boolean, imageCache: StiImageCache, scale: number, report: StiReport, preserveSvgPrimitives?: boolean);
     }
     class StiExportImageHelper {
         private static fitRectToAspect;
@@ -47020,6 +47034,59 @@ export namespace Stimulsoft.Report.Export.Office {
     }
 }
 
+export namespace Stimulsoft.Report.Export.Office {
+    import Guid = Stimulsoft.System.Guid;
+    import StiPagesCollection = Stimulsoft.Report.Components.StiPagesCollection;
+    class StiOfficeEmbeddedFontData {
+        name: string;
+        bold: boolean;
+        italic: boolean;
+        data: Uint8Array;
+        fontKey: Guid;
+    }
+    class StiOfficeFontsHelper {
+        static readonly fontStyleRegular = 1;
+        static readonly fontStyleBold = 2;
+        static readonly fontStyleItalic = 4;
+        static readonly fontStyleBoldItalic = 8;
+        private static readonly eotHeaderSize;
+        private static readonly eotVersion;
+        private static readonly eotFlags;
+        private static readonly eotXorKey;
+        private static readonly eotMagicNumber;
+        private static readonly os2TableTag;
+        private static readonly headTableTag;
+        private static readonly nameTableTag;
+        private static fontFilesIndex;
+        static addFontStyle(fontStyles: Map<string, number>, fontName: string, bold: boolean, italic: boolean): void;
+        static getEmbeddedFontsData(source: StiPagesCollection | Map<string, number>): StiOfficeEmbeddedFontData[];
+        static getFontData(fontName: string, bold: boolean, italic: boolean): Uint8Array;
+        private static extractFontFromTtc;
+        private static isTtcFont;
+        static obfuscateFontData(data: Uint8Array, fontKey: Guid): Uint8Array;
+        static preparePowerPointEmbeddedFonts(fonts: StiOfficeEmbeddedFontData[]): StiOfficeEmbeddedFontData[];
+        private static getCustomFontData;
+        private static toUint8Array;
+        private static getFontDataFromSystemFiles;
+        private static buildFontFilesIndex;
+        private static getFontDirectories;
+        private static getFontFileKey;
+        private static addFontData;
+        private static createEmbeddedOpenTypeData;
+        private static tryGetStyle;
+        private static writeName;
+        private static getName;
+        private static getNameScore;
+        private static decodeName;
+        private static tryGetTable;
+        private static readUInt16BigEndian;
+        private static readUInt32BigEndian;
+        private static writeUInt16LittleEndian;
+        private static writeUInt32LittleEndian;
+        private static isEmbeddingAllowed;
+    }
+}
+
 export namespace Stimulsoft.Report.Export {
     import MemoryStream = Stimulsoft.System.IO.MemoryStream;
     import Image = Stimulsoft.System.Drawing.Image;
@@ -47075,6 +47142,7 @@ export namespace Stimulsoft.Report.Export {
     import Size = Stimulsoft.System.Drawing.Size;
     import StiTextHorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment;
     import StiVertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment;
+    import StiBrush = Stimulsoft.Base.Drawing.StiBrush;
     import StiBorderSide = Stimulsoft.Base.Drawing.StiBorderSide;
     import MemoryStream = Stimulsoft.System.IO.MemoryStream;
     import Rectangle = Stimulsoft.System.Drawing.Rectangle;
@@ -47160,6 +47228,9 @@ export namespace Stimulsoft.Report.Export {
         convertNetDateTimeFormatToExcel(format: string): string;
         static regexCheckInteger1: RegExp;
         static regexCheckFloat1: RegExp;
+        static regexNumericText: RegExp;
+        static regexNumericTextGrouped: RegExp;
+        private tryParseNumericText;
         private checkForNumber;
         private calculateHash;
         private prepareMatrix;
@@ -47171,6 +47242,9 @@ export namespace Stimulsoft.Report.Export {
         private writeVmlDrawingRels;
         private writeVmlDrawingHF;
         private writeVmlDrawing;
+        private allowNativeGradient;
+        private writeGradientFill;
+        private writeGradientStop;
         private writeStyles;
         private writeBorderData;
         private writeSST;
@@ -47196,7 +47270,8 @@ export namespace Stimulsoft.Report.Export {
         Type: string;
         FgColor: Color;
         BgColor: Color;
-        constructor(Type: string, FgColor: Color, BgColor: Color);
+        GradientBrush: StiBrush;
+        constructor(Type: string, FgColor: Color, BgColor: Color, GradientBrush?: StiBrush);
         equals(obj: DataFill): boolean;
     }
     class DataBorder {
@@ -47275,6 +47350,8 @@ export namespace Stimulsoft.Report.Export {
         private imageQuality;
         private imageCache;
         private imageFormat;
+        private embeddedFonts;
+        private embeddedFontDataList;
         private idCounter;
         private hyperlinkList;
         private xmlIndentation;
@@ -47287,6 +47364,8 @@ export namespace Stimulsoft.Report.Export {
         private wrongUrlSymbols;
         private convertToEmu;
         private writeColor;
+        private writeGradientFill;
+        private writeGradientStop;
         private writeContentTypes;
         private writeMainRels;
         private writeDocPropsApp;
@@ -47307,6 +47386,7 @@ export namespace Stimulsoft.Report.Export {
         private writeStiImage;
         private writeStiImageAuto;
         private writeSpPr;
+        private allowNativeGradient;
         private writeBorder;
         private writeLine;
         private writeRoundRectangle;
@@ -47341,6 +47421,9 @@ export namespace Stimulsoft.Report.Export {
         private bookmarkList;
         private hyperlinkList;
         private embedsList;
+        private embeddedFonts;
+        private embeddedFontStyles;
+        private embeddedFontDataList;
         private xmlIndentation;
         private imageQuality;
         private imageResolution;
@@ -47395,7 +47478,9 @@ export namespace Stimulsoft.Report.Export {
         private writeStiImage;
         private writeStiImageAuto;
         private writeTableInfo;
+        private static splitTagCommands;
         private writeHtmlTags;
+        private writeStateProperties;
         private writeParagraphBegin;
         private static getFontIndent;
         private writeRunProperties;
@@ -47419,6 +47504,8 @@ export namespace Stimulsoft.Report.Export {
         private writeSettings;
         private writeWebSettings;
         private writeFontTable;
+        private writeFontTableEmbedded;
+        private writeFontTableRels;
         private writeDocumentRels;
         private writeHeaderFooterRels;
         private writeStyles;
@@ -47526,6 +47613,7 @@ export namespace Stimulsoft.Report.Export {
         private imageInterpolationTable;
         private imageCacheIndexToList;
         private imageInfoList;
+        private svgRenderCache;
         imageInfoCounter: number;
         private imageInfoCounter2;
         imagesCurrent: number;
@@ -47651,6 +47739,10 @@ export namespace Stimulsoft.Report.Export {
         private renderExtGStateRecord;
         storeImageData(image: Image, imageResolution: number, needSmoothing: boolean, comp: StiComponent, propId?: string): number;
         storeImageDataForGeom(image: StiImage): void;
+        private getSvgRenderResult;
+        private registerSvgTextForPdf;
+        private renderSvgGeoms;
+        private paintSvgAsPrimitive;
         private writeImageInfo;
         writeImageInfo2(pp: StiPdfData, imageResolutionX: number, imageResolutionY: number): void;
         renderImage(pp: StiPdfData, imageResolution: number, forceResolutionModeAuto?: boolean): void;
@@ -47833,6 +47925,7 @@ export namespace Stimulsoft.Report.Export {
         matrixCache: Matrix[];
         componentAngle: number;
         forceNewPoint: boolean;
+        evenOdd: boolean;
         private xmin;
         private xmax;
         private ymin;
@@ -47888,6 +47981,7 @@ export namespace Stimulsoft.Report.Export {
         rotateTransform(angle: number): void;
         rotateTransform2(angle: number, x: number, y: number): void;
         setClip(rect: Rectangle): void;
+        setClipPath(): void;
         drawArc2(rect: RectangleD, p1: PointD, p2: PointD, pen: Pen): void;
         drawText(basePoint: PointD, text: string, charsOffset: number[], font: Font, textColor: Color, angle: number, textAlign: EmfTextAlignmentMode): void;
         setPixel(point: PointD, color: Color): void;
@@ -47899,10 +47993,12 @@ export namespace Stimulsoft.Report.Export {
 
 export namespace Stimulsoft.Report.Export {
     import StiContext = Stimulsoft.Base.Context.StiContext;
+    import Matrix = Stimulsoft.System.Drawing.Drawing2D.Matrix;
     class StiPdfRenderChart {
         static renderChart(pp: StiPdfData, assemble: boolean, pageNumber: number): void;
         static renderSparkline(pp: StiPdfData, assemble: boolean, pageNumber: number): void;
-        static renderContext(pp: StiPdfData, assemble: boolean, pageNumber: number, context: StiContext, allowThinLines?: boolean): void;
+        private static preparePngImage;
+        static renderContext(pp: StiPdfData, assemble: boolean, pageNumber: number, context: StiContext, allowThinLines?: boolean, coordinateScale?: number, matrixOverride?: Matrix, svgMode?: boolean, stretch?: boolean, aspectRatio?: boolean, needClip?: boolean): void;
         private static getStartPoint;
         private static rectToRectangle;
         private static brushToStiBrush;
@@ -48101,6 +48197,353 @@ export namespace Stimulsoft.Report.Export {
         createAnnotObject(addRef?: boolean, createAP?: boolean, numberAA?: number): StiPdfAnnotObjInfo;
         createStructTreeRootObject(addRef: boolean): StiPdfStructTreeRootObjInfo;
         constructor();
+    }
+}
+
+export namespace Stimulsoft.Report.Export {
+    import Rectangle = Stimulsoft.System.Drawing.Rectangle;
+    import StiContext = Stimulsoft.Base.Context.StiContext;
+    type StiPdfSvgRenderResult = {
+        context: StiContext;
+        width: number;
+        height: number;
+    };
+    class StiPdfSvgRender {
+        private static readonly identity;
+        private static readonly pathTokenRegex;
+        private static readonly numberRegex;
+        private static readonly radialGradientMinSteps;
+        private static readonly radialGradientMaxSteps;
+        private static readonly maxSvgSourceLength;
+        private static readonly maxEmbeddedImageLength;
+        private static readonly maxEmbeddedFontLength;
+        private static readonly maxXmlNodes;
+        private static readonly maxXmlDepth;
+        private static readonly maxObjectDepth;
+        private static readonly maxUseDepth;
+        private static readonly maxNestedSvgDepth;
+        private static readonly maxPathDataLength;
+        private static readonly maxPathTokens;
+        private static readonly maxCssRules;
+        private static readonly maxGradientStops;
+        private static readonly NumberRegex;
+        private static readonly UrlIdRegex;
+        private static readonly FontFaceRuleRegex;
+        private static readonly FontFaceSrcDataUrlRegex;
+        private static readonly RegisteredFontFaceFamilies;
+        private static readonly RgbaRegex;
+        private static svgRect;
+        private static lastSvgSource;
+        private static UseCoordinateFlip;
+        private static CoordinateFlipTransform;
+        private static PendingCoordinateFlipTransform;
+        private static SkipNormalizationDueToRootMatrix;
+        private static SkipTranslationHeuristics;
+        private static readonly ParentCandidateNames;
+        private static readonly loggedSilentTags;
+        private static readonly ReflectionCacheLock;
+        private static readonly AttributePropertiesCache;
+        private static readonly GetAttributeStringMethodCache;
+        private static readonly ColorPropertiesCache;
+        private static readonly ColorFieldsCache;
+        private static readonly GetParentMethodCache;
+        private static readonly GetParentMethodMissCache;
+        private static readonly GetElementByIdMethodCache;
+        private static readonly GetElementByIdMethodMissCache;
+        private static readonly PublicInstanceMethodsCache;
+        private static readonly RendererInstanceResolutionCache;
+        private static readonly RendererInstanceFactoryCache;
+        private static readonly GraphicsPathCandidatePropsCache;
+        private static readonly GraphicsPathZeroArgMethodsCache;
+        private static readonly GraphicsPathOneArgMethodsCache;
+        private static readonly SvgTextBaseTypeCache;
+        private static readonly SvgTextBaseTypeMissCache;
+        private static readonly RawTransformCacheLock;
+        private static RawTransformByIdCache;
+        private static RawTransformMissByIdCache;
+        private static RawTransformCacheSvgSource;
+        private static RawTransformCachePopulated;
+        private static nestedSvgRenderDepth;
+        private static readonly RadialGradientMinSteps;
+        private static readonly RadialGradientMaxSteps;
+        private static readonly loggedSilentTagsSync;
+        private static readonly RawTransformElementRegex;
+        private static readonly SvgDoctypeRegex;
+        private static readonly SvgEntityDeclarationRegex;
+        private static readonly StandardFontCharacters;
+        private static readonly StandardFontWidths;
+        private static readonly ImageSharpDpiScale;
+        private context;
+        private applyTextOutputMapping;
+        private definitions;
+        private cssRules;
+        private fontFaceFamilies;
+        private useStack;
+        private nestedSvgDepth;
+        static isSvg(source: any): boolean;
+        static renderSvgToContext(svgSource: any, componentRect?: Rectangle): StiPdfSvgRenderResult;
+        private static parseXml;
+        private static parseXmlLoose;
+        private static findTagEnd;
+        private static decodeXmlEntities;
+        private static convertDomNode;
+        private static convertXmldocNode;
+        private static getSvgSource;
+        private static normalizeSvgString;
+        private static validateXmlTree;
+        private static prepareSvgSource;
+        private static findSvgRoot;
+        private static getNodeName;
+        private constructor();
+        private render;
+        private collectDefinitions;
+        private collectCss;
+        private registerFontFace;
+        private renderNode;
+        private renderNodeSafely;
+        private renderChildNodes;
+        private renderNestedSvg;
+        private renderUse;
+        private getUsePaintOverride;
+        private renderPath;
+        private renderRadialGradient;
+        private sampleGradientColor;
+        private renderTextTree;
+        private renderText;
+        private normalizeText;
+        private measureText;
+        private normalizeFontFamily;
+        private resolveTextBaselineOffset;
+        private createState;
+        private getLocalStyle;
+        private applyCssRules;
+        private matchesSelector;
+        private matchesSimpleSelector;
+        private applyPresentationAttributes;
+        private applyStyle;
+        private resolveCssWideValues;
+        private parseStyle;
+        private getBrush;
+        private getPen;
+        private getGradient;
+        private getGradientStops;
+        private collectGradientStops;
+        private getGradientAttribute;
+        private parseColor;
+        private parseColorFunctionTokens;
+        private parseRgbComponent;
+        private parseAlphaComponent;
+        private parseHue;
+        private parsePercentage;
+        private hslToRgb;
+        private renderImage;
+        private getClipSegments;
+        private collectClipSegments;
+        private getClipRule;
+        private getTargetLocalBounds;
+        private collectNodeBounds;
+        private transformPath;
+        private unionRectangles;
+        private transformRectangleBounds;
+        private getNodePath;
+        private getPathBounds;
+        private getCubicExtrema;
+        private cubicAt;
+        private createRectanglePath;
+        private createEllipsePath;
+        private createLinePath;
+        private createPolyPath;
+        private parsePath;
+        private addArc;
+        private createPathGeoms;
+        private parseTransform;
+        private getViewBoxMatrix;
+        private multiply;
+        private transformPoint;
+        private translation;
+        private scaling;
+        private cloneMatrix;
+        private getMatrixScale;
+        private parseViewBox;
+        private parseNumberList;
+        private parseNumber;
+        private parseOpacity;
+        private parseGradientCoordinate;
+        private parseFontSize;
+        private parseTextLength;
+        private parseLength;
+        private getLength;
+        private getAttribute;
+        private static decodeSvgBytes;
+        private getInheritedStyleValue;
+        private getNodeText;
+        private clamp;
+        private static AverageColorFromStops;
+        private static TryGetBounds;
+        private static TryTransformPath;
+        private static TryTransformPathAuto;
+        private static TryMultiply;
+        private static RenderSvgToContext;
+        private ApplyViewBoxTransformToElementPaths;
+        private CreateViewBoxTransform;
+        private static NormalizeElementPaths;
+        private AddShapeGeoms;
+        private static CreateStrokePen;
+        private AddTextGeoms;
+        private CollectTextGeomsRecursive;
+        private RenderTextElement;
+        private AddImageGeoms;
+        private CollectImageGeomsRecursive;
+        private TryBuildClipSegmentsForImageElement;
+        private BuildClipSegmentsFromGraphicsPath;
+        private static IsImageLikeType;
+        private TryGetImageHref;
+        private static TryExtractInlineSvgBytes;
+        private TryGetAttributeViaTryGetAttribute;
+        private TryGetAttributeFromCollections;
+        private TryGetAttributeFromEnumerableCollection;
+        private IsSvgAttributeNameMatch;
+        private static TryDecodeDataImageHref;
+        private static TransformRectangle;
+        private static MapRectForOutput;
+        private static MapPointForOutput;
+        private TryAddNestedSvgGeoms;
+        private RenderNestedSvgToContext;
+        private CreateNestedImagePlacementTransform;
+        private TransformNestedGeom;
+        private TransformNestedPushClipPathGeom;
+        private TransformNestedPushClipGeom;
+        private TransformNestedPathGeom;
+        private TransformNestedSegment;
+        private TransformNestedTextGeom;
+        private TransformNestedImageGeom;
+        private static ApplyOptionalTransform;
+        private MapRectForNestedOutput;
+        private ScaleFontGeom;
+        private static LoadSvgDocumentInstance;
+        private static InvokeFromSvgSafely;
+        private static InvokeFromSvgMethod;
+        private static ShouldRetryWithoutDoctype;
+        private static ShouldRetryWithSanitizedSvg;
+        private static PrepareSvgForSafeParsing;
+        private static RemoveSvgDoctype;
+        private GetSvgDocumentRect;
+        private GetSvgViewportRect;
+        private TryParseSize;
+        private static ParseFlattenedFigures;
+        private static GetFigureDepth;
+        private static NormalizeFigurePoints;
+        private static MergeFigureWithHole;
+        private static FindNearestConnectionIndices;
+        private static GetSignedArea;
+        private static PointsAreClose;
+        private static GetFigureBounds;
+        private static TryGetInteriorPoint;
+        private static IsPointInPolygon;
+        private static IsRectContainsRect;
+        private static TransformGraphicsPath;
+        private static TransformGraphicsPathWithReflection;
+        private static ParseSvgPathData;
+        private static AddArcBeziersToPath;
+        private static EllipsePoint;
+        private static RotateScaleVector;
+        private static CreateGraphicsPathFromPoints;
+        private IsElementInvisible;
+        private static ExtractStyleValue;
+        private static IsNone;
+        private static ParseSvgColor;
+        private static ApplyOpacityToken;
+        private static TryGetFloatProperty;
+        private static TryParseOpacityFactor;
+        private ParseStrokeFillFromStyle;
+        private ParseStrokeAndFill;
+        private BuildBoundsFallbackPath;
+        private ApplyClipPath;
+        private static IsLineElementType;
+        private static IsLineLikePath;
+        private static HasClosedFigures;
+        private static HasClosedFigureType;
+        private static HasGeometricallyClosedFigure;
+        private static ShouldTreatSvgElementPathAsClosed;
+        private static GetSvgElementName;
+        private static IsNoOpRectangleClip;
+        private static IsAxisAlignedRectanglePath;
+        private CreateElementPathInfo;
+        private ApplyUseWrapperPaintOverrides;
+        private HasExplicitFillSpecification;
+        private HasRequiredExtensions;
+        private TryBuildLinePath;
+        private TryReadFloatAttribute;
+        private TryConvertToFloat;
+        private static TryConvertObjectToFloat;
+        private TryGetElementBounds;
+        private findSvgAncestor;
+        private GetElementPathColorMappings;
+        private DetectTopLevelReflectionTransform;
+        private FindReflectionInElement;
+        private CollectElementPathsRecursive;
+        private ResolveUseWrapper;
+        private DetectSkipPathExtraction;
+        private IsNonRenderableContainerType;
+        private IsDefinitionContext;
+        private ShouldRenderReferencedDefinition;
+        private IsUseWrapperReference;
+        private IsDefinitionLikeType;
+        private ExtractAndTransformPath;
+        private RecurseChildElements;
+        private GetChildElements;
+        private TryExtractGraphicsPath;
+        private TryBuildContainerAggregatePath;
+        private AddContainerMarker;
+        private ShouldPreferNullRendererFirst;
+        private TryConvertToGraphicsPath;
+        private ResolveRendererInstanceCreation;
+        private CreateRendererInstance;
+        private GetCachedGraphicsPathCandidateProperties;
+        private GetCachedGraphicsPathCandidateMethods;
+        private GetCachedPropertyInfo;
+        private GetCachedGetAttributeStringMethod;
+        private GetCachedGetParentMethod;
+        private GetCachedGetElementByIdMethod;
+        private GetCachedPublicInstanceMethods;
+        private GetCachedColorProperties;
+        private GetCachedColorFields;
+        private TryGetParent;
+        private static CloneAffineTransform;
+        private static InvalidateRawTransformCache;
+        private static PopulateRawTransformCache;
+        private TryGetTransformFromRawSvgById;
+        private TryGetTransformMatrix;
+        private TryExtractMatrixFromCollection;
+        private ParseSvgTransform;
+        private HasCompensatingRootTranslationPattern;
+        private ExtractAttributeViaReflection;
+        private TryResolvePaintServerBrush;
+        private findElementById;
+        private TryResolveClipGraphicsPath;
+        private TryBuildLinearGradientBrush;
+        private TryBuildRadialGradientBrush;
+        private readWinGradientStops;
+        private static CreateRadialGradientTag;
+        private BuildElementGraphicsPathRecursive;
+        private TryResolveClipBounds;
+        private TryResolveGradientStopOpacityFromRawSource;
+        private static TryParseStopOpacityToken;
+        private ParseFilterAttributes;
+        private ResolveUseReference;
+        private TryExtractTextElement;
+        private static IsFontInstalled;
+        private HasTextLikeChildren;
+        private AppendTextContentRecursive;
+        private GetInheritedAttribute;
+        private static ParseSvgLength;
+        private static ParseSvgFontSize;
+        private static ParseSvgLengthWithFontSize;
+        private static NormalizeFontFamily;
+        private static ResolveTextBaselineOffset;
+        private IsTextLikeType;
+        private GetCachedSvgTextBaseType;
+        private CreateRootState;
     }
 }
 
@@ -62912,10 +63355,14 @@ export namespace Stimulsoft.Blockly.StiBlocks.Functions {
     import Context = Stimulsoft.Blockly.Model.Context;
     import IronBlock = Stimulsoft.Blockly.Model.IronBlock;
     class StiFunctionRun extends IronBlock {
+        private static readonly totalsCategory;
         evaluateAsync(context: Context): Promise<any>;
         evaluate(context: Context): any;
         private evaluateFunction;
         private evaluateUserFunction;
+        private evaluateTotalsFunction;
+        private static getExpressionPart;
+        private static getTotalsComponent;
     }
 }
 
@@ -72214,6 +72661,7 @@ export namespace Stimulsoft.Dashboard.Export.Tools {
         static renderCellsForViewer(element: IStiTableElement, tableWidth: number, tableElementGridPageNumbers: any, onlyCurrentPageData: boolean): Promise<any[]>;
         private static createCellForViewer;
         private static createGraphicCellForViewer;
+        private static getHyperlink;
         private static addSparklineCellProperties;
         private static addTextCellProperties;
         private static addTextFontStyle;
@@ -72239,6 +72687,7 @@ export namespace Stimulsoft.Dashboard.Export.Tools {
         private static renderGraphicCell;
         private static drawColorScaleColumn;
         private static renderBoolCell2;
+        private static getColumnPath;
         private static renderTextCell;
         private static renderImageCell;
         private static renderBoolCell;
@@ -72648,6 +73097,8 @@ export namespace Stimulsoft.Viewer.Helpers.Dashboards {
         static toDisplayString(value: any, type?: Type): string;
         private static distinct;
         private static isValueCanBeFiltered;
+        private static getDataColumnFromColumnPath;
+        private static normalizeColumnName;
         private static getLevel;
         private static setDefaultSelectionProps;
         static applyDefaultFiltersForFilterElements(report: StiReport): Promise<void>;
@@ -73446,6 +73897,7 @@ export namespace Stimulsoft.Viewer {
         showFindButton: boolean;
         showSignatureButton: boolean;
         showBookmarksButton: boolean;
+        showBookmarksPanel: boolean;
         showParametersButton: boolean;
         showResourcesButton: boolean;
         showEditorButton: boolean;
@@ -75311,6 +75763,7 @@ export namespace Stimulsoft.Designer {
     };
     type SaveReportArgs = EventDataArgs & ReportDataArgs & AsyncDataArgs & {
         autoSave: boolean;
+        isNewReport: boolean;
         fileName: string;
         callback: () => void;
     };
@@ -75325,6 +75778,7 @@ export namespace Stimulsoft.Designer {
         undoLevel: number;
         private callbackResult;
         viewer: StiViewer;
+        private disposed;
         onPrepareVariables: (args: PrepareVariablesArgs, callback: (result: PrepareVariablesObject[] | PrepareVariablesArgs) => void) => void;
         onBeginProcessData: (args: BeginProcessDataArgs & ProcessODataDataCommand & ProcessSqlDataCommand & ProcessExcelDataCommand & ProcessGisDataArgs & ProcessJsonDataArgs & ProcessCsvDataArgs & ProcessDBaseDataArgs & ProcessXsdDataArgs & ProcessXmlDataArgs, callback: (result: any) => void) => void;
         onEndProcessData: (args: EndProcessDataArgs & ProcessODataDataCommand & ProcessSqlDataCommand & ProcessExcelDataCommand & ProcessGisDataArgs & ProcessJsonDataArgs & ProcessCsvDataArgs & ProcessDBaseDataArgs & ProcessXsdDataArgs & ProcessXmlDataArgs) => void;
@@ -75392,6 +75846,7 @@ export namespace Stimulsoft.Designer {
         private getReportFileName;
         private static asyncPromise;
         private raiseCallbackEventAsync;
+        private guardedTimeout;
         dispatch(): void;
         dispose(): void;
         private getAutoTheme;

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Localization language="French" description="Français" cultureName="fr">
   <CheckActions>
-    <ApplyEngineV2Long>Définir la propriété d'une page Version du moteur à engineV2 pour avoir accès à toutes les fonctionnalités.</ApplyEngineV2Long>
+    <ApplyEngineV2Long>Définir la propriété Version du moteur d'une page à EngineV2 pour avoir accès à toutes les fonctionnalités.</ApplyEngineV2Long>
     <Change>Modifier</Change>
     <ChangeReportToInterpretationMode>Changer le rapport en mode d'interprétation</ChangeReportToInterpretationMode>
     <Code>Code</Code>
@@ -18,11 +18,11 @@
     <SetGrowToHeightToTrue>Définir la propriété Agrandir à la hauteur à oui</SetGrowToHeightToTrue>
     <StiAllowHtmlTagsInTextActionLong>Définir la valeur de la propriété Autoriser les balises HTML du composant à oui, pour afficher correctement les balises HTML.</StiAllowHtmlTagsInTextActionLong>
     <StiAllowOnDoublePassActionLong>Définir la propriété Nombre de passes à Double Passe pour le calcul correct de variables.</StiAllowOnDoublePassActionLong>
-    <StiApplyGeneralTextFormatLong>Appliquer le format "Générale"  pour le composant '{0}'.</StiApplyGeneralTextFormatLong>
+    <StiApplyGeneralTextFormatLong>Appliquer le format "Général" pour le composant '{0}'.</StiApplyGeneralTextFormatLong>
     <StiApplyGeneralTextFormatShort>Appliquer format général</StiApplyGeneralTextFormatShort>
     <StiCanBreakComponentInContainerActionLong>Définir la propriété Cassable du composant à oui.</StiCanBreakComponentInContainerActionLong>
     <StiCanGrowComponentInContainerActionLong>Définir la propriété Auto-extensible du conteneur à oui.</StiCanGrowComponentInContainerActionLong>
-    <StiCanGrowGrowToHeightComponentInContainerLong>La propriété Agrandir à la hauteur va être définie à oui pour tous les composants dans le conteneur. Cette opération ne garanti pas une correction à 100%!</StiCanGrowGrowToHeightComponentInContainerLong>
+    <StiCanGrowGrowToHeightComponentInContainerLong>La propriété Agrandir à la hauteur va être définie à oui pour tous les composants dans le conteneur. Cette opération ne garantit pas une correction à 100%!</StiCanGrowGrowToHeightComponentInContainerLong>
     <StiCanGrowWordWrapTextAndWysiwygActionLong>Définir la valeur de la propriété Qualité du texte du composant à WYSIWYG.</StiCanGrowWordWrapTextAndWysiwygActionLong>
     <StiColumnsWidthGreaterContainerWidthActionLong>Modifier automatiquement la largeur de la colonne en fonction de la largeur des composants.</StiColumnsWidthGreaterContainerWidthActionLong>
     <StiComponentStyleIsNotFoundOnComponentActionLong>La valeur de la propriété Style de composant va être effacée.</StiComponentStyleIsNotFoundOnComponentActionLong>
@@ -32,7 +32,7 @@
     <StiDeleteDataSourceActionLong>Supprimer la source de données du rapport.</StiDeleteDataSourceActionLong>
     <StiDeleteLostPointsActionLong>Supprimer tous les points perdus sur une page</StiDeleteLostPointsActionLong>
     <StiDeletePageActionLong>Supprimer la page du rapport.</StiDeletePageActionLong>
-    <StiFixCrossLinePrimitiveActionLong>Créer de nouveaux point à la place de ceux perdus. Cette opération ne garanti pas une correction à 100%!</StiFixCrossLinePrimitiveActionLong>
+    <StiFixCrossLinePrimitiveActionLong>Créer de nouveaux points à la place de ceux perdus. Cette opération ne garantit pas une correction à 100%!</StiFixCrossLinePrimitiveActionLong>
     <StiGenerateNewNameComponentActionLong>Générer un nouveau nom pour le composant.</StiGenerateNewNameComponentActionLong>
     <StiGenerateNewNameDataSourceActionLong>Générer un nouveau nom pour la source de données.</StiGenerateNewNameDataSourceActionLong>
     <StiGenerateNewNamePageActionLong>Générer un nouveau nom pour la page.</StiGenerateNewNamePageActionLong>
@@ -41,13 +41,13 @@
     <StiGrowToHeightOverlappingLong>Définir la propriété Agrandir à la hauteur du composant à non.</StiGrowToHeightOverlappingLong>
     <StiInsufficientTextHeightForOneLineLong>La hauteur du composant augmentera au moins jusqu'à la hauteur d'une ligne de texte ou jusqu'à la cellule suivante de la grille du rapport.</StiInsufficientTextHeightForOneLineLong>
     <StiInsufficientTextHeightForOneLineShort>Corriger la hauteur</StiInsufficientTextHeightForOneLineShort>
-    <StiLargeHeightAtPageActionLong>Pour une visualisation et une édition plus pratique des composant, la propriété Grande Hauteur va être définie à oui.</StiLargeHeightAtPageActionLong>
+    <StiLargeHeightAtPageActionLong>Pour une visualisation et une édition plus pratique des composants, la propriété Grande Hauteur va être définie à oui.</StiLargeHeightAtPageActionLong>
     <StiMinRowsInColumnsActionLong>Définir la propriété Nombre minimum de lignes dans la colonne à zéro.</StiMinRowsInColumnsActionLong>
-    <StiMoveComponentToPageAreaActionLong>Le composant va être placé pour qu'il soit entièrement sur la page. Les champs de la page ne sont pas pris en considération.</StiMoveComponentToPageAreaActionLong>
+    <StiMoveComponentToPageAreaActionLong>Le composant va être placé pour qu'il soit entièrement sur la page. Les marges de la page ne sont pas prises en considération.</StiMoveComponentToPageAreaActionLong>
     <StiMoveComponentToPageAreaActionShort>Déplacer sur la page</StiMoveComponentToPageAreaActionShort>
     <StiMoveComponentToPrintablePageAreaActionLong>Déplace le composant dans la zone d'impression de la page. Les marges de la page seront prises en considération.</StiMoveComponentToPrintablePageAreaActionLong>
     <StiMoveComponentToPrintablePageAreaActionShort>Déplacer dans la zone d'impression</StiMoveComponentToPrintablePageAreaActionShort>
-    <StiNegativeSizesOfComponentsActionLong>Corriger la taille du composant pour éliminer les problèmes pendant le rendu du rapport. Cette opération ne garanti pas une correction à 100%!</StiNegativeSizesOfComponentsActionLong>
+    <StiNegativeSizesOfComponentsActionLong>Corriger la taille du composant pour éliminer les problèmes pendant le rendu du rapport. Cette opération ne garantit pas une correction à 100%!</StiNegativeSizesOfComponentsActionLong>
     <StiOrientationPageToLandscapeActionLong>Change l'orientation de la page en paysage. La taille de la page ne sera pas modifiée.</StiOrientationPageToLandscapeActionLong>
     <StiOrientationPageToLandscapeActionShort>Orientation en paysage</StiOrientationPageToLandscapeActionShort>
     <StiOrientationPageToPortraitActionLong>Change l'orientation de la page en portrait. La taille de la page ne sera pas modifiée.</StiOrientationPageToPortraitActionLong>
@@ -60,7 +60,7 @@
     <StiResetPageNumberActionLong>Définir la propriété Réinitialiser le nombre de pages à non.</StiResetPageNumberActionLong>
     <StiSwitchToParametersVerticalOrientationAction>Basculer la valeur de la propriété du rapport 'Orientation des paramètres' sur 'Vertical'.</StiSwitchToParametersVerticalOrientationAction>
     <StiSwitchWidthAndHeightOfPageActionLong>Réarrangez la hauteur et la largeur de la page.</StiSwitchWidthAndHeightOfPageActionLong>
-    <StiVerySmallSizesOfComponentsLong>La taille du composant sera augmentée à la valeur Taille de la grille du rapport. Cette opération ne garanti pas une correction à 100%!</StiVerySmallSizesOfComponentsLong>
+    <StiVerySmallSizesOfComponentsLong>La taille du composant sera augmentée à la valeur Taille de la grille du rapport. Cette opération ne garantit pas une correction à 100%!</StiVerySmallSizesOfComponentsLong>
     <StiVerySmallSizesOfComponentsShort>Augmenter la taille</StiVerySmallSizesOfComponentsShort>
     <StiWordWrapCanGrowTextDoesNotFitActionLong>Définir la propriété Auto-extensible du composant à oui.</StiWordWrapCanGrowTextDoesNotFitActionLong>
     <Zero>Zéro</Zero>
@@ -70,25 +70,25 @@
     <StiAllowHtmlTagsInTextCheckShort>La propriété Autoriser les balises HTML n'est pas définie</StiAllowHtmlTagsInTextCheckShort>
     <StiCanBreakComponentInContainerCheckLong>La propriété Cassable du conteneur '{0}' est définie à non. Certains composants imbriqués peuvent avoir la propriété cassable définie à oui.</StiCanBreakComponentInContainerCheckLong>
     <StiCanBreakComponentInContainerCheckShort>La propriété Cassable du conteneur est définie à non</StiCanBreakComponentInContainerCheckShort>
-    <StiCanGrowComponentInContainerCheckLong>La propriété Auto-extensible du composant '{0}' est définie à non.  Certains composants imbriqués ont propriété Auto-extensible définie à oui. Cela peut causer un rendu incorrect du rapport.</StiCanGrowComponentInContainerCheckLong>
+    <StiCanGrowComponentInContainerCheckLong>La propriété Auto-extensible du composant '{0}' est définie à non. Certains composants imbriqués ont la propriété Auto-extensible définie à oui. Cela peut causer un rendu incorrect du rapport.</StiCanGrowComponentInContainerCheckLong>
     <StiCanGrowComponentInContainerCheckShort>La propriété Auto-extensible du conteneur est définie à non</StiCanGrowComponentInContainerCheckShort>
     <StiCanGrowGrowToHeightComponentInContainerLong>Les propriétés Auto-extensible de certains composants du conteneur '{0}' sont définies à oui alors que la propriété Agrandir à la hauteur n’est pas définie à oui pour tous les composants. Pendant le rendu d'un rapport, ces composants pourraient être alignés avec la marge du bas du conteneur.</StiCanGrowGrowToHeightComponentInContainerLong>
     <StiCanGrowGrowToHeightComponentInContainerShort>Il est possible que certains composants soient mal affichés</StiCanGrowGrowToHeightComponentInContainerShort>
-    <StiCanGrowWordWrapTextAndWysiwygCheckLong>Quand la qualité du texte est définie à Standard ou Typographique, l'aperçu du texte dans différents modes de zoom et l'impression  peuvent différer a cause des erreurs d'arrondi dans GDI+.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
+    <StiCanGrowWordWrapTextAndWysiwygCheckLong>Quand la qualité du texte est définie à Standard ou Typographique, l'aperçu du texte dans différents modes de zoom et l'impression peuvent différer à cause des erreurs d'arrondi dans GDI+.</StiCanGrowWordWrapTextAndWysiwygCheckLong>
     <StiCanGrowWordWrapTextAndWysiwygCheckShort>Possibilité de retour à la ligne automatique du texte incorrect</StiCanGrowWordWrapTextAndWysiwygCheckShort>
     <StiChartSeriesValueCheckLong>La propriété Value est spécifiée pour les séries du graphique "{0}" mais le graphique n'a pas la propriété Data Source définie.</StiChartSeriesValueCheckLong>
-    <StiColumnsWidthGreaterContainerWidthCheckLong>La largeur total de colonne est plus grande que la largeur du composant '{0}' . Cela peut causer un rendu incorrect du rapport. Cela peut aussi causer des problèmes lors de l'export du rapport vers d'autres formats.</StiColumnsWidthGreaterContainerWidthCheckLong>
-    <StiColumnsWidthGreaterContainerWidthCheckShort>La largeur total de colonne est plus grande que la largeur du composant</StiColumnsWidthGreaterContainerWidthCheckShort>
-    <StiColumnsWidthGreaterPageWidthCheckLong>La largeur total de colonne est plus grande que la largeur de la page '{0}'. Cela peut causer un rendu incorrect du rapport. Cela peut aussi causer des problèmes lors de l'export du rapport vers d'autres formats.</StiColumnsWidthGreaterPageWidthCheckLong>
-    <StiColumnsWidthGreaterPageWidthCheckShort>La largeur total de colonne est plus grande que la largeur de la page</StiColumnsWidthGreaterPageWidthCheckShort>
+    <StiColumnsWidthGreaterContainerWidthCheckLong>La largeur totale de colonne est plus grande que la largeur du composant '{0}'. Cela peut causer un rendu incorrect du rapport. Cela peut aussi causer des problèmes lors de l'export du rapport vers d'autres formats.</StiColumnsWidthGreaterContainerWidthCheckLong>
+    <StiColumnsWidthGreaterContainerWidthCheckShort>La largeur totale de colonne est plus grande que la largeur du composant</StiColumnsWidthGreaterContainerWidthCheckShort>
+    <StiColumnsWidthGreaterPageWidthCheckLong>La largeur totale de colonne est plus grande que la largeur de la page '{0}'. Cela peut causer un rendu incorrect du rapport. Cela peut aussi causer des problèmes lors de l'export du rapport vers d'autres formats.</StiColumnsWidthGreaterPageWidthCheckLong>
+    <StiColumnsWidthGreaterPageWidthCheckShort>La largeur totale de colonne est plus grande que la largeur de la page</StiColumnsWidthGreaterPageWidthCheckShort>
     <StiComponentBoundsAreOutOfBandLong>Le composant '{0}' est complètement ou partiellement en dehors de la bande. Le composant ne sera pas imprimé correctement. Mais dans certains cas, une telle position du composant est acceptable. Mais cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiComponentBoundsAreOutOfBandLong>
     <StiComponentBoundsAreOutOfBandShort>Le composant est partiellement en dehors de la bande.</StiComponentBoundsAreOutOfBandShort>
     <StiComponentExpressionCheckLong>L'expression dans la propriété {0} de '{1}' ne peut pas être évaluée!</StiComponentExpressionCheckLong>
     <StiComponentExpressionCheckShort>L'expression ne peut pas être évaluée!</StiComponentExpressionCheckShort>
     <StiComponentNameIsSystemVariableCheckLong>Le nom du composant '{0}' est en conflit avec un nom de variable système. Les expressions utilisant cette variable système ne fonctionneront pas correctement, car la référence sera remplacée par la référence du composant.</StiComponentNameIsSystemVariableCheckLong>
     <StiComponentNameIsSystemVariableCheckShort>Le nom du composant est en conflit avec un nom de variable système</StiComponentNameIsSystemVariableCheckShort>
-    <StiComponentResourceCheckLong>La ressource '{0}' spécifiée pour le composant '{1}' n'a pas été trouvé dans le dictionnaire du rapport.</StiComponentResourceCheckLong>
-    <StiComponentResourceCheckShort>La ressource spécifiée n'a pas été trouvé !</StiComponentResourceCheckShort>
+    <StiComponentResourceCheckLong>La ressource '{0}' spécifiée pour le composant '{1}' n'a pas été trouvée dans le dictionnaire du rapport.</StiComponentResourceCheckLong>
+    <StiComponentResourceCheckShort>La ressource spécifiée n'a pas été trouvée !</StiComponentResourceCheckShort>
     <StiComponentStyleIsNotFoundCheckAtPageLong>Le style spécifié pour la page '{0}' n'existe pas.</StiComponentStyleIsNotFoundCheckAtPageLong>
     <StiComponentStyleIsNotFoundCheckLong>Le style spécifié pour le composant '{0}' n'existe pas.</StiComponentStyleIsNotFoundCheckLong>
     <StiComponentStyleIsNotFoundCheckShort>Le style spécifié n'existe pas</StiComponentStyleIsNotFoundCheckShort>
@@ -98,13 +98,13 @@
     <StiContourTextObsoleteCheckShort>Le composant est obsolète</StiContourTextObsoleteCheckShort>
     <StiCorruptedCrossLinePrimitiveCheckLong>Les points de début et de fin de la primitive '{0}' sont absents. Cette primitive ne sera pas ou mal affichée.</StiCorruptedCrossLinePrimitiveCheckLong>
     <StiCorruptedCrossLinePrimitiveCheckShort>Primitive corrompue</StiCorruptedCrossLinePrimitiveCheckShort>
-    <StiCountDataDataSourceAtDataBandLong>Les propriétés Count Data, Source de données et BusinessObject ne sont pas définies pour les composants '{0}'. Dans certains cas cela n'est pas acceptable.</StiCountDataDataSourceAtDataBandLong>
+    <StiCountDataDataSourceAtDataBandLong>Les propriétés Count Data, Source de données et BusinessObject ne sont pas définies pour les composants '{0}'. Dans certains cas cela est acceptable.</StiCountDataDataSourceAtDataBandLong>
     <StiCountDataDataSourceAtDataBandShort>Il se peut que vous ayez oublié de définir certaines propriétés</StiCountDataDataSourceAtDataBandShort>
-    <StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>Le nombre de pied de groupe de tableau croisé ne correspond pas au  nombre d’en-tête de groupe de tableau croisé sur la page '{0}'. Les composants impairs ne seront pas rendus.</StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>
-    <StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>Le nombre de pied de groupe de tableau croisé ne correspond pas au  nombre d’en-tête de groupe de tableau croisé sur le conteneur '{0}'. Les composants impairs ne seront pas rendus.</StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>
+    <StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>Le nombre de pied de groupe de tableau croisé ne correspond pas au nombre d’en-tête de groupe de tableau croisé sur la page '{0}'. Les composants impairs ne seront pas rendus.</StiCrossGroupHeaderNotEqualToCrossGroupFooterOnPageLong>
+    <StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>Le nombre de pied de groupe de tableau croisé ne correspond pas au nombre d’en-tête de groupe de tableau croisé sur le conteneur '{0}'. Les composants impairs ne seront pas rendus.</StiCrossGroupHeaderNotEqualToGroupCrossFooterOnContainerLong>
     <StiDataSourcesForImageCheckLong>Plusieurs sources de données ont été définies pour le composant '{0}'.</StiDataSourcesForImageCheckLong>
     <StiDataSourcesForImageCheckShort>Plusieurs sources de données ont été définies</StiDataSourcesForImageCheckShort>
-    <StiEventsAtInterpretationCheckLong>Le script dans l'événement '{0}' du composant '{1}' ne marche pas dans le mode interprétation.</StiEventsAtInterpretationCheckLong>
+    <StiEventsAtInterpretationCheckLong>Le script dans l'événement '{0}' du composant '{1}' ne fonctionne pas dans le mode interprétation.</StiEventsAtInterpretationCheckLong>
     <StiEventsAtInterpretationCheckShort>Évènements dans le mode interprétation</StiEventsAtInterpretationCheckShort>
     <StiExpressionElementCheckLong>L'expression "{0}" dans le composant "{1}" ne fonctionne pas correctement. Le message suivant a été reçu depuis le parser : '{2}'.</StiExpressionElementCheckLong>
     <StiExpressionElementCheckShort>Une expression ne fonctionne pas correctement !</StiExpressionElementCheckShort>
@@ -114,14 +114,14 @@
     <StiFilterValueCheckShort>Une valeur de filtre n'est pas spécifiée</StiFilterValueCheckShort>
     <StiFontMissingCheckLong>La police '{0}' spécifiée pour le composant '{1}' n'a pas été trouvée.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>La police n'a pas été trouvée</StiFontMissingCheckShort>
-    <StiFunctionsOnlyForEngineV2CheckLong>Des variables système qui ne sont pas disponibles dans l'EngineV1 sont utilisées dans le rapport. Voulez-vous utiliser l'EngineV2.</StiFunctionsOnlyForEngineV2CheckLong>
+    <StiFunctionsOnlyForEngineV2CheckLong>Des variables système qui ne sont pas disponibles dans l'EngineV1 sont utilisées dans le rapport. Voulez-vous utiliser l'EngineV2 ?</StiFunctionsOnlyForEngineV2CheckLong>
     <StiFunctionsOnlyForEngineV2CheckShort>Des variables non disponibles dans l'EngineV1 sont utilisées.</StiFunctionsOnlyForEngineV2CheckShort>
-    <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>Le nombre de pied de groupe ne correspond pas au  nombre d’en-tête de groupe sur le conteneur '{0}'. Les composants impairs ne seront pas rendus.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
-    <StiGroupHeaderNotEqualToGroupFooterOnPageLong>Le nombre de pied de groupe ne correspond pas au  nombre d’en-tête de groupe sur la page '{0}'. Les composants impairs ne seront pas rendus.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
+    <StiGroupHeaderNotEqualToGroupFooterOnContainerLong>Le nombre de pied de groupe ne correspond pas au nombre d’en-tête de groupe sur le conteneur '{0}'. Les composants impairs ne seront pas rendus.</StiGroupHeaderNotEqualToGroupFooterOnContainerLong>
+    <StiGroupHeaderNotEqualToGroupFooterOnPageLong>Le nombre de pied de groupe ne correspond pas au nombre d’en-tête de groupe sur la page '{0}'. Les composants impairs ne seront pas rendus.</StiGroupHeaderNotEqualToGroupFooterOnPageLong>
     <StiGroupHeaderNotEqualToGroupFooterShort>Certains composants ne seront pas rendus</StiGroupHeaderNotEqualToGroupFooterShort>
     <StiGroupHeaderSummaryExpressionCheckLong>L'expression de synthèse pour l'en-tête de groupe {0} contient une fonction d'agrégation, mais cette fonction est définie dans une propriété distincte. La génération du rapport n'est pas possible.</StiGroupHeaderSummaryExpressionCheckLong>
     <StiGroupHeaderSummaryExpressionCheckShort>Fonction invalide dans l'expression</StiGroupHeaderSummaryExpressionCheckShort>
-    <StiGrowToHeightOverlappingLong>La propriété Agrandir à la taille du composant '{0}' est définie à oui. Pendant le rendu du rapport, ce composant peut chevaucher un ou plusieurs composants sous-jacents.</StiGrowToHeightOverlappingLong>
+    <StiGrowToHeightOverlappingLong>La propriété Agrandir à la hauteur du composant '{0}' est définie à oui. Pendant le rendu du rapport, ce composant peut chevaucher un ou plusieurs composants sous-jacents.</StiGrowToHeightOverlappingLong>
     <StiGrowToHeightOverlappingShort>Il est possible que certains composants se chevauchent.</StiGrowToHeightOverlappingShort>
     <StiInsufficientTextHeightForOneLineCheckLong>La hauteur du composant texte {0} est trop petite, même pour une ligne de texte. Cela peut poser des problèmes lors de l'exportation vers certains formats, ainsi qu'à l'impression sur le Web. Il est recommandé d'augmenter la hauteur ou de définir la propriété CanGrow sur true.</StiInsufficientTextHeightForOneLineCheckLong>
     <StiInsufficientTextHeightForOneLineCheckShort>Hauteur insuffisante pour une ligne.</StiInsufficientTextHeightForOneLineCheckShort>
@@ -129,7 +129,7 @@
     <StiIsFirstPageIsLastPageDoublePassCheckShort>Des variables système qui requièrent la double passe sont utilisées dans le rapport.</StiIsFirstPageIsLastPageDoublePassCheckShort>
     <StiIsFirstPassIsSecondPassCheckLong>Pour un fonctionnement correct des fonctions IsFirstPass, IsSecondPass la double passe pour le rendu du rapport est requise. Il se peut que vous ayez oublié de définir la propriété Nombre de passes du rapport à double passe.</StiIsFirstPassIsSecondPassCheckLong>
     <StiIsFirstPassIsSecondPassCheckShort>Les fonctions IsFirstPass, IsSecondPass requièrent la double passe pour le rendu des rapports</StiIsFirstPassIsSecondPassCheckShort>
-    <StiLargeHeightAtPageCheckLong>Manque d'espace libre sur la page '{0}' page. Cela peut nuire à l'édition des composant et à l'aperçu. Il est recommande de définir la propriété Grande hauteur à oui.</StiLargeHeightAtPageCheckLong>
+    <StiLargeHeightAtPageCheckLong>Manque d'espace libre sur la page '{0}'. Cela peut nuire à l'édition des composants et à l'aperçu. Il est recommandé de définir la propriété Grande hauteur à oui.</StiLargeHeightAtPageCheckLong>
     <StiLargeHeightAtPageCheckShort>Manque d'espace libre sur la page</StiLargeHeightAtPageCheckShort>
     <StiLocationOutsidePageCheckLong>Le composant '{0}' est partiellement en dehors de la page. Le composant ne sera pas imprimé correctement. Cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiLocationOutsidePageCheckLong>
     <StiLocationOutsidePageCheckShort>Le composant est partiellement en dehors de la page</StiLocationOutsidePageCheckShort>
@@ -137,7 +137,7 @@
     <StiLocationOutsidePrintableAreaCheckShort>Le composant est partiellement en dehors de la zone d'impression</StiLocationOutsidePrintableAreaCheckShort>
     <StiMinRowsInColumnsCheckLong>La propriété Nombre de lignes minimum dans la colonne n'est pas définie à 0 alors que la valeur de la propriété colonnes est définie à 0. Cela n'a pas de sens.</StiMinRowsInColumnsCheckLong>
     <StiMinRowsInColumnsCheckShort>La propriété Nombre de lignes minimum dans la colonne pourrait être mal définie</StiMinRowsInColumnsCheckShort>
-    <StiNegativeSizesOfComponentsCheckLong>La Largeur et la Hauteur du composant '{0}'  ont des valeurs négative. Cela peut causer un rendu incorrect du rapport.</StiNegativeSizesOfComponentsCheckLong>
+    <StiNegativeSizesOfComponentsCheckLong>La Largeur et la Hauteur du composant '{0}' ont des valeurs négatives. Cela peut causer un rendu incorrect du rapport.</StiNegativeSizesOfComponentsCheckLong>
     <StiNegativeSizesOfComponentsCheckShort>La Largeur et la Hauteur du composant ont des valeurs négatives</StiNegativeSizesOfComponentsCheckShort>
     <StiNoConditionAtGroupCheckLong>Aucune condition de définie pour le composant '{0}'. Le regroupement ne sera pas fait sans condition</StiNoConditionAtGroupCheckLong>
     <StiNoConditionAtGroupCheckShort>Aucune condition de définie pour le groupe</StiNoConditionAtGroupCheckShort>
@@ -151,64 +151,64 @@
     <StiPageLineAndDoublePassCheckShort>PageLine nécessite un double passage !</StiPageLineAndDoublePassCheckShort>
     <StiPanelInEngineV1CheckLong>Le panneau '{0}' a été trouvé dans le rapport alors que l'EngineV1 est utilisé. Ce composant n'est pas disponible dans l'EngineV1. Le moteur d'impression essaiera de le rendre comme un conteneur. Cependant, le panneau a plus de fonctionnalités que le conteneur et cela peut causer un rendu incorrect du rapport.</StiPanelInEngineV1CheckLong>
     <StiPanelInEngineV1CheckShort>Panneau dans l'EngineV1</StiPanelInEngineV1CheckShort>
-    <StiPrintHeadersAndFootersFromPreviousPageLong>La propriété Imprimer le entêtes et pieds de page des pages précédentes de la page '{0}' est définie à oui alors que pour la première et unique page cela n'a pas de sens.</StiPrintHeadersAndFootersFromPreviousPageLong>
-    <StiPrintHeadersAndFootersFromPreviousPageShort>La propriété Imprimer le entêtes et pieds de page des pages précédentes pourrait être mal définie</StiPrintHeadersAndFootersFromPreviousPageShort>
+    <StiPrintHeadersAndFootersFromPreviousPageLong>La propriété Imprimer les entêtes et pieds de page des pages précédentes de la page '{0}' est définie à oui alors que pour la première et unique page cela n'a pas de sens.</StiPrintHeadersAndFootersFromPreviousPageLong>
+    <StiPrintHeadersAndFootersFromPreviousPageShort>La propriété Imprimer les entêtes et pieds de page des pages précédentes pourrait être mal définie</StiPrintHeadersAndFootersFromPreviousPageShort>
     <StiPrintOnDoublePassCheckLong>La propriété Imprimer sur du composant '{0}' n'est pas définie à Toutes les pages. Pour un rendu correct du rapport, la double passe doit être activée.</StiPrintOnDoublePassCheckLong>
     <StiPrintOnDoublePassCheckShort>La propriété Imprimer sur n'est pas définie à Toutes les pages</StiPrintOnDoublePassCheckShort>
-    <StiPrintOnPreviousPageCheck2Long>La propriété Imprimer sur la page précédente de la page '{0}' est définie à oui. Tous les composants (sauf les bandes) qui se trouvent sur cette page seront imprimés uniquement à partir de la prochaine nouvelle page, ou ne seront pas imprimés si il n'y a pas de nouvelle page.</StiPrintOnPreviousPageCheck2Long>
+    <StiPrintOnPreviousPageCheck2Long>La propriété Imprimer sur la page précédente de la page '{0}' est définie à oui. Tous les composants (sauf les bandes) qui se trouvent sur cette page seront imprimés uniquement à partir de la prochaine nouvelle page, ou ne seront pas imprimés s'il n'y a pas de nouvelle page.</StiPrintOnPreviousPageCheck2Long>
     <StiPrintOnPreviousPageCheck2Short>Certains composants pourraient ne pas être imprimés.</StiPrintOnPreviousPageCheck2Short>
     <StiPrintOnPreviousPageCheckLong>La propriété Imprimer sur la page précédente de la page '{0}' est définie à oui alors que pour la première et unique page cela n'a pas de sens.</StiPrintOnPreviousPageCheckLong>
     <StiPrintOnPreviousPageCheckShort>La propriété Imprimer sur la page précédente pourrait être mal définie</StiPrintOnPreviousPageCheckShort>
     <StiPropertiesOnlyEngineV1CheckLong>La propriété Nouvelle page du composant '{0}' est supportée seulement par l'EngineV1.</StiPropertiesOnlyEngineV1CheckLong>
-    <StiPropertiesOnlyEngineV1CheckShort>Certaine propriétés ont été définies alors qu'elles ne sont pas supportées par l'EngineV2.</StiPropertiesOnlyEngineV1CheckShort>
-    <StiPropertiesOnlyEngineV2CheckLong>Une de ces propriétés a été utilisée par le composant'{0}': Nouvelle page avant, Nouvelle page après, Nouvelle colonne avant, Nouvelle colonne après, Ignorer le premier. Elles ne sont pas supportées par l'EngineV2.</StiPropertiesOnlyEngineV2CheckLong>
-    <StiPropertiesOnlyEngineV2CheckShort>Certaine propriétés ont été définies alors qu'elles ne sont pas supportées par l'EngineV1</StiPropertiesOnlyEngineV2CheckShort>
+    <StiPropertiesOnlyEngineV1CheckShort>Certaines propriétés ont été définies alors qu'elles ne sont pas supportées par l'EngineV2.</StiPropertiesOnlyEngineV1CheckShort>
+    <StiPropertiesOnlyEngineV2CheckLong>Une de ces propriétés a été utilisée par le composant '{0}': Nouvelle page avant, Nouvelle page après, Nouvelle colonne avant, Nouvelle colonne après, Ignorer le premier. Elles ne sont pas supportées par l'EngineV2.</StiPropertiesOnlyEngineV2CheckLong>
+    <StiPropertiesOnlyEngineV2CheckShort>Certaines propriétés ont été définies alors qu'elles ne sont pas supportées par l'EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>La propriété Réinitialiser le nombre de pages de la page '{0}' est définie à oui alors que pour la première et unique page cela n'a pas de sens.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>La propriété Réinitialiser le nombre de pages pourrait être mal définie</StiResetPageNumberCheckShort>
     <StiShowInsteadNullValuesCheckLong>La propriété Remplacer les valeurs nulles est définie pour le composant '{0}'. Mais la propriété Colonne de données n'est pas définie. Cela n'a pas de sens.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>La propriété Remplacer les valeurs nulles est définie</StiShowInsteadNullValuesCheckShort>
-    <StiSubReportPageZeroCheckLong>Si la propriété Page de sous-rapport n'est pas définie du composant Sous-Rapport alors le rapport ne pourra pas être rendu.</StiSubReportPageZeroCheckLong>
+    <StiSubReportPageZeroCheckLong>Si la propriété Page de sous-rapport du composant Sous-Rapport n'est pas définie, alors le rapport ne pourra pas être rendu.</StiSubReportPageZeroCheckLong>
     <StiSubReportPageZeroCheckShort>La propriété Page de sous-rapport n'est pas définie</StiSubReportPageZeroCheckShort>
     <StiSystemTextObsoleteCheckLong>Le composant '{0}' est de type StiSystemText. Le composant StiSystemText est obsolète et n'est plus supporté, il est recommandé de ne plus l'utiliser.</StiSystemTextObsoleteCheckLong>
     <StiSystemTextObsoleteCheckShort>Le composant est obsolète</StiSystemTextObsoleteCheckShort>
     <StiTextColorEqualToBackColorCheckLong>La raison possible est que les valeurs des propriétés Remplissage du Texte et Remplissage du composant '{0}' ont été mal définies. Le texte ne sera pas visible.</StiTextColorEqualToBackColorCheckLong>
     <StiTextColorEqualToBackColorCheckShort>La propriété Remplissage du texte est égale à la propriété Remplissage</StiTextColorEqualToBackColorCheckShort>
-    <StiTextTextFormatCheckLong>Le format sélectionné pour le composant '{0}' n'est pas spécifié.</StiTextTextFormatCheckLong>
-    <StiTextTextFormatCheckShort>Le format n'est pas spécifié.</StiTextTextFormatCheckShort>
+    <StiTextTextFormatCheckLong>Le format de texte sélectionné pour le composant '{0}' ne peut pas être appliqué, car le résultat de l'expression est une chaîne de texte.</StiTextTextFormatCheckLong>
+    <StiTextTextFormatCheckShort>Le format ne peut pas être appliqué.</StiTextTextFormatCheckShort>
     <StiTextTextFormatFieldCheckLong>La colonne utilisée dans le composant {0} n'est pas de type date. Il est recommandé de changer le formatage en Général pour éviter de ralentir le rapport et garantir un formatage correct.</StiTextTextFormatFieldCheckLong>
     <StiTextTextFormatFieldCheckShort>Le format sélectionné n'est pas compatible avec le type de colonne de données.</StiTextTextFormatFieldCheckShort>
     <StiTotalPageCountDoublePassCheckLong>Les variables système TotalPageCount, TotalPageCountThrough dans les scripts et conditions fournissent des résultats incorrects en mode simple passe. Il est requis de définir la propriété Nombre de passes du rapport à double passe.</StiTotalPageCountDoublePassCheckLong>
     <StiUndefinedComponentCheckLong>Le composant '{0}' est inconnu. Le moteur d'impression est incapable d'identifier ce composant. Il s'agit peut-être d'un composant personnalisé. Ce rapport ne peut pas être rendu!</StiUndefinedComponentCheckLong>
     <StiUndefinedComponentCheckShort>Composant inconnu</StiUndefinedComponentCheckShort>
-    <StiVerySmallSizesOfComponentsCheckLong>Les valeurs de la largeur et de la hauteur du composant '{0}' sont plus petites que les valeurs de la taille de la grille du rapport. Vous avez peut-être mal définit sa taille. Cela peut causer des problèmes lors de l'export vers d'autres formats.</StiVerySmallSizesOfComponentsCheckLong>
+    <StiVerySmallSizesOfComponentsCheckLong>Les valeurs de la largeur et de la hauteur du composant '{0}' sont plus petites que les valeurs de la taille de la grille du rapport. Vous avez peut-être mal défini sa taille. Cela peut causer des problèmes lors de l'export vers d'autres formats.</StiVerySmallSizesOfComponentsCheckLong>
     <StiVerySmallSizesOfComponentsCheckShort>La taille du composant est très petite</StiVerySmallSizesOfComponentsCheckShort>
-    <StiWidthHeightZeroComponentCheckLongHeight>La hauteur du composant '{0}' est égale à 0. Il peut y  avoir des problèmes à l'affichage de ce composant sur une page. Cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiWidthHeightZeroComponentCheckLongHeight>
-    <StiWidthHeightZeroComponentCheckLongWidth>La largeur du composant '{0}' est égale à 0. Il peut y  avoir des problèmes à l'affichage de ce composant sur une page. Cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiWidthHeightZeroComponentCheckLongWidth>
-    <StiWidthHeightZeroComponentCheckLongWidthHeight>La hauteur et la largeur du composant '{0}' sont égales à 0. Il peut y  avoir des problèmes à l'affichage de ce composant sur une page. Cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiWidthHeightZeroComponentCheckLongWidthHeight>
+    <StiWidthHeightZeroComponentCheckLongHeight>La hauteur du composant '{0}' est égale à 0. Il peut y avoir des problèmes à l'affichage de ce composant sur une page. Cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiWidthHeightZeroComponentCheckLongHeight>
+    <StiWidthHeightZeroComponentCheckLongWidth>La largeur du composant '{0}' est égale à 0. Il peut y avoir des problèmes à l'affichage de ce composant sur une page. Cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiWidthHeightZeroComponentCheckLongWidth>
+    <StiWidthHeightZeroComponentCheckLongWidthHeight>La hauteur et la largeur du composant '{0}' sont égales à 0. Il peut y avoir des problèmes à l'affichage de ce composant sur une page. Cela peut aussi causer des problèmes en exportant le rapport vers d'autres formats.</StiWidthHeightZeroComponentCheckLongWidthHeight>
     <StiWidthHeightZeroComponentCheckShortHeight>La hauteur du composant '{0}' est égale à 0</StiWidthHeightZeroComponentCheckShortHeight>
     <StiWidthHeightZeroComponentCheckShortWidth>La largeur du composant '{0}' est égale à 0</StiWidthHeightZeroComponentCheckShortWidth>
     <StiWidthHeightZeroComponentCheckShortWidthHeight>La hauteur et la largeur du composant '{0}' sont égales à 0</StiWidthHeightZeroComponentCheckShortWidthHeight>
-    <StiWordWrapCanGrowTextDoesNotFitLong>La propriété Retour automatique à la ligne est définie à oui, et la propriété Auto-extensible est définie à non, le texte du composant {0} ne peut pas être affiché complètement. Il est recommandé de définir la propriété Auto-extensible à oui.</StiWordWrapCanGrowTextDoesNotFitLong>
-    <StiWordWrapCanGrowTextDoesNotFitShort>Le texte pourrais ne pas rentrer</StiWordWrapCanGrowTextDoesNotFitShort>
+    <StiWordWrapCanGrowTextDoesNotFitLong>Si la propriété Retour automatique à la ligne est définie à oui, et la propriété Auto-extensible est définie à non, le texte du composant {0} ne peut pas être affiché complètement. Il est recommandé de définir la propriété Auto-extensible à oui.</StiWordWrapCanGrowTextDoesNotFitLong>
+    <StiWordWrapCanGrowTextDoesNotFitShort>Le texte pourrait ne pas rentrer</StiWordWrapCanGrowTextDoesNotFitShort>
   </CheckComponent>
   <CheckConnection>
-    <StiUndefinedConnectionCheckLong>La connexion inconnue '{0}' a été trouvée. Le moteur d'impression ne peut pas traiter correctement ce type de connexion avec la base de données!  Il s'agit peut-être d'une connexion personnalisée. Ce rapport ne peut pas être rendu!</StiUndefinedConnectionCheckLong>
+    <StiUndefinedConnectionCheckLong>La connexion inconnue '{0}' a été trouvée. Le moteur d'impression ne peut pas traiter correctement ce type de connexion avec la base de données! Il s'agit peut-être d'une connexion personnalisée. Ce rapport ne peut pas être rendu!</StiUndefinedConnectionCheckLong>
     <StiUndefinedConnectionCheckShort>Type de connexion inconnu</StiUndefinedConnectionCheckShort>
     <StiUnsupportedConnectionCheckLong>Le rapport contient une connexion '{0}' qui n'est pas supportée par la plateforme sélectionnée. Merci de changer les options pour cette connexion.</StiUnsupportedConnectionCheckLong>
     <StiUnsupportedConnectionCheckShort>Type de connexion non supporté</StiUnsupportedConnectionCheckShort>
   </CheckConnection>
   <CheckDataRelation>
-    <StiDifferentAmountOfKeysInDataRelationCheckLong>Le nombre de clés parentes pour la relation '{0}' ne correspond pas au nombre de clés enfantes.  La relation ne peut pas être créée pendant le rendu du rapport!</StiDifferentAmountOfKeysInDataRelationCheckLong>
+    <StiDifferentAmountOfKeysInDataRelationCheckLong>Le nombre de clés parentes pour la relation '{0}' ne correspond pas au nombre de clés enfantes. La relation ne peut pas être créée pendant le rendu du rapport!</StiDifferentAmountOfKeysInDataRelationCheckLong>
     <StiDifferentAmountOfKeysInDataRelationCheckShort>Nombre de clés incorrect</StiDifferentAmountOfKeysInDataRelationCheckShort>
     <StiKeysInAbsentDataRelationCheckLong>Les clés de la relation '{0}' ne sont pas spécifiées. Une telle relation ne peut pas être créée pendant le rendu du rapport!</StiKeysInAbsentDataRelationCheckLong>
     <StiKeysInAbsentDataRelationCheckShort>Pas de clés</StiKeysInAbsentDataRelationCheckShort>
-    <StiKeysNotFoundRelationCheckLong>Les colonnes suivantes: '{1}' qui ont été spécifiées comme clés de '{0}', n'ont pas été trouvées dans le Parent ou l'Enfant des sources de données de la relation. Cette relation ne peut pas être crée pendant le rendu du rapport!</StiKeysNotFoundRelationCheckLong>
+    <StiKeysNotFoundRelationCheckLong>Les colonnes suivantes: '{1}' qui ont été spécifiées comme clés de '{0}', n'ont pas été trouvées dans le Parent ou l'Enfant des sources de données de la relation. Cette relation ne peut pas être créée pendant le rendu du rapport!</StiKeysNotFoundRelationCheckLong>
     <StiKeysNotFoundRelationCheckShort>La clé de la relation n'a pas été trouvée</StiKeysNotFoundRelationCheckShort>
     <StiKeysTypesMismatchDataRelationCheckLong>Les types de colonne '{1}' qui ont été spécifiés comme clé de la relation '{0}' ne correspondent pas! Une telle relation ne peut pas être créée pendant le rendu du rapport!</StiKeysTypesMismatchDataRelationCheckLong>
     <StiKeysTypesMismatchDataRelationCheckShort>Les types de clé de la relation ne correspondent pas</StiKeysTypesMismatchDataRelationCheckShort>
     <StiNoNameDataRelationCheckLong>Le nom de la relation (créée entre les sources de données '{0}') n'est pas spécifié. Ce nom est utilisé pour créer une classe pour la relation dans le code du rapport. Sans indiquer de nom, le moteur d'impression ne peut pas créer le code du rapport et le rapport ne sera pas compilé!</StiNoNameDataRelationCheckLong>
     <StiNoNameDataRelationCheckShort>Il n'y a pas de nom pour la relation</StiNoNameDataRelationCheckShort>
-    <StiNoNameInSourceDataRelationCheckLong>NLe Nom dans la source n'est pas rempli pour la relation '{0}'. Sans ce champ, le moteur d'impression ne sera pas capable de trouver la relation dans la base de données et le rapport ne sera pas rendu!</StiNoNameInSourceDataRelationCheckLong>
+    <StiNoNameInSourceDataRelationCheckLong>Le Nom dans la source n'est pas rempli pour la relation '{0}'. Sans ce champ, le moteur d'impression ne sera pas capable de trouver la relation dans la base de données et le rapport ne sera pas rendu!</StiNoNameInSourceDataRelationCheckLong>
     <StiNoNameInSourceDataRelationCheckShort>Le Nom dans la source n'est pas rempli pour la relation</StiNoNameInSourceDataRelationCheckShort>
     <StiSourcesInAbsentDataRelationCheckLong>La source de données parent et/ou enfant n'est pas spécifiée pour la relation '{0}'. Il est nécessaire de spécifier les deux sources de données!</StiSourcesInAbsentDataRelationCheckLong>
     <StiSourcesInAbsentDataRelationCheckShort>Il n'y a pas de sources de données</StiSourcesInAbsentDataRelationCheckShort>
@@ -216,11 +216,11 @@
   <CheckDataSource>
     <StiCalculatedColumnRecursionCheckLong>La colonne calculée '{0}' de la source de données '{1}' a une expression avec une récursion. Il est impossible de référencer une colonne calculée dans sa propre expression.</StiCalculatedColumnRecursionCheckLong>
     <StiCalculatedColumnRecursionCheckShort>Expression récursive</StiCalculatedColumnRecursionCheckShort>
-    <StiNoNameDataSourceCheckLong>Le nom de la source de donnée n'est pas spécifié. Ce nom est utilisé pour créer une classe pour la source de données dans le code du rapport. Sans indiquer de nom, le moteur d'impression ne peut pas créer le code du rapport et le rapport ne sera pas compilé!</StiNoNameDataSourceCheckLong>
+    <StiNoNameDataSourceCheckLong>Le nom de la source de données n'est pas spécifié. Ce nom est utilisé pour créer une classe pour la source de données dans le code du rapport. Sans indiquer de nom, le moteur d'impression ne peut pas créer le code du rapport et le rapport ne sera pas compilé!</StiNoNameDataSourceCheckLong>
     <StiNoNameDataSourceCheckShort>Il n'y a pas de nom pour la source de données</StiNoNameDataSourceCheckShort>
-    <StiNoNameInSourceDataSourceCheckLong>Le champ Nom dans la source de la source de données '{0}' n'est pas rempli. Sans remplir ce champs, le moteur d'impression ne sera pas capable de trouver les données pour la source de données dans la base de données et le rapport ne sera pas rendu!</StiNoNameInSourceDataSourceCheckLong>
+    <StiNoNameInSourceDataSourceCheckLong>Le champ Nom dans la source de la source de données '{0}' n'est pas rempli. Sans remplir ce champ, le moteur d'impression ne sera pas capable de trouver les données pour la source de données dans la base de données et le rapport ne sera pas rendu!</StiNoNameInSourceDataSourceCheckLong>
     <StiNoNameInSourceDataSourceCheckShort>Le champ Nom dans la source de la source de données n'est pas rempli</StiNoNameInSourceDataSourceCheckShort>
-    <StiUndefinedDataSourceCheckLong>une source de données non définie '{0}' a été trouvée dans le rapport. Le moteur d'impression ne peut pas correctement traiter ce type de source de données! Il s'agit peut-être d'une source de données personnalisée. Ce rapport ne peut pas être rendu!</StiUndefinedDataSourceCheckLong>
+    <StiUndefinedDataSourceCheckLong>Une source de données non définie '{0}' a été trouvée dans le rapport. Le moteur d'impression ne peut pas correctement traiter ce type de source de données! Il s'agit peut-être d'une source de données personnalisée. Ce rapport ne peut pas être rendu!</StiUndefinedDataSourceCheckLong>
     <StiUndefinedDataSourceCheckShort>Source de données non définie</StiUndefinedDataSourceCheckShort>
   </CheckDataSource>
   <CheckGlobal>
@@ -234,16 +234,16 @@
     <StiValidSubscriptioRequiredCheckLong>Abonnement valide requis. Veuillez mettre à jour votre abonnement pour utiliser la version entièrement fonctionnelle de Stimulsoft Designer.</StiValidSubscriptioRequiredCheckLong>
   </CheckLicense>
   <CheckPage>
-    <StiLostPointsOnPageCheckLong>Des points perdus ont été trouvés sur la page '{0}' : {1}. Les point sont invisible et sont utilisés par les primitives suivantes: ligne verticale, rectangle et rectangle aux coins arrondis. Si le point ne correspond à aucun composant, il peut être supprimé.</StiLostPointsOnPageCheckLong>
+    <StiLostPointsOnPageCheckLong>Des points perdus ont été trouvés sur la page '{0}' : {1}. Les points sont invisibles et sont utilisés par les primitives suivantes: ligne verticale, rectangle et rectangle aux coins arrondis. Si le point ne correspond à aucun composant, il peut être supprimé.</StiLostPointsOnPageCheckLong>
     <StiLostPointsOnPageCheckShort>Points perdus</StiLostPointsOnPageCheckShort>
     <StiOrientationPageCheckLongLandscape>L'Orientation '{0}' de la page ne correspond pas à la taille spécifiée de la page. Habituellement, pour l’orientation Paysage, la largeur de la page doit être plus grande que la hauteur de la page. La largeur de la page est plus petite que la hauteur de la page. Cela peut causer des problèmes à l'impression.</StiOrientationPageCheckLongLandscape>
     <StiOrientationPageCheckLongPortrait>L'Orientation '{0}' de la page ne correspond pas à la taille spécifiée de la page. Habituellement, pour l’orientation Portrait, la largeur de la page doit être plus petite que la hauteur de la page. La largeur de la page est plus grande que la hauteur de la page. Cela peut causer des problèmes à l'impression.</StiOrientationPageCheckLongPortrait>
-    <StiOrientationPageCheckShort>Orientation '{0}'  de la page incorrecte.</StiOrientationPageCheckShort>
+    <StiOrientationPageCheckShort>Orientation '{0}' de la page incorrecte.</StiOrientationPageCheckShort>
   </CheckPage>
   <CheckReport>
     <StiCategoryRequestFromUserCheckLong>Les catégories de la variable '{0}' ne peuvent pas être affichées dans le panneau des paramètres du visualiseur car cela n'est possible que lorsque la propriété 'ParametersOrientation' du rapport est définie sur 'Vertical'.</StiCategoryRequestFromUserCheckLong>
     <StiCategoryRequestFromUserCheckShort>Affichage des catégories dans le panneau des paramètres</StiCategoryRequestFromUserCheckShort>
-    <StiCloudCompilationModeCheckLong>Le rapport doit être changé en mode d'interprétation.</StiCloudCompilationModeCheckLong>
+    <StiCloudCompilationModeCheckLong>Stimulsoft Cloud ne peut pas afficher l'aperçu de ce rapport en mode de compilation. Changez le rapport en mode d'interprétation.</StiCloudCompilationModeCheckLong>
     <StiCloudCompilationModeCheckShort>Le rapport est en mode compilation</StiCloudCompilationModeCheckShort>
     <StiCompilationErrorAssemblyCheckLong>Impossible de charger le fichier ou l'assemblage '{0}' ou une de ses dépendances.</StiCompilationErrorAssemblyCheckLong>
     <StiCompilationErrorCheck2Long>Une erreur de compilation a été trouvée dans la propriété '{1}' du composant '{2}' :</StiCompilationErrorCheck2Long>
@@ -254,12 +254,12 @@
     <StiCompilationWarningCheckShort>Un avertissement de compilation</StiCompilationWarningCheckShort>
     <StiDataSourceLoopingCheckLong>La bande de données '{0}' et la bande de données enfant '{1}' utilisent la même source de données '{2}'. Pour éviter une boucle, la bande de données enfant ne sera pas affichée.</StiDataSourceLoopingCheckLong>
     <StiDataSourceLoopingCheckShort>Une boucle de données est possible</StiDataSourceLoopingCheckShort>
-    <StiDuplicatedName2CheckLong>Il y a plusieurs composants nommés '{0}'.</StiDuplicatedName2CheckLong>
+    <StiDuplicatedName2CheckLong>Il y a plusieurs sources de données nommées '{0}'.</StiDuplicatedName2CheckLong>
     <StiDuplicatedName3CheckLong>Il existe plusieurs sources de données portant le nom '{0}' qui diffèrent par la casse.</StiDuplicatedName3CheckLong>
     <StiDuplicatedNameCheckLong>Il y a plusieurs composants nommés '{0}'.</StiDuplicatedNameCheckLong>
     <StiDuplicatedNameCheckShort>Des composants ont le même nom</StiDuplicatedNameCheckShort>
     <StiDuplicatedNameInSourceCheckShort>Doublons dans la source de données</StiDuplicatedNameInSourceCheckShort>
-    <StiDuplicatedNameInSourceInDataRelationReportCheckLong>Les  relations'{0}' ont été trouvées dans le rapport. Elles ont des valeurs égales ('{1}') dans le nom dans la source. Toutes les valeurs dans Nom dans la source devraient être uniques dans une relations d'une base de données! Il est nécessaire de corriger ces champs de ces relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
+    <StiDuplicatedNameInSourceInDataRelationReportCheckLong>Les relations '{0}' ont été trouvées dans le rapport. Elles ont des valeurs égales ('{1}') dans le nom dans la source. Toutes les valeurs dans Nom dans la source devraient être uniques dans une relation d'une base de données! Il est nécessaire de corriger ces champs de ces relations.</StiDuplicatedNameInSourceInDataRelationReportCheckLong>
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Doublons dans les relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Le nom du rapport '{0}' est le même que le nom de la source de données.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Le nom du rapport '{0}' est le même que le nom du composant.</StiDuplicatedReportNameCheckLong>
@@ -281,7 +281,7 @@
     <StiVariableNameCheckShort>Le nom de la variable est invalide.</StiVariableNameCheckShort>
     <StiVariableRecursionCheckLong>La variable '{0}' a une expression avec une récursion. Il est impossible de référencer une variable dans sa propre expression.</StiVariableRecursionCheckLong>
     <StiVariableRecursionCheckShort>Expression récursive</StiVariableRecursionCheckShort>
-    <StiVariableTypeCheckLong>Afin que les variables dépendante puissent fonctionner correctement, leurs types et le type de leurs colonnes doivent correspondre.</StiVariableTypeCheckLong>
+    <StiVariableTypeCheckLong>Afin que les variables dépendantes puissent fonctionner correctement, leurs types et le type de leurs colonnes doivent correspondre.</StiVariableTypeCheckLong>
     <StiVariableTypeCheckShort>Les types de variable ne correspondent pas.</StiVariableTypeCheckShort>
   </CheckVariable>
   <Font>
@@ -347,11 +347,11 @@
     <FrameworkVersion>Version du Framework</FrameworkVersion>
     <FullScreenViewer>Afficher l'aperçu dans une fenêtre plein écran</FullScreenViewer>
     <FullScreenViewerToolTip>La visionneuse avec le rapport sera affichée dans tout l'espace disponible de la fenêtre du navigateur.</FullScreenViewerToolTip>
-    <GetLibrariesFrom>Obtenier les bibiliothèques Stimulsoft depuis {0}</GetLibrariesFrom>
+    <GetLibrariesFrom>Obtenir les bibliothèques Stimulsoft depuis {0}</GetLibrariesFrom>
     <GetLibrariesFromToolTip>Toutes les bibliothèques et tous les scripts nécessaires seront connectés à partir du référentiel. Sinon, ils seront copiés dans le projet et connectés directement.</GetLibrariesFromToolTip>
     <GroupAddons>Ajouts</GroupAddons>
     <GroupConnections>Connexions de données</GroupConnections>
-    <GroupParameters>Parametres du rapport</GroupParameters>
+    <GroupParameters>Paramètres du rapport</GroupParameters>
     <HideOptions>Cacher les options</HideOptions>
     <IncludeFonts>Inclure les polices</IncludeFonts>
     <IncludeFontsToolTip>Les polices nécessaires au calcul correct des tailles des composants du rapport seront copiées et connectées au projet.</IncludeFontsToolTip>
@@ -361,14 +361,14 @@
     <IncludeLibrariesToStandaloneToolTip>Toutes les bibliothèques et tous les fichiers nécessaires seront inclus dans le fichier exécutable. Sinon, une archive ZIP sera créée.</IncludeLibrariesToStandaloneToolTip>
     <IncludeLicenseKey>Inclure la clé de licence</IncludeLicenseKey>
     <IncludeLicenseKeyToolTip>La clé de licence du compte de l'utilisateur actuellement autorisé sera intégrée au projet.</IncludeLicenseKeyToolTip>
-    <IncludeLocalization>Inclure la traduction</IncludeLocalization>
+    <IncludeLocalization>Inclure la localisation</IncludeLocalization>
     <IncludeLocalizationToolTip>La localisation sélectionnée sera copiée et connectée au projet.</IncludeLocalizationToolTip>
     <IncludeReportPackedStringToCode>Inclure le rapport en tant que chaîne dans le code</IncludeReportPackedStringToCode>
     <IncludeReportPackedStringToCodeToolTip>Le rapport sera enregistré en tant que chaîne Base64 directement dans le code du projet. Cela vous permet de vous débarrasser des fichiers supplémentaires.</IncludeReportPackedStringToCodeToolTip>
     <IncludeUITheme>Inclure le thème UI</IncludeUITheme>
     <IncludeUIThemeToolTip>Le thème de l'interface utilisateur sélectionné sera défini dans les paramètres du composant.</IncludeUIThemeToolTip>
     <JavaScriptFramework>Type de framework:</JavaScriptFramework>
-    <LicenseKeyTypeFile>Fiichier</LicenseKeyTypeFile>
+    <LicenseKeyTypeFile>Fichier</LicenseKeyTypeFile>
     <LicenseKeyTypeString>Chaîne</LicenseKeyTypeString>
     <LoadForm>Charger le formulaire depuis :</LoadForm>
     <LoadReport>Charger le rapport depuis:</LoadReport>
@@ -382,15 +382,15 @@
     <LoadReportResource>Ressource</LoadReportResource>
     <LoadReportStream>Flux</LoadReportStream>
     <LoadReportString>Chaîne</LoadReportString>
-    <ParametersFromReport>Utiliser la valeur depuis le raport</ParametersFromReport>
+    <ParametersFromReport>Utiliser la valeur depuis le rapport</ParametersFromReport>
     <ParametersFromReportToolTip>Les valeurs des paramètres définis dans le modèle de rapport seront utilisées.</ParametersFromReportToolTip>
-    <ParametersReplace>Remplacer la valeur depuis le code</ParametersReplace>
+    <ParametersReplace>Remplacer la valeur depuis le {0}code</ParametersReplace>
     <ParametersReplacePhpInfo>Le paramètre va être supprimé du dictionnaire du rapport et ne peut être utilisé que dans une requête SQL.</ParametersReplacePhpInfo>
     <ParametersReplaceToolTip>Il vous sera proposé de modifier les valeurs des paramètres du rapport à partir du code.</ParametersReplaceToolTip>
     <ParametersRequestFromUser>Demander à l'utilisateur</ParametersRequestFromUser>
     <ParametersRequestFromUserToolTip>Le paramètre de rapport sera demandé à l'utilisateur lors de la visualisation du rapport dans la fenêtre de visualisation.</ParametersRequestFromUserToolTip>
     <ProjectType>Type de projet :</ProjectType>
-    <Publish>Publiier</Publish>
+    <Publish>Publier</Publish>
     <PublishType>Type de publication du rapport:</PublishType>
     <PublishTypeForm>Type de publication du formulaire :</PublishTypeForm>
     <PublishTypeProject>Projet</PublishTypeProject>
@@ -402,15 +402,15 @@
     <RegDataOnlyForPreviewToolTip>Les données seront connectées au rapport uniquement au moment de l'aperçu.</RegDataOnlyForPreviewToolTip>
     <RegDataSynchronize>Synchroniser le dictionnaire du rapport</RegDataSynchronize>
     <RegDataSynchronizeToolTip>Après avoir connecté les données au rapport, le dictionnaire de données sera synchronisé - sources de données, colonnes et leurs types, liens de données.</RegDataSynchronizeToolTip>
-    <ReplaceConnectionString>Remplacer la chaine de connexion</ReplaceConnectionString>
+    <ReplaceConnectionString>Remplacer la chaîne de connexion</ReplaceConnectionString>
     <ReplacePathToData>Remplacer le chemin de la donnée</ReplacePathToData>
     <ReportAction>Que faire avec le rapport:</ReportAction>
-    <ReportErrors>Malheuresement, à cause d'erreurs, le rapport ne peut pas être publié !</ReportErrors>
+    <ReportErrors>Malheureusement, à cause d'erreurs, le rapport ne peut pas être publié !</ReportErrors>
     <SaveExportedPagesToArchive>Enregistrer toutes les pages dans une archive ZIP</SaveExportedPagesToArchive>
     <SaveExportedPagesToArchiveToolTip>Chaque page du rapport sera exportée au format d'image sélectionné, toutes les pages seront ajoutées dans une archive ZIP.</SaveExportedPagesToArchiveToolTip>
     <SaveExportedReportToFile>Enregistrer le rapport exporté dans un fichier</SaveExportedReportToFile>
     <SaveExportedReportToFileToolTip>Enregistrement du rapport exporté côté serveur dans le fichier spécifié. La fonction d'exportation retournera un résultat booléen.</SaveExportedReportToFileToolTip>
-    <SaveProjectPackage>Enregistrer le projet de paquet</SaveProjectPackage>
+    <SaveProjectPackage>Enregistrer le paquet du projet</SaveProjectPackage>
     <SaveStandalone>Enregistrer en autonome</SaveStandalone>
     <SaveStandalonePackage>Enregistrer le paquet autonome</SaveStandalonePackage>
     <SearchLibraries>Recherche des librairies...</SearchLibraries>
@@ -426,7 +426,7 @@
     <Use>Utiliser</Use>
     <UseCompilationCache>Utiliser le cache de compilation</UseCompilationCache>
     <UseCompilationCacheToolTip>Le rapport rendu sera enregistré dans un répertoire temporaire, ce qui vous permet d'accélérer son rendu et de réduire l'utilisation de la mémoire.</UseCompilationCacheToolTip>
-    <UseCompressedScripts>Utiliser lles scripts compressés</UseCompressedScripts>
+    <UseCompressedScripts>Utiliser les scripts compressés</UseCompressedScripts>
     <UseCompressedScriptsToolTip>Des scripts compressés seront utilisés à la place des scripts normaux. Cela vous permet de réduire leur taille, mais il faut un certain temps pour décompresser lors de l'exécution.</UseCompressedScriptsToolTip>
     <UseHtmlTemplate>Utiliser un modèle HTML</UseHtmlTemplate>
     <UseHtmlTemplateToolTip>Utilisez un modèle HTML pour afficher le composant. Cela vous permet de placer d'autres éléments sur la page et d'utiliser des événements JavaScript.</UseHtmlTemplateToolTip>
@@ -447,17 +447,17 @@
     <StiBusinessObjectDifferentColumnCompareLong>La colonne '{0}' de l'objet métier '{1}' du rapport '{2}' n'est pas présente dans l'objet métier '{3}' du rapport '{4}'.</StiBusinessObjectDifferentColumnCompareLong>
     <StiBusinessObjectDifferentColumnCompareShort>Pas de colonnes dans l'objet métier.</StiBusinessObjectDifferentColumnCompareShort>
     <StiBusinessObjectPropertiesCompareComment>Affiche les propriétés ayant des valeurs différentes dans des objets métier identiques.</StiBusinessObjectPropertiesCompareComment>
-    <StiBusinessObjectPropertiesCompareLong>Dans le rapport '{0}' la propriété '{2}' dde l'objet métier '{1}' est différente de la valeur de la propriété '{5}' de l'objet métier '{4}' du rapport '{3}'.</StiBusinessObjectPropertiesCompareLong>
+    <StiBusinessObjectPropertiesCompareLong>Dans le rapport '{0}' la propriété '{2}' de l'objet métier '{1}' est différente de la valeur de la propriété '{5}' de l'objet métier '{4}' du rapport '{3}'.</StiBusinessObjectPropertiesCompareLong>
     <StiBusinessObjectPropertiesCompareShort>Différentes valeurs de propriétés des objets métier.</StiBusinessObjectPropertiesCompareShort>
     <StiChangeInReportPropertyActionDescription>Égaliser les deux valeurs des propriétés à '{0}'</StiChangeInReportPropertyActionDescription>
     <StiComponentPropertiesCompareComment>Affiche les propriétés ayant des valeurs différentes dans des composants identiques.</StiComponentPropertiesCompareComment>
     <StiComponentPropertiesCompareLong>La propriété '{2}' du composant '{1}' dans le rapport '{0}' est différente de la valeur de la propriété '{5}' du composant '{4}' dans le rapport '{3}'.</StiComponentPropertiesCompareLong>
     <StiComponentPropertiesCompareShort>Différentes valeurs de propriétés du composant.</StiComponentPropertiesCompareShort>
-    <StiCopyAllActionDescription>Copier tout le rapport '{0}'</StiCopyAllActionDescription>
+    <StiCopyAllActionDescription>Copier tout vers le rapport '{0}'</StiCopyAllActionDescription>
     <StiCopyBusinessDataColumnActionsDescription>Copier la colonne dans l'objet métier</StiCopyBusinessDataColumnActionsDescription>
     <StiCopyBusinessObjectActionDescription>Copier l'objet métier</StiCopyBusinessObjectActionDescription>
     <StiCopyComponentActionDescription>Copier le composant</StiCopyComponentActionDescription>
-    <StiCopyDataColumnActionDescription>Copier la colonne de la source de données</StiCopyDataColumnActionDescription>
+    <StiCopyDataColumnActionDescription>Copier la colonne dans la source de données</StiCopyDataColumnActionDescription>
     <StiCopyDataRelationActionDescription>Copier la relation de données</StiCopyDataRelationActionDescription>
     <StiCopyDataSourceActionDescription>Copier la source de données</StiCopyDataSourceActionDescription>
     <StiCopyStyleActionDescription>Copier le Style</StiCopyStyleActionDescription>
@@ -467,7 +467,7 @@
     <StiDataRelationPropertiesCompareShort>Différentes valeurs de propriétés de relations.</StiDataRelationPropertiesCompareShort>
     <StiDataSourceDifferentColumnCompareComment>Affiche les colonnes de sources de données identiques présentes dans un seul rapport.</StiDataSourceDifferentColumnCompareComment>
     <StiDataSourceDifferentColumnCompareLong>La colonne '{0}' de la source de données '{1}' du rapport '{2}' n'est pas présente dans la source de données '{3}' du rapport '{4}'.</StiDataSourceDifferentColumnCompareLong>
-    <StiDataSourceDifferentColumnCompareShort>Pas de colonnes dans la source de données</StiDataSourceDifferentColumnCompareShort>
+    <StiDataSourceDifferentColumnCompareShort>Pas de colonnes dans la source de données.</StiDataSourceDifferentColumnCompareShort>
     <StiDataSourcePropertiesCompareComment>Affiche les propriétés ayant des valeurs différentes dans des sources de données identiques.</StiDataSourcePropertiesCompareComment>
     <StiDataSourcePropertiesCompareLong>La propriété '{2}' de la source de données '{1}' du rapport '{0}' est différente de la valeur de la propriété '{5}' de la source de données '{4}' du rapport '{3}'.</StiDataSourcePropertiesCompareLong>
     <StiDataSourcePropertiesCompareShort>Différentes valeurs de propriétés des sources de données.</StiDataSourcePropertiesCompareShort>
@@ -484,7 +484,7 @@
     <StiReportDifferentBusinessObjectCompareShort>Pas d'objets métier.</StiReportDifferentBusinessObjectCompareShort>
     <StiReportDifferentComponentsCompareComment>Affiche les composants présents dans un seul rapport.</StiReportDifferentComponentsCompareComment>
     <StiReportDifferentComponentsCompareLong>Le composant '{0}' n'est pas présent dans le rapport '{1}'.</StiReportDifferentComponentsCompareLong>
-    <StiReportDifferentComponentsCompareMessag1>Il n'y a pas de composant '{1}' pour la propriété Conteneur du Clone  '{0}'.</StiReportDifferentComponentsCompareMessag1>
+    <StiReportDifferentComponentsCompareMessag1>Il n'y a pas de composant '{1}' pour la propriété Conteneur du Clone '{0}'.</StiReportDifferentComponentsCompareMessag1>
     <StiReportDifferentComponentsCompareMessag2>Il n'y a pas de composant '{1}' pour la propriété Composant Maître de la Bande de Données '{0}'.</StiReportDifferentComponentsCompareMessag2>
     <StiReportDifferentComponentsCompareShort>Pas de composants.</StiReportDifferentComponentsCompareShort>
     <StiReportDifferentDataRelationCompareComment>Affiche les relations entre les sources de données présentes dans un seul rapport.</StiReportDifferentDataRelationCompareComment>
@@ -492,7 +492,7 @@
     <StiReportDifferentDataRelationCompareShort>Pas de relations.</StiReportDifferentDataRelationCompareShort>
     <StiReportDifferentDataSourceCompareComment>Affiche les sources de données présentes dans un seul rapport.</StiReportDifferentDataSourceCompareComment>
     <StiReportDifferentDataSourceCompareLong>La source de données '{0}' n'est pas présente dans le rapport '{1}'.</StiReportDifferentDataSourceCompareLong>
-    <StiReportDifferentDataSourceCompareShort>Pas de sources de données</StiReportDifferentDataSourceCompareShort>
+    <StiReportDifferentDataSourceCompareShort>Pas de sources de données.</StiReportDifferentDataSourceCompareShort>
     <StiReportDifferentStyleCompareComment>Affiche les styles présents dans un seul rapport.</StiReportDifferentStyleCompareComment>
     <StiReportDifferentStyleCompareLong>Le style '{0}' n'est pas présent dans le rapport '{1}'.</StiReportDifferentStyleCompareLong>
     <StiReportDifferentStyleCompareShort>Pas de styles.</StiReportDifferentStyleCompareShort>
@@ -503,7 +503,7 @@
     <StiReportPropertiesCompareLong>Dans le rapport '{0}' la propriété '{1}' ne correspond pas à la valeur de la propriété '{3}' du rapport '{2}'.</StiReportPropertiesCompareLong>
     <StiReportPropertiesCompareShort>Différentes valeurs de propriétés du rapport.</StiReportPropertiesCompareShort>
     <StiStylePropertiesCompareComment>Affiche les propriétés ayant des valeurs différentes dans des styles identiques.</StiStylePropertiesCompareComment>
-    <StiStylePropertiesCompareLong>La propriété '{2}' du style '{1}' du rapport '{0}' est différente de la valeur de la propriété '{5}' du style '{4}' du rapport '{3 }'.</StiStylePropertiesCompareLong>
+    <StiStylePropertiesCompareLong>La propriété '{2}' du style '{1}' du rapport '{0}' est différente de la valeur de la propriété '{5}' du style '{4}' du rapport '{3}'.</StiStylePropertiesCompareLong>
     <StiStylePropertiesCompareShort>Différentes valeurs de propriétés de styles.</StiStylePropertiesCompareShort>
     <StiVariablePropertiesCompareComment>Affiche les propriétés ayant des valeurs différentes dans des variables identiques.</StiVariablePropertiesCompareComment>
     <StiVariablePropertiesCompareLong>La propriété '{2}' de la variable '{1}' du rapport '{0}' est différente de la valeur de la propriété '{5}' de la variable '{4}' du rapport '{3}'.</StiVariablePropertiesCompareLong>
@@ -522,7 +522,7 @@
     <DataRelations>Relations de données</DataRelations>
     <DataSources>Sources de données</DataSources>
     <DataSourcesDataColumns>Sources de données de colonnes de données</DataSourcesDataColumns>
-    <EnterPassword>Entrez un mot de passe</EnterPassword>
+    <EnterPassword>Entrez le mot de passe pour ouvrir le fichier.</EnterPassword>
     <FirstReport>Premier rapport</FirstReport>
     <LongMessage>Message long</LongMessage>
     <Next>Suivant</Next>
@@ -536,7 +536,7 @@
     <SelectReports>Sélectionner les rapports</SelectReports>
     <StatusHigh>Haut</StatusHigh>
     <StatusLow>Bas</StatusLow>
-    <StatusMiddle>Milieux</StatusMiddle>
+    <StatusMiddle>Milieu</StatusMiddle>
     <Styles>Styles</Styles>
     <Variables>Variables</Variables>
     <WarningFile1EqualFile2>Attention! Le fichier 'Premier rapport' est égal au fichier 'Deuxième rapport'.</WarningFile1EqualFile2>
@@ -562,7 +562,7 @@
     <RadarStyle>Style de surface radar.</RadarStyle>
     <ReverseHor>Une valeur indiquant que toutes les valeurs sur l'axe horizontal sont inversées.</ReverseHor>
     <ReverseVert>Une valeur indiquant que toutes les valeurs sur l'axe vertical sont inversées.</ReverseVert>
-    <ShowShadow>Une valeur indiquant si il faut dessiner une ombre.</ShowShadow>
+    <ShowShadow>Une valeur indiquant s'il faut dessiner une ombre.</ShowShadow>
     <XAxis>Paramètres de l'axe X.</XAxis>
     <XTopAxis>Paramètres de l'axe X du haut.</XTopAxis>
     <YAxis>Paramètres de l'axe Y.</YAxis>
@@ -576,8 +576,8 @@
     <ArrowWidth>Le facteur de largeur de la flèche.</ArrowWidth>
   </StiArrowShapeType>
   <StiAustraliaPost4StateBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiAustraliaPost4StateBarCodeType>
   <StiAxis>
     <ArrowStyle>Style de la flèche de l'axe.</ArrowStyle>
@@ -586,7 +586,7 @@
     <LineColor>Couleur de ligne qui sera utilisée pour dessiner l'axe.</LineColor>
     <LineStyle>Style de ligne de l'axe.</LineStyle>
     <LineWidth>Largeur de ligne qui sera utilisée pour dessiner l'axe.</LineWidth>
-    <LogarithmicScale>Une valeur indiquant qu'un échelle logarithmique sera utilisée.</LogarithmicScale>
+    <LogarithmicScale>Une valeur indiquant qu'une échelle logarithmique sera utilisée.</LogarithmicScale>
     <Range>Paramètres de la plage de l'axe.</Range>
     <RangeScrollEnabled>Une valeur indiquant si la plage de l'axe peut défiler.</RangeScrollEnabled>
     <ShowEdgeValues>Une valeur indiquant que le premier et le dernier argument seront toujours affichés.</ShowEdgeValues>
@@ -602,10 +602,10 @@
   <StiAxisDateTimeStep>
     <Interpolation>Une valeur indiquant que les valeurs seront interpolées.</Interpolation>
     <NumberOfValues>Une valeur indiquant combien de valeurs seront affichées dans un pas.</NumberOfValues>
-    <Step>Une valeur indiquant avec quel valeur de pas de temps les valeurs seront affichées.</Step>
+    <Step>Une valeur indiquant avec quelle valeur de pas de temps les valeurs seront affichées.</Step>
   </StiAxisDateTimeStep>
   <StiAxisInteraction>
-    <RangeScrollEnabled>une valeur indiquant si la plage d'un axe peut défiler.</RangeScrollEnabled>
+    <RangeScrollEnabled>Une valeur indiquant si la plage de l'axe peut défiler.</RangeScrollEnabled>
   </StiAxisInteraction>
   <StiAxisLabels>
     <Angle>Un angle de rotation de l'étiquette.</Angle>
@@ -614,6 +614,7 @@
     <Font>Police de dessin des étiquettes.</Font>
     <Format>Format qui sera utilisé pour formater les valeurs des arguments.</Format>
     <Placement>Mode de positionnement des étiquettes sur l'axe.</Placement>
+    <ShowAsIndex>Une valeur indiquant que les étiquettes de l'axe affichent la position ordinale du point (1..N) au lieu du texte de l'argument.</ShowAsIndex>
     <Step>Une valeur indiquant à quel pas les étiquettes seront affichées sur l'axe.</Step>
     <TextAfter>Une chaîne qui sera ajoutée après l'argument.</TextAfter>
     <TextAlignment>Alignement du texte de l'étiquette.</TextAlignment>
@@ -636,7 +637,7 @@
     <Visible>Visibilité des coches majeures.</Visible>
   </StiAxisTicks>
   <StiAxisTitle>
-    <Alignment>alignement du texte du titre.</Alignment>
+    <Alignment>Alignement du texte du titre.</Alignment>
     <Antialiasing>Une valeur qui contrôle le mode d'antialiasing.</Antialiasing>
     <Color>Couleur de dessin des titres.</Color>
     <Direction>Sens du texte du titre.</Direction>
@@ -655,8 +656,8 @@
   <StiBandInteraction>
     <Collapsed>Une expression booléenne indiquant si un groupe, pendant le rendu, doit être replié ou non.</Collapsed>
     <CollapseGroupFooter>Une valeur indiquant si le pied de groupe doit être replié.</CollapseGroupFooter>
-    <CollapsingEnabled>Une valeur indiquant si il est autorisé de replier les données.</CollapsingEnabled>
-    <SelectionEnabled>Une valeur indiquant si il est autorisé de sélectionner une ligne de données.</SelectionEnabled>
+    <CollapsingEnabled>Une valeur indiquant s'il est autorisé de replier les données.</CollapsingEnabled>
+    <SelectionEnabled>Une valeur indiquant s'il est autorisé de sélectionner une ligne de données.</SelectionEnabled>
   </StiBandInteraction>
   <StiBarCode>
     <Angle>Angle de rotation du code barre.</Angle>
@@ -672,10 +673,10 @@
     <Zoom>Une valeur à multiplier avec la taille.</Zoom>
   </StiBarCode>
   <StiBarCodeTypeService>
-    <AddClearZone>une valeur indiquant si la Clear Zone sera affichée.</AddClearZone>
-    <AspectRatio>une valeur qui définit le ratio entre les cotés horizontaux et verticaux.</AspectRatio>
-    <AutoDataColumns>Une valeur indiquant le nombre de colonnes qui seront calculées automatiquement.</AutoDataColumns>
-    <AutoDataRows>Une valeur indiquant le nombre de lignes qui seront calculées automatiquement.</AutoDataRows>
+    <AddClearZone>Une valeur indiquant si la Clear Zone sera affichée.</AddClearZone>
+    <AspectRatio>Une valeur qui définit le ratio entre les côtés horizontaux et verticaux.</AspectRatio>
+    <AutoDataColumns>Une valeur indiquant que le nombre de colonnes sera calculé automatiquement.</AutoDataColumns>
+    <AutoDataRows>Une valeur indiquant que le nombre de lignes sera calculé automatiquement.</AutoDataRows>
     <Checksum>Mode de checksum.</Checksum>
     <CheckSum>Mode de checksum.</CheckSum>
     <CheckSum1>Mode de CheckSum1.</CheckSum1>
@@ -688,7 +689,7 @@
     <Height>Facteur de hauteur du code barre.</Height>
     <MatrixSize>Taille de la matrice.</MatrixSize>
     <Module>Largeur de l'élément le plus fin du code barre.</Module>
-    <PrintVerticalBars>Une valeur indiquant si il faut imprimer ou non les sections verticales.</PrintVerticalBars>
+    <PrintVerticalBars>Une valeur indiquant s'il faut imprimer ou non les sections verticales.</PrintVerticalBars>
     <Ratio>Une valeur indiquant le ratio WideToNarrow.</Ratio>
     <RatioY>Ratio vertical du code barre. La valeur doit être comprise entre 2 et 5.</RatioY>
     <ShowQuietZoneIndicator>Une valeur indiquant si le code barre affichera l'indicateur des espacements avant impression ou non.</ShowQuietZoneIndicator>
@@ -700,12 +701,12 @@
   <StiBaseStyle>
     <AllowUseBackColor>Une valeur indiquant si le moteur peut utiliser la couleur d'arrière plan.</AllowUseBackColor>
     <AllowUseBorderFormatting>Une valeur indiquant si le moteur peut utiliser la mise en forme de la bordure.</AllowUseBorderFormatting>
-    <AllowUseBorderSides>Une valeur indiquant si le moteur peut utiliser les cotés de bordure.</AllowUseBorderSides>
-    <AllowUseBorderSidesFromLocation>Une valeur indiquant si le moteur peut définir les cotés de bordure d'un composant dépendant de la position.</AllowUseBorderSidesFromLocation>
+    <AllowUseBorderSides>Une valeur indiquant si le moteur peut utiliser les côtés de bordure.</AllowUseBorderSides>
+    <AllowUseBorderSidesFromLocation>Une valeur indiquant si le moteur peut définir les côtés de bordure d'un composant dépendant de la position.</AllowUseBorderSidesFromLocation>
     <AllowUseBrush>Une valeur indiquant si le moteur peut utiliser la mise en forme de la brosse.</AllowUseBrush>
     <AllowUseFont>Une valeur indiquant si le moteur peut utiliser la mise en forme de la police.</AllowUseFont>
     <AllowUseForeColor>Une valeur indiquant si le moteur peut utiliser la couleur.</AllowUseForeColor>
-    <AllowUseHorAlignment>Une valeur indiquant si le moteur utiliser la mise en forme de l'alignement horizontal.</AllowUseHorAlignment>
+    <AllowUseHorAlignment>Une valeur indiquant si le moteur peut utiliser la mise en forme de l'alignement horizontal.</AllowUseHorAlignment>
     <AllowUseImage>Une valeur indiquant si le moteur peut utiliser la mise en forme de l'image.</AllowUseImage>
     <AllowUseTextBrush>Une valeur indiquant si le moteur peut utiliser la mise en forme de la brosse.</AllowUseTextBrush>
     <AllowUseTextOptions>Une valeur indiquant si le moteur peut utiliser la mise en forme des options de texte.</AllowUseTextOptions>
@@ -713,7 +714,7 @@
     <AxisLabelsColor>Couleur des étiquettes.</AxisLabelsColor>
     <AxisLineColor>Couleur des lignes des axes.</AxisLineColor>
     <AxisTitleColor>Couleur du titre.</AxisTitleColor>
-    <BackColor>Couleur d'arrière plan.</BackColor>
+    <BackColor>Couleur d'arrière-plan.</BackColor>
     <BasicStyleColor>Couleur de base.</BasicStyleColor>
     <Border>Bordure du composant.</Border>
     <Brush>Brosse pour le remplissage.</Brush>
@@ -725,24 +726,24 @@
     <Conditions>Collection de conditions.</Conditions>
     <Description>Description.</Description>
     <Font>Police.</Font>
-    <ForeColor>Couleur d'arrière plan.</ForeColor>
+    <ForeColor>Couleur de premier plan.</ForeColor>
     <GridLinesHorColor>Couleur des lignes de grille horizontales.</GridLinesHorColor>
     <GridLinesVertColor>Couleur des lignes de grille verticales.</GridLinesVertColor>
-    <HorAlignment>alignement horizontal.</HorAlignment>
+    <HorAlignment>Alignement horizontal.</HorAlignment>
     <Image>Image pour renseigner la propriété image du composant.</Image>
     <InterlacingHorBrush>Brosse utilisée pour dessiner la barre d'entrelacement horizontale.</InterlacingHorBrush>
     <InterlacingVertBrush>Brosse utilisée pour dessiner la barre d'entrelacement verticale.</InterlacingVertBrush>
     <LegendBorderColor>Couleur de bordure.</LegendBorderColor>
     <LegendBrush>Brosse d'arrière plan de la légende.</LegendBrush>
-    <LegendLabelsColor>couleur des étiquettes.</LegendLabelsColor>
+    <LegendLabelsColor>Couleur des étiquettes.</LegendLabelsColor>
     <LegendTitleColor>Couleur du titre de la légende.</LegendTitleColor>
     <Name>Nom du style.</Name>
     <SeriesLabelsBorderColor>Couleur de la bordure des étiquettes de séries.</SeriesLabelsBorderColor>
     <SeriesLabelsBrush>Brosse pour remplir la surface des étiquettes de séries.</SeriesLabelsBrush>
-    <SeriesLabelsColor>Couleur d'arrière plan des étiquettes de séries.</SeriesLabelsColor>
+    <SeriesLabelsColor>Couleur de premier plan des étiquettes de séries.</SeriesLabelsColor>
     <StyleColors>Liste de couleurs utilisées pour dessiner les séries d'un graphique.</StyleColors>
     <TextBrush>Brosse pour dessiner le texte.</TextBrush>
-    <VertAlignment>alignement vertical.</VertAlignment>
+    <VertAlignment>Alignement vertical.</VertAlignment>
   </StiBaseStyle>
   <StiBorder>
     <Color>Couleur de la bordure.</Color>
@@ -752,7 +753,7 @@
     <Side>Côtés.</Side>
     <Size>Taille de la bordure.</Size>
     <Style>Style de la bordure.</Style>
-    <Topmost>Une valeur indiquant si les bordures seront dessinées au dessous de tous les composants.</Topmost>
+    <Topmost>Une valeur indiquant si les bordures seront dessinées au-dessus de tous les composants.</Topmost>
   </StiBorder>
   <StiBorderSide>
     <Color>Couleur de la bordure.</Color>
@@ -771,7 +772,7 @@
     <DialogResult>Valeur retournée à la fenêtre parente quand le bouton est cliqué.</DialogResult>
     <Image>Image affichée sur le bouton.</Image>
     <ImageAlign>Alignement de l'image sur le bouton.</ImageAlign>
-    <Text>Texte du bouton</Text>
+    <Text>Texte du bouton.</Text>
     <TextAlign>Alignement du texte sur le bouton.</TextAlign>
   </StiButtonControl>
   <StiCandlestickSeries>
@@ -837,6 +838,7 @@
     <Color>Couleur de dessin des étiquettes.</Color>
     <Font>Police de dessin des étiquettes.</Font>
     <Placement>Mode de positionnement des étiquettes sur l'axe.</Placement>
+    <ShowAsIndex>Une valeur indiquant que les étiquettes de l'axe affichent la position ordinale du point (1..N) au lieu du texte de l'argument.</ShowAsIndex>
     <Step>Une valeur indiquant à quel pas les étiquettes seront affichées sur l'axe.</Step>
     <TextAfter>Une chaîne qui sera ajoutée après l'argument.</TextAfter>
     <TextAlignment>Alignement du texte de l'étiquette.</TextAlignment>
@@ -848,7 +850,7 @@
     <Minimum>Valeur minimum de la plage de l'axe.</Minimum>
   </StiChartAxisRange>
   <StiChartAxisTitle>
-    <Alignment>alignement du texte du titre.</Alignment>
+    <Alignment>Alignement du texte du titre.</Alignment>
     <Color>Couleur de dessin des titres.</Color>
     <Font>Police de dessin des titres.</Font>
     <Position>Position du texte du titre.</Position>
@@ -858,7 +860,7 @@
   <StiChartElement>
     <Area>Surface du graphique.</Area>
     <Arguments>Arguments du graphique.</Arguments>
-    <CloseValues>Fermer les valeurs du graphique.</CloseValues>
+    <CloseValues>Valeurs de fermeture du graphique.</CloseValues>
     <ColorEach />
     <ConstantLines>Paramètres des lignes constantes.</ConstantLines>
     <EndValues>Valeurs de fin du graphique.</EndValues>
@@ -867,13 +869,13 @@
     <Labels>Liste des étiquettes des séries.</Labels>
     <Legend>Paramètres de la légende.</Legend>
     <LowValues>Valeurs basses du graphique.</LowValues>
-    <Series>Graphique en séries.</Series>
+    <Series>Séries du graphique.</Series>
     <Style>Style du graphique.</Style>
     <TextFormat>Format du texte.</TextFormat>
     <Title>Titre du graphique.</Title>
     <TrendLines>Paramètres de ligne de tendance.</TrendLines>
     <Values>Valeurs du graphique.</Values>
-    <Weights>Poid des valeurs du graphique.</Weights>
+    <Weights>Poids des valeurs du graphique.</Weights>
   </StiChartElement>
   <StiChartGridLines>
     <Color>Couleur des lignes majeures.</Color>
@@ -894,8 +896,8 @@
   <StiChartLegend>
     <Columns>Nombre de colonnes.</Columns>
     <Direction>Sens pour le dessin de séries dans la légende.</Direction>
-    <HorAlignment>alignement horizontal de la légende.</HorAlignment>
-    <VertAlignment>alignement vertical de la légende.</VertAlignment>
+    <HorAlignment>Alignement horizontal de la légende.</HorAlignment>
+    <VertAlignment>Alignement vertical de la légende.</VertAlignment>
     <Visible>Visibilité de la légende.</Visible>
   </StiChartLegend>
   <StiChartLegendLabels>
@@ -905,7 +907,7 @@
   <StiChartLegendTitle>
     <Color>Couleur du titre de al légende.</Color>
     <Font>Police du titre de la légende.</Font>
-    <Text>Un titre texte de légende.</Text>
+    <Text>Texte du titre de la légende.</Text>
   </StiChartLegendTitle>
   <StiChartStyle>
     <ChartAreaShowShadow>La propriété définit si l'ombre de la zone sera affichée ou non.</ChartAreaShowShadow>
@@ -923,8 +925,8 @@
     <GridLineColor>Couleur des lignes de grille.</GridLineColor>
     <GridLinesHor>Visibilité des lignes de grille horizontales.</GridLinesHor>
     <GridLinesVert>Visibilité des lignes de grille verticales.</GridLinesVert>
-    <GridOutline>Visibilité des contours</GridOutline>
-    <MarkerVisible>Visibilité des lignes des marqueurs.</MarkerVisible>
+    <GridOutline>Visibilité du contour de la grille.</GridOutline>
+    <MarkerVisible>Visibilité des marqueurs.</MarkerVisible>
     <NegativeSeriesColors>Une liste de couleurs qui seront utilisées pour dessiner des séries avec des valeurs négatives.</NegativeSeriesColors>
     <SeriesColors>Une liste de couleurs qui seront utilisées pour dessiner des séries.</SeriesColors>
     <Visible>Visibilité de la table.</Visible>
@@ -945,7 +947,7 @@
     <CheckStyleForTrue>Style de coche pour la valeur Vrai.</CheckStyleForTrue>
     <ContourColor>Couleur de contour.</ContourColor>
     <ExcelValue>Expression pour exporter la valeur vers Excel.</ExcelValue>
-    <GetCheckedEvent>Se produit quand la case est cochée</GetCheckedEvent>
+    <GetCheckedEvent>Se produit quand la case est cochée.</GetCheckedEvent>
     <Size>Taille du contour.</Size>
     <Values>Chaîne décrivant les valeurs vrai et faux.</Values>
   </StiCheckBox>
@@ -963,7 +965,7 @@
     <ItemsBinding>Liaison de données pour les éléments.</ItemsBinding>
     <SelectedIndexBinding>Liaison de données pour l'indice de l'élément sélectionné.</SelectedIndexBinding>
     <SelectedIndexChangedEvent>Se produit quand l'élément sélectionné a changé.</SelectedIndexChangedEvent>
-    <SelectedItemBinding>Liaison de données pour l'élément sélectionné..</SelectedItemBinding>
+    <SelectedItemBinding>Liaison de données pour l'élément sélectionné.</SelectedItemBinding>
     <SelectedValueBinding>Liaison de données pour la valeur de l'élément sélectionné.</SelectedValueBinding>
     <SelectionMode>Valeur spécifiant le mode de sélection.</SelectionMode>
     <Sorted>Valeur indiquant si les éléments sont triés par ordre alphabétique.</Sorted>
@@ -974,7 +976,7 @@
   </StiChildBand>
   <StiClone>
     <Container>Conteneur clone.</Container>
-    <ScaleHor>Une valeur indiquant que le contenu du conteneur sera agrandit ou réduit.</ScaleHor>
+    <ScaleHor>Une valeur indiquant que le contenu du conteneur sera agrandi ou réduit.</ScaleHor>
   </StiClone>
   <StiClusteredColumnArea3D>
     <SideBySide>Définit le mode d'agencement des éléments graphiques du graphique pour chaque argument - côte à côte ou le long de l'axe Z.</SideBySide>
@@ -1037,7 +1039,7 @@
   <StiColumnSize>
     <MaxWidth>Obtient ou définit une largeur maximale de la colonne de table.</MaxWidth>
     <MinWidth>Obtient ou définit une largeur minimale de la colonne de table.</MinWidth>
-    <Width>Obtient ou définit la largeur spécifiée pour la colonne du tableau. La largeur sera calculée automatiquement par l'élément table si une valeur égale à zéro.</Width>
+    <Width>Obtient ou définit la largeur spécifiée pour la colonne du tableau. La largeur sera calculée automatiquement par l'élément table si la valeur est égale à zéro.</Width>
   </StiColumnSize>
   <StiComboBoxControl>
     <DropDownStyle>Valeur spécifiant le style.</DropDownStyle>
@@ -1057,17 +1059,17 @@
   <StiComponent>
     <AfterPrintEvent>Se produit après l'impression du composant.</AfterPrintEvent>
     <Alias>Un texte qui sera affiché à la place du nom du composant. Si le texte n'est pas défini, alors le nom sera affiché.</Alias>
-    <Anchor>Obtiens ou définit une valeur indiquant le mode d'ancrage de la position du composant par rapport à la taille du composant parent.</Anchor>
+    <Anchor>Obtient ou définit une valeur indiquant le mode d'ancrage de la position du composant par rapport à la taille du composant parent.</Anchor>
     <BackColor>La couleur d'arrière-plan du composant.</BackColor>
     <BeforePrintEvent>Se produit avant l'impression du composant.</BeforePrintEvent>
     <Bookmark>Une expression pour définir le marque page du composant.</Bookmark>
     <Border>Bordure du composant.</Border>
     <Brush>Style de remplissage du composant.</Brush>
     <BusinessObject>Objet métier utilisé pour obtenir les données.</BusinessObject>
-    <CanBreak>Une valeur indiquant que le composant peut casser son contenu sur plusieurs pages.</CanBreak>
+    <CanBreak>Une valeur indiquant si le composant peut casser son contenu sur plusieurs pages.</CanBreak>
     <CanGrow>Une valeur indiquant que cet objet peut s'agrandir.</CanGrow>
     <CanShrink>Une valeur indiquant que cet objet peut se réduire.</CanShrink>
-    <CellDockStyle>Type d'ancrage dans une cellule</CellDockStyle>
+    <CellDockStyle>Type d'ancrage dans une cellule.</CellDockStyle>
     <CellType>Type du contenu de cellule.</CellType>
     <CheckAlignment>Détermine l'emplacement de la vérification à l'intérieur du composant.</CheckAlignment>
     <CheckBrush>Le pinceau de vérification du composant.</CheckBrush>
@@ -1091,7 +1093,7 @@
     <ExceedMargins>Obtient ou définit une valeur pour dépasser les marges de l'arrière-plan du composant.</ExceedMargins>
     <FilterMode>Mode de filtre.</FilterMode>
     <FilterOn>Une valeur indiquant que le filtre est activé.</FilterOn>
-    <Filters>collection de filtres de données.</Filters>
+    <Filters>Collection de filtres de données.</Filters>
     <FixedWidth>Une valeur indiquant que la cellule aura une largeur fixe.</FixedWidth>
     <Font>La police utilisée pour afficher le texte dans le contrôle.</Font>
     <ForeColor>La couleur de premier plan de ce composant, qui est utilisée pour afficher le texte.</ForeColor>
@@ -1100,7 +1102,7 @@
     <GetHyperlinkEvent>Se produit pour obtenir le lien hypertexte du composant.</GetHyperlinkEvent>
     <GetTagEvent>Se produit pour obtenir l'étiquette du composant.</GetTagEvent>
     <GetToolTipEvent>Se produit pour obtenir l'infobulle du composant.</GetToolTipEvent>
-    <GrowToHeight>Une valeur indiquant que le hauteur de ce composant augmente/réduit jusqu'au bas du conteneur.</GrowToHeight>
+    <GrowToHeight>Une valeur indiquant que la hauteur de ce composant augmente/réduit jusqu'au bas du conteneur.</GrowToHeight>
     <Height>Hauteur du composant.</Height>
     <HorAlignment>Alignement horizontal.</HorAlignment>
     <Hover>L'état de survol lorsqu'un utilisateur a placé un curseur au-dessus du composant.</Hover>
@@ -1146,7 +1148,7 @@
     <VisualStates>Gère les différents états visuels du composant.</VisualStates>
     <Watermark>Le filigrane utilisé pour le composant.</Watermark>
     <Width>Largeur du composant.</Width>
-    <WordWrap>Indique que la zone de texte multiline coupe ou non les mots.</WordWrap>
+    <WordWrap>Indique que la zone de texte multiligne coupe ou non les mots.</WordWrap>
   </StiComponent>
   <StiConstantLines>
     <Antialiasing>Une valeur qui contrôle le mode d'antialiasing.</Antialiasing>
@@ -1181,7 +1183,7 @@
     <GetDisplayCrossValueEvent>Se produit pour obtenir une valeur à afficher.</GetDisplayCrossValueEvent>
     <HideZeros>Valeur indiquant si les zéros doivent être affichés.</HideZeros>
     <KeepMergedCellsTogether>Une valeur indiquant que les cellules fusionnées ne seront pas séparées sur la page suivante.</KeepMergedCellsTogether>
-    <MergeHeaders>Valeur indiquant si le valeurs égales des en-têtes doivent ter fusionnées en une seule.</MergeHeaders>
+    <MergeHeaders>Valeur indiquant si les valeurs égales des en-têtes doivent être fusionnées en une seule.</MergeHeaders>
     <PrintOnAllPages>Valeur indiquant si le composant doit être imprimé sur toutes les pages.</PrintOnAllPages>
     <ShowPercents>Valeur indiquant que les valeurs de cellules doivent être affichées en %.</ShowPercents>
     <ShowTotal>Valeur indiquant si les totaux sont affichés.</ShowTotal>
@@ -1213,11 +1215,11 @@
   <StiCrossTab>
     <EmptyValue>Valeur utilisée pour afficher les valeurs vides.</EmptyValue>
     <HorAlignment>Alignement horizontal.</HorAlignment>
-    <KeepCrossTabTogether>Valeur indiquant que le tableau croisé doit rester à coté de la bande à coté de laquelle il est placé.</KeepCrossTabTogether>
-    <PrintIfEmpty>Valeur indiquent si le tableau croisé doit être imprimé si il n'y a pas de données.</PrintIfEmpty>
+    <KeepCrossTabTogether>Valeur indiquant que le tableau croisé doit rester à côté de la bande à côté de laquelle il est placé.</KeepCrossTabTogether>
+    <PrintIfEmpty>Valeur indiquant si le tableau croisé doit être imprimé s'il n'y a pas de données.</PrintIfEmpty>
     <RightToLeft>Direction horizontale.</RightToLeft>
-    <Wrap>Valeur indiquant que le tableau croisé doit être rendu sur une seule colonne. Dans le même temps , tout ce qui ne tient pas en largeur est rendu dessous. Pour utiliser cette propriété, il est nécessaire d'activer la propriété Cassable sur la bande sur laquelle est placé le tableau croisé.</Wrap>
-    <WrapGap>Espace entre deux partie d'un tableau croisé. Cette propriété est utilisée avec la propriété Wrap.</WrapGap>
+    <Wrap>Valeur indiquant que le tableau croisé doit être rendu sur une seule colonne. Dans le même temps, tout ce qui ne tient pas en largeur est rendu dessous. Pour utiliser cette propriété, il est nécessaire d'activer la propriété Cassable sur la bande sur laquelle est placé le tableau croisé.</Wrap>
+    <WrapGap>Espace entre deux parties d'un tableau croisé. Cette propriété est utilisée avec la propriété Wrap.</WrapGap>
   </StiCrossTab>
   <StiCrossTabStyle>
     <AlternatingCellBackColor>La propriété définit la couleur qui sera utilisée pour remplir l'arrière-plan des lignes paires.</AlternatingCellBackColor>
@@ -1240,14 +1242,14 @@
   </StiCrossTabStyle>
   <StiDataBand>
     <BeginRenderEvent>Se produit quand le rendu d'une bande commence.</BeginRenderEvent>
-    <CalcInvisible>Valeur indiquant que, quand le calcul de fonctions d'agrégation, il est nécessaire de prendre en considération les bandes invisibles.</CalcInvisible>
+    <CalcInvisible>Valeur indiquant que, lors du calcul de fonctions d'agrégation, il est nécessaire de prendre en considération les bandes invisibles.</CalcInvisible>
     <ColumnDirection>Direction du rendu des colonnes.</ColumnDirection>
     <ColumnGaps>Distance entre deux colonnes.</ColumnGaps>
     <Columns>Nombre de colonnes.</Columns>
     <ColumnWidth>Largeur d'une colonne.</ColumnWidth>
     <EndRenderEvent>Se produit quand le rendu d'une bande est terminé.</EndRenderEvent>
     <EvenStyle>Valeur indiquant le style des lignes paires.</EvenStyle>
-    <FilterEngine>Valeur indiquant comment un filtre sera appliqué aux données - au moyen du générateur de rapport ou au moyen de requête SQL.</FilterEngine>
+    <FilterEngine>Valeur indiquant comment un filtre sera appliqué aux données - au moyen du générateur de rapport ou au moyen du changement de la requête SQL.</FilterEngine>
     <FilterMode>Mode de filtre.</FilterMode>
     <GapAfterLastColumn>La propriété permet d'ajouter un espace après la dernière colonne.</GapAfterLastColumn>
     <GetCollapsedEvent>Se produit quand la valeur replié est calculée.</GetCollapsedEvent>
@@ -1275,21 +1277,21 @@
     <Name>Nom de la base de données.</Name>
     <PathData>Chemin vers les données XML.</PathData>
     <PathSchema>Chemin vers le schéma XML.</PathSchema>
-    <PromptUserNameAndPassword>Valeur indiquant qu'il le nom d'utilisateur et le mot de passe doivent être demandés à l'utilisateur.</PromptUserNameAndPassword>
+    <PromptUserNameAndPassword>Valeur indiquant que le nom d'utilisateur et le mot de passe doivent être demandés à l'utilisateur.</PromptUserNameAndPassword>
   </StiDatabase>
   <StiDataColumn>
     <Alias>Alias de la colonne de données.</Alias>
     <Expression>Expression pour une colonne calculée.</Expression>
-    <Name>om de la colonne qui sera utilisé dans le rapport.</Name>
+    <Name>Nom de la colonne qui sera utilisé dans le rapport.</Name>
     <NameInSource>Nom d'origine de la colonne dans la source de données.</NameInSource>
     <Type>Type de la colonne de données.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>
-    <EncodingType>Définit ou obtient le type d'encodage.</EncodingType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <MatrixSize>Définit ou obtient la taille de la matrice.</MatrixSize>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <UseRectangularSymbols>Définit ou obtient une valeur indiquant si RectangularSymbols sera utilisé ou non.</UseRectangularSymbols>
+    <EncodingType>Obtient ou définit le type d'encodage.</EncodingType>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <MatrixSize>Obtient ou définit la taille de la matrice.</MatrixSize>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <UseRectangularSymbols>Obtient ou définit une valeur indiquant si RectangularSymbols sera utilisé ou non.</UseRectangularSymbols>
   </StiDataMatrixBarCodeType>
   <StiDataParameter>
     <Alias>Alias du paramètre de données.</Alias>
@@ -1332,18 +1334,18 @@
     <MinDate>Date minimum pouvant être sélectionnée dans le contrôle.</MinDate>
     <MinDateBinding>Liaison de données pour la date minimum.</MinDateBinding>
     <ShowUpDown>Valeur indiquant si un contrôle haut-bas est utilisé pour ajuster la date.</ShowUpDown>
-    <Today>Valeur indiquant que date est égale à la date du jour.</Today>
-    <Value>Date affectée au contrôle</Value>
+    <Today>Valeur indiquant que la date est égale à la date du jour.</Today>
+    <Value>Date affectée au contrôle.</Value>
     <ValueBinding>Liaison de données pour la valeur.</ValueBinding>
     <ValueChangedEvent>Se produit quand la date a changé.</ValueChangedEvent>
   </StiDateTimePickerControl>
   <StiDialogStyle>
     <GlyphColor>Une couleur de glyphe du style.</GlyphColor>
     <HotBackColor>Une couleur de fond d'un élément chaud du style.</HotBackColor>
-    <HotForeColor>Une couleur d'avant-plan d'un élément chaud du style.</HotForeColor>
+    <HotForeColor>Une couleur de premier plan d'un élément chaud du style.</HotForeColor>
     <HotGlyphColor>Une couleur de glyphe d'un élément chaud du style.</HotGlyphColor>
-    <HotSelectedBackColor>Une couleur de fond d'un élément sélectionné à chaud du style..</HotSelectedBackColor>
-    <HotSelectedForeColor>Une couleur de premier plan d'un élément sélectionné du style.</HotSelectedForeColor>
+    <HotSelectedBackColor>Une couleur de fond d'un élément sélectionné à chaud du style.</HotSelectedBackColor>
+    <HotSelectedForeColor>Une couleur de premier plan d'un élément sélectionné à chaud du style.</HotSelectedForeColor>
     <HotSelectedGlyphColor>Une couleur de glyphe d'un élément sélectionné à chaud du style.</HotSelectedGlyphColor>
     <SelectedBackColor>Une couleur de fond d'un élément sélectionné du style.</SelectedBackColor>
     <SelectedForeColor>Une couleur de premier plan d'un élément sélectionné du style.</SelectedForeColor>
@@ -1358,8 +1360,8 @@
     <Name>Nom du paramètre d'analyse.</Name>
   </StiDrillDownParameter>
   <StiDutchKIXBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiDutchKIXBarCodeType>
   <StiDynamicBand>
     <BreakIfLessThan>Une valeur indiquant combien d'espace libre sur une page (en pourcentage) doit être réservé pour une nouvelle page ou nouvelle colonne. La valeur doit être comprise entre 0 et 100. Si la valeur vaut 100, dans tous les cas, une nouvelle page ou une nouvelle colonne sera créée. Cette propriété est utilisée avec les propriétés, nouvelle page avant, nouvelle page après, nouvelle colonne avant, nouvelle colonne après.</BreakIfLessThan>
@@ -1371,39 +1373,39 @@
     <SkipFirst>Si cette propriété est à vrai, une nouvelle page/colonne sera générée seulement à partir du deuxième cas.</SkipFirst>
   </StiDynamicBand>
   <StiEAN128aBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiEAN128aBarCodeType>
   <StiEAN128AutoBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiEAN128AutoBarCodeType>
   <StiEAN128bBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiEAN128bBarCodeType>
   <StiEAN128cBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiEAN128cBarCodeType>
   <StiEAN13BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiEAN13BarCodeType>
   <StiEAN8BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiEAN8BarCodeType>
   <StiElement>
     <BackColor>Une couleur de fond pour le contrôle.</BackColor>
     <Margin>Marge du contrôle.</Margin>
-    <Padding>Marge intérieur du contrôle.</Padding>
+    <Padding>Marge intérieure du contrôle.</Padding>
   </StiElement>
   <StiEmptyBand>
     <BeginRenderEvent>Se produit quand le rendu de la bande démarre.</BeginRenderEvent>
@@ -1414,17 +1416,17 @@
     <SizeMode>Permet d'indiquer comment changer la taille de la dernière ligne sur une page.</SizeMode>
   </StiEmptyBand>
   <StiFIMBarCodeType>
-    <AddClearZone>Définit ou obtient une valeur indiquant si la Clear zone est affichée ou non.</AddClearZone>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <AddClearZone>Obtient ou définit une valeur indiquant si la Clear zone est affichée ou non.</AddClearZone>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiFIMBarCodeType>
   <StiFooterBand>
-    <KeepFooterTogether>Valeur indiquant si le pied est imprimé à coté des données.</KeepFooterTogether>
-    <PrintIfEmpty>Valeur indiquant si il faut imprimer le pied même si il n'y a pas de données.</PrintIfEmpty>
+    <KeepFooterTogether>Valeur indiquant si le pied est imprimé à côté des données.</KeepFooterTogether>
+    <PrintIfEmpty>Valeur indiquant s'il faut imprimer le pied même s'il n'y a pas de données.</PrintIfEmpty>
     <PrintOnAllPages>Valeur indiquant que le composant est imprimé sur toutes les pages.</PrintOnAllPages>
   </StiFooterBand>
   <StiForm>
-    <BackColor>Couleur d'arrière plan.</BackColor>
+    <BackColor>Couleur d'arrière-plan.</BackColor>
     <ClickEvent>Se produit lors d'un clic.</ClickEvent>
     <ClosedFormEvent>Se produit quand la fenêtre est fermée.</ClosedFormEvent>
     <ClosingFormEvent>Se produit quand la fenêtre est en train de se fermer.</ClosingFormEvent>
@@ -1435,13 +1437,13 @@
     <Size>Taille de la fenêtre.</Size>
     <StartMode>Valeur indiquant le moment où la fenêtre s'affiche.</StartMode>
     <StartPosition>La position de départ de la fenêtre.</StartPosition>
-    <Text>Teste associé à la fenêtre.</Text>
+    <Text>Texte associé à la fenêtre.</Text>
     <Visible>Valeur indiquant si la fenêtre est affichée.</Visible>
     <WindowState>État de la fenêtre.</WindowState>
   </StiForm>
   <StiGanttSeries>
     <GetListOfValuesEndEvent>Se produit lors de l'obtention de la liste des valeurs de fin.</GetListOfValuesEndEvent>
-    <GetValueEndEvent>Se produit quand lors de l'obtention de la valeur.</GetValueEndEvent>
+    <GetValueEndEvent>Se produit lors de l'obtention de la valeur de fin.</GetValueEndEvent>
     <ListOfValues>Expression pour remplir la liste des valeurs de début. Exemple: 1;2;3</ListOfValues>
     <ListOfValuesEnd>Expression pour remplir la liste des valeurs de fin. Exemple: 1;2;3</ListOfValuesEnd>
     <Value>Expression pour la valeur de début. Exemple: {Order.Value}</Value>
@@ -1452,9 +1454,9 @@
   <StiGaugeElement>
     <Font>Police.</Font>
     <ForeColor>Couleur de premier plan.</ForeColor>
-    <Series>Gauge Series.</Series>
-    <Style>Gauge Style.</Style>
-    <Title>Gauge Title.</Title>
+    <Series>Séries de la jauge.</Series>
+    <Style>Style de la jauge.</Style>
+    <Title>Titre de la jauge.</Title>
   </StiGaugeElement>
   <StiGaugeStyle>
     <BorderColor>Obtient ou définit la couleur des bords.</BorderColor>
@@ -1466,12 +1468,12 @@
     <LinearBarEmptyBorderBrush>Obtient ou définit une bordure vide du LinearBar.</LinearBarEmptyBorderBrush>
     <LinearBarEmptyBrush>Obtient ou définit un pinceau vide LinearBar.</LinearBarEmptyBrush>
     <LinearScaleBrush>Obtient ou définit un pinceau LinearScale.</LinearScaleBrush>
-    <MarkerBrush>Obtient ou définit un marqueur de pinceau.</MarkerBrush>
+    <MarkerBrush>Obtient ou définit un pinceau de marqueur.</MarkerBrush>
     <NeedleBorderBrush>Obtient ou définit un bord de l'aiguille.</NeedleBorderBrush>
     <NeedleBorderWidth>Une taille de bord.</NeedleBorderWidth>
-    <NeedleBrush>Obtient ou définit une aiguille de pinceau.</NeedleBrush>
-    <NeedleCapBorderBrush>Obtient ou définit un bord du cap.</NeedleCapBorderBrush>
-    <NeedleCapBrush>Obtient ou définit un pinceau pour remplir le cap.</NeedleCapBrush>
+    <NeedleBrush>Obtient ou définit un pinceau de l'aiguille.</NeedleBrush>
+    <NeedleCapBorderBrush>Obtient ou définit un bord du capuchon.</NeedleCapBorderBrush>
+    <NeedleCapBrush>Obtient ou définit un pinceau pour remplir le capuchon.</NeedleCapBrush>
     <RadialBarBorderBrush>Obtient ou définit un bord de la RadialBar.</RadialBarBorderBrush>
     <RadialBarBrush>Obtient ou définit un pinceau RadialBar.</RadialBarBrush>
     <RadialBarEmptyBorderBrush>Obtient ou définit un bord vide de la RadialBar.</RadialBarEmptyBorderBrush>
@@ -1489,19 +1491,19 @@
     <TickMarkMinorBrush>Obtient ou définit un pinceau pour remplir le TickMarkMinor.</TickMarkMinorBrush>
   </StiGaugeStyle>
   <StiGlareBrush>
-    <Angle>angle en degrés dans le sens des aiguilles d'une montre à partir l'axe X de l'orientation du dégradé.</Angle>
+    <Angle>Angle en degrés dans le sens des aiguilles d'une montre à partir de l'axe X de l'orientation du dégradé.</Angle>
     <EndColor>Couleur de fin du dégradé.</EndColor>
-    <Focus>Valeur entre 0 et 1 spécifiant le centre du dégradé(le point ou le dégradé est composé uniquement de la couleur de fin).</Focus>
+    <Focus>Valeur entre 0 et 1 spécifiant le centre du dégradé (le point où le dégradé est composé uniquement de la couleur de fin).</Focus>
     <Scale>Valeur entre 0 et 1 spécifiant à quelle vitesse les couleurs se dégradent à partir du focus.</Scale>
     <StartColor>Couleur de début du dégradé.</StartColor>
   </StiGlareBrush>
   <StiGlassBrush>
     <Blend>Facteur de transparence.</Blend>
     <Color>Couleur de la brosse.</Color>
-    <DrawHatch>Valeur indiquant si une hachure doit être dessinée en arrière plan.</DrawHatch>
+    <DrawHatch>Valeur indiquant si une hachure doit être dessinée en arrière-plan.</DrawHatch>
   </StiGlassBrush>
   <StiGradientBrush>
-    <Angle>angle en degrés dans le sens des aiguilles d'une montre à partir l'axe X de l'orientation du dégradé.</Angle>
+    <Angle>Angle en degrés dans le sens des aiguilles d'une montre à partir de l'axe X de l'orientation du dégradé.</Angle>
     <EndColor>Couleur de fin du dégradé.</EndColor>
     <StartColor>Couleur de début du dégradé.</StartColor>
   </StiGradientBrush>
@@ -1510,7 +1512,7 @@
     <DataTextField>Nom de la colonne à afficher.</DataTextField>
     <HeaderText>Texte d'en-tête de la colonne.</HeaderText>
     <NullText>Texte affiché à la place des valeurs nulles.</NullText>
-    <Visible>visibilité de la colonne.</Visible>
+    <Visible>Visibilité de la colonne.</Visible>
     <Width>Largeur de la colonne.</Width>
   </StiGridColumn>
   <StiGridControl>
@@ -1519,7 +1521,7 @@
     <BackgroundColor>Couleur de fond de la grille pour les zones ne contenant pas de ligne.</BackgroundColor>
     <ColumnHeadersVisible>Valeur indiquant si les en-têtes de colonne sont visibles.</ColumnHeadersVisible>
     <Columns>Collection de colonnes.</Columns>
-    <Filter>chaîne de filtre.</Filter>
+    <Filter>Chaîne de filtre.</Filter>
     <ForeColor>Couleur de texte.</ForeColor>
     <GridLineColor>Couleur des lignes de grille.</GridLineColor>
     <GridLineStyle>Style des lignes de grille.</GridLineStyle>
@@ -1563,8 +1565,8 @@
     <RenderingEvent>Se produit quand une ligne de données est rendue.</RenderingEvent>
     <SortDirection>Sens de tri des données groupées.</SortDirection>
     <SummaryExpression>Définit ou obtient l'expression du résumé pour calculer les résumés totaux.</SummaryExpression>
-    <SummarySortDirection>Définit ou obtient le sens de tri des donnée groupées.</SummarySortDirection>
-    <SummaryType>Définit ou obtient le mode de calcul des totaux du groupe pour trier par totaux.</SummaryType>
+    <SummarySortDirection>Définit ou obtient le mode de calcul des totaux du groupe pour trier par totaux.</SummarySortDirection>
+    <SummaryType>Définit ou obtient le sens de tri des données groupées.</SummaryType>
   </StiGroupHeaderBand>
   <StiHatchBrush>
     <BackColor>Couleur des espaces entre les hachures.</BackColor>
@@ -1573,8 +1575,8 @@
   </StiHatchBrush>
   <StiHeaderBand>
     <KeepHeaderTogether>Valeur indiquant si l'en-tête est imprimé avec les données.</KeepHeaderTogether>
-    <PrintIfEmpty>Valeur indiquant si l'en-te^te doit être imprime m^me si il n'y a pas de données.</PrintIfEmpty>
-    <PrintOnAllPages>Valeur indiquant que le composant est imprimé sur toues les pages.</PrintOnAllPages>
+    <PrintIfEmpty>Valeur indiquant si l'en-tête doit être imprimé même s'il n'y a pas de données.</PrintIfEmpty>
+    <PrintOnAllPages>Valeur indiquant que le composant est imprimé sur toutes les pages.</PrintOnAllPages>
   </StiHeaderBand>
   <StiHeatmapStyleData>
     <Color>Cette propriété définit la couleur qui sera utilisée pour remplir l'objet géographique Carte, qui contient la valeur maximale.</Color>
@@ -1591,7 +1593,7 @@
     <Headers>Liste de tous les en-têtes de la bande hiérarchique.</Headers>
     <Indent>Indentation à gauche pour décaler les données sur les niveaux.</Indent>
     <KeyDataColumn>Colonne contenant la clé de données.</KeyDataColumn>
-    <MasterKeyDataColumn>colonne contenant la clé de données maître.</MasterKeyDataColumn>
+    <MasterKeyDataColumn>Colonne contenant la clé de données maître.</MasterKeyDataColumn>
     <ParentValue>Colonne contenant la valeur parent qui identifie la ligne parent.</ParentValue>
   </StiHierarchicalBand>
   <StiHorChartGridLines>
@@ -1601,7 +1603,7 @@
     <DataColumn>Nom de la colonne contenant l'image.</DataColumn>
     <File>Chemin du fichier contenant l'image.</File>
     <GetImageDataEvent>Se produit à l'obtention de l'image du composant.</GetImageDataEvent>
-    <GetImageURLEvent>Se produit à l'obtention de L’URL de l'image du composant.</GetImageURLEvent>
+    <GetImageURLEvent>Se produit à l'obtention de l'URL de l'image du composant.</GetImageURLEvent>
     <GlobalizedName>Valeur utilisée comme clé pour le gestionnaire de traduction.</GlobalizedName>
     <Image>L'image.</Image>
     <ImageData>Expression pour remplir la propriété Image.</ImageData>
@@ -1621,7 +1623,7 @@
     <Bookmark>Expression pour remplir le signet.</Bookmark>
     <DrillDownEnabled>Valeur indiquant si l'opération d'analyse peut être exécutée.</DrillDownEnabled>
     <DrillDownMode>Mode d'ouverture de la page d'analyse.</DrillDownMode>
-    <DrillDownPage>Page l'opération d'analyse.</DrillDownPage>
+    <DrillDownPage>Page pour l'opération d'analyse.</DrillDownPage>
     <DrillDownParameter1>Premier paramètre d'analyse.</DrillDownParameter1>
     <DrillDownParameter2>Deuxième paramètre d'analyse.</DrillDownParameter2>
     <DrillDownParameter3>Troisième paramètre d'analyse.</DrillDownParameter3>
@@ -1630,7 +1632,7 @@
     <DrillDownReport>Chemin vers le rapport pour l'opération d'analyse.</DrillDownReport>
     <Hyperlink>Expression pour remplir l'hyperlien.</Hyperlink>
     <SortingColumn>Colonne par laquelle les données doivent être retriées dans le visualiseur de rapport.</SortingColumn>
-    <SortingEnabled>Valeur indiquant il est possible de retrier les données.</SortingEnabled>
+    <SortingEnabled>Valeur indiquant s'il est possible de retrier les données.</SortingEnabled>
     <Tag>Expression pour remplir l'étiquette.</Tag>
     <ToolTip>Expression pour remplir le ToolTip.</ToolTip>
   </StiInteraction>
@@ -1639,43 +1641,43 @@
     <Visible>Visibilité des barres d'entrelacement.</Visible>
   </StiInterlacing>
   <StiInterleaved2of5BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
     <Ratio>Définit ou obtient le ratio WideToNarrow.</Ratio>
   </StiInterleaved2of5BarCodeType>
   <StiIsbn10BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiIsbn10BarCodeType>
   <StiIsbn13BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiIsbn13BarCodeType>
   <StiITF14BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <PrintVerticalBars>Définit ou obtient un valeur indiquant si il faut imprimer les sections verticales.</PrintVerticalBars>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <PrintVerticalBars>Définit ou obtient une valeur indiquant s'il faut imprimer les sections verticales.</PrintVerticalBars>
     <Ratio>Définit ou obtient le ratio WideToNarrow.</Ratio>
   </StiITF14BarCodeType>
   <StiJan13BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiJan13BarCodeType>
   <StiJan8BarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiJan8BarCodeType>
   <StiLabelControl>
     <Text>Texte associé au contrôle.</Text>
@@ -1683,27 +1685,27 @@
     <TextBinding>Liaison de données pour le texte.</TextBinding>
   </StiLabelControl>
   <StiLegend>
-    <BorderColor>Couleur de fond.</BorderColor>
-    <Brush>Brosse d'arrière plan de la légende.</Brush>
+    <BorderColor>Couleur de la bordure.</BorderColor>
+    <Brush>Brosse d'arrière-plan de la légende.</Brush>
     <Columns>Nombre de colonnes.</Columns>
     <ColumnWidth>Spécifie la largeur d'une colonne de légende. Peut être utilisé conjointement avec Retour à la ligne pour contrôler le retour à la ligne du texte dans les éléments de légende.</ColumnWidth>
     <Direction>Sens pour le dessin de séries dans la légende.</Direction>
     <Font>Police des titres des séries.</Font>
     <HideSeriesWithEmptyTitle>Affiche/Cache les séries sans titre.</HideSeriesWithEmptyTitle>
-    <HorAlignment>alignement horizontal de la légende.</HorAlignment>
+    <HorAlignment>Alignement horizontal de la légende.</HorAlignment>
     <HorSpacing>Espacement horizontal entre les éléments dans la légende.</HorSpacing>
     <LabelsColor>Couleur des étiquettes.</LabelsColor>
     <MarkerAlignment>Alignement des marqueurs liés au titre des séries.</MarkerAlignment>
     <MarkerBorder>Valeur indiquant que la bordure du marqueur sera affichée.</MarkerBorder>
     <MarkerSize>Taille des marqueurs.</MarkerSize>
     <MarkerVisible>Visibilité des marqueurs.</MarkerVisible>
-    <ShowShadow>Valeur indiquant si il faut dessiner une ombre.</ShowShadow>
+    <ShowShadow>Valeur indiquant s'il faut dessiner une ombre.</ShowShadow>
     <Size>Taille de la légende.</Size>
     <Title>Titre de la légende.</Title>
-    <TitleColor>Couleur du titre de al légende.</TitleColor>
+    <TitleColor>Couleur du titre de la légende.</TitleColor>
     <TitleFont>Police du titre de la légende.</TitleFont>
-    <VertAlignment>alignement vertical de la légende.</VertAlignment>
-    <VertSpacing>Espacement vertical entre les éléments dans la légende..</VertSpacing>
+    <VertAlignment>Alignement vertical de la légende.</VertAlignment>
+    <VertSpacing>Espacement vertical entre les éléments dans la légende.</VertSpacing>
     <Visible>Visibilité de la légende.</Visible>
     <WordWrap>Active ou désactive le retour à la ligne du texte dans les éléments de légende. Fonctionne avec la largeur de colonne.</WordWrap>
   </StiLegend>
@@ -1741,8 +1743,8 @@
     <BubbleBorderColor>La propriété définit la couleur qui sera utilisée pour dessiner les bordures des bulles de la carte.</BubbleBorderColor>
     <Colors>La propriété permet de créer un ensemble de couleurs qui sera utilisé pour remplir les objets géographiques de la carte lorsque le mode color each est utilisé.</Colors>
     <DefaultColor>La propriété définit la couleur par défaut qui sera utilisée pour remplir les objets géographiques de la carte lorsque le type de carte est défini sur tout type sauf individuel.</DefaultColor>
-    <Heatmap>Les propriétés définies définissent les paramètres qui seront utilisés pour la carte thermique.</Heatmap>
-    <HeatmapWithGroup>Les propriétés définies définissent les paramètres qui seront utilisés pour la carte thermique avec groupe.</HeatmapWithGroup>
+    <Heatmap>L'ensemble de propriétés définit les paramètres qui seront utilisés pour la carte thermique.</Heatmap>
+    <HeatmapWithGroup>L'ensemble de propriétés définit les paramètres qui seront utilisés pour la carte thermique avec groupe.</HeatmapWithGroup>
     <IndividualColor>La propriété définit la couleur qui sera utilisée pour remplir les objets géographiques de la carte.</IndividualColor>
     <LabelForeground>La propriété définit la couleur qui sera utilisée pour dessiner les étiquettes des objets géographiques de la carte.</LabelForeground>
     <LabelShadowForeground>La propriété définit la couleur qui sera utilisée pour dessiner l'ombre de l'étiquette des objets géographiques de la carte.</LabelShadowForeground>
@@ -1766,8 +1768,8 @@
   <StiMsiBarCodeType>
     <CheckSum1>Définit ou obtient le mode de CheckSum1.</CheckSum1>
     <CheckSum2>Définit ou obtient le mode de CheckSum2.</CheckSum2>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiMsiBarCodeType>
   <StiNumericUpDownControl>
     <Increment>Valeur à incrémenter ou décrémenter du contrôle quand les boutons haut et bas sont cliqués.</Increment>
@@ -1780,20 +1782,20 @@
     <ValueChangedEvent>Se produit quand la valeur a changé.</ValueChangedEvent>
   </StiNumericUpDownControl>
   <StiOutsidePieLabels>
-    <LineLength>Longueur de la ligne entre la série d'étiquettes et la série camembert.</LineLength>
+    <LineLength>Longueur de la ligne entre la bordure des étiquettes de série et la bordure de la série camembert.</LineLength>
   </StiOutsidePieLabels>
   <StiPadding>
     <Bottom>Cette valeur ajoute une marge intérieure pour l'élément à partir de la bordure inférieure du contrôle et de son contenu.</Bottom>
     <Left>Cette valeur ajoute une marge intérieure pour l'élément à partir de la bordure gauche du contrôle et de son contenu.</Left>
-    <Right>Cette valeur ajoute une marge intérieure pour l'élément à partir de la bordure droit du contrôle et de son contenu.</Right>
-    <Top>Cette valeur ajoute une marge intérieure pour l'élément à partir de la bordure supérieur du contrôle et de son contenu</Top>
+    <Right>Cette valeur ajoute une marge intérieure pour l'élément à partir de la bordure droite du contrôle et de son contenu.</Right>
+    <Top>Cette valeur ajoute une marge intérieure pour l'élément à partir de la bordure supérieure du contrôle et de son contenu.</Top>
   </StiPadding>
   <StiPage>
     <BeginRenderEvent>Se produit quand la page commence son rendu.</BeginRenderEvent>
     <ColumnBeginRenderEvent>Se produit quand une colonne commence son rendu.</ColumnBeginRenderEvent>
     <ColumnEndRenderEvent>Se produit quand une colonne termine son rendu.</ColumnEndRenderEvent>
     <EndRenderEvent>Se produit quand la page termine son rendu.</EndRenderEvent>
-    <ExcelSheet>Expression utilisé pour générer le nom de la feuille Excel.</ExcelSheet>
+    <ExcelSheet>Expression utilisée pour générer le nom de la feuille Excel.</ExcelSheet>
     <GetExcelSheetEvent>Se produit quand la Feuille Excel est calculée.</GetExcelSheetEvent>
     <Icon>Une icône de page.</Icon>
     <LargeHeight>Une valeur indiquant que cette page a une grande hauteur dans l'éditeur.</LargeHeight>
@@ -1803,51 +1805,51 @@
     <NumberOfCopies>Nombre d'exemplaires de la page courante.</NumberOfCopies>
     <Orientation>Orientation de la page.</Orientation>
     <PageHeight>Hauteur totale de la page.</PageHeight>
-    <PageWidth>Largeur totale de, la page.</PageWidth>
+    <PageWidth>Largeur totale de la page.</PageWidth>
     <PaperSize>Taille du papier.</PaperSize>
     <PaperSourceOfFirstPage>Source du papier pour la première page. Certaines imprimantes ne supportent pas cette fonctionnalité.</PaperSourceOfFirstPage>
-    <PaperSourceOfOtherPages>Source du papier pour le pages suivantes. Certaines imprimantes ne supportent pas cette fonctionnalité.</PaperSourceOfOtherPages>
+    <PaperSourceOfOtherPages>Source du papier pour les pages suivantes. Certaines imprimantes ne supportent pas cette fonctionnalité.</PaperSourceOfOtherPages>
     <PrintHeadersFootersFromPreviousPage>Une valeur indiquant que, sur cette page, il est nécessaire d'imprimer l'en-tête et le pied de page de la page précédente.</PrintHeadersFootersFromPreviousPage>
     <PrintOnPreviousPage>Une valeur indiquant que le rendu de la page démarrera sur la page précédente.</PrintOnPreviousPage>
-    <RenderingEvent>Se produit pendant le rendu la page.</RenderingEvent>
+    <RenderingEvent>Se produit pendant le rendu de la page.</RenderingEvent>
     <ResetPageNumber>Permet de réinitialiser le numéro de page sur cette page.</ResetPageNumber>
     <SegmentPerHeight>Nombre de segments par hauteur.</SegmentPerHeight>
     <SegmentPerWidth>Nombre de segments par largeur.</SegmentPerWidth>
     <StopBeforePrint>Numéro de page. Quand il est atteint, l'impression s'arrête.</StopBeforePrint>
     <StretchToPrintArea>Une valeur indiquant que la page sera agrandie à la zone d'impression.</StretchToPrintArea>
     <TitleBeforeHeader>Une valeur indiquant que le titre du rapport doit être placé avant l'en-tête de page.</TitleBeforeHeader>
-    <UnlimitedBreakable>Une valeur indiquant qu'en imprimant des rapports croisés multi-page, les colonnes et le chaînes peuvent être découpées.</UnlimitedBreakable>
+    <UnlimitedBreakable>Une valeur indiquant qu'en imprimant des rapports croisés multi-page, les colonnes et les chaînes peuvent être découpées.</UnlimitedBreakable>
     <UnlimitedHeight>Une valeur indiquant que la page a une hauteur illimitée.</UnlimitedHeight>
     <UnlimitedWidth>Une valeur indiquant que la page a une largeur illimitée.</UnlimitedWidth>
     <Watermark>Filigrane d'une page.</Watermark>
   </StiPage>
   <StiPanel>
-    <ColumnGaps>distance entre deux colonnes.</ColumnGaps>
+    <ColumnGaps>Distance entre deux colonnes.</ColumnGaps>
     <Columns>Nombre de colonnes.</Columns>
     <ColumnWidth>Largeur d'une colonne.</ColumnWidth>
-    <RightToLeft>direction horizontale des colonnes.</RightToLeft>
+    <RightToLeft>Direction horizontale des colonnes.</RightToLeft>
   </StiPanel>
   <StiPanelControl>
-    <BorderStyle>Indique le style de bordure du contrôle</BorderStyle>
+    <BorderStyle>Indique le style de bordure du contrôle.</BorderStyle>
   </StiPanelControl>
   <StiPdf417BarCodeType>
-    <AspectRatio>Définit ou obtient une valeur, qui définit le ration entre les cotés horizontaux et verticaux du code barre.</AspectRatio>
+    <AspectRatio>Définit ou obtient une valeur qui définit le ratio entre les côtés horizontaux et verticaux du code barre.</AspectRatio>
     <AutoDataColumns>Définit ou obtient une valeur qui définit le nombre de colonnes calculées automatiquement.</AutoDataColumns>
     <AutoDataRows>Définit ou obtient une valeur qui définit le nombre de lignes calculées automatiquement.</AutoDataRows>
     <DataColumns>Définit ou obtient le nombre de colonnes de données.</DataColumns>
     <DataRows>Définit ou obtient le nombre de lignes de données.</DataRows>
     <EncodingMode>Définit ou obtient le type d'encodage.</EncodingMode>
-    <ErrorsCorrectionLevel>Définit ou obtient le niveau de correction des erreur. Plus le niveau est élevé, plus il y aura d'informations dans le code barre.</ErrorsCorrectionLevel>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <ErrorsCorrectionLevel>Définit ou obtient le niveau de correction des erreurs. Plus le niveau est élevé, plus il y aura d'informations dans le code barre.</ErrorsCorrectionLevel>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
     <RatioY>Définit ou obtient le ratio vertical du code barre. La valeur doit être comprise entre 2 et 5.</RatioY>
   </StiPdf417BarCodeType>
   <StiPharmacodeBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiPharmacodeBarCodeType>
   <StiPictureBoxControl>
-    <BorderStyle>Indique le style de bordure du contrôle</BorderStyle>
+    <BorderStyle>Indique le style de bordure du contrôle.</BorderStyle>
     <Image>Image affichée par le contrôle.</Image>
     <SizeMode>Indique comment l'image est affichée.</SizeMode>
     <TransparentColor>Couleur de transparence de l'image.</TransparentColor>
@@ -1864,16 +1866,16 @@
   <StiPlesseyBarCodeType>
     <CheckSum1>Définit ou obtient le mode de CheckSum1.</CheckSum1>
     <CheckSum2>Définit ou obtient le mode de CheckSum2.</CheckSum2>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiPlesseyBarCodeType>
   <StiPostnetBarCodeType>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
-    <Space>Définit ou obtient l'espace enter les éléments du code barre.</Space>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
+    <Space>Définit ou obtient l'espace entre les éléments du code barre.</Space>
   </StiPostnetBarCodeType>
   <StiPrinterSettings>
-    <Collate>Une valeur indiquant que le mode d'assemblage de l'impression sera utilisé</Collate>
+    <Collate>Une valeur indiquant que le mode d'assemblage de l'impression sera utilisé.</Collate>
     <Copies>Nombre de copies du rapport.</Copies>
     <Duplex>Mode d'impression recto/verso.</Duplex>
     <PrinterName>Nom de l'imprimante utilisée.</PrinterName>
@@ -1886,9 +1888,9 @@
   </StiProgressStyle>
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Définit ou obtient le niveau de correction d'erreur.</ErrorCorrectionLevel>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <MatrixSize>Définit ou obtient la taille de la matrice.</MatrixSize>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <MatrixSize>Obtient ou définit la taille de la matrice.</MatrixSize>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiQRCodeBarCodeType>
   <StiRadarAxis>
     <Visible>Visibilité de l'axe.</Visible>
@@ -1909,53 +1911,53 @@
   <StiRadioButtonControl>
     <Checked>Une valeur indiquant si le contrôle est coché.</Checked>
     <CheckedBinding>Liaison de données pour la coche.</CheckedBinding>
-    <CheckedChangedEvent>Se produit quand la coche a changé</CheckedChangedEvent>
+    <CheckedChangedEvent>Se produit quand la coche a changé.</CheckedChangedEvent>
     <Text>Texte associé à ce contrôle.</Text>
     <TextBinding>Liaison de données pour le texte.</TextBinding>
   </StiRadioButtonControl>
   <StiRectanglePrimitive>
-    <BottomSide>Une valeur indiquant si il faut dessiner le bas du rectangle.</BottomSide>
-    <LeftSide>Une valeur indiquant si il faut dessiner la gauche du rectangle.</LeftSide>
-    <RightSide>Une valeur indiquant si il faut dessiner la droite du rectangle.</RightSide>
-    <TopSide>Une valeur indiquant si il faut dessiner le haut du rectangle.</TopSide>
+    <BottomSide>Une valeur indiquant s'il faut dessiner le bas du rectangle.</BottomSide>
+    <LeftSide>Une valeur indiquant s'il faut dessiner la gauche du rectangle.</LeftSide>
+    <RightSide>Une valeur indiquant s'il faut dessiner la droite du rectangle.</RightSide>
+    <TopSide>Une valeur indiquant s'il faut dessiner le haut du rectangle.</TopSide>
   </StiRectanglePrimitive>
   <StiReport>
-    <AutoLocalizeReportOnRun>Une valeur autorisant la traduction automatique du rapport à l'exécution</AutoLocalizeReportOnRun>
+    <AutoLocalizeReportOnRun>Une valeur autorisant la traduction automatique du rapport à l'exécution.</AutoLocalizeReportOnRun>
     <BeginRenderEvent>Se produit quand le rendu du rapport démarre.</BeginRenderEvent>
-    <CacheAllData>Une valeur indiquant si il faut mettre en cache les données du rapport dans un DataSet.</CacheAllData>
-    <CacheTotals>La propriété inclue la mise en cache des totaux du rapport utilisés avec le préfixe des totaux. Cette propriété accélère le rendu du rapport dans le cas où plusieurs totaux sont utilisés avec les même paramètres sur une bande.</CacheTotals>
+    <CacheAllData>Une valeur indiquant s'il faut mettre en cache les données du rapport dans un DataSet.</CacheAllData>
+    <CacheTotals>La propriété inclut la mise en cache des totaux du rapport utilisés avec le préfixe des totaux. Cette propriété accélère le rendu du rapport dans le cas où plusieurs totaux sont utilisés avec les mêmes paramètres sur une bande.</CacheTotals>
     <CalculationMode>Mode de calcul des expressions.</CalculationMode>
-    <Collate>Une valeur qui peut être utilisé pour l'assemblage des pages. La valeur de la propriété ne peut pas être inférieur à 1.</Collate>
-    <ConvertNulls>Une valeur qui indique si il est nécessaire de convertir les nuls ou DBNull.</ConvertNulls>
-    <EndRenderEvent>Se produit quand le rendu du rapport est finit.</EndRenderEvent>
+    <Collate>Une valeur qui peut être utilisée pour l'assemblage des pages. La valeur de la propriété ne peut pas être inférieure à 1.</Collate>
+    <ConvertNulls>Une valeur qui indique s'il est nécessaire de convertir les nuls ou DBNull.</ConvertNulls>
+    <EndRenderEvent>Se produit quand le rendu du rapport est terminé.</EndRenderEvent>
     <EngineVersion>Le moteur d'impression courant.</EngineVersion>
     <ExportedEvent>Se ​​produit lorsque le rapport termine l'exportation.</ExportedEvent>
     <ExportingEvent>Se ​​produit lorsque le rapport commence à être exporté.</ExportingEvent>
     <ExportSettings>Paramètres d'exportation</ExportSettings>
-    <GlobalizationStrings>Liste des chaîne d'internationalisation.</GlobalizationStrings>
-    <NumberOfPass>Nombre de passe effectuées par le moteur.</NumberOfPass>
+    <GlobalizationStrings>Liste des chaînes d'internationalisation.</GlobalizationStrings>
+    <NumberOfPass>Nombre de passes effectuées par le moteur.</NumberOfPass>
     <ParametersDisplayMode>Le mode d'affichage du panneau des paramètres : Panel - afficher les paramètres dans un panneau du visualiseur, Dialog - afficher les paramètres dans une fenêtre de dialogue.</ParametersDisplayMode>
-    <ParametersOrientation>Une valeur indiquant les paramètres d'orientation.</ParametersOrientation>
+    <ParametersOrientation>Une valeur indiquant l'orientation du panneau des paramètres.</ParametersOrientation>
     <ParameterWidth>Obtient ou définit une largeur en pixels d'un paramètre dans le visualiseur. La valeur par défaut est utilisée si une valeur zéro est spécifiée.</ParameterWidth>
     <PreviewMode>Mode d'aperçu d'un rapport.</PreviewMode>
     <PreviewSettings>Contrôle ce qui sera visible en aperçu.</PreviewSettings>
     <PrintedEvent>Se ​​produit lorsque le rapport termine l'impression.</PrintedEvent>
     <PrinterSettings>Paramètres d'impression.</PrinterSettings>
-    <PrintingEvent>Se ​​produit lorsque le rapport démarre l'impression.</PrintingEvent>
-    <ReferencedAssemblies>Tableau d'assembly référencés.</ReferencedAssemblies>
+    <PrintingEvent>Se produit lorsque le rapport démarre l'impression.</PrintingEvent>
+    <ReferencedAssemblies>Tableau d'assemblys référencés.</ReferencedAssemblies>
     <RenderingEvent>Se produit quand une page est rendue.</RenderingEvent>
     <ReportAlias>Alias du rapport.</ReportAlias>
-    <ReportAuthor>auteur du rapport.</ReportAuthor>
+    <ReportAuthor>Auteur du rapport.</ReportAuthor>
     <ReportCacheMode>Une valeur indiquant comment le moteur d'impression utilise le cache du rapport.</ReportCacheMode>
     <ReportDescription>Description du rapport.</ReportDescription>
     <ReportIcon>Une icône de rapport.</ReportIcon>
     <ReportImage>Une image de rapport.</ReportImage>
     <ReportName>Nom du rapport.</ReportName>
     <ReportUnit>Unité du rapport.</ReportUnit>
-    <RequestParameters>Définit ou obtient une valeur qui indique si il faut demander les paramètres à l'utilisateur avant le rendu du rapport effectuer un rendu avec la valeur par défaut des paramètres.</RequestParameters>
+    <RequestParameters>Définit ou obtient une valeur qui indique s'il faut demander les paramètres à l'utilisateur avant le rendu du rapport ou effectuer un rendu avec la valeur par défaut des paramètres.</RequestParameters>
     <ScriptLanguage>Langage du script.</ScriptLanguage>
     <StopBeforePage>Numéro de page. Quand cette page est atteinte, le rendu du rapport est stoppé.</StopBeforePage>
-    <StoreImagesInResources>Une valeur indiquant que les images du rapport seront stockées en tant que ressource.</StoreImagesInResources>
+    <StoreImagesInResources>Une valeur indiquant que les images du rapport seront stockées en tant que ressources.</StoreImagesInResources>
     <Styles>Collection de styles.</Styles>
   </StiReport>
   <StiReportControl>
@@ -1969,7 +1971,7 @@
     <ForeColor>Couleur du texte.</ForeColor>
     <GetTagEvent>Se produit pour obtenir l'étiquette.</GetTagEvent>
     <GetToolTipEvent>Se produit pour obtenir le Tooltip.</GetToolTipEvent>
-    <LeaveEvent>Se produit pour à la sortie du contrôle</LeaveEvent>
+    <LeaveEvent>Se produit à la sortie du contrôle.</LeaveEvent>
     <Location>Coordonnées du coin supérieur gauche de la fenêtre relatives au coin supérieur gauche de son conteneur.</Location>
     <MouseDownEvent>Se produit quand un bouton de la souris est pressé.</MouseDownEvent>
     <MouseEnterEvent>Se produit quand la souris entre dans le contrôle.</MouseEnterEvent>
@@ -1986,14 +1988,14 @@
     <PrintIfEmpty>Une valeur indiquant que le pied doit être imprimé en bas de la page.</PrintIfEmpty>
   </StiReportSummaryBand>
   <StiReportTitleBand>
-    <PrintIfEmpty>Une valeur indiquant que le titre doit être imprimé même si il n'y a pas de données.</PrintIfEmpty>
+    <PrintIfEmpty>Une valeur indiquant que le titre doit être imprimé même s'il n'y a pas de données.</PrintIfEmpty>
   </StiReportTitleBand>
   <StiRichText>
-    <BackColor>couleur de fond.</BackColor>
+    <BackColor>Couleur de fond.</BackColor>
     <DataColumn>Nom de la colonne contenant le texte RTF.</DataColumn>
     <DataUrl>Expression pour remplir un composant RTF.</DataUrl>
     <DetectUrls>Détection des URL.</DetectUrls>
-    <FullConvertExpression>Une valeur indiquant qu'il est nécessaire de convertir complètement l'expression en RTF. La conversion complète des expressions ralenti le rendu des rapports.</FullConvertExpression>
+    <FullConvertExpression>Une valeur indiquant qu'il est nécessaire de convertir complètement l'expression en RTF. La conversion complète des expressions ralentit le rendu des rapports.</FullConvertExpression>
     <Margins>Marges du texte.</Margins>
     <WordWrap>Retour à la ligne automatique.</WordWrap>
     <Wysiwyg>Une valeur indiquant qu'il faut faire le rendu en mode WYSIWYG.</Wysiwyg>
@@ -2009,24 +2011,24 @@
   </StiRoundedRectangleShapeType>
   <StiRoyalMail4StateBarCodeType>
     <CheckSum>Définit ou obtient le mode de checksum.</CheckSum>
-    <Height>Définit ou obtient le facteur de hauteur du code barre.</Height>
-    <Module>Définit ou obtient la largeur de l'élément le plus fin du code barre.</Module>
+    <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
+    <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
   </StiRoyalMail4StateBarCodeType>
   <StiSeries>
     <AllowApplyBrushNegative>Une valeur indiquant qu'une brosse spécifique sera utilisée pour remplir les valeurs négatives.</AllowApplyBrushNegative>
     <AllowApplyColorNegative>Une valeur indiquant qu'une couleur spécifique sera utilisée pour les valeurs négatives.</AllowApplyColorNegative>
     <Argument>Expression d'argument. Exemple: {Order.Argument}</Argument>
     <ArgumentDataColumn>Nom d'une colonne contenant la valeur de l'argument.</ArgumentDataColumn>
-    <AutoSeriesColorDataColumn>Nom d'une colonne contenant la couleur pour les séries crées automatiquement. La couleur doit être représentée en tant que chaîne.</AutoSeriesColorDataColumn>
-    <AutoSeriesKeyDataColumn>Nom d'une colonne contenant la clé pour les séries crées automatiquement.</AutoSeriesKeyDataColumn>
-    <AutoSeriesTitleDataColumn>Nom d'une colonne contenant le titre pour les séries crées automatiquement.</AutoSeriesTitleDataColumn>
+    <AutoSeriesColorDataColumn>Nom d'une colonne contenant la couleur pour les séries créées automatiquement. La couleur doit être représentée en tant que chaîne.</AutoSeriesColorDataColumn>
+    <AutoSeriesKeyDataColumn>Nom d'une colonne contenant la clé pour les séries créées automatiquement.</AutoSeriesKeyDataColumn>
+    <AutoSeriesTitleDataColumn>Nom d'une colonne contenant le titre pour les séries créées automatiquement.</AutoSeriesTitleDataColumn>
     <BorderColor>Couleur de la bordure des séries.</BorderColor>
     <Brush>Brosse utilisée pour remplir les séries.</Brush>
-    <BrushNegative>Brosse utilisés pour les valeurs négatives.</BrushNegative>
-    <Conditions>collection de conditions pouvant être utilisées pour changer le comportement des séries.</Conditions>
+    <BrushNegative>Brosse utilisée pour les valeurs négatives.</BrushNegative>
+    <Conditions>Collection de conditions pouvant être utilisées pour changer le comportement des séries.</Conditions>
     <FilterMode>Mode de filtre des séries.</FilterMode>
-    <Filters>filtres pour filtrer les valeurs des séries.</Filters>
-    <Format>chaîne utilisée pour formater les valeurs des séries.</Format>
+    <Filters>Filtres pour filtrer les valeurs des séries.</Filters>
+    <Format>Chaîne utilisée pour formater les valeurs des séries.</Format>
     <GetArgumentEvent>Se produit pour obtenir l'argument.</GetArgumentEvent>
     <GetHyperlinkEvent>Se produit pour obtenir l'hyperlien pour les séries.</GetHyperlinkEvent>
     <GetListOfArgumentsEvent>Se produit pour obtenir la liste d'arguments.</GetListOfArgumentsEvent>
@@ -2048,7 +2050,7 @@
     <LineMarker>Paramètres de marqueur de ligne.</LineMarker>
     <LineStyle>Style de ligne des séries.</LineStyle>
     <LineWidth>Largeur de ligne des séries.</LineWidth>
-    <ListOfArguments>Expression pour remplir une liste d'arguments.  Exemple: 1;2;3</ListOfArguments>
+    <ListOfArguments>Expression pour remplir une liste d'arguments. Exemple: 1;2;3</ListOfArguments>
     <ListOfValues>Expression pour remplir une liste de valeurs. Exemple: 1;2;3</ListOfValues>
     <ListOfWeights>Expression pour remplir une liste de poids. Exemple: 1;2;3</ListOfWeights>
     <Marker>Paramètres de marqueur.</Marker>
@@ -2058,17 +2060,17 @@
     <ShowInLegend>Une valeur indiquant que les séries doivent apparaître dans la légende.</ShowInLegend>
     <ShowNulls>Une valeur indiquant qu'il est nécessaire d'afficher l'élément d'une série si la valeur est nulle.</ShowNulls>
     <ShowSeriesLabels>Mode de sortie des libellés des séries.</ShowSeriesLabels>
-    <ShowShadow>Une valeur indiquant si il faut dessiner une ombre.</ShowShadow>
+    <ShowShadow>Une valeur indiquant s'il faut dessiner une ombre.</ShowShadow>
     <ShowZeros>Une valeur indiquant qu'il est nécessaire d'afficher l'élément d'une série si la valeur est 0.</ShowZeros>
     <SortBy>Mode de tri des valeurs des séries.</SortBy>
     <SortDirection>Sens de tri.</SortDirection>
     <Tension>Facteur de tension des séries.</Tension>
-    <Title>titre des séries.</Title>
-    <TopmostLine>Une valeur indiquant si la ligne doit être affichée toujours au dessus.</TopmostLine>
+    <Title>Titre des séries.</Title>
+    <TopmostLine>Une valeur indiquant si la ligne doit être affichée toujours au-dessus.</TopmostLine>
     <TopN>Paramètres pour afficher les N premiers résultats.</TopN>
     <TrendLine>Paramètres de ligne de tendance.</TrendLine>
     <Value>Expression de valeur de point. Exemple: {Order.Value}</Value>
-    <ValueDataColumn>Nom d'une colonne contenant le valeur.</ValueDataColumn>
+    <ValueDataColumn>Nom d'une colonne contenant la valeur.</ValueDataColumn>
     <Weight>Expression du poids d'une valeur. Exemple: {Order.Value}</Weight>
     <WeightDataColumn>Nom d'une colonne contenant le poids d'une valeur.</WeightDataColumn>
     <YAxis>Axe Y pour les séries sortant une représentation sous forme de chaîne des arguments.</YAxis>
@@ -2087,7 +2089,7 @@
     <Tag>Expression pour remplir l'étiquette des séries.</Tag>
     <TagDataColumn>Nom d'une colonne contenant la valeur de l'étiquette.</TagDataColumn>
     <ToolTip>Expression pour remplir le tooltip des séries.</ToolTip>
-    <ToolTipDataColumn>&gt;Nom d'une colonne contenant la valeur du tooltip.</ToolTipDataColumn>
+    <ToolTipDataColumn>Nom d'une colonne contenant la valeur du tooltip.</ToolTipDataColumn>
   </StiSeriesInteraction>
   <StiSeriesLabels>
     <Angle>Angle de rotation.</Angle>
@@ -2095,22 +2097,22 @@
     <AutoRotate>Valeur activant ou désactivant la rotation automatique des libellés des séries.</AutoRotate>
     <BorderColor>Couleur de bordure des libellés des séries.</BorderColor>
     <Brush>Brosse pour remplir la surface des libellés des séries.</Brush>
-    <Conditions>collection de conditions pouvant être utilisées pour changer le comportement des libellés des séries.</Conditions>
-    <DrawBorder>Valeur indiquant si il faut dessiner une bordure.</DrawBorder>
+    <Conditions>Collection de conditions pouvant être utilisées pour changer le comportement des libellés des séries.</Conditions>
+    <DrawBorder>Valeur indiquant s'il faut dessiner une bordure.</DrawBorder>
     <Font>Police des libellés des séries.</Font>
-    <Format>chaîne utilisée pour formater les valeurs des séries (si possible).</Format>
+    <Format>Chaîne utilisée pour formater les valeurs des séries (si possible).</Format>
     <LabelColor>Couleur des libellés des séries.</LabelColor>
     <LegendValueType>Quel type d'information sera affiché dans la légende.</LegendValueType>
     <LineColor>Couleur de ligne.</LineColor>
-    <LineLength>Distance entre les bordures des libellés des séries les bordures des éléments des séries.</LineLength>
+    <LineLength>Distance entre les bordures des libellés des séries et les bordures des éléments des séries.</LineLength>
     <MarkerAlignment>Alignement du marqueur par rapport au libellé.</MarkerAlignment>
     <MarkerSize>Taille du marqueur.</MarkerSize>
-    <MarkerVisible>Visibilité dur marqueur.</MarkerVisible>
-    <PreventIntersection>Une valeur indiquant si il est nécessaire d'éviter l'intersection entre les bordures des libellés des séries les bordures des séries.</PreventIntersection>
+    <MarkerVisible>Visibilité du marqueur.</MarkerVisible>
+    <PreventIntersection>Une valeur indiquant s'il est nécessaire d'éviter l'intersection entre les bordures des libellés des séries et les bordures des séries.</PreventIntersection>
     <ShowInPercent>Une valeur indiquant que les valeurs des séries doivent être affichées en pourcentage.</ShowInPercent>
-    <ShowNulls>Une valeur indiquant si il est nécessaire d'afficher le libellé d'une série, si la valeur est nulle.</ShowNulls>
+    <ShowNulls>Une valeur indiquant s'il est nécessaire d'afficher le libellé d'une série, si la valeur est nulle.</ShowNulls>
     <ShowValue>Une valeur indiquant que les valeurs des séries seront affichées dans les libellés des séries.</ShowValue>
-    <ShowZeros>Une valeur indiquant si il est nécessaire d'afficher le libellé d'une série, si la valeur est 0.</ShowZeros>
+    <ShowZeros>Une valeur indiquant s'il est nécessaire d'afficher le libellé d'une série, si la valeur est 0.</ShowZeros>
     <Step>Une valeur indiquant à quel pas les libellés seront affichés.</Step>
     <TextAfter>Texte affiché après le libellé.</TextAfter>
     <TextBefore>Texte affiché avant le libellé.</TextBefore>
@@ -2123,13 +2125,13 @@
   </StiSeriesLabels>
   <StiSeriesTopN>
     <Count>Nombre de valeurs à retourner.</Count>
-    <Mode>Mode de sortie des valeurs</Mode>
+    <Mode>Mode de sortie des valeurs.</Mode>
     <OtherText>Signature des autres valeurs.</OtherText>
-    <ShowOther>Définit si il faut afficher les valeurs différentes.</ShowOther>
+    <ShowOther>Définit s'il faut afficher les valeurs différentes.</ShowOther>
   </StiSeriesTopN>
   <StiShape>
     <BorderColor>Couleur de bordure.</BorderColor>
-    <ShapeType>type de forme.</ShapeType>
+    <ShapeType>Type de forme.</ShapeType>
     <Size>Taille de la bordure.</Size>
     <Style>Style de pinceau.</Style>
   </StiShape>
@@ -2179,12 +2181,12 @@
     <ShowInLegend>Valeur indiquant si les bandes doivent être affichées dans la légende.</ShowInLegend>
     <StripBrush>Brosse utilisée pour dessiner les bandes.</StripBrush>
     <Text>Titre.</Text>
-    <TitleColor>couleur du titre.</TitleColor>
-    <TitleVisible>visibilité du titre.</TitleVisible>
+    <TitleColor>Couleur du titre.</TitleColor>
+    <TitleVisible>Visibilité du titre.</TitleVisible>
     <Visible>Visibilité des bandes.</Visible>
   </StiStrips>
   <StiSubReport>
-    <KeepSubReportTogether>Une valeur indiquant que le sous-rapport doit être conservé à coté de la bande de données sur laquelle il est placé.</KeepSubReportTogether>
+    <KeepSubReportTogether>Une valeur indiquant que le sous-rapport doit être conservé à côté de la bande de données sur laquelle il est placé.</KeepSubReportTogether>
     <SubReportPage>Page contenant le sous-rapport.</SubReportPage>
     <UseExternalReport>Une valeur indiquant que ce sous-rapport requiert un rapport externe.</UseExternalReport>
   </StiSubReport>
@@ -2192,12 +2194,12 @@
     <AutoWidth>Valeur indiquant si les colonnes ont une largeur automatique.</AutoWidth>
     <AutoWidthType>Valeur indiquant comment la largeur des colonnes est ajustée.</AutoWidthType>
     <ColumnCount>Nombre de colonnes dans le tableau.</ColumnCount>
-    <DockableTable>Une valeur indiquant que le tableau sera ajuste en haut du composant parent.</DockableTable>
+    <DockableTable>Une valeur indiquant que le tableau sera ajusté en haut du composant parent.</DockableTable>
     <FooterCanBreak>Une valeur indiquant que le pied peut casser son contenu.</FooterCanBreak>
     <FooterCanGrow>Une valeur indiquant que le pied peut s'agrandir en hauteur.</FooterCanGrow>
     <FooterCanShrink>Une valeur indiquant que le pied peut se réduire en hauteur.</FooterCanShrink>
     <FooterPrintAtBottom>Une valeur indiquant que le pied du tableau doit s'imprimer en bas de la page.</FooterPrintAtBottom>
-    <FooterPrintIfEmpty>Une valeur indiquant que le pied doit être imprimé m^me si il n'y a pas de données dans le tableau.</FooterPrintIfEmpty>
+    <FooterPrintIfEmpty>Une valeur indiquant que le pied doit être imprimé même s'il n'y a pas de données dans le tableau.</FooterPrintIfEmpty>
     <FooterPrintOn>Une valeur indiquant comment le pied s'imprime sur les pages.</FooterPrintOn>
     <FooterPrintOnAllPages>Une valeur indiquant que le pied s’imprimera sur toutes les pages.</FooterPrintOnAllPages>
     <FooterPrintOnEvenOddPages>Une valeur indiquant comment le pied s'imprime sur les pages paires-impaires.</FooterPrintOnEvenOddPages>
@@ -2206,7 +2208,7 @@
     <HeaderCanGrow>Une valeur indiquant que l'en-tête peut s'agrandir en hauteur.</HeaderCanGrow>
     <HeaderCanShrink>Une valeur indiquant que l'en-tête peut se réduire en hauteur.</HeaderCanShrink>
     <HeaderPrintAtBottom>Une valeur indiquant que l'en-tête du tableau doit s'imprimer en bas de la page.</HeaderPrintAtBottom>
-    <HeaderPrintIfEmpty>Une valeur indiquant que l'en-tête doit être imprimé m^me si il n'y a pas de données dans le tableau.</HeaderPrintIfEmpty>
+    <HeaderPrintIfEmpty>Une valeur indiquant que l'en-tête doit être imprimé même s'il n'y a pas de données dans le tableau.</HeaderPrintIfEmpty>
     <HeaderPrintOn>Une valeur indiquant comment l'en-tête s'imprime sur les pages.</HeaderPrintOn>
     <HeaderPrintOnAllPages>Une valeur indiquant que l'en-tête s’imprimera sur toutes les pages.</HeaderPrintOnAllPages>
     <HeaderPrintOnEvenOddPages>Une valeur indiquant comment l'en-tête s'imprime sur les pages paires-impaires.</HeaderPrintOnEvenOddPages>
@@ -2214,12 +2216,12 @@
     <RowCount>Nombre de lignes dans le tableau.</RowCount>
   </StiTable>
   <StiTableElement>
-    <Columns>Colonnes affichés dans la table</Columns>
+    <Columns>Colonnes affichées dans le tableau.</Columns>
     <FiltersTarget>Obtient ou définit les données cibles auxquelles les filtres sont appliqués.</FiltersTarget>
     <Group />
     <SizeMode />
-    <Style>Table style.</Style>
-    <Title>Table title.</Title>
+    <Style>Style du tableau.</Style>
+    <Title>Titre du tableau.</Title>
   </StiTableElement>
   <StiTableOfContents>
     <RightToLeft>Obtient ou définit la direction de sortie horizontale.</RightToLeft>
@@ -2242,17 +2244,17 @@
     <AllowHtmlTags>Une valeur indiquant si ce composant autorise les balises HTML dans le texte.</AllowHtmlTags>
     <Angle>Angle de rotation du texte.</Angle>
     <AutoWidth>Une valeur indiquant que cet objet peut changer de taille automatiquement.</AutoWidth>
-    <ExcelValue>Expression utilisée pour exporter les données vers Excel. uniquement pour les valeurs numériques.</ExcelValue>
+    <ExcelValue>Expression utilisée pour exporter les données vers Excel. Uniquement pour les valeurs numériques.</ExcelValue>
     <ExportAsImage>Une valeur indiquant si le contenu sera exporté en tant qu'image ou texte.</ExportAsImage>
     <Font>Police du composant.</Font>
     <GetExcelValueEvent>Se produit quand la valeur Excel est calculée.</GetExcelValueEvent>
-    <HorAlignment>alignement horizontal du texte.</HorAlignment>
+    <HorAlignment>Alignement horizontal du texte.</HorAlignment>
     <Margins>Marges du texte.</Margins>
     <RenderTo>Spécifie un composant texte qui aura pour valeur le texte du composant courant qui ne rentre pas dans le cadre.</RenderTo>
     <ShrinkFontToFit>Une valeur indiquant si ce composant diminue la taille de la police pour adapter le contenu au composant.</ShrinkFontToFit>
     <ShrinkFontToFitMinimumSize>Une valeur indiquant la taille minimale de la police pour l'opération adaptation automatique de la police.</ShrinkFontToFitMinimumSize>
-    <TextFormat>format du texte.</TextFormat>
-    <TextOptions>options pour contrôler l'affichage du texte.</TextOptions>
+    <TextFormat>Format du texte.</TextFormat>
+    <TextOptions>Options pour contrôler l'affichage du texte.</TextOptions>
     <TextQuality>Une valeur indiquant la qualité du texte.</TextQuality>
     <WordWrap>Retour à la ligne.</WordWrap>
   </StiText>
@@ -2303,30 +2305,30 @@
     <LineColor>Couleur de la ligne.</LineColor>
     <LineStyle>Style de ligne.</LineStyle>
     <LineWidth>Largeur de la ligne.</LineWidth>
-    <ShowShadow>Une valeur indiquant si il faut dessiner une ombre.</ShowShadow>
+    <ShowShadow>Une valeur indiquant s'il faut dessiner une ombre.</ShowShadow>
   </StiTrendLine>
   <StiUpcABarCodeType>
     <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
     <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiUpcABarCodeType>
   <StiUpcEBarCodeType>
     <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
     <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
-    <SupplementCode>Définit ou obtient le supplément du code barre.</SupplementCode>
-    <SupplementType>Définit ou obtient le type de supplément du code barre.</SupplementType>
+    <SupplementCode>Obtient ou définit le supplément du code barre.</SupplementCode>
+    <SupplementType>Obtient ou définit le type de supplément du code barre.</SupplementType>
   </StiUpcEBarCodeType>
   <StiUpcSup2BarCodeType>
     <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
     <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
   </StiUpcSup2BarCodeType>
   <StiUpcSup5BarCodeType>
     <Height>Obtient ou définit le facteur de hauteur du code barre.</Height>
     <Module>Obtient ou définit la largeur de l'élément le plus fin du code barre.</Module>
-    <ShowQuietZoneIndicator>Définit ou obtient une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
+    <ShowQuietZoneIndicator>Obtient ou définit une valeur indiquant si le Quiet Zone Indicator sera affiché ou non.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
   <StiUserFunction>
     <InterpretationModeSwitchToBlocks>Ce rapport utilise le mode Interprétation. Les fonctions avec code ne fonctionneront pas. Nous recommandons de passer en mode Script sur Blocs.</InterpretationModeSwitchToBlocks>
@@ -2347,7 +2349,7 @@
   </StiVertChartGridLines>
   <StiView>
     <AspectRatio>Une valeur indiquant que l'image conservera son ratio.</AspectRatio>
-    <MultipleFactor>Valeur à multiplier par la taille de l'image</MultipleFactor>
+    <MultipleFactor>Valeur à multiplier par la taille de l'image.</MultipleFactor>
     <Smoothing>Mode de lissage.</Smoothing>
     <Stretch>Une valeur indiquant que ce composant va étirer l'image jusqu'à ce que sa taille égale celle de la page.</Stretch>
   </StiView>
@@ -2364,7 +2366,7 @@
     <ImageTransparency>Transparence de l'image du filigrane.</ImageTransparency>
     <RightToLeft>Sens du texte.</RightToLeft>
     <ShowBehind>Une valeur indiquant si le filigrane doit être dessiné devant ou derrière la page.</ShowBehind>
-    <ShowImageBehind>Une valeur indiquant si l'image du filigrane doit être dessiné devant ou derrière la page.</ShowImageBehind>
+    <ShowImageBehind>Une valeur indiquant si l'image du filigrane doit être dessinée devant ou derrière la page.</ShowImageBehind>
     <Text>Texte du filigrane.</Text>
     <TextBrush>Brosse pour le filigrane.</TextBrush>
   </StiWatermark>
@@ -2396,7 +2398,7 @@
     <Code>Expression pour remplir le code d'un code postal.</Code>
     <ForeColor>Couleur du texte.</ForeColor>
     <GetZipCodeEvent>Se produit pour obtenir le code d'un code postal.</GetZipCodeEvent>
-    <Ratio>Une valeur indiquant le ration entre la hauteur et la largeur.</Ratio>
+    <Ratio>Une valeur indiquant le ratio entre la hauteur et la largeur.</Ratio>
     <Size>Taille du contour.</Size>
   </StiZipCode>
   <Universal>

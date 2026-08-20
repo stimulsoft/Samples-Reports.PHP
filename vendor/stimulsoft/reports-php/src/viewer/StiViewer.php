@@ -397,7 +397,7 @@ class StiViewer extends StiComponent
             $id = 'viewer';
         }
 
-        $this->id = strlen($id ?? '') > 0 ? $id : 'viewer';
+        $this->id = !StiFunctions::isNullOrEmpty($id) ? StiFunctions::normalizeJavaScriptIdentifier($id) : 'viewer';
         $this->options = $options ?? new StiViewerOptions();
         $this->setOptions($this->options);
         $this->setHandler($this->handler);

@@ -27,6 +27,7 @@ class StiJavaScript extends StiElement
     public $useRelativeUrls = true;
     public $relativePath = '';
     public $useStaticUrls = true;
+    public $vendorPath = null;
 
     /**
      * @deprecated Please use the same properties in the main class. For this property to work, you need to call StiHandler::enableLegacyMode();
@@ -50,6 +51,14 @@ class StiJavaScript extends StiElement
     public function getRootUrl(): string
     {
         return $this->useRelativeUrls ? $this->relativePath : '/';
+    }
+
+    public function getVendorPath(): string
+    {
+        if (!StiFunctions::isNullOrEmpty($this->vendorPath))
+            return rtrim($this->vendorPath, '/') . '/';
+
+        return $this->getRootUrl() . 'vendor/stimulsoft/';
     }
 
     private function updateOptions()
@@ -109,16 +118,17 @@ class StiJavaScript extends StiElement
                 $scripts[] = "stimulsoft.blockly.editor.$extension";
         }
 
+        $vendorPath = $this->getVendorPath();
+
         foreach ($scripts as $name) {
             $scriptName = str_replace('.', '_', $name);
             $rendered = array_key_exists("Stimulsoft_Scripts_$scriptName", $GLOBALS) && $GLOBALS["Stimulsoft_Scripts_$scriptName"];
             if (!$rendered) {
                 $product = strpos($name, 'dashboards') > 0 ? 'dashboards-php' : 'reports-php';
-                $root = $this->getRootUrl();
                 $url = $this->getUrl();
                 $url .= strpos($url, '?') === false ? '?' : '&';
                 $result .= $this->useStaticUrls && $name != 'stimulsoft.handler.js'
-                    ? "<script src=\"{$root}vendor/stimulsoft/$product/scripts/$name\"></script>\n"
+                    ? "<script src=\"{$vendorPath}$product/scripts/$name\"></script>\n"
                     : "<script src=\"{$url}sti_event=GetResource&sti_data=$name\"></script>\n";
                 $GLOBALS["Stimulsoft_Scripts_$scriptName"] = true;
             }

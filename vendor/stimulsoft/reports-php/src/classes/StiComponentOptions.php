@@ -48,8 +48,8 @@ class StiComponentOptions extends StiJsElement
             $localization .= '.xml';
 
         if (!preg_match('/[\/\\\]/', $localization)) {
-            $root = $this->component->javascript->getRootUrl();
-            $localization = "{$root}vendor/stimulsoft/reports-php/localization/$localization";
+            $vendorPath = $this->component->javascript->getVendorPath();
+            $localization = "{$vendorPath}reports-php/localization/$localization";
         }
 
         return $localization;

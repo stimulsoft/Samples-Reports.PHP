@@ -20,6 +20,9 @@ class StiReportEventArgs extends StiEventArgs
     /** @var bool A flag indicating that the wizard was used when creating the report. */
     public $isWizardUsed;
 
+    /** @var bool A flag indicating whether the report is being saved for the first time. */
+    public $isNewReport;
+
     /** @var bool A flag indicating that the report was saved automatically. */
     public $autoSave;
 

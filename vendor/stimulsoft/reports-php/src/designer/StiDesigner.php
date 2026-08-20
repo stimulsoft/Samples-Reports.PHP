@@ -9,6 +9,7 @@ use Stimulsoft\Events\StiComponentEvent;
 use Stimulsoft\Events\StiReportEventArgs;
 use Stimulsoft\Report\StiReport;
 use Stimulsoft\StiComponent;
+use Stimulsoft\StiFunctions;
 use Stimulsoft\StiHandler;
 use Stimulsoft\StiResult;
 
@@ -278,7 +279,7 @@ class StiDesigner extends StiComponent
             $id = 'designer';
         }
 
-        $this->id = strlen($id ?? '') > 0 ? $id : 'designer';
+        $this->id = !StiFunctions::isNullOrEmpty($id) ? StiFunctions::normalizeJavaScriptIdentifier($id) : 'designer';
         $this->options = $options ?? new StiDesignerOptions();
         $this->setOptions($this->options);
         $this->setHandler($this->handler);

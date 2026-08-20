@@ -61,6 +61,9 @@ class StiToolbarOptions extends StiComponentOptions
     /** @var bool Gets or sets a visibility of the Bookmarks button in the toolbar of the viewer. */
     public $showBookmarksButton = true;
 
+    /** @var bool Gets or sets a value indicating whether the Bookmarks panel is shown automatically when the report has bookmarks. */
+    public $showBookmarksPanel = true;
+
     /** @var bool Gets or sets a visibility of the Parameters button in the toolbar of the viewer. */
     public $showParametersButton = true;
 

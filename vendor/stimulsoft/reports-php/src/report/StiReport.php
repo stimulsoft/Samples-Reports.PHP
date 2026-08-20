@@ -553,7 +553,7 @@ class StiReport extends StiComponent
     {
         parent::__construct();
 
-        $this->id = !StiFunctions::isNullOrEmpty($id) ? $id : 'report';
+        $this->id = !StiFunctions::isNullOrEmpty($id) ? StiFunctions::normalizeJavaScriptIdentifier($id) : 'report';
         $this->dictionary = new StiDictionary($this);
         $this->nodejs = new StiNodeJs($this);
         $this->setHandler($this->handler);

@@ -614,6 +614,7 @@
     <Font>축 레이블 그리기에 사용되는 글꼴</Font>
     <Format>인수의 값을 형식화하기위한 서식 문자열</Format>
     <Placement>축에 레이블을 배치 모드</Placement>
+    <ShowAsIndex>축 레이블에 인수 텍스트 대신 포인트의 순서 위치(1..N)를 표시함을 나타내는 값입니다.</ShowAsIndex>
     <Step>어떤 단계에서 축 레이블을 표시할지 여부를 나타내는 값</Step>
     <TextAfter>인수의 캐릭터 라인 표현 후 출력되는 문자열</TextAfter>
     <TextAlignment>레이블 텍스트 정렬</TextAlignment>
@@ -837,6 +838,7 @@
     <Color>라벨 그리기 색상</Color>
     <Font>축 레이블 그리기에 사용되는 글꼴</Font>
     <Placement>축에 레이블을 배치 모드</Placement>
+    <ShowAsIndex>축 레이블에 인수 텍스트 대신 포인트의 순서 위치(1..N)를 표시함을 나타내는 값입니다.</ShowAsIndex>
     <Step>어떤 단계에서 축 레이블을 표시할지 여부를 나타내는 값</Step>
     <TextAfter>인수의 캐릭터 라인 표현 후 출력되는 문자열</TextAfter>
     <TextAlignment>레이블 텍스트 정렬</TextAlignment>

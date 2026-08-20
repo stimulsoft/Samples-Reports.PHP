@@ -35,6 +35,18 @@ class StiComponentEvent extends StiEvent
         return $eventArgs;
     }
 
+    private function getProcessCallback(string $componentId)
+    {
+        switch ($this->name)
+        {
+            case 'onSaveReport':
+                return "if (processArgs.success === false && args.isNewReport) $componentId.jsObject.options.report.properties.reportFile = '';";
+            
+            default:
+                return '';
+        }
+    }
+
 
 ### HTML
 
@@ -82,8 +94,10 @@ class StiComponentEvent extends StiEvent
 
         // Prepare event parameters
         $callbackArgument = $callback ? ", $callbackName" : '';
+        $processCallback = $this->getProcessCallback($componentId);
+        $processCallbackArgument = !$callback && $processCallback ? ", processArgs => { $processCallback }" : $callbackArgument;
         $preventValue = $prevent ? 'args.preventDefault = true; ' : '';
-        $processValue = $process ? "Stimulsoft.handler.process($argsArgument$callbackArgument); " : ($callback ? "$callbackName(); " : '');
+        $processValue = $process ? "Stimulsoft.handler.process($argsArgument$processCallbackArgument); " : ($callback ? "$callbackName(); " : '');
 
         // For an internal event, the function is called in the next JavaScript frame (a zero timeout is used)
         $internalValue = $callback ? "let $argsArgument = args;\nlet $callbackName = null;\nsetTimeout(function () { " . $preventValue . $processValue . "});\n" : "";

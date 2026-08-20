@@ -41,6 +41,19 @@ class StiFunctions
         return preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $value);
     }
 
+    /**
+     * Strips characters that are not allowed in a JavaScript identifier and, if needed,
+     * prefixes the result so it never starts with a digit or ends up empty.
+     */
+    public static function normalizeJavaScriptIdentifier(string $value): string
+    {
+        $value = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '', $value);
+        if ($value === '' || preg_match('/^[0-9]/', $value))
+            $value = '_' . $value;
+
+        return $value;
+    }
+
 
 ### Reflection
 

@@ -250,7 +250,7 @@ class StiNodeJs
     {
         $name = 'HTTP_X_NODEJS_ID';
         $id = array_key_exists($name, $_SERVER) ? $_SERVER[$name] : '';
-        return strlen($id) > 0 ? $id : StiFunctions::newGuid();
+        return preg_match('/^[0-9a-fA-F]+$/', $id) ? $id : StiFunctions::newGuid();
     }
 
 

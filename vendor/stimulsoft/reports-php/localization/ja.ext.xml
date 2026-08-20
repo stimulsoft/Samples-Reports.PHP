@@ -615,6 +615,7 @@
     <Font>軸ラベル描画に使用されるフォント</Font>
     <Format>引数の値を書式化するための書式文字列</Format>
     <Placement>軸にラベルを配置するモード</Placement>
+    <ShowAsIndex>軸ラベルに、引数のテキストの代わりにポイントの順序位置（1..N）を表示することを示す値です。</ShowAsIndex>
     <Step>どのステップで軸にラベルを表示するかを示す値</Step>
     <TextAfter>引数の文字列表現の後に出力される文字列</TextAfter>
     <TextAlignment>ラベルテキストの配置</TextAlignment>
@@ -838,6 +839,7 @@
     <Color>ラベル描画の色</Color>
     <Font>軸ラベル描画に使用されるフォント</Font>
     <Placement>軸にラベルを配置するモード</Placement>
+    <ShowAsIndex>軸ラベルに、引数のテキストの代わりにポイントの順序位置（1..N）を表示することを示す値です。</ShowAsIndex>
     <Step>どのステップで軸にラベルを表示するかを示す値</Step>
     <TextAfter>引数の文字列表現の後に出力される文字列</TextAfter>
     <TextAlignment>ラベルテキストの配置</TextAlignment>
