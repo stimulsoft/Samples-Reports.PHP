@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>Dependencia circular del filtro</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>No se ha especificado el valor del filtro de '{0}'. Este filtro no se puede procesar.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>No se ha especificado el Valor (Value) del filtro</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>La fuente '{0}' del componente '{1}' no contiene glifos para los siguientes caracteres: {2}. Estos caracteres se mostrarán como rectángulos vacíos en un archivo PDF.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>La fuente no contiene glifos para el texto.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>No se encontró la fuente '{0}' especificada para el componente '{1}'.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>No se encontró la fuente.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>En el informe se utilizan variables del sistema que no están disponibles en el EngineV1. ¿Desea utilizar el EngineV2?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>Se han establecido algunas propiedades que no son compatibles con el EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>La propiedad Reiniciar Número de Página (ResetPageNumber) de la página '{0}' está establecida en verdadero, pero para la primera y única página no tiene sentido.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Quizás la propiedad Reiniciar Número de Página (ResetPageNumber) está establecida incorrectamente</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>El componente '{0}' contiene un texto de derecha a izquierda, pero la opción de texto RightToLeft está deshabilitada.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>El texto RTL con la opción RightToLeft deshabilitada.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>La propiedad NullValues está establecida para el componente '{0}', pero la propiedad Columna de Datos (DataColumn) no está establecida. Esto no tiene sentido.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>La propiedad NullValues está establecida</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Si la propiedad Página de Subinforme (SubReportPage) del componente SubReport no está establecida, el informe no se puede construir.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicados en las relaciones</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>El nombre del informe '{0}' coincide con el nombre de la fuente de datos.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>El nombre del informe '{0}' coincide con el nombre del componente.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>No se encontró el archivo de la fuente '{0}', la fuente no se incrustará en el archivo PDF. La fuente se utiliza en los componentes: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>La fuente no se puede incrustar en el archivo PDF.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>La fuente '{0}' no contiene el estilo '{1}', se emulará en la exportación a PDF. La fuente se utiliza en los componentes: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>El estilo de la fuente no está disponible.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>El informe no se puede construir porque no se puede determinar la página principal. Compruebe la referencia a la página en los SubReports y DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>Falta la página principal</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>El motor Stimulsoft .NET Core no puede construir este informe en el modo de compilación. Cambie el informe al modo de interpretación.</StiNetCoreCompilationModeCheckLong>

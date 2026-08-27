@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>Cirkulärt filterberoende</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>Ett filtervärde för '{0}' har inte angetts. Detta filter kan inte bearbetas.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>Ett filtervärde har inte angetts</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>Typsnittet '{0}' för komponenten '{1}' innehåller inte glyfer för följande tecken: {2}. Dessa tecken visas som tomma rektanglar i PDF-filen.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>Typsnittet innehåller inte glyfer för texten.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>Typsnittet "{0}" som anges för komponenten "{1}" finns inte.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>Typsnittet hittas inte.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>Systemvariabler som inte är tillgängliga i EngineV1 används i rapporten. Vill du använda EngineV2?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>Vissa egenskaper är inställda som inte stöds i EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>Egenskapen ResetPageNumber för sidan '{0}' är inställd på true. Men för den första och enda sidan är det meningslöst.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Kanske egenskapen ResetPageNumber är felaktigt inställd</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>Komponenten '{0}' innehåller en höger-till-vänster-text, men textalternativet RightToLeft är inaktiverat.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>RTL-text med inaktiverat RightToLeft-alternativ.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>Den NullValues ​​egenskapen är inställd för "{0}" komponent. Men egenskapen DataColumn inte är inställd. Det är meningslöst.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>Den NullValues ​​egenskapen är inställd</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Om egenskapen SubReportPage för SubReport-komponenten inte är inställd kan rapporten inte renderas.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Dubbletter i relationer</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Rapportnamnet '{0}' är samma som datakällans namn.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Rapportnamnet '{0}' är samma som komponentnamnet.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>Typsnittsfilen för typsnittet '{0}' hittades inte, typsnittet bäddas inte in i PDF-filen. Typsnittet används i komponenterna: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>Typsnittet kan inte bäddas in i PDF-filen.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>Typsnittet '{0}' innehåller inte stilen '{1}', den emuleras vid PDF-export. Typsnittet används i komponenterna: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>Typsnittsstilen är inte tillgänglig.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>Rapporten kan inte genereras eftersom huvudsidan inte kan fastställas. Kontrollera sidhänvisningen i SubReports och DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>Huvudsidan saknas</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core-motorn kan inte rendera denna rapport i kompileringsläge. Ändra rapporten till tolkningsläge.</StiNetCoreCompilationModeCheckLong>

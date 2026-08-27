@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>Circular filter dependency</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>A filter value of '{0}' is not specified. This filter can't be processed.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>A filter Value is not specified</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>The font '{0}' of the component '{1}' does not contain glyphs for the following characters: {2}. These characters will be shown as empty rectangles in a PDF file.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>The font does not contain glyphs for the text.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>The font '{0}' specified for the component '{1}' is not found.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>The font is not found.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>System variables which are not available in the EngineV1 are used in the report. Do you want to use EngineV2?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>Some properties are set which are not supported in the EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>The ResetPageNumber property of the '{0}' page is set to true. But for the first and the only page it makes no sense.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Maybe the ResetPageNumber property is set incorrectly</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>The component '{0}' contains a right-to-left text, but the RightToLeft text option is disabled.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>The RTL text with the disabled RightToLeft option.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>The NullValues property is set for the '{0}' component. But the DataColumn property is not set. This is senseless.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>The NullValues property is set</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>If the SubReportPage property of the SubReport component is not set then the report cannot be rendered.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicates in relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>The report name '{0}' is the same as the data source name.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>The report name '{0}' is the same as the component name.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>The font file of the font '{0}' is not found, the font will not be embedded into a PDF file. The font is used in the components: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>The font cannot be embedded into a PDF file.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>The font '{0}' does not contain the '{1}' style, it will be emulated in the PDF export. The font is used in the components: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>The font style is not available.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>The report cannot be rendered because the main page cannot be determined. Check the page reference in SubReports and DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>The main page is missing</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine cannot render this report in the compilation mode. Change the report to the interpretation mode.</StiNetCoreCompilationModeCheckLong>

@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>Dépendance du filtre circulaire</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>Une valeur de filtre de "{0}" n'est pas spécifiée. Ce filtre ne peut pas être traité.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>Une valeur de filtre n'est pas spécifiée</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>La police '{0}' du composant '{1}' ne contient pas de glyphes pour les caractères suivants : {2}. Ces caractères seront affichés sous forme de rectangles vides dans le fichier PDF.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>La police ne contient pas de glyphes pour le texte.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>La police '{0}' spécifiée pour le composant '{1}' n'a pas été trouvée.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>La police n'a pas été trouvée</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>Des variables système qui ne sont pas disponibles dans l'EngineV1 sont utilisées dans le rapport. Voulez-vous utiliser l'EngineV2 ?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>Certaines propriétés ont été définies alors qu'elles ne sont pas supportées par l'EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>La propriété Réinitialiser le nombre de pages de la page '{0}' est définie à oui alors que pour la première et unique page cela n'a pas de sens.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>La propriété Réinitialiser le nombre de pages pourrait être mal définie</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>Le composant '{0}' contient un texte de droite à gauche, mais l'option de texte RightToLeft est désactivée.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>Texte RTL avec l'option RightToLeft désactivée.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>La propriété Remplacer les valeurs nulles est définie pour le composant '{0}'. Mais la propriété Colonne de données n'est pas définie. Cela n'a pas de sens.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>La propriété Remplacer les valeurs nulles est définie</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Si la propriété Page de sous-rapport du composant Sous-Rapport n'est pas définie, alors le rapport ne pourra pas être rendu.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Doublons dans les relations</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Le nom du rapport '{0}' est le même que le nom de la source de données.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Le nom du rapport '{0}' est le même que le nom du composant.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>Le fichier de la police '{0}' est introuvable, la police ne sera pas incorporée dans le fichier PDF. La police est utilisée dans les composants : {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>La police ne peut pas être incorporée dans le fichier PDF.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>La police '{0}' ne contient pas le style '{1}', il sera émulé lors de l'export PDF. La police est utilisée dans les composants : {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>Le style de police n'est pas disponible.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>Le rapport ne peut pas être rendu car la page principale ne peut pas être déterminée. Vérifiez la référence de page dans SubReports et DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>La page principale est manquante</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core engine ne peut pas faire le rendu de ce rapport dans le mode de compilation. Changez le mode d'interprétation du rapport.</StiNetCoreCompilationModeCheckLong>

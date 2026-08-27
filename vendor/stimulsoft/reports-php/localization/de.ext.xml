@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>Zirkuläre Abhängigkeit des Filters</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>Ein Filterwert von '{0}' ist nicht angegeben. Dieser Filter kann nicht verarbeitet werden.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>Ein Filterwert ist nicht angegeben.</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>Die Schrift '{0}' der Komponente '{1}' enthält keine Glyphen für die folgenden Zeichen: {2}. Diese Zeichen werden in der PDF-Datei als leere Rechtecke angezeigt.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>Die Schrift enthält keine Glyphen für den Text.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>Die für Komponente '{1}' angegebene Schrift '{0}' ist nicht gefunden.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>Die Schrift ist nicht gefunden.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>Systemvariablen werden im Report benutzt, die in der EngineV1 nicht verfügbar sind. Soll EngineV2 benutzt werden?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>Einige Eigenschaften wurden gesetzt, die nicht unter der EngineV1 unterstützt werden</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>Die Eigenschaft 'Seitennummer zurücksetzen' der Seite '{0}' ist auf wahr gesetzt. Ist überflüssig für die erste und einzige Seite.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Die Eigenschaft 'Seitennummer zurücksetzen' kann fehlerhaft sein</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>Die Komponente '{0}' enthält einen Rechts-nach-links-Text, aber die Textoption RightToLeft ist deaktiviert.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>RTL-Text mit deaktivierter RightToLeft-Option.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>Die Eigenschaft 'Leerwerte' wurde für die Komponente '{0}' gesetzt. Aber die Eigenschaft 'Datenspalte' wurde nicht gesetzt. Dies ist unwirksam.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>Die Eigenschaft 'Leerwerte' wurde gesetzt.</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Wenn die Eigenschaft 'Unterreport' nicht gesetzt wurde, kann der Report nicht ausgeführt werden.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplikate in Beziehungen</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Der Berichtsname '{0}' ist gleich wie der Datenquellenname.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Der Berichtsname '{0}' ist gleich wie der Komponentenname.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>Die Schriftdatei der Schrift '{0}' wurde nicht gefunden, die Schrift wird nicht in die PDF-Datei eingebettet. Die Schrift wird in den Komponenten verwendet: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>Die Schrift kann nicht in die PDF-Datei eingebettet werden.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>Die Schrift '{0}' enthält den Schnitt '{1}' nicht, er wird beim PDF-Export emuliert. Die Schrift wird in den Komponenten verwendet: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>Der Schriftschnitt ist nicht verfügbar.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>Der Bericht kann nicht gerendert werden, weil die Hauptseite nicht bestimmt werden kann. Überprüfen Sie die Seitenreferenz in SubReports und DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>Die Hauptseite fehlt.</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core-Engine kann diesen Bericht nicht im Kompilation-Modus rendern. Wechseln Sie den Bericht in den Interpretation-Modus.</StiNetCoreCompilationModeCheckLong>

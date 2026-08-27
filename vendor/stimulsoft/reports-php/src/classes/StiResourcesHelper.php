@@ -20,21 +20,31 @@ class StiResourcesHelper
         return null;
     }
 
-    public static function getResult(string $name): StiFileResult
+    public static function getFilePath(string $name, ?string $packageDirectory = null): ?string
+    {
+        $resourceDirectory = self::getDirectory($name);
+        if ($resourceDirectory === null)
+            return null;
+
+        $packageDirectory = $packageDirectory ?? dirname(__FILE__) . '/../..';
+        $resourcePath = "$packageDirectory/$resourceDirectory/$name";
+        $path = new StiPath($resourcePath);
+
+        return $path->filePath;
+    }
+
+    public static function getResult(string $name, ?string $packageDirectory = null): StiFileResult
     {
         $resourceDirectory = self::getDirectory($name);
         if ($resourceDirectory === null)
             return StiFileResult::getError('Unknown resource format.');
 
-        $fileDirectory = dirname(__FILE__);
-        $resourcePath = "$fileDirectory/../../$resourceDirectory/$name";
-        $path = new StiPath($resourcePath);
-        if ($path->filePath !== null) {
-            $data = file_get_contents($path->filePath);
-            $dataType = self::getFormat($name);
-            return new StiFileResult($data, $dataType);
-        }
+        $filePath = self::getFilePath($name, $packageDirectory);
+        if ($filePath === null)
+            return StiFileResult::getError("The resource file '$name' was not found.");
 
-        return StiFileResult::getError("The resource file '$name' was not found.");
+        $data = file_get_contents($filePath);
+        $dataType = self::getFormat($name);
+        return new StiFileResult($data, $dataType);
     }
 }

@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>원형 필터 종속성입니다</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>필터 값 '{0}'이(가) 지정되지 않았습니다. 이 필터는 처리할 수 없습니다.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>필터 값이 지정되지 않았습니다</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>구성 요소 '{1}'의 글꼴 '{0}'에 다음 문자의 글리프가 없습니다: {2}. 이 문자는 PDF 파일에서 빈 사각형으로 표시됩니다.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>글꼴에 텍스트의 글리프가 없습니다.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>구성 요소 '{1}'에 지정된 글꼴 '{0}'를 찾을 수 없습니다.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>글꼴을 찾을 수 없습니다.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>EngineV1에서 사용할 수없는 시스템 변수가 보고서에서 사용됩니다. EngineV2을 사용 하시겠습니까?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>EngineV1에서 지원되지 않는 속성이 몇 가지 설정되어 있습니다.</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>'{0}'페이지의 ResetPageNumber 속성이 true로 설정되어 있습니다. 그러나 첫 유일한 페이지에서는 의미가 없습니다.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>ResetPageNumber 속성이 올바르게 설정되어 있지 않을 수 있습니다</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>구성 요소 '{0}'에 오른쪽에서 왼쪽으로 쓰는 텍스트가 있지만 RightToLeft 텍스트 옵션이 비활성화되어 있습니다.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>RightToLeft 옵션이 비활성화된 RTL 텍스트.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>'{0}'구성 요소에 NullValues ​​속성이 설정되어 있습니다. 그러나 DataColumn 속성은 설정되어 있지 않습니다. 이것은 무의미합니다.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>NullValues ​​속성이 설정되어있는</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>SubReport 구성 요소 SubReportPage 속성이 설정되어 있지 않은 경우, 보고서는 렌더링 할 수 없습니다.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>릴레이션에서 중복됩니다.</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>보고서 이름 '{0}'은(는) 데이터소스 이름과 동일합니다.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>보고서 이름 '{0}'은(는) 구성 요소 이름과 동일합니다.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>글꼴 '{0}' 글꼴 파일을 찾을 수 없으므로 글꼴이 PDF 파일에 포함되지 않습니다. 글꼴이 다음 구성 요소에서 사용됩니다: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>글꼴을 PDF 파일에 포함할 수 없습니다.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>글꼴 '{0}'에 '{1}' 스타일이 없으므로 PDF 내보내기 시 에뮬레이트됩니다. 글꼴이 다음 구성 요소에서 사용됩니다: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>글꼴 스타일을 사용할 수 없습니다.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>기본 페이지를 확인할 수 없어 보고서를 렌더링할 수 없습니다. SubReport 및 DrillDown의 페이지 참조를 확인하세요.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>기본 페이지가 없습니다</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core 엔진이 컴파일 모드에서 이 보고서를 렌더링 할 수 없습니다. 보고서를 해석 모드로 변경하십시오.</StiNetCoreCompilationModeCheckLong>

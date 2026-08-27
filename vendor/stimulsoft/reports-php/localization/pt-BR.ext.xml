@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>Dependência circular de filtro</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>O valor do filtro de '{0}' não está especificado. Este filtro não pode ser processado.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>O Valor do filtro não está especificado</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>A fonte '{0}' do componente '{1}' não contém glifos para os seguintes caracteres: {2}. Esses caracteres serão exibidos como retângulos vazios em um arquivo PDF.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>A fonte não contém glifos para o texto.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>A fonte '{0}' especificada para o componente '{1}' não foi encontrada.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>A fonte não foi encontrada.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>Variáveis de sistema que não estão disponíveis no EngineV1 são usadas no relatório. Deseja usar o EngineV2?</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>Algumas propriedades definidas não são suportadas no EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>A propriedade Reiniciar Número da Página (ResetPageNumber) da página '{0}' está definida como verdadeiro. Mas para a primeira e única página isso não faz sentido.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Talvez a propriedade Reiniciar Número da Página (ResetPageNumber) esteja definida incorretamente</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>O componente '{0}' contém um texto da direita para a esquerda, mas a opção de texto RightToLeft está desabilitada.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>O texto RTL com a opção RightToLeft desabilitada.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>A propriedade NullValues está definida para o componente '{0}'. Mas a propriedade Coluna de dados (DataColumn) não está definida. Isso não faz sentido.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>A propriedade NullValues está definida</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Se a propriedade Sub-Relatório (SubReportPage) do componente SubReport não estiver definida, o relatório não poderá ser construído.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Duplicatas nas relações</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>O nome do relatório '{0}' é igual ao nome da fonte de dados.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>O nome do relatório '{0}' é igual ao nome do componente.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>O arquivo da fonte '{0}' não foi encontrado, a fonte não será incorporada no arquivo PDF. A fonte é usada nos componentes: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>A fonte não pode ser incorporada no arquivo PDF.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>A fonte '{0}' não contém o estilo '{1}', ele será emulado na exportação para PDF. A fonte é usada nos componentes: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>O estilo da fonte não está disponível.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>O relatório não pode ser construído porque a página principal não pode ser determinada. Verifique a referência de página nos SubReports e DrillDowns.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>A página principal está faltando</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>O motor Stimulsoft .NET Core não pode construir este relatório no modo de compilação. Altere o relatório para o modo de interpretação.</StiNetCoreCompilationModeCheckLong>

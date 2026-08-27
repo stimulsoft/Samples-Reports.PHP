@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>円形フィルターの依存関係</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>'{0}'のフィルター値が指定されていません。 このフィルターは処理できません。</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>フィルター値が指定されていません</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>コンポーネント '{1}' のフォント '{0}' には、次の文字のグリフが含まれていません: {2}。これらの文字はPDFファイルで空の四角形として表示されます。</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>フォントにテキストのグリフが含まれていません。</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>コンポーネント '{1}'に指定されたフォント '{0}'が見つかりません。</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>フォントが見つかりません。</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>EngineV1で使用できないシステム変数がレポートで使用されます。 EngineV2を使用しますか？</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>EngineV1でサポートされていないプロパティがいくつか設定されています。</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>'{0}'ページのResetPageNumberプロパティがtrueに設定されています。しかし、最初の唯一のページでは意味がありません。</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>ResetPageNumberプロパティが正しく設定されていない可能性があります</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>コンポーネント '{0}' には右から左へ記述するテキストが含まれていますが、テキストオプション RightToLeft が無効になっています。</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>RightToLeft オプションが無効なRTLテキスト。</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>'{0}'コンポーネントにNullValuesプロパティが設定されています。しかし、DataColumnプロパティは設定されていません。これは無意味です。</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>NullValuesプロパティが設定されている</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>SubReportコンポーネントのSubReportPageプロパティが設定されていない場合、レポートはレンダリングできません。</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>リレーションで重複します。</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>レポート名 '{0}'はデータソース名と同じです。</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>レポート名 '{0}'はコンポーネント名と同じです。</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>フォント '{0}' のフォントファイルが見つからないため、フォントはPDFファイルに埋め込まれません。フォントは次のコンポーネントで使用されています: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>フォントをPDFファイルに埋め込むことができません。</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>フォント '{0}' には '{1}' スタイルが含まれていないため、PDFエクスポート時にエミュレートされます。フォントは次のコンポーネントで使用されています: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>フォントスタイルが利用できません。</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>メインページを特定できないため、レポートをレンダリングできません。SubReports および DrillDowns のページ参照を確認してください。</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>メインページがありません</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Coreエンジンは、このレポートをコンパイルモードでレンダリングできません。 レポートを解釈モードに変更します。</StiNetCoreCompilationModeCheckLong>

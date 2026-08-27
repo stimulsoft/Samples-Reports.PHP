@@ -112,6 +112,8 @@
     <StiFilterCircularDependencyElementCheckShort>Циклическая зависимость фильтра</StiFilterCircularDependencyElementCheckShort>
     <StiFilterValueCheckLong>Для компонента {0} задан фильтр, но в нём не задано значение. Поэтому фильтр не применяется.</StiFilterValueCheckLong>
     <StiFilterValueCheckShort>В фильтре не задано значение</StiFilterValueCheckShort>
+    <StiFontGlyphsMissingCheckLong>Шрифт '{0}' компонента '{1}' не содержит глифы для следующих символов: {2}. Эти символы будут выведены в PDF файле пустыми прямоугольниками.</StiFontGlyphsMissingCheckLong>
+    <StiFontGlyphsMissingCheckShort>Шрифт не содержит глифы для текста.</StiFontGlyphsMissingCheckShort>
     <StiFontMissingCheckLong>Шрифт '{0}', указанный для компонента '{1}', не найден.</StiFontMissingCheckLong>
     <StiFontMissingCheckShort>Шрифт не найден.</StiFontMissingCheckShort>
     <StiFunctionsOnlyForEngineV2CheckLong>В отчете используются системные переменные, которые не доступны в EngineV1. Вам необходимо переключиться на EngineV2.</StiFunctionsOnlyForEngineV2CheckLong>
@@ -165,6 +167,8 @@
     <StiPropertiesOnlyEngineV2CheckShort>Заданы свойства, не поддерживаемые EngineV1</StiPropertiesOnlyEngineV2CheckShort>
     <StiResetPageNumberCheckLong>У страницы '{0}' задано значение свойства ResetPageNumber равное true, но для первой или единственной страницы в отчете оно является бессмысленным.</StiResetPageNumberCheckLong>
     <StiResetPageNumberCheckShort>Возможно, неверно задано значение свойства ResetPageNumber</StiResetPageNumberCheckShort>
+    <StiRtlTextWithoutRightToLeftCheckLong>Компонент '{0}' содержит текст с письмом справа налево, но опция RightToLeft выключена.</StiRtlTextWithoutRightToLeftCheckLong>
+    <StiRtlTextWithoutRightToLeftCheckShort>RTL текст с выключенной опцией RightToLeft.</StiRtlTextWithoutRightToLeftCheckShort>
     <StiShowInsteadNullValuesCheckLong>У компонента '{0}' задано значение свойства NullValues, но не задано значение свойства DataColumn. Это не имеет смысла.</StiShowInsteadNullValuesCheckLong>
     <StiShowInsteadNullValuesCheckShort>Задано свойство NullValues</StiShowInsteadNullValuesCheckShort>
     <StiSubReportPageZeroCheckLong>Если у SubReport значение свойства SubReportPage не задано, то отчет не может быть построен.</StiSubReportPageZeroCheckLong>
@@ -263,6 +267,10 @@
     <StiDuplicatedNameInSourceInDataRelationReportCheckShort>Дубликаты в связях</StiDuplicatedNameInSourceInDataRelationReportCheckShort>
     <StiDuplicatedReportName2CheckLong>Имя отчёта '{0}' совпадает с именем источника данных.</StiDuplicatedReportName2CheckLong>
     <StiDuplicatedReportNameCheckLong>Имя отчёта '{0}' совпадает с именем компонента.</StiDuplicatedReportNameCheckLong>
+    <StiFontNotEmbeddableCheckLong>Файл шрифта '{0}' не найден, шрифт не будет встроен в PDF файл. Шрифт встречается в компонентах: {1}</StiFontNotEmbeddableCheckLong>
+    <StiFontNotEmbeddableCheckShort>Шрифт не может быть встроен в PDF файл.</StiFontNotEmbeddableCheckShort>
+    <StiFontStyleNotAvailableCheckLong>Шрифт '{0}' не содержит начертание '{1}', при экспорте в PDF оно будет эмулировано. Шрифт встречается в компонентах: {2}</StiFontStyleNotAvailableCheckLong>
+    <StiFontStyleNotAvailableCheckShort>Начертание шрифта недоступно.</StiFontStyleNotAvailableCheckShort>
     <StiMainPageMissingCheckLong>Отчёт не может быть построен, т.к. невозможно определить главную страницу. Проверьте ссылки на страницы в SubReports и DrillDown.</StiMainPageMissingCheckLong>
     <StiMainPageMissingCheckShort>Отсутствует главная страница</StiMainPageMissingCheckShort>
     <StiNetCoreCompilationModeCheckLong>Stimulsoft .NET Core генератор не может построить отчёт в режиме компиляции. Переключите отчёт в режим интерпретации.</StiNetCoreCompilationModeCheckLong>
