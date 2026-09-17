@@ -1295,6 +1295,7 @@
     <Expression>計算列の式</Expression>
     <Name>レポートで使用される列名</Name>
     <NameInSource>データベース内の列元の名前</NameInSource>
+    <PrimaryKey>この列がデータソースの主キーの一部であることを示します。</PrimaryKey>
     <Type>列データのタイプ</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>

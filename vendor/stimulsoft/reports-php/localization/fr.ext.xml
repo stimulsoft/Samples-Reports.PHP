@@ -1292,6 +1292,7 @@
     <Expression>Expression pour une colonne calculée.</Expression>
     <Name>Nom de la colonne qui sera utilisé dans le rapport.</Name>
     <NameInSource>Nom d'origine de la colonne dans la source de données.</NameInSource>
+    <PrimaryKey>Indique que la colonne fait partie de la clé primaire de la source de données.</PrimaryKey>
     <Type>Type de la colonne de données.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>

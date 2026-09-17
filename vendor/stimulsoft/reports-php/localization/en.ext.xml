@@ -1292,6 +1292,7 @@
     <Expression>An expression of the calculated column.</Expression>
     <Name>A column name which will be used in report.</Name>
     <NameInSource>A column original name in database.</NameInSource>
+    <PrimaryKey>Indicates that the column is a part of the primary key of the data source.</PrimaryKey>
     <Type>A type of column data.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>

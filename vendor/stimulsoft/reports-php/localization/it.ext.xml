@@ -1292,6 +1292,7 @@
     <Expression>Un'espressione della colonna calcolata.</Expression>
     <Name>Un nome di colonna che verrà utilizzato nel report.</Name>
     <NameInSource>Il nome originale della colonna nel database.</NameInSource>
+    <PrimaryKey>Indica che la colonna fa parte della chiave primaria dell'origine dati.</PrimaryKey>
     <Type>Un tipo di dati della colonna.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>

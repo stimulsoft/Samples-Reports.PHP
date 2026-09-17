@@ -1292,6 +1292,7 @@
     <Expression>Ett uttryck för den beräknade kolumnen.</Expression>
     <Name>Ett kolumnnamn som kommer att användas i rapporten.</Name>
     <NameInSource>En kolumns ursprungliga namn i databasen.</NameInSource>
+    <PrimaryKey>Anger att kolumnen ingår i datakällans primärnyckel.</PrimaryKey>
     <Type>En typ av kolumndata.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>

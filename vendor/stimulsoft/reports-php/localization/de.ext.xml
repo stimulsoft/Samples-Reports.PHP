@@ -693,7 +693,7 @@
     <DataRows>Summe der Daten-Zeilen.</DataRows>
     <EncodingMode>Art der Verschlüsselung.</EncodingMode>
     <EncodingType>Art der Verschlüsselung.</EncodingType>
-    <ErrorsCorrectionLevel>Niveau der Fehlerkorrektur. Je höher dieses Niveau ist, umso mehr Informationen werden dem Barcode zur Wiederherstellung hinzugefügt.</ErrorsCorrectionLevel>
+    <ErrorsCorrectionLevel>Fehlerkorrekturstufe. Je höher diese Stufe ist, umso mehr Informationen werden dem Barcode zur Wiederherstellung hinzugefügt.</ErrorsCorrectionLevel>
     <Height>Größenfaktor des Barcodes.</Height>
     <MatrixSize>Matrixgröße.</MatrixSize>
     <Module>Breite des dünnsten Barcode-Elements.</Module>
@@ -1292,6 +1292,7 @@
     <Expression>Der Ausdruck, der den Wert der berechneten Spalte ermittelt.</Expression>
     <Name>Spaltenname, der im Report benutzt wird.</Name>
     <NameInSource>Originalname der Spalte in der Datenbank.</NameInSource>
+    <PrimaryKey>Gibt an, dass die Spalte Teil des Primärschlüssels der Datenquelle ist.</PrimaryKey>
     <Type>Art der Spaltendaten.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>
@@ -1847,7 +1848,7 @@
     <DataColumns>Liest oder setzt die Anzahl der Datenspalten.</DataColumns>
     <DataRows>Liest oder setzt die Anzahl der Datenzeilen.</DataRows>
     <EncodingMode>Liest oder setzt den Verschlüsselungstyp.</EncodingMode>
-    <ErrorsCorrectionLevel>Liest oder setzt die Fehlerkorrektur-Stufe. Je höher die Stufe, desto mehr Informationen werden dem Barcode zur Wiederherstellung hinzugefügt.</ErrorsCorrectionLevel>
+    <ErrorsCorrectionLevel>Liest oder setzt die Fehlerkorrekturstufe. Je höher die Stufe, desto mehr Informationen werden dem Barcode zur Wiederherstellung hinzugefügt.</ErrorsCorrectionLevel>
     <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
     <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>
     <RatioY>Liest oder setzt vertikales Verhältnis des Barcodes. Der Wert muss zwischen 2 und 5 sein.</RatioY>
@@ -1895,7 +1896,7 @@
     <TrackColor>Die Eigenschaft legt die Farbe, die für die Füllung vom Fortschritt-Indikator verwendet wird, fest.</TrackColor>
   </StiProgressStyle>
   <StiQRCodeBarCodeType>
-    <ErrorCorrectionLevel>Liest oder setzt die Fehlerkorrektur-Stufe.</ErrorCorrectionLevel>
+    <ErrorCorrectionLevel>Liest oder setzt die Fehlerkorrekturstufe.</ErrorCorrectionLevel>
     <Height>Liest oder setzt den Höhenfaktor des Barcodes.</Height>
     <MatrixSize>Liest oder setzt die Matrix-Größe.</MatrixSize>
     <Module>Liest oder setzt die Breite des feinsten Elementes des Barcodes.</Module>

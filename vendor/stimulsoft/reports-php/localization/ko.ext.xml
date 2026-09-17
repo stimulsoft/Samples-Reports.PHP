@@ -1292,6 +1292,7 @@
     <Expression>계산 열 식</Expression>
     <Name>보고서에서 사용되는 열 이름</Name>
     <NameInSource>데이터베이스 열 원래 이름</NameInSource>
+    <PrimaryKey>이 열이 데이터 소스의 기본 키에 포함됨을 나타냅니다.</PrimaryKey>
     <Type>열 데이터 유형</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>

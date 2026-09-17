@@ -584,7 +584,7 @@
     <ArrowWidth>Коэффициент ширины стрелки.</ArrowWidth>
   </StiArrowShapeType>
   <StiAustraliaPost4StateBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiAustraliaPost4StateBarCodeType>
   <StiAxis>
@@ -668,21 +668,21 @@
     <SelectionEnabled>Булевское значение указывает, можно ли выбрать одну строку из списка строк, которые выводятся при помощи DataBand.</SelectionEnabled>
   </StiBandInteraction>
   <StiBarCode>
-    <Angle>Угол поворота штрих-кода.</Angle>
-    <AutoScale>Значение определяет, как штрих-код будет изменять свой размер.</AutoScale>
-    <BackColor>Цвет заднего фона штрих-кода.</BackColor>
-    <BarCodeType>Тип штрих-кода.</BarCodeType>
-    <Code>Выражение для заполнения кода штрих-кода.</Code>
-    <Font>Шрифт штрих-кода.</Font>
-    <ForeColor>Цвет штрих-кода.</ForeColor>
-    <GetBarCodeEvent>Возникает при получении кода штрих-кода.</GetBarCodeEvent>
-    <ShowLabelText>Значение определяет, покажет ли данный штрих-код текст этикетки или нет.</ShowLabelText>
-    <ShowQuietZones>Значение, которое определяет, что штрих-код будет отображать quiet zones или нет.</ShowQuietZones>
-    <Zoom>Значение для умножения на размер штрих-кода.</Zoom>
+    <Angle>Угол поворота штрихкода.</Angle>
+    <AutoScale>Значение определяет, как штрихкод будет изменять свой размер.</AutoScale>
+    <BackColor>Цвет заднего фона штрихкода.</BackColor>
+    <BarCodeType>Тип штрихкода.</BarCodeType>
+    <Code>Выражение для заполнения кода штрихкода.</Code>
+    <Font>Шрифт штрихкода.</Font>
+    <ForeColor>Цвет штрихкода.</ForeColor>
+    <GetBarCodeEvent>Возникает при получении кода штрихкода.</GetBarCodeEvent>
+    <ShowLabelText>Значение определяет, покажет ли данный штрихкод текст этикетки или нет.</ShowLabelText>
+    <ShowQuietZones>Значение, которое определяет, что штрихкод будет отображать quiet zones или нет.</ShowQuietZones>
+    <Zoom>Значение для умножения на размер штрихкода.</Zoom>
   </StiBarCode>
   <StiBarCodeTypeService>
     <AddClearZone>Значение определяет, будет ли показана Clear Zone.</AddClearZone>
-    <AspectRatio>Значение, которое устанавливает соотношение размеров между горизонтальной и вертикальной сторонами штрих-кода.</AspectRatio>
+    <AspectRatio>Значение, которое устанавливает соотношение размеров между горизонтальной и вертикальной сторонами штрихкода.</AspectRatio>
     <AutoDataColumns>Значение определяет, что количество колонок будет рассчитано автоматически.</AutoDataColumns>
     <AutoDataRows>Значение определяет, что количество строк будет рассчитано автоматически.</AutoDataRows>
     <Checksum>Режим контрольной суммы.</Checksum>
@@ -693,16 +693,16 @@
     <DataRows>Количество рядов данных.</DataRows>
     <EncodingMode>Режим кодировки.</EncodingMode>
     <EncodingType>Тип кодировки.</EncodingType>
-    <ErrorsCorrectionLevel>Уровень исправления ошибок. Чем выше уровень, тем больше информации добавлено для восстановления штрих-кода.</ErrorsCorrectionLevel>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <ErrorsCorrectionLevel>Уровень исправления ошибок. Чем выше уровень, тем больше информации добавлено для восстановления штрихкода.</ErrorsCorrectionLevel>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <MatrixSize>Матричный размер.</MatrixSize>
-    <Module>Ширина наиболее тонкого элемента штрих-кода.</Module>
+    <Module>Ширина наиболее тонкого элемента штрихкода.</Module>
     <PrintVerticalBars>Значение определяет, будут ли напечатаны вертикальные секции.</PrintVerticalBars>
     <Ratio>Значение определяет, пропорции WideToNarrow.</Ratio>
-    <RatioY>Вертикальная пропорция штрих-кода. Значение должно быть между 2 и 5.</RatioY>
+    <RatioY>Вертикальная пропорция штрихкода. Значение должно быть между 2 и 5.</RatioY>
     <ShowQuietZoneIndicator>Значение определяет, будет ли показан Quiet Zone Indicator.</ShowQuietZoneIndicator>
-    <Space>Расстояние между элементами штрих-кода.</Space>
-    <SupplementCode>Дополнительный компонент штрих-кода.</SupplementCode>
+    <Space>Расстояние между элементами штрихкода.</Space>
+    <SupplementCode>Дополнительный компонент штрихкода.</SupplementCode>
     <SupplementType>Тип дополнительного кода.</SupplementType>
     <UseRectangularSymbols>Значение определяет, будет ли использован RectangularSymbols.</UseRectangularSymbols>
   </StiBarCodeTypeService>
@@ -993,54 +993,54 @@
     <Width>Коэффициент ширины одного ряда полосы. Значение 1 равно 100%.</Width>
   </StiClusteredColumnSeries>
   <StiCodabarBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiCodabarBarCodeType>
   <StiCode11BarCodeType>
     <Checksum>Режим расчёта контрольной суммы.</Checksum>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiCode11BarCodeType>
   <StiCode128aBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiCode128aBarCodeType>
   <StiCode128AutoBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiCode128AutoBarCodeType>
   <StiCode128BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiCode128BarCodeType>
   <StiCode128bBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiCode128bBarCodeType>
   <StiCode128cBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiCode128cBarCodeType>
   <StiCode39BarCodeType>
     <CheckSum>Добавлять символ контрольной суммы.</CheckSum>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiCode39BarCodeType>
   <StiCode39ExtBarCodeType>
     <CheckSum>Добавлять символ контрольной суммы.</CheckSum>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiCode39ExtBarCodeType>
   <StiCode93BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiCode93BarCodeType>
   <StiCode93ExtBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiCode93ExtBarCodeType>
@@ -1292,12 +1292,13 @@
     <Expression>Выражение для вычисляемой колонки.</Expression>
     <Name>Наименование колонки, которое будет использоваться внутри отчета.</Name>
     <NameInSource>Оригинальное наименование колонки в базе данных.</NameInSource>
+    <PrimaryKey>Указывает, что колонка входит в первичный ключ источника данных.</PrimaryKey>
     <Type>Тип колонки данных.</Type>
   </StiDataColumn>
   <StiDataMatrixBarCodeType>
     <EncodingType>Тип внутреннего кодирования данных.</EncodingType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
-    <MatrixSize>Размер матрицы штрих-кода.</MatrixSize>
+    <Height>Коэффициент высоты штрихкода.</Height>
+    <MatrixSize>Размер матрицы штрихкода.</MatrixSize>
     <Module>Толщина наиболее узкого штриха.</Module>
     <UseRectangularSymbols>Использовать прямоугольные размеры матрицы.</UseRectangularSymbols>
   </StiDataMatrixBarCodeType>
@@ -1368,7 +1369,7 @@
     <Name>Имя drill-down параметра.</Name>
   </StiDrillDownParameter>
   <StiDutchKIXBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiDutchKIXBarCodeType>
   <StiDynamicBand>
@@ -1381,34 +1382,34 @@
     <SkipFirst>Если данное свойство установлено в true, то, новая страница/колонка будет создана только начиная со второго случая.</SkipFirst>
   </StiDynamicBand>
   <StiEAN128aBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiEAN128aBarCodeType>
   <StiEAN128AutoBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiEAN128AutoBarCodeType>
   <StiEAN128bBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiEAN128bBarCodeType>
   <StiEAN128cBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiEAN128cBarCodeType>
   <StiEAN13BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiEAN13BarCodeType>
   <StiEAN8BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiEAN8BarCodeType>
   <StiElement>
     <BackColor>Цвет заднего фона для элемента.</BackColor>
@@ -1425,7 +1426,7 @@
   </StiEmptyBand>
   <StiFIMBarCodeType>
     <AddClearZone>Добавлять поля Clear Zone или нет.</AddClearZone>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiFIMBarCodeType>
   <StiFooterBand>
@@ -1649,43 +1650,43 @@
     <Visible>Видимость перемежающихся полос.</Visible>
   </StiInterlacing>
   <StiInterleaved2of5BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiInterleaved2of5BarCodeType>
   <StiIsbn10BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiIsbn10BarCodeType>
   <StiIsbn13BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiIsbn13BarCodeType>
   <StiITF14BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
-    <PrintVerticalBars>Печатать вертикальные боковые секции штрих-кода или нет.</PrintVerticalBars>
+    <PrintVerticalBars>Печатать вертикальные боковые секции штрихкода или нет.</PrintVerticalBars>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiITF14BarCodeType>
   <StiJan13BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiJan13BarCodeType>
   <StiJan8BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiJan8BarCodeType>
   <StiLabelControl>
     <Text>Текст, связанный с данным элементом управления.</Text>
@@ -1776,7 +1777,7 @@
   <StiMsiBarCodeType>
     <CheckSum1>Режим контрольной суммы 1.</CheckSum1>
     <CheckSum2>Режим контрольной суммы 2.</CheckSum2>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiMsiBarCodeType>
   <StiNumericUpDownControl>
@@ -1841,19 +1842,19 @@
     <BorderStyle>Определяет стиль границы для элемента управления.</BorderStyle>
   </StiPanelControl>
   <StiPdf417BarCodeType>
-    <AspectRatio>Соотношение размеров горизонтальной и вертикальной сторон штрих-кода.</AspectRatio>
+    <AspectRatio>Соотношение размеров горизонтальной и вертикальной сторон штрихкода.</AspectRatio>
     <AutoDataColumns>Рассчитывать необходимое количество колонок данных автоматически.</AutoDataColumns>
     <AutoDataRows>Рассчитывать необходимое количество строк данных автоматически.</AutoDataRows>
     <DataColumns>Количество колонок данных.</DataColumns>
     <DataRows>Количество строк данных.</DataRows>
     <EncodingMode>Режим внутреннего кодирования данных.</EncodingMode>
     <ErrorsCorrectionLevel>Уровень коррекции ошибок. Чем выше уровень, тем больше информации для восстановления штрихкода добавляется.</ErrorsCorrectionLevel>
-    <Height>Коэффициент высоты всего штрих-кода.</Height>
+    <Height>Коэффициент высоты всего штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <RatioY>Коэффициент высоты одного штриха. Величина в диапазоне от 2 до 5.</RatioY>
   </StiPdf417BarCodeType>
   <StiPharmacodeBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiPharmacodeBarCodeType>
   <StiPictureBoxControl>
@@ -1874,13 +1875,13 @@
   <StiPlesseyBarCodeType>
     <CheckSum1>Режим контрольной суммы 1.</CheckSum1>
     <CheckSum2>Режим контрольной суммы 2.</CheckSum2>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiPlesseyBarCodeType>
   <StiPostnetBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
-    <Space>Ширина пробела между элементами штрих-кода.</Space>
+    <Space>Ширина пробела между элементами штрихкода.</Space>
   </StiPostnetBarCodeType>
   <StiPrinterSettings>
     <Collate>Значение определяет, будет ли использоваться режим печати collate.</Collate>
@@ -1897,8 +1898,8 @@
   <StiQRCodeBarCodeType>
     <ErrorCorrectionLevel>Получает или задает уровень исправления ошибок.</ErrorCorrectionLevel>
     <ErrorsCorrectionLevel>Уровень коррекции ошибок. Чем выше уровень, тем больше информации для восстановления штрихкода добавляется.</ErrorsCorrectionLevel>
-    <Height>Коэффициент высоты штрих-кода.</Height>
-    <MatrixSize>Размер матрицы штрих-кода.</MatrixSize>
+    <Height>Коэффициент высоты штрихкода.</Height>
+    <MatrixSize>Размер матрицы штрихкода.</MatrixSize>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiQRCodeBarCodeType>
   <StiRadarAxis>
@@ -2020,7 +2021,7 @@
   </StiRoundedRectangleShapeType>
   <StiRoyalMail4StateBarCodeType>
     <CheckSum>Добавлять символ контрольной суммы.</CheckSum>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
   </StiRoyalMail4StateBarCodeType>
   <StiSeries>
@@ -2172,12 +2173,12 @@
   <StiSSCC18BarCodeType>
     <CompanyPrefix>Префикс компании (7-10 цифр).</CompanyPrefix>
     <ExtensionDigit>Дополнительный разряд (1 цифра).</ExtensionDigit>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <SerialNumber>Серийный номер (6-9 цифр).</SerialNumber>
   </StiSSCC18BarCodeType>
   <StiStandard2of5BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <Ratio>Отношение толщины широких и узких штрихов.</Ratio>
   </StiStandard2of5BarCodeType>
@@ -2318,25 +2319,25 @@
     <ShowShadow>Значение определяет показывать тень или нет.</ShowShadow>
   </StiTrendLine>
   <StiUpcABarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiUpcABarCodeType>
   <StiUpcEBarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
-    <SupplementCode>Код дополнительного штрих-кода.</SupplementCode>
-    <SupplementType>Тип дополнительного штрих-кода.</SupplementType>
+    <SupplementCode>Код дополнительного штрихкода.</SupplementCode>
+    <SupplementType>Тип дополнительного штрихкода.</SupplementType>
   </StiUpcEBarCodeType>
   <StiUpcSup2BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
   </StiUpcSup2BarCodeType>
   <StiUpcSup5BarCodeType>
-    <Height>Коэффициент высоты штрих-кода.</Height>
+    <Height>Коэффициент высоты штрихкода.</Height>
     <Module>Толщина наиболее узкого штриха.</Module>
     <ShowQuietZoneIndicator>Показывать индикатор свободной зоны.</ShowQuietZoneIndicator>
   </StiUpcSup5BarCodeType>
@@ -2405,9 +2406,9 @@
     <Direction>Направление отрисовки текста.</Direction>
   </StiYChartAxisTitle>
   <StiZipCode>
-    <Code>Выражение для заполнения кода штрих-кода.</Code>
+    <Code>Выражение для заполнения кода штрихкода.</Code>
     <ForeColor>Возвращает или задает основной цвет элемента управления.</ForeColor>
-    <GetZipCodeEvent>Возникает при получении кода штрих-кода.</GetZipCodeEvent>
+    <GetZipCodeEvent>Возникает при получении кода штрихкода.</GetZipCodeEvent>
     <Ratio>Значение определяет соотношение ширины и высоты.</Ratio>
     <Size>Размер контура.</Size>
   </StiZipCode>
