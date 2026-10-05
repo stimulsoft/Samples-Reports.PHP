@@ -14,6 +14,7 @@ class StiResult extends StiBaseResult
     public $fileName;
     public $variables;
     public $settings;
+    public $exportSettings;
     public $report;
     public $pageRange;
     public $data;

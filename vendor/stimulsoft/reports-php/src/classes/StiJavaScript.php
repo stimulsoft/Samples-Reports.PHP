@@ -21,6 +21,7 @@ class StiJavaScript extends StiElement
     public $reportsExport = true;
     public $reportsImportXlsx = true;
     public $reportsMaps = true;
+    public $reportsMarkdown = true;
     public $blocklyEditor = true;
 
     public $usePacked = false;
@@ -88,7 +89,8 @@ class StiJavaScript extends StiElement
         }
 
         $extension = $this->usePacked ? 'pack.js' : 'js';
-        $reportsSet = $this->reportsChart && $this->reportsExport && $this->reportsImportXlsx && $this->reportsMaps && $this->blocklyEditor;
+        $reportsSet = $this->reportsChart && $this->reportsExport && $this->reportsImportXlsx && $this->reportsMaps &&
+            $this->reportsMarkdown && $this->blocklyEditor;
 
         $scripts = [];
         if ($reportsSet)
@@ -97,6 +99,8 @@ class StiJavaScript extends StiElement
             $scripts[] = "stimulsoft.reports.engine.$extension";
             if ($this->reportsChart)
                 $scripts[] = "stimulsoft.reports.chart.$extension";
+            if ($this->reportsMarkdown)
+                $scripts[] = "stimulsoft.reports.markdown.$extension";
             if ($this->reportsExport)
                 $scripts[] = "stimulsoft.reports.export.$extension";
             if ($this->reportsMaps)

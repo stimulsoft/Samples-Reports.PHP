@@ -85,6 +85,9 @@ class StiViewer extends StiComponent
             if ($args->report != $this->handler->request->report && property_exists($result, "report"))
                 $result->report = $args->report;
 
+            if ($args->exportSettings != null && property_exists($result, "exportSettings") && $args->exportSettings->compareObject($this->handler->request->exportSettings) === false)
+                $result->exportSettings = $args->exportSettings;
+
             if ($args->pageRange != null && property_exists($result, "pageRange") && $args->pageRange->compareObject($this->handler->request->pageRange) === false)
                 $result->pageRange = $args->pageRange;
         }

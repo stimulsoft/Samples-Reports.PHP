@@ -1825,6 +1825,7 @@
     <UnlimitedBreakable>Ett värde som anger att kolumner och strängar ska brytas när flerarks korsrapporter skrivs ut.</UnlimitedBreakable>
     <UnlimitedHeight>Ett värde som anger att sidan har en obegränsad höjd.</UnlimitedHeight>
     <UnlimitedWidth>Ett värde som anger att sidan har en obegränsad bredd.</UnlimitedWidth>
+    <Watermark>Vattenstämpel på sida.</Watermark>
   </StiPage>
   <StiPanel>
     <ColumnGaps>Avstånd mellan två kolumner.</ColumnGaps>

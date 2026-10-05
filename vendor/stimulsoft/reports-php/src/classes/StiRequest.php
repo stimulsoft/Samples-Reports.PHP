@@ -17,6 +17,7 @@ class StiRequest extends StiBaseRequest
     public $format;
     public $formatName;
     public $settings;
+    public $exportSettings;
     public $variables;
     public $isWizardUsed;
     public $report;
@@ -30,12 +31,12 @@ class StiRequest extends StiBaseRequest
 
     protected function setProperty($name, $value)
     {
-        if ($name == 'report' || $name == 'settings') {
+        if ($name == 'report' || $name == 'settings' || $name == 'exportSettings') {
             $this->$name = json_decode($value);
 
-            if ($name == 'settings' && property_exists($this->settings, 'encoding')) {
-                $encodingName = $this->settings->encoding->encodingName;
-                $this->settings->encoding = Encoding::getByName($encodingName);
+            if ($name != 'report' && property_exists($this->$name, 'encoding')) {
+                $encodingName = $this->$name->encoding->encodingName;
+                $this->$name->encoding = Encoding::getByName($encodingName);
             }
         }
         else

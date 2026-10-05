@@ -34,6 +34,11 @@ StiHandler.prototype.process = function (args, callback) {
                         command.settings = JSON.stringify(args.settings);
                     break;
 
+                case 'exportSettings':
+                    if (args.exportSettings)
+                        command.exportSettings = JSON.stringify(args.exportSettings);
+                    break;
+
                 case 'data':
                     command.data = Stimulsoft.System.Convert.toBase64String(args.data);
                     break;
@@ -64,6 +69,9 @@ StiHandler.prototype.process = function (args, callback) {
 
             if (data.report) args.report = data.report;
             if (data.settings) Stimulsoft.handler.copySettings(data.settings, args.settings);
+
+            // Must be before pageRange, because pageRange takes priority if both have been changed
+            if (data.exportSettings && args.exportSettings) Stimulsoft.handler.copySettings(data.exportSettings, args.exportSettings);
             if (data.pageRange) Stimulsoft.handler.copySettings(data.pageRange, args.pageRange);
             if (data.fileName) args.fileName = data.fileName;
 
@@ -252,6 +260,7 @@ StiHandler.prototype.copySettings = function (from, to) {
             if (key == 'encoding') to[key] = eval(from[key]);
             else if (key == 'pageRange') Stimulsoft.handler.copySettings(from[key], to[key]);
             else if (typeof to[key] != 'object' && typeof from[key] == typeof to[key]) to[key] = from[key];
+            else if (to[key] === null && typeof from[key] != 'object') to[key] = from[key];
         }
     }
 }
