@@ -41,7 +41,7 @@ class StiPath
         return str_replace('/', DIRECTORY_SEPARATOR, $normalized);
     }
 
-    private static function isUrl($path): bool
+    public static function isUrl($path): bool
     {
         return StiFunctions::startsWith($path, "http://") || StiFunctions::startsWith($path, "https://");
     }

@@ -6,6 +6,7 @@ use Exception;
 use Stimulsoft\Designer\StiDesigner;
 use Stimulsoft\Enums\StiComponentType;
 use Stimulsoft\Enums\StiDatabaseType;
+use Stimulsoft\Enums\StiDataCommand;
 use Stimulsoft\Enums\StiEventType;
 use Stimulsoft\Enums\StiHtmlMode;
 use Stimulsoft\Events\StiComponentEvent;
@@ -71,6 +72,15 @@ class StiHandler extends StiBaseHandler
      * This improves functionality but may slow down data loading speed a bit.
      */
     public $allowFileDataAdapters = true;
+
+    /** @var array|null
+     * File extensions allowed for server-side processing of file data, without a dot, for example 'json'.
+     * If null, files with any extension are allowed. Not applied to data loaded by URL.
+     */
+    public $fileDataExtensions = ['xml', 'xsd', 'json', 'csv', 'txt'];
+
+    /** @var bool Allows server-side loading of file data by URL. */
+    public $allowFileDataUrls = true;
 
 
 ### Events: Component
@@ -364,6 +374,18 @@ class StiHandler extends StiBaseHandler
         return $this->passQueryParameters || ($this->passQueryParametersToReport && $this->getEngineType() == StiEngineType::ServerNodeJS);
     }
 
+    private function isFileDataRequest(): bool
+    {
+        if ($this->request->event != StiEventType::BeginProcessData)
+            return false;
+
+        $command = $this->request->command;
+        $database = $this->request->database;
+
+        return $command == StiDataCommand::GetData || $command == StiDataCommand::GetSchema ||
+            $database == StiDatabaseType::XML || $database == StiDatabaseType::JSON || $database == StiDatabaseType::CSV;
+    }
+
 
 ### Results
 
@@ -432,6 +454,13 @@ class StiHandler extends StiBaseHandler
      */
     public function getResult()
     {
+        // File data requests are rejected on the server side, the client-side check alone can be bypassed
+        if (!$this->allowFileDataAdapters && $this->isFileDataRequest()) {
+            $result = StiResult::getError('Server-side processing of file data is disabled.');
+            $result->handlerVersion = $this->version;
+            return $result;
+        }
+
         if ($this->request->event == StiEventType::GetResource) {
             $result = StiResourcesHelper::getResult($this->request->data);
             $result->handlerVersion = $this->version;
